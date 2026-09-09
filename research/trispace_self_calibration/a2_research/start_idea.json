@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "a2_prasc_theory_validation",
+    "Title": "Auditable Rank, Bias and Acquisition Controls for Phase-Preserving Full-Wave Calibration",
+    "Short Hypothesis": "The supplied fixed-tangent rank-loss, neutral-admission, bias-risk and shared-map innovation identities can be converted into checkable algorithm controls, while matched coherent-to-intensity information contracts. This is a validation work package, not an assumption of novelty or nonlinear method superiority.",
+    "Related Work": "Projections, Schur complements, SOM/TSOM, coherent calibration, variable projection, source extension, continuation and experiment design are prior machinery. Idriss and Raj arXiv2503.07316 already jointly calibrate complex factors in multifrequency SOM. Retain this boundary; do not abandon the supplied validation task because ingredients are known.",
+    "Abstract": "We implement falsification-first validation of A2 rank, bias and acquisition certificates. The exact physical state, independent free-current nuisance and numerical state approximation are different models. Small algebraic examples, exact induced intensity likelihoods and fixed physical tangents test conditional identities, their counterexamples and numerical failure modes. Results do not establish a universal basin, SOM exclusivity, hardware success or full-plan completion.",
+    "Experiments": {
+      "datasets": ["A2 E1 scalar matched complex/intensity experiments", "A2 E2/E3/E5 exact and random fixed tangent examples", "Optional physical tangents from the separately implemented shared core"],
+      "baselines": ["physical versus free-current envelope", "relative-only versus absolute and bias-aware gates", "shared-map versus independent-map profiling", "greedy versus pair lookahead"],
+      "metrics": ["backward-error-scaled identity residual", "Fisher contraction and Monte Carlo uncertainty", "covariance and bias risk", "information loss and acquisition innovation"],
+      "compute_estimate": "Small CPU-only NumPy/SciPy experiments using the existing venv. Follow TASK.md seeds and sample counts. No GPU or installation.",
+      "steps": ["Read research/delegated/a2_theory_validation/TASK.md and the A2 sources", "Implement and execute minimal E1 E2 E3 E5 including negative controls", "Run independent internal checks and preserve discrepancies", "Produce a concise supplement with raw evidence; do not claim E4 or publication acceptance"]
+    },
+    "Risk Factors and Limitations": ["Identities may be known or model conditional", "No nonlinear superiority follows from a tangent test", "Noise/realification and rank thresholds can create false positives", "Do not resume stale geometry-lift claims"]
+  }
+]

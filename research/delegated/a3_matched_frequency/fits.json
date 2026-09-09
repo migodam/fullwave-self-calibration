@@ -1,0 +1,3314 @@
+[
+  {
+    "seed": 8101,
+    "choice": "low",
+    "use_reference": false,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "5387fbb6ba73ceee3792e4fe550a4f05c7ffb23d2bdde4fdf161de0257574fbf",
+      "reference_sha256": "ca1fe2ca300cf880de76de664ade48fb148f0fc61cd0314f7889ec45b1d60f5e",
+      "extra_standardized_noise_sha256": "9107553e3570b0c055dad45fd01f889dbca97a2d78f54851f7f95dbbcbc9daab",
+      "sigma": 0.0002617167877636827,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.06214908300898969,
+    "solve_seconds": 18.257831250026356,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 9,
+    "njev": 9,
+    "estimated": [
+      2.5686189897895058,
+      -0.08021541464959143,
+      -0.02553127452722977,
+      0.03188676256599552,
+      0.05867778693678151,
+      -0.11294320448723691,
+      0.004378623710838939,
+      0.035704906582659596,
+      -0.06450153378792824,
+      0.1342710849401997,
+      0.07129704985848566,
+      0.02756287652212184,
+      0.06505035469216945
+    ],
+    "objective": 442.2975320483226,
+    "optimality": 4.546814412244066e-05,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 9,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.02186999999685213,
+          "field_projection_seconds": 0.5337959588505328,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.4131577090593055
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1222.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.577041698484253e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.020518833014648408,
+          "field_projection_seconds": 0.5227149580023251,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.505479293002281
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1240.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.830362207780357e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.019435791997238994,
+          "field_projection_seconds": 0.5259094600914977,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.750157082977239
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1286.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.954732742840294e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.0394771611006406,
+    "material_relative_error": 0.027447595915802304,
+    "pose_error_m": 0.00015593587032615953,
+    "delay_error_m": 0.0013222130632184886,
+    "log_amplitude_rmse": 0.037120797325088196,
+    "gain_phase_rmse_rad": 0.0063131748936282855,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.036754985413297116,
+      "weighted_phase_rmse_rad": 0.004078110885949649
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.004263044168049618,
+      "weighted_phase_rmse_rad": 0.0027725158031095855
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.03758487739654576,
+      "weighted_phase_rmse_rad": 0.006703514967146474
+    },
+    "evaluation_seconds": 2.2821327919955365,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.019680291996337473,
+          "field_projection_seconds": 0.08714454196160659,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6315015419968404
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 142.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.000226740275095e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01860754197696224,
+          "field_projection_seconds": 0.07817104202695191,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6560506250243634
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 6.980107488996243e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.018973040976561606,
+          "field_projection_seconds": 0.08072274998994544,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6908816660288721
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 151.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.465597650953951e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.0061355638896346985,
+          "weighted_phase_rmse_rad": 0.0021073418233885258
+        },
+        "structural": {
+          "relative_field_error": 0.03268708461051078,
+          "weighted_phase_rmse_rad": 0.0005688353269008133
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.00405019093434698,
+          "weighted_phase_rmse_rad": 0.0017122038713930764
+        },
+        "structural": {
+          "relative_field_error": 0.03530938345351871,
+          "weighted_phase_rmse_rad": 0.0016570360391157753
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.00427570357888369,
+          "weighted_phase_rmse_rad": 0.002957087917021299
+        },
+        "structural": {
+          "relative_field_error": 0.038111843601002955,
+          "weighted_phase_rmse_rad": 0.007382147299902531
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 20.6127936670091
+  },
+  {
+    "seed": 8101,
+    "choice": "low",
+    "use_reference": true,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "5387fbb6ba73ceee3792e4fe550a4f05c7ffb23d2bdde4fdf161de0257574fbf",
+      "reference_sha256": "ca1fe2ca300cf880de76de664ade48fb148f0fc61cd0314f7889ec45b1d60f5e",
+      "extra_standardized_noise_sha256": "9107553e3570b0c055dad45fd01f889dbca97a2d78f54851f7f95dbbcbc9daab",
+      "sigma": 0.0002617167877636827,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.05840316601097584,
+    "solve_seconds": 14.011637874995358,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 7,
+    "njev": 7,
+    "estimated": [
+      2.49712825894738,
+      -0.08037780728421229,
+      -0.02553665582988354,
+      0.031804825892762977,
+      0.06060735955489383,
+      -0.07051888557196732,
+      0.04109557113266383,
+      0.0737933781023911,
+      -0.032434405288814444,
+      0.12682169559456943,
+      0.06133999829076627,
+      0.018236462631181515,
+      0.05152365667958295
+    ],
+    "objective": 450.6353739244452,
+    "optimality": 0.0008357999836808289,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 7,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01929179101716727,
+          "field_projection_seconds": 0.4055444979458116,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 56.0,
+            "wall_seconds": 4.223237124970183
+          },
+          "fft_work": {
+            "solves": 56.0,
+            "matvecs": 926.0,
+            "true_check_matvecs": 56.0,
+            "tangent_field_convolutions": 28.0,
+            "operator_updates": 7.0
+          },
+          "max_true_relative_residual": 9.318786029257696e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.019269666983745992,
+          "field_projection_seconds": 0.4093111249967478,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 56.0,
+            "wall_seconds": 4.198612001026049
+          },
+          "fft_work": {
+            "solves": 56.0,
+            "matvecs": 946.0,
+            "true_check_matvecs": 56.0,
+            "tangent_field_convolutions": 28.0,
+            "operator_updates": 7.0
+          },
+          "max_true_relative_residual": 9.820197329649776e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.01918925001518801,
+          "field_projection_seconds": 0.41587053990224376,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 56.0,
+            "wall_seconds": 4.354232540004887
+          },
+          "fft_work": {
+            "solves": 56.0,
+            "matvecs": 968.0,
+            "true_check_matvecs": 56.0,
+            "tangent_field_convolutions": 28.0,
+            "operator_updates": 7.0
+          },
+          "max_true_relative_residual": 9.913234086960678e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.0300237118273035,
+    "material_relative_error": 0.001148696421048001,
+    "pose_error_m": 0.00031727198359099207,
+    "delay_error_m": 0.000607359554893834,
+    "log_amplitude_rmse": 0.0036415305478294,
+    "gain_phase_rmse_rad": 0.004513280959845299,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.004360345024170501,
+      "weighted_phase_rmse_rad": 0.0025993799446509336
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.005209450932983145,
+      "weighted_phase_rmse_rad": 0.002667048482908186
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.006420572730842661,
+      "weighted_phase_rmse_rad": 0.0020298872474250025
+    },
+    "evaluation_seconds": 2.206727624987252,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01891700003761798,
+          "field_projection_seconds": 0.08504299999913201,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6307652919786051
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 137.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.53713209770866e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01914100005524233,
+          "field_projection_seconds": 0.08382604096550494,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6283700829953887
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 141.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.379245696375019e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.018734333047177643,
+          "field_projection_seconds": 0.08377904200460762,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6377652080263942
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.351286161117833e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.003714468339817725,
+          "weighted_phase_rmse_rad": 0.002917098560060566
+        },
+        "structural": {
+          "relative_field_error": 0.004931810874870715,
+          "weighted_phase_rmse_rad": 0.000556909579561925
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.0036845717618671503,
+          "weighted_phase_rmse_rad": 0.002333892464209216
+        },
+        "structural": {
+          "relative_field_error": 0.0054444956897162725,
+          "weighted_phase_rmse_rad": 0.0011860122299466424
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.005496444868071723,
+          "weighted_phase_rmse_rad": 0.0027292316553837455
+        },
+        "structural": {
+          "relative_field_error": 0.006626561867736127,
+          "weighted_phase_rmse_rad": 0.0021790281687385283
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 16.287747583002783
+  },
+  {
+    "seed": 8101,
+    "choice": "low_high",
+    "use_reference": false,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0,
+      18.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "5387fbb6ba73ceee3792e4fe550a4f05c7ffb23d2bdde4fdf161de0257574fbf",
+      "reference_sha256": "ca1fe2ca300cf880de76de664ade48fb148f0fc61cd0314f7889ec45b1d60f5e",
+      "extra_standardized_noise_sha256": "9107553e3570b0c055dad45fd01f889dbca97a2d78f54851f7f95dbbcbc9daab",
+      "sigma": 0.0002617167877636827,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.07769674999872223,
+    "solve_seconds": 25.62585387501167,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 9,
+    "njev": 9,
+    "estimated": [
+      2.559490706079537,
+      -0.07966715112824899,
+      -0.025573005925938964,
+      0.0322855074627819,
+      0.05820697940434513,
+      -0.09394904669644381,
+      0.021280931574310265,
+      0.05435013872207077,
+      -0.054091762700086046,
+      0.13978074012121947,
+      0.0783948698364521,
+      0.028415466740018974,
+      0.06386521933644593
+    ],
+    "objective": 879.5815380325153,
+    "optimality": 0.0005068098106902795,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 9,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01955016702413559,
+          "field_projection_seconds": 0.5349528340739198,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.3897448349162005
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1188.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.475770950058094e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01922041695797816,
+          "field_projection_seconds": 0.5244629999506287,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.414723916968796
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1206.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.528438675215889e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.018980499997269362,
+          "field_projection_seconds": 0.5241878749802709,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.6567943330155686
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1249.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        },
+        "18.0": {
+          "setup_seconds": 0.019239582994487137,
+          "field_projection_seconds": 0.5565376239246689,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 7.017277125094552
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1563.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.969244983523858e-11,
+          "physical_frequency": 18.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.544480312611967,
+    "material_relative_error": 0.023796282431814753,
+    "pose_error_m": 0.0005526073401277006,
+    "delay_error_m": 0.001793020595654865,
+    "log_amplitude_rmse": 0.021063533307413757,
+    "gain_phase_rmse_rad": 0.00978011849175268,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.021600385775906172,
+      "weighted_phase_rmse_rad": 0.005788376395636128
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.01265630417080467,
+      "weighted_phase_rmse_rad": 0.004239750508419882
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.032768119061089104,
+      "weighted_phase_rmse_rad": 0.006792696566935701
+    },
+    "evaluation_seconds": 2.2833834170014597,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.0213922499679029,
+          "field_projection_seconds": 0.08944195898948237,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6520568749983795
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 142.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.481760892914157e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01992600003723055,
+          "field_projection_seconds": 0.08374358300352469,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6459602499962784
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 6.540699367915156e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.019507083983626217,
+          "field_projection_seconds": 0.08409050002228469,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6668862919905223
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 150.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.40362580062686e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.009490817432626097,
+          "weighted_phase_rmse_rad": 0.005086973423977176
+        },
+        "structural": {
+          "relative_field_error": 0.02846252658746063,
+          "weighted_phase_rmse_rad": 0.0010085305690562421
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.011001891507868875,
+          "weighted_phase_rmse_rad": 0.0037649792636156917
+        },
+        "structural": {
+          "relative_field_error": 0.030733828986020718,
+          "weighted_phase_rmse_rad": 0.0024229698169221667
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.013018658801253764,
+          "weighted_phase_rmse_rad": 0.004321550610106404
+        },
+        "structural": {
+          "relative_field_error": 0.03323786410592259,
+          "weighted_phase_rmse_rad": 0.007436341493261278
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 27.999335833010264
+  },
+  {
+    "seed": 8101,
+    "choice": "low_high",
+    "use_reference": true,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0,
+      18.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "5387fbb6ba73ceee3792e4fe550a4f05c7ffb23d2bdde4fdf161de0257574fbf",
+      "reference_sha256": "ca1fe2ca300cf880de76de664ade48fb148f0fc61cd0314f7889ec45b1d60f5e",
+      "extra_standardized_noise_sha256": "9107553e3570b0c055dad45fd01f889dbca97a2d78f54851f7f95dbbcbc9daab",
+      "sigma": 0.0002617167877636827,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.07672091596759856,
+    "solve_seconds": 25.734520042024087,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 9,
+    "njev": 9,
+    "estimated": [
+      2.5580772678357286,
+      -0.07969814249715183,
+      -0.02557469472351294,
+      0.032276787411843706,
+      0.058277762646241044,
+      -0.09306149165197944,
+      0.022284354814706916,
+      0.05523524540282479,
+      -0.05309227794685562,
+      0.1392846916757445,
+      0.07794729636159459,
+      0.028489216530363813,
+      0.06361301925409768
+    ],
+    "objective": 902.3511120635583,
+    "optimality": 0.00026264073017406885,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 9,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01896441704593599,
+          "field_projection_seconds": 0.5383053739788011,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.421627415984403
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1187.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.952948466432311e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.018214875017292798,
+          "field_projection_seconds": 0.5414780411520042,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.451351499999873
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1205.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.96543492846172e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.01911479199770838,
+          "field_projection_seconds": 0.5397057090885937,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.652291418169625
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1249.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        },
+        "18.0": {
+          "setup_seconds": 0.01958279201062396,
+          "field_projection_seconds": 0.5226595840649679,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 7.0596868331194855
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1564.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.969244983523858e-11,
+          "physical_frequency": 18.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.5517645951221983,
+    "material_relative_error": 0.023230907134291455,
+    "pose_error_m": 0.0005219055349677022,
+    "delay_error_m": 0.0017222373537589541,
+    "log_amplitude_rmse": 0.02012887225166869,
+    "gain_phase_rmse_rad": 0.00944643882187674,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.020638950817864404,
+      "weighted_phase_rmse_rad": 0.005484860979631156
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.012772737808030489,
+      "weighted_phase_rmse_rad": 0.004030826305181257
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.03198130382831828,
+      "weighted_phase_rmse_rad": 0.006586922792180875
+    },
+    "evaluation_seconds": 2.2839915840304457,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.019234417006373405,
+          "field_projection_seconds": 0.08828491700114682,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6534635830321349
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 142.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.403858901734918e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.02029366698116064,
+          "field_projection_seconds": 0.08234662504401058,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6437209579744376
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 6.474905857615165e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.02012645802460611,
+          "field_projection_seconds": 0.08328608301235363,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6728594579617493
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 150.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.307550637997047e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.009637550465292124,
+          "weighted_phase_rmse_rad": 0.004886064424629146
+        },
+        "structural": {
+          "relative_field_error": 0.027806964951913395,
+          "weighted_phase_rmse_rad": 0.0009597393426569978
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.011154330141404843,
+          "weighted_phase_rmse_rad": 0.0035445494995145236
+        },
+        "structural": {
+          "relative_field_error": 0.03001280623705429,
+          "weighted_phase_rmse_rad": 0.002320298142096935
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.013128581811349967,
+          "weighted_phase_rmse_rad": 0.004114223043736138
+        },
+        "structural": {
+          "relative_field_error": 0.03243611831999951,
+          "weighted_phase_rmse_rad": 0.007213113031666063
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 28.107953416008968
+  },
+  {
+    "seed": 8101,
+    "choice": "low_repeat",
+    "use_reference": false,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0,
+      6.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "5387fbb6ba73ceee3792e4fe550a4f05c7ffb23d2bdde4fdf161de0257574fbf",
+      "reference_sha256": "ca1fe2ca300cf880de76de664ade48fb148f0fc61cd0314f7889ec45b1d60f5e",
+      "extra_standardized_noise_sha256": "9107553e3570b0c055dad45fd01f889dbca97a2d78f54851f7f95dbbcbc9daab",
+      "sigma": 0.0002617167877636827,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.05848004203289747,
+    "solve_seconds": 18.382334458001424,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 9,
+    "njev": 9,
+    "estimated": [
+      2.5640520837639165,
+      -0.08014333994181419,
+      -0.02547723756884095,
+      0.031856551775958614,
+      0.05860068364729961,
+      -0.11044849366409287,
+      0.0057180783585839825,
+      0.039581308584519845,
+      -0.06255030926653089,
+      0.1354919717493398,
+      0.07277367081490081,
+      0.028336006564359736,
+      0.06560714121457455
+    ],
+    "objective": 609.4248135837746,
+    "optimality": 2.051239937370711e-05,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 9,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.019041791965719312,
+          "field_projection_seconds": 0.5339139980496839,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.46350304299267
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1225.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.223864633472279e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.018958417000249028,
+          "field_projection_seconds": 0.5282536670565605,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.6345706268330105
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1242.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.754483981355868e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 2
+        },
+        "9.0": {
+          "setup_seconds": 0.019627458008471876,
+          "field_projection_seconds": 0.5269126249477267,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 72.0,
+            "wall_seconds": 5.6893265840481035
+          },
+          "fft_work": {
+            "solves": 72.0,
+            "matvecs": 1284.0,
+            "true_check_matvecs": 72.0,
+            "tangent_field_convolutions": 36.0,
+            "operator_updates": 9.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.070105028241922,
+    "material_relative_error": 0.025620833505566588,
+    "pose_error_m": 0.00018991662057222522,
+    "delay_error_m": 0.0013993163527003874,
+    "log_amplitude_rmse": 0.034664704494512415,
+    "gain_phase_rmse_rad": 0.007281847620713874,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.034349650398537004,
+      "weighted_phase_rmse_rad": 0.003985379444751394
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.003867070426425227,
+      "weighted_phase_rmse_rad": 0.002703661986026355
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.03508878474884409,
+      "weighted_phase_rmse_rad": 0.006306102698924949
+    },
+    "evaluation_seconds": 2.3064878750010394,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01891720900312066,
+          "field_projection_seconds": 0.08828879200154915,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6367543750093319
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 142.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.737479622176855e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.017809375014621764,
+          "field_projection_seconds": 0.08348537498386577,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6913955839700066
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 6.757097150442526e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.017681125027593225,
+          "field_projection_seconds": 0.08465370797784999,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6671251250081696
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 150.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.719733254870621e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.005806312722908261,
+          "weighted_phase_rmse_rad": 0.0027797594161285133
+        },
+        "structural": {
+          "relative_field_error": 0.030569164918859075,
+          "weighted_phase_rmse_rad": 0.0005653758201502898
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.0034974354591726774,
+          "weighted_phase_rmse_rad": 0.0016638019693260397
+        },
+        "structural": {
+          "relative_field_error": 0.032993982481776395,
+          "weighted_phase_rmse_rad": 0.001616593439788056
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.003908331883965288,
+          "weighted_phase_rmse_rad": 0.0028759780698881703
+        },
+        "structural": {
+          "relative_field_error": 0.03557431876024659,
+          "weighted_phase_rmse_rad": 0.006941667077225839
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 20.756808417034335
+  },
+  {
+    "seed": 8101,
+    "choice": "low_repeat",
+    "use_reference": true,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0,
+      6.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "5387fbb6ba73ceee3792e4fe550a4f05c7ffb23d2bdde4fdf161de0257574fbf",
+      "reference_sha256": "ca1fe2ca300cf880de76de664ade48fb148f0fc61cd0314f7889ec45b1d60f5e",
+      "extra_standardized_noise_sha256": "9107553e3570b0c055dad45fd01f889dbca97a2d78f54851f7f95dbbcbc9daab",
+      "sigma": 0.0002617167877636827,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.060523917025420815,
+    "solve_seconds": 14.13197745801881,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 7,
+    "njev": 7,
+    "estimated": [
+      2.4972137794864304,
+      -0.08029061126998235,
+      -0.025481875812709883,
+      0.03178572151130519,
+      0.06049357704895856,
+      -0.07095989927469804,
+      0.03993776366862811,
+      0.07478425728988805,
+      -0.03281771724353558,
+      0.12755000613847756,
+      0.06270092316502794,
+      0.018855275580474343,
+      0.052564817487765904
+    ],
+    "objective": 617.8907664582853,
+    "optimality": 0.0011048556633687582,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 7,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.020757791004143655,
+          "field_projection_seconds": 0.4106307909823954,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 56.0,
+            "wall_seconds": 4.181918999936897
+          },
+          "fft_work": {
+            "solves": 56.0,
+            "matvecs": 926.0,
+            "true_check_matvecs": 56.0,
+            "tangent_field_convolutions": 28.0,
+            "operator_updates": 7.0
+          },
+          "max_true_relative_residual": 9.796974880742433e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.018746458983514458,
+          "field_projection_seconds": 0.41035958303837106,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 56.0,
+            "wall_seconds": 4.236306667968165
+          },
+          "fft_work": {
+            "solves": 56.0,
+            "matvecs": 947.0,
+            "true_check_matvecs": 56.0,
+            "tangent_field_convolutions": 28.0,
+            "operator_updates": 7.0
+          },
+          "max_true_relative_residual": 9.983385688711239e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 2
+        },
+        "9.0": {
+          "setup_seconds": 0.019930165959522128,
+          "field_projection_seconds": 0.4114950849907473,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 56.0,
+            "wall_seconds": 4.4760808339342475
+          },
+          "fft_work": {
+            "solves": 56.0,
+            "matvecs": 969.0,
+            "true_check_matvecs": 56.0,
+            "tangent_field_convolutions": 28.0,
+            "operator_updates": 7.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.062580853754575,
+    "material_relative_error": 0.0011144882054278326,
+    "pose_error_m": 0.00028965904033205307,
+    "delay_error_m": 0.0004935770489585614,
+    "log_amplitude_rmse": 0.003342512900192456,
+    "gain_phase_rmse_rad": 0.0036642844069926595,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.003942743339013967,
+      "weighted_phase_rmse_rad": 0.002338773075151814
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.004897670121711951,
+      "weighted_phase_rmse_rad": 0.0025306240901003057
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.0063791665977187976,
+      "weighted_phase_rmse_rad": 0.001959977389275779
+    },
+    "evaluation_seconds": 2.20459237502655,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01995162497041747,
+          "field_projection_seconds": 0.08419941604370251,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6084206249797717
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 137.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.542131342791824e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.019439750001765788,
+          "field_projection_seconds": 0.08349504199577495,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.63282200001413
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 141.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.384942876215499e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.018943083006888628,
+          "field_projection_seconds": 0.08206433401210234,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.654886375006754
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.35748111522163e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.0030868374516072002,
+          "weighted_phase_rmse_rad": 0.002491382533121975
+        },
+        "structural": {
+          "relative_field_error": 0.0049155006174512,
+          "weighted_phase_rmse_rad": 0.0005172930417189964
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.003315006103224169,
+          "weighted_phase_rmse_rad": 0.0021930207514058242
+        },
+        "structural": {
+          "relative_field_error": 0.005414484469154973,
+          "weighted_phase_rmse_rad": 0.001119549281544799
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.0051918130191648156,
+          "weighted_phase_rmse_rad": 0.0025973848356425407
+        },
+        "structural": {
+          "relative_field_error": 0.006582780003152209,
+          "weighted_phase_rmse_rad": 0.0021069739061836705
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 16.40759033401264
+  },
+  {
+    "seed": 8102,
+    "choice": "low",
+    "use_reference": false,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "6437ba798323a94f6022ddd8743f9443dc5c3305db4feccfb4386202a04e232e",
+      "reference_sha256": "d8c1be83d28cf1e55c64ea36e4607a7a55182d386467c6233bb2ff790eaee4d9",
+      "extra_standardized_noise_sha256": "1514df0f184b58ea35ea0ed2078725cf527be24de17810b42982f5c2e78ebc55",
+      "sigma": 0.00025944607320512125,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.057973582996055484,
+    "solve_seconds": 20.666260625002906,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 10,
+    "njev": 10,
+    "estimated": [
+      2.5915252285838752,
+      0.05869716463200935,
+      0.06597664890207054,
+      0.0187433989303908,
+      0.0582199477637747,
+      -0.03909224919242467,
+      -0.1338448321114896,
+      -0.03088677901966438,
+      0.01040349908607777,
+      -0.10982377123046683,
+      0.19830275169136313,
+      -0.17186300902820023,
+      0.04025788863295485
+    ],
+    "objective": 412.08179145085955,
+    "optimality": 0.0001926385197701838,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 10,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.019484333985019475,
+          "field_projection_seconds": 0.5932536670588888,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 80.0,
+            "wall_seconds": 6.153452833008487
+          },
+          "fft_work": {
+            "solves": 80.0,
+            "matvecs": 1367.0,
+            "true_check_matvecs": 80.0,
+            "tangent_field_convolutions": 40.0,
+            "operator_updates": 10.0
+          },
+          "max_true_relative_residual": 9.685068864947084e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.018917207955382764,
+          "field_projection_seconds": 0.5838003340177238,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 80.0,
+            "wall_seconds": 6.185760957014281
+          },
+          "fft_work": {
+            "solves": 80.0,
+            "matvecs": 1374.0,
+            "true_check_matvecs": 80.0,
+            "tangent_field_convolutions": 40.0,
+            "operator_updates": 10.0
+          },
+          "max_true_relative_residual": 9.702653123624084e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.018670915975235403,
+          "field_projection_seconds": 0.5951278339489363,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 80.0,
+            "wall_seconds": 6.547864083957393
+          },
+          "fft_work": {
+            "solves": 80.0,
+            "matvecs": 1429.0,
+            "true_check_matvecs": 80.0,
+            "tangent_field_convolutions": 40.0,
+            "operator_updates": 10.0
+          },
+          "max_true_relative_residual": 9.974375596896528e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 0.968464844772878,
+    "material_relative_error": 0.036610091433550096,
+    "pose_error_m": 0.00032255892518076996,
+    "delay_error_m": 0.0017800522362253005,
+    "log_amplitude_rmse": 0.047209962673047716,
+    "gain_phase_rmse_rad": 0.0068439294186213445,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.046464008071837246,
+      "weighted_phase_rmse_rad": 0.0067107680237467
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.004854312952543094,
+      "weighted_phase_rmse_rad": 0.0031345465758053077
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.0502088339283597,
+      "weighted_phase_rmse_rad": 0.00927866336150834
+    },
+    "evaluation_seconds": 2.2951516250032,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.020237833028659225,
+          "field_projection_seconds": 0.08888070902321488,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6503325419616885
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 5.467847759305527e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.019140291959047318,
+          "field_projection_seconds": 0.08291120798094198,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6472079170052893
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.200347572473544e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.01877629099180922,
+          "field_projection_seconds": 0.08231441699899733,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6849374999874271
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 151.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.974375596896528e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.005631909260512068,
+          "weighted_phase_rmse_rad": 0.0027671212606368376
+        },
+        "structural": {
+          "relative_field_error": 0.04328992306735041,
+          "weighted_phase_rmse_rad": 0.0008221966317134475
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.00468092236609434,
+          "weighted_phase_rmse_rad": 0.0037315896268658947
+        },
+        "structural": {
+          "relative_field_error": 0.04693221250780183,
+          "weighted_phase_rmse_rad": 0.0024110527968773296
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.004878900063132177,
+          "weighted_phase_rmse_rad": 0.0029972337977106057
+        },
+        "structural": {
+          "relative_field_error": 0.05096431433710874,
+          "weighted_phase_rmse_rad": 0.01021303897038529
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 23.030627958010882
+  },
+  {
+    "seed": 8102,
+    "choice": "low",
+    "use_reference": true,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "6437ba798323a94f6022ddd8743f9443dc5c3305db4feccfb4386202a04e232e",
+      "reference_sha256": "d8c1be83d28cf1e55c64ea36e4607a7a55182d386467c6233bb2ff790eaee4d9",
+      "extra_standardized_noise_sha256": "1514df0f184b58ea35ea0ed2078725cf527be24de17810b42982f5c2e78ebc55",
+      "sigma": 0.00025944607320512125,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.05895308399340138,
+    "solve_seconds": 16.118689625000115,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 8,
+    "njev": 8,
+    "estimated": [
+      2.497486468584965,
+      0.05854873208206157,
+      0.06597748780569075,
+      0.01864152888849167,
+      0.060125882107049874,
+      0.016464008769175944,
+      -0.08591973702748704,
+      0.018144601791918517,
+      0.053740943598305786,
+      -0.11413234709567831,
+      0.18967312569107006,
+      -0.18136267260568315,
+      0.029357068217762697
+    ],
+    "objective": 433.081973561073,
+    "optimality": 0.00040441702566230937,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 8,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01886079099494964,
+          "field_projection_seconds": 0.47620087512768805,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 64.0,
+            "wall_seconds": 4.833126416895539
+          },
+          "fft_work": {
+            "solves": 64.0,
+            "matvecs": 1056.0,
+            "true_check_matvecs": 64.0,
+            "tangent_field_convolutions": 32.0,
+            "operator_updates": 8.0
+          },
+          "max_true_relative_residual": 9.355051104374005e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.019548832962755114,
+          "field_projection_seconds": 0.4692148740286939,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 64.0,
+            "wall_seconds": 4.896380584978033
+          },
+          "fft_work": {
+            "solves": 64.0,
+            "matvecs": 1080.0,
+            "true_check_matvecs": 64.0,
+            "tangent_field_convolutions": 32.0,
+            "operator_updates": 8.0
+          },
+          "max_true_relative_residual": 9.403126886799271e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.019391832989640534,
+          "field_projection_seconds": 0.4770785829750821,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 64.0,
+            "wall_seconds": 4.960854166012723
+          },
+          "fft_work": {
+            "solves": 64.0,
+            "matvecs": 1110.0,
+            "true_check_matvecs": 64.0,
+            "tangent_field_convolutions": 32.0,
+            "operator_updates": 8.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 0.9899016538538812,
+    "material_relative_error": 0.0010054125660140301,
+    "pose_error_m": 0.00033127549775924416,
+    "delay_error_m": 0.00012588210704987668,
+    "log_amplitude_rmse": 0.006472280181626961,
+    "gain_phase_rmse_rad": 0.0031761997232249953,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.007189268905334044,
+      "weighted_phase_rmse_rad": 0.0029325400367298895
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.005476369288913506,
+      "weighted_phase_rmse_rad": 0.0027540388266208407
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.006367054388021635,
+      "weighted_phase_rmse_rad": 0.0021472996166701785
+    },
+    "evaluation_seconds": 2.2010968750109896,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.019791250000707805,
+          "field_projection_seconds": 0.08436912496108562,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.620805625047069
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 137.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.558089597697992e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.019497208995744586,
+          "field_projection_seconds": 0.08137212501605973,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6241739160032012
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 141.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.403126886799271e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.02003150002565235,
+          "field_projection_seconds": 0.07931941701099277,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6513398329843767
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.377258539551393e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.0045149780311588145,
+          "weighted_phase_rmse_rad": 0.00263071599095303
+        },
+        "structural": {
+          "relative_field_error": 0.0048861810323550196,
+          "weighted_phase_rmse_rad": 0.0005749420163367401
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.004562473365581895,
+          "weighted_phase_rmse_rad": 0.002512047681890721
+        },
+        "structural": {
+          "relative_field_error": 0.005391855881106609,
+          "weighted_phase_rmse_rad": 0.0012747056820912419
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.005663400702523569,
+          "weighted_phase_rmse_rad": 0.00280444270170835
+        },
+        "structural": {
+          "relative_field_error": 0.006572827032016158,
+          "weighted_phase_rmse_rad": 0.002302918436601958
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 18.390655625029467
+  },
+  {
+    "seed": 8102,
+    "choice": "low_high",
+    "use_reference": false,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0,
+      18.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "6437ba798323a94f6022ddd8743f9443dc5c3305db4feccfb4386202a04e232e",
+      "reference_sha256": "d8c1be83d28cf1e55c64ea36e4607a7a55182d386467c6233bb2ff790eaee4d9",
+      "extra_standardized_noise_sha256": "1514df0f184b58ea35ea0ed2078725cf527be24de17810b42982f5c2e78ebc55",
+      "sigma": 0.00025944607320512125,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.07554087502649054,
+    "solve_seconds": 31.366205792000983,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 11,
+    "njev": 11,
+    "estimated": [
+      2.555620451457982,
+      0.05891363993025692,
+      0.06576939288975722,
+      0.018941708521749475,
+      0.058661235470340564,
+      -0.00919012560599605,
+      -0.10017121763976619,
+      -0.007242962567529367,
+      0.03604796366667222,
+      -0.10653377400957853,
+      0.20167884839804362,
+      -0.18202597002420032,
+      0.037188057656246803
+    ],
+    "objective": 840.6804715777575,
+    "optimality": 0.001071396044433753,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 11,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.018791334005072713,
+          "field_projection_seconds": 0.6559512920212001,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 88.0,
+            "wall_seconds": 6.587742418982089
+          },
+          "fft_work": {
+            "solves": 88.0,
+            "matvecs": 1452.0,
+            "true_check_matvecs": 88.0,
+            "tangent_field_convolutions": 44.0,
+            "operator_updates": 11.0
+          },
+          "max_true_relative_residual": 9.884510002556921e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01817716599907726,
+          "field_projection_seconds": 0.6548739999416284,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 88.0,
+            "wall_seconds": 6.643013708875515
+          },
+          "fft_work": {
+            "solves": 88.0,
+            "matvecs": 1474.0,
+            "true_check_matvecs": 88.0,
+            "tangent_field_convolutions": 44.0,
+            "operator_updates": 11.0
+          },
+          "max_true_relative_residual": 9.467435604255988e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.018103042035363615,
+          "field_projection_seconds": 0.6601543320575729,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 88.0,
+            "wall_seconds": 6.878387207980268
+          },
+          "fft_work": {
+            "solves": 88.0,
+            "matvecs": 1530.0,
+            "true_check_matvecs": 88.0,
+            "tangent_field_convolutions": 44.0,
+            "operator_updates": 11.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        },
+        "18.0": {
+          "setup_seconds": 0.019355540978722274,
+          "field_projection_seconds": 0.654778373951558,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 88.0,
+            "wall_seconds": 8.622617457993329
+          },
+          "fft_work": {
+            "solves": 88.0,
+            "matvecs": 1910.0,
+            "true_check_matvecs": 88.0,
+            "tangent_field_convolutions": 44.0,
+            "operator_updates": 11.0
+          },
+          "max_true_relative_residual": 9.969244983523858e-11,
+          "physical_frequency": 18.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.4761729088283715,
+    "material_relative_error": 0.022248180583192757,
+    "pose_error_m": 0.00039232280870548524,
+    "delay_error_m": 0.0013387645296594336,
+    "log_amplitude_rmse": 0.01917708153961729,
+    "gain_phase_rmse_rad": 0.006266496280766943,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.020196713010816495,
+      "weighted_phase_rmse_rad": 0.006350554566447101
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.01253202576973512,
+      "weighted_phase_rmse_rad": 0.004255378477870894
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.030582963507456432,
+      "weighted_phase_rmse_rad": 0.006033154722842826
+    },
+    "evaluation_seconds": 2.2823821250349283,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.020142958033829927,
+          "field_projection_seconds": 0.08585525001399219,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.632172083016485
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 142.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.269938361827114e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01958037499571219,
+          "field_projection_seconds": 0.08379366697045043,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6565596250002272
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 6.361942879077632e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.019339209015015513,
+          "field_projection_seconds": 0.08873170899460092,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6758217079914175
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 150.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.142634730002543e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.00896678551085205,
+          "weighted_phase_rmse_rad": 0.0039937460620099036
+        },
+        "structural": {
+          "relative_field_error": 0.026678450295314175,
+          "weighted_phase_rmse_rad": 0.0007545478121137736
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.011124513692057905,
+          "weighted_phase_rmse_rad": 0.004298420318047256
+        },
+        "structural": {
+          "relative_field_error": 0.02875774291351126,
+          "weighted_phase_rmse_rad": 0.0019317985933762379
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.012852580291296158,
+          "weighted_phase_rmse_rad": 0.004249667200785068
+        },
+        "structural": {
+          "relative_field_error": 0.03100603373624392,
+          "weighted_phase_rmse_rad": 0.006620013326745407
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 33.73699966701679
+  },
+  {
+    "seed": 8102,
+    "choice": "low_high",
+    "use_reference": true,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0,
+      18.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "6437ba798323a94f6022ddd8743f9443dc5c3305db4feccfb4386202a04e232e",
+      "reference_sha256": "d8c1be83d28cf1e55c64ea36e4607a7a55182d386467c6233bb2ff790eaee4d9",
+      "extra_standardized_noise_sha256": "1514df0f184b58ea35ea0ed2078725cf527be24de17810b42982f5c2e78ebc55",
+      "sigma": 0.00025944607320512125,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.07942975003970787,
+    "solve_seconds": 31.219282750040293,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 11,
+    "njev": 11,
+    "estimated": [
+      2.554203350388057,
+      0.05888970637549722,
+      0.06576787186853507,
+      0.01893545911943292,
+      0.058741936333442046,
+      -0.008231226099573314,
+      -0.09919554190067964,
+      -0.0063795215986990035,
+      0.03715545767162239,
+      -0.10717871301227005,
+      0.20091089728130918,
+      -0.1823505440622041,
+      0.036809642006138274
+    ],
+    "objective": 871.4292391811263,
+    "optimality": 0.0002531875638840695,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 11,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.019083791004959494,
+          "field_projection_seconds": 0.6593760831165127,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 88.0,
+            "wall_seconds": 6.53646487405058
+          },
+          "fft_work": {
+            "solves": 88.0,
+            "matvecs": 1450.0,
+            "true_check_matvecs": 88.0,
+            "tangent_field_convolutions": 44.0,
+            "operator_updates": 11.0
+          },
+          "max_true_relative_residual": 9.602981231028226e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.020421207998879254,
+          "field_projection_seconds": 0.6398927079280838,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 88.0,
+            "wall_seconds": 6.64941654301947
+          },
+          "fft_work": {
+            "solves": 88.0,
+            "matvecs": 1472.0,
+            "true_check_matvecs": 88.0,
+            "tangent_field_convolutions": 44.0,
+            "operator_updates": 11.0
+          },
+          "max_true_relative_residual": 9.84996801089022e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.019192125007975847,
+          "field_projection_seconds": 0.6422231250326149,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 88.0,
+            "wall_seconds": 6.891063331975602
+          },
+          "fft_work": {
+            "solves": 88.0,
+            "matvecs": 1527.0,
+            "true_check_matvecs": 88.0,
+            "tangent_field_convolutions": 44.0,
+            "operator_updates": 11.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        },
+        "18.0": {
+          "setup_seconds": 0.01952541701029986,
+          "field_projection_seconds": 0.6503686649375595,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 88.0,
+            "wall_seconds": 8.54166133608669
+          },
+          "fft_work": {
+            "solves": 88.0,
+            "matvecs": 1906.0,
+            "true_check_matvecs": 88.0,
+            "tangent_field_convolutions": 44.0,
+            "operator_updates": 11.0
+          },
+          "max_true_relative_residual": 9.969244983523858e-11,
+          "physical_frequency": 18.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.4985885454533556,
+    "material_relative_error": 0.021681340155222807,
+    "pose_error_m": 0.00036762932700400944,
+    "delay_error_m": 0.0012580636665579514,
+    "log_amplitude_rmse": 0.018209093576704794,
+    "gain_phase_rmse_rad": 0.005752789681723996,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.019231875912791845,
+      "weighted_phase_rmse_rad": 0.00615564691715175
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.012676238590382218,
+      "weighted_phase_rmse_rad": 0.00408312689608078
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.029799501661199792,
+      "weighted_phase_rmse_rad": 0.0058465402416548575
+    },
+    "evaluation_seconds": 2.2753371250000782,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.02024974999949336,
+          "field_projection_seconds": 0.0885400419938378,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6414706250070594
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 142.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.193542526710292e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.019801707996521145,
+          "field_projection_seconds": 0.0836125829955563,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6417404160019942
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 6.297584807227136e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.02022487501380965,
+          "field_projection_seconds": 0.08275966701330617,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6765542500070296
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 150.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.048699901543457e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.009169188983312123,
+          "weighted_phase_rmse_rad": 0.0037934500410338762
+        },
+        "structural": {
+          "relative_field_error": 0.026021677339771686,
+          "weighted_phase_rmse_rad": 0.0007156789966340048
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.011315979605351774,
+          "weighted_phase_rmse_rad": 0.004169782175545239
+        },
+        "structural": {
+          "relative_field_error": 0.0280373063580473,
+          "weighted_phase_rmse_rad": 0.0018492645365960144
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.012987804221426591,
+          "weighted_phase_rmse_rad": 0.004068323346143209
+        },
+        "structural": {
+          "relative_field_error": 0.030208215229404093,
+          "weighted_phase_rmse_rad": 0.006416672839067219
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 33.58927204203792
+  },
+  {
+    "seed": 8102,
+    "choice": "low_repeat",
+    "use_reference": false,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0,
+      6.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "6437ba798323a94f6022ddd8743f9443dc5c3305db4feccfb4386202a04e232e",
+      "reference_sha256": "d8c1be83d28cf1e55c64ea36e4607a7a55182d386467c6233bb2ff790eaee4d9",
+      "extra_standardized_noise_sha256": "1514df0f184b58ea35ea0ed2078725cf527be24de17810b42982f5c2e78ebc55",
+      "sigma": 0.00025944607320512125,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.05908124998677522,
+    "solve_seconds": 20.709582666982897,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 10,
+    "njev": 10,
+    "estimated": [
+      2.5895030876735494,
+      0.05859316991045264,
+      0.06600038334384195,
+      0.01883075703704875,
+      0.05844409446976111,
+      -0.03773041711570069,
+      -0.13205432734311717,
+      -0.03179445047334014,
+      0.012351438915051036,
+      -0.11118806663897261,
+      0.19599783484052086,
+      -0.17364934319039024,
+      0.0386543000513461
+    ],
+    "objective": 562.7704860622075,
+    "optimality": 0.00011578080669330904,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 10,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01904091698816046,
+          "field_projection_seconds": 0.5836595409200527,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 80.0,
+            "wall_seconds": 6.377010374038946
+          },
+          "fft_work": {
+            "solves": 80.0,
+            "matvecs": 1367.0,
+            "true_check_matvecs": 80.0,
+            "tangent_field_convolutions": 40.0,
+            "operator_updates": 10.0
+          },
+          "max_true_relative_residual": 9.972260222073688e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01971395901637152,
+          "field_projection_seconds": 0.5959050840465352,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 80.0,
+            "wall_seconds": 6.140263539040461
+          },
+          "fft_work": {
+            "solves": 80.0,
+            "matvecs": 1375.0,
+            "true_check_matvecs": 80.0,
+            "tangent_field_convolutions": 40.0,
+            "operator_updates": 10.0
+          },
+          "max_true_relative_residual": 9.98437261972688e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 2
+        },
+        "9.0": {
+          "setup_seconds": 0.019075665972195566,
+          "field_projection_seconds": 0.5825392901315354,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 80.0,
+            "wall_seconds": 6.4234847908956
+          },
+          "fft_work": {
+            "solves": 80.0,
+            "matvecs": 1432.0,
+            "true_check_matvecs": 80.0,
+            "tangent_field_convolutions": 40.0,
+            "operator_updates": 10.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 0.988183469819504,
+    "material_relative_error": 0.03580123506941977,
+    "pose_error_m": 0.0002923658584157661,
+    "delay_error_m": 0.0015559055302388908,
+    "log_amplitude_rmse": 0.046131538251424936,
+    "gain_phase_rmse_rad": 0.005166369795508125,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.04544232831691683,
+      "weighted_phase_rmse_rad": 0.006580225247540772
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.004541710934551959,
+      "weighted_phase_rmse_rad": 0.0030927184312783923
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.04908834098230409,
+      "weighted_phase_rmse_rad": 0.009011903938881516
+    },
+    "evaluation_seconds": 2.297146208002232,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.020570292021147907,
+          "field_projection_seconds": 0.08822762500494719,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6765927500091493
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 5.391841700613777e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01914337498601526,
+          "field_projection_seconds": 0.0849959590123035,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6366704590036534
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.085480917398584e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.019131750043015927,
+          "field_projection_seconds": 0.08313233399530873,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6682481670286506
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 151.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.832149752406483e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.00531598742689249,
+          "weighted_phase_rmse_rad": 0.002703127226995545
+        },
+        "structural": {
+          "relative_field_error": 0.04235650490929892,
+          "weighted_phase_rmse_rad": 0.000782592010358191
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.004553751876715417,
+          "weighted_phase_rmse_rad": 0.003898412404713785
+        },
+        "structural": {
+          "relative_field_error": 0.04590671847781455,
+          "weighted_phase_rmse_rad": 0.002307667642240519
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.004527551133521062,
+          "weighted_phase_rmse_rad": 0.0028979418000629705
+        },
+        "structural": {
+          "relative_field_error": 0.04982230352623377,
+          "weighted_phase_rmse_rad": 0.009921128605006218
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 23.078620208019856
+  },
+  {
+    "seed": 8102,
+    "choice": "low_repeat",
+    "use_reference": true,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0,
+      6.0
+    ],
+    "n": 32,
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "start": [
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_nfev": 35,
+    "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "sharing": {
+      "low_observation_sha256": "6437ba798323a94f6022ddd8743f9443dc5c3305db4feccfb4386202a04e232e",
+      "reference_sha256": "d8c1be83d28cf1e55c64ea36e4607a7a55182d386467c6233bb2ff790eaee4d9",
+      "extra_standardized_noise_sha256": "1514df0f184b58ea35ea0ed2078725cf527be24de17810b42982f5c2e78ebc55",
+      "sigma": 0.00025944607320512125,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    "status": "converged",
+    "scope": "Two development scenes, N64 ADDA LDR versus N32 CM+RR; no population inference",
+    "setup_seconds": 0.06017029198119417,
+    "solve_seconds": 16.11697783297859,
+    "optimizer_status": 2,
+    "optimizer_message": "`ftol` termination condition is satisfied.",
+    "nfev": 8,
+    "njev": 8,
+    "estimated": [
+      2.497666736660914,
+      0.058449591296763616,
+      0.06600085369770511,
+      0.01873988225035483,
+      0.06042203187843115,
+      0.01620264099264992,
+      -0.08558009092670274,
+      0.01579186543594562,
+      0.053984479728499776,
+      -0.11687595124389687,
+      0.18656803728731766,
+      -0.18383562354762378,
+      0.027215896556452658
+    ],
+    "objective": 584.2152964887939,
+    "optimality": 0.0005071179298497885,
+    "active_mask": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "training_work": {
+      "calls": 8,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01989708299515769,
+          "field_projection_seconds": 0.4710716250119731,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 64.0,
+            "wall_seconds": 4.808859290962573
+          },
+          "fft_work": {
+            "solves": 64.0,
+            "matvecs": 1056.0,
+            "true_check_matvecs": 64.0,
+            "tangent_field_convolutions": 32.0,
+            "operator_updates": 8.0
+          },
+          "max_true_relative_residual": 9.79712944689192e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01951775001361966,
+          "field_projection_seconds": 0.46991333400364965,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 64.0,
+            "wall_seconds": 4.943354750925209
+          },
+          "fft_work": {
+            "solves": 64.0,
+            "matvecs": 1083.0,
+            "true_check_matvecs": 64.0,
+            "tangent_field_convolutions": 32.0,
+            "operator_updates": 8.0
+          },
+          "max_true_relative_residual": 9.415166032866819e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 2
+        },
+        "9.0": {
+          "setup_seconds": 0.01944283302873373,
+          "field_projection_seconds": 0.4723342080251314,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 64.0,
+            "wall_seconds": 4.94575266801985
+          },
+          "fft_work": {
+            "solves": 64.0,
+            "matvecs": 1110.0,
+            "true_check_matvecs": 64.0,
+            "tangent_field_convolutions": 32.0,
+            "operator_updates": 8.0
+          },
+          "max_true_relative_residual": 9.885226014282628e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "reduced_chisquare": 1.0046694694562235,
+    "material_relative_error": 0.0009333053356343157,
+    "pose_error_m": 0.0003175568164854938,
+    "delay_error_m": 0.00042203187843115053,
+    "log_amplitude_rmse": 0.005952235368831772,
+    "gain_phase_rmse_rad": 0.005147140874190671,
+    "low_band_electronic_response": {
+      "relative_field_error": 0.006923837492521342,
+      "weighted_phase_rmse_rad": 0.0033878748646139108
+    },
+    "evaluation_status": "ok",
+    "sensor_low_band": {
+      "relative_field_error": 0.005217004182987011,
+      "weighted_phase_rmse_rad": 0.002773320318856683
+    },
+    "structural_low_band": {
+      "relative_field_error": 0.006303701169563271,
+      "weighted_phase_rmse_rad": 0.0020785901902224072
+    },
+    "evaluation_seconds": 2.2080820000264794,
+    "evaluation_work": {
+      "calls": 1,
+      "per_frequency": {
+        "3.0": {
+          "setup_seconds": 0.01951054099481553,
+          "field_projection_seconds": 0.08352320798439905,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6074202500167303
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 137.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 8.568653375635127e-11,
+          "physical_frequency": 3.0,
+          "acquisition_multiplicity": 1
+        },
+        "6.0": {
+          "setup_seconds": 0.01991087495116517,
+          "field_projection_seconds": 0.08295262500178069,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6437900830060244
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 141.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.415166032866819e-11,
+          "physical_frequency": 6.0,
+          "acquisition_multiplicity": 1
+        },
+        "9.0": {
+          "setup_seconds": 0.01972433301853016,
+          "field_projection_seconds": 0.08369466598378494,
+          "work": {
+            "factorizations": 0.0,
+            "rhs_columns": 8.0,
+            "wall_seconds": 0.6470884999725968
+          },
+          "fft_work": {
+            "solves": 8.0,
+            "matvecs": 144.0,
+            "true_check_matvecs": 8.0,
+            "tangent_field_convolutions": 4.0,
+            "operator_updates": 1.0
+          },
+          "max_true_relative_residual": 9.390354082668844e-11,
+          "physical_frequency": 9.0,
+          "acquisition_multiplicity": 1
+        }
+      }
+    },
+    "per_low_frequency": {
+      "3.0": {
+        "sensor": {
+          "relative_field_error": 0.004781230847375258,
+          "weighted_phase_rmse_rad": 0.0037147231941482336
+        },
+        "structural": {
+          "relative_field_error": 0.004858212583151737,
+          "weighted_phase_rmse_rad": 0.0005416154805986505
+        }
+      },
+      "6.0": {
+        "sensor": {
+          "relative_field_error": 0.004324262129194664,
+          "weighted_phase_rmse_rad": 0.0028693380896776676
+        },
+        "structural": {
+          "relative_field_error": 0.005345021979436745,
+          "weighted_phase_rmse_rad": 0.0012129430366690224
+        }
+      },
+      "9.0": {
+        "sensor": {
+          "relative_field_error": 0.005393393340470324,
+          "weighted_phase_rmse_rad": 0.002737143107469957
+        },
+        "structural": {
+          "relative_field_error": 0.006506027656206016,
+          "weighted_phase_rmse_rad": 0.002231722063225841
+        }
+      }
+    },
+    "fit_and_evaluation_seconds": 18.397139917011373
+  }
+]

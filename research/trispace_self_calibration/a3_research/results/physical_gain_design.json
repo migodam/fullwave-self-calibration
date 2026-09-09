@@ -1,0 +1,572 @@
+[
+  {
+    "singular_values": [
+      1.3322897648467762e-14,
+      8.324654640947986e-15,
+      6.692890856730934e-15
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 0,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "tree",
+    "unknown_material": false,
+    "observed_complex_channels": 39,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      1.3013624674678034e-14,
+      9.337613734273133e-15,
+      7.768309618470753e-15
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 0,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "tree",
+    "unknown_material": true,
+    "observed_complex_channels": 39,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.49728193158130635,
+      0.006584404905666138,
+      9.208645938205588e-15
+    ],
+    "target_rank": 2,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 1,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "one_cycle",
+    "unknown_material": false,
+    "observed_complex_channels": 40,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      1.2015266330617966e-14,
+      8.508583308116084e-15,
+      7.011690693762874e-15
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 1,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "one_cycle",
+    "unknown_material": true,
+    "observed_complex_channels": 40,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.6663561028954154,
+      0.04206190893006185,
+      0.0058260373945784715
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 2,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "two_cycles",
+    "unknown_material": false,
+    "observed_complex_channels": 41,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.2072687737212866,
+      0.005895565810177169,
+      1.1142833934760719e-14
+    ],
+    "target_rank": 2,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 2,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "two_cycles",
+    "unknown_material": true,
+    "observed_complex_channels": 41,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.9283841931220371,
+      0.053313815600473255,
+      0.03998398717283479
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 3,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "three_cycles",
+    "unknown_material": false,
+    "observed_complex_channels": 42,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.5005814647487291,
+      0.031805472878435395,
+      0.012042609912736443
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 3,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "three_cycles",
+    "unknown_material": true,
+    "observed_complex_channels": 42,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      3.3786537651036532,
+      3.177665202789591,
+      3.1413250911404504
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 105,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "full",
+    "unknown_material": false,
+    "observed_complex_channels": 144,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      3.371752817913679,
+      3.082536353028445,
+      1.8179087018537718
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 105,
+    "nonzero_graph_assumption": true,
+    "k": 3.0,
+    "design": "full",
+    "unknown_material": true,
+    "observed_complex_channels": 144,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 9.18321262905973e-05,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      2.09475599421823e-14,
+      1.3343292136703182e-14,
+      1.2292660565417844e-14
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 0,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "tree",
+    "unknown_material": false,
+    "observed_complex_channels": 39,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      2.617901663600061e-14,
+      1.7345706335912924e-14,
+      1.1561736736734444e-14
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 0,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "tree",
+    "unknown_material": true,
+    "observed_complex_channels": 39,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.5189201757070708,
+      0.016346832807950455,
+      2.386322324428777e-14
+    ],
+    "target_rank": 2,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 1,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "one_cycle",
+    "unknown_material": false,
+    "observed_complex_channels": 40,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      2.2963003267183686e-14,
+      2.1117218282885743e-14,
+      1.098015571829793e-14
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 1,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "one_cycle",
+    "unknown_material": true,
+    "observed_complex_channels": 40,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.7180630416816893,
+      0.04688686395945388,
+      0.00550073203106609
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 2,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "two_cycles",
+    "unknown_material": false,
+    "observed_complex_channels": 41,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.14264705521274268,
+      0.01340454757912002,
+      2.3918093692164345e-14
+    ],
+    "target_rank": 2,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 2,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "two_cycles",
+    "unknown_material": true,
+    "observed_complex_channels": 41,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.9633798230875606,
+      0.0506238404265672,
+      0.04694930296345421
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 3,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "three_cycles",
+    "unknown_material": false,
+    "observed_complex_channels": 42,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.5718389930028823,
+      0.026476801624040442,
+      0.015758948608594493
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 3,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "three_cycles",
+    "unknown_material": true,
+    "observed_complex_channels": 42,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      3.5624506219044854,
+      2.9872988278652466,
+      2.9084537885432193
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 105,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "full",
+    "unknown_material": false,
+    "observed_complex_channels": 144,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      3.5482891826009824,
+      2.9264767274177155,
+      2.7702727932864355
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 105,
+    "nonzero_graph_assumption": true,
+    "k": 6.0,
+    "design": "full",
+    "unknown_material": true,
+    "observed_complex_channels": 144,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0003127885507840948,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      3.100814090019381e-14,
+      2.1614896914228404e-14,
+      1.093984301997038e-14
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 0,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "tree",
+    "unknown_material": false,
+    "observed_complex_channels": 39,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      2.3731033993601426e-14,
+      1.95116465844105e-14,
+      1.1637426453416059e-14
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 0,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "tree",
+    "unknown_material": true,
+    "observed_complex_channels": 39,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.48299124200021604,
+      0.032271759157896845,
+      2.6955059227733553e-14
+    ],
+    "target_rank": 2,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 1,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "one_cycle",
+    "unknown_material": false,
+    "observed_complex_channels": 40,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      2.341337577188817e-14,
+      2.1243758559643682e-14,
+      1.4258318511804086e-14
+    ],
+    "target_rank": 0,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 1,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "one_cycle",
+    "unknown_material": true,
+    "observed_complex_channels": 40,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.6351546915195803,
+      0.05247805344471702,
+      0.008230030645773056
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 2,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "two_cycles",
+    "unknown_material": false,
+    "observed_complex_channels": 41,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.42996995985772296,
+      0.021944631335038368,
+      3.3549186576236885e-14
+    ],
+    "target_rank": 2,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 2,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "two_cycles",
+    "unknown_material": true,
+    "observed_complex_channels": 41,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.9004906974681065,
+      0.05978276450878389,
+      0.04024511388223385
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 3,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "three_cycles",
+    "unknown_material": false,
+    "observed_complex_channels": 42,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      0.6131968050741351,
+      0.04959512500770469,
+      0.03149228187616868
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 3,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "three_cycles",
+    "unknown_material": true,
+    "observed_complex_channels": 42,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      5.321128593833776,
+      3.1179632196969624,
+      2.964562439163292
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 78,
+    "gain_cycle_dimension_complex": 105,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "full",
+    "unknown_material": false,
+    "observed_complex_channels": 144,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  },
+  {
+    "singular_values": [
+      4.975476463888926,
+      3.0965802497974986,
+      2.9643166733228394
+    ],
+    "target_rank": 3,
+    "target_dimension": 3,
+    "nuisance_rank": 80,
+    "gain_cycle_dimension_complex": 105,
+    "nonzero_graph_assumption": true,
+    "k": 9.0,
+    "design": "full",
+    "unknown_material": true,
+    "observed_complex_channels": 144,
+    "pose_unit_m": 0.01,
+    "noise_sigma": 0.0006488990491509765,
+    "scope": "local development; physical-state q_material=2,r_free=0"
+  }
+]

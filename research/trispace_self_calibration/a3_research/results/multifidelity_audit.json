@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "scene_count": 2,
+  "summary": [
+    {
+      "method": "fine_direct",
+      "mean_seconds": 20.925035457970807,
+      "mean_fine_rhs": 240.0,
+      "mean_coarse_rhs": 0.0,
+      "mean_pose_mm": 0.5213436509121153,
+      "mean_material_percent": 2.2869399342586845
+    },
+    {
+      "method": "coarse_only",
+      "mean_seconds": 3.5052743540145457,
+      "mean_fine_rhs": 0.0,
+      "mean_coarse_rhs": 240.0,
+      "mean_pose_mm": 1.3454911547996584,
+      "mean_material_percent": 6.926010592441231
+    },
+    {
+      "method": "coarse_warm_fine",
+      "mean_seconds": 17.131560292007634,
+      "mean_fine_rhs": 144.0,
+      "mean_coarse_rhs": 240.0,
+      "mean_pose_mm": 0.521343644634722,
+      "mean_material_percent": 2.28693992088278
+    },
+    {
+      "method": "value_corrected",
+      "mean_seconds": 34.97085370848072,
+      "mean_fine_rhs": 216.0,
+      "mean_coarse_rhs": 912.0,
+      "mean_pose_mm": 0.5160687897416484,
+      "mean_material_percent": 2.275217373866276
+    },
+    {
+      "method": "tangent_corrected",
+      "mean_seconds": 20.519219457986765,
+      "mean_fine_rhs": 120.0,
+      "mean_coarse_rhs": 576.0,
+      "mean_pose_mm": 0.5213436403489708,
+      "mean_material_percent": 2.2869399053751667
+    }
+  ],
+  "paired": [
+    {
+      "seed": 8101,
+      "method": "fine_direct",
+      "relative_fine_objective_gap": 0.0,
+      "time_ratio_vs_cold": 1.0,
+      "time_ratio_vs_warm": 1.111960554587276
+    },
+    {
+      "seed": 8101,
+      "method": "coarse_only",
+      "relative_fine_objective_gap": 3.1243092185203807,
+      "time_ratio_vs_cold": 0.16862033878335347,
+      "time_ratio_vs_warm": 0.18749916542823206
+    },
+    {
+      "seed": 8101,
+      "method": "coarse_warm_fine",
+      "relative_fine_objective_gap": 2.1562270127004978e-15,
+      "time_ratio_vs_cold": 0.899312476395503,
+      "time_ratio_vs_warm": 1.0
+    },
+    {
+      "seed": 8101,
+      "method": "value_corrected",
+      "relative_fine_objective_gap": 4.183791975437362e-05,
+      "time_ratio_vs_cold": 1.8666813799581206,
+      "time_ratio_vs_warm": 2.0756760624959734
+    },
+    {
+      "seed": 8101,
+      "method": "tangent_corrected",
+      "relative_fine_objective_gap": 1.269778129701404e-14,
+      "time_ratio_vs_cold": 1.0897065838596052,
+      "time_ratio_vs_warm": 1.2117107373259324
+    },
+    {
+      "seed": 8102,
+      "method": "fine_direct",
+      "relative_fine_objective_gap": 0.0,
+      "time_ratio_vs_cold": 1.0,
+      "time_ratio_vs_warm": 1.3246621215032885
+    },
+    {
+      "seed": 8102,
+      "method": "coarse_only",
+      "relative_fine_objective_gap": 3.188759019505668,
+      "time_ratio_vs_cold": 0.16664150432931246,
+      "time_ratio_vs_warm": 0.22074368865536648
+    },
+    {
+      "seed": 8102,
+      "method": "coarse_warm_fine",
+      "relative_fine_objective_gap": -3.740567320483227e-14,
+      "time_ratio_vs_cold": 0.7549094850429884,
+      "time_ratio_vs_warm": 1.0
+    },
+    {
+      "seed": 8102,
+      "method": "value_corrected",
+      "relative_fine_objective_gap": 8.127775406901574e-05,
+      "time_ratio_vs_cold": 1.5165425402106638,
+      "time_ratio_vs_warm": 2.0089064586654444
+    },
+    {
+      "seed": 8102,
+      "method": "tangent_corrected",
+      "relative_fine_objective_gap": -5.0085562426809313e-14,
+      "time_ratio_vs_cold": 0.8942454542872246,
+      "time_ratio_vs_warm": 1.184573080620787
+    }
+  ],
+  "scope": "two inspected DEVELOPMENT scenes, serial single runs; no confidence or novelty claim",
+  "decision": "value/tangent correction not supported beyond simple coarse warm start; retain as negative ablation"
+}

@@ -1,0 +1,274 @@
+{
+  "schema": "self_cell_quadrature_validation",
+  "rows": [
+    {
+      "N": 8,
+      "h": 0.125,
+      "a": 0.07052369794346953,
+      "k_b_a": 0.44311346272637897,
+      "I_self_analytic_re_im": [
+        0.003424014951088048,
+        0.0038111573657667033
+      ],
+      "I_self_quadrature_re_im": [
+        0.0034240149510883604,
+        0.003811157365766718
+      ],
+      "quadrature_abs_error": 3.1259818116830416e-16,
+      "quadrature_rel_error": 6.101431352427683e-14,
+      "I_self_invalidated_wrong_re_im": [
+        0.028754310861672492,
+        0.0038111573657667033
+      ],
+      "abs_I_self": 0.005123358161588187,
+      "abs_I_self_invalidated_wrong": 0.02900578069275734,
+      "G_D_diag_kb2_I_self_re_im": [
+        0.13517469212261746,
+        0.15045846204166072
+      ],
+      "G_D_diag_kb2_I_self_abs": 0.20226207303987143,
+      "G_D_diag_kb2_invalidated_wrong_abs": 1.1451023231290822
+    },
+    {
+      "N": 12,
+      "h": 0.08333333333333333,
+      "a": 0.04701579862897969,
+      "k_b_a": 0.29540897515091935,
+      "I_self_analytic_re_im": [
+        0.0019974424399540856,
+        0.0017172418122734106
+      ],
+      "I_self_quadrature_re_im": [
+        0.001997442439954217,
+        0.0017172418122734122
+      ],
+      "quadrature_abs_error": 1.3141406966406053e-16,
+      "quadrature_rel_error": 4.988878677708729e-14,
+      "I_self_invalidated_wrong_re_im": [
+        0.02732773835053853,
+        0.0017172418122734106
+      ],
+      "abs_I_self": 0.0026341404181914447,
+      "abs_I_self_invalidated_wrong": 0.02738163988510028,
+      "G_D_diag_kb2_I_self_re_im": [
+        0.07885586678517403,
+        0.06779398939259328
+      ],
+      "G_D_diag_kb2_I_self_abs": 0.10399169545787858,
+      "G_D_diag_kb2_invalidated_wrong_abs": 1.0809838140761183
+    },
+    {
+      "N": 16,
+      "h": 0.0625,
+      "a": 0.03526184897173477,
+      "k_b_a": 0.22155673136318949,
+      "I_self_analytic_re_im": [
+        0.0013089379962353542,
+        0.0009705826307354992
+      ],
+      "I_self_quadrature_re_im": [
+        0.0013089379962354193,
+        0.0009705826307354987
+      ],
+      "quadrature_abs_error": 6.505438906444315e-17,
+      "quadrature_rel_error": 3.992232001315083e-14,
+      "I_self_invalidated_wrong_re_im": [
+        0.026639233906819798,
+        0.0009705826307354992
+      ],
+      "abs_I_self": 0.0016295242621925169,
+      "abs_I_self_invalidated_wrong": 0.026656909306694638,
+      "G_D_diag_kb2_I_self_re_im": [
+        0.05167480083359015,
+        0.03831706641571188
+      ],
+      "G_D_diag_kb2_I_self_abs": 0.06433103931926862,
+      "G_D_diag_kb2_invalidated_wrong_abs": 1.0523725976511729
+    },
+    {
+      "N": 24,
+      "h": 0.041666666666666664,
+      "a": 0.023507899314489846,
+      "k_b_a": 0.14770448757545968,
+      "I_self_analytic_re_im": [
+        0.0006961762509845836,
+        0.00043284522608517744
+      ],
+      "I_self_quadrature_re_im": [
+        0.000696176250984622,
+        0.0004328452260851761
+      ],
+      "quadrature_abs_error": 3.8513029815206016e-17,
+      "quadrature_rel_error": 4.6980513809052704e-14,
+      "I_self_invalidated_wrong_re_im": [
+        0.026026472161569027,
+        0.00043284522608517744
+      ],
+      "abs_I_self": 0.0008197660411237332,
+      "abs_I_self_invalidated_wrong": 0.026030071228613116,
+      "G_D_diag_kb2_I_self_re_im": [
+        0.02748393676260534,
+        0.017088044593443142
+      ],
+      "G_D_diag_kb2_I_self_abs": 0.032363066109353585,
+      "G_D_diag_kb2_invalidated_wrong_abs": 1.027626022234358
+    },
+    {
+      "N": 32,
+      "h": 0.03125,
+      "a": 0.017630924485867384,
+      "k_b_a": 0.11077836568159474,
+      "I_self_analytic_re_im": [
+        0.0004368504779187106,
+        0.00024376630941828708
+      ],
+      "I_self_quadrature_re_im": [
+        0.00043685047791872404,
+        0.00024376630941828545
+      ],
+      "quadrature_abs_error": 1.3542114815337562e-17,
+      "quadrature_rel_error": 2.7070137679485936e-14,
+      "I_self_invalidated_wrong_re_im": [
+        0.025767146388503154,
+        0.00024376630941828708
+      ],
+      "abs_I_self": 0.0005002602859164597,
+      "abs_I_self_invalidated_wrong": 0.02576829942041497,
+      "G_D_diag_kb2_I_self_re_im": [
+        0.01724616559793798,
+        0.009623508161088146
+      ],
+      "G_D_diag_kb2_I_self_abs": 0.019749484478285242,
+      "G_D_diag_kb2_invalidated_wrong_abs": 1.0172916854732639
+    },
+    {
+      "N": 40,
+      "h": 0.025,
+      "a": 0.01410473958869391,
+      "k_b_a": 0.08862269254527581,
+      "I_self_analytic_re_im": [
+        0.0003019547325000954,
+        0.00015609665211240392
+      ],
+      "I_self_quadrature_re_im": [
+        0.0003019547325001167,
+        0.00015609665211240226
+      ],
+      "quadrature_abs_error": 2.136863534540776e-17,
+      "quadrature_rel_error": 6.286447551124786e-14,
+      "I_self_invalidated_wrong_re_im": [
+        0.02563225064308454,
+        0.00015609665211240392
+      ],
+      "abs_I_self": 0.0003399159091303392,
+      "abs_I_self_invalidated_wrong": 0.025632725941551915,
+      "G_D_diag_kb2_I_self_re_im": [
+        0.011920695027250806,
+        0.006162448818735585
+      ],
+      "G_D_diag_kb2_I_self_abs": 0.013419342211012346,
+      "G_D_diag_kb2_invalidated_wrong_abs": 1.0119394590586326
+    },
+    {
+      "N": 64,
+      "h": 0.015625,
+      "a": 0.008815462242933692,
+      "k_b_a": 0.05538918284079737,
+      "I_self_analytic_re_im": [
+        0.00013629465455912773,
+        6.1011752552659684e-05
+      ],
+      "I_self_quadrature_re_im": [
+        0.0001362946545591282,
+        6.1011752552658125e-05
+      ],
+      "quadrature_abs_error": 1.6252299961839688e-18,
+      "quadrature_rel_error": 1.0883670374797542e-14,
+      "I_self_invalidated_wrong_re_im": [
+        0.02546659056514357,
+        6.1011752552659684e-05
+      ],
+      "abs_I_self": 0.0001493273813168199,
+      "abs_I_self_invalidated_wrong": 0.025466663649693282,
+      "G_D_diag_kb2_I_self_re_im": [
+        0.005380697289926883,
+        0.0024086474460476197
+      ],
+      "G_D_diag_kb2_I_self_abs": 0.005895208719390538,
+      "G_D_diag_kb2_invalidated_wrong_abs": 1.0053835825523008
+    },
+    {
+      "N": 128,
+      "h": 0.0078125,
+      "a": 0.004407731121466846,
+      "k_b_a": 0.027694591420398686,
+      "I_self_analytic_re_im": [
+        4.081818054783859e-05,
+        1.525732619117338e-05
+      ],
+      "I_self_quadrature_re_im": [
+        4.081818054782838e-05,
+        1.5257326191171824e-05
+      ],
+      "quadrature_abs_error": 1.0329567034867077e-17,
+      "quadrature_rel_error": 2.370445326719047e-13,
+      "I_self_invalidated_wrong_re_im": [
+        0.025371114091132282,
+        1.525732619117338e-05
+      ],
+      "abs_I_self": 4.3576482943668296e-05,
+      "abs_I_self_invalidated_wrong": 0.025371118678750717,
+      "G_D_diag_kb2_I_self_re_im": [
+        0.001611437177517631,
+        0.0006023350949010428
+      ],
+      "G_D_diag_kb2_I_self_abs": 0.0017203305913792957,
+      "G_D_diag_kb2_invalidated_wrong_abs": 1.001611618289434
+    }
+  ],
+  "summary": {
+    "formula": "I_self = (i*pi*a/(2*k_b))*H_1^(1)(k_b*a) - 1/k_b^2, a = h/sqrt(pi); [G_D]_nn = k_b^2*I_self",
+    "invalidated_rule": "(i/4)*2*pi*(a/k_b)*H_1^(1)(k_b*a)  [omits the -1/k_b^2 lower-endpoint term; labelled INVALID]",
+    "N_values": [
+      8,
+      12,
+      16,
+      24,
+      32,
+      40,
+      64,
+      128
+    ],
+    "quadrature": {
+      "method": "Gauss-Legendre radial quadrature on [0, a]",
+      "nodes_per_integral": 2048
+    },
+    "tends_to_zero_under_refinement": true,
+    "max_quadrature_abs_error": 3.1259818116830416e-16,
+    "max_abs_I_self_over_ladder": 0.005123358161588187,
+    "first_abs_I_self": 0.005123358161588187,
+    "last_abs_I_self": 4.3576482943668296e-05,
+    "first_to_last_ratio": 117.57163073970878,
+    "k_b": 6.283185307179586,
+    "k_b_inv_squared": 0.025330295910584444,
+    "note": "Analytic quadrature agreement is reported raw (no tolerance threshold applied). The tends-to-zero flag combines monotone |I_self| decrease over the ladder, a >=50x reduction, and quadrature consistency <1e-11; it is a finite-ladder diagnostic, not a continuum-limit proof."
+  },
+  "metadata": {
+    "generated_utc": "2026-09-03T16:55:16.867652+00:00",
+    "command": ".venv/bin/python src/validate_self_cell.py",
+    "working_directory": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.1",
+    "runtime_seconds": 4.736981499998365,
+    "seeds": null,
+    "source_sha256": {
+      "src/helmholtz.py": "ee3b4ac45ad296dba533a8ccefd107a6cc53e4357b7a768d07f7db90f3ee6585",
+      "src/validate_self_cell.py": "42dd75c079d8b88a1a6d9ed2aa3f00535788fefc461837262d555d0743b611bc"
+    },
+    "parent_correction_gate": "context/PARENT_CORRECTIONS.md and workshop rule 16 (2026-09-03)"
+  }
+}

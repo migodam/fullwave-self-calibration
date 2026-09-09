@@ -1,0 +1,28 @@
+case,category,key_values,pass,note
+minimal_pair_contrast,shared_map_algebra,"J1=0, J2=0, J_stack=2, sum_J=0, J_stack>sum=True",True,per-frame pose info zero; shared-map stack has information two
+minimal_pair_duplicate,shared_map_algebra,J_stack_dup=1e-15,True,duplicated b2=b1 gives zero stacked information
+random_innovation,shared_map_algebra,"fro_res=5.6e-15, max_res=3.3e-15, V_eq_fro=0, ker_dist=0",True,Theorem 9 equals direct stack; V=0 no-innovation; ker identity
+random_innovation_sweep,shared_map_algebra,worst_fro=1.8e-14,True,20 random fixtures; formula-direct Frobenius residual
+singular_fallback,shared_map_algebra,"rank_G=2, G_min_eig=4.5e-16, J_direct_min_eig=8.577, pinv_wrong_diff=1.061",True,singular G: naive pinv formula invalid; variational/direct PSD match
+compensation_visible,shared_map_algebra,"rank_D=1, J_stack_min_eig=10.39",True,"distinct compensators: every frame hides its pose, stack sees it"
+compensation_hidden,shared_map_algebra,"rank_D=0, J_stack_min_eig=-1e-14",True,equal compensators: stack stays hidden
+stack_vs_sum_random,shared_map_algebra,min_eig(J_stack-sum)=0.2552,True,J_stack >= sum J_l (Loewner) on a random 3-frame model
+stack_vs_sum_equality,shared_map_algebra,"gap_fro=4.4e-16, J_stack_min_eig=3.576",True,common per-frame optimal map direction gives exact equality (nonzero J)
+saturated_new_frame,shared_map_algebra,"a_clean=0, b_clean=0, J_change=6.8e-15",True,frame current spanning its data rows yields zero cleaned tangent
+rank_budget_overall,rank_acquisition_budget,worst_identity=2.3e-14,True,"seeds 401-412, J_final-J_original = I_acq - L_rank exact"
+rank_budget_loewner_counts,rank_acquisition_budget,loewner_holds=0/24,True,count of seeds/rank pairs satisfying I_acq >= L_rank
+rank_budget_C0_C1,rank_acquisition_budget,"worst_identity=1.2e-14, loewner=0/12",True,empty -> 2-column current enlargement
+rank_budget_C1_C2,rank_acquisition_budget,"worst_identity=2.3e-14, loewner=0/12",True,2-column -> 4-column current enlargement
+rank_budget_crafted_compensate,rank_acquisition_budget,"J_final-J_orig_min_eig=-2.1e-14, I-L_min_eig=-1.9e-14",True,b = aH + W^{-1/2}U_E^T B makes I_acq=L_rank exactly
+rank_budget_crafted_noncompensate,rank_acquisition_budget,"I-L_min_eig=-9.785, J_final-J_orig_min_eig=-9.785",True,"half-strength acquisition: I_acq < L_rank, J_final < J_original"
+rank_budget_neutral_control,rank_acquisition_budget,"L_max_eig=3.1e-15, I_min_eig=-3.7e-16, delta_min_eig=2.9e-16",True,L_rank=0 neutral enlargement: PSD innovation cannot degrade J
+nonsubmodular_lambda_0.1,non_submodularity,"g1+g2=-4.60517, g12+g0=-1.56065, gap=3.04452",True,"g(1)+g(2) < g(1,2)+g(empty) violates submodularity"
+nonsubmodular_lambda_0.001,non_submodularity,"g1+g2=-13.8155, g12+g0=-6.21411, gap=7.6014",True,"g(1)+g(2) < g(1,2)+g(empty) violates submodularity"
+acquisition_policies,policies,"greedy=8.04176, pair=8.04176, exhaustive=8.1263, random_best=8.1263, greedy_gap=0.0845427",True,K=3 over 8 candidates on the fixed old model; greedy is not optimal
+policy_evaluation_counts,policies,"rank1_greedy=21, pair=62, exhaustive=168, random=36",True,matrix evaluations charged as rank-1 Schur updates; no forward/adjoint
+neutral_logdet_lambda0,policies,"full_rank=56/56, best0=8.10256, best0.1=8.1263, same_best=True",True,Lambda_x=0 pose-Schur logdet on full-rank sets vs regularized value
+gauge_null_L2,gauge_symmetry,"min_eig_J=1e-15, null_dim=1",True,"global rigid gauge (1,-1) survives additional relative frames"
+gauge_null_L4,gauge_symmetry,"min_eig_J=0, null_dim=1",True,"global rigid gauge (1,-1) survives additional relative frames"
+anchor_restores_L2,gauge_symmetry,"min_eig_J=1, null_dim=0",True,"absolute anchor row (a=0,b=1) removes the gauge"
+anchor_restores_L4,gauge_symmetry,"min_eig_J=1, null_dim=0",True,"absolute anchor row (a=0,b=1) removes the gauge"
+source_stabilizer,gauge_symmetry,not_yet_run,,"True isotropic-vs-directional source-stabilizer behavior requires the physical full-wave core (secondary-stage tangent runner), which is not available in this synthetic tangent-matrix validation package."

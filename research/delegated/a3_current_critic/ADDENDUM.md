@@ -1,0 +1,14 @@
+# Bounded recheck of manuscript repairs
+
+Date: 2026-09-08. Isolated Codex reviewer. Read-only review of current PAPER_DRAFT_A3.md and METRIC_SEMANTICS.md; no experiments, browsing, raw-result recomputation or manuscript edits. This checks reporting repairs, not scientific acceptance.
+
+| Previously identified issue | Recheck disposition | Evidence and remaining boundary |
+|---|---|---|
+| Oracle-transfer versus actual sensor-phase labels | **Resolved as a reporting defect.** | Paper lines 136–151 consistently label the original table/refinement quantities as oracle-model transfer diagnostics; line 155 separately identifies actual inverse-model sensor predictions. The abstract now specifies pooled actual sensor-phase error and explicitly rejects a fixed-low-frequency causal inference. METRIC_SEMANTICS.md lines 7–24 separates evaluator, electronics, source artifacts, scene aggregation and differing frequency pools. Numerical raw-result verification was not part of this recheck. |
+| Known-electronics branch experiment versus unrestricted-gain graph policy | **Resolved as a disclosure defect.** | Paper line 177 explicitly states electronics are known and that these experiments do not validate the unrestricted-gain graph-based acquisition rule. The substantive nonlinear-policy linkage remains open, correctly. |
+| Proposed continuum-fidelity admission presented as operational | **Resolved as a status/claim defect.** | Paper line 149 calls forward-validation admission a proposed requirement and says no operational continuum-fidelity admission certificate has been validated. Line 88 continues to distinguish implemented discrete acceptance from continuum agreement; the abstract says results motivate reliability control. The actual admission rule/certificate remains an open research task, not a repaired experimental result. |
+| Single-start Rice comparison interpreted as coherent-information benefit | **Resolved as an inference defect.** | Paper line 153 restricts the result to two fitted procedures from one nominal initialization and states that it does not separate information advantage from nonconvex optimization effects. Stronger optimization-controlled comparison remains open. |
+
+No new blocking contradiction was found in these four repaired items. The ledger's explicit warning that low/high groups pool different frequency sets is a useful additional correction: it prevents an unsupported statement that adding higher-frequency measurements degrades predictions on a fixed evaluation band.
+
+The existing gaps concerning independent scientific review, novelty, unopened final comparisons, global coverage, continuum fidelity and hardware calibration are not claimed solved. Their continued presence does not invalidate the reporting repairs above. The detailed previous review remains applicable only to substantive work still outstanding, not to the four corrected wording/disclosure objections.

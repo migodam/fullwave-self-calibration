@@ -1,0 +1,61 @@
+{
+  "status": "completed",
+  "summary": "This round completed four additional experiment blocks (E10, E10b, E6b, E11) and a consolidated summary, grounded in recorded JSON/PNG outputs. The retained-rank geometry-lifted SOM decomposition was verified across full-circle and limited-aperture settings: unrestricted full-rank equivalence is vacuous, while retained-rank lifting produces a clean rank transition at r = M-2 for uniform full-circle arrays, with hidden_rank=2 and n_vis=1. Reduced lifted solvers match direct joint GN exactly wherever pose is visible at that retained rank, and freeze hidden pose directions otherwise. Transmitter-array self-calibration was reproducible for monopole and phased-dipole models, with directional dipoles escaping the L=1 monopole theta rank deficiency. The state-consistency thread remained negative: exact variable-projection/hard-state elimination did not restore principled hidden-pose recovery, and the original T_U witness remains diagnostic-only. A half-circle aperture local-minimum risk was recorded explicitly.",
+  "key_results": [
+    "Full-rank unrestricted lift reproduces pose perturbation to machine precision; retained-rank r4/r6 lifts leave large irreducible residuals (r4 0.474-0.864, r6 0.354-0.686 across settings) with Q^H R orthogonality ~1e-18.",
+    "reduced_r4 matches direct to full precision in every setting; reduced_r6 also matches direct everywhere pose is visible at r6.",
+    "Canonical M=8 hidden regime reproduces: r6 has n_vis=1/hidden_rank=2 and median pose error 0.0442 vs direct 0.0158.",
+    "Completed rank transition rule for uniform full circles: hiding occurs at r = M-2. M=12 reduced_r10 median pose 0.0759 vs direct 0.00761 (hidden component 0.072); M=16 reduced_r14 median pose 0.111 vs direct 0.0148 (hidden component 0.0905).",
+    "Trailing r=M-1 and r=M are an empty-lift diagnostic: B_red collapses to ~1e-19 and reduced matches direct exactly, so genuine rank-2 hiding is confined to r=M-2.",
+    "Oracle baselines: known_pose map error 0.008-0.012 (0.00812 on half arc); known_alpha pose error ~0.0016-0.0106 on full-circle settings; wrongpose map error 0.21-1.33, confirming pose calibration is required.",
+    "Half-circle aperture is a local-minimum caveat: known_alpha reaches a spurious minimum with pose error 0.86 on all three seeds, and one reduced_r6 seed reached a spurious solution despite passing the convergence gate.",
+    "E6b: all 240/240 monopole/dipole/co-moving runs converged. Monopole L=2 tx-only theta median scales 1.45e-2 rad at 15 dB to 8.10e-4 rad at 40 dB; pose 1.52e-2 to 8.57e-4; map 4.21e-2 to 2.32e-3.",
+    "E6b transmitter-array/directional-source extension: L=3 monopole theta 3.68e-3 (20 dB), 1.17e-3 (30 dB), 3.71e-4 (40 dB); co-moving L=2 theta 1.95e-2 (20 dB) to 2.07e-3 (40 dB); phased-dipole FD max rel err 2.2e-7 at eps=1e-4; L=1 phased dipole reaches complex rank 3 with third realified SV 2.0e-4.",
+    "E11 hard state equality is also a null: vp_hard_r6 stalls at the degenerate r=6 SVD cut from p_init=0 (both seeds fail, hidden error 0.0441) or converges to a distant local minimum with hidden error 0.196 from a perturbed start.",
+    "vp_soft_r6 partially reduces the hidden freeze (hidden 0.0160 vs 0.0441) but is model-biased, not recovery: VP residual 0.0623 vs 30 dB noise ratio 0.0316, discarded-current fraction ~0.87, median map error 0.838, full-physics residual ~0.83.",
+    "The demoted state witness T_U remains diagnostic-only; exact variable-projection elimination did not restore principled hidden-pose recovery, so this is not an artifact of the auxiliary coefficient c or scalar penalty."
+  ],
+  "files_of_interest": [
+    "results_e10_settings_sweep.json",
+    "plot_e10_settings_sweep.png",
+    "results_e10b_m12_m16_highrank.json",
+    "plot_e10b_m12_m16_highrank.png",
+    "results_e6b_multitx_robust.json",
+    "plot_e6b_multitx_robust.png",
+    "results_e11_vp_state_null.json",
+    "plot_e11_vp_state_null.png",
+    "consolidated_round3_summary.json",
+    "consolidated_round3_tables.md"
+  ],
+  "working_assets": [
+    "geom_som_core.py (extended backward-compatibly with optional receiver_angles for limited apertures)",
+    "run_e10_settings_sweep.py",
+    "run_e10b_m12_m16_highrank.py",
+    "run_e6b_multitx_robust.py",
+    "run_e11_vp_state_null.py",
+    "make_consolidated_summary.py",
+    "Prior-round assets reused: run_e5*.py, run_e6_multitx.py, run_e7*.py, run_e9_grid_scenes.py, earlier results_*.json and plots"
+  ],
+  "completed_steps": [
+    "Verified the full-row-rank negative control and retained-rank decomposition across settings M=8/12/16, k=8/16, full-circle, half-circle, and 3/4-circle arcs.",
+    "Extended geom_som_core.py with receiver_angles so limited-aperture arcs could reuse existing forward/Jacobian machinery.",
+    "Ran E10 settings sweep with wrongpose, known_pose, known_alpha, direct, reduced_r4, reduced_r6 and an M=12 retained-rank ablation r=2..8; wrote JSON, plot, and run output.",
+    "Completed E10b M=12/M=16 rank transition; identified the r=M-2 hiding rule and the r=M-1,M empty-lift diagnostic.",
+    "Ran E6b robust multi-transmitter study: 240 runs across SNR 15-40 dB with 8 seeds each for L=2/L=3 monopole arrays and co-moving L=2.",
+    "Implemented and FD-validated a phased-dipole transmitter-array model and ran its self-calibration.",
+    "Ran E11 variable-projection/hard-state-equality null with c eliminated exactly via retained-current projector P(p); compared direct, reduced_r6, vp_hard_r6, vp_soft_r6 and computed linearized VP pose signature.",
+    "Generated consolidated_round3_summary.json and consolidated_round3_tables.md from the actual result JSONs."
+  ],
+  "dead_ends": [
+    "The original retained-rank state witness T_U failed to discriminate good from bad pose estimates and remains diagnostic-only.",
+    "Hard r=6 variable-projection is a gauge/numerical null at p_init because the cut sits on the degenerate s6=s7 pair.",
+    "vp_soft_r6 avoids the hard-cut cone but does not produce principled hidden-pose recovery; it is model-biased with high discarded-current fraction and poor map/full-physics residual.",
+    "Half-circle aperture exposes local-minimum risk, so convergence-gate success should not be interpreted as global success in that setting."
+  ],
+  "next_steps": [
+    "Add a half-circle multi-start direct/known-alpha study to characterize and mitigate the local-minimum basin.",
+    "If continuing the state thread, test only a constrained formulation enforcing the discarded-current residual below the noise level with a truly scale-normalized, analytic-Jacobian penalty; current evidence does not justify claiming it will work.",
+    "Optionally extend E10b to odd/irregular aperture angle sets to test whether the r=M-2 counting rule is specific to uniform arcs.",
+    "Keep all negative state-witness and hard/soft threshold findings visible in any paper synthesis."
+  ]
+}

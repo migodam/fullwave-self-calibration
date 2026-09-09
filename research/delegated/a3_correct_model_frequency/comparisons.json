@@ -1,0 +1,382 @@
+[
+  {
+    "seed": 8101,
+    "choice": "low",
+    "use_reference": false,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0005972479923476246,
+        "weighted_phase_rmse_rad": -0.00017736646871972447
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.03101813399450573,
+        "weighted_phase_rmse_rad": -0.004752243729236119
+      }
+    },
+    "pose_error_difference_m": 0.00014225200722601435,
+    "material_relative_error_difference": -0.022917574079738934
+  },
+  {
+    "seed": 8101,
+    "choice": "low",
+    "use_reference": true,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0017044442968452709,
+        "weighted_phase_rmse_rad": -0.00022952547479927797
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.001895110233250231,
+        "weighted_phase_rmse_rad": -0.00030959341922160203
+      }
+    },
+    "pose_error_difference_m": -1.706199652962354e-05,
+    "material_relative_error_difference": 0.0018761907707308015
+  },
+  {
+    "seed": 8101,
+    "choice": "low_high",
+    "use_reference": false,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.01117256366767387,
+        "weighted_phase_rmse_rad": -0.002888789388566235
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.03217410413616043,
+        "weighted_phase_rmse_rad": -0.006663912920845578
+      }
+    },
+    "pose_error_difference_m": -0.0005391053619143318,
+    "material_relative_error_difference": -0.023377192695183523
+  },
+  {
+    "seed": 8101,
+    "choice": "low_high",
+    "use_reference": false,
+    "baseline": "correct_model_low",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0021820556725711945,
+        "weighted_phase_rmse_rad": -0.001244188214536214
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.005972728477111358,
+        "weighted_phase_rmse_rad": -0.001822487591820232
+      }
+    },
+    "pose_error_difference_m": -0.00028468589933880505,
+    "material_relative_error_difference": -0.004110932099432141
+  },
+  {
+    "seed": 8101,
+    "choice": "low_high",
+    "use_reference": false,
+    "baseline": "correct_model_low_repeat",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0016979691055570908,
+        "weighted_phase_rmse_rad": -0.0010953246013773999
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.004872311955701697,
+        "weighted_phase_rmse_rad": -0.0015654956458863974
+      }
+    },
+    "pose_error_difference_m": -0.00025342632665840444,
+    "material_relative_error_difference": -0.0033346076939020364
+  },
+  {
+    "seed": 8101,
+    "choice": "low_high",
+    "use_reference": true,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.011302368505162091,
+        "weighted_phase_rmse_rad": -0.002710238868872736
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.03152125174642811,
+        "weighted_phase_rmse_rad": -0.0064835768729623565
+      }
+    },
+    "pose_error_difference_m": -0.0005088595625563413,
+    "material_relative_error_difference": -0.02290704711856435
+  },
+  {
+    "seed": 8101,
+    "choice": "low_high",
+    "use_reference": true,
+    "baseline": "correct_model_low",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.002034637333269476,
+        "weighted_phase_rmse_rad": -0.0011169355718003867
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.0040654104157022575,
+        "weighted_phase_rmse_rad": -0.0016169479089848816
+      }
+    },
+    "pose_error_difference_m": -0.00028716401465000757,
+    "material_relative_error_difference": -0.0027010271760516957
+  },
+  {
+    "seed": 8101,
+    "choice": "low_high",
+    "use_reference": true,
+    "baseline": "correct_model_low_repeat",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0015837581538271377,
+        "weighted_phase_rmse_rad": -0.0009932668973773194
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.004054426830048689,
+        "weighted_phase_rmse_rad": -0.001496518348309536
+      }
+    },
+    "pose_error_difference_m": -0.00025716356522946103,
+    "material_relative_error_difference": -0.0027253362382570145
+  },
+  {
+    "seed": 8101,
+    "choice": "low_repeat",
+    "use_reference": false,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0006853608177373369,
+        "weighted_phase_rmse_rad": -0.0002573762647953082
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.02962245786821372,
+        "weighted_phase_rmse_rad": -0.004611823406948429
+      }
+    },
+    "pose_error_difference_m": 7.701168429954805e-05,
+    "material_relative_error_difference": -0.021867136075033322
+  },
+  {
+    "seed": 8101,
+    "choice": "low_repeat",
+    "use_reference": true,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0018435426650164153,
+        "weighted_phase_rmse_rad": -0.00021676975641446482
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.0018646876857799357,
+        "weighted_phase_rmse_rad": -0.0003601131217477241
+      }
+    },
+    "pose_error_difference_m": -1.9449502691231085e-05,
+    "material_relative_error_difference": 0.0019347080485562886
+  },
+  {
+    "seed": 8102,
+    "choice": "low",
+    "use_reference": false,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.000520798754232334,
+        "weighted_phase_rmse_rad": -0.0003091683905887409
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.04299958696435911,
+        "weighted_phase_rmse_rad": -0.00735098084481867
+      }
+    },
+    "pose_error_difference_m": -2.2703822496359597e-05,
+    "material_relative_error_difference": -0.03158277368484139
+  },
+  {
+    "seed": 8102,
+    "choice": "low",
+    "use_reference": true,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0014459466894593464,
+        "weighted_phase_rmse_rad": -0.00023962411097564525
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.0019961816150879073,
+        "weighted_phase_rmse_rad": -0.0004639413207692051
+      }
+    },
+    "pose_error_difference_m": -1.9053745284576074e-05,
+    "material_relative_error_difference": 0.0019069239111285442
+  },
+  {
+    "seed": 8102,
+    "choice": "low_high",
+    "use_reference": false,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.010776805105324888,
+        "weighted_phase_rmse_rad": -0.0027876694652819657
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.02863740003958814,
+        "weighted_phase_rmse_rad": -0.004956633568891387
+      }
+    },
+    "pose_error_difference_m": -0.000196015937709442,
+    "material_relative_error_difference": -0.021079311128717217
+  },
+  {
+    "seed": 8102,
+    "choice": "low_high",
+    "use_reference": false,
+    "baseline": "correct_model_low",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.002578293533900529,
+        "weighted_phase_rmse_rad": -0.001357669172627639
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.005263683496132297,
+        "weighted_phase_rmse_rad": -0.0008511613627382314
+      }
+    },
+    "pose_error_difference_m": -0.00010354823168836713,
+    "material_relative_error_difference": -0.0038584482942331634
+  },
+  {
+    "seed": 8102,
+    "choice": "low_high",
+    "use_reference": false,
+    "baseline": "correct_model_low_repeat",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0021660473447746875,
+        "weighted_phase_rmse_rad": -0.001358018030133282
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.0077282161508683426,
+        "weighted_phase_rmse_rad": -0.001148650881031142
+      }
+    },
+    "pose_error_difference_m": -0.00010401012774696294,
+    "material_relative_error_difference": -0.005647249205826555
+  },
+  {
+    "seed": 8102,
+    "choice": "low_high",
+    "use_reference": true,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.010819860845781775,
+        "weighted_phase_rmse_rad": -0.0025344240818479143
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.027779109397732104,
+        "weighted_phase_rmse_rad": -0.004765346323255766
+      }
+    },
+    "pose_error_difference_m": -0.0001715876569121605,
+    "material_relative_error_difference": -0.020450065911744454
+  },
+  {
+    "seed": 8102,
+    "choice": "low_high",
+    "use_reference": true,
+    "baseline": "correct_model_low",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0021740448548537156,
+        "weighted_phase_rmse_rad": -0.0009657119014123295
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.0023504805094660412,
+        "weighted_phase_rmse_rad": -0.000602164377501882
+      }
+    },
+    "pose_error_difference_m": -0.00011618008238281914,
+    "material_relative_error_difference": -0.0016810622336642213
+  },
+  {
+    "seed": 8102,
+    "choice": "low_high",
+    "use_reference": true,
+    "baseline": "correct_model_low_repeat",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0018199027749900283,
+        "weighted_phase_rmse_rad": -0.0009889000498842261
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.0023218177768015986,
+        "weighted_phase_rmse_rad": -0.0005769163256954515
+      }
+    },
+    "pose_error_difference_m": -0.000112533342281587,
+    "material_relative_error_difference": -0.0016673632955447105
+  },
+  {
+    "seed": 8102,
+    "choice": "low_repeat",
+    "use_reference": false,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0006204429253670405,
+        "weighted_phase_rmse_rad": -0.0002669913885561823
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.039414561363567455,
+        "weighted_phase_rmse_rad": -0.006786731903898935
+      }
+    },
+    "pose_error_difference_m": 7.951140327240082e-06,
+    "material_relative_error_difference": -0.028985116409117676
+  },
+  {
+    "seed": 8102,
+    "choice": "low_repeat",
+    "use_reference": true,
+    "baseline": "independent_matched_same_choice",
+    "direction": "correct-model row minus baseline; negative error difference is improvement",
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": -0.0015407236633965386,
+        "weighted_phase_rmse_rad": -0.0002357174547395909
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.0019614911292939853,
+        "weighted_phase_rmse_rad": -0.0004204799461278643
+      }
+    },
+    "pose_error_difference_m": -8.981804112057838e-06,
+    "material_relative_error_difference": 0.001965332203388748
+  }
+]

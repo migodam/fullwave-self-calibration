@@ -1,0 +1,114 @@
+{
+  "idea": {
+    "Name": "a3_conditional_calibration_checks_v2",
+    "Title": "Calibration and downstream checks for A3 conditional algebra with repeated stochastic trials",
+    "Short Hypothesis": "A3 conditional algebra can be implemented with explicit failure controls, and its branch/residual bounds are calibrated across seeds and small downstream linearized SLAM fixtures; any practical gain is measured rather than assumed.",
+    "Related Work": "SOM means subspace-based optimization, not self-organizing maps. Generic projection, gain closure, dual residual methods, and bootstrap calibration are prior art. Parent owns literature and scientific judgment; this revision does not claim novelty.",
+    "Abstract": "This revision keeps the completed deterministic B1-B4 identity checks as a frozen baseline and extends them into a small empirical study. It adds 50-seed stochastic trials with bootstrap intervals, a condition-number sweep for near-singular linearized systems, and two toy linearized pose-graph/bundle-adjustment tasks. The goal is to test whether the A3 conditional branch/residual bounds are calibrated beyond a single Gaussian fixture and whether full A3 conditional corrections improve downstream end-point error relative to LS/ridge. No global novelty, real 3D SLAM, or SOM-performance claim is made.",
+    "Experiments": {
+      "datasets": [
+        "deterministic complex linear systems and Gaussian validation fixtures from completed B1-B4",
+        "50-seed Gaussian and heavy-tailed residual fixtures with 2000 draws per seed",
+        "condition-number sweep ensemble of complex linear systems with known ground truth",
+        "two small linearized pose-graph/bundle-adjustment tasks with synthetic noisy observations"
+      ],
+      "baselines": [
+        "correct vs omitted residual derivative (frozen control)",
+        "plug-in theorem bound vs bootstrap percentile interval",
+        "full A3 conditional correction vs A3 without dual-residual correction",
+        "A3 conditional subspace projection vs unregularized least squares vs ridge-regularized least squares",
+        "fixed-chart vs moving-chart formula under near-degenerate charts"
+      ],
+      "metrics": [
+        "deterministic identity errors and expected-fail control statuses",
+        "empirical selection risk, coverage probability, and interval width across seeds",
+        "downstream root-mean-square endpoint/landmark error and failure rate",
+        "negative control violations and undercoverage flags"
+      ],
+      "compute_estimate": "single CPU thread, pinned venv, small NumPy/SciPy arrays; 50 seeds x 2000 draws, condition sweep, two toy tasks; roughly 2-4 CPU hours.",
+      "steps": [
+        "Reuse completed regenerate_checks.py and checks.json as a frozen baseline",
+        "Add seed-swept stochastic residual fixtures and bootstrap percentile intervals for branch bounds",
+        "Add condition-number sweep and two small linearized pose-graph/bundle-adjustment downstream tasks",
+        "Run full A3 conditional correction, no dual-residual ablation, and LS/ridge baselines",
+        "Audit deterministic expected-fail controls and summarize calibration/downstream findings"
+      ]
+    },
+    "Risk Factors and Limitations": [
+      "Synthetic and toy-linearized settings only; no real 3D or full SLAM evidence",
+      "Bootstrap intervals are approximate finite-sample calibrations, not proof",
+      "Downstream tasks may show no practical advantage; this would be recorded as a negative result",
+      "Parent must independently audit; no global candidate coverage or SOM performance claim"
+    ]
+  },
+  "report": {
+    "status": "completed",
+    "summary": "Extended the frozen B1-B4 deterministic algebra checks into a finite-noise calibration and toy linearized forward-model study. The frozen baseline was re-audited as 16 pass / 4 expected-fail / 0 fail / 20 total. B3 branch-bound calibration was conservative at matched variance (15/15 Gaussian configs covered; the only miss against the frozen sigma=1 bound was a sigma=2 variance mismatch, not a matched-variance bound failure). B2 ratio-sufficiency showed finite-sample covariance and chi-square behavior consistent with the realified whitened projector. B4 dual-residual/resolvent bounds held on two toy linearized SLAM systems and near-singular controls. The downstream accuracy hypothesis is a clean negative/neutral result: A3 dual-residual correction equals the full-LS functional by identity and therefore cannot improve endpoint accuracy over LS. Final audit: PASS.",
+    "key_results": [
+      "Frozen baseline re-audit: 16 pass, 4 expected-fail, 0 fail, 20 total; frozen_baseline_ok=True.",
+      "B3 finite-noise calibration: 50 seeds x 2000 draws/config; Gaussian configs 15/15 covered at matched sigma, 14/15 covered against the frozen sigma=1 bound; the only miss was geo_d8/beta=1.0/sigma=2.0 with p_hat=0.088 vs bound 0.0222, i.e. variance mis-specification.",
+      "B3 heavy-tail calibration: 0 strong bootstrap violations at matched sigma across 8 configs; 1/8 against the sigma=1 bound from the same sigma=2 variance mismatch (p_hat=0.0587, bootstrap lower 0.0573 > 0.0222), so no heavy-tail-specific violation was demonstrated in the tested regimes.",
+      "Sharpened B3 reused-validation control: 100,000 reps with empirical error 1 by construction; plug-in bound was invalid (<1) in 99,985 reps (99.985%), average invalid bound 0.6930 (min 0.0302, max 1.0).",
+      "B2 finite-noise ratio sufficiency: projector identity Frobenius diff 6.172e-15, rank 24; empirical covariance matched P_L Sigma P_L to 1.431e-2 relative Frobenius over 100,000 draws; Q mean 23.977 vs theory 24, std 6.915 vs theory 6.928, 95th pct 36.305 vs chi-square(24) 36.415, coverage 95.11%.",
+      "B2 gain/log-H checks: nonlinear gain invariance exact to about 3.662e-15; multiplicative log-noise H=H0*exp(E) shows log C(H)-log C(H0)=Lc*vec(E) exactly, so residual errors around 1e-15 are roundoff rather than linearization error.",
+      "B4 forward model: pose-graph identity_rel=3.72e-15 and bundle identity_rel=3.23e-16 with all identity_rel<1e-8, bound_p0_holds, and bound_cg_holds flags True; condition sweeps reached pose-graph cond up to 8.69e4 and bundle cond up to 2.81e3, with max identity rel <=2.63e-13.",
+      "B4 downstream result is negative/neutral on practical accuracy gain: A3 dual-residual correction equals the full-LS functional by identity (rel ~1e-13 to 1e-15), so it removes chart/subspace error but provides no endpoint-accuracy gain over LS; chart-only and ridge are regularized estimators that can be smaller or larger than LS depending on the setting (e.g. pose-graph LS err 0.0147-0.0982 vs ridge 0.0175-0.0198).",
+      "Near-singular B4 controls: pose graph cond=5414, sigma_min=3.438e-02, gamma=29.09; bundle cond=282.3, sigma_min=1e-03, gamma=1000. Both show residual_norm << output_error=0.5 while certified_bound == output_error; small_residual_certifies=False as expected and certified gamma bound holds. Nonzero correction identity held with correction_rel 1.89e-15 / 2.33e-15 and full-functional absolute identity <=1.15e-15.",
+      "Final audit: non-bool fail flags = 0; AUDIT: PASS."
+    ],
+    "files_of_interest": [
+      "calibration_summary.md",
+      "calibration_results.json",
+      "b3_calibration.png",
+      "b2_ratio_sufficiency.png",
+      "b4_forward_model.png",
+      "b4_near_singular.png",
+      "run_output_identity_fix.txt"
+    ],
+    "working_assets": [
+      "a3_calibration_study.py",
+      "calibration_results.json",
+      "calibration_summary.md",
+      "b3_calibration.png",
+      "b2_ratio_sufficiency.png",
+      "b4_forward_model.png",
+      "b4_near_singular.png",
+      "run_output_identity_fix.txt",
+      "checks.json",
+      "regenerate_checks.py",
+      "SUMMARY.md"
+    ],
+    "completed_steps": [
+      "Re-audited the frozen checks.json baseline without modifying regenerate_checks.py, checks.json, or SUMMARY.md.",
+      "Added B3 finite-noise branch-bound calibration across 50 seeds x 2000 draws/config for Gaussian and heavy-tailed noise, with Wilson and seed-bootstrap intervals.",
+      "Added the sharpened B3 reused-validation expected-fail control over 100,000 repetitions.",
+      "Added B2 finite-noise ratio-sufficiency checks, including projector/covariance identity, chi-square calibration, nonlinear gain invariance, and exact log-H linearity.",
+      "Built two toy linearized SLAM forward systems (2D SE(2) pose graph and 3D pinhole bundle adjustment) and ran condition sweeps with chart-only, A3 dual-residual correction, LS, and ridge baselines.",
+      "Verified CG-approximate-adjoint bounds and near-singular controls with certified resolvent gamma and exact adjoint correction.",
+      "Wrote calibration_results.json, calibration_summary.md, and four programmatically validated plots; final audit passed."
+    ],
+    "dead_ends": [
+      "The initial near-singular identity gate used relative error against q^T L w_ls, which is machine-zero for the bundle fixture; this inflated the metric to 1.15e-3 and caused a spurious AUDIT: FAIL. It was fixed by validating the identity on the nonzero correction functional q^T L(w_ls - w_tilde)=0.5 while retaining the full-functional absolute identity for audit transparency.",
+      "The hypothesis of downstream endpoint-accuracy gain from A3 conditional correction is ruled out by identity: the A3 dual-residual correction equals the full-LS functional, so no accuracy gain over LS is possible in these linearized fixtures.",
+      "run_output.txt captured an earlier failing audit state; it is superseded by run_output_identity_fix.txt, which has the corrected near-singular identity criterion and final AUDIT: PASS."
+    ],
+    "next_steps": [
+      "Move beyond linearized normal-equation fixtures to a nonlinear SLAM/BA loop or real dataset if empirical realism is required.",
+      "Test whether the A3 conditional correction has a measurable computational advantage, such as adjoint iterations vs full solve, at scale, because the accuracy-gain hypothesis is now ruled out by identity.",
+      "Strengthen heavy-tail B3 matched-variance probes with larger separations and more draws to test whether heavy tails per se can ever violate the Gaussian branch bound; current regimes show the bound remains conservative.",
+      "Parent can integrate the frozen checks plus these calibration and forward-model results into the A3 manuscript, with the no-accuracy-gain and synthetic-scope caveats stated explicitly."
+    ]
+  },
+  "verdict": {
+    "decision": "revise",
+    "unresolved_issues": [
+      "The sharpened B3 reused-validation control is a red flag: the plug-in bound was invalid in 99.985% of 100,000 reps with an average invalid bound near 0.69. This needs to be explained, scoped, or fixed before any claim that the branch/residual bounds are calibrated can be made; the final audit currently treats it as PASS but it undermines the main calibration claim.",
+      "The downstream study remains toy and synthetic: only two small linearized pose-graph/bundle-adjustment fixtures with synthetic noisy observations. A full paper needs at least one more realistic or nonlinear benchmark, or a clearly argued scope limit backed by multiple settings, before making endpoint-error/failure-rate claims.",
+      "The central negative/neutral result that A3 dual-residual correction equals the full-LS functional by identity is largely analytic and does not provide practical evidence; the paper would need to characterize when chart/subspace error matters and quantify the tradeoff versus ridge/chart-only under different noise and conditioning regimes.",
+      "Several planned ablations/baselines are not clearly reported: fixed-chart vs moving-chart formula, the no-dual-residual ablation, and comparisons beyond LS/ridge are only partially visible. These need explicit quantitative results and condition/system coverage.",
+      "Statistical robustness is thin for some key claims: downstream tasks and near-singular controls need multiple seeds/runs with variance estimates, bootstrap intervals, and failure-rate confidence intervals, not just single-run identity checks or point estimates.",
+      "The report does not connect the calibration results to any useful downstream behavior or performance improvement; for a full-length top-venue paper, the contribution needs stronger framing and evidence than deterministic identity checks plus matched-variance calibration on toy linearized fixtures."
+    ],
+    "reasoning": "The report shows clean deterministic checks and some finite-sample calibration in matched settings, so the core idea is not broken and should not be abandoned. However, it is not yet at full-paper depth. The empirical scope is largely synthetic toy linearized fixtures, the central downstream result is analytically negative/neutral rather than practically informative, and most importantly the sharpened B3 reused-validation control reveals a severe failure of the plug-in bound in a relevant calibration check. That invalid-bound issue must be understood and either fixed or the claims narrowed. The study needs at least one more realistic/nonlinear setting, explicit ablation of fixed vs moving chart and dual-residual components, more baseline comparisons, and multiple runs with variance for downstream and near-singular analyses. Until those are done, this remains a pilot-level but promising calibration study."
+  }
+}

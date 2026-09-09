@@ -1,0 +1,704 @@
+{
+  "schema": "family2_parent_correction",
+  "generated_utc": "2026-09-03T16:55:24.919830+00:00",
+  "command": ".venv/bin/python src/family2_parent_correction.py",
+  "working_directory": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry",
+  "purpose": "Supplement, not replacement: preserve the original failed gate, resolve prior limits, and remove the false gauge label.",
+  "cases": {
+    "pixel": {
+      "case": "pixel",
+      "rank_B": 18,
+      "rank_tolerance_B": 1.097715785962827e-15,
+      "sigma_B_min_retained": 0.0006748865400722514,
+      "sigma_B_min_squared": 4.554718419706946e-07,
+      "original_pixel_projector_gate": {
+        "nullity_KSL_eig": 226,
+        "rank_KSL": 30,
+        "rank_C": 30,
+        "nullity_C": 226,
+        "tol_KSL_eig_selector": 5.647178211826468e-19,
+        "tol_C": 1.791661007212239e-16,
+        "eig_KSL_min_abs_values": [
+          2.139119736407065e-20,
+          1.0411709044697668e-20,
+          6.053958554510364e-21,
+          2.229105326830936e-21,
+          2.1752434232589567e-21,
+          1.8801081143583568e-21,
+          1.851406154308367e-21,
+          1.7777823110222637e-21
+        ],
+        "subspace_distance": 8.465801573908799e-07,
+        "min_singular_N1T_N2": 0.999999999999641,
+        "max_norm_KSL_u_over_N2": 1.9551491574556926e-19,
+        "max_norm_C_u_over_N1": 1.5614682714786741e-13,
+        "pass_gate": false,
+        "pass_gate_tol": 1e-08,
+        "identity_support": true,
+        "note": "N1: eig(K_SLAM) with |eval| <= tol; N2: null(P_perp A) from full SVD.  Empty bases give distance 0 and vacuous min singular. identity_support uses null residuals and dimension equality, which are insensitive to basis mixing inside the ill-conditioned zero cluster of K_SLAM."
+      },
+      "stable_kernel_factorization": {
+        "identity": "K_SLAM = C^T C with C=(I-P_B)A",
+        "relative_factorization_residual": 3.7730519777223677e-16,
+        "pass_at_1e-12": true,
+        "interpretation": "This factorization plus ||Cu||^2=u^T K_SLAM u proves the finite-dimensional kernel identity algebraically. It does not retroactively pass the original ill-conditioned eigenprojector gate."
+      },
+      "regular_prior_svd_filter_sweep": {
+        "rows": [
+          {
+            "alpha": 1e-14,
+            "d0_rel_F": 5.698550818916081e-09,
+            "dinf_rel_F": 0.9958916115028333
+          },
+          {
+            "alpha": 3.1622776601683796e-14,
+            "d0_rel_F": 1.8020399198200786e-08,
+            "dinf_rel_F": 0.9958916063984329
+          },
+          {
+            "alpha": 1e-13,
+            "d0_rel_F": 5.698549831494205e-08,
+            "dinf_rel_F": 0.9958915902569048
+          },
+          {
+            "alpha": 3.162277660168379e-13,
+            "d0_rel_F": 1.8020389264178386e-07,
+            "dinf_rel_F": 0.9958915392129435
+          },
+          {
+            "alpha": 1e-12,
+            "d0_rel_F": 5.698539865969001e-07,
+            "dinf_rel_F": 0.9958913777980878
+          },
+          {
+            "alpha": 3.1622776601683794e-12,
+            "d0_rel_F": 1.8020289586589432e-06,
+            "dinf_rel_F": 0.9958908673627263
+          },
+          {
+            "alpha": 1e-11,
+            "d0_rel_F": 5.69844019248815e-06,
+            "dinf_rel_F": 0.9958892532566891
+          },
+          {
+            "alpha": 3.1622776601683794e-11,
+            "d0_rel_F": 1.801929290008756e-05,
+            "dinf_rel_F": 0.995884149328235
+          },
+          {
+            "alpha": 1e-10,
+            "d0_rel_F": 5.69744366608049e-05,
+            "dinf_rel_F": 0.9958680125186257
+          },
+          {
+            "alpha": 3.1622776601683795e-10,
+            "d0_rel_F": 0.00018009332693467599,
+            "dinf_rel_F": 0.995817015715091
+          },
+          {
+            "alpha": 1e-09,
+            "d0_rel_F": 0.0005687499420640813,
+            "dinf_rel_F": 0.9956560715890176
+          },
+          {
+            "alpha": 3.1622776601683795e-09,
+            "d0_rel_F": 0.001791039182653779,
+            "dinf_rel_F": 0.9951503168800255
+          },
+          {
+            "alpha": 1e-08,
+            "d0_rel_F": 0.005590113871241851,
+            "dinf_rel_F": 0.9935821934923605
+          },
+          {
+            "alpha": 3.162277660168379e-08,
+            "d0_rel_F": 0.01698283007416939,
+            "dinf_rel_F": 0.9889137724435062
+          },
+          {
+            "alpha": 1e-07,
+            "d0_rel_F": 0.047850986978852025,
+            "dinf_rel_F": 0.9765031806675808
+          },
+          {
+            "alpha": 3.162277660168379e-07,
+            "d0_rel_F": 0.11371270963661052,
+            "dinf_rel_F": 0.9509172370710778
+          },
+          {
+            "alpha": 1e-06,
+            "d0_rel_F": 0.20854550068437608,
+            "dinf_rel_F": 0.9143734506987053
+          },
+          {
+            "alpha": 3.162277660168379e-06,
+            "d0_rel_F": 0.30131790359054483,
+            "dinf_rel_F": 0.8724197191148346
+          },
+          {
+            "alpha": 1e-05,
+            "d0_rel_F": 0.3833974696008085,
+            "dinf_rel_F": 0.8199278310707854
+          },
+          {
+            "alpha": 3.1622776601683795e-05,
+            "d0_rel_F": 0.47240445461101227,
+            "dinf_rel_F": 0.7552012817520071
+          },
+          {
+            "alpha": 0.0001,
+            "d0_rel_F": 0.5644510714072889,
+            "dinf_rel_F": 0.6934497156891652
+          },
+          {
+            "alpha": 0.00031622776601683794,
+            "d0_rel_F": 0.6361063283861951,
+            "dinf_rel_F": 0.6385212814230421
+          },
+          {
+            "alpha": 0.001,
+            "d0_rel_F": 0.6891904342401661,
+            "dinf_rel_F": 0.5618472868393922
+          },
+          {
+            "alpha": 0.0031622776601683794,
+            "d0_rel_F": 0.7517025963657769,
+            "dinf_rel_F": 0.436544182730839
+          },
+          {
+            "alpha": 0.01,
+            "d0_rel_F": 0.8358825121593019,
+            "dinf_rel_F": 0.27128431823194454
+          },
+          {
+            "alpha": 0.03162277660168379,
+            "d0_rel_F": 0.9175012433604227,
+            "dinf_rel_F": 0.1264732819118454
+          },
+          {
+            "alpha": 0.1,
+            "d0_rel_F": 0.9658128421715869,
+            "dinf_rel_F": 0.047291941226529174
+          },
+          {
+            "alpha": 0.31622776601683794,
+            "d0_rel_F": 0.9856904078133757,
+            "dinf_rel_F": 0.015882304973581826
+          },
+          {
+            "alpha": 1.0,
+            "d0_rel_F": 0.9925900263359233,
+            "dinf_rel_F": 0.005123299665235991
+          },
+          {
+            "alpha": 3.1622776601683795,
+            "d0_rel_F": 0.9948397567768343,
+            "dinf_rel_F": 0.001630499608979193
+          },
+          {
+            "alpha": 10.0,
+            "d0_rel_F": 0.9955581994226541,
+            "dinf_rel_F": 0.0005166554615280061
+          },
+          {
+            "alpha": 31.622776601683793,
+            "d0_rel_F": 0.9957860999118958,
+            "dinf_rel_F": 0.00016348571783762118
+          },
+          {
+            "alpha": 100.0,
+            "d0_rel_F": 0.9958582395097285,
+            "dinf_rel_F": 5.1709224202439053e-05
+          },
+          {
+            "alpha": 316.22776601683796,
+            "d0_rel_F": 0.9958810591746563,
+            "dinf_rel_F": 1.6352942834869566e-05
+          },
+          {
+            "alpha": 1000.0,
+            "d0_rel_F": 0.9958882760986627,
+            "dinf_rel_F": 5.171359628087913e-06
+          },
+          {
+            "alpha": 3162.2776601683795,
+            "d0_rel_F": 0.9958905583616606,
+            "dinf_rel_F": 1.6353380075136234e-06
+          },
+          {
+            "alpha": 10000.0,
+            "d0_rel_F": 0.9958912800837145,
+            "dinf_rel_F": 5.171403353154121e-07
+          },
+          {
+            "alpha": 31622.776601683792,
+            "d0_rel_F": 0.9958915083129798,
+            "dinf_rel_F": 1.6353423800859506e-07
+          },
+          {
+            "alpha": 100000.0,
+            "d0_rel_F": 0.9958915804854817,
+            "dinf_rel_F": 5.171407725287655e-08
+          },
+          {
+            "alpha": 316227.7660168379,
+            "d0_rel_F": 0.9958916033084378,
+            "dinf_rel_F": 1.6353428181642495e-08
+          },
+          {
+            "alpha": 1000000.0,
+            "d0_rel_F": 0.995891610525691,
+            "dinf_rel_F": 5.1714081696316486e-09
+          },
+          {
+            "alpha": 3162277.6601683795,
+            "d0_rel_F": 0.9958916128079869,
+            "dinf_rel_F": 1.6353428596310536e-09
+          },
+          {
+            "alpha": 10000000.0,
+            "d0_rel_F": 0.9958916135297122,
+            "dinf_rel_F": 5.171408224097792e-10
+          },
+          {
+            "alpha": 31622776.60168379,
+            "d0_rel_F": 0.9958916137579419,
+            "dinf_rel_F": 1.635342822332807e-10
+          },
+          {
+            "alpha": 100000000.0,
+            "d0_rel_F": 0.9958916138301144,
+            "dinf_rel_F": 5.1714081280713375e-11
+          }
+        ],
+        "alpha_min": 1e-14,
+        "alpha_max": 100000000.0,
+        "d0_at_alpha_min": 5.698550818916081e-09,
+        "dinf_at_alpha_max": 5.1714081280713375e-11,
+        "small_alpha_reaches_1e-8_gate": true,
+        "large_alpha_reaches_1e-8_gate": true,
+        "note": "The SVD filter avoids interpreting alpha=1e-6 as asymptotic; the sweep extends below sigma_min(B)^2."
+      },
+      "singular_prior_explicit_limit": {
+        "unpenalized_coordinate_zero_based": 17,
+        "label": "unpenalized nuisance direction (not asserted to be gauge)",
+        "norm_Be": 0.0021818726592656044,
+        "limit_weight": "I-(Be)(Be)^T/||Be||^2",
+        "limit_loss_from_KIS_rel_F": 0.0004713807613417146,
+        "rows": [
+          {
+            "alpha": 100.0,
+            "distance_to_explicit_limit_rel_F": 5.170733889028658e-05,
+            "distance_to_KIS_rel_F": 0.00048561808528759117
+          },
+          {
+            "alpha": 316.22776601683796,
+            "distance_to_explicit_limit_rel_F": 1.6352346592854005e-05,
+            "distance_to_KIS_rel_F": 0.0004753215896153115
+          },
+          {
+            "alpha": 1000.0,
+            "distance_to_explicit_limit_rel_F": 5.171171074422224e-06,
+            "distance_to_KIS_rel_F": 0.0004725693682202559
+          },
+          {
+            "alpha": 3162.2776601683795,
+            "distance_to_explicit_limit_rel_F": 1.6352783810722016e-06,
+            "distance_to_KIS_rel_F": 0.0004717508298224051
+          },
+          {
+            "alpha": 10000.0,
+            "distance_to_explicit_limit_rel_F": 5.17121479721821e-07,
+            "distance_to_KIS_rel_F": 0.00047149720575084803
+          },
+          {
+            "alpha": 31622.776601683792,
+            "distance_to_explicit_limit_rel_F": 1.6352827533659665e-07,
+            "distance_to_KIS_rel_F": 0.0004714175261037758
+          },
+          {
+            "alpha": 100000.0,
+            "distance_to_explicit_limit_rel_F": 5.1712191693467884e-08,
+            "distance_to_KIS_rel_F": 0.0004713923815596557
+          },
+          {
+            "alpha": 316227.7660168379,
+            "distance_to_explicit_limit_rel_F": 1.6352831903909334e-08,
+            "distance_to_KIS_rel_F": 0.0004713844353951703
+          },
+          {
+            "alpha": 1000000.0,
+            "distance_to_explicit_limit_rel_F": 5.1712196042084635e-09,
+            "distance_to_KIS_rel_F": 0.0004713819231212194
+          },
+          {
+            "alpha": 3162277.6601683795,
+            "distance_to_explicit_limit_rel_F": 1.635283231908258e-09,
+            "distance_to_KIS_rel_F": 0.00047138112872283083
+          },
+          {
+            "alpha": 10000000.0,
+            "distance_to_explicit_limit_rel_F": 5.17121962469164e-10,
+            "distance_to_KIS_rel_F": 0.00047138087751724233
+          },
+          {
+            "alpha": 31622776.60168379,
+            "distance_to_explicit_limit_rel_F": 1.6352832082469255e-10,
+            "distance_to_KIS_rel_F": 0.0004713807980795844
+          },
+          {
+            "alpha": 100000000.0,
+            "distance_to_explicit_limit_rel_F": 5.171219356985989e-11,
+            "distance_to_KIS_rel_F": 0.00047138077295924303
+          }
+        ],
+        "last_distance_to_limit_rel_F": 5.171219356985989e-11,
+        "last_distance_to_KIS_rel_F": 0.00047138077295924303,
+        "limit_match_pass_at_1e-8": true,
+        "nonzero_limit_is_geometry_dependent": true
+      }
+    },
+    "smooth": {
+      "case": "smooth",
+      "rank_B": 18,
+      "rank_tolerance_B": 1.097715785962827e-15,
+      "sigma_B_min_retained": 0.0006748865400722514,
+      "sigma_B_min_squared": 4.554718419706946e-07,
+      "original_pixel_projector_gate": null,
+      "stable_kernel_factorization": {
+        "identity": "K_SLAM = C^T C with C=(I-P_B)A",
+        "relative_factorization_residual": 2.7032737914594297e-16,
+        "pass_at_1e-12": true,
+        "interpretation": "This factorization plus ||Cu||^2=u^T K_SLAM u proves the finite-dimensional kernel identity algebraically. It does not retroactively pass the original ill-conditioned eigenprojector gate."
+      },
+      "regular_prior_svd_filter_sweep": {
+        "rows": [
+          {
+            "alpha": 1e-14,
+            "d0_rel_F": 3.6702448224499364e-09,
+            "dinf_rel_F": 0.9970098814163215
+          },
+          {
+            "alpha": 3.1622776601683796e-14,
+            "d0_rel_F": 1.1606332724532767e-08,
+            "dinf_rel_F": 0.9970098786866909
+          },
+          {
+            "alpha": 1e-13,
+            "d0_rel_F": 3.67024419601536e-08,
+            "dinf_rel_F": 0.9970098700548418
+          },
+          {
+            "alpha": 3.162277660168379e-13,
+            "d0_rel_F": 1.1606326442867554e-07,
+            "dinf_rel_F": 0.997009842758555
+          },
+          {
+            "alpha": 1e-12,
+            "d0_rel_F": 3.67023789013504e-07,
+            "dinf_rel_F": 0.9970097564402811
+          },
+          {
+            "alpha": 3.1622776601683794e-12,
+            "d0_rel_F": 1.1606263367593707e-06,
+            "dinf_rel_F": 0.9970094834795664
+          },
+          {
+            "alpha": 1e-11,
+            "d0_rel_F": 3.6701748171192606e-06,
+            "dinf_rel_F": 0.9970086203183482
+          },
+          {
+            "alpha": 3.1622776601683794e-11,
+            "d0_rel_F": 1.1605632667810283e-05,
+            "dinf_rel_F": 0.9970058909264166
+          },
+          {
+            "alpha": 1e-10,
+            "d0_rel_F": 3.6695442178395184e-05,
+            "dinf_rel_F": 0.9969972614659608
+          },
+          {
+            "alpha": 3.1622776601683795e-10,
+            "d0_rel_F": 0.00011599329850996622,
+            "dinf_rel_F": 0.9969699890507786
+          },
+          {
+            "alpha": 1e-09,
+            "d0_rel_F": 0.00036632514244895647,
+            "dinf_rel_F": 0.9968839090736682
+          },
+          {
+            "alpha": 3.1622776601683795e-09,
+            "d0_rel_F": 0.0011536716916390611,
+            "dinf_rel_F": 0.9966133181998891
+          },
+          {
+            "alpha": 1e-08,
+            "d0_rel_F": 0.003601615303353567,
+            "dinf_rel_F": 0.995773449280857
+          },
+          {
+            "alpha": 3.162277660168379e-08,
+            "d0_rel_F": 0.010949436686191333,
+            "dinf_rel_F": 0.993264981473837
+          },
+          {
+            "alpha": 1e-07,
+            "d0_rel_F": 0.03091367415177069,
+            "dinf_rel_F": 0.9865335875269196
+          },
+          {
+            "alpha": 3.162277660168379e-07,
+            "d0_rel_F": 0.0738265195438756,
+            "dinf_rel_F": 0.9723304203841858
+          },
+          {
+            "alpha": 1e-06,
+            "d0_rel_F": 0.13660219445325847,
+            "dinf_rel_F": 0.9511636316115929
+          },
+          {
+            "alpha": 3.162277660168379e-06,
+            "d0_rel_F": 0.19980813765791958,
+            "dinf_rel_F": 0.9254026493284896
+          },
+          {
+            "alpha": 1e-05,
+            "d0_rel_F": 0.2583800245585527,
+            "dinf_rel_F": 0.8902879071341155
+          },
+          {
+            "alpha": 3.1622776601683795e-05,
+            "d0_rel_F": 0.32467895235508004,
+            "dinf_rel_F": 0.8409326844022093
+          },
+          {
+            "alpha": 0.0001,
+            "d0_rel_F": 0.3958373806857674,
+            "dinf_rel_F": 0.7850186908615595
+          },
+          {
+            "alpha": 0.00031622776601683794,
+            "d0_rel_F": 0.4581288593811831,
+            "dinf_rel_F": 0.7243239314798681
+          },
+          {
+            "alpha": 0.001,
+            "d0_rel_F": 0.5248325787641879,
+            "dinf_rel_F": 0.632396201332877
+          },
+          {
+            "alpha": 0.0031622776601683794,
+            "d0_rel_F": 0.6284312831252354,
+            "dinf_rel_F": 0.483539158023494
+          },
+          {
+            "alpha": 0.01,
+            "d0_rel_F": 0.7667208493414117,
+            "dinf_rel_F": 0.29497389634221316
+          },
+          {
+            "alpha": 0.03162277660168379,
+            "d0_rel_F": 0.888872450482577,
+            "dinf_rel_F": 0.1358015453652681
+          },
+          {
+            "alpha": 0.1,
+            "d0_rel_F": 0.9564040320661196,
+            "dinf_rel_F": 0.05048328413771048
+          },
+          {
+            "alpha": 0.31622776601683794,
+            "d0_rel_F": 0.9833507707796181,
+            "dinf_rel_F": 0.016917115487604967
+          },
+          {
+            "alpha": 1.0,
+            "d0_rel_F": 0.992601316916243,
+            "dinf_rel_F": 0.005453118176360585
+          },
+          {
+            "alpha": 3.1622776601683795,
+            "d0_rel_F": 0.9956065996399408,
+            "dinf_rel_F": 0.0017350558521163528
+          },
+          {
+            "alpha": 10.0,
+            "d0_rel_F": 0.9965652001036767,
+            "dinf_rel_F": 0.0005497448968792199
+          },
+          {
+            "alpha": 31.622776601683793,
+            "d0_rel_F": 0.9968691688848849,
+            "dinf_rel_F": 0.00017395210084533762
+          },
+          {
+            "alpha": 100.0,
+            "d0_rel_F": 0.9969653757799779,
+            "dinf_rel_F": 5.501924359652792e-05
+          },
+          {
+            "alpha": 316.22776601683796,
+            "d0_rel_F": 0.9969958074322782,
+            "dinf_rel_F": 1.739968872096857e-05
+          },
+          {
+            "alpha": 1000.0,
+            "d0_rel_F": 0.997005431602038,
+            "dinf_rel_F": 5.502372325962858e-06
+          },
+          {
+            "alpha": 3162.2776601683795,
+            "d0_rel_F": 0.9970084751153828,
+            "dinf_rel_F": 1.7400136719539438e-06
+          },
+          {
+            "alpha": 10000.0,
+            "d0_rel_F": 0.9970094375671731,
+            "dinf_rel_F": 5.502417126586941e-07
+          },
+          {
+            "alpha": 31622.776601683792,
+            "d0_rel_F": 0.997009741921989,
+            "dinf_rel_F": 1.740018152002479e-07
+          },
+          {
+            "alpha": 100000.0,
+            "d0_rel_F": 0.9970098381675163,
+            "dinf_rel_F": 5.5024216035020345e-08
+          },
+          {
+            "alpha": 316227.7660168379,
+            "d0_rel_F": 0.9970098686030326,
+            "dinf_rel_F": 1.7400185958913638e-08
+          },
+          {
+            "alpha": 1000000.0,
+            "d0_rel_F": 0.9970098782275888,
+            "dinf_rel_F": 5.5024220721692824e-09
+          },
+          {
+            "alpha": 3162277.6601683795,
+            "d0_rel_F": 0.9970098812711408,
+            "dinf_rel_F": 1.7400186176791078e-09
+          },
+          {
+            "alpha": 10000000.0,
+            "d0_rel_F": 0.9970098822335965,
+            "dinf_rel_F": 5.502421991148752e-10
+          },
+          {
+            "alpha": 31622776.60168379,
+            "d0_rel_F": 0.9970098825379516,
+            "dinf_rel_F": 1.740018812406661e-10
+          },
+          {
+            "alpha": 100000000.0,
+            "d0_rel_F": 0.9970098826341973,
+            "dinf_rel_F": 5.502420786488846e-11
+          }
+        ],
+        "alpha_min": 1e-14,
+        "alpha_max": 100000000.0,
+        "d0_at_alpha_min": 3.6702448224499364e-09,
+        "dinf_at_alpha_max": 5.502420786488846e-11,
+        "small_alpha_reaches_1e-8_gate": true,
+        "large_alpha_reaches_1e-8_gate": true,
+        "note": "The SVD filter avoids interpreting alpha=1e-6 as asymptotic; the sweep extends below sigma_min(B)^2."
+      },
+      "singular_prior_explicit_limit": {
+        "unpenalized_coordinate_zero_based": 17,
+        "label": "unpenalized nuisance direction (not asserted to be gauge)",
+        "norm_Be": 0.0021818726592656044,
+        "limit_weight": "I-(Be)(Be)^T/||Be||^2",
+        "limit_loss_from_KIS_rel_F": 0.00022936678505253142,
+        "rows": [
+          {
+            "alpha": 100.0,
+            "distance_to_explicit_limit_rel_F": 5.501717235984266e-05,
+            "distance_to_KIS_rel_F": 0.00025802234119052473
+          },
+          {
+            "alpha": 316.22776601683796,
+            "distance_to_explicit_limit_rel_F": 1.739903368407425e-05,
+            "distance_to_KIS_rel_F": 0.00023742668927390775
+          },
+          {
+            "alpha": 1000.0,
+            "distance_to_explicit_limit_rel_F": 5.502165179712604e-06,
+            "distance_to_KIS_rel_F": 0.0002318047304371367
+          },
+          {
+            "alpha": 3162.2776601683795,
+            "distance_to_explicit_limit_rel_F": 1.7399481660336718e-06,
+            "distance_to_KIS_rel_F": 0.00023012630549356218
+          },
+          {
+            "alpha": 10000.0,
+            "distance_to_explicit_limit_rel_F": 5.502209978291946e-07,
+            "distance_to_KIS_rel_F": 0.00022960581307405342
+          },
+          {
+            "alpha": 31622.776601683792,
+            "distance_to_explicit_limit_rel_F": 1.7399526459047873e-07,
+            "distance_to_KIS_rel_F": 0.00022944225666304027
+          },
+          {
+            "alpha": 100000.0,
+            "distance_to_explicit_limit_rel_F": 5.502214458094637e-08,
+            "distance_to_KIS_rel_F": 0.00022939063969176437
+          },
+          {
+            "alpha": 316227.7660168379,
+            "distance_to_explicit_limit_rel_F": 1.7399530936209714e-08,
+            "distance_to_KIS_rel_F": 0.00022937432739349257
+          },
+          {
+            "alpha": 1000000.0,
+            "distance_to_explicit_limit_rel_F": 5.5022148990777284e-09,
+            "distance_to_KIS_rel_F": 0.0002293691700343071
+          },
+          {
+            "alpha": 3162277.6601683795,
+            "distance_to_explicit_limit_rel_F": 1.7399531297005268e-09,
+            "distance_to_KIS_rel_F": 0.0002293675392383849
+          },
+          {
+            "alpha": 10000000.0,
+            "distance_to_explicit_limit_rel_F": 5.50221484155231e-10,
+            "distance_to_KIS_rel_F": 0.00022936702354586606
+          },
+          {
+            "alpha": 31622776.60168379,
+            "distance_to_explicit_limit_rel_F": 1.739953097477192e-10,
+            "distance_to_KIS_rel_F": 0.00022936686047061162
+          },
+          {
+            "alpha": 100000000.0,
+            "distance_to_explicit_limit_rel_F": 5.5022137006971227e-11,
+            "distance_to_KIS_rel_F": 0.00022936680890179028
+          }
+        ],
+        "last_distance_to_limit_rel_F": 5.5022137006971227e-11,
+        "last_distance_to_KIS_rel_F": 0.00022936680890179028,
+        "limit_match_pass_at_1e-8": true,
+        "nonzero_limit_is_geometry_dependent": true
+      }
+    }
+  },
+  "runtime_seconds": 0.07042891699529719,
+  "platform": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "numpy": "2.5.2"
+  },
+  "source_sha256": {
+    "src/helmholtz.py": "ee3b4ac45ad296dba533a8ccefd107a6cc53e4357b7a768d07f7db90f3ee6585",
+    "src/family2_algebraic_spine.py": "173d2b5d9f66be274c9a8422f4ac2c381bb91a60132b37c734748414cf3eb235",
+    "src/family2_parent_correction.py": "f5d2a0b984e452b368324c36076c90cf1ce0557259d5c5f028272775f06188be",
+    "results/family2_results.json": "c031cd55127ad495d1a48019832d175e38ada8375b840382906f3df489f0ac59"
+  },
+  "cannot_establish": "These are finite-dimensional factorization and parameter-limit checks. They do not prove continuum identifiability, genericity, or that the selected unpenalized coordinate is a physical gauge."
+}

@@ -1,0 +1,135 @@
+{
+  "package": "research/delegated/a2_physics",
+  "timestamp": "2026-09-06T14:01:27+08:00",
+  "checks": [
+    {
+      "check": "config_validation",
+      "status": "PASS",
+      "seconds": 0.0003,
+      "detail": {
+        "basis_columns": 9,
+        "pixel_override_q": 64
+      }
+    },
+    {
+      "check": "outgoing_convention_far_field",
+      "status": "PASS",
+      "seconds": 0.0,
+      "detail": {
+        "kr": 6000.0,
+        "far_field_rel_error": 2.083333345798616e-05
+      }
+    },
+    {
+      "check": "self_cell_and_k2_factors",
+      "status": "PASS",
+      "seconds": 0.0513,
+      "detail": {
+        "self_cell_quadrature_rel": 1.117607716143615e-15,
+        "D_offdiag_rel": 0.0,
+        "D_diag_rel": 0.0,
+        "S_rel": 0.0
+      }
+    },
+    {
+      "check": "forward_consistency_and_work",
+      "status": "PASS",
+      "seconds": 0.0273,
+      "detail": {
+        "max_state_residual_rel": 5.316652582482631e-16,
+        "work_full": {
+          "factorizations": 4,
+          "rhs_solves_total": 312
+        },
+        "work_freq_subset": {
+          "factorizations": 2,
+          "rhs_solves_total": 156
+        }
+      }
+    },
+    {
+      "check": "analytic_A_B_vs_fd_both_apertures",
+      "status": "PASS",
+      "seconds": 2.5104,
+      "detail": {
+        "fd_alpha_h": 0.0001,
+        "fd_pose_h": 1e-05,
+        "apertures": [
+          {
+            "aperture": "full",
+            "a_worst_rel": 2.502798109115069e-10,
+            "b_worst_rel": 2.2785971563122375e-10
+          },
+          {
+            "aperture": "limited",
+            "a_worst_rel": 1.2800848627279023e-10,
+            "b_worst_rel": 2.712785593988267e-10
+          }
+        ]
+      }
+    },
+    {
+      "check": "noise_real_variance",
+      "status": "PASS",
+      "seconds": 0.0074,
+      "detail": {
+        "empirical_mean_abs": 0.0017944861065360795,
+        "empirical_covariance": [
+          [
+            1.0040687473444503,
+            0.0006935253188506173
+          ],
+          [
+            0.0006935253188506173,
+            1.0015862041653236
+          ]
+        ],
+        "samples": 400000
+      }
+    },
+    {
+      "check": "rigid_distance_and_anchor_invariance",
+      "status": "PASS",
+      "seconds": 0.0295,
+      "detail": {
+        "max_pairwise_distance_change": 8.881784197001252e-16,
+        "direct_incident_max_change": 3.921089069032525e-16,
+        "max_direct_derivative_abs": 1.2412670766236366e-16
+      }
+    },
+    {
+      "check": "adjoint_gradient_vs_fd",
+      "status": "PASS",
+      "seconds": 0.1738,
+      "detail": {
+        "gradient_max_fd_abs_error": 2.0436028493357392e-13,
+        "gradient_scale": 1.0,
+        "loss": 3.4225000947789934e-05,
+        "adjoint_work": {
+          "factorizations": 2,
+          "forward_state_rhs": 12,
+          "adjoint_rhs": 12
+        }
+      }
+    }
+  ],
+  "timing": [
+    {
+      "N": 16,
+      "rows": 288,
+      "wall_seconds": 0.16874712496064603,
+      "factorizations": 4,
+      "rhs_solves_total": 312,
+      "max_state_residual_rel": 9.210475556892515e-16
+    },
+    {
+      "N": 32,
+      "rows": 288,
+      "wall_seconds": 2.4205322500201873,
+      "factorizations": 4,
+      "rhs_solves_total": 312,
+      "max_state_residual_rel": 1.7717236376840709e-15
+    }
+  ],
+  "total_check_seconds": 5.39
+}

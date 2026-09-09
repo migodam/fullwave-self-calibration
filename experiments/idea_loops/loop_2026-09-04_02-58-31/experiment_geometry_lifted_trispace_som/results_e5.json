@@ -1,0 +1,812 @@
+{
+  "parameters": {
+    "N": 16,
+    "k": 12.0,
+    "M": 8,
+    "R_r": 1.6,
+    "R_t": 2.0,
+    "phi0": 0.7,
+    "s": 0.12,
+    "K": 3,
+    "basis_centers": [
+      [
+        -0.15,
+        0.1
+      ],
+      [
+        0.2,
+        -0.1
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "SNR_dB": 30.0,
+    "noise_std": 6.309287240150733e-06,
+    "noise_rms_ratio": 0.03162277660168379,
+    "alpha_true": [
+      1.5,
+      2.0,
+      0.0
+    ],
+    "p_true": [
+      0.08,
+      -0.06,
+      0.05
+    ],
+    "alpha_init": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "p_init_labels": [
+      "zero",
+      "pert_pos",
+      "pert_neg"
+    ],
+    "LevenbergMarquardt": {
+      "lambda0": 0.001,
+      "lambda_min": 1e-12,
+      "lambda_max": 10000000000.0,
+      "max_iter": 300,
+      "inner_max_tries": 12,
+      "gtol": 1e-09,
+      "ftol": 1e-14,
+      "xtol": 1e-12
+    }
+  },
+  "note": "Reduced solvers recompute P_perp = I - U_r U_r^T over col(realify(G_s V_r), realify(W)) at every LM iteration with retained rank r (4 disambiguated, 6 confounded). hid_sv are the singular values of B_red = P_perp @ B_real at the final estimate; hidden_subspace_rank counts hid_sv <= 1e-8 * hid_sv[0]. T_U is the receiver-rx state witness at the final estimate: for reduced runs at their retained rank r; for wrongpose/direct at r=4 (recorded as T_U_rank). hidden_vectors are the right singular vectors of B_red for the hidden (near-zero hid_sv) directions; pose_error_hidden/visible_norm decompose p_est-p_true onto those directions.",
+  "records": [
+    {
+      "method": "wrongpose",
+      "noise_seed": 0,
+      "p_init_label": "fixed_zero",
+      "r": null,
+      "alpha_est": [
+        1.2969093532410385,
+        1.4427335301259434,
+        0.4984081776847153
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "map_error": 0.20039373471442112,
+      "final_residual": 0.29587604160830977,
+      "iterations": 1,
+      "converged": true,
+      "final_max_grad": 1.228932647951831e-10,
+      "reason": "max_grad",
+      "hid_sv": null,
+      "hidden_subspace_rank": null,
+      "T_U": 0.8142192840736366,
+      "hidden_vectors": null,
+      "pose_error_hidden_norm": null,
+      "pose_error_visible_norm": null,
+      "T_U_rank": 4
+    },
+    {
+      "method": "wrongpose",
+      "noise_seed": 1,
+      "p_init_label": "fixed_zero",
+      "r": null,
+      "alpha_est": [
+        1.3125592500607666,
+        1.4213075033341762,
+        0.51568679058262
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "map_error": 0.20890490273825954,
+      "final_residual": 0.27983295963663996,
+      "iterations": 1,
+      "converged": true,
+      "final_max_grad": 1.0601808181406236e-10,
+      "reason": "max_grad",
+      "hid_sv": null,
+      "hidden_subspace_rank": null,
+      "T_U": 0.8148076302737698,
+      "hidden_vectors": null,
+      "pose_error_hidden_norm": null,
+      "pose_error_visible_norm": null,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "r": null,
+      "alpha_est": [
+        1.550960167266959,
+        2.0444217294733287,
+        -0.07884137674331819
+      ],
+      "p_est": [
+        0.0811279478156944,
+        -0.06326085349582013,
+        0.05036414646996591
+      ],
+      "pose_error": 0.003469587071644228,
+      "map_error": 0.023162904087215556,
+      "final_residual": 0.02042255099669228,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 1.925080407729154e-10,
+      "reason": "max_grad",
+      "hid_sv": null,
+      "hidden_subspace_rank": null,
+      "T_U": 0.8484463623850912,
+      "hidden_vectors": null,
+      "pose_error_hidden_norm": null,
+      "pose_error_visible_norm": null,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "r": null,
+      "alpha_est": [
+        1.549809054390314,
+        2.045075817041667,
+        -0.07843378586611677
+      ],
+      "p_est": [
+        0.08097744886294363,
+        -0.0634837917896952,
+        0.05161646626040908
+      ],
+      "pose_error": 0.003962975483731684,
+      "map_error": 0.023080056470218612,
+      "final_residual": 0.020438298950473832,
+      "iterations": 3,
+      "converged": true,
+      "final_max_grad": 6.12604974530563e-10,
+      "reason": "max_grad",
+      "hid_sv": null,
+      "hidden_subspace_rank": null,
+      "T_U": 0.8485022663857401,
+      "hidden_vectors": null,
+      "pose_error_hidden_norm": null,
+      "pose_error_visible_norm": null,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 0,
+      "p_init_label": "pert_neg",
+      "r": null,
+      "alpha_est": [
+        1.550960167266959,
+        2.0444217294733287,
+        -0.07884137674331819
+      ],
+      "p_est": [
+        0.0811279478156944,
+        -0.06326085349582013,
+        0.05036414646996591
+      ],
+      "pose_error": 0.003469587071644228,
+      "map_error": 0.023162904087215556,
+      "final_residual": 0.02042255099669228,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 1.925080407729154e-10,
+      "reason": "max_grad",
+      "hid_sv": null,
+      "hidden_subspace_rank": null,
+      "T_U": 0.8484463623850912,
+      "hidden_vectors": null,
+      "pose_error_hidden_norm": null,
+      "pose_error_visible_norm": null,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "r": null,
+      "alpha_est": [
+        1.5098534491059847,
+        1.9965649897230326,
+        0.0088846625692785
+      ],
+      "p_est": [
+        0.07979222775750504,
+        -0.06122176158753136,
+        0.06001736833125148
+      ],
+      "pose_error": 0.010093737611285451,
+      "map_error": 0.00624627334096958,
+      "final_residual": 0.01696818553825344,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 4.893923350657458e-11,
+      "reason": "max_grad",
+      "hid_sv": null,
+      "hidden_subspace_rank": null,
+      "T_U": 0.8486590023840322,
+      "hidden_vectors": null,
+      "pose_error_hidden_norm": null,
+      "pose_error_visible_norm": null,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "r": null,
+      "alpha_est": [
+        1.5095542791562795,
+        1.9958997157183078,
+        0.008826512744412776
+      ],
+      "p_est": [
+        0.0797858197354516,
+        -0.060932114239106175,
+        0.059905602984074824
+      ],
+      "pose_error": 0.009951667228086885,
+      "map_error": 0.006113074539135648,
+      "final_residual": 0.016982182066353164,
+      "iterations": 3,
+      "converged": true,
+      "final_max_grad": 5.501185741238827e-10,
+      "reason": "max_grad",
+      "hid_sv": null,
+      "hidden_subspace_rank": null,
+      "T_U": 0.8487458175847237,
+      "hidden_vectors": null,
+      "pose_error_hidden_norm": null,
+      "pose_error_visible_norm": null,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 1,
+      "p_init_label": "pert_neg",
+      "r": null,
+      "alpha_est": [
+        1.5098534491059847,
+        1.9965649897230326,
+        0.0088846625692785
+      ],
+      "p_est": [
+        0.07979222775750504,
+        -0.06122176158753136,
+        0.06001736833125148
+      ],
+      "pose_error": 0.010093737611285451,
+      "map_error": 0.00624627334096958,
+      "final_residual": 0.01696818553825344,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 4.893923350657458e-11,
+      "reason": "max_grad",
+      "hid_sv": null,
+      "hidden_subspace_rank": null,
+      "T_U": 0.8486590023840322,
+      "hidden_vectors": null,
+      "pose_error_hidden_norm": null,
+      "pose_error_visible_norm": null,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "r": 4,
+      "alpha_est": [
+        1.5337632813661435,
+        2.070097634499949,
+        -0.07434049089799971
+      ],
+      "p_est": [
+        0.0801564011814131,
+        -0.07087587950207994,
+        0.060993846304937156
+      ],
+      "pose_error": 0.015465247261194704,
+      "map_error": 0.02647576295068144,
+      "final_residual": 0.02510829862171198,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 3.406056455653523e-10,
+      "reason": "max_grad",
+      "hid_sv": [
+        0.0014837383290310557,
+        0.000673283500252076,
+        0.0002760434709491382
+      ],
+      "hidden_subspace_rank": 0,
+      "T_U": 0.8473550045448969,
+      "hidden_vectors": [],
+      "pose_error_hidden_norm": 0.0,
+      "pose_error_visible_norm": 0.015465247261194704,
+      "rank_H_final": 11,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "r": 4,
+      "alpha_est": [
+        1.522675078234335,
+        2.04590153146319,
+        -0.037531885857415265
+      ],
+      "p_est": [
+        0.08095061799089831,
+        -0.06990751278424398,
+        0.06179204218323326
+      ],
+      "pose_error": 0.015430967013953793,
+      "map_error": 0.016223680421998246,
+      "final_residual": 0.027067751905993098,
+      "iterations": 5,
+      "converged": true,
+      "final_max_grad": 9.762773138570055e-10,
+      "reason": "max_grad",
+      "hid_sv": [
+        0.001454268578316093,
+        0.0006680891605844516,
+        0.00027735701871216544
+      ],
+      "hidden_subspace_rank": 0,
+      "T_U": 0.8469169812147714,
+      "hidden_vectors": [],
+      "pose_error_hidden_norm": 0.0,
+      "pose_error_visible_norm": 0.015430967013953793,
+      "rank_H_final": 11,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 0,
+      "p_init_label": "pert_neg",
+      "r": 4,
+      "alpha_est": [
+        1.5337632813661435,
+        2.070097634499949,
+        -0.07434049089799971
+      ],
+      "p_est": [
+        0.0801564011814131,
+        -0.07087587950207994,
+        0.060993846304937156
+      ],
+      "pose_error": 0.015465247261194704,
+      "map_error": 0.02647576295068144,
+      "final_residual": 0.02510829862171198,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 3.406056455653523e-10,
+      "reason": "max_grad",
+      "hid_sv": [
+        0.0014837383290310557,
+        0.000673283500252076,
+        0.0002760434709491382
+      ],
+      "hidden_subspace_rank": 0,
+      "T_U": 0.8473550045448969,
+      "hidden_vectors": [],
+      "pose_error_hidden_norm": 0.0,
+      "pose_error_visible_norm": 0.015465247261194704,
+      "rank_H_final": 11,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "r": 4,
+      "alpha_est": [
+        1.5167181290816456,
+        1.9899765061672912,
+        0.01895206765893083
+      ],
+      "p_est": [
+        0.08299361858081972,
+        -0.05989701969417886,
+        0.062373177580106735
+      ],
+      "pose_error": 0.012730588383090232,
+      "map_error": 0.011801471056056192,
+      "final_residual": 0.019923512556690358,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 4.031491048713579e-10,
+      "reason": "max_grad",
+      "hid_sv": [
+        0.001398539552767308,
+        0.000640016152262372,
+        0.00028406213135763605
+      ],
+      "hidden_subspace_rank": 0,
+      "T_U": 0.8484749302868586,
+      "hidden_vectors": [],
+      "pose_error_hidden_norm": 0.0,
+      "pose_error_visible_norm": 0.012730588383090232,
+      "rank_H_final": 11,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "r": 4,
+      "alpha_est": [
+        1.526951352100685,
+        1.9868082967460339,
+        0.009471674180157534
+      ],
+      "p_est": [
+        0.08311599835828855,
+        -0.05924242399795953,
+        0.06239438872066057
+      ],
+      "pose_error": 0.012802509087150159,
+      "map_error": 0.013097018023827484,
+      "final_residual": 0.019983385505241834,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 4.3074468741904466e-10,
+      "reason": "max_grad",
+      "hid_sv": [
+        0.0014043899173498341,
+        0.0006349950120647274,
+        0.00028596506316233886
+      ],
+      "hidden_subspace_rank": 0,
+      "T_U": 0.8484757997451496,
+      "hidden_vectors": [],
+      "pose_error_hidden_norm": 0.0,
+      "pose_error_visible_norm": 0.012802509087150159,
+      "rank_H_final": 11,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 1,
+      "p_init_label": "pert_neg",
+      "r": 4,
+      "alpha_est": [
+        1.5167181290816456,
+        1.9899765061672912,
+        0.01895206765893083
+      ],
+      "p_est": [
+        0.08299361858081972,
+        -0.05989701969417886,
+        0.062373177580106735
+      ],
+      "pose_error": 0.012730588383090232,
+      "map_error": 0.011801471056056192,
+      "final_residual": 0.019923512556690358,
+      "iterations": 4,
+      "converged": true,
+      "final_max_grad": 4.031491048713579e-10,
+      "reason": "max_grad",
+      "hid_sv": [
+        0.001398539552767308,
+        0.000640016152262372,
+        0.00028406213135763605
+      ],
+      "hidden_subspace_rank": 0,
+      "T_U": 0.8484749302868586,
+      "hidden_vectors": [],
+      "pose_error_hidden_norm": 0.0,
+      "pose_error_visible_norm": 0.012730588383090232,
+      "rank_H_final": 11,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "r": 6,
+      "alpha_est": [
+        1.296909353241039,
+        1.442733530125944,
+        0.4984081776847149
+      ],
+      "p_est": [
+        0.07413209614883273,
+        -0.10610242768309676,
+        0.9361938568223434
+      ],
+      "pose_error": 0.8874116395470265,
+      "map_error": 0.20039373471442093,
+      "final_residual": 0.4309585409819484,
+      "iterations": 1,
+      "converged": false,
+      "final_max_grad": 6.077014024705954e-08,
+      "reason": "no_step",
+      "hid_sv": [
+        0.0007224690590013294,
+        7.094920602051751e-19,
+        3.453990883034653e-19
+      ],
+      "hidden_subspace_rank": 2,
+      "T_U": 0.6820350072747943,
+      "hidden_vectors": [
+        [
+          0.24273691754830148,
+          -0.9699777101629713,
+          -0.014900692807656444
+        ],
+        [
+          0.3186944802641663,
+          0.06522692539948949,
+          0.9456105310602683
+        ]
+      ],
+      "pose_error_hidden_norm": 0.8336602305462325,
+      "pose_error_visible_norm": 0.3041546284526082,
+      "rank_H_final": 15,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "r": 6,
+      "alpha_est": [
+        1.6766643694210983,
+        1.7409040329793903,
+        0.18216994344701745
+      ],
+      "p_est": [
+        0.1527517973708331,
+        0.1537999441855991,
+        0.005737769878522925
+      ],
+      "pose_error": 0.23013557997358566,
+      "map_error": 0.1364756347137645,
+      "final_residual": 0.3116455573397512,
+      "iterations": 1,
+      "converged": false,
+      "final_max_grad": 1.8435590098983028e-08,
+      "reason": "no_step",
+      "hid_sv": [
+        0.0005993635202456338,
+        1.0837660659122206e-18,
+        2.5185614094121376e-19
+      ],
+      "hidden_subspace_rank": 2,
+      "T_U": 0.903900993839432,
+      "hidden_vectors": [
+        [
+          0.3433104178159391,
+          0.9309562625478527,
+          -0.12433179095460226
+        ],
+        [
+          -0.09318842249845831,
+          0.16548728283607228,
+          0.9817993059336428
+        ]
+      ],
+      "pose_error_hidden_norm": 0.2299982790094136,
+      "pose_error_visible_norm": 0.007948384897988834,
+      "rank_H_final": 15,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 0,
+      "p_init_label": "pert_neg",
+      "r": 6,
+      "alpha_est": [
+        1.296909353241039,
+        1.442733530125944,
+        0.4984081776847149
+      ],
+      "p_est": [
+        0.07413209614883273,
+        -0.10610242768309676,
+        0.9361938568223434
+      ],
+      "pose_error": 0.8874116395470265,
+      "map_error": 0.20039373471442093,
+      "final_residual": 0.4309585409819484,
+      "iterations": 1,
+      "converged": false,
+      "final_max_grad": 6.077014024705954e-08,
+      "reason": "no_step",
+      "hid_sv": [
+        0.0007224690590013294,
+        7.094920602051751e-19,
+        3.453990883034653e-19
+      ],
+      "hidden_subspace_rank": 2,
+      "T_U": 0.6820350072747943,
+      "hidden_vectors": [
+        [
+          0.24273691754830148,
+          -0.9699777101629713,
+          -0.014900692807656444
+        ],
+        [
+          0.3186944802641663,
+          0.06522692539948949,
+          0.9456105310602683
+        ]
+      ],
+      "pose_error_hidden_norm": 0.8336602305462325,
+      "pose_error_visible_norm": 0.3041546284526082,
+      "rank_H_final": 15,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "r": 6,
+      "alpha_est": [
+        1.3023751017732896,
+        1.4281637782743257,
+        0.5123930207669636
+      ],
+      "p_est": [
+        0.07659493751815667,
+        -0.1626111428912701,
+        0.8252114266405534
+      ],
+      "pose_error": 0.7819804326772121,
+      "map_error": 0.20617142791440762,
+      "final_residual": 0.375826908566453,
+      "iterations": 2,
+      "converged": false,
+      "final_max_grad": 3.043573560869746e-08,
+      "reason": "no_step",
+      "hid_sv": [
+        0.0006894741930867622,
+        6.905687950958873e-19,
+        1.9996494712230867e-19
+      ],
+      "hidden_subspace_rank": 2,
+      "T_U": 0.6610956396635455,
+      "hidden_vectors": [
+        [
+          0.2657933535883346,
+          -0.9429168501995743,
+          0.20065320031831294
+        ],
+        [
+          -0.20054976431411844,
+          -0.2576689995816983,
+          -0.9451912392146461
+        ]
+      ],
+      "pose_error_hidden_norm": 0.7490478265981884,
+      "pose_error_visible_norm": 0.22454565361763315,
+      "rank_H_final": 15,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "r": 6,
+      "alpha_est": [
+        1.6299767978522448,
+        1.7006380683573545,
+        0.26451576385520587
+      ],
+      "p_est": [
+        0.15259474160276482,
+        0.15445587506977904,
+        0.004906257588942559
+      ],
+      "pose_error": 0.23085658852402646,
+      "map_error": 0.14787459200992614,
+      "final_residual": 0.3153604780171524,
+      "iterations": 1,
+      "converged": false,
+      "final_max_grad": 1.879419400412196e-08,
+      "reason": "no_step",
+      "hid_sv": [
+        0.0005697106897387268,
+        5.368990050861421e-19,
+        2.095225793796079e-19
+      ],
+      "hidden_subspace_rank": 2,
+      "T_U": 0.9040326159523743,
+      "hidden_vectors": [
+        [
+          -0.37636293811726895,
+          -0.9165168229541959,
+          0.13545424339489645
+        ],
+        [
+          -0.08311529113619485,
+          0.17901607909071224,
+          0.9803290732230344
+        ]
+      ],
+      "pose_error_hidden_norm": 0.2302875820296946,
+      "pose_error_visible_norm": 0.01619858104490491,
+      "rank_H_final": 15,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 1,
+      "p_init_label": "pert_neg",
+      "r": 6,
+      "alpha_est": [
+        1.3023751017732896,
+        1.4281637782743257,
+        0.5123930207669636
+      ],
+      "p_est": [
+        0.07659493751815667,
+        -0.1626111428912701,
+        0.8252114266405534
+      ],
+      "pose_error": 0.7819804326772121,
+      "map_error": 0.20617142791440762,
+      "final_residual": 0.375826908566453,
+      "iterations": 2,
+      "converged": false,
+      "final_max_grad": 3.043573560869746e-08,
+      "reason": "no_step",
+      "hid_sv": [
+        0.0006894741930867622,
+        6.905687950958873e-19,
+        1.9996494712230867e-19
+      ],
+      "hidden_subspace_rank": 2,
+      "T_U": 0.6610956396635455,
+      "hidden_vectors": [
+        [
+          0.2657933535883346,
+          -0.9429168501995743,
+          0.20065320031831294
+        ],
+        [
+          -0.20054976431411844,
+          -0.2576689995816983,
+          -0.9451912392146461
+        ]
+      ],
+      "pose_error_hidden_norm": 0.7490478265981884,
+      "pose_error_visible_norm": 0.22454565361763315,
+      "rank_H_final": 15,
+      "T_U_rank": 6
+    }
+  ],
+  "residual_histories": {
+    "wrongpose:fixed_zero:seed0": [
+      0.4807883903360969,
+      0.29587604160830977
+    ],
+    "direct:zero:seed0": [
+      0.4807883903360969,
+      0.32009257790734236,
+      0.12304002331921784,
+      0.030335226539967654,
+      0.02042255099669228
+    ],
+    "reduced_r4:zero:seed0": [
+      0.4807883903360969,
+      0.3301633217322117,
+      0.16063800885354318,
+      0.06289200223347081,
+      0.02510829862171198
+    ],
+    "reduced_r6:zero:seed0": [
+      0.4807883903360969,
+      0.4309585409819484
+    ]
+  }
+}

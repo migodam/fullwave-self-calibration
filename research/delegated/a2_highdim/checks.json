@@ -1,0 +1,56 @@
+{
+  "results": {
+    "budget_preserves_accepted": {
+      "detail": "status=budget_stopped units=12 stages=[0]",
+      "pass": true,
+      "seconds": 0.303
+    },
+    "config_n20_adapter": {
+      "detail": "N20/N32 gaussian49 models build on their own grids",
+      "pass": true,
+      "seconds": 0.003
+    },
+    "final_seed_guard": {
+      "detail": "final E4 seed access blocked",
+      "pass": true,
+      "seconds": 0.0
+    },
+    "intensity_rice_gradient_fd": {
+      "detail": "worst intensity-gradient FD error 2.882e-08",
+      "pass": true,
+      "seconds": 0.42
+    },
+    "mismatch_controls": {
+      "detail": "clock magnitude preserved; coupling changes data; outside scene built",
+      "pass": true,
+      "seconds": 3.231
+    },
+    "noise_reference_and_abs_y": {
+      "detail": "sigma=0.00207; per-component variance ratio 1.105",
+      "pass": true,
+      "seconds": 2.638
+    },
+    "rice_uses_exact_abs_y": {
+      "detail": "nll consistent; RHS 48 factorisations 8",
+      "pass": true,
+      "seconds": 0.595
+    },
+    "scaled_coordinate_gradient_fd": {
+      "detail": "worst scaled-coordinate FD error 6.049e-07 rel 4.716e-10",
+      "pass": true,
+      "seconds": 0.816
+    },
+    "work_charges_exact": {
+      "detail": "coherent rhs=48 fac=4; intensity rhs=48 fac=8",
+      "pass": true,
+      "seconds": 0.437
+    }
+  },
+  "scope": "bounded implementation checks; not scientific acceptance evidence, no final E4 seeds used",
+  "summary": {
+    "passed": 9,
+    "total": 9,
+    "wall_seconds": 8.443
+  },
+  "timestamp": "2026-09-06T06:01:38+00:00"
+}

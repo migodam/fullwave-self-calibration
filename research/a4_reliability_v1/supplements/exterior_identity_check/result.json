@@ -1,0 +1,9 @@
+{
+  "Wronskian": "2*I*(z + 2*I)/z**3",
+  "squared_matrix_norm": "2*(z**4 + z**2 + 3)/z**4",
+  "range_objective_derivative_x": "-2*(x - 1)*(x + 1)*(x + 6)/(x**2 + x + 3)**3",
+  "exterior_identity_max_abs_error": 6.661338147750939e-16,
+  "z_values": 301,
+  "checks": 602,
+  "scope": "analytical model pairs, not a continuum DDA error bound"
+}

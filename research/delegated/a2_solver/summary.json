@@ -1,0 +1,62 @@
+{
+  "methods": [
+    "direct",
+    "prasc",
+    "fixed_rank",
+    "phaseless",
+    "direct_control"
+  ],
+  "records": 200,
+  "summary_table": [
+    {
+      "failure_runs": 40,
+      "mean_full_map_rmse": 0.14130325233815708,
+      "mean_pose_rmse": 0.06507770126086007,
+      "mean_task_map_rmse": 0.11006536546582726,
+      "mean_wall_s": 0.6847877561478526,
+      "method": "direct",
+      "runs": 40,
+      "success_rate": 0.0
+    },
+    {
+      "failure_runs": 40,
+      "mean_full_map_rmse": 0.35943206836494185,
+      "mean_pose_rmse": 0.26874999999999993,
+      "mean_task_map_rmse": 0.3421495056978855,
+      "mean_wall_s": 0.4396950499751256,
+      "method": "prasc",
+      "runs": 40,
+      "success_rate": 0.0
+    },
+    {
+      "failure_runs": 40,
+      "mean_full_map_rmse": 0.3725078291973163,
+      "mean_pose_rmse": 0.4544746388537938,
+      "mean_task_map_rmse": 0.3537463058111444,
+      "mean_wall_s": 0.38492471244899207,
+      "method": "fixed_rank",
+      "runs": 40,
+      "success_rate": 0.0
+    },
+    {
+      "failure_runs": 40,
+      "mean_full_map_rmse": 0.156569206835771,
+      "mean_pose_rmse": 0.055506038655157255,
+      "mean_task_map_rmse": 0.12680699945401883,
+      "mean_wall_s": 0.7171473363981932,
+      "method": "phaseless",
+      "runs": 40,
+      "success_rate": 0.0
+    },
+    {
+      "failure_runs": 40,
+      "mean_full_map_rmse": 0.18900577543107638,
+      "mean_pose_rmse": 0.08983077591736435,
+      "mean_task_map_rmse": 0.1546211944907768,
+      "mean_wall_s": 0.6865600781260582,
+      "method": "direct_control",
+      "runs": 40,
+      "success_rate": 0.0
+    }
+  ]
+}

@@ -1,0 +1,730 @@
+{
+  "schema": "family3_parent_correction",
+  "generated_utc": "2026-09-03T16:55:25.712678+00:00",
+  "command": ".venv/bin/python src/family3_parent_correction.py",
+  "working_directory": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry",
+  "original_failures_preserved": {
+    "smooth_two_blob_gauge_le_5e-2_N16": false,
+    "smooth_two_blob_gauge_tol_5e-2": 0.05,
+    "smooth_tx_gauge_decreases_16_to_40": true,
+    "smooth_rot_gauge_decreases_16_to_40": true,
+    "smooth_gauge_decreases_16_to_40_overall": true,
+    "born_B0_rel_gate_lt_1e-12": true,
+    "born_B0_gate_tol": 1e-12,
+    "born_KSLAM0_eq_KIS0_rel_lt_1e-12": true,
+    "born_KSLAM0_gate_tol": 1e-12,
+    "born_rel_err_at_1e-3_lt_1e-3": false,
+    "born_rel_err_1e-3_gate_tol": 0.001,
+    "born_rel_err_clean_slope_in_1.8_2.2": false,
+    "born_slope_gate_interval": [
+      1.8,
+      2.2
+    ],
+    "anchor_all_restricted_gt_10x_base": false,
+    "anchor_ratio_gate": 10.0
+  },
+  "pixel_gauge_refinement": {
+    "rows": [
+      {
+        "N": 16,
+        "scenes": {
+          "truncated_gaussian": [
+            {
+              "generator": "tx",
+              "dchi_l2": 11.653100193933335,
+              "c_l2": 11.653100193933335,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.1640897837504739,
+              "pose_norm_B_dX": 0.16408398456518822,
+              "gauge_numerator": 2.1702354187209384e-05,
+              "gauge_residual": 6.613067917827739e-05
+            },
+            {
+              "generator": "ty",
+              "dchi_l2": 11.669896144910455,
+              "c_l2": 11.669896144910455,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.1153699466098647,
+              "pose_norm_B_dX": 0.11537133340905369,
+              "gauge_numerator": 3.6426711822803503e-06,
+              "gauge_residual": 1.5786820554959603e-05
+            },
+            {
+              "generator": "rot",
+              "dchi_l2": 2.5608150541889874,
+              "c_l2": 2.5608150541889874,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.02857246270701933,
+              "pose_norm_B_dX": 0.028571468307497374,
+              "gauge_numerator": 2.6754806173954614e-06,
+              "gauge_residual": 4.682003092709511e-05
+            }
+          ],
+          "compact_C_infinity": [
+            {
+              "generator": "tx",
+              "dchi_l2": 17.98912708563101,
+              "c_l2": 17.98912708563101,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.17834829008534275,
+              "pose_norm_B_dX": 0.15815808541681192,
+              "gauge_numerator": 0.021694370123971886,
+              "gauge_residual": 0.06446941782781461
+            },
+            {
+              "generator": "ty",
+              "dchi_l2": 16.976368967250483,
+              "c_l2": 16.976368967250483,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.11526069105076264,
+              "pose_norm_B_dX": 0.11255540427072855,
+              "gauge_numerator": 0.019371656510142082,
+              "gauge_residual": 0.08503199250608279
+            },
+            {
+              "generator": "rot",
+              "dchi_l2": 3.9269124100169845,
+              "c_l2": 3.9269124100169845,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.032575156822660406,
+              "pose_norm_B_dX": 0.02792160503468362,
+              "gauge_numerator": 0.005954390445476482,
+              "gauge_residual": 0.09842494478493556
+            }
+          ]
+        }
+      },
+      {
+        "N": 24,
+        "scenes": {
+          "truncated_gaussian": [
+            {
+              "generator": "tx",
+              "dchi_l2": 17.47871205529655,
+              "c_l2": 17.47871205529655,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.16423925733150452,
+              "pose_norm_B_dX": 0.1642348539218374,
+              "gauge_numerator": 2.488106170561997e-05,
+              "gauge_residual": 7.5747405512972e-05
+            },
+            {
+              "generator": "ty",
+              "dchi_l2": 17.504802617040227,
+              "c_l2": 17.504802617040227,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.11547363622523663,
+              "pose_norm_B_dX": 0.11547532055693273,
+              "gauge_numerator": 4.57373326337595e-06,
+              "gauge_residual": 1.9804087132941184e-05
+            },
+            {
+              "generator": "rot",
+              "dchi_l2": 3.8411327688505525,
+              "c_l2": 3.8411327688505525,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.028598682568095755,
+              "pose_norm_B_dX": 0.028597611107376932,
+              "gauge_numerator": 3.266732366649823e-06,
+              "gauge_residual": 5.7114406489081404e-05
+            }
+          ],
+          "compact_C_infinity": [
+            {
+              "generator": "tx",
+              "dchi_l2": 24.52772398379464,
+              "c_l2": 24.52772398379464,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.15830627749948578,
+              "pose_norm_B_dX": 0.15848008510234707,
+              "gauge_numerator": 0.006021688459672505,
+              "gauge_residual": 0.019008673259212027
+            },
+            {
+              "generator": "ty",
+              "dchi_l2": 23.91973873381645,
+              "c_l2": 23.91973873381645,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.10772269796818297,
+              "pose_norm_B_dX": 0.112333491202638,
+              "gauge_numerator": 0.006860295566543742,
+              "gauge_residual": 0.03117519935428112
+            },
+            {
+              "generator": "rot",
+              "dchi_l2": 5.27426266509181,
+              "c_l2": 5.27426266509181,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.027650186231190515,
+              "pose_norm_B_dX": 0.027972377871609447,
+              "gauge_numerator": 0.0014443146126103272,
+              "gauge_residual": 0.02596634362164585
+            }
+          ]
+        }
+      },
+      {
+        "N": 32,
+        "scenes": {
+          "truncated_gaussian": [
+            {
+              "generator": "tx",
+              "dchi_l2": 23.304949141055115,
+              "c_l2": 23.304949141055115,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.16429368227482496,
+              "pose_norm_B_dX": 0.1642896394908893,
+              "gauge_numerator": 2.6137336521693406e-05,
+              "gauge_residual": 7.95455362166245e-05
+            },
+            {
+              "generator": "ty",
+              "dchi_l2": 23.339736793745377,
+              "c_l2": 23.339736793745377,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.11551113963500803,
+              "pose_norm_B_dX": 0.11551300382769614,
+              "gauge_numerator": 4.871117258957891e-06,
+              "gauge_residual": 2.1084883969039667e-05
+            },
+            {
+              "generator": "rot",
+              "dchi_l2": 5.121510338006587,
+              "c_l2": 5.121510338006587,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.028608231238979227,
+              "pose_norm_B_dX": 0.028607103187237522,
+              "gauge_numerator": 3.471332189626472e-06,
+              "gauge_residual": 6.0671360649005765e-05
+            }
+          ],
+          "compact_C_infinity": [
+            {
+              "generator": "tx",
+              "dchi_l2": 33.144433011621494,
+              "c_l2": 33.144433011621494,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.1588102152594583,
+              "pose_norm_B_dX": 0.15812725946191927,
+              "gauge_numerator": 0.0014364720199940102,
+              "gauge_residual": 0.004532351440159688
+            },
+            {
+              "generator": "ty",
+              "dchi_l2": 32.34336530364338,
+              "c_l2": 32.34336530364338,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.10912067483446919,
+              "pose_norm_B_dX": 0.11219585811500504,
+              "gauge_numerator": 0.00363714262952233,
+              "gauge_residual": 0.016434120763823265
+            },
+            {
+              "generator": "rot",
+              "dchi_l2": 7.150032759607642,
+              "c_l2": 7.150032759607642,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.02771116498563176,
+              "pose_norm_B_dX": 0.027910930468207293,
+              "gauge_numerator": 0.0006907330925138286,
+              "gauge_residual": 0.01241832201534137
+            }
+          ]
+        }
+      },
+      {
+        "N": 40,
+        "scenes": {
+          "truncated_gaussian": [
+            {
+              "generator": "tx",
+              "dchi_l2": 29.13118624204366,
+              "c_l2": 29.13118624204366,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.1643191128771538,
+              "pose_norm_B_dX": 0.16431526561033438,
+              "gauge_numerator": 2.6735764688168117e-05,
+              "gauge_residual": 8.135413224634988e-05
+            },
+            {
+              "generator": "ty",
+              "dchi_l2": 29.174670971204986,
+              "c_l2": 29.174670971204986,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.11552866191785212,
+              "pose_norm_B_dX": 0.115530615780118,
+              "gauge_numerator": 5.015442682752162e-06,
+              "gauge_residual": 2.1706302957062444e-05
+            },
+            {
+              "generator": "rot",
+              "dchi_l2": 6.401887908207914,
+              "c_l2": 6.401887908207914,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.028612697020356813,
+              "pose_norm_B_dX": 0.028611542794473963,
+              "gauge_numerator": 3.5704611300261574e-06,
+              "gauge_residual": 6.239420814640167e-05
+            }
+          ],
+          "compact_C_infinity": [
+            {
+              "generator": "tx",
+              "dchi_l2": 41.43543858396847,
+              "c_l2": 41.43543858396847,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.1590154683344801,
+              "pose_norm_B_dX": 0.1582590526391174,
+              "gauge_numerator": 0.0009839976394630586,
+              "gauge_residual": 0.0031014076908651086
+            },
+            {
+              "generator": "ty",
+              "dchi_l2": 41.052427765614546,
+              "c_l2": 41.052427765614546,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.11125287184041122,
+              "pose_norm_B_dX": 0.11223541259057022,
+              "gauge_numerator": 0.0013588387825124355,
+              "gauge_residual": 0.006080134294162867
+            },
+            {
+              "generator": "rot",
+              "dchi_l2": 9.039204350747948,
+              "c_l2": 9.039204350747948,
+              "representation_residual": 0.0,
+              "representation_guard": 2.220446049250313e-16,
+              "map_norm_A_c": 0.027919163228058107,
+              "pose_norm_B_dX": 0.02793311437668044,
+              "gauge_numerator": 0.00035563186011063264,
+              "gauge_residual": 0.0063673654032053405
+            }
+          ]
+        }
+      }
+    ],
+    "interpretation": "The noncompact Gaussians are truncated by the fixed square and can retain a boundary-action residual.  The compact C-infinity scene removes that confound and shows decreasing discrete gauge residuals.  Four grids are a refinement diagnostic, not a proof."
+  },
+  "symmetric_rotation_stabilizer": {
+    "dchi_rotation_l2": 7.80113995998401e-17,
+    "B_dX_rotation_l2": 1.884221131227847e-06,
+    "B_dX_rotation_over_translation_scale": 1.2770663054026274e-05,
+    "interpretation": "The radial map tangent is zero.  The small absolute B*dX value is a discrete symmetry-breaking residual for a pose-only rotational stabilizer; the original normalized ratio near one is ill-scaled because both sides should be zero."
+  },
+  "born_joint_second_order": {
+    "definition": "J_B(eps)=[F_B(eps*dchi,X+eps*dX)-F_B(eps*dchi,X-eps*dX)]/2; J_B/eps^2 -> (D_X A_B[dX])dchi",
+    "dchi_l2": 1.0,
+    "dX_l2": 1.0,
+    "dX_seed": 31415,
+    "reference_derivative": "five-point centered stencil, delta=1e-4",
+    "reference_D_norm": 0.03224789550958913,
+    "linear_A0_dchi_norm": 0.011473810873886837,
+    "rows": [
+      {
+        "epsilon": 0.0001,
+        "central_D_error_rel": 6.913269049995397e-08,
+        "joint_Born_norm": 3.224789336607662e-10,
+        "joint_Born_over_eps2_Dnorm": 0.9999999335301583,
+        "joint_Born_coefficient_error_rel": 6.9132641912365e-08,
+        "Born_linearity_identity_error_rel": 1.345894776100044e-12,
+        "joint_fullwave_coefficient_error_rel": 2.165836199459556e-05
+      },
+      {
+        "epsilon": 0.00023713737056616554,
+        "central_D_error_rel": 3.887592480921961e-07,
+        "joint_Born_norm": 1.8134317517123823e-09,
+        "joint_Born_over_eps2_Dnorm": 0.9999996262149983,
+        "joint_Born_coefficient_error_rel": 3.887592013479314e-07,
+        "Born_linearity_identity_error_rel": 5.659536282650705e-13,
+        "joint_fullwave_coefficient_error_rel": 5.1366407277297244e-05
+      },
+      {
+        "epsilon": 0.0005623413251903491,
+        "central_D_error_rel": 2.1861391578904004e-06,
+        "joint_Born_norm": 1.019765852090655e-08,
+        "joint_Born_over_eps2_Dnorm": 0.9999978980674687,
+        "joint_Born_coefficient_error_rel": 2.1861391974989544e-06,
+        "Born_linearity_identity_error_rel": 2.766937950916079e-13,
+        "joint_fullwave_coefficient_error_rel": 0.00012185387108276522
+      },
+      {
+        "epsilon": 0.001333521432163324,
+        "central_D_error_rel": 1.229351038864556e-05,
+        "joint_Born_norm": 5.734509077600591e-08,
+        "joint_Born_over_eps2_Dnorm": 0.9999881800209568,
+        "joint_Born_coefficient_error_rel": 1.2293510393815593e-05,
+        "Born_linearity_identity_error_rel": 1.4503764057457637e-13,
+        "joint_fullwave_coefficient_error_rel": 0.00028933728574547017
+      },
+      {
+        "epsilon": 0.0031622776601683794,
+        "central_D_error_rel": 6.913022321446503e-05,
+        "joint_Born_norm": 3.2245752080186364e-07,
+        "joint_Born_over_eps2_Dnorm": 0.9999335327354265,
+        "joint_Born_coefficient_error_rel": 6.913022321977827e-05,
+        "Born_linearity_identity_error_rel": 4.169409215352954e-14,
+        "joint_fullwave_coefficient_error_rel": 0.0006898803978880707
+      },
+      {
+        "epsilon": 0.007498942093324558,
+        "central_D_error_rel": 0.0003887082591363398,
+        "joint_Born_norm": 1.8127546949320547e-06,
+        "joint_Born_over_eps2_Dnorm": 0.9996262697175099,
+        "joint_Born_coefficient_error_rel": 0.0003887082591375604,
+        "Born_linearity_identity_error_rel": 2.9070906834026174e-14,
+        "joint_fullwave_coefficient_error_rel": 0.0016783300179223446
+      },
+      {
+        "epsilon": 0.01778279410038923,
+        "central_D_error_rel": 0.002184617252181231,
+        "joint_Born_norm": 1.017626183977527e-05,
+        "joint_Born_over_eps2_Dnorm": 0.9978997069863461,
+        "joint_Born_coefficient_error_rel": 0.0021846172521824666,
+        "Born_linearity_identity_error_rel": 8.080459342054299e-15,
+        "joint_fullwave_coefficient_error_rel": 0.004468603863778055
+      },
+      {
+        "epsilon": 0.042169650342858224,
+        "central_D_error_rel": 0.01224555410380422,
+        "joint_Born_norm": 5.667090752633301e-05,
+        "joint_Born_over_eps2_Dnorm": 0.9882317197604894,
+        "joint_Born_coefficient_error_rel": 0.01224555410380543,
+        "Born_linearity_identity_error_rel": 4.0667145317827146e-15,
+        "joint_fullwave_coefficient_error_rel": 0.015418189766621501
+      },
+      {
+        "epsilon": 0.1,
+        "central_D_error_rel": 0.06762733194101365,
+        "joint_Born_norm": 0.0003015687014734375,
+        "joint_Born_over_eps2_Dnorm": 0.9351577729584367,
+        "joint_Born_coefficient_error_rel": 0.0676273319410136,
+        "Born_linearity_identity_error_rel": 2.008796639559712e-15,
+        "joint_fullwave_coefficient_error_rel": 0.07125480154376079
+      }
+    ],
+    "slopes_first_five": {
+      "central_D_error": {
+        "slope": 1.9999904478270267,
+        "r_squared": 0.9999999999980871,
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "joint_Born_norm": {
+        "slope": 1.999983293875876,
+        "r_squared": 0.9999999999606057,
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "fullwave_coefficient_error": {
+        "slope": 1.001872428306987,
+        "r_squared": 0.9999984998522136,
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "interpretation": "The Born joint signal scales as eps^2 and its coefficient has centered O(eps^2) error.  The full-wave coefficient approaches the Born coefficient roughly linearly in contrast amplitude because multiple scattering is retained."
+  },
+  "pose_anchor": {
+    "prior": "J_X anchors the first pose's x,y,theta coordinates",
+    "rows": [
+      {
+        "alpha": 0.0,
+        "directional_retention": {
+          "tx": 9.908175996712149e-11,
+          "ty": 1.182611838243504e-11,
+          "rot": 4.013400259854129e-11
+        }
+      },
+      {
+        "alpha": 0.0001,
+        "directional_retention": {
+          "tx": 0.0019297325439474424,
+          "ty": 0.0043996802031293445,
+          "rot": 0.034001298590424514
+        }
+      },
+      {
+        "alpha": 0.01,
+        "directional_retention": {
+          "tx": 0.08022807154909553,
+          "ty": 0.18867917817456462,
+          "rot": 0.058079377853835594
+        }
+      },
+      {
+        "alpha": 1.0,
+        "directional_retention": {
+          "tx": 0.14866005940650825,
+          "ty": 0.3497542535993427,
+          "rot": 0.07581764307958508
+        }
+      },
+      {
+        "alpha": 100.0,
+        "directional_retention": {
+          "tx": 0.14994096379835264,
+          "ty": 0.35276924568480583,
+          "rot": 0.07614928912967203
+        }
+      },
+      {
+        "alpha": 1000000.0,
+        "directional_retention": {
+          "tx": 0.14995401373887118,
+          "ty": 0.3527999626281437,
+          "rot": 0.0761526679238752
+        }
+      }
+    ],
+    "interpretation": "A physical pose prior lifts the tested global map-gauge directions from near-zero retention, but the values saturate below one because the remaining poses are still nuisance variables."
+  },
+  "mask_experiment_interpretation": {
+    "original_rows": [
+      {
+        "name": "base",
+        "mask_definition": "all True (unanchored)",
+        "n_free_pixels": 256,
+        "n_fixed_pixels": 0,
+        "c_l2": 149.33466457279917,
+        "representation_residual_free": 0.7809777798115023,
+        "gauge_residual_tx": 0.18289214977153734,
+        "spectrum": {
+          "rank_A": 24,
+          "rank_A_tol": 1.9458648206196493e-16,
+          "rank_B": 18,
+          "rank_B_tol": 1.097715785962827e-15,
+          "sigma_A_min": 3.447753222858961e-08,
+          "sigma_B_min": 0.0006748865400722514,
+          "rho_desc": [
+            1.0000000000000016,
+            1.000000000000001,
+            1.0000000000000007,
+            1.0000000000000004,
+            1.0000000000000002,
+            0.9999999999999992,
+            0.9950839731644399,
+            0.953905088383675,
+            0.8427153091343879,
+            0.5584595616357094,
+            0.028503461059864368,
+            0.009916715345696154,
+            0.00783623333448665,
+            0.005850026943873256,
+            0.0035235945771908226,
+            0.0012649078900572408,
+            9.252791021715272e-05,
+            7.4923729732253715e-06,
+            2.912568790214783e-06,
+            5.53119555776268e-08,
+            5.725827221449263e-09,
+            1.0956069816409912e-09,
+            1.4143369997141208e-10,
+            5.510026997615865e-11
+          ],
+          "rho_min": 5.510026997615865e-11,
+          "rho_max": 1.0000000000000016,
+          "count_rho_lt_1_minus_1e-8": 18
+        },
+        "rho_min": 5.510026997615865e-11,
+        "rho_min_ratio_vs_base": 1.0
+      },
+      {
+        "name": "anchor",
+        "mask_definition": "free = NOT (x > 0.30 AND y > 0.30)  [fix upper-right corner]",
+        "n_free_pixels": 247,
+        "n_fixed_pixels": 9,
+        "c_l2": 132.24593878989057,
+        "representation_residual_free": 0.7801399357973641,
+        "gauge_residual_tx": 0.18805371176277813,
+        "spectrum": {
+          "rank_A": 24,
+          "rank_A_tol": 1.9528421168548353e-16,
+          "rank_B": 18,
+          "rank_B_tol": 1.097715785962827e-15,
+          "sigma_A_min": 3.6270683546393786e-08,
+          "sigma_B_min": 0.0006748865400722514,
+          "rho_desc": [
+            1.000000000000001,
+            1.0000000000000004,
+            1.0,
+            0.9999999999999999,
+            0.9999999999999992,
+            0.9999999999999986,
+            0.993851069341568,
+            0.9549486139141798,
+            0.8683993143961087,
+            0.3083151349544177,
+            0.03144446558948423,
+            0.016702718006015634,
+            0.008375489319078257,
+            0.005752284941048018,
+            0.0017906425583602058,
+            0.0003568355064753606,
+            6.89925200849271e-05,
+            3.879536221308197e-05,
+            4.197923337325929e-07,
+            1.505034875820344e-07,
+            6.692966801304821e-09,
+            7.900421415653716e-10,
+            3.585098507113356e-10,
+            6.968212812031155e-11
+          ],
+          "rho_min": 6.968212812031155e-11,
+          "rho_max": 1.000000000000001,
+          "count_rho_lt_1_minus_1e-8": 18
+        },
+        "rho_min": 6.968212812031155e-11,
+        "rho_min_ratio_vs_base": 1.2646422268069164
+      },
+      {
+        "name": "known_bg",
+        "mask_definition": "free = (|r| <= 0.35)  [fix outside disk]",
+        "n_free_pixels": 96,
+        "n_fixed_pixels": 160,
+        "c_l2": 671.3984028140823,
+        "representation_residual_free": 0.46819385496715227,
+        "gauge_residual_tx": 0.10441698572315422,
+        "spectrum": {
+          "rank_A": 24,
+          "rank_A_tol": 2.0687109924587269e-16,
+          "rank_B": 18,
+          "rank_B_tol": 1.097715785962827e-15,
+          "sigma_A_min": 1.7885867402175759e-09,
+          "sigma_B_min": 0.0006748865400722514,
+          "rho_desc": [
+            1.0000000000000007,
+            1.0000000000000002,
+            0.9999999999999999,
+            0.9999999999999996,
+            0.9999999999999988,
+            0.9999999999999988,
+            0.9980298554368969,
+            0.9941033158872673,
+            0.9690436959173822,
+            0.9258784658321499,
+            0.049326450667715675,
+            0.012451905682264397,
+            0.009221391829649591,
+            0.007707812641561342,
+            0.005397624122610225,
+            0.001632791297321073,
+            9.09146602234938e-05,
+            6.093104839180535e-06,
+            7.656853901870674e-07,
+            2.41944002428683e-08,
+            5.525063231064612e-10,
+            4.315587348676175e-12,
+            3.1918224285263612e-12,
+            6.156551019324654e-13
+          ],
+          "rho_min": 6.156551019324654e-13,
+          "rho_max": 1.0000000000000007,
+          "count_rho_lt_1_minus_1e-8": 18
+        },
+        "rho_min": 6.156551019324654e-13,
+        "rho_min_ratio_vs_base": 0.011173359081522711
+      },
+      {
+        "name": "boundary",
+        "mask_definition": "free = (|x| <= 0.4375 AND |y| <= 0.4375)  [fix outer ring]",
+        "n_free_pixels": 196,
+        "n_fixed_pixels": 60,
+        "c_l2": 179.47436126185863,
+        "representation_residual_free": 0.7439431397080086,
+        "gauge_residual_tx": 0.11227735910338603,
+        "spectrum": {
+          "rank_A": 24,
+          "rank_A_tol": 2.254102723795714e-16,
+          "rank_B": 18,
+          "rank_B_tol": 1.097715785962827e-15,
+          "sigma_A_min": 8.921663683988113e-09,
+          "sigma_B_min": 0.0006748865400722514,
+          "rho_desc": [
+            1.000000000000001,
+            1.0000000000000002,
+            1.0,
+            0.9999999999999997,
+            0.9999999999999992,
+            0.9999999999999982,
+            0.9950093199993575,
+            0.9607381533472968,
+            0.9234064342309343,
+            0.6908342766979982,
+            0.03487239980112605,
+            0.01192484628582448,
+            0.010070513557243534,
+            0.00542741541423636,
+            0.005009348311361017,
+            0.0011960898200508252,
+            0.00015772846630452778,
+            1.8887453148257972e-05,
+            4.1006277915720543e-07,
+            3.74987834894129e-08,
+            6.913409671465377e-09,
+            1.6608150460400225e-09,
+            7.175845269368857e-11,
+            1.343363090179673e-11
+          ],
+          "rho_min": 1.343363090179673e-11,
+          "rho_max": 1.000000000000001,
+          "count_rho_lt_1_minus_1e-8": 18
+        },
+        "rho_min": 1.343363090179673e-11,
+        "rho_min_ratio_vs_base": 0.24380335899641384
+      }
+    ],
+    "conclusion": "The automatic tenfold-improvement expectation failed.  These support masks are not universal physical anchors and two made rho_min smaller; no positive ordering is claimed."
+  },
+  "runtime_seconds": 7.592941666996921,
+  "platform": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "numpy": "2.5.2"
+  },
+  "source_sha256": {
+    "src/helmholtz.py": "ee3b4ac45ad296dba533a8ccefd107a6cc53e4357b7a768d07f7db90f3ee6585",
+    "src/family3_gauge_born.py": "0d3252da2c790fa3c841799818f8f49fd4213fce10e2c45ae04633a057c299e7",
+    "src/family3_parent_correction.py": "0f953bbacf0b31acc72cb41813b49a7de0383771d3fbcab274ee20a48f5bd86f",
+    "results/family3_gauge_born.json": "48b8c558d99db2b07f6bcc9ea934e3cf29c3ec81eabf71f2ae37e891d678fab3"
+  },
+  "cannot_establish": "Finite grids and local Taylor tests do not prove continuum gauge theorems, global nonlinear identifiability, or universal anchor and support-mask orderings."
+}

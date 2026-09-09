@@ -1,0 +1,47 @@
+{
+  "checks": [
+    {
+      "fixed_chart_pose_derivative_error": 1.526708098980683e-09,
+      "method": "generic_task",
+      "orthogonality_error": 6.62145743255479e-15,
+      "rank": 128,
+      "seed_events": []
+    },
+    {
+      "fixed_chart_pose_derivative_error": 1.5267647648452296e-09,
+      "method": "sensing_task",
+      "orthogonality_error": 1.086393575970401e-14,
+      "rank": 128,
+      "seed_events": [
+        {
+          "fi": 3,
+          "final_rank": 128,
+          "method": "sensing_task",
+          "seed_rank": 36
+        }
+      ]
+    },
+    {
+      "fixed_chart_pose_derivative_error": 1.5253296049047706e-09,
+      "method": "twofold_task",
+      "orthogonality_error": 1.0844401828798064e-14,
+      "rank": 128,
+      "seed_events": []
+    },
+    {
+      "fixed_chart_pose_derivative_error": 1.523687023617157e-09,
+      "method": "krylov_task",
+      "orthogonality_error": 5.2065893164662094e-15,
+      "rank": 90,
+      "seed_events": [
+        {
+          "fi": 3,
+          "final_rank": 90,
+          "method": "krylov_task",
+          "seed_rank": 64
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

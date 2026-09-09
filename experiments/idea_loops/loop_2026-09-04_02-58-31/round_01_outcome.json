@@ -1,0 +1,160 @@
+{
+  "idea": {
+    "Name": "geometry_lifted_retained_range_som",
+    "Title": "Geometry-Lifted Retained-Range SOM for Local Pose-Hiding and Reduced Self-Calibration in Full-Wave Inverse Scattering",
+    "Short Hypothesis": "For unknown antenna pose, the receiver-side Green derivative admits a canonical minimum-norm lift into a retained SOM current space plus an orthogonal irreducible data residual; coupling that lift to the full-wave state equation yields an exact finite-dimensional condition for local pose hiding, and a reduced self-calibration parameterization is lossless for identifiable pose directions while freezing hidden ones.",
+    "Related Work": "Equivalent currents and contrast sources, classical SOM and twofold SOM, source/receiver-extension full-waveform inversion, inverse scattering with transmitter localization, CSI calibration, blind calibration, SAR/radar autofocus, pseudoinverse lifts, variable projection, and subspace perturbation are established antecedents. The retrieval-bounded contribution is only the type-correct full-wave/SOM synthesis: restrict the geometry-to-current lift to a declared retained current space, retain the orthogonal unrepresentable residual, separate receiver pseudo-current from transmitter-induced physical current, and couple the result to a state-equation rank condition rather than treating the state witness as a pose-quality score.",
+    "Abstract": "We investigate self-calibrating full-wave inverse scattering when an antenna array pose changes the Green operators used by subspace optimization methods. At the independent-current level we separate receiver-side re-sampling from the physical induced-current change caused by illumination. Given a retained SOM basis, we define the minimum-norm pose-equivalent current by a restricted pseudoinverse and prove an orthogonal decomposition into representable and irreducible data components. Reparameterizing the joint data and state linearization gives an exact finite-dimensional condition for a pose direction to be hidden by retained current and real contrast variations. We retain a full-row-rank negative control and show experimentally in a deterministic 2D scalar Helmholtz solver that unrestricted equivalence is vacuous, while retained-rank lifting is non-vacuous. The completed round verified the orthogonal decomposition, analytic receiver/transmitter/co-moving derivatives, hard-versus-soft spectral filtering, confounded and disambiguated rank regimes, and equivalence of direct joint GN with a geometry-lifted reduced GN in identifiable pose directions while hidden directions remain frozen. The originally proposed state-consistency witness T_U did not discriminate good from bad pose estimates, so it is demoted to a pseudo-current diagnostic and is not used as a reconstruction disambiguator. Planned continuation adds a second frequency/grid or limited-aperture setting, multiple noise seeds, retained-rank and regularization ablations, and an extended transmitter-array check to test whether transmitter-pose calibration can escape the scalar point-source theta gauge. Claims remain local, finite-dimensional, model-conditional, and retrieval-bounded.",
+    "Experiments": {
+      "datasets": [
+        "Deterministic synthetic 2D scalar Helmholtz contrast-source scenes on a world-fixed grid using the corrected self-cell quadrature and analytic Green derivatives from the existing project harness.",
+        "Single- and multi-pose Tx/Rx arrays with separately controlled receiver-only, transmitter-only, and co-moving SE(2) perturbations; include full-row-rank, deliberately rank-deficient, limited-aperture, and SVD-truncated cases.",
+        "Low-dimensional real contrast bases; selected reconstruction points with multiple random noise realizations near the reported 0.032 noise floor and at a higher SNR.",
+        "One additional feasible setting: a second frequency or a modestly different grid/discretization, and/or a limited-aperture receiver arc, using the same dense small-grid CPU solver.",
+        "If feasible, a small multi-element transmitter array or directional source to test transmitter-pose self-calibration beyond the scalar point-source theta gauge."
+      ],
+      "baselines": [
+        "Unrestricted full-current pseudoinverse versus retained-rank SOM lifts, with the full-row-rank negative control retained.",
+        "Analytic receiver sampling, physical current, and total pose derivatives versus centered finite differences.",
+        "Wrong-pose fixed SOM, direct joint full-wave contrast-pose least squares, and geometry-lifted reduced data-plus-state calibration.",
+        "Hard SVD truncation versus a declared soft spectral filter near threshold crossings.",
+        "Data-only pose cancellation versus joint data-and-state rank characterization.",
+        "Full joint GN versus geometry-lifted reduced GN across retained rank r and regularization/whitening choices.",
+        "Identity whitening versus current-norm whitening; fixed small ridge versus adaptive LM."
+      ],
+      "metrics": [
+        "Lift reconstruction and orthogonality residuals, irreducible residual norm, lift norm, singular values, cutoff, ranks, and condition numbers.",
+        "SOM projector distance/leakage, subspace-bound ratio, spectral gap, threshold-crossing diagnostics, and soft-filter continuity.",
+        "Centered finite-difference errors for H_S, physical-current J derivatives, and total B; null-current energy discarded by data-only projection.",
+        "Norms and ranks of R_U, D_U, T_U, and stacked pose signature; constructed hidden directions and gauge/anchor controls.",
+        "Map error, pose error, data residual, state residual, effective variables, runtime, convergence rate/basin, success counts, and noise sensitivity across multiple seeds.",
+        "Rank-transition summary over retained rank r: hidden/visible pose DOF, minimum singular values before/after realification, and reconstruction error breakdown into visible and hidden pose components.",
+        "Distribution of the demoted state witness T_U across good and bad pose estimates; reported as a diagnostic with an explicit null result if it still fails to discriminate."
+      ],
+      "compute_estimate": "Apple Silicon CPU only. Reuse the existing dense small-grid solver and cached factorizations. Run refinement diagnostics at N=6 or N=8; one additional frequency/grid or limited-aperture setting; multiple noise seeds only for selected reconstruction points. No CUDA, GPU infrastructure, neural training, daemon, database, or web UI.",
+      "steps": [
+        "Read the complete run instructions and theory seed; independently check signs and spaces, and retain the full-row-rank negative control showing unrestricted equivalence is vacuous.",
+        "Re-run the completed E1-E5 outcomes as regression checks; demote the state-consistency witness T_U to a pseudo-current diagnostic and explicitly record its distribution across good/bad pose estimates rather than using it as a disambiguator.",
+        "Implement the additional setting: a second frequency or a modest grid/limited-aperture configuration, and verify the lift/decomposition and local rank-hiding condition are not artifacts of a single configuration.",
+        "Add multiple noise realizations for E5-type reconstruction at identifiable r=4 and mostly hidden r=6 regimes; report median/IQR pose and map errors, success counts, and convergence behavior.",
+        "Perform an ablation over retained rank r, regularization/whitening choices, and hard versus soft spectral thresholds; characterize the rank transition from receiver-identifiable to mostly hidden pose and the hidden/visible DOF split.",
+        "Attempt an extended transmitter-array or directional-source derivative check and, if stable, a transmitter-pose self-calibration case to determine whether transmitter-pose calibration can escape the scalar point-source theta gauge; otherwise preserve the gauge as an explicit limitation.",
+        "Synthesize only executed results and write the paper draft with an originality firewall and explicit limitations, including all negative findings."
+      ]
+    },
+    "Risk Factors and Limitations": [
+      "The state-consistency witness T_U failed to discriminate good from bad pose estimates in the tested setting; it must remain demoted to a diagnostic and not reappear as a positive disambiguation mechanism.",
+      "A full-row-rank unrestricted sensing operator makes every data perturbation current-equivalent; without retaining the restricted-rank lift the central contribution would be vacuous.",
+      "The canonical lift depends on whitening, realification, current norm, retained basis, and regularization; it is not metric-free.",
+      "Small singular values make the equivalent current unstable, and hard rank thresholds create discontinuous coordinate changes.",
+      "Receiver re-sampling produces a pseudo-current, whereas transmitter motion produces a physical induced-current change; combining them before the state equation can double count pose effects.",
+      "On a world-fixed homogeneous grid G_D is pose independent; a moving G_D belongs to a different model and is not claimed.",
+      "The exact TSOM domain fold is not verified in the project sources, so experiments may use only a truncated SOM basis.",
+      "The scalar point-transmitter theta derivative is structurally collinear with tx/ty for all phi0, so transmitter-only pose signature may remain rank 2 even with an anchor angle.",
+      "The additional frequency/grid or limited-aperture setting is still synthetic and low-dimensional; it increases breadth but does not prove continuum stability or hardware self-calibration.",
+      "The literature screen is retrieval-bounded and source/receiver-extension FWI is a close conceptual antecedent.",
+      "A nonlinear benefit may remain initialization-dependent or absent; negative results must remain visible."
+    ]
+  },
+  "report": {
+    "status": "completed",
+    "summary": "This round executed E6-E9 in the geometry-lifted retained-range SOM project using the existing 2D scalar Helmholtz harness. E6 showed that an L>=2 rigid transmitter array breaks the scalar point-source theta gauge and enables transmitter-pose self-calibration. E7/E7b tested state-consistent retained-current variants and produced a clean null: the retained-rank state witness still does not discriminate good from bad pose estimates and does not help as a penalty. E8 replicated E5 across 76/76 least-squares runs and two SNR levels, confirming that reduced_r4 is lossless while reduced_r6 freezes hidden pose directions. E9 extended this to N=24/N=32 grids and an alternative scene, with 36/36 runs converged and the same rank/threshold structure. The retained-rank lift is non-vacuous, reduced self-calibration is lossless for identifiable pose directions and freezes hidden ones, and T_U remains diagnostic-only.",
+    "key_results": [
+      "E6 derivative checks: centered finite differences passed at O(eps^2); max relative error 1.9e-7 at eps=1e-4 for the multi-transmitter rigid-array Jacobians.",
+      "E6 gauge/rank: one point transmitter has B_t complex rank 2 with theta-column residual ~1.7e-18; L=2 and L=3 transmitter arrays have rank 3 with theta residual 8.9e-4 and 1.2e-3.",
+      "E6 nonlinear transmitter-only self-calibration (L=2, N=16, K=3, SNR 30 dB, 4 seeds): wrong-pose baseline pose error 0.1118, theta error 0.05, map error 0.388, residual 0.784; direct/reduced_r4/reduced_r6 recover pose ~1.9e-3, theta ~1.6e-3, map ~5.6e-3 at the 0.030 noise floor.",
+      "E6 at SNR 20 dB: direct/reduced variants recover pose ~5.9e-3 and theta ~4.9e-3; co-moving multi-Tx pose error ~1.55e-2.",
+      "E7 r=6 confounded single-Tx fixture: direct pose 1.03e-2 with hidden component 9.4e-3; reduced_r6 pose 4.42e-2 with hidden component 4.41e-2 frozen.",
+      "E7 hard-cut state_consistent variant froze at p_init because the r=6 cut lands on a degenerate singular-value pair with s6-s7 \u2248 8.7e-19.",
+      "E7b soft spectral filter (tanh weights w5=0.982, w6=w7=0.581, w8=0.018) removed the Jacobian blow-up, but no lambda recovered hidden directions: lambda=0 gave retained-data residual 3.5e-5 but pose 0.085, map 0.445, full-data residual 0.462; lambda>=1e-2 collapsed alpha with map ~1.0 and pose ~0.81-0.84.",
+      "E7 direct T_U penalty did not help: lambda_T=1e-3 lowered T_U to 0.59-0.69 but produced pose error ~0.52.",
+      "E8 replication: 76/76 least-squares runs converged with status 1 and optimality <=1e-10. At SNR 30 zero init: wrongpose pose 1.118e-1 / theta 5.0e-2; direct and reduced_r4 both 7.45e-3 / 3.30e-3; reduced_r6 4.42e-2 / 4.41e-2.",
+      "E8 at SNR 20: direct/reduced_r4 2.67e-2 / 7.99e-3; reduced_r6 4.43e-2 / 4.40e-2. reduced_r4 matches direct to solver precision at every seed/SNR, while reduced_r6 is SNR-insensitive and geometric.",
+      "E8 perturbed init: reduced_r6 cannot escape its basin (pose 0.150) whereas direct/reduced_r4 reach 1.09e-2.",
+      "E9 grids/scenes: N=24 and N=32 base scenes plus an alternative N=16 scene; 36/36 runs converged. r4 is full with n_vis=3; r6 has n_vis=1 and hidden_rank=2 at zero and perturbed init, with two hidden singular values at the ~1e-19 numerical floor.",
+      "E9 spectral structure: the s5-s6 pair remains machine-degenerate while neighboring gaps remain ~1e-5 to 1e-4 on every tested grid/scene.",
+      "E9 reduced_r4 remains lossless on N=24/N=32 with identical per-run records; the alternative scene is near-lossless with equal residuals. reduced_r6 freezes hidden directions everywhere with pose ~4.3e-2 to 4.6e-2 versus direct ~1.2e-2 to 1.6e-2."
+    ],
+    "files_of_interest": [
+      "results_e6.json",
+      "plot_e6.png",
+      "run_e6_multitx.py",
+      "results_e7.json",
+      "plot_e7.png",
+      "run_e7_state_consistent.py",
+      "results_e7b.json",
+      "plot_e7b.png",
+      "run_e7b_soft_state.py",
+      "results_e5_seeds.json",
+      "plot_e5_seeds.png",
+      "run_e5_seeds.py",
+      "results_e9_grid_scenes.json",
+      "plot_e9_grid_scenes.png",
+      "run_e9_grid_scenes.py",
+      "results_e5_final.json",
+      "plot_e5_final.png",
+      "results_e2_e4.json",
+      "plot_e2_rank_event.png",
+      "plot_e4_hiding.png",
+      "geom_som_core.py"
+    ],
+    "working_assets": [
+      "geom_som_core.py",
+      "run_e6_multitx.py",
+      "run_e7_state_consistent.py",
+      "run_e7b_soft_state.py",
+      "run_e5_seeds.py",
+      "run_e9_grid_scenes.py",
+      "run_e5_final.py",
+      "run_e2_e4.py",
+      "results_e6.json",
+      "results_e7.json",
+      "results_e7b.json",
+      "results_e5_seeds.json",
+      "results_e9_grid_scenes.json",
+      "results_e5_final.json",
+      "results_e2_e4.json",
+      "plot_e6.png",
+      "plot_e7.png",
+      "plot_e7b.png",
+      "plot_e5_seeds.png",
+      "plot_e9_grid_scenes.png",
+      "plot_e5_final.png"
+    ],
+    "completed_steps": [
+      "Reused the existing 2D scalar Helmholtz harness and prior result assets.",
+      "Implemented and validated an L-transmitter rigid-array forward model with analytic transmitter/receiver/co-moving Jacobians; centered finite differences passed at O(eps^2).",
+      "Ran E6 transmitter-only self-calibration for L=2 at multiple SNRs/seeds and a co-moving multi-Tx case.",
+      "Ran E7 hard-cut state-consistent retained-current variant and recorded the degenerate r=6 singular-value failure.",
+      "Ran E7b soft spectral-filter state-consistent variant across lambda values and documented the pose-flat/scale-incommensurate null.",
+      "Tested the original T_U witness as a scalar penalty and recorded that it failed to improve pose estimates.",
+      "Ran E8 multi-seed/multi-SNR replication of E5 with 76/76 least-squares runs converged.",
+      "Ran E9 larger-grid and alternative-scene experiments with N=24, N=32, and alt N=16; 36/36 runs converged.",
+      "Synthesized numeric results from JSON files and printed solver records into the final notes."
+    ],
+    "dead_ends": [
+      "The original state-consistency witness T_U did not discriminate good from bad pose estimates and did not participate beneficially as a scalar penalty.",
+      "The hard-cut retained-current state_consistent variant at r=6 stopped at the initial point because the SVD cut landed on a degenerate singular-value pair, s6-s7 \u2248 8.7e-19.",
+      "The soft-filter state_consistent variant avoided the Jacobian singularity but remained a clean null: lambda=0 gave a physically meaningless optimum, while lambda>=1e-2 collapsed the contrast/pose optimization.",
+      "Visual plot inspection was unavailable through the tool; numeric claims are grounded in JSON result files and printed solver records."
+    ],
+    "next_steps": [
+      "Strengthen the E6 multi-transmitter result with more seeds, more SNR levels, and possibly directional or element-pattern sources; verify co-moving theta identifiability more tightly.",
+      "If state consistency is revisited, use an analytic Jacobian and a properly scale-normalized state residual, or impose hard state equality via variable projection, rather than raw unnormalized data plus scalar T_U penalty.",
+      "Add a limited-aperture receiver arc and/or a second frequency to increase breadth.",
+      "Consider larger receiver counts M to move away from the M=8 rank edge.",
+      "Keep all negative state-witness and hard/soft threshold findings visible in any paper synthesis."
+    ]
+  },
+  "verdict": {
+    "decision": "lock",
+    "unresolved_issues": [
+      "The state-consistency witness T_U remains a clean null result: it does not discriminate good from bad pose estimates and does not help as a penalty. The paper must keep it demoted to a diagnostic and not present it as a disambiguation mechanism.",
+      "The empirical evidence is still limited to synthetic 2D scalar Helmholtz scenes with small dense grids and CPU solver settings; no limited-aperture receiver arc, real data, or hardware self-calibration is included.",
+      "The report summary does not explicitly detail the regularization/whitening ablation from the planned experiments: identity versus current-norm whitening and fixed ridge versus adaptive LM should be reported in the paper if those runs exist.",
+      "The transmitter-array result is demonstrated only for L=2 and L=3 rigid arrays; larger arrays or directional-source cases would strengthen the claim that transmitter-pose calibration escapes the point-source theta gauge.",
+      "External blind-calibration or source/receiver-extension full-waveform inversion baselines are not compared; direct joint GN is a strong internal baseline, but the paper should clarify the scope relative to those methods."
+    ],
+    "reasoning": "The study is no longer a pilot or single-setting exploration. E6 provides derivative checks and nonlinear transmitter-only self-calibration across multiple seeds and SNRs, showing that a multi-transmitter rigid array breaks the scalar point-source gauge. E7 and E7b cleanly establish the negative result for the state-consistency witness and the failure of state-consistent penalties to recover hidden directions, without overselling it. E8 replicates the central reduced-rank result across 76/76 least-squares runs and two SNR levels, confirming that reduced_r4 is lossless while reduced_r6 freezes hidden pose directions; perturbed-initialization checks support the basin interpretation. E9 extends the same rank/threshold structure to N=24/N=32 grids and an alternative scene, with 36/36 converged runs and stable spectral degeneracy. There are sensible baselines, ablations over retained rank, hard versus soft spectral filtering, multiple seeds/SNRs, analytic-versus-finite-difference checks, and explicit limitations. The remaining issues are mostly scope limitations or reporting details rather than threats to the central retained-rank lifting and reduced self-calibration claims. This is sufficient for a full-length paper with a rich appendix."
+  }
+}

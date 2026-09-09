@@ -1,0 +1,20 @@
+{
+  "python": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "numpy": "2.5.3",
+  "scipy": "1.16.3",
+  "cwd": "/Volumes/migodam's-external-brain/Research/Inv_SLAM",
+  "timestamp_utc": "2026-09-07T04:36:42.810202+00:00",
+  "parent_file_sha256": {
+    "maxwell3d.py": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b",
+    "validate_maxwell3d_fill.py": "5b64dab277bbd2493766bac2875ecec58dbfd45b518cd3fb6f764a33e60df61c",
+    "calibrate3d.py": "cb6d994d3f39cfc8e1240336ba6d61d3501ed6da81edcd8c3409a2a367407dce",
+    "results/maxwell3d_fill_development.json": "175fb04cf6fd67a297b29f2ce5a03fdfa3e6a548d365ac5cc1b1fe6e3d77986c"
+  },
+  "reproduction_command": "research/trispace_self_calibration/a3_research/.venv3d/bin/python research/delegated/a3_maxwell_fft/run_maxwell_fft.py",
+  "total_wall_seconds": 24.695981415978167,
+  "n_audit_cases": 12,
+  "audit_statuses": {
+    "ok": 12
+  }
+}

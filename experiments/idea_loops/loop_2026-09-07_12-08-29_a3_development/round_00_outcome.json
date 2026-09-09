@@ -1,0 +1,100 @@
+{
+  "idea": {
+    "Name": "a3_conditional_calibration_checks",
+    "Title": "Independent checks of fixed-chart derivatives, gain quotients and branch validation",
+    "Short Hypothesis": "A3 conditional algebra can be implemented with explicit failure controls; no performance or novelty claim follows.",
+    "Related Work": "SOM means subspace-based optimization, not self-organizing maps. Generic projection, gain closure and dual residual methods are prior art. Parent owns literature and scientific judgment.",
+    "Abstract": "Bounded independent reconstruction of A3 theorems 1\u20134. Read /Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_algebra/TASK.md. Root is /Volumes/migodam's-external-brain/Research/Inv_SLAM. Implement the supplied task without changing the scientific topic. No ACL review, no global novelty claim, no recursive workers or pipeline. Deliver auditable code/tests/raw outputs in research/delegated/a3_algebra/.",
+    "Experiments": {
+      "datasets": [
+        "deterministic complex linear systems and Gaussian validation fixtures"
+      ],
+      "baselines": [
+        "correct vs omitted residual derivative",
+        "rank-one vs nonseparable fields",
+        "covered vs missing candidate bank",
+        "certified vs uncontrolled resolvent"
+      ],
+      "metrics": [
+        "relative identity errors",
+        "empirical selection risk",
+        "conditional bounds",
+        "negative control violations"
+      ],
+      "compute_estimate": "single CPU thread, small NumPy/SciPy arrays, 10000 noise draws, existing venv",
+      "steps": [
+        "Read bounded task",
+        "Implement and execute checks",
+        "Audit controls and preserve failures",
+        "Summarize scope and remaining work"
+      ]
+    },
+    "Risk Factors and Limitations": [
+      "Conditional fixtures are not nonlinear calibration proof",
+      "No global candidate coverage",
+      "No SOM advantage evidence",
+      "Parent must independently audit"
+    ]
+  },
+  "report": {
+    "status": "completed",
+    "summary": "Bounded A3 numerical validation worker completed successfully. A self-contained regenerator produced 20 deterministic checks covering fixed-chart derivatives/tangent spans, complex gain quotient and whitened projector identities, independent Gaussian branch bounds, and dual-residual/resolvent controls. Final counts: 16 pass, 4 expected-fail controls, 0 unexpected failures. Reruns were deterministic with identical checks.json. These are algebra/numerics fixture checks only and do not constitute independent 3D verification, SOM-performance evidence, or finite-noise/global candidate coverage claims.",
+    "key_results": [
+      "B1 state-only counterexample confirmed: exact state with proxy derivative 0 vs true derivative e2; state-exact does not imply derivative-exact under a fixed chart.",
+      "B1 tangent-span sufficiency: c_v vs centered finite differences 1.05e-10; U*c_v vs true t 5.4e-16.",
+      "B1 nonzero-residual LS derivative: correct formula including (M_v U)^* r_s matched finite differences at 6.3e-10; omitted-residual formula error 0.546, approximately 8.6e8 times worse.",
+      "B1 moving-U control: fixed-chart formula error 0.979; moving-chart formula matched finite differences at 1.3e-10.",
+      "B2 complex gain quotient: cross-ratio invariance error 6.3e-16; factor recovery error 5.6e-16.",
+      "B2 complex tangent kernel matches row+column gain subspace: subspace distance 1.3e-15 with dimension R+T-1=8.",
+      "B2 realified whitened projector under non-identity SPD covariance with condition number 5: Frobenius difference vs orthogonal complement projector 6.2e-15.",
+      "B2 rank-one gain hiding and two-component formula checks passed at machine precision; near-zero denominator case correctly flagged instead of dividing blindly.",
+      "B3 independent Gaussian branch bounds over 10000 draws per positive case: K=2 empirical error 0.1608 <= theorem bound 0.6065; K=3 case 1 empirical error 0.0911 <= 0.6493; K=3 case 2 empirical error 0.0689 <= 0.3911.",
+      "B3 controls: missing-candidate empirical error 1.0 as expected; reused-validation empirical error 1.0, and invalid refit-distance plug-in bound averaged 0.6917, still understating conditional error 1.0.",
+      "B4 complex dual-residual identity verified with absolute error ~1e-15; SVD-derived resolvent bound gamma = 1/sigma_min held against exact ||M^{-1}||_2 with margin.",
+      "B4 near-singular control: residual norm 1e-6 but true remaining output error with zero approximate adjoint is 1.0; exact adjoint correction recovered full error, as expected.",
+      "Overall counts from checks.json: 20 total cases, 16 pass, 4 expected_fail, 0 fail. Rerun produced unchanged sha256 for checks.json."
+    ],
+    "files_of_interest": [
+      "checks.json",
+      "regenerate_checks.py",
+      "SUMMARY.md",
+      "a3_excerpt.txt",
+      "task_copy.md"
+    ],
+    "working_assets": [
+      "checks.json",
+      "regenerate_checks.py",
+      "SUMMARY.md",
+      "a3_excerpt.txt",
+      "task_copy.md"
+    ],
+    "completed_steps": [
+      "Read bounded task and extracted governing A3 theorem equations into a3_excerpt.txt and task_copy.md.",
+      "Implemented self-contained regenerate_checks.py with all B1-B4 falsification blocks and explicit expected-fail controls.",
+      "Executed the regenerator under the pinned venv Python with CPU single thread and produced checks.json plus SUMMARY.md.",
+      "Audited controls: B2 near-zero denominator, B3 missing candidate, B3 reused validation, and B4 near-singular small residual.",
+      "Confirmed deterministic rerun: checks.json sha256 unchanged and statuses remained 20/20 as intended."
+    ],
+    "dead_ends": [
+      "No dead ends identified. The reused-validation control did not produce an invalid plug-in bound near zero, but this does not block the validation and is recorded as a limitation."
+    ],
+    "next_steps": [
+      "Extend checks to independent 3D or forward-model verification beyond algebraic fixtures.",
+      "Perform finite-noise calibration/ratio-sufficiency tests for the B2 and B3 claims.",
+      "Sharpen the B3 reused-validation control by recording per-repetition violation counts where the plug-in bound is < 1, rather than only reporting the average invalid bound.",
+      "Keep B4 near-singular controls tied to certified resolvent gamma and exact adjoint correction."
+    ]
+  },
+  "verdict": {
+    "decision": "revise",
+    "unresolved_issues": [
+      "Only synthetic deterministic complex-linear and Gaussian fixtures are used; there is no evidence on more varied or realistic settings.",
+      "No comparison against substantive prior or alternative methods beyond identity-level expected-fail controls.",
+      "Stochastic bounds are based on a single set of 10,000 draws; no multiple seeds, variance estimates, or confidence intervals are reported.",
+      "No ablations of key components in a downstream task; the controls are sanity checks, not empirical ablations showing practical importance.",
+      "No demonstrated downstream impact or utility, and the report explicitly disclaims performance, finite-noise, and global candidate coverage claims.",
+      "The contribution is currently a bounded verification note, not a full-length paper with rich appendix-level substantiation."
+    ],
+    "reasoning": "The implemented checks are clean and deterministic: 16 pass and 4 expected-fail controls with no unexpected failures, covering fixed-chart derivatives, gain quotients, Gaussian branch bounds, and dual-residual/resolvent identities. However, the study is explicitly limited to synthetic algebra/numerics fixtures and disclaims novelty, performance, and broader applicability. For a top-venue full paper, this is not enough substantiated empirical content: it lacks realistic or multiple settings, substantive baselines, repeated stochastic runs with uncertainty, ablations in a downstream task, and evidence that the implemented conditional algebra improves any practical outcome. The core idea is not broken, so it should not be abandoned, but it must be deepened into a broader empirical study before writing up."
+  }
+}

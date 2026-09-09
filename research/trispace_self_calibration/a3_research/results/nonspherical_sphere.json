@@ -1,0 +1,134 @@
+[
+  {
+    "shape": "sphere",
+    "n": 12,
+    "k": 9.0,
+    "epsilon": [
+      2.5,
+      0.03
+    ],
+    "relative_field_disagreement": 0.027889374585317987,
+    "reference_refinement_change": null,
+    "inverse_voxels": 1136,
+    "reference_voxels": 912,
+    "spacing": 0.02666666666666667,
+    "inverse_seconds": 0.0710957920528017,
+    "reference_seconds": 0.05411412607645616,
+    "max_true_iterative_residual": 5.2070093523685916e-11,
+    "memory_estimate_mib": 7.611328125,
+    "scope": "development; independent ADDA LDR vs fill-weighted CM+RR; shared DDA family",
+    "status": "ok",
+    "reference_treams_error": 0.025910803790974633,
+    "inverse_treams_error": 0.04523927874318523
+  },
+  {
+    "shape": "sphere",
+    "n": 20,
+    "k": 9.0,
+    "epsilon": [
+      2.5,
+      0.03
+    ],
+    "relative_field_disagreement": 0.017487647020810414,
+    "reference_refinement_change": 0.011654928816922858,
+    "inverse_voxels": 4824,
+    "reference_voxels": 4224,
+    "spacing": 0.016,
+    "inverse_seconds": 0.27939087501727045,
+    "reference_seconds": 0.18994687596568838,
+    "max_true_iterative_residual": 8.111892740248513e-11,
+    "memory_estimate_mib": 33.56396484375,
+    "scope": "development; independent ADDA LDR vs fill-weighted CM+RR; shared DDA family",
+    "status": "ok",
+    "reference_treams_error": 0.015854703192172262,
+    "inverse_treams_error": 0.026141148870500577
+  },
+  {
+    "shape": "sphere",
+    "n": 32,
+    "k": 9.0,
+    "epsilon": [
+      2.5,
+      0.03
+    ],
+    "relative_field_disagreement": 0.009709196288031746,
+    "reference_refinement_change": 0.005738419598277334,
+    "inverse_voxels": 19088,
+    "reference_voxels": 17256,
+    "spacing": 0.01,
+    "inverse_seconds": 1.4914631669525988,
+    "reference_seconds": 0.7337950000655837,
+    "max_true_iterative_residual": 9.936131260050941e-11,
+    "memory_estimate_mib": 134.8974609375,
+    "scope": "development; independent ADDA LDR vs fill-weighted CM+RR; shared DDA family",
+    "status": "ok",
+    "reference_treams_error": 0.010213964615426434,
+    "inverse_treams_error": 0.015610428123770902
+  },
+  {
+    "shape": "sphere",
+    "n": 12,
+    "k": 18.0,
+    "epsilon": [
+      2.5,
+      0.03
+    ],
+    "relative_field_disagreement": 0.08699982582304616,
+    "reference_refinement_change": null,
+    "inverse_voxels": 1136,
+    "reference_voxels": 912,
+    "spacing": 0.02666666666666667,
+    "inverse_seconds": 0.10546437499579042,
+    "reference_seconds": 0.07011787500232458,
+    "max_true_iterative_residual": 3.9253524287416556e-11,
+    "memory_estimate_mib": 7.611328125,
+    "scope": "development; independent ADDA LDR vs fill-weighted CM+RR; shared DDA family",
+    "status": "ok",
+    "reference_treams_error": 0.0533492763581529,
+    "inverse_treams_error": 0.12773621390271445
+  },
+  {
+    "shape": "sphere",
+    "n": 20,
+    "k": 18.0,
+    "epsilon": [
+      2.5,
+      0.03
+    ],
+    "relative_field_disagreement": 0.04274190582481443,
+    "reference_refinement_change": 0.03140235681843924,
+    "inverse_voxels": 4824,
+    "reference_voxels": 4224,
+    "spacing": 0.016,
+    "inverse_seconds": 0.4051890000118874,
+    "reference_seconds": 0.2762911669560708,
+    "max_true_iterative_residual": 6.449704002809397e-11,
+    "memory_estimate_mib": 33.56396484375,
+    "scope": "development; independent ADDA LDR vs fill-weighted CM+RR; shared DDA family",
+    "status": "ok",
+    "reference_treams_error": 0.023969639528914226,
+    "inverse_treams_error": 0.058161752770031126
+  },
+  {
+    "shape": "sphere",
+    "n": 32,
+    "k": 18.0,
+    "epsilon": [
+      2.5,
+      0.03
+    ],
+    "relative_field_disagreement": 0.019905893890963373,
+    "reference_refinement_change": 0.010796199158264781,
+    "inverse_voxels": 19088,
+    "reference_voxels": 17256,
+    "spacing": 0.01,
+    "inverse_seconds": 2.349449832981918,
+    "reference_seconds": 1.1060939590097405,
+    "max_true_iterative_residual": 4.7210164534199775e-11,
+    "memory_estimate_mib": 134.8974609375,
+    "scope": "development; independent ADDA LDR vs fill-weighted CM+RR; shared DDA family",
+    "status": "ok",
+    "reference_treams_error": 0.013952302293651044,
+    "inverse_treams_error": 0.02823388255897387
+  }
+]

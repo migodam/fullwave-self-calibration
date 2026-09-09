@@ -1,0 +1,242 @@
+[
+  {
+    "seed": 6101,
+    "spacing": 0.01,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "method": "unified",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.006624549841609414,
+      "weighted_phase_rmse_rad": 0.00477938274804927
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.06964459774128584,
+      "weighted_phase_rmse_rad": 0.01843281439218758
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.06116827242181083,
+      "weighted_phase_rmse_rad": 0.01565451847647217
+    },
+    "audit_seconds": 6.621808708005119,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6101,
+    "spacing": 0.01,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "method": "unified_reference",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.008643018460843557,
+      "weighted_phase_rmse_rad": 0.004013719169422103
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.014136189243908491,
+      "weighted_phase_rmse_rad": 0.004320427340296528
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.004485111539712924,
+      "weighted_phase_rmse_rad": 0.0015789183927915724
+    },
+    "audit_seconds": 6.398792874999344,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6102,
+    "spacing": 0.01,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "method": "unified",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.006567160841322139,
+      "weighted_phase_rmse_rad": 0.00483264179522931
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.07622261710453145,
+      "weighted_phase_rmse_rad": 0.02020955879594033
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.06662031676310265,
+      "weighted_phase_rmse_rad": 0.017164085177420015
+    },
+    "audit_seconds": 7.068111374974251,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6102,
+    "spacing": 0.01,
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "method": "unified_reference",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.009124028058112924,
+      "weighted_phase_rmse_rad": 0.003415739664627357
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.01560372132419696,
+      "weighted_phase_rmse_rad": 0.0045915322092914945
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.005086092425068499,
+      "weighted_phase_rmse_rad": 0.002320749770866295
+    },
+    "audit_seconds": 6.8553767499979585,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6101,
+    "spacing": 0.01,
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "method": "unified",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.02295812932801605,
+      "weighted_phase_rmse_rad": 0.01609404399367114
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.03915449195912367,
+      "weighted_phase_rmse_rad": 0.02970881252104023
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.06336249096008398,
+      "weighted_phase_rmse_rad": 0.05433671086521019
+    },
+    "audit_seconds": 9.35808395803906,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6101,
+    "spacing": 0.01,
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "method": "unified_reference",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.0230872588781254,
+      "weighted_phase_rmse_rad": 0.01585228738926174
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.03649433805201634,
+      "weighted_phase_rmse_rad": 0.02688092611781234
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.05982239309117884,
+      "weighted_phase_rmse_rad": 0.051056013583090164
+    },
+    "audit_seconds": 9.519672917027492,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6102,
+    "spacing": 0.01,
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "method": "unified",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.026254596127182075,
+      "weighted_phase_rmse_rad": 0.018421768955173664
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.03865093727137838,
+      "weighted_phase_rmse_rad": 0.028712183352271606
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.060037953614160124,
+      "weighted_phase_rmse_rad": 0.05366407520766434
+    },
+    "audit_seconds": 11.300009666010737,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6102,
+    "spacing": 0.01,
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "method": "unified_reference",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.02611803586634803,
+      "weighted_phase_rmse_rad": 0.018208059904090156
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.03693365485415048,
+      "weighted_phase_rmse_rad": 0.026779806580997354
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.05752402205479846,
+      "weighted_phase_rmse_rad": 0.051308501109947044
+    },
+    "audit_seconds": 10.92701795801986,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6101,
+    "spacing": 0.0075,
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "method": "unified",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.017212388407934646,
+      "weighted_phase_rmse_rad": 0.01228384459032584
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.02882389546686638,
+      "weighted_phase_rmse_rad": 0.022120832488106233
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.0435493105875731,
+      "weighted_phase_rmse_rad": 0.03746465296825141
+    },
+    "audit_seconds": 22.516382040979806,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  },
+  {
+    "seed": 6101,
+    "spacing": 0.0075,
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "method": "unified_reference",
+    "deployable_sensor_prediction": {
+      "field_relative_error": 0.01727091140515873,
+      "weighted_phase_rmse_rad": 0.012073426152000263
+    },
+    "reconstructed_structural_field": {
+      "field_relative_error": 0.027290404892440088,
+      "weighted_phase_rmse_rad": 0.02048407429244082
+    },
+    "preserved_oracle_parameter_transfer": {
+      "field_relative_error": 0.041538244902059214,
+      "weighted_phase_rmse_rad": 0.03558644024293721
+    },
+    "audit_seconds": 22.429743083019275,
+    "scope": "frozen estimates; new receiver angles; actual inverse solver and fitted electronics; independent noiseless mean target; no refit"
+  }
+]

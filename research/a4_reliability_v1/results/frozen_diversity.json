@@ -1,0 +1,704 @@
+[
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 1,
+    "gain_model": "scalar",
+    "singular_values": [
+      4.440892098500626e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 1,
+    "gain_model": "row",
+    "singular_values": [
+      4.440892098500626e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 1,
+    "gain_model": "entry",
+    "singular_values": [
+      4.440892098500626e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 2,
+    "gain_model": "scalar",
+    "singular_values": [
+      10.104937751853722,
+      8.915085026432223,
+      5.9023614925798265e-15
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 2,
+    "gain_model": "row",
+    "singular_values": [
+      10.104937751853722,
+      8.915085026432223,
+      5.9023614925798265e-15
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 2,
+    "gain_model": "entry",
+    "singular_values": [
+      1.826255086783829e-15,
+      1.0167392064624213e-15,
+      2.109379164497063e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 3,
+    "gain_model": "scalar",
+    "singular_values": [
+      11.148292766223339,
+      8.237336910772639,
+      2.7482490542524407
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 3,
+    "gain_model": "row",
+    "singular_values": [
+      11.148292766223339,
+      8.237336910772639,
+      2.7482490542524407
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 1,
+    "illuminations": 3,
+    "gain_model": "entry",
+    "singular_values": [
+      2.387243327737064e-15,
+      5.674713019738498e-16,
+      1.6029743918458873e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 6
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 1,
+    "gain_model": "scalar",
+    "singular_values": [
+      10.104937751853722,
+      8.915085026432223,
+      5.9023614925798265e-15
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 1,
+    "gain_model": "row",
+    "singular_values": [
+      1.826255086783829e-15,
+      1.0167392064624213e-15,
+      2.109379164497063e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 1,
+    "gain_model": "entry",
+    "singular_values": [
+      1.826255086783829e-15,
+      1.0167392064624213e-15,
+      2.109379164497063e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 2,
+    "gain_model": "scalar",
+    "singular_values": [
+      12.493864507790283,
+      10.8983181933445,
+      0.7040064727828574
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 2,
+    "gain_model": "row",
+    "singular_values": [
+      11.037400216598497,
+      6.467529872178599,
+      0.5299888503626373
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 2,
+    "gain_model": "entry",
+    "singular_values": [
+      2.8416756053710885e-15,
+      2.100813033676047e-15,
+      4.831016373601202e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 8
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 3,
+    "gain_model": "scalar",
+    "singular_values": [
+      12.073451151013964,
+      9.686467369782756,
+      3.815058923849935
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 3,
+    "gain_model": "row",
+    "singular_values": [
+      10.818174802123295,
+      8.882110435777935,
+      3.5511841873823666
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 2,
+    "illuminations": 3,
+    "gain_model": "entry",
+    "singular_values": [
+      2.285641940201467e-15,
+      1.9327885257180317e-15,
+      6.507631812678395e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 12
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 1,
+    "gain_model": "scalar",
+    "singular_values": [
+      11.148292766223339,
+      8.237336910772639,
+      2.7482490542524407
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 1,
+    "gain_model": "row",
+    "singular_values": [
+      2.387243327737064e-15,
+      5.674713019738498e-16,
+      1.6029743918458873e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 6
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 1,
+    "gain_model": "entry",
+    "singular_values": [
+      2.387243327737064e-15,
+      5.674713019738498e-16,
+      1.6029743918458873e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 6
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 2,
+    "gain_model": "scalar",
+    "singular_values": [
+      12.073451151013964,
+      9.686467369782752,
+      3.815058923849935
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 2,
+    "gain_model": "row",
+    "singular_values": [
+      10.411702594517575,
+      6.494400088155453,
+      0.4529215115380878
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 6
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 2,
+    "gain_model": "entry",
+    "singular_values": [
+      2.2235967644918547e-15,
+      2.1214354500639893e-15,
+      6.7223899423928135e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 12
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 3,
+    "gain_model": "scalar",
+    "singular_values": [
+      10.928963789938472,
+      10.928963789938472,
+      6.0961566494423405
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 3,
+    "gain_model": "row",
+    "singular_values": [
+      9.997203038493128,
+      8.614552193478897,
+      5.602380172444523
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 6
+  },
+  {
+    "orientation": "generic",
+    "receiver_components": 3,
+    "illuminations": 3,
+    "gain_model": "entry",
+    "singular_values": [
+      3.360292710490562e-15,
+      1.3639642097718356e-15,
+      4.797563546903351e-16
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 18
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 1,
+    "gain_model": "scalar",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 1,
+    "gain_model": "row",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 1,
+    "gain_model": "entry",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 2,
+    "gain_model": "scalar",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 2,
+    "gain_model": "row",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 2,
+    "gain_model": "entry",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 3,
+    "gain_model": "scalar",
+    "singular_values": [
+      14.778754724521315,
+      6.661338147750938e-16,
+      0.0
+    ],
+    "visible_rank": 1,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 3,
+    "gain_model": "row",
+    "singular_values": [
+      14.778754724521315,
+      6.661338147750938e-16,
+      0.0
+    ],
+    "visible_rank": 1,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 1,
+    "illuminations": 3,
+    "gain_model": "entry",
+    "singular_values": [
+      14.778754724521315,
+      6.661338147750938e-16,
+      0.0
+    ],
+    "visible_rank": 1,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 1,
+    "gain_model": "scalar",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 1,
+    "gain_model": "row",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 1,
+    "gain_model": "entry",
+    "singular_values": [
+      6.661338147750939e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 2,
+    "gain_model": "scalar",
+    "singular_values": [
+      1.8038988979531736e-15,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 2,
+    "gain_model": "row",
+    "singular_values": [
+      3.1401849173675503e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 2,
+    "gain_model": "entry",
+    "singular_values": [
+      3.1401849173675503e-16,
+      0.0,
+      0.0
+    ],
+    "visible_rank": 0,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 3,
+    "gain_model": "scalar",
+    "singular_values": [
+      10.450157683201748,
+      10.450157683201748,
+      1.803898897953173e-15
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 3,
+    "gain_model": "row",
+    "singular_values": [
+      10.450157683201748,
+      10.450157683201748,
+      3.14018491736755e-16
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 2,
+    "illuminations": 3,
+    "gain_model": "entry",
+    "singular_values": [
+      10.450157683201748,
+      10.450157683201748,
+      3.14018491736755e-16
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 1,
+    "gain_model": "scalar",
+    "singular_values": [
+      14.778754724521315,
+      6.661338147750938e-16,
+      0.0
+    ],
+    "visible_rank": 1,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 1,
+    "gain_model": "row",
+    "singular_values": [
+      14.778754724521315,
+      6.661338147750938e-16,
+      0.0
+    ],
+    "visible_rank": 1,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 1,
+    "gain_model": "entry",
+    "singular_values": [
+      14.778754724521315,
+      6.661338147750938e-16,
+      0.0
+    ],
+    "visible_rank": 1,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 2,
+    "gain_model": "scalar",
+    "singular_values": [
+      10.450157683201748,
+      10.450157683201748,
+      1.8038988979531736e-15
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 2,
+    "gain_model": "row",
+    "singular_values": [
+      10.450157683201748,
+      10.450157683201748,
+      3.311057497222442e-16
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 2,
+    "gain_model": "entry",
+    "singular_values": [
+      10.450157683201748,
+      10.450157683201748,
+      3.311057497222442e-16
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 4
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 3,
+    "gain_model": "scalar",
+    "singular_values": [
+      10.380497541343255,
+      10.380497541343255,
+      5.787334691887174
+    ],
+    "visible_rank": 3,
+    "nuisance_rank": 2
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 3,
+    "gain_model": "row",
+    "singular_values": [
+      10.380497541343255,
+      10.380497541343255,
+      1.8392251673439225e-15
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 6
+  },
+  {
+    "orientation": "axial",
+    "receiver_components": 3,
+    "illuminations": 3,
+    "gain_model": "entry",
+    "singular_values": [
+      10.380497541343255,
+      10.380497541343255,
+      1.8392251673439225e-15
+    ],
+    "visible_rank": 2,
+    "nuisance_rank": 6
+  }
+]

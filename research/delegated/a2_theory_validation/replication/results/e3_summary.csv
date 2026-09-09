@@ -1,0 +1,24 @@
+case,category,key_values,pass,note
+exact_small_pi/4,dual_spectra,"map=['0.5', '1'], pose=['0.5', '1'], res=2.2e-16",True,Theorem 3 spectra and multiplicities at known principal angles
+exact_small_pi/2,dual_spectra,"map=['1', '1'], pose=['1', '1'], res=0",True,Theorem 3 spectra and multiplicities at known principal angles
+random_nuisance,dual_spectra,"max_res=8.9e-16, raw_Ke=['0.091', '0.2464', '0.4989', '1.158'], norm_map=['0.2281', '0.3564', '0.7146', '1']",True,Theorem 3 spectral identity on random nuisance fixture
+rho_undefined_control,dual_spectra,"supp_map=2, supp_pose=1, undef_map=1, undef_pose=1",True,"null K0/B0 directions excluded, never rho 0 or 1"
+scaling_control,dual_spectra,"s=0.1 rho_delta=2.8e-16, J_s2=1; s=1.0 rho_delta=0, J_s2=1; s=10.0 rho_delta=6.1e-16, J_s2=1",True,"canonical rho invariant, J_x scales as s^2"
+b_zero_control,dual_spectra,"map_retention=[1.0, 1.0], J_x_sv=[0.0, 0.0]",True,relative-only gate failure: map retention maximal with zero pose info
+pose_prior_Loewner,pose_prior_extension,"min_eig(K_eL-K_e)=1.2e-16, min_eig(K0-K_eL)=7e-18",True,K_e <= K_eL <= K0
+pose_prior_monotone,pose_prior_extension,min_eig_K(0.5L)-K_e=-1.1e-16; min_eig_K(1.0L)-K(0.5L)=1.3e-17; min_eig_K(2.0L)-K(1.0L)=2.2e-17; min_eig_K0-K(2.0L)=-5.1e-17,True,K_eL monotone nondecreasing in Lambda_x
+pose_prior_variational,pose_prior_extension,max_res=1.3e-15,True,v^T K_eL v = min_h (||A_c v - B_c h||^2 + ||Lambda^1/2 h||^2)
+pose_prior_augmented_angles,pose_prior_extension,"aug_res=2.2e-16, closed_form_res=4.4e-16",True,augmented A/B canonical correlations reproduce whitened K_eL
+pose_prior_lambda_zero,pose_prior_extension,fro_res=6.1e-16,True,Lambda_x=0 recovers K_e
+theorem7_analytic,theorem7,"var_tr=3.19967, bias2=6.21833, total=9.418",True,analytic risk decomposition
+theorem7_mc_variance,theorem7,"max_rel=0.041, within_3se=True",True,per-seed MC variance trace vs tr(M_x J_x^{-1})
+theorem7_mc_bias,theorem7,"max_rel=0.053, within_3se=True",True,per-seed MC total risk at worst SVD bias direction
+theorem7_cov_check,theorem7,"cov_rel=[0.035, 0.1]",True,"sample covariance of B_v^+ eps vs J_x^{-1}, Frobenius relative"
+theorem7_deterministic_bound,theorem7,"sigma_min=0.683067, bound=5.06615, worst_err=2.49366",True,worst analytic M_x error <= (delta+beta_r)/sigma_min
+adaptive_rank_caveat,post_selection_caveat,"sel_N1=228/500, pool_vs_majority=2.26",True,pooled covariance of selected estimator != selected-model inverse info
+confounding_eps_0.2,confounding,"full=26, trunc=2, better_trunc=True",True,full vs truncated risk
+confounding_eps_0.5,confounding,"full=5, trunc=2, better_trunc=True",True,full vs truncated risk
+confounding_eps_1.0,confounding,"full=2, trunc=2, better_trunc=False",True,full vs truncated risk
+confounding_eps_2.0,confounding,"full=1.25, trunc=2, better_trunc=False",True,full vs truncated risk
+confounding_eps_5.0,confounding,"full=1.04, trunc=2, better_trunc=False",True,full vs truncated risk
+confounding_small_residual_large_bias,confounding,"full=1.000001, trunc=1.000001, trunc_bias=1.0, residual_y2=0.001, resid/pose_err=0.001",True,residual-only gate passes while pose is wrong by c*

@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "pid": 88577,
+  "profile": "a3-glm-limited",
+  "model": "glm-5.3-flash",
+  "maximum_wall_seconds": 240,
+  "automatic_retries": 0,
+  "task": "mechanical table verification",
+  "exit_code": 0,
+  "elapsed_seconds": 23.479483041970525,
+  "usage": {
+    "input_tokens": 40451,
+    "cached_input_tokens": 26496,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 380,
+    "reasoning_output_tokens": 0
+  },
+  "event_counts": {
+    "thread.started": 1,
+    "turn.started": 1,
+    "item.completed": 4,
+    "item.started": 2,
+    "turn.completed": 1
+  },
+  "errors": []
+}

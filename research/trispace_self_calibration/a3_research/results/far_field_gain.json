@@ -1,0 +1,272 @@
+[
+  {
+    "k": 9.0,
+    "radius": 1.3,
+    "noise_sigma": 0.0006573938438400411,
+    "derivative_halving_error": 6.57496220848746e-08,
+    "leading_gain_projector_residual": 1.8967663038405107e-15,
+    "raw_singular_values": [
+      3008.5616855955072,
+      2760.896448193771,
+      2616.925198434967
+    ],
+    "rx_gain_profiled_singular_values": [
+      543.1686183732122,
+      325.1498410390387,
+      296.6925874845899
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      534.0719923918106,
+      308.86772116494916,
+      295.8504472047787
+    ],
+    "leading_subtraction_relative_norm": 1.5538320483382864,
+    "relative_visible_norm": 1.2749722891137,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 9.0,
+    "radius": 2.6,
+    "noise_sigma": 0.00032724757058019243,
+    "derivative_halving_error": 6.499425289080852e-08,
+    "leading_gain_projector_residual": 1.1855578034755323e-15,
+    "raw_singular_values": [
+      3011.7423739255414,
+      2755.0198357321774,
+      2590.9081356432175
+    ],
+    "rx_gain_profiled_singular_values": [
+      271.8221019446046,
+      159.1153855324472,
+      145.22948143619868
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      267.275285209435,
+      148.6213096681054,
+      144.7400944543581
+    ],
+    "leading_subtraction_relative_norm": 0.7653436477906352,
+    "relative_visible_norm": 0.6304596722330201,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 9.0,
+    "radius": 5.2,
+    "noise_sigma": 0.0001635030613298775,
+    "derivative_halving_error": 6.482495449332784e-08,
+    "leading_gain_projector_residual": 1.2666640281008543e-15,
+    "raw_singular_values": [
+      3011.399183777117,
+      2757.234516151663,
+      2582.2946621893207
+    ],
+    "rx_gain_profiled_singular_values": [
+      135.87253084524855,
+      79.05148950781451,
+      72.224929272862
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      133.55655525393993,
+      73.43335222609561,
+      71.94703697405038
+    ],
+    "leading_subtraction_relative_norm": 0.38110044217722067,
+    "relative_visible_norm": 0.31405826379014723,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 9.0,
+    "radius": 10.4,
+    "noise_sigma": 8.174929768315634e-05,
+    "derivative_halving_error": 6.479194037797533e-08,
+    "leading_gain_projector_residual": 1.5305946222713572e-15,
+    "raw_singular_values": [
+      3010.5522681823077,
+      2759.2732706418747,
+      2579.483350475017
+    ],
+    "rx_gain_profiled_singular_values": [
+      67.91181842072731,
+      39.43886606362446,
+      36.052945012542146
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      66.7355146794134,
+      36.58737399548916,
+      35.901761064846504
+    ],
+    "leading_subtraction_relative_norm": 0.1903142490988551,
+    "relative_visible_norm": 0.156804032231952,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 9.0,
+    "radius": 20.8,
+    "noise_sigma": 4.087746377629929e-05,
+    "derivative_halving_error": 6.482062926416467e-08,
+    "leading_gain_projector_residual": 1.2711352388395289e-15,
+    "raw_singular_values": [
+      3009.95529588349,
+      2760.48840043439,
+      2578.4790500650215
+    ],
+    "rx_gain_profiled_singular_values": [
+      33.94788317475934,
+      19.702623648494928,
+      18.015899010975247
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      33.35415303398394,
+      18.273415070397185,
+      17.9368665340864
+    ],
+    "leading_subtraction_relative_norm": 0.09511771414443473,
+    "relative_visible_norm": 0.07835435010638521,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 18.0,
+    "radius": 1.3,
+    "noise_sigma": 0.001564558731784343,
+    "derivative_halving_error": 2.6545998900162626e-07,
+    "leading_gain_projector_residual": 1.758443743064878e-15,
+    "raw_singular_values": [
+      6329.192790973592,
+      6022.584020520249,
+      4318.717436847247
+    ],
+    "rx_gain_profiled_singular_values": [
+      816.3730784440984,
+      429.60632619470147,
+      352.7172287056662
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      718.8159121159902,
+      417.52667021745555,
+      344.6196274191461
+    ],
+    "leading_subtraction_relative_norm": 3.524497840740129,
+    "relative_visible_norm": 1.6768310094413392,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 18.0,
+    "radius": 2.6,
+    "noise_sigma": 0.0007964754073778482,
+    "derivative_halving_error": 2.571755145055483e-07,
+    "leading_gain_projector_residual": 1.5166219084350252e-15,
+    "raw_singular_values": [
+      6310.332073846846,
+      6069.16500407615,
+      4124.897404658822
+    ],
+    "rx_gain_profiled_singular_values": [
+      398.7726397086152,
+      202.28625864834333,
+      165.5193527239339
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      329.73810132821654,
+      196.69350055236865,
+      162.9693646949464
+    ],
+    "leading_subtraction_relative_norm": 1.7030353335537725,
+    "relative_visible_norm": 0.7772247692023547,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 18.0,
+    "radius": 5.2,
+    "noise_sigma": 0.0004024140103597176,
+    "derivative_halving_error": 2.556808359851206e-07,
+    "leading_gain_projector_residual": 1.4769324355646829e-15,
+    "raw_singular_values": [
+      6310.989273146551,
+      6084.541635513293,
+      4067.4584752420665
+    ],
+    "rx_gain_profiled_singular_values": [
+      198.3849862645281,
+      99.83999739536428,
+      81.62323555483397
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      159.62358721430763,
+      97.57215602950929,
+      80.40869819671641
+    ],
+    "leading_subtraction_relative_norm": 0.8376314849224836,
+    "relative_visible_norm": 0.37944391865808236,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 18.0,
+    "radius": 10.4,
+    "noise_sigma": 0.00020231382081325756,
+    "derivative_halving_error": 2.5557802413709604e-07,
+    "leading_gain_projector_residual": 1.3471362474660761e-15,
+    "raw_singular_values": [
+      6312.617155215298,
+      6090.110342977168,
+      4048.8470690247395
+    ],
+    "rx_gain_profiled_singular_values": [
+      99.085491035894,
+      49.94464854183116,
+      40.747006871101696
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      78.95123519489016,
+      49.006995881473415,
+      40.111471029951694
+    ],
+    "leading_subtraction_relative_norm": 0.4155184611751459,
+    "relative_visible_norm": 0.1885978350249129,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  },
+  {
+    "k": 18.0,
+    "radius": 20.8,
+    "noise_sigma": 0.00010144050151953232,
+    "derivative_halving_error": 2.557135894440045e-07,
+    "leading_gain_projector_residual": 1.2953811236613925e-15,
+    "raw_singular_values": [
+      6313.639987674188,
+      6092.36893593317,
+      4042.00219183946
+    ],
+    "rx_gain_profiled_singular_values": [
+      49.53391890427342,
+      25.02754231838151,
+      20.377374899326792
+    ],
+    "rx_tx_gain_profiled_singular_values": [
+      39.33096157915877,
+      24.613059023939734,
+      20.047549425157722
+    ],
+    "leading_subtraction_relative_norm": 0.20695891585738577,
+    "relative_visible_norm": 0.09418199453443231,
+    "target_rank": 3,
+    "noise_experiment": "fixed 30dB global complex SNR; per-component variance sigma^2/2",
+    "scope": "local receiver-translation derivative, material fixed, single-frequency free complex gains, independent Treams fields"
+  }
+]

@@ -1,0 +1,179 @@
+% A2 literature audit bibliography (6 September 2026).
+% Every DOI/arXiv ID below was resolved through Crossref, the arXiv API, or
+% ScholarQA verify in this pass. Notes are worker annotations, not part of
+% citation data. Evidence levels: FT=fulltext read, A=abstract read,
+% M=metadata verified.
+
+@article{chen2010som,
+  author  = {Xudong Chen},
+  title   = {Subspace-Based Optimization Method for Solving Inverse-Scattering Problems},
+  journal = {IEEE Transactions on Geoscience and Remote Sensing},
+  year    = {2010},
+  volume  = {48},
+  number  = {1},
+  pages   = {42--49},
+  doi     = {10.1109/TGRS.2009.2025122},
+  note    = {M. Equation-level SOM attribution via Chen 2018 monograph.}
+}
+
+@article{zhong2009tsom,
+  author  = {Yu Zhong and Xudong Chen},
+  title   = {Twofold subspace-based optimization method for solving inverse scattering problems},
+  journal = {Inverse Problems},
+  year    = {2009},
+  volume  = {25},
+  number  = {8},
+  pages   = {085003},
+  doi     = {10.1088/0266-5611/25/8/085003},
+  note    = {M. Original PDF retrieval previously failed; monograph carries implementation.}
+}
+
+@article{pan2011phaselesssom,
+  author  = {Li Pan and Yu Zhong and Xudong Chen and Swee Ping Yeo},
+  title   = {Subspace-Based Optimization Method for Inverse Scattering Problems Utilizing Phaseless Data},
+  journal = {IEEE Transactions on Geoscience and Remote Sensing},
+  year    = {2011},
+  volume  = {49},
+  number  = {3},
+  pages   = {981--987},
+  doi     = {10.1109/TGRS.2010.2070512},
+  note    = {M. Phaseless SOM keeps deterministic/ambiguous partition (monograph Eqs. 8.28-8.30).}
+}
+
+@article{xu2020deepphaseless,
+  author  = {Kuiwen Xu and Liang Wu and Xiuzhu Ye and Xudong Chen},
+  title   = {Deep Learning-Based Inversion Methods for Solving Inverse Scattering Problems With Phaseless Data},
+  journal = {IEEE Transactions on Antennas and Propagation},
+  year    = {2020},
+  volume  = {68},
+  number  = {11},
+  pages   = {7457--7470},
+  doi     = {10.1109/TAP.2020.2998171},
+  note    = {FT. Author PDF read from https://www.ece.nus.edu.sg/stfpage/elechenx/Papers/Xu_TAP_2020.pdf}
+}
+
+@article{idriss2025calibration,
+  author       = {Zacharie Idriss and Raghu G. Raj},
+  title        = {Data-Driven Calibration Technique for Quantitative Radar Imaging},
+  year         = {2025},
+  eprint       = {2503.07316},
+  archiveprefix = {arXiv},
+  primaryclass = {eess.SP},
+  note         = {FT (v2 HTML). MFSOM + joint complex per-transmitter calibration, Eqs. 6-8, Fig. 6(a). IEEE CISA 2025.}
+}
+
+@article{bellomo2014calibration,
+  author  = {Lucio Bellomo and Sebastien Pioch and Marc Saillard and Kamal Belkebir},
+  title   = {An Improved Antenna Calibration Methodology for Microwave Diffraction Tomography in Limited-Aspect Configurations},
+  journal = {IEEE Transactions on Antennas and Propagation},
+  year    = {2014},
+  volume  = {62},
+  number  = {5},
+  pages   = {2450--2462},
+  doi     = {10.1109/TAP.2014.2308534},
+  note    = {M. HAL metadata record hal-01120348 (no attached file). Phase-center Eq. (25) claim is prior-pass only.}
+}
+
+@article{huang2017srcrcv,
+  author  = {Guanghui Huang and Rami Nammour and William Symes},
+  title   = {Full-waveform inversion via source-receiver extension},
+  journal = {Geophysics},
+  year    = {2017},
+  volume  = {82},
+  number  = {3},
+  pages   = {R153--R171},
+  doi     = {10.1190/geo2016-0301.1},
+  note    = {M. Full PDF blocked; publisher abstract elided.}
+}
+
+@inproceedings{wang2026inversesource,
+  author    = {Quanfeng Wang and Alexander H. Paulus and Thomas F. Eibert},
+  title     = {Phase-Corrected Near-Field Microwave Imaging via Inverse Source Reconstruction with Modulated Signals},
+  booktitle = {2026 20th European Conference on Antennas and Propagation (EuCAP)},
+  year      = {2026},
+  doi       = {10.23919/EuCAP68105.2026.11612585},
+  eprint    = {2605.03875},
+  note      = {A. Inverse source vs inverse scattering distinction.}
+}
+
+@article{lu2010throughwall,
+  author  = {Tianjian Lu and Krishna Agarwal and Yu Zhong and Xudong Chen},
+  title   = {Through-Wall Imaging: Application of Subspace-Based Optimization Method},
+  journal = {Progress In Electromagnetics Research},
+  year    = {2010},
+  volume  = {102},
+  pages   = {351--366},
+  doi     = {10.2528/PIER10020903},
+  note    = {A.}
+}
+
+@article{meng2016oblique,
+  author  = {Qingyang Meng and Kuiwen Xu and Fazhong Shen and Bin Zhang and Dexin Ye and Jiangtao Huangfu and Changzhi Li and Lixin Ran},
+  title   = {Microwave Imaging under Oblique Illumination},
+  journal = {Sensors},
+  year    = {2016},
+  volume  = {16},
+  number  = {7},
+  pages   = {1046},
+  doi     = {10.3390/s16071046},
+  note    = {FT via PMC4970093. Experimental 2D SOM under oblique illumination.}
+}
+
+@book{chen2018monograph,
+  author    = {Xudong Chen},
+  title     = {Computational Methods for Electromagnetic Inverse Scattering},
+  publisher = {Wiley},
+  year      = {2018},
+  doi       = {10.1002/9781119311997},
+  note      = {Prior-pass equation-level source for SOM/phaseless-SOM implementation claims.}
+}
+
+% Fresnel measured-data primary records
+
+@article{belkebir2001special,
+  author  = {Kamal Belkebir and Marc Saillard},
+  title   = {Special section: Testing inversion algorithms against experimental data},
+  journal = {Inverse Problems},
+  year    = {2001},
+  volume  = {17},
+  number  = {6},
+  pages   = {1565--1571},
+  doi     = {10.1088/0266-5611/17/6/301},
+  note    = {M. Hosts the 2001-opus 2D data files audited here.}
+}
+
+@article{belkebir2005special,
+  author  = {Kamal Belkebir and Marc Saillard},
+  title   = {Testing inversion algorithms against experimental data: inhomogeneous targets},
+  journal = {Inverse Problems},
+  year    = {2005},
+  volume  = {21},
+  number  = {6},
+  pages   = {S1--S3},
+  doi     = {10.1088/0266-5611/21/6/S01},
+  note    = {M. Second opus.}
+}
+
+@article{geffrin2005continuation,
+  author  = {Jean-Michel Geffrin and Pierre Sabouroux and Christelle Eyraud},
+  title   = {Free space experimental scattering database continuation: experimental set-up and measurement precision},
+  journal = {Inverse Problems},
+  year    = {2005},
+  volume  = {21},
+  number  = {6},
+  pages   = {S117--S130},
+  doi     = {10.1088/0266-5611/21/6/S09},
+  note    = {M. Acquisition/metrology reference for the 2005-opus files. S117 article DOI not in Crossref.}
+}
+
+@article{geffrin2009continuing,
+  author  = {Jean-Michel Geffrin and Pierre Sabouroux},
+  title   = {Continuing with the Fresnel database: experimental setup and improvements in 3D scattering measurements},
+  journal = {Inverse Problems},
+  year    = {2009},
+  volume  = {25},
+  number  = {2},
+  pages   = {024001},
+  doi     = {10.1088/0266-5611/25/2/024001},
+  note    = {M. Third opus (3D); not downloaded here (out of 2D scope).}
+}

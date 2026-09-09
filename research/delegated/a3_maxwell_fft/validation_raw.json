@@ -1,0 +1,222 @@
+{
+  "scope": "independent bounded validation of matrix-free FFT dyadic convolution + GMRES against the read-only parent dense VIE; small grids only",
+  "checks": [
+    {
+      "name": "single_origin_fft_vs_dense_full",
+      "rect_shape": [
+        4,
+        4,
+        4
+      ],
+      "padded_shape": [
+        8,
+        8,
+        8
+      ],
+      "full_cells": 64,
+      "voxels": 64,
+      "relative_error": 2.7208474473789353e-16,
+      "passed": true
+    },
+    {
+      "name": "single_origin_fft_vs_dense_occupied",
+      "relative_error": 2.7208474473789353e-16,
+      "passed": true
+    },
+    {
+      "name": "single_origin_reciprocity_full",
+      "relative_error": 7.661794607803193e-16,
+      "passed": true
+    },
+    {
+      "name": "single_origin_reciprocity_occupied",
+      "relative_error": 7.661794607803193e-16,
+      "passed": true
+    },
+    {
+      "name": "single_origin_operator_column_ordering",
+      "relative_error": 1.6687801972282128e-17,
+      "passed": true
+    },
+    {
+      "name": "pair_parent_fft_vs_dense_full",
+      "rect_shape": [
+        12,
+        5,
+        5
+      ],
+      "padded_shape": [
+        24,
+        10,
+        10
+      ],
+      "full_cells": 300,
+      "voxels": 111,
+      "relative_error": 8.236820240392834e-16,
+      "passed": true
+    },
+    {
+      "name": "pair_parent_fft_vs_dense_occupied",
+      "relative_error": 5.936250940921372e-16,
+      "passed": true
+    },
+    {
+      "name": "pair_parent_reciprocity_full",
+      "relative_error": 1.0107260277610994e-15,
+      "passed": true
+    },
+    {
+      "name": "pair_parent_reciprocity_occupied",
+      "relative_error": 4.819556591931779e-16,
+      "passed": true
+    },
+    {
+      "name": "pair_parent_operator_column_ordering",
+      "relative_error": 4.473634816365498e-16,
+      "passed": true
+    },
+    {
+      "name": "shifted_off_origin_fft_vs_dense_full",
+      "rect_shape": [
+        5,
+        5,
+        4
+      ],
+      "padded_shape": [
+        10,
+        10,
+        8
+      ],
+      "full_cells": 100,
+      "voxels": 63,
+      "relative_error": 8.697102942263748e-16,
+      "passed": true
+    },
+    {
+      "name": "shifted_off_origin_fft_vs_dense_occupied",
+      "relative_error": 9.010669260353169e-16,
+      "passed": true
+    },
+    {
+      "name": "shifted_off_origin_reciprocity_full",
+      "relative_error": 3.245089200571658e-16,
+      "passed": true
+    },
+    {
+      "name": "shifted_off_origin_reciprocity_occupied",
+      "relative_error": 1.3695336411204808e-15,
+      "passed": true
+    },
+    {
+      "name": "shifted_off_origin_operator_column_ordering",
+      "relative_error": 8.782689600788825e-17,
+      "passed": true
+    },
+    {
+      "name": "single_embedding_polarizability_incident_match",
+      "grid_match": true,
+      "labels_match": true,
+      "fill_match": true,
+      "incident_match": 0.0,
+      "alpha_match": true,
+      "voxels": 64,
+      "passed": true
+    },
+    {
+      "name": "pair_embedding_polarizability_incident_match",
+      "grid_match": true,
+      "labels_match": true,
+      "fill_match": true,
+      "incident_match": 0.0,
+      "alpha_match": true,
+      "voxels": 111,
+      "passed": true
+    },
+    {
+      "name": "shifted_embedding_polarizability_incident_match",
+      "grid_match": true,
+      "labels_match": true,
+      "fill_match": true,
+      "incident_match": 0.0,
+      "alpha_match": true,
+      "voxels": 38,
+      "passed": true
+    },
+    {
+      "name": "single_k9_gmres_vs_dense_currents",
+      "relative_current_error": 2.6241845898870014e-11,
+      "true_relative_residuals": [
+        2.669928990227498e-11,
+        2.6699257461887624e-11,
+        2.6699256943444634e-11,
+        2.6699291666780744e-11
+      ],
+      "iterations": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "matvecs": 60,
+      "solve_wall_seconds": [
+        0.002096167008858174,
+        0.002192749991081655,
+        0.002039249986410141,
+        0.002024834044277668
+      ],
+      "memory_estimate_mib": 0.4833984375,
+      "passed": true
+    },
+    {
+      "name": "single_k9_gmres_vs_dense_field",
+      "relative_field_error": 4.331088579921832e-12,
+      "passed": true
+    },
+    {
+      "name": "pair_k6_gmres_vs_dense_currents",
+      "relative_current_error": 5.834259846383526e-11,
+      "true_relative_residuals": [
+        3.578511186480946e-11,
+        7.025459187341402e-11,
+        7.823969782020396e-11,
+        2.5760727296713976e-11
+      ],
+      "iterations": [
+        16,
+        15,
+        15,
+        16
+      ],
+      "matvecs": 66,
+      "solve_wall_seconds": [
+        0.004200875002425164,
+        0.0038845419767312706,
+        0.003887958009727299,
+        0.004176834016107023
+      ],
+      "memory_estimate_mib": 1.193115234375,
+      "passed": true
+    },
+    {
+      "name": "pair_k6_gmres_vs_dense_field",
+      "relative_field_error": 1.3204721132930574e-11,
+      "passed": true
+    },
+    {
+      "name": "single_k9_h003_parent_fill_consistency",
+      "relative_field_error": 0.020764320291656934,
+      "parent_relative_field_error": 0.020764320292708728,
+      "absolute_difference": 1.0517940685073057e-12,
+      "passed": true
+    },
+    {
+      "name": "pair_k9_h003_parent_fill_consistency",
+      "relative_field_error": 0.020512247642690044,
+      "parent_relative_field_error": 0.020512247642093608,
+      "absolute_difference": 5.964360949572978e-13,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "n_checks": 24
+}

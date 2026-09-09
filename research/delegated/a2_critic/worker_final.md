@@ -1,0 +1,16 @@
+Review complete. Deliverables: [CRITIC.md](/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_critic/CRITIC.md), [CLAIM_LEDGER.md](/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_critic/CLAIM_LEDGER.md), [DECISION.md](/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_critic/DECISION.md).
+
+Verdict: no severe mathematical error in the checked theory core (I independently re-verified the G₂ asymptotics, the passive-bound δ identity and Gram positivity, the 3/4→1→0 retention example, the gradient-error bound, and the descent condition — all correct). The paper is not publication-ready, because its empirical core is void.
+
+Key findings:
+
+1. Severe — E4 exercised the reduced method zero times: 0/240 successes everywhere; `prasc` made 0 certificate probes and fell back to direct in all 480 runs; `fixed_rank` made 0 objective evaluations (budget 200) or 1 rejected probe + 0 evaluations (budget 800); `reduced_moves=0` across all 2,400 records (`final_200/800.jsonl`, `E4_RESULTS.md`).
+2. Severe — causal mechanism is cost accounting: one full-band f/g costs 158.67 units against a 200 cap with stage evaluations `[0,0,0,1]`; fixed stage fractions forbid low-frequency optimization; at 800 direct gets ~4.5 f/g and pose worsens 0.271→0.322 m.
+3. Severe — the certificate is quantitatively unusable where it matters: bound/true ratios 13–210× (state) and 41–9051× (derivative); rank-128 enriched bases still unadmitted at k=4π (`passivity_checks.json`, `enrichment_probe.json`). Non-vacuous only at low frequency/rank 72 with no demonstrated cost benefit.
+4. Major — novelty: Idriss–Raj 2025 already does multifrequency SOM + joint complex calibration on Fresnel data; the surviving contribution (typed rank/bias/acquisition budget + passive bound) is thin and self-admittedly unestablished as novel.
+5. Major — statistics: gates `[False, True, True]` — the two True gates are degenerate artifacts of identical outputs, presented without a vacuity label.
+6. Major — "even after nuisance elimination" is physically untested: E1 checks only full-joint contraction; physical E3 bias MC is evaluable in 0/20 records.
+7. Major — the larger-map positive result is exact-direct (not PRASC), 6 scenes, descriptive bootstrap; the measured pilot (finished during review, `a2_measured/SUMMARY.md`) shows eps_r non-identifiability and no offset ground truth — the paper's `MEASURED_PILOT_PENDING` must be replaced, not cited as readiness.
+8. Minor — "certificate" wording in title/keywords overstates a floating-point, model-conditional bound; "maximum backward-scaled residual 0.274" is quoted without its <100 roundoff-scale tolerance; `finished_budget_policy` is not mapped to success in the tables.
+
+Decision: not TAP/TGRS ready; the protocol's own venue gates (known-offset 3D/measured validation + mismatch control for TAP; imaging task with matched-budget comparison for TGRS) are unmet. Three minimum-discriminating experiments recommended: (1) dimension-aware E4 re-execution requiring ≥1 accepted reduced step; (2) certificate tightness ablation targeting ≤10× at k=4π; (3) known-offset measured/3D calibration with clock/coupling mismatch controls.

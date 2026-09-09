@@ -1,0 +1,286 @@
+{
+  "parameters": {
+    "N": 24,
+    "k": 12.0,
+    "M": 8,
+    "R_r": 1.6,
+    "R_t": 2.0,
+    "s": 0.12,
+    "reference_contrast_coeffs": [
+      1.5,
+      2.0
+    ],
+    "grid": {
+      "rx_lo": -0.8,
+      "rx_hi": 0.8,
+      "n": 81
+    }
+  },
+  "Part1": {
+    "grid": {
+      "rx_lo": -0.8,
+      "rx_hi": 0.8,
+      "ry_lo": -0.8,
+      "ry_hi": 0.8,
+      "n": 81
+    },
+    "pairs_with_crossings": [
+      2,
+      4,
+      6,
+      7
+    ],
+    "pair_rows": [
+      {
+        "i": 1,
+        "pair": "sigma_1 vs sigma_2",
+        "grid_min_gap": 5.379820282579205e-05,
+        "grid_max_gap": 0.0016404449814460082,
+        "ordered_gap_sign_change": false,
+        "crossing_found": false,
+        "refined_gap": 5.375104552950063e-05,
+        "refined_point": [
+          -0.34634574115218975,
+          -4.331213711236479e-09
+        ],
+        "sigma_pair_at_refined": [
+          0.0022538325135935075,
+          0.002200081468064007
+        ],
+        "candidates_evaluated": 1
+      },
+      {
+        "i": 2,
+        "pair": "sigma_2 vs sigma_3",
+        "grid_min_gap": 4.336808689942018e-19,
+        "grid_max_gap": 0.0006022810740741653,
+        "ordered_gap_sign_change": false,
+        "crossing_found": true,
+        "refined_gap": 0.0,
+        "refined_point": [
+          -5.589329477473369e-09,
+          3.024275981644564e-09
+        ],
+        "sigma_pair_at_refined": [
+          0.0021128659055389513,
+          0.0021128659055389513
+        ],
+        "candidates_evaluated": 1
+      },
+      {
+        "i": 3,
+        "pair": "sigma_3 vs sigma_4",
+        "grid_min_gap": 2.4052970660712932e-05,
+        "grid_max_gap": 0.000599382342473903,
+        "ordered_gap_sign_change": false,
+        "crossing_found": false,
+        "refined_gap": 2.032338929677368e-05,
+        "refined_point": [
+          -0.4023900468712846,
+          0.24952783797917114
+        ],
+        "sigma_pair_at_refined": [
+          0.002028445101587668,
+          0.0020081217122908945
+        ],
+        "candidates_evaluated": 1
+      },
+      {
+        "i": 4,
+        "pair": "sigma_4 vs sigma_5",
+        "grid_min_gap": 8.567444104354543e-07,
+        "grid_max_gap": 0.00027833184144008985,
+        "ordered_gap_sign_change": false,
+        "crossing_found": true,
+        "refined_gap": 1.431363708115363e-15,
+        "refined_point": [
+          0.16134645747117876,
+          0.16134645747260634
+        ],
+        "sigma_pair_at_refined": [
+          0.0018793193374125393,
+          0.001879319337411108
+        ],
+        "candidates_evaluated": 1
+      },
+      {
+        "i": 5,
+        "pair": "sigma_5 vs sigma_6",
+        "grid_min_gap": 6.096211364313344e-06,
+        "grid_max_gap": 0.0002245307385275073,
+        "ordered_gap_sign_change": false,
+        "crossing_found": false,
+        "refined_gap": 4.280695742617333e-06,
+        "refined_point": [
+          -0.730068984622986,
+          -0.24766321716273065
+        ],
+        "sigma_pair_at_refined": [
+          0.0016931377155461123,
+          0.001688857019803495
+        ],
+        "candidates_evaluated": 1
+      },
+      {
+        "i": 6,
+        "pair": "sigma_6 vs sigma_7",
+        "grid_min_gap": 6.505213034913027e-19,
+        "grid_max_gap": 0.00018292743813970794,
+        "ordered_gap_sign_change": false,
+        "crossing_found": true,
+        "refined_gap": 0.0,
+        "refined_point": [
+          8.204715126410932e-09,
+          8.221509006232655e-09
+        ],
+        "sigma_pair_at_refined": [
+          0.0017430897571135457,
+          0.0017430897571135457
+        ],
+        "candidates_evaluated": 1
+      },
+      {
+        "i": 7,
+        "pair": "sigma_7 vs sigma_8",
+        "grid_min_gap": 8.594905859522599e-07,
+        "grid_max_gap": 0.0002971586656470358,
+        "ordered_gap_sign_change": false,
+        "crossing_found": true,
+        "refined_gap": 1.4352668359363108e-15,
+        "refined_point": [
+          -0.4223475182018637,
+          -0.42234751820726957
+        ],
+        "sigma_pair_at_refined": [
+          0.001578538674267108,
+          0.0015785386742656728
+        ],
+        "candidates_evaluated": 1
+      }
+    ],
+    "chosen_pair_i": 4,
+    "crossing": {
+      "rx": 0.16134645747117876,
+      "ry": 0.16134645747260634,
+      "sigma": 0.0018793193374118237,
+      "sigma_pair": [
+        0.0018793193374125393,
+        0.001879319337411108
+      ],
+      "i": 4
+    },
+    "verification_gap_at_crossing": 1.431363708115363e-15,
+    "verification_lt_1e-10": true,
+    "jump_hard": 1.4239575642713087,
+    "jump_soft": 0.12681922088744668,
+    "tau": [
+      -0.05,
+      -0.02,
+      -0.01,
+      -0.005,
+      0.005,
+      0.01,
+      0.02,
+      0.05
+    ],
+    "d_hard": [
+      1.2250201723935177,
+      1.18433879159277,
+      1.1749373599830955,
+      1.1710946489156595,
+      0.8022823800179892,
+      0.8077333152832743,
+      0.8207511241598355,
+      0.8744989801525381
+    ],
+    "d_soft": [
+      0.15818261439745096,
+      0.0634415598306439,
+      0.031738260041790506,
+      0.015872505831957283,
+      0.015877270989767937,
+      0.03175732305694058,
+      0.06351784989306006,
+      0.15866105063329747
+    ],
+    "lambda_soft": 0.0018793193374118237,
+    "note": "numpy.linalg.svd sorts singular values descending, so the ordered gap s[i-1]-s[i] is pointwise >= 0 and never changes sign; each pair was therefore tested for an exact zero by refining the global-minimum grid cell of gap^2 with Nelder-Mead (crossing found iff refined gap < 1e-10). The chosen pair is the sigma_4 vs sigma_5 degeneracy at the retained rank r=4. Projector tau-walk uses direction d=(1,0), i.e. rx about the refined (rx*, ry*)."
+  },
+  "Part2": {
+    "phi0_0": {
+      "B_t": {
+        "columns": [
+          "tx",
+          "ty",
+          "theta"
+        ],
+        "matrix_rank_complex": 2,
+        "complex_singular_values": [
+          0.008126825306474565,
+          0.0008745640778470545,
+          4.485277402470214e-20
+        ],
+        "rank_raw_realified": 2,
+        "singular_values_realified_column_normed": [
+          1.4602944767742168,
+          0.9314182954520044,
+          3.498389856053965e-17
+        ],
+        "theta_col_residual_in_span_txty": 2.5198344446612534e-16
+      },
+      "transmitter_hide_check": {
+        "r": 2,
+        "K": 1,
+        "rank_H": 5,
+        "hid_sv": [
+          1.1821617534220805,
+          0.8838546268460286,
+          2.058970620903644e-16
+        ],
+        "min_hid_sv": 2.058970620903644e-16,
+        "hid_sv_all_gt_1e-9": false
+      }
+    },
+    "phi0_0.7": {
+      "B_t": {
+        "columns": [
+          "tx",
+          "ty",
+          "theta"
+        ],
+        "matrix_rank_complex": 2,
+        "complex_singular_values": [
+          0.007071319200526252,
+          0.001272502520425273,
+          1.113280507800715e-18
+        ],
+        "rank_raw_realified": 2,
+        "singular_values_realified_column_normed": [
+          1.50597497205256,
+          0.8555930011116798,
+          3.3323930932526503e-16
+        ],
+        "theta_col_residual_in_span_txty": 2.5809788597204074e-15
+      },
+      "transmitter_hide_check": {
+        "r": 2,
+        "K": 1,
+        "rank_H": 5,
+        "hid_sv": [
+          1.1884909420007224,
+          0.8405015186378834,
+          2.501948821717631e-16
+        ],
+        "min_hid_sv": 2.501948821717631e-16,
+        "hid_sv_all_gt_1e-9": false
+      },
+      "expectation_check": {
+        "B_t_rank3_expected": false,
+        "B_t_rank3_observed": false,
+        "hid_sv_all_gt_1e-9_expected": true,
+        "hid_sv_all_gt_1e-9_observed": false,
+        "note": "For a scalar point transmitter the theta-pose derivative of the source position is w_theta = R_t(-sin(phi0), cos(phi0)) = -R_t sin(phi0) e_x + R_t cos(phi0) e_y, i.e. exactly a linear combination of the tx/ty translation derivatives. Since all derivatives are evaluated at one reference pose, B_t has at most two independent complex columns for every phi0: phi0=0.7 removes the special collinearity theta ~ ty but cannot create a third transmitter data direction. A rank-3 transmitter Jacobian needs an orientation-dependent source (pattern/array) or co-moving receiver motion."
+      }
+    }
+  }
+}

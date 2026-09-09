@@ -1,0 +1,219 @@
+{
+  "efficient_fisher": {
+    "status": "pass",
+    "source": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/results/e1_physical_results.json",
+    "scope": "cached independently quadrature-evaluated physical Fisher matrices; material eliminated by square-root projection; not new scenes",
+    "cases": [
+      {
+        "seed": 101,
+        "min_eigenvalue_difference": 0.010071406960117695,
+        "trace_coherent": 0.4035348557769334,
+        "trace_intensity": 0.0008534906746260089,
+        "eigenvalues_coherent": [
+          0.010096724065036438,
+          0.16592134730009422,
+          0.22751678441180267
+        ],
+        "eigenvalues_intensity": [
+          2.5135044235241022e-05,
+          0.00038770568536658295,
+          0.0004406499450241849
+        ]
+      },
+      {
+        "seed": 102,
+        "min_eigenvalue_difference": 0.009224833858818528,
+        "trace_coherent": 0.420807743101672,
+        "trace_intensity": 0.0008461792340085739,
+        "eigenvalues_coherent": [
+          0.009245305526750413,
+          0.13683972845839343,
+          0.2747227091165281
+        ],
+        "eigenvalues_intensity": [
+          2.018721889473923e-05,
+          0.00036459102279680556,
+          0.00046140099231702916
+        ]
+      },
+      {
+        "seed": 103,
+        "min_eigenvalue_difference": 0.007129140819594539,
+        "trace_coherent": 0.28469293694298214,
+        "trace_intensity": 0.0006108879819794052,
+        "eigenvalues_coherent": [
+          0.0071441166640091695,
+          0.10180466192240692,
+          0.17574415835656607
+        ],
+        "eigenvalues_intensity": [
+          1.4945947433650464e-05,
+          0.0002672971114054035,
+          0.00032864492314035117
+        ]
+      },
+      {
+        "seed": 104,
+        "min_eigenvalue_difference": 0.00959695503881757,
+        "trace_coherent": 0.4021468151469756,
+        "trace_intensity": 0.0008078632247717425,
+        "eigenvalues_coherent": [
+          0.009617483909118221,
+          0.1589231016087571,
+          0.23360622962910024
+        ],
+        "eigenvalues_intensity": [
+          2.050458706310803e-05,
+          0.0003631733107143126,
+          0.0004241853269943217
+        ]
+      },
+      {
+        "seed": 105,
+        "min_eigenvalue_difference": 0.010636565311369828,
+        "trace_coherent": 0.47304217588327624,
+        "trace_intensity": 0.0009209744446786208,
+        "eigenvalues_coherent": [
+          0.01066128164314402,
+          0.17836664171305397,
+          0.2840142525270783
+        ],
+        "eigenvalues_intensity": [
+          2.459084809036342e-05,
+          0.0004160501385067985,
+          0.00048033345808145845
+        ]
+      },
+      {
+        "seed": 106,
+        "min_eigenvalue_difference": 0.009439815181458911,
+        "trace_coherent": 0.36104170005656305,
+        "trace_intensity": 0.0008060491151321889,
+        "eigenvalues_coherent": [
+          0.009461011351733387,
+          0.1356818045704058,
+          0.21589888413442387
+        ],
+        "eigenvalues_intensity": [
+          2.081584368998486e-05,
+          0.000371268728553863,
+          0.00041396454288834106
+        ]
+      },
+      {
+        "seed": 107,
+        "min_eigenvalue_difference": 0.0075795413440311625,
+        "trace_coherent": 0.3815849461393621,
+        "trace_intensity": 0.000758068490837456,
+        "eigenvalues_coherent": [
+          0.007596272029457713,
+          0.16716972144152373,
+          0.20681895266838068
+        ],
+        "eigenvalues_intensity": [
+          1.671098711729976e-05,
+          0.00036156859773555,
+          0.00037978890598460623
+        ]
+      },
+      {
+        "seed": 108,
+        "min_eigenvalue_difference": 0.010525582767244057,
+        "trace_coherent": 0.46191207872991774,
+        "trace_intensity": 0.0009092361686228562,
+        "eigenvalues_coherent": [
+          0.010548120964773963,
+          0.17719258281862255,
+          0.2741713749465212
+        ],
+        "eigenvalues_intensity": [
+          2.24683530419013e-05,
+          0.0004216349007316196,
+          0.00046513291484933544
+        ]
+      },
+      {
+        "seed": 109,
+        "min_eigenvalue_difference": 0.00839929375272652,
+        "trace_coherent": 0.3722688601626586,
+        "trace_intensity": 0.0007170431410787224,
+        "eigenvalues_coherent": [
+          0.008417281515754839,
+          0.13337847280904397,
+          0.2304731058378597
+        ],
+        "eigenvalues_intensity": [
+          1.796930423144792e-05,
+          0.00032370994145126627,
+          0.0003753638953960082
+        ]
+      },
+      {
+        "seed": 110,
+        "min_eigenvalue_difference": 0.009880819755944544,
+        "trace_coherent": 0.41358561867938526,
+        "trace_intensity": 0.0008506371363827263,
+        "eigenvalues_coherent": [
+          0.00990451305783892,
+          0.16750358799594364,
+          0.23617751762560252
+        ],
+        "eigenvalues_intensity": [
+          2.3630518953136576e-05,
+          0.00039404092807023477,
+          0.00043296568935935476
+        ]
+      }
+    ]
+  },
+  "measured_model_audit": {
+    "status": "worker_fit_rejected",
+    "ingestion": "parent raw checksum/shape/finiteness/unique full coverage passed",
+    "convention": "H1 outgoing, e^-iwt, passive Im(epsilon)>0",
+    "outgoing_H1_flux": 3.1830988618379075,
+    "integrated_flux_without_positive_factor": {
+      "lossless": -2.2322358387255243e-15,
+      "passive_positive_imag": -2.7919658873024966,
+      "active_negative_imag": 4.908479949511093
+    },
+    "old_incident_direction_error": 1.8443549857431019,
+    "corrected_incident_direction_error": 7.550332863779066e-16,
+    "holdout_audit": "run_fits calls gains_and_residual separately on test views, profiling gains again; not held-out prediction",
+    "parameter_audit": "c_x,c_y are object coordinates, not antenna offset ground truth"
+  },
+  "certificate_tightness": [
+    {
+      "k": 3.141592653589793,
+      "state_ratio_range": [
+        13.168469245580633,
+        123.32531961460533
+      ],
+      "derivative_ratio_range": [
+        41.13474013635481,
+        932.5370819423441
+      ]
+    },
+    {
+      "k": 6.283185307179586,
+      "state_ratio_range": [
+        23.224031122425096,
+        144.00231294753343
+      ],
+      "derivative_ratio_range": [
+        58.03218445256904,
+        1075.443226123198
+      ]
+    },
+    {
+      "k": 12.566370614359172,
+      "state_ratio_range": [
+        36.81784983835716,
+        209.8835813209702
+      ],
+      "derivative_ratio_range": [
+        339.88945029546517,
+        9051.121208823206
+      ]
+    }
+  ]
+}

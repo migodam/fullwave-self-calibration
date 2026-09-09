@@ -1,0 +1,8 @@
+{
+  "n_rows": 10,
+  "statuses": {
+    "ok": 10
+  },
+  "finished_utc": "2026-09-07T15:38:32.220708+00:00",
+  "note": "DEVELOPMENT calibration rows; raw JSON written row-by-row so guard interruptions leave an exact checkpoint."
+}

@@ -1,0 +1,4 @@
+phase,status,key_values,pass,note
+phase0,ok,"A_r=[576, 9], B_r=[576, 3], wall=0.0191s",True,import physics; N=8 full-aperture forward; realified shape sanity
+phase1,ok,"maxT5aScaled=0.0101, T5b=24/24, maxThm3=3.17e-11, priorMinEig=[-1.83e-17, -9.75e-19]",True,"E2 T5a/T5b + E3 Theorem3/prior/Theorem7 on physical tangents; declared cutoffs, no oracle rank"
+phase2,ok,"maxInnovRel=4.48e-16, maxBudgetRel=6.64e-17, stack>=sum=12/12",True,E5 shared-map innovation + Corollary-10 rank budget on 4-frequency physical frames; declared C4/C8 enlargement

@@ -1,0 +1,14 @@
+case,category,key_values,pass,note
+equality_case,exact_control,"loss_res=0.000e+00, drop=0, dimE=1",True,T5a loss identity and T5b rank-drop identity
+strict_loss_case,exact_control,"loss_res=0.000e+00, drop=1, dimE=1",True,T5a loss identity and T5b rank-drop identity
+complete_hiding_case,exact_control,"loss_res=0.000e+00, drop=2, dimE=2",True,T5a loss identity and T5b rank-drop identity
+loss_without_rank_drop,exact_control,"loss_res=0.000e+00, drop=0, dimE=1",True,T5a loss identity and T5b rank-drop identity
+nonmonotone_rho,exact_control,"rho=['0.75', '1', '1.554e-15']",True,"canonical falsification of monotone map retention (3/4, 1, 0)"
+rank_uncertainty,exact_control,"J(0)=1.0, max|J(t>0)|=0.000e+00",True,no oracle exact-rank certificate; absolute singular values recorded
+saturation_control,exact_control,"j_fro=7.045e-16, scaled=9.711e-02, max_sv_Bv=5.831e-16",True,J_x zero up to backward error; full-current rank saturates nuisance
+rank_threshold_control,exact_control,"rank_abs=2, rank_rel=2, sv=['1', '1e-08', '1e-14', '0']",True,small-ratio trap: 1e-14/1 is roundoff and is never physical rank
+projector_gap_closure,exact_control,"projector ranks all 1, ||P(0.05)-P(-0.05)||_F=1.414214",True,"gap closure at t=0 is a projector discontinuity, not an H rank change"
+real_safe_space,neutral_admission,"dim_kerF=1, rankF=3, safe_loss=2.063e-15, max diff eig=1.3875",True,d-rank(F)=1 >= d-p=1; safe kernel leaves J_x unchanged
+complex_safe_space,neutral_admission,"real_dim_S=2, complex_dim_S=1, Jc_resid=6.346e-15",True,S=ker F cap ker(F Jc) is J_c-invariant and lossless
+utility_projection,neutral_admission,"trace_opt=10.699615, max_rand=10.699613, r=1",True,leading eigenvectors of P_S T P_S maximize utility inside S
+random_tangents_T5a_T5b,fixed_random_tangents,"max_scaled_resid=0.273394, max_loss_resid=4.091e-15, t5b_matches=36/36",True,machine-precision T5a residual on 36 seed/pair checks

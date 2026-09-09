@@ -1,0 +1,16 @@
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting tests/test_core.py ______________________
+ImportError while importing test module '/mnt/data/fullwave-self-calibration/research/a4_reliability_v1/tests/test_core.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_core.py:7: in <module>
+    from coverage import Block,Cell,ModalProblem,cover
+E   ImportError: cannot import name 'Block' from 'coverage' (/opt/pyvenv/lib/python3.13/site-packages/coverage/__init__.py)
+=========================== short test summary info ============================
+ERROR tests/test_core.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.20s

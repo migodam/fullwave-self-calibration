@@ -1,0 +1,489 @@
+{
+  "coeff_rmse": {
+    "coherent_fixedpose": {
+      "max": 0.19160380485018524,
+      "mean": 0.12554556563531324,
+      "median": 0.1188645887483541,
+      "min": 0.0711923774984562,
+      "n": 12,
+      "std": 0.0389577665408422
+    },
+    "coherent_joint": {
+      "max": 0.08591172347771182,
+      "mean": 0.06824069142805238,
+      "median": 0.06461636204348004,
+      "min": 0.05288856655802358,
+      "n": 12,
+      "std": 0.012294236814533833
+    },
+    "intensity_joint": {
+      "max": 0.10361553657096965,
+      "mean": 0.08173682686531714,
+      "median": 0.08375776680214139,
+      "min": 0.06125270721125977,
+      "n": 12,
+      "std": 0.015474837133733552
+    },
+    "oracle": {
+      "max": 0.08043794048880548,
+      "mean": 0.06657305096645527,
+      "median": 0.06780343156398488,
+      "min": 0.04852504306233207,
+      "n": 12,
+      "std": 0.0117845277780989
+    }
+  },
+  "commands": "VENV=experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python\n# bounded implementation checks\nOPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 $VENV research/delegated/a2_highdim/test_highdim.py\n# basic one-iteration pipeline smoke (seed 71, pre-freeze settings)\nOPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 $VENV research/delegated/a2_highdim/runner.py --mode smoke\n# tuning seeds 71-72, then frozen.json written\nOPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 $VENV research/delegated/a2_highdim/runner.py --mode tune\n# 48 final exploratory runs, seeds 801-806, frozen settings only\nOPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 $VENV research/delegated/a2_highdim/runner.py --mode test\n# 6 controlled mismatch runs, seed 881\nOPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 $VENV research/delegated/a2_highdim/runner.py --mode mismatch\n# aggregate summary and figures (reproducible, no reruns)\nOPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 $VENV research/delegated/a2_highdim/runner.py --mode summarize",
+  "counts_table": [
+    {
+      "method": "coherent_fixedpose",
+      "n": 2,
+      "phase": "tune",
+      "statuses": "complete=2, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "coherent_joint",
+      "n": 2,
+      "phase": "tune",
+      "statuses": "complete=2, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "intensity_joint",
+      "n": 2,
+      "phase": "tune",
+      "statuses": "complete=2, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "oracle",
+      "n": 2,
+      "phase": "tune",
+      "statuses": "complete=2, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "coherent_fixedpose",
+      "n": 12,
+      "phase": "test",
+      "statuses": "complete=12, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "coherent_joint",
+      "n": 12,
+      "phase": "test",
+      "statuses": "complete=12, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "intensity_joint",
+      "n": 12,
+      "phase": "test",
+      "statuses": "complete=12, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "oracle",
+      "n": 12,
+      "phase": "test",
+      "statuses": "complete=12, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "coherent_fixedpose",
+      "n": 3,
+      "phase": "mismatch",
+      "statuses": "complete=3, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "coherent_joint",
+      "n": 3,
+      "phase": "mismatch",
+      "statuses": "complete=3, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "coherent_fixedpose",
+      "n": 1,
+      "phase": "smoke",
+      "statuses": "complete=1, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "coherent_joint",
+      "n": 1,
+      "phase": "smoke",
+      "statuses": "complete=1, budget_stopped=0, task_error=0, time_stopped=0"
+    },
+    {
+      "method": "intensity_joint",
+      "n": 1,
+      "phase": "smoke",
+      "statuses": "complete=1, budget_stopped=0, task_error=0, time_stopped=0"
+    }
+  ],
+  "generated_at": "2026-09-06T05:15:49+00:00",
+  "limitations": [
+    "Exploratory single aperture (full), one noise level (30 dB) and six test scenes with two pose-error radii; no final E4 seeds 1001-1020 were used.",
+    "The inverse N20 grid required a runtime-only extension of the physics Config allowed-N tuple; physics.py itself was not changed and no formula was altered.",
+    "The 49-Gaussian coefficient basis is strongly overlapping (Gram condition ~2.7e4 at N20), so coefficient RMSE is not an interpretable spatial measure; spatial N32 map RMSE is the imaging metric.",
+    "Cluster-bootstrap intervals are descriptive only and cannot establish equivalence or superiority.",
+    "The matched-intensity comparison uses the induced Rice magnitude NLL and exactly the parent |y|; it is not a direct-intensity sensor model.",
+    "Fixed-pose and joint methods share the frozen schedule and identical settings; oracle shares them too but uses x_true, so its advantage is not a calibration claim.",
+    "Mismatch controls are misspecification tests of the coherent geometry-only model; an augmented nuisance estimator was not implemented."
+  ],
+  "mismatch_rows": [
+    {
+      "false_assurance": false,
+      "fit_p": 0.0,
+      "kind": "clock_phase",
+      "map_rmse": 0.12917545455150195,
+      "method": "coherent_fixedpose",
+      "pose_err": 0.06249999999999999,
+      "val_p": 0.0
+    },
+    {
+      "false_assurance": false,
+      "fit_p": 0.0,
+      "kind": "clock_phase",
+      "map_rmse": 0.13726186809928084,
+      "method": "coherent_joint",
+      "pose_err": 0.07999909666192606,
+      "val_p": 0.0
+    },
+    {
+      "false_assurance": false,
+      "fit_p": 0.0,
+      "kind": "receiver_coupling",
+      "map_rmse": 0.04598244650361828,
+      "method": "coherent_fixedpose",
+      "pose_err": 0.06249999999999999,
+      "val_p": 0.0
+    },
+    {
+      "false_assurance": false,
+      "fit_p": 0.0,
+      "kind": "receiver_coupling",
+      "map_rmse": 0.039607676543454755,
+      "method": "coherent_joint",
+      "pose_err": 0.15587781241050253,
+      "val_p": 0.0
+    },
+    {
+      "false_assurance": true,
+      "fit_p": 0.4506895335818418,
+      "kind": "outside_basis",
+      "map_rmse": 0.040532304898504706,
+      "method": "coherent_fixedpose",
+      "pose_err": 0.06249999999999999,
+      "val_p": 0.005998830965407637
+    },
+    {
+      "false_assurance": true,
+      "fit_p": 0.9987814149048366,
+      "kind": "outside_basis",
+      "map_rmse": 0.039045417504243354,
+      "method": "coherent_joint",
+      "pose_err": 0.08589376627261153,
+      "val_p": 0.0704320663288841
+    }
+  ],
+  "mismatch_statement": "These controlled mismatches test the coherent geometry-only model against an unmodelled clock phase, receiver coupling and an outside-49-basis inclusion. A fitted residual that looks calibrated under model mismatch is flagged as false-assurance potential; no geometry proof and no calibration guarantee is claimed. The fixed-pose result merely fixes geometry and does not remove mismatch; target artifacts must not be read as validated localisation.",
+  "paired_differences": [
+    {
+      "ci": [
+        -0.08971806315679104,
+        -0.0691013363854342
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "coherent_joint minus coherent_fixedpose",
+      "mean_diff": -0.07926416346353173,
+      "metric": "spatial map RMSE"
+    },
+    {
+      "ci": [
+        -0.07004873373242487,
+        -0.04535099438493899
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "coherent_joint minus coherent_fixedpose",
+      "mean_diff": -0.05730487420726085,
+      "metric": "coefficient RMSE"
+    },
+    {
+      "ci": [
+        -0.14742431375403653,
+        -0.14032670615414147
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "coherent_joint minus coherent_fixedpose",
+      "mean_diff": -0.14385930192468088,
+      "metric": "pose lever-arm error"
+    },
+    {
+      "ci": [
+        -0.07206364943635686,
+        -0.05238967881803545
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "intensity_joint minus coherent_fixedpose",
+      "mean_diff": -0.062398287096887134,
+      "metric": "spatial map RMSE"
+    },
+    {
+      "ci": [
+        -0.05174265871963542,
+        -0.03383364309699119
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "intensity_joint minus coherent_fixedpose",
+      "mean_diff": -0.04380873876999608,
+      "metric": "coefficient RMSE"
+    },
+    {
+      "ci": [
+        -0.14250317968624523,
+        -0.1158228410334245
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "intensity_joint minus coherent_fixedpose",
+      "mean_diff": -0.13005023455105622,
+      "metric": "pose lever-arm error"
+    },
+    {
+      "ci": [
+        0.012105310133254164,
+        0.02122966686645053
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "intensity_joint minus coherent_joint",
+      "mean_diff": 0.016865876366644623,
+      "metric": "spatial map RMSE"
+    },
+    {
+      "ci": [
+        0.004164073083651396,
+        0.02219140472663017
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "intensity_joint minus coherent_joint",
+      "mean_diff": 0.013496135437264772,
+      "metric": "coefficient RMSE"
+    },
+    {
+      "ci": [
+        0.002062665057184141,
+        0.027266643955126416
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "intensity_joint minus coherent_joint",
+      "mean_diff": 0.013809067373624672,
+      "metric": "pose lever-arm error"
+    },
+    {
+      "ci": [
+        -0.0020383129584655157,
+        -0.00010097462718234446
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "oracle minus coherent_joint",
+      "mean_diff": -0.001047032921814254,
+      "metric": "spatial map RMSE"
+    },
+    {
+      "ci": [
+        -0.004973532396022731,
+        0.0017211075172083035
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "oracle minus coherent_joint",
+      "mean_diff": -0.0016676404615970982,
+      "metric": "coefficient RMSE"
+    },
+    {
+      "ci": [
+        -0.015923293845858496,
+        -0.008825686245963457
+      ],
+      "cluster_info": {
+        "bootstrap_n": 10000,
+        "clusters": 6,
+        "n": 12
+      },
+      "comparison": "oracle minus coherent_joint",
+      "mean_diff": -0.01239069807531909,
+      "metric": "pose lever-arm error"
+    }
+  ],
+  "phase_stats": {
+    "coherent_fixedpose": {
+      "circular_std_rad": 0.07526578647841423,
+      "masked_channel_samples": 3456,
+      "mean_abs_rad": 0.02837698342480863,
+      "median_abs_rad": 0.010636274287216363,
+      "rms_rad": 0.07970999852262256
+    },
+    "coherent_joint": {
+      "circular_std_rad": 0.011708875683075663,
+      "masked_channel_samples": 3456,
+      "mean_abs_rad": 0.006661161180889974,
+      "median_abs_rad": 0.00320835536759545,
+      "rms_rad": 0.011710436402147991
+    },
+    "intensity_joint": {
+      "circular_std_rad": 0.0203985641864537,
+      "masked_channel_samples": 3456,
+      "mean_abs_rad": 0.011449665654342718,
+      "median_abs_rad": 0.005647401407532726,
+      "rms_rad": 0.020405758511366296
+    },
+    "oracle": {
+      "circular_std_rad": 0.010941307446922108,
+      "masked_channel_samples": 3456,
+      "mean_abs_rad": 0.00633078365160061,
+      "median_abs_rad": 0.0030606443029870256,
+      "rms_rad": 0.01094208376064124
+    }
+  },
+  "pose_error": {
+    "coherent_fixedpose": {
+      "max": 0.24999999999999997,
+      "mean": 0.15624999999999997,
+      "median": 0.15624999999999997,
+      "min": 0.062499999999999986,
+      "n": 12,
+      "std": 0.09791868147508001
+    },
+    "coherent_joint": {
+      "max": 0.021199823895850785,
+      "mean": 0.01239069807531909,
+      "median": 0.012902748826289608,
+      "min": 0.005756575604502415,
+      "n": 12,
+      "std": 0.004806631794772065
+    },
+    "intensity_joint": {
+      "max": 0.058725063811184246,
+      "mean": 0.026199765448943767,
+      "median": 0.018106757219193748,
+      "min": 0.009663291177528057,
+      "n": 12,
+      "std": 0.017858089291957136
+    },
+    "oracle": {
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "n": 12,
+      "std": 0.0
+    }
+  },
+  "scope_statement": "EXPLORATORY 2D imaging feasibility only; not the A2 E4 primary endpoint and not publication or production acceptance. Reconstructions are model-conditional within the 49-Gaussian basis and the scalar full-wave physics core. The known-true-pose method is an explicit oracle upper reference and is not a practical baseline.",
+  "settings_sha256": "efa530c3fd1a3ee9d1fba9cae98a4cfd24bf1e171092bef7521a712d0d02dab7",
+  "spatial_rmse": {
+    "coherent_fixedpose": {
+      "max": 0.1892291952323197,
+      "mean": 0.10537840062341068,
+      "median": 0.10096842114592558,
+      "min": 0.043830277669928586,
+      "n": 12,
+      "std": 0.05452361021940448
+    },
+    "coherent_joint": {
+      "max": 0.030363408623106592,
+      "mean": 0.026114237159878928,
+      "median": 0.026402197919693296,
+      "min": 0.020911321493859228,
+      "n": 12,
+      "std": 0.0029490338733714518
+    },
+    "intensity_joint": {
+      "max": 0.050245711404766795,
+      "mean": 0.042980113526523554,
+      "median": 0.04249690940775702,
+      "min": 0.03380994314412666,
+      "n": 12,
+      "std": 0.005667037585150514
+    },
+    "oracle": {
+      "max": 0.028526911175263955,
+      "mean": 0.02506720423806467,
+      "median": 0.025737542406650347,
+      "min": 0.02062413488442406,
+      "n": 12,
+      "std": 0.0029421764677009725
+    }
+  },
+  "wall_table": [
+    {
+      "median_eval_s": 0.8383775830443483,
+      "median_solver_s": 4.611911771004088,
+      "n": 8,
+      "phase": "tune",
+      "total_eval_s": 6.855977793049533,
+      "total_solver_s": 37.269577166996896
+    },
+    {
+      "median_eval_s": 0.8498666879895609,
+      "median_solver_s": 4.59174397852621,
+      "n": 48,
+      "phase": "test",
+      "total_eval_s": 41.077890215441585,
+      "total_solver_s": 223.30638683598954
+    },
+    {
+      "median_eval_s": 0.9223365405632649,
+      "median_solver_s": 4.894906041503418,
+      "n": 6,
+      "phase": "mismatch",
+      "total_eval_s": 5.582883288152516,
+      "total_solver_s": 29.41121262399247
+    },
+    {
+      "median_eval_s": 0.8449326239642687,
+      "median_solver_s": 0.9519601659849286,
+      "n": 3,
+      "phase": "smoke",
+      "total_eval_s": 2.532108957064338,
+      "total_solver_s": 2.9596099160262384
+    }
+  ],
+  "work_statement": "Per-run RHS solve columns (forward states, adjoints and any initialisation) are reported in work.units_rhs_columns with kind counts; LU factorisations, operator products and wall seconds are separate raw ledger fields and are never converted into solve-equivalent units. Evaluation-only N32/N20 forward solves are in evaluation_ledger and never feed estimator decisions. This report draws no work-advantage conclusion."
+}

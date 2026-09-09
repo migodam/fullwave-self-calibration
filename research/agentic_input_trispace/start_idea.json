@@ -1,0 +1,51 @@
+[
+  {
+    "Name": "geometry_lifted_trispace_som",
+    "Title": "Geometry-Lifted TriSpace SOM for Self-Calibrating Full-Wave Inverse Scattering",
+    "Short Hypothesis": "For an unknown antenna pose, the receiver-side Green-operator derivative admits a canonical minimum-norm lift into a retained SOM current space plus an orthogonal irreducible data residual; coupling this lift to the full-wave state equation yields a second state-consistency witness, and their joint rank characterizes local pose hiding and can support a reduced self-calibration algorithm.",
+    "Related Work": "Equivalent currents and contrast sources, classical SOM and twofold SOM, source/receiver-extension full-waveform inversion, inverse scattering with transmitter localization, CSI calibration, blind calibration, SAR/radar autofocus, pseudoinverse lifts, variable projection, and subspace perturbation are established antecedents. The retrieval-bounded candidate contribution is only their type-correct full-wave/SOM synthesis: restrict the geometry-to-current lift to a declared retained current space, retain the orthogonal unrepresentable residual, separate receiver pseudo-current from transmitter-induced physical current, and couple the result to a state-equation consistency witness. Never claim first or globally novel.",
+    "Abstract": "We investigate self-calibrating full-wave inverse scattering when an antenna array pose changes the Green operators used by subspace optimization methods. At the independent-current level, we separate receiver-side re-sampling from the physical induced-current change caused by illumination. Given a retained SOM basis, we define the minimum-norm pose-equivalent current by a restricted pseudoinverse and prove an orthogonal decomposition into representable and irreducible data components. Reparameterizing the joint data and state linearization produces a state-consistency witness and an exact finite-dimensional condition for a pose direction to be hidden by retained current and real contrast variations. We test the identities, the vacuity of unrestricted full-row-rank equivalence, spectral-coordinate drift and rank events, receiver-versus-transmitter semantics, state-based disambiguation, and a reduced nonlinear calibration prototype in a deterministic 2D Helmholtz solver. Claims remain local, finite-dimensional, model-conditional, and retrieval-bounded.",
+    "Experiments": {
+      "datasets": [
+        "Deterministic synthetic 2D scalar Helmholtz contrast-source scenes on a world-fixed grid using the corrected self-cell quadrature and analytic Green derivatives from the existing project harness.",
+        "Small single- and multi-pose Tx/Rx arrays with separately controlled receiver-only, transmitter-only, and co-moving SE(2) perturbations; include full-row-rank, deliberately rank-deficient, limited-aperture, and SVD-truncated cases.",
+        "Low-dimensional real contrast bases and several deterministic pose initializations/noise seeds for the nonlinear self-calibration comparison."
+      ],
+      "baselines": [
+        "Unrestricted full-current pseudoinverse versus retained-rank SOM lifts.",
+        "Analytic receiver sampling, physical current, and total pose derivatives versus centered finite differences.",
+        "Wrong-pose fixed SOM, direct joint full-wave contrast-pose least squares, and geometry-lifted reduced data-plus-state calibration.",
+        "Hard SVD truncation versus a declared soft spectral filter near threshold crossings.",
+        "Data-only pose cancellation versus joint data-and-state consistency."
+      ],
+      "metrics": [
+        "Lift reconstruction and orthogonality residuals, irreducible residual norm, lift norm, singular values, cutoff, ranks, and condition numbers.",
+        "SOM projector distance/leakage, subspace-bound ratio, spectral gap, threshold-crossing diagnostics, and soft-filter continuity.",
+        "Centered finite-difference errors for H_S, delta-j physical, and total B; null-current energy discarded by data-only projection.",
+        "Norms and ranks of R_U, D_U, T_U, and stacked pose signature; constructed hidden directions and gauge/anchor controls.",
+        "Map error, pose error, data residual, state residual, effective variables, runtime, convergence rate/basin, noise sensitivity, and retained failures."
+      ],
+      "compute_estimate": "Apple Silicon CPU only. Reuse the existing dense small-grid solver and cached factorizations. Begin at N=6 or N=8 for nonlinear optimization, then perform one modest refinement diagnostic if stable. No CUDA, GPU infrastructure, neural training, daemon, database, or web UI.",
+      "steps": [
+        "Read the complete run instructions and theory seed; independently check the signs and spaces in the proposed propositions.",
+        "Implement E1 and retain the full-row-rank counterexample showing why unrestricted equivalence is vacuous.",
+        "Implement E2 using projector comparisons rather than raw singular vectors; expose a rank event deliberately.",
+        "Implement E3 with separate receiver, transmitter, and co-moving finite-difference checks.",
+        "Implement E4 and verify the exact finite-dimensional hiding condition after realification; include one confounded and one disambiguated case.",
+        "Implement E5 as an actual deterministic reconstruction comparison over several initializations or preserve a reproducible failure diagnosis.",
+        "Synthesize only executed results and write the paper draft with an originality firewall and explicit limitations."
+      ]
+    },
+    "Risk Factors and Limitations": [
+      "A full-row-rank unrestricted sensing operator makes every data perturbation current-equivalent; failing to retain this negative control would make the central claim vacuous.",
+      "The canonical lift depends on whitening, realification, current norm, retained basis, and regularization; it is not metric-free.",
+      "Small singular values make the equivalent current unstable, and hard rank thresholds create discontinuous coordinate changes.",
+      "Receiver re-sampling produces a pseudo-current, whereas transmitter motion produces a physical induced-current change; combining them before the state equation can double count pose effects.",
+      "On a world-fixed homogeneous grid G_D is pose independent; a moving G_D belongs to a different model.",
+      "The exact TSOM domain fold is not verified in the project sources, so Phase-I experiments may use only a truncated SOM basis.",
+      "Finite-dimensional local rank does not prove global convergence, continuum stability, or hardware self-calibration.",
+      "The literature screen is retrieval-bounded and source/receiver-extension FWI is a close conceptual antecedent.",
+      "A nonlinear benefit may be initialization-dependent or absent; negative results must remain visible."
+    ]
+  }
+]

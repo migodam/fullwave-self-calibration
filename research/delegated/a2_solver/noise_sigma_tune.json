@@ -1,0 +1,8 @@
+{
+  "reference": "nominal_alpha_0.5_total_field_N32",
+  "sigma_by_aperture": {
+    "full": 0.0020315927465977485,
+    "limited": 0.0022031209513193924
+  },
+  "snr_db": 30.0
+}

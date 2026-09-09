@@ -1,0 +1,976 @@
+{
+  "experiment": "run_e5_final",
+  "parameters": {
+    "N": 16,
+    "k": 12.0,
+    "M": 8,
+    "R_r": 1.6,
+    "R_t": 2.0,
+    "phi0": 0.7,
+    "s": 0.12,
+    "K": 3,
+    "basis_centers": [
+      [
+        -0.15,
+        0.1
+      ],
+      [
+        0.2,
+        -0.1
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "SNR_dB": 30.0,
+    "noise_ratio": 0.03162277660168379,
+    "noise_std": 6.309287240150733e-06,
+    "alpha_true": [
+      1.5,
+      2.0,
+      0.0
+    ],
+    "p_true": [
+      0.08,
+      -0.06,
+      0.05
+    ],
+    "alpha_init": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "p_init_variants": {
+      "zero": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pert_pos": [
+        0.18,
+        0.04000000000000001,
+        0.15000000000000002
+      ],
+      "pert_neg": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "noise_seeds": [
+      0,
+      1
+    ],
+    "least_squares": {
+      "method": "trf",
+      "x_scale": "jac",
+      "max_nfev": 1000,
+      "ftol": 1e-10,
+      "xtol": 1e-10,
+      "gtol": 1e-10
+    }
+  },
+  "visible_pose_subspaces_at_p_init": {
+    "zero": {
+      "r4": {
+        "rank": 4,
+        "n_vis": 3,
+        "hidden_rank": 0,
+        "hid_sv": [
+          0.0007458087352463018,
+          0.00026452432177096104,
+          0.00015881254011808777
+        ],
+        "threshold": 7.458087352463018e-12,
+        "hidden_directions": [],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      },
+      "r6": {
+        "rank": 6,
+        "n_vis": 1,
+        "hidden_rank": 2,
+        "hid_sv": [
+          0.0005679192227713751,
+          5.371841415782989e-19,
+          1.7099015778500787e-19
+        ],
+        "threshold": 5.679192227713751e-12,
+        "hidden_directions": [
+          [
+            0.573274102210519,
+            0.8049237670477845,
+            -0.15314872828831338
+          ],
+          [
+            -0.03952661808844633,
+            -0.1595264480586086,
+            -0.986402026981035
+          ]
+        ],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      }
+    },
+    "pert_pos": {
+      "r4": {
+        "rank": 4,
+        "n_vis": 3,
+        "hidden_rank": 0,
+        "hid_sv": [
+          0.0007002800591036992,
+          0.00021002889553022554,
+          0.00015741238576552895
+        ],
+        "threshold": 7.002800591036992e-12,
+        "hidden_directions": [],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      },
+      "r6": {
+        "rank": 6,
+        "n_vis": 1,
+        "hidden_rank": 2,
+        "hid_sv": [
+          0.0004320097859000356,
+          3.798193590014053e-19,
+          1.758310320382312e-19
+        ],
+        "threshold": 4.320097859000356e-12,
+        "hidden_directions": [
+          [
+            0.21400031562993868,
+            0.9727187130654175,
+            0.08956656833129516
+          ],
+          [
+            0.1934255108662254,
+            0.04767889594474206,
+            -0.9799557615666281
+          ]
+        ],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      }
+    },
+    "pert_neg": {
+      "r4": {
+        "rank": 4,
+        "n_vis": 3,
+        "hidden_rank": 0,
+        "hid_sv": [
+          0.0007458087352463018,
+          0.00026452432177096104,
+          0.00015881254011808777
+        ],
+        "threshold": 7.458087352463018e-12,
+        "hidden_directions": [],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      },
+      "r6": {
+        "rank": 6,
+        "n_vis": 1,
+        "hidden_rank": 2,
+        "hid_sv": [
+          0.0005679192227713751,
+          5.371841415782989e-19,
+          1.7099015778500787e-19
+        ],
+        "threshold": 5.679192227713751e-12,
+        "hidden_directions": [
+          [
+            0.573274102210519,
+            0.8049237670477845,
+            -0.15314872828831338
+          ],
+          [
+            -0.03952661808844633,
+            -0.1595264480586086,
+            -0.986402026981035
+          ]
+        ],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      }
+    }
+  },
+  "note": "Reduced method optimizes (alpha, q) with p = p_init + V_vis @ q and the TRUE pose Jacobian B_real @ V_vis; V_vis is fixed once at (alpha_init, p_init) from col(realify(G_s V_r), realify(J_alpha)). hid_sv are sorted descending singular values of B_red = P_perp @ B_real at p_init. n_vis = count(hid_sv > 1e-8*hid_sv[0]); hidden_rank = 3 - n_vis. Records: wrongpose and direct use the r=6 V_vis decomposition basis at p_init (decomposition_basis='r6'); reduced records decompose on their own V_vis basis. pose_error_visible/hidden are the orthogonal projection norms of p_est-p_true onto V_vis and its complement (pose_error is their root-sum-square). T_U is the receiver-rx state-consistency witness at the final estimate at rank 4 for wrongpose/direct/reduced_r4 and rank 6 for reduced_r6.",
+  "records": [
+    {
+      "method": "wrongpose",
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.300058320272603,
+        1.4473161126470442,
+        0.4931037429556316
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "map_error": 0.19866349799570282,
+      "final_residual": 0.2958713065737829,
+      "success": true,
+      "nfev": 3,
+      "optimality": 1.2529147343522715e-12,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8142164308466578,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.551734115173646,
+        2.0445579582967746,
+        -0.07972888822413073
+      ],
+      "p_est": [
+        0.08127916599301484,
+        -0.06306136963177465,
+        0.05065627771773323
+      ],
+      "pose_error": 0.0033821516971937918,
+      "pose_error_visible": 0.002835691234392695,
+      "pose_error_hidden": 0.0018433136808528481,
+      "map_error": 0.02340150452231381,
+      "final_residual": 0.020414658718713858,
+      "success": true,
+      "nfev": 6,
+      "optimality": 1.2222508022089315e-11,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8485190075167293,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04000000000000001,
+        0.15000000000000002
+      ],
+      "r": null,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.5517696121408568,
+        2.0445003689076877,
+        -0.07970995960571929
+      ],
+      "p_est": [
+        0.08128702783257141,
+        -0.06304444701770505,
+        0.050634308940305885
+      ],
+      "pose_error": 0.0033656271506479467,
+      "pose_error_visible": 0.0020363877727950577,
+      "pose_error_hidden": 0.0026796587387183097,
+      "map_error": 0.023394448326292352,
+      "final_residual": 0.020414690443487347,
+      "success": true,
+      "nfev": 5,
+      "optimality": 2.135309097741332e-11,
+      "hid_sv": [
+        0.0004320097859000356,
+        3.798193590014053e-19,
+        1.758310320382312e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8485203841317933,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 0,
+      "p_init_label": "pert_neg",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.551734115173646,
+        2.0445579582967746,
+        -0.07972888822413073
+      ],
+      "p_est": [
+        0.08127916599301484,
+        -0.06306136963177465,
+        0.05065627771773323
+      ],
+      "pose_error": 0.0033821516971937918,
+      "pose_error_visible": 0.002835691234392695,
+      "pose_error_hidden": 0.0018433136808528481,
+      "map_error": 0.02340150452231381,
+      "final_residual": 0.020414658718713858,
+      "success": true,
+      "nfev": 6,
+      "optimality": 1.2222508022089315e-11,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8485190075167293,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "decomposition_basis": "r4",
+      "alpha_est": [
+        1.5517341151736477,
+        2.044557958296773,
+        -0.07972888822412971
+      ],
+      "p_est": [
+        0.08127916599301503,
+        -0.06306136963177417,
+        0.050656277717733414
+      ],
+      "pose_error": 0.0033821516971934617,
+      "pose_error_visible": 0.0033821516971934643,
+      "pose_error_hidden": 2.604342988979101e-18,
+      "map_error": 0.02340150452231355,
+      "final_residual": 0.02041465871871514,
+      "success": true,
+      "nfev": 6,
+      "optimality": 1.291585861516548e-11,
+      "hid_sv": [
+        0.0007458087352463018,
+        0.00026452432177096104,
+        0.00015881254011808777
+      ],
+      "hidden_rank": 0,
+      "T_U": 0.848519007516729,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04000000000000001,
+        0.15000000000000002
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "decomposition_basis": "r4",
+      "alpha_est": [
+        1.5517696121408575,
+        2.044500368907687,
+        -0.07970995960571971
+      ],
+      "p_est": [
+        0.08128702783257158,
+        -0.06304444701770469,
+        0.05063430894030549
+      ],
+      "pose_error": 0.0033656271506476093,
+      "pose_error_visible": 0.0033656271506476106,
+      "pose_error_hidden": 1.3410840230045617e-18,
+      "map_error": 0.023394448326292387,
+      "final_residual": 0.020414690443486948,
+      "success": true,
+      "nfev": 5,
+      "optimality": 2.0453196969323666e-11,
+      "hid_sv": [
+        0.0007002800591036992,
+        0.00021002889553022554,
+        0.00015741238576552895
+      ],
+      "hidden_rank": 0,
+      "T_U": 0.8485203841317931,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 0,
+      "p_init_label": "pert_neg",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "decomposition_basis": "r4",
+      "alpha_est": [
+        1.5517341151736477,
+        2.044557958296773,
+        -0.07972888822412971
+      ],
+      "p_est": [
+        0.08127916599301503,
+        -0.06306136963177417,
+        0.050656277717733414
+      ],
+      "pose_error": 0.0033821516971934617,
+      "pose_error_visible": 0.0033821516971934643,
+      "pose_error_hidden": 2.604342988979101e-18,
+      "map_error": 0.02340150452231355,
+      "final_residual": 0.02041465871871514,
+      "success": true,
+      "nfev": 6,
+      "optimality": 1.291585861516548e-11,
+      "hid_sv": [
+        0.0007458087352463018,
+        0.00026452432177096104,
+        0.00015881254011808777
+      ],
+      "hidden_rank": 0,
+      "T_U": 0.848519007516729,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.5915067835674228,
+        2.0273746075680434,
+        -0.13529463926772056
+      ],
+      "p_est": [
+        0.082850863906155,
+        -0.057858472399604226,
+        0.006037236312577009
+      ],
+      "pose_error": 0.044107121380916166,
+      "pose_error_visible": 0.0015125611615506931,
+      "pose_error_hidden": 0.04408117869616738,
+      "map_error": 0.03992787344554672,
+      "final_residual": 0.0342361491352588,
+      "success": true,
+      "nfev": 6,
+      "optimality": 5.675984095567456e-12,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8837462002525864,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04000000000000001,
+        0.15000000000000002
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.767504856316033,
+        1.7208107765943017,
+        0.01287160172242444
+      ],
+      "p_est": [
+        0.12122586586958309,
+        0.053936207147749465,
+        0.13907710493755157
+      ],
+      "pose_error": 0.15038537807901173,
+      "pose_error_visible": 0.029456738515113837,
+      "pose_error_hidden": 0.14747224313754612,
+      "map_error": 0.14643468614483685,
+      "final_residual": 0.16173427616977096,
+      "success": true,
+      "nfev": 5,
+      "optimality": 6.989321372349641e-11,
+      "hid_sv": [
+        0.0004320097859000356,
+        3.798193590014053e-19,
+        1.758310320382312e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.892358896535022,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 0,
+      "p_init_label": "pert_neg",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.5915067835674228,
+        2.0273746075680434,
+        -0.13529463926772056
+      ],
+      "p_est": [
+        0.082850863906155,
+        -0.057858472399604226,
+        0.006037236312577009
+      ],
+      "pose_error": 0.044107121380916166,
+      "pose_error_visible": 0.0015125611615506931,
+      "pose_error_hidden": 0.04408117869616738,
+      "map_error": 0.03992787344554672,
+      "final_residual": 0.0342361491352588,
+      "success": true,
+      "nfev": 6,
+      "optimality": 5.675984095567456e-12,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8837462002525864,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.312569451206153,
+        1.421531211735429,
+        0.5160805436696865
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "map_error": 0.2088924293933358,
+      "final_residual": 0.27983291263859905,
+      "success": true,
+      "nfev": 2,
+      "optimality": 8.602240576590503e-11,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8148032436035889,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.5098592282945682,
+        1.996571380854107,
+        0.008874860310280626
+      ],
+      "p_est": [
+        0.07979250189166347,
+        -0.061221944634575816,
+        0.060015503461743294
+      ],
+      "pose_error": 0.010091903375831723,
+      "pose_error_visible": 0.0011258514652998184,
+      "pose_error_hidden": 0.01002890683101633,
+      "map_error": 0.00624537030753859,
+      "final_residual": 0.01696818170567589,
+      "success": true,
+      "nfev": 5,
+      "optimality": 4.943694057661242e-11,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8486589500213964,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04000000000000001,
+        0.15000000000000002
+      ],
+      "r": null,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.5100536448825934,
+        1.9964676582089864,
+        0.008631404989676133
+      ],
+      "p_est": [
+        0.07982412228205928,
+        -0.06116195991444191,
+        0.05990751362289442
+      ],
+      "pose_error": 0.00997696897871675,
+      "pose_error_visible": 0.0018584000916324291,
+      "pose_error_hidden": 0.009802359874116892,
+      "map_error": 0.006236339575672897,
+      "final_residual": 0.016967768269278077,
+      "success": true,
+      "nfev": 5,
+      "optimality": 6.774474436858394e-12,
+      "hid_sv": [
+        0.0004320097859000356,
+        3.798193590014053e-19,
+        1.758310320382312e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.848667999608381,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "noise_seed": 1,
+      "p_init_label": "pert_neg",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.5098592282945682,
+        1.996571380854107,
+        0.008874860310280626
+      ],
+      "p_est": [
+        0.07979250189166347,
+        -0.061221944634575816,
+        0.060015503461743294
+      ],
+      "pose_error": 0.010091903375831723,
+      "pose_error_visible": 0.0011258514652998184,
+      "pose_error_hidden": 0.01002890683101633,
+      "map_error": 0.00624537030753859,
+      "final_residual": 0.01696818170567589,
+      "success": true,
+      "nfev": 5,
+      "optimality": 4.943694057661242e-11,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8486589500213964,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "decomposition_basis": "r4",
+      "alpha_est": [
+        1.5098592282945684,
+        1.9965713808541055,
+        0.008874860310280147
+      ],
+      "p_est": [
+        0.07979250189166351,
+        -0.06122194463457561,
+        0.060015503461742184
+      ],
+      "pose_error": 0.010091903375830595,
+      "pose_error_visible": 0.010091903375830599,
+      "pose_error_hidden": 3.567276416486466e-18,
+      "map_error": 0.00624537030753847,
+      "final_residual": 0.016968181705675805,
+      "success": true,
+      "nfev": 5,
+      "optimality": 5.130969575197819e-11,
+      "hid_sv": [
+        0.0007458087352463018,
+        0.00026452432177096104,
+        0.00015881254011808777
+      ],
+      "hidden_rank": 0,
+      "T_U": 0.8486589500213966,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04000000000000001,
+        0.15000000000000002
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "decomposition_basis": "r4",
+      "alpha_est": [
+        1.510053644882593,
+        1.9964676582089884,
+        0.008631404989676213
+      ],
+      "p_est": [
+        0.07982412228205969,
+        -0.0611619599144418,
+        0.0599075136228954
+      ],
+      "pose_error": 0.0099769689787177,
+      "pose_error_visible": 0.0099769689787177,
+      "pose_error_hidden": 2.7769124835677133e-18,
+      "map_error": 0.006236339575672797,
+      "final_residual": 0.016967768269280033,
+      "success": true,
+      "nfev": 5,
+      "optimality": 5.231988256837273e-12,
+      "hid_sv": [
+        0.0007002800591036992,
+        0.00021002889553022554,
+        0.00015741238576552895
+      ],
+      "hidden_rank": 0,
+      "T_U": 0.8486679996083815,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "noise_seed": 1,
+      "p_init_label": "pert_neg",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "decomposition_basis": "r4",
+      "alpha_est": [
+        1.5098592282945684,
+        1.9965713808541055,
+        0.008874860310280147
+      ],
+      "p_est": [
+        0.07979250189166351,
+        -0.06122194463457561,
+        0.060015503461742184
+      ],
+      "pose_error": 0.010091903375830595,
+      "pose_error_visible": 0.010091903375830599,
+      "pose_error_hidden": 3.567276416486466e-18,
+      "map_error": 0.00624537030753847,
+      "final_residual": 0.016968181705675805,
+      "success": true,
+      "nfev": 5,
+      "optimality": 5.130969575197819e-11,
+      "hid_sv": [
+        0.0007458087352463018,
+        0.00026452432177096104,
+        0.00015881254011808777
+      ],
+      "hidden_rank": 0,
+      "T_U": 0.8486589500213966,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.5528122136386557,
+        1.9790457856784764,
+        -0.055850239692927836
+      ],
+      "p_est": [
+        0.0808875640725097,
+        -0.05648741211270388,
+        0.005894173168883232
+      ],
+      "pose_error": 0.044254378360849785,
+      "pose_error_visible": 0.0039114816709028555,
+      "pose_error_hidden": 0.04408117869616738,
+      "map_error": 0.02411732854969919,
+      "final_residual": 0.03601939745139123,
+      "success": true,
+      "nfev": 6,
+      "optimality": 2.653622575488341e-12,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8833990276391883,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04000000000000001,
+        0.15000000000000002
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.7419556052330825,
+        1.6700973628954918,
+        0.08807713321343552
+      ],
+      "p_est": [
+        0.12087576621365387,
+        0.054019220898603865,
+        0.13901204057106292
+      ],
+      "pose_error": 0.15031418550656642,
+      "pose_error_visible": 0.029091096034404542,
+      "pose_error_hidden": 0.14747224313754612,
+      "map_error": 0.15825660987715295,
+      "final_residual": 0.15930185616051737,
+      "success": true,
+      "nfev": 5,
+      "optimality": 6.764596612465301e-11,
+      "hid_sv": [
+        0.0004320097859000356,
+        3.798193590014053e-19,
+        1.758310320382312e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8936941577192228,
+      "T_U_rank": 6
+    },
+    {
+      "method": "reduced_r6",
+      "noise_seed": 1,
+      "p_init_label": "pert_neg",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "decomposition_basis": "r6",
+      "alpha_est": [
+        1.5528122136386557,
+        1.9790457856784764,
+        -0.055850239692927836
+      ],
+      "p_est": [
+        0.0808875640725097,
+        -0.05648741211270388,
+        0.005894173168883232
+      ],
+      "pose_error": 0.044254378360849785,
+      "pose_error_visible": 0.0039114816709028555,
+      "pose_error_hidden": 0.04408117869616738,
+      "map_error": 0.02411732854969919,
+      "final_residual": 0.03601939745139123,
+      "success": true,
+      "nfev": 6,
+      "optimality": 2.653622575488341e-12,
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "hidden_rank": 2,
+      "T_U": 0.8833990276391883,
+      "T_U_rank": 6
+    }
+  ]
+}

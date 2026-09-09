@@ -1,0 +1,542 @@
+[
+  {
+    "scene": "single",
+    "k": 3.0,
+    "spacing": 0.06,
+    "voxels": 32,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 1.8189714041294654e-07,
+    "relative_field_error": 0.039945546516908036,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.00020767217900084973,
+        0.0005341698179517523
+      ],
+      [
+        0.00020767217900084973,
+        0.0005341698179517523
+      ],
+      [
+        0.00020767217900084973,
+        0.000534169817951752
+      ],
+      [
+        0.0002076721790008497,
+        0.000534169817951752
+      ]
+    ],
+    "elapsed_seconds": 0.0026300420286133885,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "single",
+    "k": 3.0,
+    "spacing": 0.04,
+    "voxels": 136,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 1.8189714041294654e-07,
+    "relative_field_error": 0.2108410185498545,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.00020767217900084973,
+        0.0005341698179517523
+      ],
+      [
+        0.00020767217900084973,
+        0.0005341698179517523
+      ],
+      [
+        0.00020767217900084973,
+        0.000534169817951752
+      ],
+      [
+        0.0002076721790008497,
+        0.000534169817951752
+      ]
+    ],
+    "elapsed_seconds": 0.005096624954603612,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "single",
+    "k": 3.0,
+    "spacing": 0.03,
+    "voxels": 280,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 1.8189714041294654e-07,
+    "relative_field_error": 0.05111980446445492,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.00020767217900084973,
+        0.0005341698179517523
+      ],
+      [
+        0.00020767217900084973,
+        0.0005341698179517523
+      ],
+      [
+        0.00020767217900084973,
+        0.000534169817951752
+      ],
+      [
+        0.0002076721790008497,
+        0.000534169817951752
+      ]
+    ],
+    "elapsed_seconds": 0.0270100409979932,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "single",
+    "k": 6.0,
+    "spacing": 0.06,
+    "voxels": 32,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.6265668658994906e-06,
+    "relative_field_error": 0.04780619183126174,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.003340399508954441,
+        0.004123936123957967
+      ],
+      [
+        0.003340399508954441,
+        0.004123936123957967
+      ],
+      [
+        0.0033403995089544406,
+        0.004123936123957967
+      ],
+      [
+        0.0033403995089544424,
+        0.004123936123957967
+      ]
+    ],
+    "elapsed_seconds": 0.00047341600293293595,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "single",
+    "k": 6.0,
+    "spacing": 0.04,
+    "voxels": 136,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.6265668658994906e-06,
+    "relative_field_error": 0.20565462205428442,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.003340399508954441,
+        0.004123936123957967
+      ],
+      [
+        0.003340399508954441,
+        0.004123936123957967
+      ],
+      [
+        0.0033403995089544406,
+        0.004123936123957967
+      ],
+      [
+        0.0033403995089544424,
+        0.004123936123957967
+      ]
+    ],
+    "elapsed_seconds": 0.004337750026024878,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "single",
+    "k": 6.0,
+    "spacing": 0.03,
+    "voxels": 280,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.6265668658994906e-06,
+    "relative_field_error": 0.05029064724691943,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.003340399508954441,
+        0.004123936123957967
+      ],
+      [
+        0.003340399508954441,
+        0.004123936123957967
+      ],
+      [
+        0.0033403995089544406,
+        0.004123936123957967
+      ],
+      [
+        0.0033403995089544424,
+        0.004123936123957967
+      ]
+    ],
+    "elapsed_seconds": 0.022788875037804246,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "single",
+    "k": 9.0,
+    "spacing": 0.06,
+    "voxels": 32,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.903883901749591e-05,
+    "relative_field_error": 0.07186180600387726,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.015161905536330015,
+        0.0165856833983846
+      ],
+      [
+        0.015161905536330015,
+        0.0165856833983846
+      ],
+      [
+        0.015161905536330008,
+        0.016585683398384597
+      ],
+      [
+        0.015161905536330008,
+        0.016585683398384597
+      ]
+    ],
+    "elapsed_seconds": 0.000549832999240607,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "single",
+    "k": 9.0,
+    "spacing": 0.04,
+    "voxels": 136,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.903883901749591e-05,
+    "relative_field_error": 0.1768955948898969,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.015161905536330015,
+        0.0165856833983846
+      ],
+      [
+        0.015161905536330015,
+        0.0165856833983846
+      ],
+      [
+        0.015161905536330008,
+        0.016585683398384597
+      ],
+      [
+        0.015161905536330008,
+        0.016585683398384597
+      ]
+    ],
+    "elapsed_seconds": 0.004201875010039657,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "single",
+    "k": 9.0,
+    "spacing": 0.03,
+    "voxels": 280,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.903883901749591e-05,
+    "relative_field_error": 0.04370992517228222,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.015161905536330015,
+        0.0165856833983846
+      ],
+      [
+        0.015161905536330015,
+        0.0165856833983846
+      ],
+      [
+        0.015161905536330008,
+        0.016585683398384597
+      ],
+      [
+        0.015161905536330008,
+        0.016585683398384597
+      ]
+    ],
+    "elapsed_seconds": 0.022533582989126444,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 3.0,
+    "spacing": 0.06,
+    "voxels": 61,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 7.144322891005984e-07,
+    "relative_field_error": 0.16354475299668936,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.0006023160586729063,
+        0.0011438463729556278
+      ],
+      [
+        0.0005314581981686331,
+        0.0010452691809443799
+      ],
+      [
+        0.00040139237986690994,
+        0.0009189296010804668
+      ],
+      [
+        0.00040155368087681665,
+        0.0009191518792360676
+      ]
+    ],
+    "elapsed_seconds": 0.0011539580300450325,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 3.0,
+    "spacing": 0.04,
+    "voxels": 200,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 7.144322891005984e-07,
+    "relative_field_error": 0.13855139222042284,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.0006023160586729063,
+        0.0011438463729556278
+      ],
+      [
+        0.0005314581981686331,
+        0.0010452691809443799
+      ],
+      [
+        0.00040139237986690994,
+        0.0009189296010804668
+      ],
+      [
+        0.00040155368087681665,
+        0.0009191518792360676
+      ]
+    ],
+    "elapsed_seconds": 0.009770457982085645,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 3.0,
+    "spacing": 0.03,
+    "voxels": 436,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 7.144322891005984e-07,
+    "relative_field_error": 0.03930417358545838,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.0006023160586729063,
+        0.0011438463729556278
+      ],
+      [
+        0.0005314581981686331,
+        0.0010452691809443799
+      ],
+      [
+        0.00040139237986690994,
+        0.0009189296010804668
+      ],
+      [
+        0.00040155368087681665,
+        0.0009191518792360676
+      ]
+    ],
+    "elapsed_seconds": 0.07940529199549928,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 6.0,
+    "spacing": 0.06,
+    "voxels": 61,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.305681570344874e-06,
+    "relative_field_error": 0.15680755831603524,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.007867356475059813,
+        0.009134209595635316
+      ],
+      [
+        0.005543649292871399,
+        0.006718346768262768
+      ],
+      [
+        0.005282297811527901,
+        0.006596509958772464
+      ],
+      [
+        0.005275826535415007,
+        0.006589761937912616
+      ]
+    ],
+    "elapsed_seconds": 0.0011359589989297092,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 6.0,
+    "spacing": 0.04,
+    "voxels": 200,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.305681570344874e-06,
+    "relative_field_error": 0.15011184415982082,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.007867356475059813,
+        0.009134209595635316
+      ],
+      [
+        0.005543649292871399,
+        0.006718346768262768
+      ],
+      [
+        0.005282297811527901,
+        0.006596509958772464
+      ],
+      [
+        0.005275826535415007,
+        0.006589761937912616
+      ]
+    ],
+    "elapsed_seconds": 0.009930541971698403,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 6.0,
+    "spacing": 0.03,
+    "voxels": 436,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 5.305681570344874e-06,
+    "relative_field_error": 0.04213428062959277,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.007867356475059813,
+        0.009134209595635316
+      ],
+      [
+        0.005543649292871399,
+        0.006718346768262768
+      ],
+      [
+        0.005282297811527901,
+        0.006596509958772464
+      ],
+      [
+        0.005275826535415007,
+        0.006589761937912616
+      ]
+    ],
+    "elapsed_seconds": 0.0735305420239456,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 9.0,
+    "spacing": 0.06,
+    "voxels": 61,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 4.71986801500095e-05,
+    "relative_field_error": 0.11601784578836843,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.026331895534960525,
+        0.028501731804328814
+      ],
+      [
+        0.017343529750359278,
+        0.01951183922809118
+      ],
+      [
+        0.03261964109781538,
+        0.03514205651043335
+      ],
+      [
+        0.032571222561533685,
+        0.035093522062003356
+      ]
+    ],
+    "elapsed_seconds": 0.001120958011597395,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 9.0,
+    "spacing": 0.04,
+    "voxels": 200,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 4.71986801500095e-05,
+    "relative_field_error": 0.12987842305568478,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.026331895534960525,
+        0.028501731804328814
+      ],
+      [
+        0.017343529750359278,
+        0.01951183922809118
+      ],
+      [
+        0.03261964109781538,
+        0.03514205651043335
+      ],
+      [
+        0.032571222561533685,
+        0.035093522062003356
+      ]
+    ],
+    "elapsed_seconds": 0.010876416985411197,
+    "scope": "development forward only"
+  },
+  {
+    "scene": "pair",
+    "k": 9.0,
+    "spacing": 0.03,
+    "voxels": 436,
+    "reference_lmax": 5,
+    "reference_relative_convergence": 4.71986801500095e-05,
+    "relative_field_error": 0.043812040688476765,
+    "reciprocity_error": 0.0,
+    "xs_sca_ext": [
+      [
+        0.026331895534960525,
+        0.028501731804328814
+      ],
+      [
+        0.017343529750359278,
+        0.01951183922809118
+      ],
+      [
+        0.03261964109781538,
+        0.03514205651043335
+      ],
+      [
+        0.032571222561533685,
+        0.035093522062003356
+      ]
+    ],
+    "elapsed_seconds": 0.07775520801078528,
+    "scope": "development forward only"
+  }
+]

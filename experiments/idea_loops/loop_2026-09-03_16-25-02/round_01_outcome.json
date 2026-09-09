@@ -1,0 +1,149 @@
+{
+  "idea": {
+    "Name": "pose_confounding_spectral_geometry",
+    "Title": "Pose-Confounding Spectral Geometry for Full-Wave Inverse-Scattering SLAM",
+    "Short Hypothesis": "After noise whitening and realification, eliminating unknown pose from the local full-wave inverse-scattering SLAM model produces an effective map-information operator whose finite-dimensional loss is low rank, whose no-prior normalized spectrum is governed by principal angles between map- and pose-induced data tangent spaces, and whose useful information can be improved by genuinely diverse frequencies and trajectories while remaining sensitive to rank events and execution error.",
+    "Related Work": "The individual ingredients are mature and must not be claimed as novel: Chen-style subspace optimization decomposes induced-current recovery through the current-to-data operator G_S; equivalent Fisher information uses Schur complements to eliminate nuisance parameters; principal angles and finite-rank Hermitian perturbation describe subspace overlap and interlacing; gauge analysis treats identifiability up to group actions; active sensing optimizes Fisher-information criteria. The research question is whether their explicit synthesis for a full-wave volumetric contrast field jointly estimated with platform pose yields a useful, correctly scoped theory and reproducible numerical consequences. Closest overlap must be checked against full-wave inverse-scattering degrees-of-freedom work, inverse scattering with unknown sensor geometry, coherent RF/radar SLAM, RF-SLAM PCRB/identifiability, blind calibration/bilinear inverse problems, and robust experimental design. Novelty is retrieval-bounded; never claim first or no prior work.",
+    "Abstract": "We study local observability of a volumetric material-contrast map when the transmitting and receiving platform pose is unknown. Starting from a two-dimensional scalar Helmholtz contrast-source model, we derive whitened and realified map and pose Jacobians A and B, and compare the known-pose information K_IS=A^T A with the pose-eliminated information K_SLAM=A^T P_{Range(B)^perp} A and its finite-prior Schur complement K_eff. The finite-dimensional theory links exact map-pose ambiguity to Range(A) intersect Range(B), identifies the no-prior generalized retention spectrum with squared sines of principal angles, and bounds information loss by pose dimension. We then test the theory in a unified CPU-only simulator through analytic-Jacobian checks, rank and spectral identities, gauge and Born-empty-background controls, multi-frequency and equal-budget trajectory comparisons, and first-order robust-sensitivity tests. The study is designed to retain counterexamples: numerical evidence may validate the algebraic implementation, refine conditions, or falsify proposed physical generalizations, but it cannot establish continuum transfer, global nonlinear convergence, online SLAM performance, or global novelty.",
+    "Experiments": {
+      "datasets": [
+        "Deterministic synthetic 2D scalar Helmholtz contrast-source scenes on D=[-0.5,0.5]^2, using two smooth nonzero dielectric blobs; begin with small pilot grids and run the specified 32x32 reference plus a 40x40 sensitivity case when CPU cost permits.",
+        "One transmitter and 4-8 body-fixed receivers per SE(2) pose, with straight, 90-degree arc, 180-degree arc, and 360-degree circular trajectories matched for path length and measurement count.",
+        "Controlled Born/full-wave, single/genuinely-multifrequency/duplicate-block, identity/colored-noise, smooth-basis/pixel-basis, free-pose/finite-prior, anchored/unanchored, and trajectory-perturbation variants with deterministic seeds."
+      ],
+      "baselines": [
+        "Known-pose information K_IS versus free-pose K_SLAM and finite-prior K_eff.",
+        "Analytic A and B versus centered finite differences of the same forward solver.",
+        "Principal-angle closed forms versus generalized eigenvalues on the observable support.",
+        "Genuinely distinct frequency blocks versus an exact scaled duplicate block, with no prior, fixed finite prior, and proportionally scaled prior controls.",
+        "Full trajectory derivative including pose-Hessian terms versus finite differences and the explicitly labeled frozen-nuisance-subspace approximation.",
+        "Sampled worst-case perturbations and the analytic Euclidean-ball gradient direction versus the first-order surrogate; use a Lipschitz lower bound as certified only if a uniform operator-Lipschitz constant over the full ball is derived, otherwise label it empirical."
+      ],
+      "metrics": [
+        "Centered finite-difference relative errors and observed O(h^2) region for map and pose Jacobians; state-equation residual and sigma_min(M)/norm(M).",
+        "Backward-error-scaled residuals for kernel/rank identity, PSD ordering, loss-rank bound, interlacing, and generalized-spectrum/principal-angle equality; machine-precision rank tolerance only.",
+        "Retention eigenvalues rho, principal angles, exact destroyed degrees of freedom, affected-mode count, continuous confusion dimension, log-volume retention, and absolute eigenvalues of K_IS and K_eff.",
+        "SE(2) generator cancellation residuals, Born empty-background bilinear scaling, and anchor/symmetry controls.",
+        "Frequency-stacking PSD increments, shared-compensation residuals, duplicate-block invariance controls, and equal-budget trajectory comparisons.",
+        "First-order eigenvalue prediction error versus perturbation radius, spectral gaps, sigma_min(B), projector movement, sampled/analytic worst case, explicitly certified-or-empirical Lipschitz lower-bound checks, and frozen-nuisance approximation error.",
+        "Exact commands, configs, random seeds, runtime/environment record, result tables, figure paths, and SHA-256 hashes."
+      ],
+      "compute_estimate": "Apple Silicon CPU only. Use staged resolution: cheap algebraic/Jacobian falsifiers first, then the 32x32 reference sweeps and a limited 40x40 discretization check. Reuse Green matrices and factorizations. No CUDA, GPU Docker, neural-network training, daemon, scheduler, database, web UI, or new orchestration framework. Report actual runtime and any family that cannot be completed rather than silently reducing scope.",
+      "steps": [
+        "Before coding, read /Volumes/migodam's-external-brain/Research/Inv_SLAM/research/agentic_input/workshop.md and the three source files it names. Preserve its status ledger and semantic-drift prohibitions.",
+        "Family 1: implement the 2D forward solver and analytic A/B builders; verify centered map/pose derivatives across h, solver residuals, weak-scattering Born/full-wave asymptotics, and non-resonant conditioning.",
+        "Family 2: after whitening and realification, verify kernel/rank identities, rho=sin^2(theta), loss-rank and interlacing, prior ordering and limits, and distinguish generalized retention directions from ordinary K_IS eigenmodes.",
+        "Family 3: construct smooth-basis SE(2) gauge generators with anchor/symmetry controls; separately verify B=0 at Born empty background and the leading bilinear sensing-operator mismatch.",
+        "Family 4: compare genuinely diverse and exactly duplicate frequencies using one shared pose compensation; test absolute-information monotonicity and the correctly qualified duplicate-block result; compare four equal-budget trajectories without assuming their ordering is universal.",
+        "Family 5: verify full trajectory/eigenvalue derivatives in positive-gap regions, test the robust first-order surrogate using both the analytic adverse direction and random boundary samples, quantify frozen-nuisance error, and deliberately expose near-crossing/rank-event breakdown.",
+        "For every family write a hypothesis/claim-status table, exact executed checks, metrics, pass/fail interpretation, artifacts, and a cannot-establish section. A counterexample or corrected condition is an acceptable result.",
+        "Synthesize only results supported by executed artifacts. Keep finite-dimensional proofs, conditional full-wave derivations, numerical observations, and open continuum/transversality/rank-event conjectures visibly separate.",
+        "Prepare a full English LaTeX/PDF manuscript draft with AI-use disclosure, verified citations, reproducibility appendix, limitations, and explicit negative results."
+      ]
+    },
+    "Risk Factors and Limitations": [
+      "The local tangent/Fisher theory does not address cycle skipping, phase wrapping, wrong data association, posterior multimodality, or basin of attraction; practical claims must be scoped accordingly.",
+      "Complex measurements with real physical parameters require whitening followed by realification; using a complex pose projector would enlarge the nuisance space and invalidate the interpretation.",
+      "Current-space G_S/SOM modes are not map-Jacobian or K_eff modes; any conflation is a fatal semantic error.",
+      "SOM may be presented as a current-space computational substrate, but not as the same subspace as the pose-confounding map-tangent spectrum unless an explicit A=G_S T_chi pullback/composition result is proved and implemented.",
+      "Exact SE(2) gauge requires a symmetry-compatible background/domain; bounded grids, anchors, known background, and scene symmetry can break or degenerate generators.",
+      "At Born empty background, first-order B vanishes; pose effects then form a bilinear operator-uncertainty problem and cannot be declared harmless.",
+      "Finite-prior retention is weighted shrinkage, not ordinary squared-sine principal angles. Duplicate-block rho invariance holds only with no prior or matching prior scaling, not with a fixed finite prior.",
+      "Finite-dimensional numerical identities do not prove stable transversality or closed-range properties of the continuum inverse problem; discretization refinement is diagnostic only.",
+      "Trajectory derivative claims require smoothness, locally constant rank, and spectral gaps; rank events and repeated eigenvalues need cluster/projector treatment.",
+      "The independent ScholarQA evidence bundle is partial because of Semantic Scholar rate limits. Final citations must be verified and novelty claims bounded to retrieved records.",
+      "All five experiment families are required attempts, but CPU limits may force an explicitly documented partial result; passing them is bounded model evidence, not production or real-world acceptance."
+    ]
+  },
+  "report": {
+    "status": "completed",
+    "summary": "The round continued the existing pose-confounded spectral-geometry study in the same working directory and added six new empirical families/controls plus a consolidated synthesis and updated manuscript. The algebraic spine holds under colored noise and across finite-grid refinement; the current-space G_S/SOM subspace is verified to be distinct from the map-tangent A/K_eff subspace; replications are mostly stable with one preserved machine-rank boundary event; and a much tighter operator-Lipschitz bound is reported for the affine tangent layer, with the full nonlinear bound explicitly left non-certified. A previously proposed trajectory ordering hypothesis remains false under both raw and normalized controls.",
+    "key_results": [
+      "Family 6 colored noise: analytic whitening residual ||W C W^H - I||/||I|| ~ 7e-16; rank identity residual 0; retention principal-angle identity max diff 1.8e-15; no-prior duplicate-block invariance holds while fixed prior breaks it.",
+      "Family 6 SNR sweep: frequency-diversity movement is non-monotone in the second frequency's SNR, peaking near balanced SNR (0.128/0.235/0.569) and reaching a finite positive high-SNR plateau.",
+      "Family 4c same-standoff/per-pose-energy normalization: normalization verified to 2.2e-16; raw and normalized trajectory orderings do not flip; trajectory-order claim remains a preserved counterexample: arc90 > straight > arc180 > circle360, with arc270 lowest.",
+      "Family 7 refinement/rank: N=16/24/32/40/48 ranks constant (rA=24, rB=18, rAB=42); theta_min decreases monotonically 4.253e-4 to 4.188e-4 deg; near-confounded count constant at 4; zero rank events over f in [0.6,2.6]; Born/empty-background gates pass; Born-vs-full discrepancy grows to 0.197 at s=1.",
+      "Family 8 SOM/map-tangent distinction: full-wave composition A = G_S M^{-1} diag(E_tot) verified bit-identical; Range(A) is contained in Range(G_S) machine-exactly, but right singular subspaces are strongly distinct (median principal angle 29.7 deg, 0/24 below 1e-8 deg); K_eff confounded directions are nearly orthogonal to both mode families (overlaps ~3e-3 vs ~6e-8).",
+      "Family 9 replications/ablation: over 7 scenes retention identity 7/7, frequency diversity 7/7, rank identity 6/7 with one ring-scene machine-rank boundary event preserved; pose-DOF ablation retained DOF: known-pose 24.0, x-only 18.0, y-only 18.0, theta-only 21.4, xy 12.6, full 9.4.",
+      "Families 5b/5b2 operator-Lipschitz: alpha-aware bound L_struct = 1.124e-2, about 1.25e9 times tighter than the loose bound 1.408e7; affine tangent certificate has zero violations up to epsilon=0.1 over 2000 directions; full nonlinear model has no sampled violations but is honestly labeled a derived structural bound with sampled envelope, not a formal interval certificate.",
+      "Writeup consolidation: manuscript/main_round2.tex and manuscript/main_round2.pdf produced, 34 pages, 2.1 MB, no unresolved references, 14 figure paths verified."
+    ],
+    "files_of_interest": [
+      "manuscript/main_round2.pdf",
+      "manuscript/main_round2.tex",
+      "notes/synthesis_round2.md",
+      "results/family6_colored_noise.json",
+      "results/family4c_trajectory_control.json",
+      "results/family7_refinement_rank.json",
+      "results/family8_som_distinction.json",
+      "results/family9_replications_ablation.json",
+      "results/family5b2_alpha_tight.json",
+      "results/family5b_lipschitz_bound.json",
+      "notes/family6_report.md",
+      "notes/family4c_trajectory_control.md",
+      "notes/family7_refinement_rank.md",
+      "notes/family8_som_distinction.md",
+      "notes/family9_replications_ablation.md",
+      "notes/family5b2_alpha_tight.md",
+      "figures/family6_snr_sweep.png",
+      "figures/family4c_trajectory_control.png",
+      "figures/family7_resolution_convergence.png",
+      "figures/family8_mode_distinction.png",
+      "figures/family9_seed_replications.png",
+      "figures/family5b2_alpha_tight.png"
+    ],
+    "working_assets": [
+      "src/family6_colored_noise.py",
+      "src/family4c_trajectory_control.py",
+      "src/family7_refinement_rank.py",
+      "src/family8_som_distinction.py",
+      "src/family9_replications_ablation.py",
+      "src/family5b_lipschitz_bound.py",
+      "src/family5b2_alpha_tight.py",
+      "src/helmholtz.py",
+      "src/family2_algebraic_spine.py",
+      "src/family3_gauge_born.py",
+      "src/family4_frequency_trajectory.py",
+      "src/family5_sensitivity.py",
+      "results/*.json",
+      "notes/*.md",
+      "manuscript/main_round2.tex"
+    ],
+    "completed_steps": [
+      "Implemented and ran Family 6 colored-noise/per-frequency SNR whitening with Matern-1/2 receiver correlation and consistent complex Jacobian whitening/realification.",
+      "Implemented and ran Family 4c same-standoff/per-pose-energy-normalized trajectory control and compared raw vs normalized orderings.",
+      "Implemented and ran Family 7 resolution, rank-event, and stable-transversality diagnostics across N=16/24/32/40/48.",
+      "Implemented and ran Family 8 G_S/SOM vs map-tangent A/K_eff distinction checks, including composition identities and subspace angle comparisons.",
+      "Implemented and ran Family 9 seed replications and pose-DOF/receiver/pose-count/basis ablations.",
+      "Ran precursor Family 5b loose Lipschitz bound and corrected Family 5b2 alpha-aware tight bound, with affine tangent and sampled nonlinear checks.",
+      "Consolidated all new artifacts into notes/synthesis_round2.md and updated manuscript/main_round2.tex/pdf."
+    ],
+    "dead_ends": [
+      "The Family-4 trajectory-order hypothesis remains false under both raw and normalized controls; this is recorded as a preserved counterexample, not a universal claim.",
+      "Formal interval certification of the full nonlinear Helmholtz operator-Lipschitz constant is still open; only the affine tangent certificate is rigorous and conditional on FD-accurate Jacobians.",
+      "Family 7 resolution diagnostics are finite-grid only; literal near-crossing flags are numerical-null artifacts, not certified continuum crossings or rank events.",
+      "Fixed finite prior breaks duplicate-block no-prior invariance in the colored-noise family, confirming a known scoping condition.",
+      "Family 9 rank identity is 6/7, with one ring-scene machine-rank boundary event preserved rather than resolved into a universal rank result.",
+      "Family 6 receiver-correlation sweep was recorded as an observation without a forced pass/fail claim."
+    ],
+    "next_steps": [
+      "Attempt a true interval-arithmetic certificate of the full nonlinear operator-Lipschitz constant by bounding pose-dependent Green-function ingredients, or import a rigorous Hankel/interval bound.",
+      "Scale to a pilot 3D scalar or vector Helmholtz extension while keeping the G_S/current-space vs map-tangent A/K_eff distinction explicit.",
+      "Run a small nonlinear least-squares/online SLAM toy to test whether the retained/confounded spectral predictions track actual joint map+pose posterior uncertainty, kept strictly separate from the finite-dimensional theory.",
+      "Formalize and possibly replicate the non-monotonic SNR-dependent frequency-diversity curve, especially the finite high-SNR plateau.",
+      "If needed, verify the 34-page manuscript figures and citations against the final result JSONs and notes before submission."
+    ]
+  },
+  "verdict": {
+    "decision": "revise",
+    "unresolved_issues": [
+      "Trajectory design result is still a single-setting counterexample: the arc90 > straight > arc180 > circle360 ordering was preserved in one controlled comparison, but it has not been replicated across multiple scenes, frequencies, or trajectory parameter variations. A full paper needs either a robust replicated negative/design result or a mechanistic explanation for when and why a trajectory helps.",
+      "Frequency-diversity support is too narrow: the SNR sweep shows non-monotonic behavior for the second frequency, but only a two-frequency setup is reported. Broader frequency-set/bandwidth sweeps and multiple scenes are needed to support any claim about when genuinely diverse frequencies improve pose-eliminated information.",
+      "The full nonlinear operator-Lipschitz bound remains non-certified. The affine tangent certificate is strong, but the manuscript must either formally certify the nonlinear bound or explicitly demote all execution-error robustness claims to empirical/structural observations; sampled zero violations are not sufficient for a top-venue robustness result.",
+      "One machine-rank boundary event appeared in the Family 9 replications, so the central rank/kernel identity is not uniformly clean across the seven scenes. This event needs to be investigated with stable-rank/truncated-SVD diagnostics, tolerance sweeps, and scene-conditioning controls before the algebraic spine can be considered fully locked.",
+      "The study lacks any external comparison or literature-derived quantitative check beyond internal algebraic controls. At least one comparison with an existing inverse-scattering/PCRB or RF-SLAM information bound would strengthen the paper's positioning and show the results are not only self-consistent.",
+      "All empirical evidence is from a single 2D scalar Helmholtz model. If feasible, a second model/geometry or more severe discretization/conditioning variation should be added, or the manuscript should more sharply scope the claims as strictly model-specific finite-dimensional verification."
+    ],
+    "reasoning": "This is a substantial and carefully executed study, not a thin pilot. The whitening/realification algebraic spine is verified to machine precision, the principal-angle retention identity holds under colored noise and grid refinement, the SOM/map-tangent distinction is clearly established, and the affine tangent Lipschitz certificate is meaningful. The preserved negative trajectory ordering and non-monotone SNR diversity are honest and potentially valuable. However, the full-paper bar is not yet met for the design and robustness parts of the hypothesis. The trajectory counterexample is still single-setting and not replicated across scenes or frequencies; frequency diversity is tested too narrowly; the nonlinear robustness claim is explicitly non-certified; one rank-boundary replication event remains unresolved; and there is no external comparison. These are not reasons to abandon the idea, but they require a focused deepening and reframing before the manuscript is ready as a full-length paper."
+  }
+}

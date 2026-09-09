@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-09-08T18:36:46.997476+00:00",
+  "seed": 94032,
+  "scenes": 16,
+  "reason": "post-freeze diagnostic bug: reference rows in realified Jacobian are noncontiguous; original fit/recovery unchanged, wrong no-reference rank metric withdrawn",
+  "source": "supplements/reference_audit_v2/controls_v2.py",
+  "sha256": "7cc668d6f45616a2aa28863d774abce0c67bc941f8418d6ee6e3ef79774dd31f"
+}

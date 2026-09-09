@@ -1,0 +1,58 @@
+{
+  "status": "incomplete",
+  "summary": "The round ended without a researcher summary. The working directory contains an existing a2val implementation package, prior E1/E2/E3/E5 and optional physical-tangent run scripts, result JSON/CSV artifacts, figures, tests, and an environment report. The environment report confirms the specified venv works with Python 3.13.13, numpy 2.5.2, scipy 1.18.1, and matplotlib 3.11.1. However, the provided evidence does not include contents documenting a newly added fixed-seed matrix runner, the four planned baseline ablation scripts, or negative-control/threshold sweep outputs. Therefore the specific replication/ablation/sensitivity conclusions proposed in the IDEA cannot yet be substantiated from this round's evidence.",
+  "key_results": [
+    "Environment validation completed: Python 3.13.13, numpy 2.5.2, scipy 1.18.1, matplotlib 3.11.1; scipy.special.i0/i1 and scipy.stats.ncx2 are available.",
+    "Existing a2val package modules are present: e1.py (23948 bytes), e2.py (33965 bytes), e3.py (38490 bytes), e5.py (43218 bytes), physical_runner.py (20095 bytes).",
+    "Prior run scripts and artifacts exist for E1/E2/E3/E5, plus optional physical runs, including results/*_results.json, results/*_summary.csv, figures/*.png, and results/A2_quantitative_supplement.md.",
+    "No evidence was found in the supplied file contents of a fixed-seed matrix runner, the four ablation comparisons, or negative-control/threshold-sweep runs required by the IDEA.",
+    "No quantitative CI, replication pass/fail, ablation delta, or sensitivity table can be reported from this round because the relevant new artifacts were not substantiated in the available evidence."
+  ],
+  "files_of_interest": [
+    "results/A2_quantitative_supplement.md",
+    "results/quantitative_audit.json",
+    "results/ci_stats.json",
+    "results/e1_summary.csv",
+    "results/e2_summary.csv",
+    "results/e3_summary.csv",
+    "results/e5_summary.csv",
+    "figures/e1_fisher_comparison.png",
+    "figures/e2_rank_loss.png",
+    "figures/e3_bias_risk.png",
+    "figures/e5_innovation.png"
+  ],
+  "working_assets": [
+    "a2val/e1.py",
+    "a2val/e2.py",
+    "a2val/e3.py",
+    "a2val/e5.py",
+    "a2val/physical_runner.py",
+    "scripts/run_e1.py",
+    "scripts/run_e2.py",
+    "scripts/run_e3.py",
+    "scripts/run_e5.py",
+    "scripts/run_e1_physical.py",
+    "scripts/run_e3_physical_limited.py",
+    "scripts/run_physical_optional.py",
+    "scripts/compute_ci_stats.py",
+    "tests/test_e1.py",
+    "tests/test_e2.py",
+    "tests/test_e3.py",
+    "tests/test_e5.py",
+    "env_report.txt"
+  ],
+  "completed_steps": [
+    "Environment/site validation was completed and recorded in env_report.txt.",
+    "The existing a2val package, run scripts, result artifacts, figures, and tests are present in the working directory.",
+    "Prior E1/E2/E3/E5 and optional physical-tangent result files are available for inspection."
+  ],
+  "dead_ends": [],
+  "next_steps": [
+    "Inspect the existing run scripts and result JSON/CSV contents to determine which seeds, noise levels, rank thresholds, and gate thresholds can already be set from the CLI/config.",
+    "Add a fixed-seed matrix runner that actually executes E1, E2, E3, E5, and the optional physical tangent, recording seed count, Monte Carlo sample size, runtime, and raw JSON/CSV outputs.",
+    "Implement separate ablation scripts for physical vs free-current envelope, relative-only vs absolute/bias-aware gates, shared-map vs independent-map profiling, and greedy vs pair lookahead, writing raw JSON/CSV plus compact tables.",
+    "Run negative controls and threshold sweeps from existing modules, then record pass boundaries, false-positive rates, rank/noise sensitivity tables.",
+    "Recompute evidence metrics and seed-level 95% Student-t CIs only from newly generated artifacts; avoid inferring results from prior summary CSVs.",
+    "Write the revised quantitative supplement with replication, ablation, sensitivity, and interpretation sections, preserving discrepancies and unsupported claims."
+  ]
+}

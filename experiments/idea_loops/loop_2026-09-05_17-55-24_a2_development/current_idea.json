@@ -1,0 +1,49 @@
+{
+  "Name": "a2_prasc_validation_replication_sensitivity",
+  "Title": "Replication, Ablation, and Sensitivity Audit for A2 Rank, Bias, and Acquisition Controls",
+  "Short Hypothesis": "The existing a2val E1/E2/E3/E5 and optional physical-tangent package can be turned into a substantive quantitative report only if the preregistered checks are actually re-run under a fixed seed matrix and then extended with first-class baseline ablations, negative controls, and threshold sweeps. This revision tests whether the conditional rank, bias, and acquisition controls remain non-vacuous under independent re-execution and sensitivity analysis; it does not introduce a new algorithm, model, or hardware claim.",
+  "Related Work": "Projections, Schur complements, SOM/TSOM, coherent calibration, variable projection, source extension, continuation, and experiment design remain prior machinery. The implementation already produced an a2val package with run scripts, assertion tests, JSON/CSV results, and figures. This revision is a direct follow-up to the completed analysis-only audit: it keeps the same package and protocol but replaces artifact parsing with actual re-execution, ablation scripts, and sensitivity runs.",
+  "Abstract": "We revise the A2 validation work package from a post-hoc summary audit into an executed replication and sensitivity study. The implemented E1/E2/E3/E5 modules and the optional shared physical-core tangent run are re-run under a fixed seed matrix, recording Monte Carlo sample sizes, runtimes, and raw JSON/CSV artifacts. New runner and sweep scripts execute the four planned baseline comparisons as controlled ablations: physical versus free-current envelope, relative-only versus absolute and bias-aware gates, shared-map versus independent-map profiling, and greedy versus pair lookahead. Negative controls and threshold sweeps over noise level, rank threshold, and gate threshold are generated from existing modules to classify false-positive modes and boundary sensitivity. The study reports seed-level 95% CIs, replication pass/fail, ablation deltas, and explicit positive/negative/indeterminate conclusions. Claims remain limited to synthetic conditional controls; E4, nonlinear superiority, SOM exclusivity, publication acceptance, and universal basin behavior are not claimed unless a corresponding runner is available and executed.",
+  "Experiments": {
+    "datasets": [
+      "Existing A2 E1 scalar matched complex/intensity exact examples, re-run under the fixed seed matrix",
+      "Existing A2 E2/E3/E5 exact and random fixed-tangent examples, re-run under the fixed seed matrix",
+      "Synthetic noise-level sweeps for E2/E3/E5 using existing modules",
+      "Optional physical tangents from the separately implemented shared core, interpreted only as secondary corroboration",
+      "Negative-control outputs and threshold-sweep outputs generated from existing a2val modules"
+    ],
+    "baselines": [
+      "physical versus free-current envelope",
+      "relative-only versus absolute and bias-aware gates",
+      "shared-map versus independent-map profiling",
+      "greedy versus pair lookahead",
+      "limited-aperture tangent and nearly-parallel-range controls if supported by the existing modules, otherwise recorded as not run"
+    ],
+    "metrics": [
+      "backward-error-scaled identity residual mean, standard deviation, and 95% confidence interval across fixed-seed reruns",
+      "Fisher contraction ratio with Monte Carlo confidence intervals",
+      "covariance and bias risk ratios versus absolute and relative gates",
+      "acquisition innovation gain, submodularity violation count, and greedy-versus-lookahead delta",
+      "threshold-sweep pass boundaries, false-positive rate, and rank/noise sensitivity tables",
+      "replication pass/fail, runtime, and recorded Monte Carlo sample size per runner"
+    ],
+    "compute_estimate": "Small CPU-only NumPy/SciPy using the existing venv and scripts. Add a fixed-seed matrix runner, ablation scripts for the four baselines, and sweep/negative-control scripts. No GPU, no installation, no new large-scale data; expected runtime is modest because it re-executes the existing small synthetic package.",
+    "steps": [
+      "Read TASK.md, inventory all existing scripts and parameters, and confirm which seeds, noise levels, rank thresholds, and gate thresholds can be set from the command line or config",
+      "Add a fixed-seed matrix runner that actually executes E1, E2, E3, E5, and the optional physical tangent, recording seed count, Monte Carlo sample size, runtime, and raw JSON/CSV outputs",
+      "Recompute all evidence metrics from the newly generated artifacts, not from previous summary CSVs; report seed-level 95% Student-t CIs and replication pass/fail",
+      "Execute the four planned baseline comparisons as separate ablation scripts that write raw JSON/CSV and compact tables",
+      "Run negative controls and threshold sweeps using existing modules; classify false-positive modes and determine where rank, noise, and gate thresholds change the conclusions",
+      "Attempt limited-aperture tangent and nearly-parallel-range controls if the existing parameterization supports them; otherwise write an explicit not-run ledger with reasons",
+      "Write a revised quantitative supplement with replication, ablation, sensitivity, and interpretation sections; preserve all discrepancies, counterexamples, and unsupported claims"
+    ]
+  },
+  "Risk Factors and Limitations": [
+    "The existing package may not support every desired sweep or control, especially limited-aperture tangents and physical 8-candidate acquisition-policy comparison; missing items will be recorded rather than inferred from old artifacts",
+    "The synthetic validation package may still be underpowered for a full ACL Rolling Review paper even after re-execution and sensitivity analysis",
+    "Exact identities and near-zero residuals can be vacuous sanity checks if negative controls are not carefully interpreted; the threshold and negative-control sweeps are intended to bound this risk",
+    "The optional physical-tangent run remains secondary corroboration and may be too weak for strong physical claims",
+    "Seed sensitivity or failed replication on some sweeps may emerge and should be reported honestly rather than hidden",
+    "No claim is made about E4 primary comparison, nonlinear superiority, SOM exclusivity, universal basin behavior, or publication acceptance"
+  ]
+}

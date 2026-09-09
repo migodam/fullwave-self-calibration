@@ -1,0 +1,3559 @@
+{
+  "experiment": "run_e5_seeds",
+  "scene": {
+    "N": 16,
+    "k": 12.0,
+    "M": 8,
+    "R_r": 1.6,
+    "R_t": 2.0,
+    "phi0": 0.7,
+    "s": 0.12,
+    "K": 3,
+    "basis_centers": [
+      [
+        -0.15,
+        0.1
+      ],
+      [
+        0.2,
+        -0.1
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "alpha_true": [
+      1.5,
+      2.0,
+      0.0
+    ],
+    "alpha_init": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "p_true": [
+      0.08,
+      -0.06,
+      0.05
+    ],
+    "p_init_variants": {
+      "zero": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pert_pos": [
+        0.18,
+        0.04,
+        0.15
+      ]
+    },
+    "transmitter_mode": "single, co-moving pose p=(tx,ty,theta)"
+  },
+  "data_noise": {
+    "SNR_dB_list": [
+      30.0,
+      20.0
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "noise_formula": "noise = scale * (rng.standard_normal(M) + 1j*rng.standard_normal(M))/sqrt(2) with ||noise||/||d_true|| = 10^(-SNR_dB/20) exactly",
+    "actual_ratio_per_snr_seed": [
+      {
+        "SNR_dB": 30.0,
+        "noise_seed": 0,
+        "noise_over_true_norm": 0.03162277660168379
+      },
+      {
+        "SNR_dB": 30.0,
+        "noise_seed": 1,
+        "noise_over_true_norm": 0.03162277660168378
+      },
+      {
+        "SNR_dB": 30.0,
+        "noise_seed": 2,
+        "noise_over_true_norm": 0.031622776601683805
+      },
+      {
+        "SNR_dB": 30.0,
+        "noise_seed": 3,
+        "noise_over_true_norm": 0.031622776601683784
+      },
+      {
+        "SNR_dB": 30.0,
+        "noise_seed": 4,
+        "noise_over_true_norm": 0.031622776601683784
+      },
+      {
+        "SNR_dB": 30.0,
+        "noise_seed": 5,
+        "noise_over_true_norm": 0.0316227766016838
+      },
+      {
+        "SNR_dB": 30.0,
+        "noise_seed": 6,
+        "noise_over_true_norm": 0.031622776601683784
+      },
+      {
+        "SNR_dB": 30.0,
+        "noise_seed": 7,
+        "noise_over_true_norm": 0.031622776601683784
+      },
+      {
+        "SNR_dB": 20.0,
+        "noise_seed": 0,
+        "noise_over_true_norm": 0.10000000000000002
+      },
+      {
+        "SNR_dB": 20.0,
+        "noise_seed": 1,
+        "noise_over_true_norm": 0.10000000000000002
+      },
+      {
+        "SNR_dB": 20.0,
+        "noise_seed": 2,
+        "noise_over_true_norm": 0.1
+      },
+      {
+        "SNR_dB": 20.0,
+        "noise_seed": 3,
+        "noise_over_true_norm": 0.1
+      },
+      {
+        "SNR_dB": 20.0,
+        "noise_seed": 4,
+        "noise_over_true_norm": 0.09999999999999999
+      },
+      {
+        "SNR_dB": 20.0,
+        "noise_seed": 5,
+        "noise_over_true_norm": 0.09999999999999999
+      },
+      {
+        "SNR_dB": 20.0,
+        "noise_seed": 6,
+        "noise_over_true_norm": 0.09999999999999999
+      },
+      {
+        "SNR_dB": 20.0,
+        "noise_seed": 7,
+        "noise_over_true_norm": 0.1
+      }
+    ]
+  },
+  "least_squares": {
+    "method": "trf",
+    "x_scale": "jac",
+    "max_nfev": 1000,
+    "ftol": 1e-10,
+    "xtol": 1e-10,
+    "gtol": 1e-10
+  },
+  "success_definition": "(status in {1,2,3,4}) or ((status > 0) and (optimality < 1e-7))",
+  "visible_pose_subspaces_at_p_init": {
+    "zero": {
+      "r4": {
+        "rank": 4,
+        "n_vis": 3,
+        "hidden_rank": 0,
+        "hid_sv": [
+          0.0007458087352463018,
+          0.00026452432177096104,
+          0.00015881254011808777
+        ],
+        "threshold": 7.458087352463018e-12,
+        "V_vis_columns": [
+          [
+            -0.9417857350498001,
+            -0.30498889405924917,
+            0.14149700971124393
+          ],
+          [
+            0.3361800874942004,
+            -0.8601829087913193,
+            0.3834948659313414
+          ],
+          [
+            0.004751634360891467,
+            0.4087384713038664,
+            0.9126391861229054
+          ]
+        ],
+        "hidden_directions": [],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      },
+      "r6": {
+        "rank": 6,
+        "n_vis": 1,
+        "hidden_rank": 2,
+        "hid_sv": [
+          0.0005679192227713751,
+          5.371841415782989e-19,
+          1.7099015778500787e-19
+        ],
+        "threshold": 5.679192227713751e-12,
+        "V_vis_columns": [
+          [
+            -0.8184097080296724
+          ],
+          [
+            0.5715321877299722
+          ],
+          [
+            -0.05963646695922049
+          ]
+        ],
+        "hidden_directions": [
+          [
+            0.573274102210519,
+            0.8049237670477845,
+            -0.15314872828831338
+          ],
+          [
+            -0.03952661808844633,
+            -0.1595264480586086,
+            -0.986402026981035
+          ]
+        ],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      }
+    },
+    "pert_pos": {
+      "r4": {
+        "rank": 4,
+        "n_vis": 3,
+        "hidden_rank": 0,
+        "hid_sv": [
+          0.0007002800591036995,
+          0.00021002889553022562,
+          0.00015741238576552893
+        ],
+        "threshold": 7.002800591036995e-12,
+        "V_vis_columns": [
+          [
+            0.9928561844439504,
+            0.11833816623081028,
+            -0.015253701994271505
+          ],
+          [
+            -0.11721145293194069,
+            0.9434188841683153,
+            -0.31019717003253666
+          ],
+          [
+            0.022317533756765606,
+            -0.30976908723715507,
+            -0.9505498620689373
+          ]
+        ],
+        "hidden_directions": [],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      },
+      "r6": {
+        "rank": 6,
+        "n_vis": 1,
+        "hidden_rank": 2,
+        "hid_sv": [
+          0.0004320097859000344,
+          2.2915748440948713e-19,
+          1.9455767574874622e-19
+        ],
+        "threshold": 4.320097859000344e-12,
+        "V_vis_columns": [
+          [
+            0.9574917423437274
+          ],
+          [
+            -0.22703530151464935
+          ],
+          [
+            0.1779453152227543
+          ]
+        ],
+        "hidden_directions": [
+          [
+            -0.27856055842688204,
+            -0.5675115065497128,
+            0.7748126904114173
+          ],
+          [
+            0.07492381885940397,
+            0.791445299309957,
+            0.6066306615789343
+          ]
+        ],
+        "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+      }
+    }
+  },
+  "note": "Each record: solver details, pose-error decomposition on the run's own V_vis (wrongpose/direct use the r=6 subspace at the same p_init, decomposition_basis='r6'), map error, normalized final residual, and T_U = receiver-rx state-consistency witness at rank 4 (wrongpose/direct/reduced_r4) or 6 (reduced_r6). pose_error_visible/hidden are orthogonal projections of p_est-p_true onto V_vis and its complement.",
+  "records": [
+    {
+      "method": "wrongpose",
+      "SNR_dB": 30.0,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.2731029067631587e-12,
+      "nfev": 3,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.300367612559595,
+        1.4492146389555076,
+        0.49031627612562023
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.19784521067660157,
+      "final_residual": 0.29749848811773405,
+      "T_U": 0.8141969189463082,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.5031047920696327e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5564598084907435,
+        2.0484176986656153,
+        -0.08683018601666481
+      ],
+      "p_est": [
+        0.08139231028328403,
+        -0.0633144433498872,
+        0.05066748219860718
+      ],
+      "pose_error": 0.0036564456963022744,
+      "pose_error_visible": 0.0030735975913803878,
+      "pose_error_hidden": 0.0019805537044645122,
+      "tx_err": 0.001392310283284029,
+      "ty_err": 0.003314443349887203,
+      "theta_err": 0.0006674821986071763,
+      "map_error": 0.025482809421090998,
+      "final_residual": 0.022221765167825803,
+      "T_U": 0.8484755695476179,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 1.5827881995726107e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5564598084907393,
+        2.048417698665615,
+        -0.08683018601666145
+      ],
+      "p_est": [
+        0.08139231028328368,
+        -0.0633144433498876,
+        0.05066748219860759
+      ],
+      "pose_error": 0.003656445696302582,
+      "pose_error_visible": 0.0036564456963025854,
+      "pose_error_hidden": 3.491400352011657e-18,
+      "tx_err": 0.001392310283283682,
+      "ty_err": 0.0033144433498876053,
+      "theta_err": 0.0006674821986075857,
+      "map_error": 0.025482809421089988,
+      "final_residual": 0.022221765167822507,
+      "T_U": 0.8484755695476176,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 6.203387517223198e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5966041226969185,
+        2.030925042686189,
+        -0.14254547947148127
+      ],
+      "p_est": [
+        0.08302252704262628,
+        -0.05797835246331488,
+        0.00604974518541398
+      ],
+      "pose_error": 0.04410042660511385,
+      "pose_error_visible": 0.0013028090840923748,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.0030225270426262746,
+      "ty_err": 0.0020216475366851144,
+      "theta_err": 0.043950254814586025,
+      "map_error": 0.041897854512312295,
+      "final_residual": 0.035426062472123696,
+      "T_U": 0.8837177403794927,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 30.0,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 8.243707938914651e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.324823177961588,
+        1.4211584116642184,
+        0.5074039917900015
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.2086203643988608,
+      "final_residual": 0.28154253852074573,
+      "T_U": 0.8150491761028563,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 6.101385006840819e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.515933002456075,
+        1.994674647475223,
+        0.014702383974163569
+      ],
+      "p_est": [
+        0.07963220697143703,
+        -0.06210143784478172,
+        0.06681735729624966
+      ],
+      "pose_error": 0.01695213317423686,
+      "pose_error_visible": 0.0019029617564242784,
+      "pose_error_hidden": 0.016844986070360776,
+      "tx_err": 0.0003677930285629766,
+      "ty_err": 0.0021014378447817214,
+      "theta_err": 0.016817357296249655,
+      "map_error": 0.010212405801630312,
+      "final_residual": 0.02781001364278669,
+      "T_U": 0.84837372267264,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 5.148905067295126e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.515933002456077,
+        1.9946746474752222,
+        0.014702383974161737
+      ],
+      "p_est": [
+        0.07963220697143743,
+        -0.062101437844781456,
+        0.06681735729624934
+      ],
+      "pose_error": 0.0169521331742365,
+      "pose_error_visible": 0.01695213317423651,
+      "pose_error_hidden": 7.063350407899564e-18,
+      "tx_err": 0.0003677930285625741,
+      "ty_err": 0.0021014378447814577,
+      "theta_err": 0.016817357296249336,
+      "map_error": 0.010212405801630405,
+      "final_residual": 0.027810013642787252,
+      "T_U": 0.8483737226726398,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 2.9681442540321193e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5644033243967221,
+        1.9741120849119516,
+        -0.05742473263372454
+      ],
+      "p_est": [
+        0.08093448558620227,
+        -0.05652017950916705,
+        0.005897592279474845
+      ],
+      "pose_error": 0.04424934779978884,
+      "pose_error_visible": 0.0038541491231187733,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.0009344855862022661,
+      "ty_err": 0.0034798204908329453,
+      "theta_err": 0.04410240772052516,
+      "map_error": 0.027393919357811564,
+      "final_residual": 0.04505360679656176,
+      "T_U": 0.8830053018782493,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 30.0,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 7.579752381760484e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3053326614429637,
+        1.395639778845296,
+        0.5452952605152008
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.21905519791190645,
+      "final_residual": 0.28231275794582456,
+      "T_U": 0.8149704834042083,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 6.14610819695888e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.4858716987605594,
+        1.99086336742712,
+        0.04108777659085261
+      ],
+      "p_est": [
+        0.0805344995352742,
+        -0.062334967476668925,
+        0.06564196026549297
+      ],
+      "pose_error": 0.015824306740504335,
+      "pose_error_visible": 0.002704779925375184,
+      "pose_error_hidden": 0.015591435128712762,
+      "tx_err": 0.0005344995352741938,
+      "ty_err": 0.002334967476668927,
+      "theta_err": 0.01564196026549297,
+      "map_error": 0.012371188426934973,
+      "final_residual": 0.028587455972361668,
+      "T_U": 0.8485252085380873,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 5.7513316236953136e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.4858716987605616,
+        1.9908633674271217,
+        0.04108777659084943
+      ],
+      "p_est": [
+        0.08053449953527515,
+        -0.06233496747666845,
+        0.06564196026549345
+      ],
+      "pose_error": 0.015824306740504765,
+      "pose_error_visible": 0.015824306740504772,
+      "pose_error_hidden": 7.0897206179906e-18,
+      "tx_err": 0.0005344995352751514,
+      "ty_err": 0.002334967476668455,
+      "theta_err": 0.015641960265493443,
+      "map_error": 0.012371188426934212,
+      "final_residual": 0.02858745597236159,
+      "T_U": 0.8485252085380873,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.6623108532265419e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5329091904336425,
+        1.9715523629588387,
+        -0.029391931099017186
+      ],
+      "p_est": [
+        0.0817714040994316,
+        -0.057104637225301985,
+        0.00595857745935733
+      ],
+      "pose_error": 0.04417202618721512,
+      "pose_error_visible": 0.0028315335492588084,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.0017714040994315922,
+      "ty_err": 0.0028953627746980126,
+      "theta_err": 0.04404142254064267,
+      "map_error": 0.018438810609946347,
+      "final_residual": 0.04542995129149261,
+      "T_U": 0.883228126914895,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 30.0,
+      "noise_seed": 3,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.311448915822802e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3146820813756428,
+        1.434483888973399,
+        0.4839861081355877
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.20178823214833716,
+      "final_residual": 0.2762921325404428,
+      "T_U": 0.8147270727363898,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 3,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 8.596965006375878e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5270833537483643,
+        1.967404662577708,
+        -0.013658768562409385
+      ],
+      "p_est": [
+        0.07969433591623813,
+        -0.05482569789366552,
+        0.04723311552742414
+      ],
+      "pose_error": 0.005875583588402159,
+      "pose_error_visible": 0.003372445870784605,
+      "pose_error_hidden": 0.0048113502629645085,
+      "tx_err": 0.0003056640837618696,
+      "ty_err": 0.005174302106334475,
+      "theta_err": 0.0027668844725758646,
+      "map_error": 0.016644071259184125,
+      "final_residual": 0.028138577224847878,
+      "T_U": 0.8492239751344277,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 3,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 9.279162412547158e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5270833537483706,
+        1.9674046625777073,
+        -0.01365876856241438
+      ],
+      "p_est": [
+        0.07969433591623887,
+        -0.05482569789366509,
+        0.0472331155274237
+      ],
+      "pose_error": 0.005875583588402705,
+      "pose_error_visible": 0.005875583588402709,
+      "pose_error_hidden": 4.385661445589442e-18,
+      "tx_err": 0.0003056640837611341,
+      "ty_err": 0.005174302106334905,
+      "theta_err": 0.0027668844725763017,
+      "map_error": 0.016644071259185877,
+      "final_residual": 0.028138577224848024,
+      "T_U": 0.8492239751344272,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 3,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.5566962155039382e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5497206791250662,
+        1.9638180144670783,
+        -0.0651400053400896
+      ],
+      "p_est": [
+        0.07867229507573764,
+        -0.05494039046362832,
+        0.005732749355070173
+      ],
+      "pose_error": 0.04457523896388548,
+      "pose_error_visible": 0.006618278737258939,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.00132770492426236,
+      "ty_err": 0.005059609536371676,
+      "theta_err": 0.04426725064492983,
+      "map_error": 0.030396988644525898,
+      "final_residual": 0.03822667686047032,
+      "T_U": 0.8837902940306807,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 30.0,
+      "noise_seed": 4,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.013228970941926e-12,
+      "nfev": 3,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.287300249350118,
+        1.4657581696658186,
+        0.5016734677251676
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.19430343896114577,
+      "final_residual": 0.26996842310978403,
+      "T_U": 0.8136246185520194,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 4,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.3029849566442683e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5161181095770713,
+        2.000992279596779,
+        -0.026094211910839722
+      ],
+      "p_est": [
+        0.07980333530217862,
+        -0.05484227818961977,
+        0.043727624740908876
+      ],
+      "pose_error": 0.008123020538414237,
+      "pose_error_visible": 0.0034828186278075646,
+      "pose_error_hidden": 0.007338490108550679,
+      "tx_err": 0.00019666469782138318,
+      "ty_err": 0.005157721810380225,
+      "theta_err": 0.006272375259091127,
+      "map_error": 0.008192288285181181,
+      "final_residual": 0.028161975710835667,
+      "T_U": 0.8499887250778385,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 4,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 1.0546336256998108e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5161181095770702,
+        2.0009922795967787,
+        -0.026094211910838536
+      ],
+      "p_est": [
+        0.07980333530217804,
+        -0.05484227818962008,
+        0.04372762474090911
+      ],
+      "pose_error": 0.008123020538413876,
+      "pose_error_visible": 0.00812302053841388,
+      "pose_error_hidden": 4.675916479717591e-18,
+      "tx_err": 0.00019666469782196605,
+      "ty_err": 0.00515772181037992,
+      "theta_err": 0.006272375259090891,
+      "map_error": 0.00819228828518088,
+      "final_residual": 0.028161975710835244,
+      "T_U": 0.849988725077839,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 4,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 5.355603589619164e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.536359080043317,
+        1.9974752563382725,
+        -0.07277523723708364
+      ],
+      "p_est": [
+        0.07871467340444598,
+        -0.05496998515034987,
+        0.00573583740959226
+      ],
+      "pose_error": 0.044567580186442614,
+      "pose_error_visible": 0.0065664974249253424,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.001285326595554026,
+      "ty_err": 0.005030014849650127,
+      "theta_err": 0.044264162590407746,
+      "map_error": 0.023849433025526365,
+      "final_residual": 0.03673895561884194,
+      "T_U": 0.8848334172861787,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 30.0,
+      "noise_seed": 5,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.490993305117293e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3610978559998923,
+        1.428088208356134,
+        0.5004483804002808
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.20838000270518336,
+      "final_residual": 0.27999162429273494,
+      "T_U": 0.8155721376238031,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 5,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 3.4743403167599023e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5389645765824844,
+        1.9945931287618643,
+        0.014339594715298136
+      ],
+      "p_est": [
+        0.0780737002076998,
+        -0.06107136314421226,
+        0.048257833886031415
+      ],
+      "pose_error": 0.0028095538160449246,
+      "pose_error_visible": 0.0010680805608222956,
+      "pose_error_hidden": 0.0025986143540060206,
+      "tx_err": 0.001926299792300204,
+      "ty_err": 0.001071363144212259,
+      "theta_err": 0.001742166113968588,
+      "map_error": 0.01865239701084991,
+      "final_residual": 0.02418773072292143,
+      "T_U": 0.8472076556175697,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 5,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 3.698371092991402e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5389645765824826,
+        1.9945931287618655,
+        0.014339594715298758
+      ],
+      "p_est": [
+        0.07807370020769942,
+        -0.06107136314421289,
+        0.048257833886031706
+      ],
+      "pose_error": 0.002809553816045241,
+      "pose_error_visible": 0.002809553816045243,
+      "pose_error_hidden": 1.5934452603638887e-18,
+      "tx_err": 0.0019262997923005787,
+      "ty_err": 0.0010713631442128904,
+      "theta_err": 0.0017421661139682965,
+      "map_error": 0.018652397010849406,
+      "final_residual": 0.024187730722921283,
+      "T_U": 0.84720765561757,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 5,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 7.104929274813581e-13,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5795315198007045,
+        1.9768594170206344,
+        -0.03856556441213099
+      ],
+      "p_est": [
+        0.0799023335853996,
+        -0.05579938149650805,
+        0.005822380685466567
+      ],
+      "pose_error": 0.04437698483268391,
+      "pose_error_visible": 0.005115316959565371,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 9.766641460040582e-05,
+      "ty_err": 0.004200618503491946,
+      "theta_err": 0.044177619314533435,
+      "map_error": 0.02855992906194328,
+      "final_residual": 0.035908503799369836,
+      "T_U": 0.8827177680812434,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 30.0,
+      "noise_seed": 6,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.087115806899107e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3027381105672329,
+        1.4210631482627047,
+        0.5437621620204791
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.21202431360542967,
+      "final_residual": 0.28277757076821974,
+      "T_U": 0.8145533435396857,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 6,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 4.047336115695228e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5368554905691691,
+        2.002088461097344,
+        -0.0031124883919606116
+      ],
+      "p_est": [
+        0.08457383552121334,
+        -0.0551085368601912,
+        0.04899865979357961
+      ],
+      "pose_error": 0.006771193781912832,
+      "pose_error_visible": 0.0008879263718613818,
+      "pose_error_hidden": 0.0067127231426871836,
+      "tx_err": 0.004573835521213335,
+      "ty_err": 0.004891463139808795,
+      "theta_err": 0.001001340206420391,
+      "map_error": 0.013730798636240151,
+      "final_residual": 0.028010987923029165,
+      "T_U": 0.8493013559014571,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 6,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 4.5641450981006286e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5368554905691654,
+        2.002088461097345,
+        -0.0031124883919575247
+      ],
+      "p_est": [
+        0.08457383552121306,
+        -0.05510853686019159,
+        0.04899865979358097
+      ],
+      "pose_error": 0.0067711937819121635,
+      "pose_error_visible": 0.006771193781912167,
+      "pose_error_hidden": 5.2937496468574456e-18,
+      "tx_err": 0.004573835521213057,
+      "ty_err": 0.004891463139808407,
+      "theta_err": 0.001001340206419031,
+      "map_error": 0.013730798636239347,
+      "final_residual": 0.028010987923028204,
+      "T_U": 0.8493013559014574,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 6,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 3.802067973005007e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5537668373019193,
+        2.0037611577184835,
+        -0.05735652453125301
+      ],
+      "p_est": [
+        0.08238178406252597,
+        -0.057530892916346665,
+        0.006003055065310078
+      ],
+      "pose_error": 0.04413049454399064,
+      "pose_error_visible": 0.0020857213269626345,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.0023817840625259684,
+      "ty_err": 0.0024691070836533324,
+      "theta_err": 0.043996944934689926,
+      "map_error": 0.01956734307422362,
+      "final_residual": 0.039037671213253015,
+      "T_U": 0.8834981207691328,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 30.0,
+      "noise_seed": 7,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.204650072812035e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.2496731972431139,
+        1.4006401631870418,
+        0.5317321152137592
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.21432177847726694,
+      "final_residual": 0.2886770752080355,
+      "T_U": 0.8139097193171649,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 7,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.615478616520312e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.511886742866445,
+        1.98299406594649,
+        -0.038962442598282715
+      ],
+      "p_est": [
+        0.0862394767346646,
+        -0.05485891072292395,
+        0.053832125650449765
+      ],
+      "pose_error": 0.008946902026853887,
+      "pose_error_visible": 0.0023966847655690414,
+      "pose_error_hidden": 0.008619916357634306,
+      "tx_err": 0.006239476734664601,
+      "ty_err": 0.005141089277076051,
+      "theta_err": 0.0038321256504497622,
+      "map_error": 0.01719723883038413,
+      "final_residual": 0.02037783832161096,
+      "T_U": 0.8503420999575428,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 7,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 1.5333593759947385e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5118867428664444,
+        1.9829940659464904,
+        -0.038962442598283215
+      ],
+      "p_est": [
+        0.08623947673466419,
+        -0.054858910722924134,
+        0.05383212565045058
+      ],
+      "pose_error": 0.008946902026853836,
+      "pose_error_visible": 0.008946902026853842,
+      "pose_error_hidden": 5.364336092018247e-18,
+      "tx_err": 0.006239476734664184,
+      "ty_err": 0.005141089277075864,
+      "theta_err": 0.003832125650450574,
+      "map_error": 0.017197238830384227,
+      "final_residual": 0.020377838321611087,
+      "T_U": 0.8503420999575427,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 7,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 5.215154295025932e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5272235366187772,
+        1.9848731199215852,
+        -0.09646580971117671
+      ],
+      "p_est": [
+        0.08321346304232244,
+        -0.058111691631401584,
+        0.006063658447103677
+      ],
+      "pose_error": 0.04409415111182043,
+      "pose_error_visible": 0.0010695078441109451,
+      "pose_error_hidden": 0.04408117869616737,
+      "tx_err": 0.003213463042322437,
+      "ty_err": 0.001888308368598414,
+      "theta_err": 0.04393634155289632,
+      "map_error": 0.035793367261128785,
+      "final_residual": 0.037460693136562834,
+      "T_U": 0.8840565664968644,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 20.0,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.864432992514035e-12,
+      "nfev": 3,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3085696839039376,
+        1.4996006582879333,
+        0.4164222971556301
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.1766657824947352,
+      "final_residual": 0.34249814261204625,
+      "T_U": 0.813593039315824,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 20.0,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 3.0915099707655466e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.6881686320926395,
+        2.146393539479456,
+        -0.27647728216103656
+      ],
+      "p_est": [
+        0.08422593665867983,
+        -0.06920263188424573,
+        0.048893234166211205
+      ],
+      "pose_error": 0.010186849603825142,
+      "pose_error_visible": 0.008652144316580271,
+      "pose_error_hidden": 0.005377016233564873,
+      "tx_err": 0.0042259366586798325,
+      "ty_err": 0.009202631884245735,
+      "theta_err": 0.0011067658337887976,
+      "map_error": 0.08104365456516108,
+      "final_residual": 0.06971353213075239,
+      "T_U": 0.8470257661118044,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 20.0,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 2.65721607687165e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.6881686320926423,
+        2.146393539479456,
+        -0.2764772821610389
+      ],
+      "p_est": [
+        0.08422593665868018,
+        -0.06920263188424554,
+        0.04889323416621114
+      ],
+      "pose_error": 0.01018684960382512,
+      "pose_error_visible": 0.010186849603825125,
+      "pose_error_hidden": 8.848046324741092e-18,
+      "tx_err": 0.004225936658680179,
+      "ty_err": 0.00920263188424554,
+      "theta_err": 0.00110676583378886,
+      "map_error": 0.08104365456516176,
+      "final_residual": 0.06971353213075275,
+      "T_U": 0.8470257661118047,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 20.0,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 2.0884732779081344e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.7349635979559936,
+        2.1221550911805602,
+        -0.33383698722315913
+      ],
+      "p_est": [
+        0.08711659919403748,
+        -0.06083742658042637,
+        0.006348074978170357
+      ],
+      "pose_error": 0.04423615970535436,
+      "pose_error_visible": 0.003699663529860016,
+      "pose_error_hidden": 0.04408117869616737,
+      "tx_err": 0.007116599194037482,
+      "ty_err": 0.0008374265804263689,
+      "theta_err": 0.04365192502182964,
+      "map_error": 0.09650106856417104,
+      "final_residual": 0.07587292253139018,
+      "T_U": 0.8826276984381827,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 20.0,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 7.628672959275409e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.392515111307215,
+        1.419098992674772,
+        0.45947305753369516
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.2085127499986884,
+      "final_residual": 0.2982627731584743,
+      "T_U": 0.8163067502555941,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 20.0,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 3.7144782447327044e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5481043027448835,
+        1.9873480846036766,
+        0.04618432983824199
+      ],
+      "p_est": [
+        0.07853203342961727,
+        -0.06808283436453627,
+        0.10538618912364438
+      ],
+      "pose_error": 0.05599211625627658,
+      "pose_error_visible": 0.0067212385528275225,
+      "pose_error_hidden": 0.05558724705516884,
+      "tx_err": 0.0014679665703827283,
+      "ty_err": 0.008082834364536273,
+      "theta_err": 0.055386189123644375,
+      "map_error": 0.03153834895928726,
+      "final_residual": 0.08649156578492098,
+      "T_U": 0.846428805966263,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 20.0,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 2.5651495923163048e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5481043027448789,
+        1.987348084603677,
+        0.046184329838245324
+      ],
+      "p_est": [
+        0.0785320334296168,
+        -0.0680828343645366,
+        0.10538618912364495
+      ],
+      "pose_error": 0.05599211625627721,
+      "pose_error_visible": 0.05599211625627723,
+      "pose_error_hidden": 2.1069259280870048e-17,
+      "tx_err": 0.0014679665703832001,
+      "ty_err": 0.008082834364536606,
+      "theta_err": 0.055386189123644944,
+      "map_error": 0.031538348959286706,
+      "final_residual": 0.08649156578492259,
+      "T_U": 0.8464288059662627,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 20.0,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 4.475612122449532e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.628323821110087,
+        1.9469097506332025,
+        -0.06599144017850024
+      ],
+      "p_est": [
+        0.08120947135737631,
+        -0.05671221440055671,
+        0.005917630140335951
+      ],
+      "pose_error": 0.04422134877586207,
+      "pose_error_visible": 0.0035181489895963133,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.0012094713573763127,
+      "ty_err": 0.003287785599443288,
+      "theta_err": 0.04408236985966405,
+      "map_error": 0.04942154277103815,
+      "final_residual": 0.10351254489270428,
+      "T_U": 0.8807215660960954,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 20.0,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 8.61418289564215e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.330880686335227,
+        1.3384019901934545,
+        0.5792957701388292
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.24044236198238247,
+      "final_residual": 0.30035659851240615,
+      "T_U": 0.8159554319348361,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 20.0,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 4.210780380851273e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.4586562554982645,
+        1.9703978493957575,
+        0.1266852644067273
+      ],
+      "p_est": [
+        0.08217766648451846,
+        -0.06651222323318312,
+        0.09928664129961112
+      ],
+      "pose_error": 0.04976267972439927,
+      "pose_error_visible": 0.008443449738623071,
+      "pose_error_hidden": 0.04904113018543194,
+      "tx_err": 0.002177666484518462,
+      "ty_err": 0.006512223233183123,
+      "theta_err": 0.04928664129961112,
+      "map_error": 0.03826546497549737,
+      "final_residual": 0.08988824826630205,
+      "T_U": 0.8470312405788111,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 20.0,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 4.722225284789401e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.4586562554982616,
+        1.9703978493957572,
+        0.1266852644067298
+      ],
+      "p_est": [
+        0.08217766648451796,
+        -0.06651222323318336,
+        0.09928664129961182
+      ],
+      "pose_error": 0.04976267972439996,
+      "pose_error_visible": 0.04976267972439999,
+      "pose_error_hidden": 2.810573257811611e-17,
+      "tx_err": 0.002177666484517962,
+      "ty_err": 0.006512223233183359,
+      "theta_err": 0.049286641299611814,
+      "map_error": 0.03826546497549791,
+      "final_residual": 0.08988824826630318,
+      "T_U": 0.8470312405788117,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 20.0,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 3.445729092596704e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5275791919608828,
+        1.9394701040093791,
+        0.023196789924907663
+      ],
+      "p_est": [
+        0.08382986436290225,
+        -0.058542152306310706,
+        0.006108574821662428
+      ],
+      "pose_error": 0.04408231374510451,
+      "pose_error_visible": 0.0003163382341562827,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.003829864362902252,
+      "ty_err": 0.0014578476936892917,
+      "theta_err": 0.04389142517833758,
+      "map_error": 0.025548297191831878,
+      "final_residual": 0.10525184932830367,
+      "T_U": 0.8814565755520815,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 20.0,
+      "noise_seed": 3,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.628202716430581e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3604461481238708,
+        1.4612378518806746,
+        0.38541920720491973
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.18726495732859966,
+      "final_residual": 0.2822355146882553,
+      "T_U": 0.8153651334825859,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 20.0,
+      "noise_seed": 3,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 2.983733365289286e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5831393057817207,
+        1.9043112545260281,
+        -0.04725202800261969
+      ],
+      "p_est": [
+        0.07876459009877897,
+        -0.0442696001113142,
+        0.04495848920693917
+      ],
+      "pose_error": 0.016564677761989516,
+      "pose_error_visible": 0.010302159210638104,
+      "pose_error_hidden": 0.012971278462711934,
+      "tx_err": 0.0012354099012210351,
+      "ty_err": 0.015730399888685798,
+      "theta_err": 0.005041510793060831,
+      "map_error": 0.05024605899871941,
+      "final_residual": 0.08976914868019643,
+      "T_U": 0.8497792056608969,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 20.0,
+      "noise_seed": 3,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 2.4457271231655482e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5831393057817273,
+        1.9043112545260277,
+        -0.04725202800262574
+      ],
+      "p_est": [
+        0.07876459009877983,
+        -0.044269600111313416,
+        0.04495848920693782
+      ],
+      "pose_error": 0.016564677761990606,
+      "pose_error_visible": 0.01656467776199062,
+      "pose_error_hidden": 1.40009084684932e-17,
+      "tx_err": 0.0012354099012201747,
+      "ty_err": 0.01573039988868658,
+      "theta_err": 0.005041510793062184,
+      "map_error": 0.0502460589987213,
+      "final_residual": 0.08976914868019657,
+      "T_U": 0.8497792056608975,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 20.0,
+      "noise_seed": 3,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 4.202704564655416e-13,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5844903777914803,
+        1.9188928353487573,
+        -0.09679348871507162
+      ],
+      "p_est": [
+        0.07411034671772021,
+        -0.051754577416950324,
+        0.005400326022534737
+      ],
+      "pose_error": 0.045736264913684495,
+      "pose_error_visible": 0.012192440814344216,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.0058896532822797915,
+      "ty_err": 0.008245422583049673,
+      "theta_err": 0.04459967397746527,
+      "map_error": 0.054407254886052976,
+      "final_residual": 0.09432480592978416,
+      "T_U": 0.88317125912299,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 20.0,
+      "noise_seed": 4,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.389617292581304e-13,
+      "nfev": 3,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.2672197115028014,
+        1.5518141330211195,
+        0.4522887715842156
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.166005393438858,
+      "final_residual": 0.26135004897426767,
+      "T_U": 0.8115552484498624,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 20.0,
+      "noise_seed": 4,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 8.268702213171441e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.545725822439437,
+        2.007178723685024,
+        -0.08425497600667932
+      ],
+      "p_est": [
+        0.07883482293335362,
+        -0.04464671635464282,
+        0.02667217743173622
+      ],
+      "pose_error": 0.027951176398638897,
+      "pose_error_visible": 0.011119676933409551,
+      "pose_error_hidden": 0.025644123049237372,
+      "tx_err": 0.0011651770666463862,
+      "ty_err": 0.01535328364535718,
+      "theta_err": 0.02332782256826378,
+      "map_error": 0.025777227822210737,
+      "final_residual": 0.08879450951691849,
+      "T_U": 0.8496451211346003,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 20.0,
+      "noise_seed": 4,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 5.968388949998923e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5457258224394406,
+        2.0071787236850236,
+        -0.08425497600668261
+      ],
+      "p_est": [
+        0.07883482293335387,
+        -0.04464671635464277,
+        0.026672177431735253
+      ],
+      "pose_error": 0.02795117639863972,
+      "pose_error_visible": 0.02795117639863973,
+      "pose_error_hidden": 1.4225790221902088e-17,
+      "tx_err": 0.0011651770666461364,
+      "ty_err": 0.015353283645357228,
+      "theta_err": 0.02332782256826475,
+      "map_error": 0.025777227822211833,
+      "final_residual": 0.08879450951691824,
+      "T_U": 0.849645121134599,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 20.0,
+      "noise_seed": 4,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 3.159024783883752e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5362524766011738,
+        2.022269297427756,
+        -0.1120776066903748
+      ],
+      "p_est": [
+        0.07397807205321305,
+        -0.05166220408896399,
+        0.005390687337189209
+      ],
+      "pose_error": 0.04577961591253026,
+      "pose_error_visible": 0.01235406483127531,
+      "pose_error_hidden": 0.04408117869616737,
+      "tx_err": 0.006021927946786951,
+      "ty_err": 0.008337795911036006,
+      "theta_err": 0.04460931266281079,
+      "map_error": 0.03425033291322841,
+      "final_residual": 0.09140789611874531,
+      "T_U": 0.8863396362570101,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 20.0,
+      "noise_seed": 5,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.1931134813008372e-12,
+      "nfev": 3,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5106983562390803,
+        1.444981073914834,
+        0.43236493599065795
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.21243466077963324,
+      "final_residual": 0.2894085496876385,
+      "T_U": 0.8175984751878843,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 20.0,
+      "noise_seed": 5,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 3.683340927337717e-11,
+      "nfev": 8,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.6269164270599472,
+        1.9845490324231092,
+        0.03909769195703238
+      ],
+      "p_est": [
+        0.07410546294689886,
+        -0.0633099322437977,
+        0.04219744933448072
+      ],
+      "pose_error": 0.010323808183849089,
+      "pose_error_visible": 0.0033977300870247956,
+      "pose_error_hidden": 0.009748663789085963,
+      "tx_err": 0.00589453705310114,
+      "ty_err": 0.003309932243797706,
+      "theta_err": 0.007802550665519284,
+      "map_error": 0.058719190660889736,
+      "final_residual": 0.07424089239054302,
+      "T_U": 0.8431487407294023,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 20.0,
+      "noise_seed": 5,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 3.21082131072948e-11,
+      "nfev": 8,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.6269164270599503,
+        1.9845490324231077,
+        0.03909769195703063
+      ],
+      "p_est": [
+        0.07410546294689925,
+        -0.06330993224379715,
+        0.04219744933448044
+      ],
+      "pose_error": 0.010323808183848898,
+      "pose_error_visible": 0.010323808183848902,
+      "pose_error_hidden": 5.2937496468574456e-18,
+      "tx_err": 0.005894537053100751,
+      "ty_err": 0.0033099322437971507,
+      "theta_err": 0.0078025506655195614,
+      "map_error": 0.05871919066089038,
+      "final_residual": 0.07424089239054311,
+      "T_U": 0.8431487407294028,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 20.0,
+      "noise_seed": 5,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 8.126452486031617e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.6789749294353313,
+        1.9565286754979065,
+        -0.010361484379357149
+      ],
+      "p_est": [
+        0.07797378694669652,
+        -0.05445259092359211,
+        0.005681849962565901
+      ],
+      "pose_error": 0.04470992853426306,
+      "pose_error_visible": 0.007471773169433737,
+      "pose_error_hidden": 0.04408117869616737,
+      "tx_err": 0.0020262130533034856,
+      "ty_err": 0.00554740907640789,
+      "theta_err": 0.0443181500374341,
+      "map_error": 0.0689085228481534,
+      "final_residual": 0.07951272105533436,
+      "T_U": 0.8798815950783706,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 20.0,
+      "noise_seed": 6,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.676484164874896e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3226759960627321,
+        1.4187977433483334,
+        0.5744476870181336
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.21845265619493023,
+      "final_residual": 0.3015185834424432,
+      "T_U": 0.814834064775757,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 20.0,
+      "noise_seed": 6,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 4.367903423545085e-11,
+      "nfev": 9,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.6525454493503444,
+        1.9944249638292295,
+        -0.032154009020862254
+      ],
+      "p_est": [
+        0.09837650279425494,
+        -0.037381462192945705,
+        0.042805782709126626
+      ],
+      "pose_error": 0.030017509388766843,
+      "pose_error_visible": 0.001683248188569196,
+      "pose_error_hidden": 0.029970277700421533,
+      "tx_err": 0.018376502794254942,
+      "ty_err": 0.022618537807054293,
+      "theta_err": 0.007194217290873377,
+      "map_error": 0.05335054881563835,
+      "final_residual": 0.08478634955289717,
+      "T_U": 0.8501353770775935,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 20.0,
+      "noise_seed": 6,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 4.9423756975933484e-11,
+      "nfev": 9,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.65254544935034,
+        1.994424963829231,
+        -0.03215400902085841
+      ],
+      "p_est": [
+        0.09837650279425411,
+        -0.03738146219294635,
+        0.04280578270912831
+      ],
+      "pose_error": 0.03001750938876544,
+      "pose_error_visible": 0.03001750938876546,
+      "pose_error_hidden": 2.083474391183281e-17,
+      "tx_err": 0.01837650279425411,
+      "ty_err": 0.022618537807053647,
+      "theta_err": 0.007194217290871691,
+      "map_error": 0.053350548815637173,
+      "final_residual": 0.08478634955289738,
+      "T_U": 0.8501353770775937,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 20.0,
+      "noise_seed": 6,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 8.639008523695984e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5955268366522597,
+        2.0419903299665703,
+        -0.0671538823859216
+      ],
+      "p_est": [
+        0.08570616263124214,
+        -0.05985245549995192,
+        0.006245298272750128
+      ],
+      "pose_error": 0.04412545733014313,
+      "pose_error_visible": 0.0019762766382370213,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.005706162631242143,
+      "ty_err": 0.00014754450004807879,
+      "theta_err": 0.04375470172724988,
+      "map_error": 0.030660156722450992,
+      "final_residual": 0.09404785633772131,
+      "T_U": 0.882315936911062,
+      "T_U_rank": 6
+    },
+    {
+      "method": "wrongpose",
+      "SNR_dB": 20.0,
+      "noise_seed": 7,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.159997674109952e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.1548700061190995,
+        1.3542145938896124,
+        0.5364053387504628
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.2298196570894422,
+      "final_residual": 0.31904951587052477,
+      "T_U": 0.812684710527564,
+      "T_U_rank": 4
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 20.0,
+      "noise_seed": 7,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 6.896546667524091e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5355309317820192,
+        1.9525643251233742,
+        -0.13032177949416854
+      ],
+      "p_est": [
+        0.09874304126417427,
+        -0.045001229683307935,
+        0.058175714641730124
+      ],
+      "pose_error": 0.025359554742668936,
+      "pose_error_visible": 0.007254777652342136,
+      "pose_error_hidden": 0.02429969584092566,
+      "tx_err": 0.018743041264174268,
+      "ty_err": 0.014998770316692063,
+      "theta_err": 0.008175714641730121,
+      "map_error": 0.055319374805917754,
+      "final_residual": 0.06746616656280642,
+      "T_U": 0.8522630650061609,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 20.0,
+      "noise_seed": 7,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 5.594253681475727e-11,
+      "nfev": 7,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5355309317820187,
+        1.9525643251233737,
+        -0.1303217794941678
+      ],
+      "p_est": [
+        0.0987430412641743,
+        -0.04500122968330795,
+        0.058175714641730596
+      ],
+      "pose_error": 0.025359554742669103,
+      "pose_error_visible": 0.025359554742669113,
+      "pose_error_hidden": 1.7860071305544555e-17,
+      "tx_err": 0.018743041264174296,
+      "ty_err": 0.014998770316692049,
+      "theta_err": 0.008175714641730593,
+      "map_error": 0.05531937480591768,
+      "final_residual": 0.06746616656280646,
+      "T_U": 0.8522630650061612,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 20.0,
+      "noise_seed": 7,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.3655133111953572e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5172771684398383,
+        1.9818644125953682,
+        -0.19513619742419772
+      ],
+      "p_est": [
+        0.08841568455926803,
+        -0.0617446361278616,
+        0.006442737664476088
+      ],
+      "pose_error": 0.04439710130160968,
+      "pose_error_visible": 0.005286992409863289,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.008415684559268027,
+      "ty_err": 0.001744636127861604,
+      "theta_err": 0.043557262335523914,
+      "map_error": 0.0756449961488046,
+      "final_residual": 0.08515229493356814,
+      "T_U": 0.8839622441613245,
+      "T_U_rank": 6
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 2.5645237059473016e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5564995190666733,
+        2.0483529737672423,
+        -0.08680895598571621
+      ],
+      "p_est": [
+        0.08140114681319252,
+        -0.06329548122517561,
+        0.05064260716842349
+      ],
+      "pose_error": 0.003638179884298437,
+      "pose_error_visible": 0.002204126012186197,
+      "pose_error_hidden": 0.0028945088344860793,
+      "tx_err": 0.0014011468131925192,
+      "ty_err": 0.003295481225175617,
+      "theta_err": 0.0006426071684234869,
+      "map_error": 0.025474944768946226,
+      "final_residual": 0.022221803589127974,
+      "T_U": 0.8484770952520873,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 2.4666742784015815e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5564995190666737,
+        2.048352973767245,
+        -0.08680895598571804
+      ],
+      "p_est": [
+        0.08140114681319356,
+        -0.0632954812251757,
+        0.05064260716842431
+      ],
+      "pose_error": 0.003638179884299058,
+      "pose_error_visible": 0.0036381798842990594,
+      "pose_error_hidden": 1.3010426069826053e-18,
+      "tx_err": 0.00140114681319356,
+      "ty_err": 0.0032954812251757004,
+      "theta_err": 0.0006426071684243057,
+      "map_error": 0.025474944768946867,
+      "final_residual": 0.02222180358912608,
+      "T_U": 0.8484770952520867,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 0,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 7.35963142915479e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.7713830884510022,
+        1.7246211447463387,
+        0.0057412436880372635
+      ],
+      "p_est": [
+        0.12128156205583418,
+        0.05392300076707836,
+        0.13908745581054693
+      ],
+      "pose_error": 0.15039678271938392,
+      "pose_error_visible": 0.02951490735750507,
+      "pose_error_hidden": 0.14747224313754595,
+      "tx_err": 0.04128156205583418,
+      "ty_err": 0.11392300076707836,
+      "theta_err": 0.08908745581054693,
+      "map_error": 0.14611583058139002,
+      "final_residual": 0.16221020523572502,
+      "T_U": 0.8921764865707047,
+      "T_U_rank": 6
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 6.5196793683157865e-12,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.516191280001617,
+        1.9945782010985103,
+        0.014269274550244865
+      ],
+      "p_est": [
+        0.07966911049992907,
+        -0.062039358362600425,
+        0.06649429124910836
+      ],
+      "pose_error": 0.016623180026781214,
+      "pose_error_visible": 0.0030812642325017533,
+      "pose_error_hidden": 0.01633511325128428,
+      "tx_err": 0.00033088950007093,
+      "ty_err": 0.002039358362600427,
+      "theta_err": 0.016494291249108353,
+      "map_error": 0.01016456003051667,
+      "final_residual": 0.02780946402389913,
+      "T_U": 0.8483765340754575,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 7.070683234095422e-12,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5161912800016173,
+        1.9945782010985103,
+        0.014269274550244609
+      ],
+      "p_est": [
+        0.07966911049992961,
+        -0.0620393583626,
+        0.06649429124910779
+      ],
+      "pose_error": 0.016623180026780586,
+      "pose_error_visible": 0.016623180026780593,
+      "pose_error_hidden": 7.162507396558952e-18,
+      "tx_err": 0.00033088950007038875,
+      "ty_err": 0.0020393583626000036,
+      "theta_err": 0.016494291249107784,
+      "map_error": 0.010164560030516658,
+      "final_residual": 0.02780946402390287,
+      "T_U": 0.8483765340754569,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 1,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.566757906104038e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.7534635380516275,
+        1.6651767856753623,
+        0.0848622395412571
+      ],
+      "p_est": [
+        0.12107179386204056,
+        0.05397273987502048,
+        0.1390484713830918
+      ],
+      "pose_error": 0.15035394222078233,
+      "pose_error_visible": 0.029295826414540333,
+      "pose_error_hidden": 0.14747224313754598,
+      "tx_err": 0.04107179386204056,
+      "ty_err": 0.11397273987502048,
+      "theta_err": 0.08904847138309178,
+      "map_error": 0.16230833288924046,
+      "final_residual": 0.16143640041002313,
+      "T_U": 0.8932907870139403,
+      "T_U_rank": 6
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 2,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 7.235187373785167e-12,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.4860773482148595,
+        1.9909048836245857,
+        0.04079776898916025
+      ],
+      "p_est": [
+        0.080584285152732,
+        -0.062270807936414235,
+        0.06575107364455353
+      ],
+      "pose_error": 0.015924643756766856,
+      "pose_error_visible": 0.003877831538217491,
+      "pose_error_hidden": 0.01544528087608443,
+      "tx_err": 0.0005842851527319975,
+      "ty_err": 0.0022708079364142375,
+      "theta_err": 0.015751073644553526,
+      "map_error": 0.012293166645728635,
+      "final_residual": 0.028586836953418567,
+      "T_U": 0.8485463972038937,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 2,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 7.272587799269032e-12,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.486077348214858,
+        1.9909048836245857,
+        0.04079776898916183
+      ],
+      "p_est": [
+        0.08058428515273189,
+        -0.06227080793641441,
+        0.06575107364455365
+      ],
+      "pose_error": 0.015924643756767002,
+      "pose_error_visible": 0.01592464375676701,
+      "pose_error_hidden": 7.153269818152687e-18,
+      "tx_err": 0.0005842851527318865,
+      "ty_err": 0.002270807936414411,
+      "theta_err": 0.01575107364455365,
+      "map_error": 0.012293166645729027,
+      "final_residual": 0.02858683695341868,
+      "T_U": 0.8485463972038938,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 2,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 9.403085312531616e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.7223584772370448,
+        1.6566183763303504,
+        0.12060724257642899
+      ],
+      "p_est": [
+        0.12159954192135528,
+        0.0538476030884859,
+        0.1391465508657859
+      ],
+      "pose_error": 0.1504623080652632,
+      "pose_error_visible": 0.029847004075898437,
+      "pose_error_hidden": 0.14747224313754598,
+      "tx_err": 0.041599541921355274,
+      "ty_err": 0.1138476030884859,
+      "theta_err": 0.08914655086578589,
+      "map_error": 0.1597164601200862,
+      "final_residual": 0.1641347075255858,
+      "T_U": 0.8943961201841275,
+      "T_U_rank": 6
+    },
+    {
+      "method": "direct",
+      "SNR_dB": 30.0,
+      "noise_seed": 3,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": null,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 1.60618017648485e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5270867256396483,
+        1.9676721824627914,
+        -0.013927870032964732
+      ],
+      "p_est": [
+        0.0797199441014392,
+        -0.05483997432123168,
+        0.04724367748463126
+      ],
+      "pose_error": 0.0058567576457111345,
+      "pose_error_visible": 0.00193013387492198,
+      "pose_error_hidden": 0.005529574427157527,
+      "tx_err": 0.0002800558985607965,
+      "ty_err": 0.005160025678768318,
+      "theta_err": 0.0027563225153687462,
+      "map_error": 0.01658477091835578,
+      "final_residual": 0.028138328828692535,
+      "T_U": 0.8492282922946123,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r4",
+      "SNR_dB": 30.0,
+      "noise_seed": 3,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": 4,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "success": true,
+      "status": 1,
+      "optimality": 1.5262687934585806e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5270867256396494,
+        1.9676721824627905,
+        -0.013927870032965283
+      ],
+      "p_est": [
+        0.07971994410143911,
+        -0.054839974321231534,
+        0.04724367748463089
+      ],
+      "pose_error": 0.005856757645711441,
+      "pose_error_visible": 0.005856757645711442,
+      "pose_error_hidden": 2.169081865482768e-18,
+      "tx_err": 0.00028005589856089363,
+      "ty_err": 0.005160025678768464,
+      "theta_err": 0.002756322515369114,
+      "map_error": 0.016584770918356296,
+      "final_residual": 0.028138328828692487,
+      "T_U": 0.8492282922946116,
+      "T_U_rank": 4
+    },
+    {
+      "method": "reduced_r6",
+      "SNR_dB": 30.0,
+      "noise_seed": 3,
+      "p_init_label": "pert_pos",
+      "p_init": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "r": 6,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "success": true,
+      "status": 1,
+      "optimality": 6.81058195799709e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.7296883666142788,
+        1.6624081732595017,
+        0.0757213551540326
+      ],
+      "p_est": [
+        0.11669648716340102,
+        0.0550101891099488,
+        0.13823534131078444
+      ],
+      "pose_error": 0.14953077016276772,
+      "pose_error_visible": 0.024726276093479847,
+      "pose_error_hidden": 0.14747224313754595,
+      "tx_err": 0.036696487163401015,
+      "ty_err": 0.1150101891099488,
+      "theta_err": 0.08823534131078443,
+      "map_error": 0.15636564236636974,
+      "final_residual": 0.15761136683727933,
+      "T_U": 0.8940511761624915,
+      "T_U_rank": 6
+    }
+  ],
+  "summary_groups": [
+    {
+      "SNR_dB": 20.0,
+      "p_init_label": "zero",
+      "method": "direct",
+      "n_seeds": 8,
+      "n_success": 8,
+      "median_pose_error": 0.026655365570653917,
+      "iqr_pose_error": 0.019949341605220536,
+      "min_pose_error": 0.010186849603825142,
+      "max_pose_error": 0.05599211625627658,
+      "median_theta_err": 0.007989132653624702,
+      "iqr_theta_err": 0.023161486584680376,
+      "median_map_error": 0.05179830390717888,
+      "iqr_map_error": 0.019585642798215903,
+      "median_final_residual": 0.08563895766890908,
+      "iqr_final_residual": 0.01592911698214261,
+      "median_T_U": 0.8483381808567056,
+      "iqr_T_U": 0.002991722439652067
+    },
+    {
+      "SNR_dB": 20.0,
+      "p_init_label": "zero",
+      "method": "reduced_r4",
+      "n_seeds": 8,
+      "n_success": 8,
+      "median_pose_error": 0.026655365570654413,
+      "iqr_pose_error": 0.019949341605218895,
+      "min_pose_error": 0.01018684960382512,
+      "max_pose_error": 0.05599211625627721,
+      "median_theta_err": 0.007989132653625077,
+      "iqr_theta_err": 0.0231614865846822,
+      "median_map_error": 0.05179830390717924,
+      "iqr_map_error": 0.019585642798215744,
+      "median_final_residual": 0.08563895766890998,
+      "iqr_final_residual": 0.01592911698214229,
+      "median_T_U": 0.8483381808567054,
+      "iqr_T_U": 0.002991722439652289
+    },
+    {
+      "SNR_dB": 20.0,
+      "p_init_label": "zero",
+      "method": "reduced_r6",
+      "n_seeds": 8,
+      "n_success": 8,
+      "median_pose_error": 0.04431663050348202,
+      "iqr_pose_error": 0.0007691367146860847,
+      "min_pose_error": 0.04408231374510451,
+      "max_pose_error": 0.04577961591253026,
+      "median_theta_err": 0.04398689751900081,
+      "iqr_theta_err": 0.0006595234715470744,
+      "median_map_error": 0.051914398828545566,
+      "iqr_map_error": 0.03723985230778214,
+      "median_final_residual": 0.09272787622823331,
+      "iqr_final_residual": 0.012879339206504498,
+      "median_T_U": 0.8824718176746223,
+      "iqr_T_U": 0.002096182194488594
+    },
+    {
+      "SNR_dB": 20.0,
+      "p_init_label": "zero",
+      "method": "wrongpose",
+      "n_seeds": 8,
+      "n_success": 8,
+      "median_pose_error": 0.11180339887498948,
+      "iqr_pose_error": 0.0,
+      "min_pose_error": 0.11180339887498948,
+      "max_pose_error": 0.11180339887498948,
+      "median_theta_err": 0.05,
+      "iqr_theta_err": 0.0,
+      "median_map_error": 0.21047370538916083,
+      "iqr_map_error": 0.03667924279842469,
+      "median_final_residual": 0.29930968583544026,
+      "iqr_final_residual": 0.01828602561167092,
+      "median_T_U": 0.8150995991291714,
+      "iqr_T_U": 0.0026773043962665666
+    },
+    {
+      "SNR_dB": 30.0,
+      "p_init_label": "pert_pos",
+      "method": "direct",
+      "n_seeds": 4,
+      "n_success": 4,
+      "median_pose_error": 0.010890700701238995,
+      "iqr_pose_error": 0.010797164618912485,
+      "min_pose_error": 0.003638179884298437,
+      "max_pose_error": 0.016623180026781214,
+      "median_theta_err": 0.009253698079961136,
+      "iqr_theta_err": 0.013708984367059801,
+      "median_map_error": 0.014438968782042207,
+      "iqr_map_error": 0.007046299389077746,
+      "median_final_residual": 0.027973896426295834,
+      "iqr_final_residual": 0.001837906944667702,
+      "median_T_U": 0.8485117462279905,
+      "iqr_T_U": 0.0002649160186435351
+    },
+    {
+      "SNR_dB": 30.0,
+      "p_init_label": "pert_pos",
+      "method": "reduced_r4",
+      "n_seeds": 4,
+      "n_success": 4,
+      "median_pose_error": 0.010890700701239221,
+      "iqr_pose_error": 0.010797164618912052,
+      "min_pose_error": 0.003638179884299058,
+      "max_pose_error": 0.016623180026780586,
+      "median_theta_err": 0.009253698079961382,
+      "iqr_theta_err": 0.013708984367059272,
+      "median_map_error": 0.014438968782042661,
+      "iqr_map_error": 0.007046299389078005,
+      "median_final_residual": 0.027973896426297676,
+      "iqr_final_residual": 0.0018379069446653636,
+      "median_T_U": 0.8485117462279903,
+      "iqr_T_U": 0.0002649160186439792
+    },
+    {
+      "SNR_dB": 30.0,
+      "p_init_label": "pert_pos",
+      "method": "reduced_r6",
+      "n_seeds": 4,
+      "n_success": 4,
+      "median_pose_error": 0.15037536247008312,
+      "iqr_pose_error": 0.0002650148495750848,
+      "min_pose_error": 0.14953077016276772,
+      "max_pose_error": 0.1504623080652632,
+      "median_theta_err": 0.08906796359681936,
+      "iqr_theta_err": 0.00025704070934173817,
+      "median_map_error": 0.15804105124322798,
+      "iqr_map_error": 0.006561238892249965,
+      "median_final_residual": 0.16182330282287408,
+      "iqr_final_residual": 0.0022111887913530137,
+      "median_T_U": 0.8936709815882159,
+      "iqr_T_U": 0.001125200264769144
+    },
+    {
+      "SNR_dB": 30.0,
+      "p_init_label": "zero",
+      "method": "direct",
+      "n_seeds": 8,
+      "n_success": 8,
+      "median_pose_error": 0.007447107160163535,
+      "iqr_pose_error": 0.005345454089889311,
+      "min_pose_error": 0.0028095538160449246,
+      "max_pose_error": 0.01695213317423686,
+      "median_theta_err": 0.0032995050615128134,
+      "iqr_theta_err": 0.0070578118736100495,
+      "median_map_error": 0.015187434947712138,
+      "iqr_map_error": 0.005729535604891766,
+      "median_final_residual": 0.027910500782907927,
+      "iqr_final_residual": 0.004448187512197301,
+      "median_T_U": 0.8488745918362575,
+      "iqr_T_U": 0.0010230903666790248
+    },
+    {
+      "SNR_dB": 30.0,
+      "p_init_label": "zero",
+      "method": "reduced_r4",
+      "n_seeds": 8,
+      "n_success": 8,
+      "median_pose_error": 0.00744710716016302,
+      "iqr_pose_error": 0.0053454540898888936,
+      "min_pose_error": 0.002809553816045241,
+      "max_pose_error": 0.0169521331742365,
+      "median_theta_err": 0.003299505061513438,
+      "iqr_theta_err": 0.007057811873610549,
+      "median_map_error": 0.015187434947712613,
+      "iqr_map_error": 0.005729535604892262,
+      "median_final_residual": 0.02791050078290773,
+      "iqr_final_residual": 0.004448187512198238,
+      "median_T_U": 0.8488745918362572,
+      "iqr_T_U": 0.0010230903666796909
+    },
+    {
+      "SNR_dB": 30.0,
+      "p_init_label": "zero",
+      "method": "reduced_r6",
+      "n_seeds": 8,
+      "n_success": 8,
+      "median_pose_error": 0.04421068699350198,
+      "iqr_pose_error": 0.00030165611185214297,
+      "min_pose_error": 0.04409415111182043,
+      "max_pose_error": 0.04457523896388548,
+      "median_theta_err": 0.044071915130583915,
+      "iqr_theta_err": 0.00021398272883806774,
+      "median_map_error": 0.02797692420987742,
+      "iqr_map_error": 0.008967172760975941,
+      "median_final_residual": 0.03784368499851658,
+      "iqr_final_residual": 0.004010312445106287,
+      "median_T_U": 0.8836079305743127,
+      "iqr_T_U": 0.0006844414914929375
+    },
+    {
+      "SNR_dB": 30.0,
+      "p_init_label": "zero",
+      "method": "wrongpose",
+      "n_seeds": 8,
+      "n_success": 8,
+      "median_pose_error": 0.11180339887498948,
+      "iqr_pose_error": 0.0,
+      "min_pose_error": 0.11180339887498948,
+      "max_pose_error": 0.11180339887498948,
+      "median_theta_err": 0.05,
+      "iqr_theta_err": 0.0,
+      "median_map_error": 0.2085001835520221,
+      "iqr_map_error": 0.011796203042985731,
+      "median_final_residual": 0.28192764823328514,
+      "iqr_final_residual": 0.00518569552351178,
+      "median_T_U": 0.8146402081380377,
+      "iqr_T_U": 0.0008650375398479015
+    }
+  ],
+  "failures": [],
+  "counts": {
+    "n_records": 76,
+    "n_failures": 0,
+    "n_success": 76
+  }
+}

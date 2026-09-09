@@ -1,0 +1,41 @@
+{
+  "interpreter": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+  "generated": "2026-09-05T19:21:22+08:00",
+  "files": {
+    "tests/test_e1.py": {
+      "exit_code": 0,
+      "passed": 9,
+      "failed": 0,
+      "tail": "PASS test_mismatch_fisher_value\nPASS test_orth_proj_and_null\nPASS test_phase_only_jcoh_two\nPASS test_phase_only_jph_zero\nPASS test_s_lambda_expectation_zero\nPASS test_s_lambda_matches_logpdf_fd\nPASS test_scale_coherent_and_phaseless_empirical_fisher_one\nPASS test_scale_family_jph_one\nPASS test_total_field_contraction\n\n9/9 tests passed\n"
+    },
+    "tests/test_e2.py": {
+      "exit_code": 0,
+      "passed": 11,
+      "failed": 0,
+      "tail": "PASS test_complex_safe_kernel\nPASS test_exact_expected_values\nPASS test_exact_t5a_t5b\nPASS test_nonmonotone_rho\nPASS test_projector_gap_closure\nPASS test_random_tangents\nPASS test_rank_threshold_control\nPASS test_rank_uncertainty\nPASS test_real_safe_space\nPASS test_saturation_zero_up_to_backward_error\nPASS test_utility_projection\n\n11/11 tests passed\n"
+    },
+    "tests/test_e3.py": {
+      "exit_code": 0,
+      "passed": 15,
+      "failed": 0,
+      "tail": "PASS test_adaptive_rank_caveat_labeled\nPASS test_b_zero_control\nPASS test_confounding_sweep_and_crossover\nPASS test_exact_small_dual_spectra\nPASS test_pose_prior_augmented_angles\nPASS test_pose_prior_lambda_zero_recovers_ke\nPASS test_pose_prior_loewner_sandwich\nPASS test_pose_prior_monotonicity\nPASS test_pose_prior_variational\nPASS test_random_nuisance_theorem3\nPASS test_rho_undefined_control\nPASS test_scaling_control\nPASS test_small_residual_large_bias_numbers\nPASS test_theorem7_analytic_mc_variance\nPASS test_theorem7_deterministic_bound\n\n15/15 tests passed\n"
+    },
+    "tests/test_e5.py": {
+      "exit_code": 0,
+      "passed": 14,
+      "failed": 0,
+      "tail": "PASS test_acquisition_policies_run\nPASS test_anchor_restores_absolute\nPASS test_compensation_criterion\nPASS test_crafted_budget_compensation_and_degradation\nPASS test_global_gauge_null_persists\nPASS test_innovation_matches_direct_stack\nPASS test_minimal_pair_values\nPASS test_neutral_rank_budget_control\nPASS test_nonsubmodularity_inequality\nPASS test_rank_acquisition_budget_identity\nPASS test_saturated_new_frame_no_innovation\nPASS test_singular_fallback_psd_and_direct_match\nPASS test_source_stabilizer_is_not_claimed_passed\nPASS test_stack_vs_sum_psd_and_equality\n\n14/14 tests passed\n"
+    },
+    "tests/test_physical_runner.py": {
+      "exit_code": 0,
+      "passed": 1,
+      "failed": 0,
+      "tail": "test_physical_runner: OK\n"
+    }
+  },
+  "overall": {
+    "total_passed": 50,
+    "total_failed": 0,
+    "all_exit_zero": true
+  }
+}

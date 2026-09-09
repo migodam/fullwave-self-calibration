@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-09-08T18:35:29.297261+00:00",
+  "registration": "local before fresh seed collection, not external preregistration",
+  "source_hashes": {
+    "src/dda.py": "b9a325518b4db734a9cb35fc5db845ba061e25a6227154ca71c481a920acc603",
+    "src/controls.py": "52a0edf72fe032d871ddf7f2d52659b544b266574d2e39deffaf026db5eac65f",
+    "src/experiments.py": "ba589d683a558839db1e1c7c51a1964b541e59a098e1936672b5868c7692ca5d",
+    "src/coverage.py": "80dd416194e9fdfd883fa51eec21beb5f47bb65a5ec0c6f3829afdecde156497",
+    "src/risk.py": "11b0615968f9e11973ca3a21db132d0641232e827effb3cf69ad7cc019fcc08e",
+    "src/modal.py": "e6b5cfc553fe33970c89be72af7b80acd9c770152d323977e6c4083d0dd896a0",
+    "tests/test_core.py": "73824e0c735a6740b0558e208678ed6c0ae6729760f06fc5bedcb991edf250f4",
+    "docs/FROZEN_PROTOCOL.md": "6b6badbb4040ff1231c4d5c89fab8f686fafd09b720af03b42784c12c7c64bc0"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "idea": {
+    "Name": "pose_confounding_spectral_geometry_deepening_round3",
+    "Title": "Pose-Confounding Spectral Geometry for Full-Wave Inverse-Scattering SLAM: Replication, Mechanism, and Robustness Demotion",
+    "Short Hypothesis": "After noise whitening and realification, the finite-dimensional pose-eliminated map-information operator is governed by principal angles between map- and pose-induced data tangent spaces. This round tests the currently weak design/robustness claims: trajectory ordering is replicated or mechanistically qualified across scenes and frequency sets; multi-frequency diversity is characterized beyond two frequencies; the machine-rank boundary event is resolved with stable-rank diagnostics; and execution-error robustness is claimed only for the affine tangent layer unless a full nonlinear certification is obtained.",
+    "Related Work": "The individual ingredients are mature and must not be claimed as novel: Chen-style subspace optimization, Schur-complement nuisance Fisher information, principal angles and finite-rank Hermitian perturbation, gauge analysis, active sensing, RF-SLAM PCRB/identifiability, blind bilinear inverse problems, and Born/Rytov scattering approximations. Prior completed rounds verified the whitened/realified algebraic spine, the principal-angle retention identity under colored noise and grid refinement, the G_S/SOM versus A/K_eff map-tangent distinction, a preserved trajectory-order counterexample, non-monotone two-frequency SNR diversity, and an affine tangent Lipschitz certificate. The remaining contribution is a finite-dimensional 2D scalar Helmholtz synthesis with replicated negative/design results, stable-rank diagnostics, and explicit robustness demotion where formal certification is unavailable.",
+    "Abstract": "We continue a finite-dimensional study of pose-confounded full-wave inverse-scattering SLAM. Prior rounds verified the whitened/realified algebraic spine, principal-angle retention identities under colored noise and grid refinement, and the distinction between map-tangent information (A,K_eff) and current-space G_S/SOM modes. Remaining weaknesses are the single-setting trajectory reversal, narrow frequency-diversity evidence, a non-certified nonlinear robustness bound, and one rank-boundary replication event. This revision therefore (i) replicates and dissects trajectory orderings across four scene classes, multiple frequency sets, and trajectory parameter variations; (ii) tests frequency-set and bandwidth effects with equal-budget multi-frequency designs; (iii) investigates every rank identity with stable-rank/tolerance sweeps and singular-value diagnostics; (iv) either certifies full nonlinear execution-error robustness or demotes it to an explicitly empirical/structural result while keeping the affine tangent certificate; and (v) adds an external literature-derived Born/weak-scattering information comparison. All claims remain scoped to the implemented 2D scalar Helmholtz model and finite discretizations.",
+    "Experiments": {
+      "datasets": [
+        "Deterministic synthetic 2D scalar Helmholtz contrast-source scenes on D=[-0.5,0.5]^2: two smooth blobs reference, ring scene, offset/edge scene, low-contrast scene, and if CPU permits a rectangular inclusion scene. N=24 pilot sweeps plus N=32 reference and N=40 sensitivity; keep the same solver.",
+        "Body-fixed 4-8 receiver arrays on straight, arc30, arc60, arc90, arc120, arc180, and circle360 trajectories with matched path length, measurement count, standoff, and per-pose energy where applicable.",
+        "Frequency sets: single f0, two-frequency f0/f1 with SNR sweep, three- and five-frequency equal-count/equal-energy sets over bandwidths 0.2-1.0, and a duplicate-block control; multiple scenes.",
+        "Rank-event and robustness scenes: the preserving ring scene and perturbed ring/offset scenes, plus fixed-seed variants used for the machine-rank boundary event."
+      ],
+      "baselines": [
+        "Known-pose K_IS vs free-pose K_SLAM vs finite-prior K_eff; analytic A/B vs finite differences; principal-angle closed forms vs generalized eigenvalues.",
+        "Raw trajectory ordering vs same-standoff/per-pose-energy normalized ordering, now across scenes, frequencies, and trajectory parameter sweeps.",
+        "Stable-rank/truncated-SVD threshold sweep vs fixed machine-rank tolerance for all rank/kernel identities.",
+        "Born/Rytov weak-scattering analytic Fisher bound or literature-derived diagonal-Dominant Born bound compared with computed K_eff and K_IS retention eigenvalues.",
+        "Affine tangent Lipschitz certificate vs sampled full nonlinear perturbations; any full nonlinear bound explicitly labeled certified or empirical/structural.",
+        "Frequency-set designs with identical total measurement count and energy: genuine diversity vs duplicate blocks; monotonicity and plateau checks."
+      ],
+      "metrics": [
+        "Retention eigenvalues, principal angles, exact destroyed DOF, rank(A), rank(B), rank(AB), stable rank curves, singular-value gaps, and condition numbers.",
+        "Trajectory ordering replicability: fraction of scene/frequency/parameter variants preserving a common ordering; decomposition into B-rank, pose-compensation residual, illumination diversity, and curvature-related pose-Hessian terms.",
+        "Frequency diversity: retained DOF and log-volume retention for 2-, 3-, and 5-frequency sets; per-frequency SNR/bandwidth plateau; duplicate-block invariance controls.",
+        "Rank event autopsy: numerical rank vs tolerance, truncation error, singular values, backward error of matrix identities, scene conditioning, and perturbed-scene boundary location.",
+        "Robustness: affine tangent certificate violations over 2000 directions and epsilon sweep; full nonlinear sampled violations; if formal certification is obtained, its constants and proof conditions; otherwise explicit demotion statement.",
+        "External-comparison discrepancy: relative difference between computed K_eff/K_IS retention spectra and Born analytic predictions in weak-scattering scene; cite source or label as derived in appendix.",
+        "Exact commands, configs, seeds, runtime/environment, result tables, figure paths, and SHA-256 hashes."
+      ],
+      "compute_estimate": "Apple Silicon CPU only. Reuse Green matrices and factorizations from previous rounds. Run N=24 pilot sweeps for trajectory/frequency/scenes, then selected N=32 reference and N=40 rank/robustness cases. No CUDA, GPU, neural nets, daemons, schedulers, or new orchestration. Document actual runtime and any incomplete family.",
+      "steps": [
+        "Before coding, read workshop.md and current synthesis notes; preserve status ledger and semantic drift prohibitions.",
+        "Family 12: trajectory replication and mechanism, following context/PARENT_ROUND3_AUDIT.md. Use new family12 files; do not overwrite the existing family10 covariance toy. Run straight, arc90, arc180, circle360 on four scene classes and at least two frequency sets under predeclared equal-budget controls; report conditional mechanism, not a universal ordering.",
+        "Family 11b (optional): deepen the already completed Family 11 frequency study only if an equal-total-measurement and equal-total-whitened-energy design answers a new mechanistic question; never overwrite existing family11 artifacts.",
+        "Family 13: rank event autopsy. Reproduce the ring-scene machine-rank boundary with predeclared stable-rank/tolerance sweeps and singular-value gaps; determine whether the 6/7 count was a true rank change, tolerance classification, or unstable subtraction.",
+        "Family 14: robustness scope. Integrate the parent generalized-eigenvalue derivative and cluster/rank-event checks; unless a genuine interval proof is obtained, explicitly demote all full nonlinear execution-error robustness claims to empirical/structural observations.",
+        "Family 15: Born analytic/literature control. Derive and execute an internal weak-scattering formula check, label it analytic rather than external unless a published setup is quantitatively matched, and never invent or overstate citations.",
+        "Update synthesis and manuscript: replicated negative/mechanistic trajectory section, multi-frequency section, rank event section, robustness demotion section, and computed external comparison; keep finite-dimensional scope and explicit limitations."
+      ]
+    },
+    "Risk Factors and Limitations": [
+      "Any trajectory ordering result is likely model/scene/frequency specific; the goal is a replicated counterexample/mechanism, not a universal trajectory design rule.",
+      "Frequency-diversity conclusions remain finite-dimensional and local; no claim of optimal frequency transfer to continuum or real RF systems is made.",
+      "Full nonlinear Helmholtz operator-Lipschitz certification may remain open; all non-certified robustness claims will be demoted to empirical/structural observations.",
+      "The ring-scene rank event may be a numerical tolerance artifact; if so, it must be reported as such, not hidden or resolved into a false stable-rank theorem.",
+      "External comparison is limited to a Born/weak-scattering analytic bound; it is not an independent implementation of the full inverse-scattering model or a real-world dataset.",
+      "Second model/geometry is not added by default; if added it will be a diagnostic, not a claim of generality.",
+      "Finite-dimensional identities do not prove continuum transversality, global nonlinear convergence, or online SLAM performance.",
+      "CPU-only budget may force selected sweeps rather than exhaustive combinations; incomplete family results will be documented explicitly."
+    ]
+  },
+  "report": {
+    "status": "completed",
+    "summary": "Round 3 continued the finite-dimensional pose-confounded spectral-geometry study by following context/PARENT_ROUND3_AUDIT.md and adding four new empirical families (12-15), a read-only round-3 synthesis, and a compiled round-3 manuscript (manuscript/main_round3.tex -> main_round3.pdf, 54 pages, ~5.2 MB). No prior family 1-11 source/result/figure was overwritten. Family 12 replicated and dissected trajectory ordering across 4 scenes x 4 trajectories x 3 frequency sets x 2 controls: the prior ordering hypothesis held in 0/24 cells, raw vs normalized orderings agreed in 2/12 scene-frequency cells, and the c2 rank identity held in 93/96 cells with rank(B)=18 in all 96. Family 13 reproduced the ring-scene Family-9 rank residual and diagnosed the 6/7 boundary as a tolerance classification rather than a true rank change or unstable subtraction. Family 14 recomputed the affine tangent certificate exactly and explicitly demoted all full-nonlinear execution-error robustness claims to empirical/structural observations. Family 15 verified the Born composition identity exactly, characterized weak-vs-full deviations and subspace separation, and recorded that no quantitative external benchmark was possible. The round therefore provides a replicated negative trajectory-ordering result, a resolved rank-boundary classification, a retained finite-dimensional affine certificate, and a scoped robustness demotion.",
+    "key_results": [
+      "Family 12 trajectory replication: the old ordering hypothesis holds in 0/24 scene-trajectory-frequency-control cells; rankings shift with scene, frequency set, and control; raw vs normalized orderings agree in only 2/12 scene-frequency cells.",
+      "Family 12 cross-checks: control B/F1/two_blob matches family4c to <=3e-7; stored family4_results.json order arc90 > straight > circle360 > arc180 was matched, with the instruction's transposed arc180/circle360 recorded and flagged.",
+      "Family 12 rank identity: c2 rank identity holds in 93/96 cells; the 3 exceptions are single-frequency near-null rank-threshold observations, not algebraic failures; rank(B)=18 in all 96 cells and per-pose normalization verified to 2.2e-16.",
+      "Family 13 rank autopsy: reproduced ring-scene residual exactly (r_A=24, r_B=18, r_AB=42, r_KIS=24, r_KSL=23). Verdict: tolerance classification. Evidence: sigma24(C)/sigma1(C)=4.75e-8 while sigma24(K_SLAM)/sigma1(K_SLAM)=2.26e-15 ~ (4.75e-8)^2; C stays full rank across predeclared relative tolerances 1e-16 to 1e-8; backward residual ||K_SLAM - C^T C||_F rel = 5.0e-16 with 1/s^2 reconstruction residual 1.5e-7.",
+      "Family 13 engineered rank event (algebraic falsifier) reproduces: rank(B) 18 to 17 at t=0, projector jump 1.0, retained mass 9.40716 to 10.40528, information jump 0.13996.",
+      "Family 14 robustness scope: affine tangent certificate recomputed exactly as L_cert_affine = 1.1309e-2, 1.1438e-2, 1.1895e-2 at eps = 1e-3, 3e-3, 1e-2; FD Jacobians rel Fro 5.99e-7 (J_A) and 5.37e-7 (J_B). Full-nonlinear 500-direction worst quotient at eps=1e-2 is 3.23e-4 vs 1.19e-2 affine bound, ratio 36.8. Explicit demotion recorded: only the affine tangent certificate is retained as a finite-dimensional conditional certificate.",
+      "Family 15 Born control: Born composition identity A_born = G_S diag(E_inc) verified exactly (0.0). Observed log-log slopes approx 1 (A 1.0026, K_IS 0.9944, K_eff 0.9942). At s=0.1 Born-vs-full rel errors are A 5.05%, K_IS/K_eff 7.10%; at s=1.0 they are A 50.5%, K ~65.2%. Most-confounded Born vs full-wave subspaces nearly coincide at s=0.001 (~1e-3 deg) and separate to ~65 deg at s=1.0. No quantitative external benchmark was possible.",
+      "Round-3 manuscript compiled: manuscript/main_round3.tex -> manuscript/main_round3.pdf (54 pages, 5.2 MB), with Round-2 files untouched."
+    ],
+    "files_of_interest": [
+      "results/family12_trajectory_replication.json",
+      "results/family13_rank_autopsy.json",
+      "results/family14_robustness_scope.json",
+      "results/family15_born_control.json",
+      "figures/family12_retained_rankings.png",
+      "figures/family12_principal_angles.png",
+      "figures/family12_mechanism.png",
+      "figures/family13_rank_autopsy.png",
+      "figures/family15_born_control.png",
+      "notes/family12_trajectory_replication.md",
+      "notes/family13_rank_autopsy.md",
+      "notes/family14_robustness_scope.md",
+      "notes/family15_born_control.md",
+      "notes/synthesis_round3.md",
+      "manuscript/main_round3.tex",
+      "manuscript/main_round3.pdf",
+      "manuscript/main_round3.log"
+    ],
+    "working_assets": [
+      "src/family12_trajectory_replication.py",
+      "src/family13_rank_autopsy.py",
+      "src/family14_robustness_scope.py",
+      "src/family15_born_control.py",
+      "src/helmholtz.py",
+      "results/family12_trajectory_replication.json",
+      "results/family13_rank_autopsy.json",
+      "results/family14_robustness_scope.json",
+      "results/family15_born_control.json",
+      "figures/family12_retained_rankings.png",
+      "figures/family12_principal_angles.png",
+      "figures/family12_mechanism.png",
+      "figures/family13_rank_autopsy.png",
+      "figures/family15_born_control.png",
+      "notes/family12_trajectory_replication.md",
+      "notes/family13_rank_autopsy.md",
+      "notes/family14_robustness_scope.md",
+      "notes/family15_born_control.md",
+      "notes/synthesis_round3.md",
+      "manuscript/main_round3.tex",
+      "manuscript/main_round3.pdf",
+      "context/PARENT_ROUND3_AUDIT.md"
+    ],
+    "completed_steps": [
+      "Confirmed directory and prior-round state, including locked families 1-9 and family-10/11 toys plus the tight affine tangent bound.",
+      "Followed the binding context/PARENT_ROUND3_AUDIT.md rather than redoing completed work.",
+      "Added four new empirical families 12-15 with dedicated scripts, JSONs, figures, and notes.",
+      "Family 12: ran 4 scenes x 4 trajectories x 3 frequency sets x 2 controls; recorded ranking shifts, cross-checks, c2 rank identity counts, and per-pose normalization checks.",
+      "Family 13: reproduced the ring-scene Family-9 residual, performed stable-rank/tolerance sweep and singular-value diagnostics, and classified the 6/7 machine-rank boundary as tolerance classification.",
+      "Family 14: recomputed the affine tangent certificate, ran finite-difference Jacobian checks and 500-direction full-nonlinear perturbations, and recorded explicit robustness demotion.",
+      "Family 15: verified the Born composition identity, computed weak-scattering slopes and errors, subspace angles, and explicitly labeled the external comparison as not a quantitative benchmark.",
+      "Wrote read-only notes/synthesis_round3.md.",
+      "Compiled Round-3 manuscript with tectonic to manuscript/main_round3.pdf (54 pages, 5.2 MB).",
+      "Checked reused-module SHA-256 hashes and ensured no prior family 1-11 source/result/figure was overwritten."
+    ],
+    "dead_ends": [
+      "No genuine interval/uniform certificate of the full nonlinear Helmholtz operator was obtained, so all full nonlinear execution-error robustness claims were explicitly demoted.",
+      "The trajectory-ordering hypothesis was a replicated negative (0/24), so no universal trajectory design rule is claimed.",
+      "The online-toy free-pose covariance mismatch from family 10 remains unresolved.",
+      "A quantitative external Born benchmark was not possible because no published setup could be reproduced exactly.",
+      "Figure vision inspection was unavailable; PNGs were validated programmatically (existence/size/embedded hashes) rather than by eye.",
+      "3D/vector extension was not attempted this round."
+    ],
+    "next_steps": [
+      "Only if a validated-arithmetic library is available, attempt a genuine interval bound for the full nonlinear operator; otherwise keep the explicit nonlinear-robustness demotion.",
+      "Pilot a 3D scalar/vector Helmholtz extension while keeping the current-space G_S/SOM vs map-tangent A/K_eff distinction explicit.",
+      "Investigate the family-10 free-pose covariance mismatch with more trials or an alternative posterior sampler.",
+      "Attempt a quantitative Born benchmark only if a published setup can be reproduced exactly.",
+      "Keep manuscript numbers aligned to the result JSONs."
+    ]
+  },
+  "verdict": {
+    "decision": "lock",
+    "unresolved_issues": [],
+    "reasoning": "The reported round is not a thin pilot but a multi-family, cross-checked empirical program. Family 12 replicates and dissects the trajectory-ordering claim across 4 scenes, 4 trajectories, 3 frequency sets, and controls, yielding a clean negative result (0/24 ordering cells) with rank-identity checks in 93/96 cells and exact cross-validation against prior family4c. Family 13 resolves the previously suspicious rank boundary as a tolerance classification using singular-value ratios, backward residuals, and predeclared tolerance sweeps, and validates the diagnostic with an engineered true rank event. Family 14 recomputes the affine tangent certificate exactly and honestly demotes unsupported full-nonlinear robustness claims. Family 15 verifies the Born composition identity and characterizes weak/full deviations and subspace separation while correctly labeling the lack of an external benchmark. The work includes appropriate baselines, analytic-vs-finite-difference checks, raw-vs-normalized controls, rank/tolerance ablations, robustness sampling, and a compiled 54-page manuscript with prior results preserved. The remaining limitations are explicitly scoped to the finite-dimensional 2D scalar Helmholtz setting and do not undermine the reported claims. This is a thoroughly established negative/mechanistic study suitable for full-paper write-up."
+  }
+}

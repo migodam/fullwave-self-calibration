@@ -1,0 +1,291 @@
+{
+  "budget_rhs": 8000,
+  "config": {
+    "aperture": "full",
+    "freq_ids_in_model": [
+      0,
+      1,
+      3
+    ],
+    "frequency_k_rad_per_m": [
+      3.0,
+      6.0,
+      12.0
+    ],
+    "grid": 16,
+    "kmax": 12.0,
+    "lambda_min_m": 0.5235987755982988,
+    "material_q_default": 9,
+    "noise_snr_db": 30.0,
+    "pose_lever_m": 1.5,
+    "pose_scale": [
+      1.9098593171027443,
+      1.9098593171027443,
+      2.8647889756541165
+    ],
+    "snr_reference": "grid16_background_alpha_0.08"
+  },
+  "methods": [
+    "direct_gn",
+    "direct_adjoint",
+    "sensing",
+    "twofold",
+    "generic_task",
+    "sensing_task",
+    "twofold_task",
+    "block_krylov"
+  ],
+  "notes": [
+    "Development seeds 4101-4104 only; no E4 final seeds.",
+    "Chart ranks are predeclared in solver.CHART_RANKS from the offline rank audit; exact state/derivatives never enter chart construction.",
+    "A no_improving/fallback stop at a low exact loss is an exact controller termination, not a ROM shortcut; accepted-reduced counts are separate.",
+    "These runs do not claim a wall-time speedup or SOM falsification."
+  ],
+  "runs": 56,
+  "seeds": [
+    4101,
+    4102,
+    4103,
+    4104
+  ],
+  "status": "DEVELOPMENT_COMPLETE",
+  "summary": {
+    "block_krylov::cont=0": {
+      "accepted_by_freq_mean": {
+        "0": 6.75,
+        "1": 6.75,
+        "3": 6.75
+      },
+      "accepted_reduced_total_mean": 6.75,
+      "alpha_rmse_mean": 0.029284126028876686,
+      "fallback_direct_mean": 2.0,
+      "final_loss_mean": 213.41610511856226,
+      "full_rhs_mean": 1633.5,
+      "n": 4,
+      "pose_metric_mean": 0.03144436687162687,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 6.07033038524969
+    },
+    "block_krylov::cont=1": {
+      "accepted_by_freq_mean": {
+        "0": 17.5,
+        "1": 9.5,
+        "3": 4.0
+      },
+      "accepted_reduced_total_mean": 17.5,
+      "alpha_rmse_mean": 0.030340478777974803,
+      "fallback_direct_mean": 2.5,
+      "final_loss_mean": 214.5037382919666,
+      "full_rhs_mean": 1809.0,
+      "n": 4,
+      "pose_metric_mean": 0.03006795178734986,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 6.959300447997521
+    },
+    "direct_adjoint::cont=0": {
+      "accepted_by_freq_mean": {},
+      "accepted_reduced_total_mean": 0.0,
+      "alpha_rmse_mean": 0.0270037812336062,
+      "fallback_direct_mean": 0.0,
+      "final_loss_mean": 213.5809931517613,
+      "full_rhs_mean": 1026.0,
+      "n": 4,
+      "pose_metric_mean": 0.029379775413628975,
+      "statuses": [
+        "schedule_complete"
+      ],
+      "wall_mean": 1.0681865522346925
+    },
+    "direct_adjoint::cont=1": {
+      "accepted_by_freq_mean": {},
+      "accepted_reduced_total_mean": 0.0,
+      "alpha_rmse_mean": 0.026433299751399523,
+      "fallback_direct_mean": 0.0,
+      "final_loss_mean": 213.71711130071662,
+      "full_rhs_mean": 1089.0,
+      "n": 4,
+      "pose_metric_mean": 0.031433919642234014,
+      "statuses": [
+        "schedule_complete"
+      ],
+      "wall_mean": 1.1744030832633143
+    },
+    "direct_gn::cont=0": {
+      "accepted_by_freq_mean": {},
+      "accepted_reduced_total_mean": 0.0,
+      "alpha_rmse_mean": 0.029276930840901876,
+      "fallback_direct_mean": 0.0,
+      "final_loss_mean": 213.41610490064105,
+      "full_rhs_mean": 2070.0,
+      "n": 4,
+      "pose_metric_mean": 0.031445905035637156,
+      "statuses": [
+        "no_improving_trial"
+      ],
+      "wall_mean": 0.868592646002071
+    },
+    "direct_gn::cont=1": {
+      "accepted_by_freq_mean": {},
+      "accepted_reduced_total_mean": 0.0,
+      "alpha_rmse_mean": 0.03443093018253932,
+      "fallback_direct_mean": 0.0,
+      "final_loss_mean": 217.08231380541733,
+      "full_rhs_mean": 2652.0,
+      "n": 4,
+      "pose_metric_mean": 0.040255793981005254,
+      "statuses": [
+        "no_improving_trial"
+      ],
+      "wall_mean": 1.7760913230158621
+    },
+    "generic_task::cont=0": {
+      "accepted_by_freq_mean": {
+        "0": 6.5,
+        "1": 6.5,
+        "3": 6.5
+      },
+      "accepted_reduced_total_mean": 6.5,
+      "alpha_rmse_mean": 0.029291406793888475,
+      "fallback_direct_mean": 0.25,
+      "final_loss_mean": 213.41610537531525,
+      "full_rhs_mean": 792.0,
+      "n": 4,
+      "pose_metric_mean": 0.031441618500825066,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 3.8950251562637277
+    },
+    "generic_task::cont=1": {
+      "accepted_by_freq_mean": {
+        "0": 15.5,
+        "1": 7.5,
+        "3": 6.0
+      },
+      "accepted_reduced_total_mean": 15.5,
+      "alpha_rmse_mean": 0.034428270165393064,
+      "fallback_direct_mean": 0.25,
+      "final_loss_mean": 217.0823429736734,
+      "full_rhs_mean": 1011.0,
+      "n": 4,
+      "pose_metric_mean": 0.04024231334984917,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 5.223580656253034
+    },
+    "sensing::cont=1": {
+      "accepted_by_freq_mean": {
+        "0": 10.25,
+        "1": 2.25
+      },
+      "accepted_reduced_total_mean": 10.25,
+      "alpha_rmse_mean": 0.032346601741178135,
+      "fallback_direct_mean": 7.5,
+      "final_loss_mean": 216.2567815239252,
+      "full_rhs_mean": 3231.0,
+      "n": 4,
+      "pose_metric_mean": 0.052752354121855076,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 4.699220364753273
+    },
+    "sensing_task::cont=0": {
+      "accepted_by_freq_mean": {
+        "0": 6.5,
+        "1": 6.5,
+        "3": 6.5
+      },
+      "accepted_reduced_total_mean": 6.5,
+      "alpha_rmse_mean": 0.029282818908698764,
+      "fallback_direct_mean": 0.75,
+      "final_loss_mean": 213.41610478259022,
+      "full_rhs_mean": 990.0,
+      "n": 4,
+      "pose_metric_mean": 0.03144865666348673,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 3.6786212187435012
+    },
+    "sensing_task::cont=1": {
+      "accepted_by_freq_mean": {
+        "0": 15.25,
+        "1": 7.25,
+        "3": 5.0
+      },
+      "accepted_reduced_total_mean": 15.25,
+      "alpha_rmse_mean": 0.03442831366283469,
+      "fallback_direct_mean": 0.25,
+      "final_loss_mean": 217.08231342513784,
+      "full_rhs_mean": 1006.5,
+      "n": 4,
+      "pose_metric_mean": 0.04024472446285478,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 4.627213114508777
+    },
+    "twofold::cont=1": {
+      "accepted_by_freq_mean": {
+        "0": 15.25,
+        "1": 7.25,
+        "3": 5.0
+      },
+      "accepted_reduced_total_mean": 15.25,
+      "alpha_rmse_mean": 0.034430941676970896,
+      "fallback_direct_mean": 0.0,
+      "final_loss_mean": 217.08231545299148,
+      "full_rhs_mean": 907.5,
+      "n": 4,
+      "pose_metric_mean": 0.04025580108272131,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 2.828983104249346
+    },
+    "twofold_task::cont=0": {
+      "accepted_by_freq_mean": {
+        "0": 6.5,
+        "1": 6.5,
+        "3": 6.5
+      },
+      "accepted_reduced_total_mean": 6.5,
+      "alpha_rmse_mean": 0.02928108404145719,
+      "fallback_direct_mean": 0.25,
+      "final_loss_mean": 213.41610511027986,
+      "full_rhs_mean": 792.0,
+      "n": 4,
+      "pose_metric_mean": 0.031447251689037864,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 3.1207330519828247
+    },
+    "twofold_task::cont=1": {
+      "accepted_by_freq_mean": {
+        "0": 15.25,
+        "1": 7.25,
+        "3": 5.0
+      },
+      "accepted_reduced_total_mean": 15.25,
+      "alpha_rmse_mean": 0.03442812978810271,
+      "fallback_direct_mean": 0.25,
+      "final_loss_mean": 217.08223466893375,
+      "full_rhs_mean": 1006.5,
+      "n": 4,
+      "pose_metric_mean": 0.040243835379787804,
+      "statuses": [
+        "no_improving_trial_and_fallback"
+      ],
+      "wall_mean": 4.193398875242565
+    }
+  },
+  "timestamp": "2026-09-07T12:29:47+08:00",
+  "total_wall_seconds": 200.78516270796536
+}

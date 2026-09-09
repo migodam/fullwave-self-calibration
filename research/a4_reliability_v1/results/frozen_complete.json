@@ -1,0 +1,14 @@
+{
+  "seconds": 10.794196942999974,
+  "source_manifest_sha256": "49b4d850eb7ca216813f1f93c522bafb9d0a919ac0189f56007803585ea9d8c9",
+  "branch_scenes": 24,
+  "branch_rows": 144,
+  "calibration_scenes": 8,
+  "calibration_rows": 72,
+  "environment": {
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "numpy": "2.3.5",
+    "threads": "1"
+  }
+}

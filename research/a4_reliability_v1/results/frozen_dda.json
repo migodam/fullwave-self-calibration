@@ -1,0 +1,2237 @@
+{
+  "kind": "independent analytic Mie vs in-house DDA for spheres; shape extensions NOT continuum-certified",
+  "rows": [
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.002433004100271905,
+      "profiled_singular_values": [
+        20.104255073987453,
+        19.612861551461773,
+        4.815692709803943
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 4.574407297184325e-16,
+      "setup_seconds": 0.0026525619999802075,
+      "solve_seconds": 0.0004572380000809062,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.018559832538898115
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.00017546678579073838,
+      "profiled_singular_values": [
+        4.209293987366067,
+        4.0659160585940395,
+        1.8309117318637955
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 4.574407297184325e-16,
+      "setup_seconds": 0.0026525619999802075,
+      "solve_seconds": 0.0004572380000809062,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.013092834652691376
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 123,
+      "pattern_residual": 0.008272072436760976,
+      "profiled_singular_values": [
+        20.173794379605088,
+        19.969672168757548,
+        4.734001720693023
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 5.247561712016468e-16,
+      "setup_seconds": 0.01235616700000719,
+      "solve_seconds": 0.0048692379999693,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.10237846514414861
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 123,
+      "pattern_residual": 0.0002656799930868384,
+      "profiled_singular_values": [
+        4.210318128879567,
+        4.068490897357996,
+        1.837291677032223
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 5.247561712016468e-16,
+      "setup_seconds": 0.01235616700000719,
+      "solve_seconds": 0.0048692379999693,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.08965703784028013
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.0024850878567419066,
+      "profiled_singular_values": [
+        14.571409142749621,
+        13.93319524644635,
+        6.515551589854148
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 4.844207989591513e-16,
+      "setup_seconds": 0.002315534999979718,
+      "solve_seconds": 0.0002724400000033711,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.020544123393858683
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.000755141332686651,
+      "profiled_singular_values": [
+        3.6082069835545125,
+        3.1583206927574574,
+        0.6249538600752063
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 4.844207989591513e-16,
+      "setup_seconds": 0.002315534999979718,
+      "solve_seconds": 0.0002724400000033711,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.01926880242858175
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 123,
+      "pattern_residual": 0.006077699085623388,
+      "profiled_singular_values": [
+        14.646083580584992,
+        14.29989834178652,
+        6.361355530268268
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 5.528095457058091e-16,
+      "setup_seconds": 0.01121884399992723,
+      "solve_seconds": 0.0043996309999556615,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.08042429679398243
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 123,
+      "pattern_residual": 0.0009172602917399277,
+      "profiled_singular_values": [
+        3.6026482189343882,
+        3.1729902341995526,
+        0.6168690892071362
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 5.528095457058091e-16,
+      "setup_seconds": 0.01121884399992723,
+      "solve_seconds": 0.0043996309999556615,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.07787883473786099
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.007368602664146471,
+      "profiled_singular_values": [
+        12.46049098653546,
+        11.071946831840343,
+        3.888026959396422
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 4.864981711279677e-16,
+      "setup_seconds": 0.002578459999995175,
+      "solve_seconds": 0.0002439770000819408,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.038323390381073616
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.005707856550105999,
+      "profiled_singular_values": [
+        3.588315760490453,
+        2.9996160691961764,
+        0.3298119612041719
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 4.864981711279677e-16,
+      "setup_seconds": 0.002578459999995175,
+      "solve_seconds": 0.0002439770000819408,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.04185815008440955
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 123,
+      "pattern_residual": 0.010027014226173109,
+      "profiled_singular_values": [
+        12.439963182540463,
+        11.401648326388589,
+        3.947011484868077
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 5.652855478631763e-16,
+      "setup_seconds": 0.010201823999977933,
+      "solve_seconds": 0.0048452429999770175,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.02407657032033736
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 123,
+      "pattern_residual": 0.0052808321644573315,
+      "profiled_singular_values": [
+        3.5289380621458903,
+        3.0740769133970263,
+        0.3245828228310973
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 5.652855478631763e-16,
+      "setup_seconds": 0.010201823999977933,
+      "solve_seconds": 0.0048452429999770175,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.027852198667747012
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.011537160764560052,
+      "profiled_singular_values": [
+        20.02894409062282,
+        19.76557732518325,
+        4.787550801250147
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 5.713205306387974e-16,
+      "setup_seconds": 0.0019717769999942902,
+      "solve_seconds": 0.00025272000004861184,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.036635134239661846
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.0010302863900065098,
+      "profiled_singular_values": [
+        4.207925913691988,
+        4.070667227394511,
+        1.8301788932693503
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 5.713205306387974e-16,
+      "setup_seconds": 0.0019717769999942902,
+      "solve_seconds": 0.00025272000004861184,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.046861993759467445
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 123,
+      "pattern_residual": 0.01868297917629973,
+      "profiled_singular_values": [
+        20.08785996444167,
+        20.00156214729454,
+        4.723503994454771
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 6.267509100758694e-16,
+      "setup_seconds": 0.010159821999991436,
+      "solve_seconds": 0.004350417000068774,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.17148787466561297
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 123,
+      "pattern_residual": 0.0007717951781273793,
+      "profiled_singular_values": [
+        4.211059812772355,
+        4.06876152950826,
+        1.8781606338667054
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 6.267509100758694e-16,
+      "setup_seconds": 0.010159821999991436,
+      "solve_seconds": 0.004350417000068774,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.15022109429166383
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.011477637868151844,
+      "profiled_singular_values": [
+        14.471284878650058,
+        14.260167027379357,
+        6.010906310537109
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 4.90592231034113e-16,
+      "setup_seconds": 0.0018379470000127185,
+      "solve_seconds": 0.0002695160000030228,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.02116102730281411
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.004108658758885648,
+      "profiled_singular_values": [
+        3.6187125759359637,
+        3.1670968191150264,
+        0.6192326508589804
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 4.90592231034113e-16,
+      "setup_seconds": 0.0018379470000127185,
+      "solve_seconds": 0.0002695160000030228,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.016500050365545426
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 123,
+      "pattern_residual": 0.010768950673453076,
+      "profiled_singular_values": [
+        14.658998739678502,
+        14.007833113476913,
+        5.274199080262351
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 8.548581748287174e-16,
+      "setup_seconds": 0.01023325100004513,
+      "solve_seconds": 0.004661896000015986,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.1391845655959128
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 123,
+      "pattern_residual": 0.002074171702132727,
+      "profiled_singular_values": [
+        3.599335229649142,
+        3.0581109783640246,
+        0.6267862390045696
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 8.548581748287174e-16,
+      "setup_seconds": 0.01023325100004513,
+      "solve_seconds": 0.004661896000015986,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.13877929825293797
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.05329506530939612,
+      "profiled_singular_values": [
+        12.706967872633571,
+        11.80347522034976,
+        3.4521136094292975
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 4.946749861110215e-16,
+      "setup_seconds": 0.0018932990000166683,
+      "solve_seconds": 0.000280230999919695,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 1.0908132536002537
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.03751572118787825,
+      "profiled_singular_values": [
+        3.78275730521819,
+        3.0276854891427325,
+        0.3533657508702766
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 4.946749861110215e-16,
+      "setup_seconds": 0.0018932990000166683,
+      "solve_seconds": 0.000280230999919695,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 1.0801010979085193
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 123,
+      "pattern_residual": 0.012429479403905675,
+      "profiled_singular_values": [
+        12.444356523237856,
+        11.500368634135617,
+        3.6948143847701016
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 8.5361154431361035e-16,
+      "setup_seconds": 0.010693604000039159,
+      "solve_seconds": 0.005099765000068146,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.8521845092920645
+    },
+    {
+      "shape": "sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 123,
+      "pattern_residual": 0.006887463886544683,
+      "profiled_singular_values": [
+        3.5854551017148912,
+        2.961164341832441,
+        0.3299094911468741
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 8.5361154431361035e-16,
+      "setup_seconds": 0.010693604000039159,
+      "solve_seconds": 0.005099765000068146,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h",
+      "mie_relative_field_error": 0.8441209408976041
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 31,
+      "pattern_residual": 0.03467703855996208,
+      "profiled_singular_values": [
+        19.64552763622211,
+        18.948479356063544,
+        4.878843269370993
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 3.9832815688891037e-16,
+      "setup_seconds": 0.002644460000055915,
+      "solve_seconds": 0.00028002199996990385,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 31,
+      "pattern_residual": 0.014685559730647812,
+      "profiled_singular_values": [
+        4.208016154144847,
+        4.184279924165813,
+        2.0310684319036136
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 3.9832815688891037e-16,
+      "setup_seconds": 0.002644460000055915,
+      "solve_seconds": 0.00028002199996990385,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 105,
+      "pattern_residual": 0.024716075199228447,
+      "profiled_singular_values": [
+        19.70305329160248,
+        18.659510838052185,
+        4.844593335754496
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 4.893069156553728e-16,
+      "setup_seconds": 0.009285335999948074,
+      "solve_seconds": 0.0034289509999325674,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 105,
+      "pattern_residual": 0.00899480760307616,
+      "profiled_singular_values": [
+        4.207665210472357,
+        4.194486049053196,
+        2.0380632993836825
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 4.893069156553728e-16,
+      "setup_seconds": 0.009285335999948074,
+      "solve_seconds": 0.0034289509999325674,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 31,
+      "pattern_residual": 0.029926733664007533,
+      "profiled_singular_values": [
+        14.533737984834588,
+        14.326931034142923,
+        7.544407467138846
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 5.473108832209655e-16,
+      "setup_seconds": 0.0019757930000423585,
+      "solve_seconds": 0.00023993199999949866,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 31,
+      "pattern_residual": 0.01751228615138584,
+      "profiled_singular_values": [
+        3.5983238699524143,
+        3.014304056623389,
+        0.6883163254102724
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 5.473108832209655e-16,
+      "setup_seconds": 0.0019757930000423585,
+      "solve_seconds": 0.00023993199999949866,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 105,
+      "pattern_residual": 0.020435872740018058,
+      "profiled_singular_values": [
+        14.401714741526916,
+        14.341247307849981,
+        7.422267086012156
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 4.971624688375431e-16,
+      "setup_seconds": 0.00839068799996312,
+      "solve_seconds": 0.0029695690000153263,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 105,
+      "pattern_residual": 0.011318245371635364,
+      "profiled_singular_values": [
+        3.5970887766762907,
+        3.056236683398303,
+        0.6896598387881139
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 4.971624688375431e-16,
+      "setup_seconds": 0.00839068799996312,
+      "solve_seconds": 0.0029695690000153263,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 31,
+      "pattern_residual": 0.03428080239750627,
+      "profiled_singular_values": [
+        12.381001934904798,
+        10.445249606702916,
+        3.6942469625851047
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 3.6474908966729774e-16,
+      "setup_seconds": 0.001998358000037115,
+      "solve_seconds": 0.0002653700000792014,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 31,
+      "pattern_residual": 0.017297302053801516,
+      "profiled_singular_values": [
+        3.579974946947879,
+        3.110240025312528,
+        0.3439808702583869
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 3.6474908966729774e-16,
+      "setup_seconds": 0.001998358000037115,
+      "solve_seconds": 0.0002653700000792014,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 105,
+      "pattern_residual": 0.023215400219324764,
+      "profiled_singular_values": [
+        12.297309207933523,
+        11.222042108568324,
+        3.9268213368874063
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 4.57793448192656e-16,
+      "setup_seconds": 0.009996975999911228,
+      "solve_seconds": 0.003061808000097699,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 105,
+      "pattern_residual": 0.014172365352083261,
+      "profiled_singular_values": [
+        3.5451180534117115,
+        3.325434258995979,
+        0.3438671375422036
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 4.57793448192656e-16,
+      "setup_seconds": 0.009996975999911228,
+      "solve_seconds": 0.003061808000097699,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 31,
+      "pattern_residual": 0.06520760212165456,
+      "profiled_singular_values": [
+        20.10234646139173,
+        19.25401796004625,
+        4.837429586440614
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 4.0661992549526473e-16,
+      "setup_seconds": 0.001968142999999145,
+      "solve_seconds": 0.0002782090000437165,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 31,
+      "pattern_residual": 0.06661542584440745,
+      "profiled_singular_values": [
+        4.2356311812850675,
+        4.095111815467305,
+        1.9965602173922457
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 4.0661992549526473e-16,
+      "setup_seconds": 0.001968142999999145,
+      "solve_seconds": 0.0002782090000437165,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 105,
+      "pattern_residual": 0.04614127622516648,
+      "profiled_singular_values": [
+        19.965124535947435,
+        18.732916181615174,
+        4.882759704614292
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 5.89444951300219e-16,
+      "setup_seconds": 0.008163016000025891,
+      "solve_seconds": 0.0031959299999471114,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 105,
+      "pattern_residual": 0.043492181330294775,
+      "profiled_singular_values": [
+        4.224215988885212,
+        4.1386050635205685,
+        2.0180304209339766
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 5.89444951300219e-16,
+      "setup_seconds": 0.008163016000025891,
+      "solve_seconds": 0.0031959299999471114,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 31,
+      "pattern_residual": 0.10113242169637808,
+      "profiled_singular_values": [
+        14.518228318143128,
+        13.282118345195345,
+        7.5786735722804535
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 5.381515553730604e-16,
+      "setup_seconds": 0.0041162060000488054,
+      "solve_seconds": 0.0010576019999462005,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 31,
+      "pattern_residual": 0.0814597628774075,
+      "profiled_singular_values": [
+        3.598504556084865,
+        2.8381314039685046,
+        0.6672486239899252
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 5.381515553730604e-16,
+      "setup_seconds": 0.0041162060000488054,
+      "solve_seconds": 0.0010576019999462005,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 105,
+      "pattern_residual": 0.0662291371010528,
+      "profiled_singular_values": [
+        14.41518547590231,
+        13.358330076954683,
+        7.403072612081431
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 7.055224028263697e-16,
+      "setup_seconds": 0.008798010999953476,
+      "solve_seconds": 0.0031197060000067722,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 105,
+      "pattern_residual": 0.05317757050528113,
+      "profiled_singular_values": [
+        3.5868210996842627,
+        2.8953561203910887,
+        0.6782532687650207
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 7.055224028263697e-16,
+      "setup_seconds": 0.008798010999953476,
+      "solve_seconds": 0.0031197060000067722,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 31,
+      "pattern_residual": 0.06878611659745072,
+      "profiled_singular_values": [
+        12.909894769926595,
+        11.061538862047234,
+        3.5839881160818936
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 5.083694674847709e-16,
+      "setup_seconds": 0.0018878509999922244,
+      "solve_seconds": 0.0002430360000289511,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 31,
+      "pattern_residual": 0.05282208000643879,
+      "profiled_singular_values": [
+        3.766247910005813,
+        3.5309314011352964,
+        0.35814553654121867
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 5.083694674847709e-16,
+      "setup_seconds": 0.0018878509999922244,
+      "solve_seconds": 0.0002430360000289511,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 105,
+      "pattern_residual": 0.0380319234930534,
+      "profiled_singular_values": [
+        12.71387479441406,
+        11.097199226887318,
+        3.6576777312925834
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 7.678647633646178e-16,
+      "setup_seconds": 0.009591635999981918,
+      "solve_seconds": 0.0030489990000432954,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "near_sphere",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 105,
+      "pattern_residual": 0.033509920903330666,
+      "profiled_singular_values": [
+        3.7088525596246553,
+        2.862853054888467,
+        0.35043206817092903
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 7.678647633646178e-16,
+      "setup_seconds": 0.009591635999981918,
+      "solve_seconds": 0.0030489990000432954,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.06886639957830654,
+      "profiled_singular_values": [
+        20.471815690213266,
+        17.198461240634852,
+        4.9017926575267525
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 4.745764340844465e-16,
+      "setup_seconds": 0.001967971999988549,
+      "solve_seconds": 0.000259120000009716,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.03169602482533268,
+      "profiled_singular_values": [
+        4.219110731856118,
+        4.165339685982805,
+        2.093809292011128
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 4.745764340844465e-16,
+      "setup_seconds": 0.001967971999988549,
+      "solve_seconds": 0.000259120000009716,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 93,
+      "pattern_residual": 0.11280931532635706,
+      "profiled_singular_values": [
+        20.254914990886064,
+        16.493698328427104,
+        4.904787171747545
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 4.557948593694322e-16,
+      "setup_seconds": 0.00785479099999975,
+      "solve_seconds": 0.00230138300003091,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 93,
+      "pattern_residual": 0.04720106077176314,
+      "profiled_singular_values": [
+        4.221024594685223,
+        4.140812657971308,
+        2.0862752287761883
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 4.557948593694322e-16,
+      "setup_seconds": 0.00785479099999975,
+      "solve_seconds": 0.00230138300003091,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.0612200531890741,
+      "profiled_singular_values": [
+        14.5636814258647,
+        14.024941131517853,
+        7.511893178107372
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 4.912745204218458e-16,
+      "setup_seconds": 0.0020576570000230276,
+      "solve_seconds": 0.0002672119999260758,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.04214475474421303,
+      "profiled_singular_values": [
+        3.5418607640234057,
+        3.1664823265203226,
+        0.6961730827331591
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 4.912745204218458e-16,
+      "setup_seconds": 0.0020576570000230276,
+      "solve_seconds": 0.0002672119999260758,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 93,
+      "pattern_residual": 0.09795904821582661,
+      "profiled_singular_values": [
+        14.260050255674539,
+        13.370258796261203,
+        7.066025377079545
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 4.881446403319072e-16,
+      "setup_seconds": 0.0073650540000471665,
+      "solve_seconds": 0.0022070420000090962,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 93,
+      "pattern_residual": 0.06341560329179374,
+      "profiled_singular_values": [
+        3.5208611933420118,
+        3.14630254947371,
+        0.6922860199158595
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 4.881446403319072e-16,
+      "setup_seconds": 0.0073650540000471665,
+      "solve_seconds": 0.0022070420000090962,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.0781602468772139,
+      "profiled_singular_values": [
+        12.14969594826154,
+        11.203524974714837,
+        3.8029825702044335
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 4.457757481047387e-16,
+      "setup_seconds": 0.002051005999987865,
+      "solve_seconds": 0.0002755340000248907,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.05348427885326288,
+      "profiled_singular_values": [
+        3.4625761096265664,
+        3.391131962656716,
+        0.35220891917799746
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 4.457757481047387e-16,
+      "setup_seconds": 0.002051005999987865,
+      "solve_seconds": 0.0002755340000248907,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 93,
+      "pattern_residual": 0.12456069006018226,
+      "profiled_singular_values": [
+        11.848074177500429,
+        10.5218284509479,
+        3.7524113278839075
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 4.4148365085563306e-16,
+      "setup_seconds": 0.00933955599998626,
+      "solve_seconds": 0.002142363999951158,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 93,
+      "pattern_residual": 0.08177511846067505,
+      "profiled_singular_values": [
+        3.481020116495773,
+        3.183927720996483,
+        0.3579530952271876
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 4.4148365085563306e-16,
+      "setup_seconds": 0.00933955599998626,
+      "solve_seconds": 0.002142363999951158,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.11755613453256959,
+      "profiled_singular_values": [
+        20.0135979466468,
+        18.446846671694733,
+        4.9879897737483105
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 5.019102622923454e-16,
+      "setup_seconds": 0.0043533519999527925,
+      "solve_seconds": 0.0002807519999805663,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.13814784169175198,
+      "profiled_singular_values": [
+        4.314374233989732,
+        3.9718913537596876,
+        2.032880671880111
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 5.019102622923454e-16,
+      "setup_seconds": 0.0043533519999527925,
+      "solve_seconds": 0.0002807519999805663,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 93,
+      "pattern_residual": 0.18975434087963214,
+      "profiled_singular_values": [
+        19.516768254128234,
+        17.66851151310344,
+        5.099193294908623
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 5.808796138692149e-16,
+      "setup_seconds": 0.007267867999985356,
+      "solve_seconds": 0.00266412999997101,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 93,
+      "pattern_residual": 0.2060986222365196,
+      "profiled_singular_values": [
+        4.356863162584234,
+        3.8374017175773405,
+        1.960108235163599
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 5.808796138692149e-16,
+      "setup_seconds": 0.007267867999985356,
+      "solve_seconds": 0.00266412999997101,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.20256341007538733,
+      "profiled_singular_values": [
+        13.547448377965434,
+        13.430293607753068,
+        7.427435819275365
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 5.4608084702985915e-16,
+      "setup_seconds": 0.0024651999999605323,
+      "solve_seconds": 0.00027885999998034094,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.18820756114081108,
+      "profiled_singular_values": [
+        3.295104559497507,
+        3.2086758509222038,
+        0.6751205061569131
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 5.4608084702985915e-16,
+      "setup_seconds": 0.0024651999999605323,
+      "solve_seconds": 0.00027885999998034094,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 93,
+      "pattern_residual": 0.30625101380983577,
+      "profiled_singular_values": [
+        13.32074613977104,
+        12.605611400905008,
+        6.47771723692187
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 7.270165860377456e-16,
+      "setup_seconds": 0.00835688699999082,
+      "solve_seconds": 0.0033169719999932568,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 93,
+      "pattern_residual": 0.2749722210215541,
+      "profiled_singular_values": [
+        3.270000882521655,
+        3.0542318489938354,
+        0.6582804516364984
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 7.270165860377456e-16,
+      "setup_seconds": 0.00835688699999082,
+      "solve_seconds": 0.0033169719999932568,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 33,
+      "pattern_residual": 0.1255073208915279,
+      "profiled_singular_values": [
+        14.040558615190005,
+        11.462262342772403,
+        3.752380137303454
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 5.448432308024284e-16,
+      "setup_seconds": 0.002282675000060408,
+      "solve_seconds": 0.0002509979999558709,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 33,
+      "pattern_residual": 0.10188598300409751,
+      "profiled_singular_values": [
+        4.140104558138048,
+        3.274988440947042,
+        0.3709285060615609
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 5.448432308024284e-16,
+      "setup_seconds": 0.002282675000060408,
+      "solve_seconds": 0.0002509979999558709,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 93,
+      "pattern_residual": 0.16958397820146065,
+      "profiled_singular_values": [
+        13.84147197128544,
+        10.685816206957123,
+        3.583975744294488
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 6.871315199908792e-16,
+      "setup_seconds": 0.008184378999999353,
+      "solve_seconds": 0.002242686000045069,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "ellipsoid",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 93,
+      "pattern_residual": 0.14921774361298729,
+      "profiled_singular_values": [
+        4.492171202541835,
+        3.130876687593085,
+        0.38544980997706113
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 6.871315199908792e-16,
+      "setup_seconds": 0.008184378999999353,
+      "solve_seconds": 0.002242686000045069,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 45,
+      "pattern_residual": 0.1683810210257057,
+      "profiled_singular_values": [
+        21.73474175936825,
+        17.35561849128238,
+        4.956259675992375
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 3.8120364267367586e-16,
+      "setup_seconds": 0.0034265470000036657,
+      "solve_seconds": 0.00048510999999962223,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 45,
+      "pattern_residual": 0.039360574054490095,
+      "profiled_singular_values": [
+        4.224686867664408,
+        4.163369181639488,
+        2.1298056418068616
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 3.8120364267367586e-16,
+      "setup_seconds": 0.0034265470000036657,
+      "solve_seconds": 0.00048510999999962223,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 175,
+      "pattern_residual": 0.12857380458458767,
+      "profiled_singular_values": [
+        21.559892546587296,
+        18.81848835578592,
+        4.929474452158273
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 4.699183959124543e-16,
+      "setup_seconds": 0.036083067000049596,
+      "solve_seconds": 0.012711040999988654,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 175,
+      "pattern_residual": 0.026104660018875143,
+      "profiled_singular_values": [
+        4.220728168110917,
+        4.1805861399749915,
+        2.138169358372926
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 4.699183959124543e-16,
+      "setup_seconds": 0.036083067000049596,
+      "solve_seconds": 0.012711040999988654,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 45,
+      "pattern_residual": 0.11603611353115993,
+      "profiled_singular_values": [
+        15.112557411365675,
+        13.679896099063749,
+        7.877672474117096
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 3.388825814059619e-16,
+      "setup_seconds": 0.003058994000070925,
+      "solve_seconds": 0.000458790000038789,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 45,
+      "pattern_residual": 0.06586248858714996,
+      "profiled_singular_values": [
+        3.5041460501296675,
+        3.283684018441643,
+        0.6994004956169573
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 3.388825814059619e-16,
+      "setup_seconds": 0.003058994000070925,
+      "solve_seconds": 0.000458790000038789,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 175,
+      "pattern_residual": 0.08444445250555145,
+      "profiled_singular_values": [
+        15.212030337152992,
+        14.332854604909942,
+        8.219787041914739
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 4.813167377657144e-16,
+      "setup_seconds": 0.017401619999986906,
+      "solve_seconds": 0.01232227499997407,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 175,
+      "pattern_residual": 0.044035299366261306,
+      "profiled_singular_values": [
+        3.53258545182691,
+        3.2815817259274054,
+        0.6981587657838655
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 4.813167377657144e-16,
+      "setup_seconds": 0.017401619999986906,
+      "solve_seconds": 0.01232227499997407,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 45,
+      "pattern_residual": 0.132154272640237,
+      "profiled_singular_values": [
+        12.097816229112162,
+        11.869447359847165,
+        3.9537382427066863
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 3.6103105418404417e-16,
+      "setup_seconds": 0.005488340000056269,
+      "solve_seconds": 0.00046707299998161034,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 45,
+      "pattern_residual": 0.09660981842892959,
+      "profiled_singular_values": [
+        3.654237230391372,
+        3.2837441129230576,
+        0.34940298961072125
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 3.6103105418404417e-16,
+      "setup_seconds": 0.005488340000056269,
+      "solve_seconds": 0.00046707299998161034,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 175,
+      "pattern_residual": 0.088007308931982,
+      "profiled_singular_values": [
+        12.273641393461787,
+        11.979431686983313,
+        4.07593207652873
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 4.479847494481217e-16,
+      "setup_seconds": 0.017027466999934404,
+      "solve_seconds": 0.01178606899998158,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        1.5,
+        0.02
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 175,
+      "pattern_residual": 0.06701996642008928,
+      "profiled_singular_values": [
+        3.558848344433208,
+        3.318218870174385,
+        0.33506701312397535
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 4.479847494481217e-16,
+      "setup_seconds": 0.017027466999934404,
+      "solve_seconds": 0.01178606899998158,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 45,
+      "pattern_residual": 0.20670051566736597,
+      "profiled_singular_values": [
+        20.57894417110363,
+        18.455410678900996,
+        4.9122769458595075
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 4.844427015554042e-16,
+      "setup_seconds": 0.0026466430000482433,
+      "solve_seconds": 0.00046063299998877483,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 45,
+      "pattern_residual": 0.1858373041257823,
+      "profiled_singular_values": [
+        4.3898412156066255,
+        3.8746500116930966,
+        2.0465784267897735
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 4.844427015554042e-16,
+      "setup_seconds": 0.0026466430000482433,
+      "solve_seconds": 0.00046063299998877483,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 175,
+      "pattern_residual": 0.16536665497527653,
+      "profiled_singular_values": [
+        20.86248083325044,
+        19.496501416253494,
+        4.797278048530155
+      ],
+      "sphere_formula_min": 4.849476789495305,
+      "nuisance_rank": 3,
+      "linear_residual": 6.748888846168655e-16,
+      "setup_seconds": 0.023562853999919753,
+      "solve_seconds": 0.012267623999946409,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 6.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 175,
+      "pattern_residual": 0.12137312247587465,
+      "profiled_singular_values": [
+        4.3387921406283985,
+        4.002118494313593,
+        2.1079111665381673
+      ],
+      "sphere_formula_min": 2.145427403247793,
+      "nuisance_rank": 3,
+      "linear_residual": 6.748888846168655e-16,
+      "setup_seconds": 0.023562853999919753,
+      "solve_seconds": 0.012267623999946409,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 45,
+      "pattern_residual": 0.31230281374783747,
+      "profiled_singular_values": [
+        13.588947373889185,
+        13.400756557737047,
+        7.691647104668351
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 6.192669353179164e-16,
+      "setup_seconds": 0.0028357080000205315,
+      "solve_seconds": 0.0004893359999869062,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 45,
+      "pattern_residual": 0.28099489322214977,
+      "profiled_singular_values": [
+        3.4479501131553394,
+        3.13998564847896,
+        0.6797812791340034
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 6.192669353179164e-16,
+      "setup_seconds": 0.0028357080000205315,
+      "solve_seconds": 0.0004893359999869062,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 175,
+      "pattern_residual": 0.21733068251193602,
+      "profiled_singular_values": [
+        14.424056555081807,
+        13.767757821293737,
+        8.488002671934673
+      ],
+      "sphere_formula_min": 7.7770482585069765,
+      "nuisance_rank": 3,
+      "linear_residual": 8.878964065247166e-16,
+      "setup_seconds": 0.01847318299996914,
+      "solve_seconds": 0.011481930999934775,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 18.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 175,
+      "pattern_residual": 0.18763221864627394,
+      "profiled_singular_values": [
+        3.517697247360573,
+        3.3009720117920054,
+        0.6844096280525758
+      ],
+      "sphere_formula_min": 0.7063249072776842,
+      "nuisance_rank": 3,
+      "linear_residual": 8.878964065247166e-16,
+      "setup_seconds": 0.01847318299996914,
+      "solve_seconds": 0.011481930999934775,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.12,
+      "n_cells": 45,
+      "pattern_residual": 0.3778287518220179,
+      "profiled_singular_values": [
+        19.448916461135962,
+        9.565174628792372,
+        3.606397952150284
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 6.01201495489113e-16,
+      "setup_seconds": 0.0028029179999293774,
+      "solve_seconds": 0.0005437979999669551,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.025,
+      "R": 0.4,
+      "n_cells": 45,
+      "pattern_residual": 0.3346879815865698,
+      "profiled_singular_values": [
+        4.485581515058848,
+        2.8945192605718963,
+        0.3592591815610917
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 6.01201495489113e-16,
+      "setup_seconds": 0.0028029179999293774,
+      "solve_seconds": 0.0005437979999669551,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.12,
+      "n_cells": 175,
+      "pattern_residual": 0.3977244985107043,
+      "profiled_singular_values": [
+        13.58166350353181,
+        9.275634035577294,
+        3.075890796708039
+      ],
+      "sphere_formula_min": 4.002478522933383,
+      "nuisance_rank": 3,
+      "linear_residual": 9.892073347363284e-16,
+      "setup_seconds": 0.017221047999896655,
+      "solve_seconds": 0.011143231999994896,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    },
+    {
+      "shape": "box",
+      "epsilon": [
+        6.0,
+        0.1
+      ],
+      "k": 36.0,
+      "h": 0.016666666666666666,
+      "R": 0.4,
+      "n_cells": 175,
+      "pattern_residual": 0.374691739940132,
+      "profiled_singular_values": [
+        3.931915719362315,
+        3.0974246819901086,
+        0.3119550754705439
+      ],
+      "sphere_formula_min": 0.3488485332265777,
+      "nuisance_rank": 3,
+      "linear_residual": 9.892073347363284e-16,
+      "setup_seconds": 0.017221047999896655,
+      "solve_seconds": 0.011143231999994896,
+      "cost_scope": "same state reused at two receivers; setup/solve repeated in rows, count once per shape/eps/k/h"
+    }
+  ]
+}

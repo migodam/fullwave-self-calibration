@@ -1,0 +1,1653 @@
+{
+  "schema": "family4c_trajectory_control",
+  "generated_utc": "2026-09-03T11:28:11.011143+00:00",
+  "runner": "src/family4c_trajectory_control.py",
+  "command": ".venv/bin/python src/family4c_trajectory_control.py",
+  "family": "4c",
+  "title": "same-standoff per-pose-energy-normalized trajectory control",
+  "normalization_rule": "for pose t, let block_t be its full realified row block (both Re and Im slices, 2*n_rx rows in A_pix_R/B_R; whiten_realify stacks sqrt(2)*[Re; Im]); n_t = ||A_pix_R[block_t]||_F; scale A_pix_R and B_R block rows by the SAME scalar 1/n_t; then A_s_norm = A_pix_R_norm @ S and B_R_norm = B_R.  Each pose's total A-block energy is normalized to 1 and standoff/signal-strength scaling is removed.",
+  "pose_block_row_rule": "whiten_realify stacks 2*T*n_rx rows as [Re(A_hat) (T*n_rx); Im(A_hat) (T*n_rx)] with complex rows grouped by pose; pose t block rows = pose_block_indices(T,n_rx,t) = concat(arange(t*n_rx,(t+1)*n_rx), arange(T*n_rx+t*n_rx,T*n_rx+(t+1)*n_rx)), matching src/family4_parent_controls.py. A contiguous slice(t*n_rx,(t+1)*n_rx) alone would cover only the real-half rows and was therefore not used.",
+  "runtime_seconds": 0.14714754199667368,
+  "platform": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.1"
+  },
+  "source_sha256": {
+    "src/helmholtz.py": "ee3b4ac45ad296dba533a8ccefd107a6cc53e4357b7a768d07f7db90f3ee6585",
+    "src/family1_pilot.py": "762af3bdd33af1ab80563c7257b3805e7972f786fa88af1bf5e1b51a768526d7",
+    "src/family2_algebraic_spine.py": "173d2b5d9f66be274c9a8422f4ac2c381bb91a60132b37c734748414cf3eb235",
+    "src/family4_frequency_trajectory.py": "ee7cac8b6233bcb0dbbb215df02452746dabf50774760910be5b16a0c0a40242",
+    "src/family4c_trajectory_control.py": "3a5c71eae7f2cf66c7094c321a6e9998760d16e937e4b1caee206978772445bb"
+  },
+  "reference_sha256": {
+    "results/family4_results.json": "c05c77a1402dab3b291c2e2ee3eda3ad9e2ef886fe05e4a7961d4dadd56c8b97"
+  },
+  "config": {
+    "N": 16,
+    "T": 6,
+    "n_rx": 4,
+    "f": 1.0,
+    "k_b": 6.283185307179586,
+    "arc_radius_R": 1.6,
+    "straight_mid_standoff": 1.6,
+    "chi_blobs": {
+      "amp1": 0.3,
+      "amp2": 0.5,
+      "sigma1": 0.09,
+      "sigma2": 0.07,
+      "c1": [
+        -0.15,
+        -0.12
+      ],
+      "c2": [
+        0.18,
+        0.14
+      ]
+    },
+    "smooth_basis": {
+      "p": 24,
+      "x_centers_n": 4,
+      "y_centers_n": 6,
+      "x_span": [
+        -0.3,
+        0.3
+      ],
+      "y_span": [
+        -0.3,
+        0.3
+      ],
+      "sigma_b": 0.16,
+      "unit_columns": true,
+      "note": "identical construction/config to family2/3/4"
+    },
+    "trajectories": {
+      "names": [
+        "straight_same_mid",
+        "arc90_same_standoff",
+        "arc180_same_standoff",
+        "arc270_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "builders": {
+        "straight_same_mid": "line p=(x, 1.6), x=linspace(-L/2, L/2, T), L=pi*1.6 (varying standoff; midpoint standoff 1.6)",
+        "arc90_same_standoff": "R=1.6, phi=linspace(-45, 45, T) degrees",
+        "arc180_same_standoff": "R=1.6, phi=linspace(-90, 90, T) degrees",
+        "arc270_same_standoff": "R=1.6, phi=linspace(-135, 135, T) degrees",
+        "circle360_same_standoff": "R=1.6, phi=linspace(0, 360, T, endpoint=False) degrees"
+      },
+      "core_hypothesis_retained": [
+        "circle360_same_standoff",
+        "arc180_same_standoff",
+        "arc90_same_standoff",
+        "straight_same_mid"
+      ],
+      "core_names": [
+        "straight_same_mid",
+        "arc90_same_standoff",
+        "arc180_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "hypothesis_rule": "normalized retained_mass circle360 > arc180 > arc90 > straight and normalized confusable_mass circle360 < arc180 < arc90 < straight on {straight, arc90, arc180, circle360}; violations recorded as hypothesis_holds_for_four_core=false (no forced pass)"
+    },
+    "rank_tol_rule": "tol(M) = max(M.shape) * eps_machine * sigma_1(M)",
+    "grid_h_cell": 0.0625,
+    "chi0_stats": {
+      "min": 8.972631644760144e-15,
+      "max": 0.4594929148736014,
+      "mean": 0.030661237224785164,
+      "l2": 1.2542541242210927
+    }
+  },
+  "family4_raw_reference": {
+    "observed_retained_order": [
+      "arc90",
+      "straight",
+      "circle360",
+      "arc180"
+    ],
+    "hypothesis_holds": false,
+    "rows": [
+      {
+        "trajectory": "straight",
+        "path_length": 5.026548245743669,
+        "T": 6,
+        "continuous_design_length": 5.026548245743669,
+        "open_polyline_length_through_poses": 5.026548245743669,
+        "closed_polyline_length_if_closure_counted": 10.053096491487338,
+        "closure_counted_for_circle360": false,
+        "min_target_range": 1.6770992435356615,
+        "max_target_range": 2.9793534225897385,
+        "r_A": 24,
+        "r_B": 18,
+        "confusable_mass": 15.646483135916393,
+        "retained_mass": 8.353516864083607,
+        "theta_min_deg": 9.887568779190853e-05,
+        "log_volume": -204.06014488003174,
+        "count_near_null_rho_lt_1e-6": 6,
+        "rho_min": 2.97806224125452e-12,
+        "cos2_desc": [
+          0.9999999999970219,
+          0.999999999987766,
+          0.9999999999511127,
+          0.9999999991394379,
+          0.9999999961194386,
+          0.9999999677998632,
+          0.9999987551267082,
+          0.9999969263550016,
+          0.9999908662082146,
+          0.9999529600789824,
+          0.9991499942198409,
+          0.9975797006754165,
+          0.9947147528792935,
+          0.9024786162798899,
+          0.7329430765878094,
+          0.5148463206501575,
+          0.3369136134751179,
+          0.1679175903853184
+        ],
+        "A_smooth_norms": {
+          "frobenius": 0.023901044314212964,
+          "spectral_2": 0.013802531094421241,
+          "row_norm_mean": 0.003362664971089097,
+          "row_norm_max": 0.004933240076821914
+        },
+        "B_R_norms": {
+          "frobenius": 0.14819647719574672,
+          "spectral_2": 0.07323081414637238,
+          "row_norm_mean": 0.019010766949393826,
+          "row_norm_max": 0.03555007930204649
+        },
+        "poses": [
+          [
+            -2.5132741228718345,
+            1.6,
+            -0.5669115049410095
+          ],
+          [
+            -1.5079644737231006,
+            1.6,
+            -0.8150023106355891
+          ],
+          [
+            -0.5026548245743667,
+            1.6,
+            -1.2664005294302816
+          ],
+          [
+            0.5026548245743672,
+            1.6,
+            -1.8751921241595118
+          ],
+          [
+            1.507964473723101,
+            1.6,
+            -2.326590342954204
+          ],
+          [
+            2.5132741228718345,
+            1.6,
+            -2.574681148648784
+          ]
+        ]
+      },
+      {
+        "trajectory": "arc90",
+        "path_length": 5.026548245743669,
+        "T": 6,
+        "continuous_design_length": 5.026548245743669,
+        "open_polyline_length_through_poses": 5.005902881287389,
+        "closed_polyline_length_if_closure_counted": 9.531386280881293,
+        "closure_counted_for_circle360": false,
+        "min_target_range": 3.2,
+        "max_target_range": 3.2,
+        "r_A": 24,
+        "r_B": 18,
+        "confusable_mass": 14.961218997950835,
+        "retained_mass": 9.038781002049165,
+        "theta_min_deg": 2.5613209387548028e-05,
+        "log_volume": -220.43781647935242,
+        "count_near_null_rho_lt_1e-6": 7,
+        "rho_min": 1.9984014443252818e-13,
+        "cos2_desc": [
+          0.9999999999998002,
+          0.9999999999996847,
+          0.9999999999958182,
+          0.9999999999754834,
+          0.9999999998047817,
+          0.9999999951262706,
+          0.9999990263659463,
+          0.9999943168181582,
+          0.9999423473813044,
+          0.9998282327710554,
+          0.9994261015573175,
+          0.9986966830906755,
+          0.9979637592099391,
+          0.9869753740279499,
+          0.5421135049176925,
+          0.3158790246495575,
+          0.1194246680182337,
+          0.0009759642411669647
+        ],
+        "A_smooth_norms": {
+          "frobenius": 0.016009978850456498,
+          "spectral_2": 0.008949062827528897,
+          "row_norm_mean": 0.00230568052568149,
+          "row_norm_max": 0.0026164011522901397
+        },
+        "B_R_norms": {
+          "frobenius": 0.09771989519978008,
+          "spectral_2": 0.04998915682903563,
+          "row_norm_mean": 0.01238334000739461,
+          "row_norm_max": 0.024355887606979248
+        },
+        "poses": [
+          [
+            2.2627416997969525,
+            -2.262741699796952,
+            2.356194490192345
+          ],
+          [
+            2.8512208774027776,
+            -1.45276959916655,
+            2.670353755551324
+          ],
+          [
+            3.160602689904441,
+            -0.5005902881287388,
+            2.9845130209103035
+          ],
+          [
+            3.160602689904441,
+            0.5005902881287388,
+            -2.9845130209103035
+          ],
+          [
+            2.8512208774027776,
+            1.45276959916655,
+            -2.670353755551324
+          ],
+          [
+            2.2627416997969525,
+            2.262741699796952,
+            -2.356194490192345
+          ]
+        ]
+      },
+      {
+        "trajectory": "arc180",
+        "path_length": 5.026548245743669,
+        "T": 6,
+        "continuous_design_length": 5.026548245743669,
+        "open_polyline_length_through_poses": 4.944271909999159,
+        "closed_polyline_length_if_closure_counted": 8.144271909999159,
+        "closure_counted_for_circle360": false,
+        "min_target_range": 1.6,
+        "max_target_range": 1.6,
+        "r_A": 24,
+        "r_B": 18,
+        "confusable_mass": 16.000698109948754,
+        "retained_mass": 7.999301890051246,
+        "theta_min_deg": 0.00031931248510508727,
+        "log_volume": -175.83025023909164,
+        "count_near_null_rho_lt_1e-6": 6,
+        "rho_min": 3.1058933203098604e-11,
+        "cos2_desc": [
+          0.9999999999689411,
+          0.9999999998917408,
+          0.9999999984584329,
+          0.9999999929768193,
+          0.9999999409538509,
+          0.9999998103499069,
+          0.99995742831247,
+          0.9998571106354353,
+          0.9997191118387725,
+          0.9996602921493545,
+          0.9981710679708962,
+          0.9957327390158552,
+          0.9853690319704641,
+          0.9454313003879588,
+          0.7765752593862931,
+          0.7477268214516076,
+          0.3092414435782934,
+          0.2432567606516628
+        ],
+        "A_smooth_norms": {
+          "frobenius": 0.03183231098269116,
+          "spectral_2": 0.016184912199924056,
+          "row_norm_mean": 0.004571594495022699,
+          "row_norm_max": 0.0056031670770895015
+        },
+        "B_R_norms": {
+          "frobenius": 0.172252734920807,
+          "spectral_2": 0.09806348554267491,
+          "row_norm_mean": 0.018498879025037426,
+          "row_norm_max": 0.048823681881204256
+        },
+        "poses": [
+          [
+            9.797174393178826e-17,
+            -1.6,
+            1.5707963267948968
+          ],
+          [
+            0.940456403667957,
+            -1.294427190999916,
+            2.199114857512855
+          ],
+          [
+            1.5216904260722457,
+            -0.49442719099991583,
+            2.827433388230814
+          ],
+          [
+            1.5216904260722457,
+            0.49442719099991583,
+            -2.827433388230814
+          ],
+          [
+            0.940456403667957,
+            1.294427190999916,
+            -2.199114857512855
+          ],
+          [
+            9.797174393178826e-17,
+            1.6,
+            -1.5707963267948968
+          ]
+        ]
+      },
+      {
+        "trajectory": "circle360",
+        "path_length": 5.026548245743669,
+        "T": 6,
+        "continuous_design_length": 5.026548245743669,
+        "open_polyline_length_through_poses": 4.000000000000001,
+        "closed_polyline_length_if_closure_counted": 4.800000000000001,
+        "closure_counted_for_circle360": true,
+        "min_target_range": 0.8,
+        "max_target_range": 0.8,
+        "r_A": 24,
+        "r_B": 18,
+        "confusable_mass": 15.860487254437027,
+        "retained_mass": 8.139512745562973,
+        "theta_min_deg": 0.02029154835210467,
+        "log_volume": -133.45324396038646,
+        "count_near_null_rho_lt_1e-6": 3,
+        "rho_min": 1.254252836035974e-07,
+        "cos2_desc": [
+          0.9999998745747164,
+          0.9999997509210379,
+          0.9999995663533817,
+          0.9999982446034866,
+          0.9999917967868941,
+          0.99996137243812,
+          0.9998444688622653,
+          0.9997022882917148,
+          0.9994804295597078,
+          0.9990370372089321,
+          0.9977498642417423,
+          0.9973141557073234,
+          0.9707557060763135,
+          0.9269074978169424,
+          0.6926674960794451,
+          0.5941748585798898,
+          0.5465631719805342,
+          0.13633967435458025
+        ],
+        "A_smooth_norms": {
+          "frobenius": 0.06737678324453182,
+          "spectral_2": 0.03239807543680405,
+          "row_norm_mean": 0.009627869305317472,
+          "row_norm_max": 0.012941789899563256
+        },
+        "B_R_norms": {
+          "frobenius": 0.405789022627141,
+          "spectral_2": 0.19890422134476746,
+          "row_norm_mean": 0.05337967220049672,
+          "row_norm_max": 0.09278246299016735
+        },
+        "poses": [
+          [
+            0.8,
+            0.0,
+            -3.141592653589793
+          ],
+          [
+            0.40000000000000013,
+            0.6928203230275509,
+            -2.0943951023931957
+          ],
+          [
+            -0.3999999999999999,
+            0.692820323027551,
+            -1.0471975511965979
+          ],
+          [
+            -0.8,
+            9.797174393178826e-17,
+            -1.2246467991473532e-16
+          ],
+          [
+            -0.40000000000000036,
+            -0.6928203230275507,
+            1.0471975511965972
+          ],
+          [
+            0.40000000000000013,
+            -0.6928203230275509,
+            2.0943951023931957
+          ]
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "1_normalization_verification": {
+      "rows": [
+        {
+          "trajectory": "straight_same_mid",
+          "max_abs_deviation_A_block_fro_from_1": 2.220446049250313e-16,
+          "pass_within_1e-12": true,
+          "all_A_pre_positive": true
+        },
+        {
+          "trajectory": "arc90_same_standoff",
+          "max_abs_deviation_A_block_fro_from_1": 2.220446049250313e-16,
+          "pass_within_1e-12": true,
+          "all_A_pre_positive": true
+        },
+        {
+          "trajectory": "arc180_same_standoff",
+          "max_abs_deviation_A_block_fro_from_1": 2.220446049250313e-16,
+          "pass_within_1e-12": true,
+          "all_A_pre_positive": true
+        },
+        {
+          "trajectory": "arc270_same_standoff",
+          "max_abs_deviation_A_block_fro_from_1": 1.1102230246251565e-16,
+          "pass_within_1e-12": true,
+          "all_A_pre_positive": true
+        },
+        {
+          "trajectory": "circle360_same_standoff",
+          "max_abs_deviation_A_block_fro_from_1": 1.1102230246251565e-16,
+          "pass_within_1e-12": true,
+          "all_A_pre_positive": true
+        }
+      ],
+      "max_deviation_over_all_trajectories": 2.220446049250313e-16,
+      "pass_all_post_pose_A_block_fro_1_within_1e-12": true
+    },
+    "2_hypothesis_core_normalized": {
+      "expected_retained_desc": [
+        "circle360_same_standoff",
+        "arc180_same_standoff",
+        "arc90_same_standoff",
+        "straight_same_mid"
+      ],
+      "expected_confusable_asc": [
+        "straight_same_mid",
+        "arc90_same_standoff",
+        "arc180_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "observed_retained_desc": [
+        "arc90_same_standoff",
+        "straight_same_mid",
+        "arc180_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "observed_confusable_asc": [
+        "arc90_same_standoff",
+        "straight_same_mid",
+        "arc180_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "retained_consistent": false,
+      "confusable_consistent": false,
+      "hypothesis_holds_for_four_core": false
+    },
+    "2b_hypothesis_core_raw_for_context": {
+      "observed_retained_desc": [
+        "arc90_same_standoff",
+        "straight_same_mid",
+        "arc180_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "observed_confusable_asc": [
+        "arc90_same_standoff",
+        "straight_same_mid",
+        "arc180_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "hypothesis_holds_for_four_core": false
+    },
+    "3_order_flips_raw_vs_normalized": {
+      "raw_retained_desc": [
+        "arc90_same_standoff",
+        "straight_same_mid",
+        "arc180_same_standoff",
+        "circle360_same_standoff",
+        "arc270_same_standoff"
+      ],
+      "normalized_retained_desc": [
+        "arc90_same_standoff",
+        "straight_same_mid",
+        "arc180_same_standoff",
+        "circle360_same_standoff",
+        "arc270_same_standoff"
+      ],
+      "retained_order_flipped": false,
+      "raw_confusable_desc": [
+        "arc270_same_standoff",
+        "circle360_same_standoff",
+        "arc180_same_standoff",
+        "straight_same_mid",
+        "arc90_same_standoff"
+      ],
+      "normalized_confusable_desc": [
+        "arc270_same_standoff",
+        "circle360_same_standoff",
+        "arc180_same_standoff",
+        "straight_same_mid",
+        "arc90_same_standoff"
+      ],
+      "confusable_order_flipped": false
+    },
+    "3b_prior_counterexample_under_family4c_controls": {
+      "family4_raw_observed_retained_order": [
+        "arc90",
+        "straight",
+        "circle360",
+        "arc180"
+      ],
+      "family4c_raw_observed_core_order": [
+        "arc90_same_standoff",
+        "straight_same_mid",
+        "arc180_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "family4c_normalized_observed_core_order": [
+        "arc90_same_standoff",
+        "straight_same_mid",
+        "arc180_same_standoff",
+        "circle360_same_standoff"
+      ],
+      "family4_raw_to_family4c_raw_core_order_changed": true,
+      "family4_hypothesis_holds_normalized_four_core": false,
+      "family4_raw_counterexample_status": "persists as a counterexample under the normalized control",
+      "note": "Family 4's raw order is a scenario counterexample under equal design length with different radii; family4c raw removes the radius/standoff difference between curved paths (all R=1.6) while retaining a varying-standoff straight path and changing path length with angular coverage.  Only the normalized four-core comparison is the requested hypothesis gate."
+    }
+  },
+  "tables": {
+    "raw": {
+      "rows": [
+        {
+          "trajectory": "straight_same_mid",
+          "continuous_design_length": 5.026548245743669,
+          "open_polyline_length_through_poses": 5.026548245743669,
+          "closed_polyline_length_if_closure_counted": 10.053096491487338,
+          "closure_counted_for_circle360": false,
+          "min_target_range": 1.6770992435356615,
+          "max_target_range": 2.9793534225897385,
+          "poses": [
+            [
+              -2.5132741228718345,
+              1.6,
+              -0.5669115049410095
+            ],
+            [
+              -1.5079644737231006,
+              1.6,
+              -0.8150023106355891
+            ],
+            [
+              -0.5026548245743667,
+              1.6,
+              -1.2664005294302816
+            ],
+            [
+              0.5026548245743672,
+              1.6,
+              -1.8751921241595118
+            ],
+            [
+              1.507964473723101,
+              1.6,
+              -2.326590342954204
+            ],
+            [
+              2.5132741228718345,
+              1.6,
+              -2.574681148648784
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 15.646483135916393,
+          "retained_mass": 8.353516864083607,
+          "theta_min_deg": 9.887568779190853e-05,
+          "log_volume": -204.06014488003174,
+          "count_near_null_rho_lt_1e-6": 6,
+          "rho_min": 2.97806224125452e-12,
+          "cos2_desc": [
+            0.9999999999970219,
+            0.999999999987766,
+            0.9999999999511127,
+            0.9999999991394379,
+            0.9999999961194386,
+            0.9999999677998632,
+            0.9999987551267082,
+            0.9999969263550016,
+            0.9999908662082146,
+            0.9999529600789824,
+            0.9991499942198409,
+            0.9975797006754165,
+            0.9947147528792935,
+            0.9024786162798899,
+            0.7329430765878094,
+            0.5148463206501575,
+            0.3369136134751179,
+            0.1679175903853184
+          ],
+          "A_smooth_norms": {
+            "frobenius": 0.023901044314212964,
+            "spectral_2": 0.013802531094421241,
+            "row_norm_mean": 0.003362664971089097,
+            "row_norm_max": 0.004933240076821914
+          },
+          "B_R_norms": {
+            "frobenius": 0.14819647719574672,
+            "spectral_2": 0.07323081414637238,
+            "row_norm_mean": 0.019010766949393826,
+            "row_norm_max": 0.03555007930204649
+          }
+        },
+        {
+          "trajectory": "arc90_same_standoff",
+          "continuous_design_length": 2.5132741228718345,
+          "open_polyline_length_through_poses": 2.5029514406436943,
+          "closed_polyline_length_if_closure_counted": 4.765693140440646,
+          "closure_counted_for_circle360": false,
+          "min_target_range": 1.6,
+          "max_target_range": 1.6,
+          "poses": [
+            [
+              1.1313708498984762,
+              -1.131370849898476,
+              2.356194490192345
+            ],
+            [
+              1.4256104387013888,
+              -0.726384799583275,
+              2.670353755551324
+            ],
+            [
+              1.5803013449522205,
+              -0.2502951440643694,
+              2.9845130209103035
+            ],
+            [
+              1.5803013449522205,
+              0.2502951440643694,
+              -2.9845130209103035
+            ],
+            [
+              1.4256104387013888,
+              0.726384799583275,
+              -2.670353755551324
+            ],
+            [
+              1.1313708498984762,
+              1.131370849898476,
+              -2.356194490192345
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 14.592838133348714,
+          "retained_mass": 9.407161866651286,
+          "theta_min_deg": 0.00042530697982207,
+          "log_volume": -167.74606968251334,
+          "count_near_null_rho_lt_1e-6": 5,
+          "rho_min": 5.5101034845961294e-11,
+          "cos2_desc": [
+            0.999999999944899,
+            0.9999999998585658,
+            0.9999999989043931,
+            0.9999999942741726,
+            0.9999999446880442,
+            0.9999970874312107,
+            0.9999925076270261,
+            0.9999074720897835,
+            0.9987350921099429,
+            0.9964764054228084,
+            0.9941499730561266,
+            0.9921637666655136,
+            0.9900832846543044,
+            0.9714965389401355,
+            0.44154043836429085,
+            0.1572846908656125,
+            0.046094911616324986,
+            0.0049160268355591084
+          ],
+          "A_smooth_norms": {
+            "frobenius": 0.03217208716024821,
+            "spectral_2": 0.018257075168866686,
+            "row_norm_mean": 0.004620544448953503,
+            "row_norm_max": 0.005479616381056693
+          },
+          "B_R_norms": {
+            "frobenius": 0.20062940382221806,
+            "spectral_2": 0.10299317509626872,
+            "row_norm_mean": 0.024078935986807937,
+            "row_norm_max": 0.05059529045718343
+          }
+        },
+        {
+          "trajectory": "arc180_same_standoff",
+          "continuous_design_length": 5.026548245743669,
+          "open_polyline_length_through_poses": 4.944271909999159,
+          "closed_polyline_length_if_closure_counted": 8.144271909999159,
+          "closure_counted_for_circle360": false,
+          "min_target_range": 1.6,
+          "max_target_range": 1.6,
+          "poses": [
+            [
+              9.797174393178826e-17,
+              -1.6,
+              1.5707963267948968
+            ],
+            [
+              0.940456403667957,
+              -1.294427190999916,
+              2.199114857512855
+            ],
+            [
+              1.5216904260722457,
+              -0.49442719099991583,
+              2.827433388230814
+            ],
+            [
+              1.5216904260722457,
+              0.49442719099991583,
+              -2.827433388230814
+            ],
+            [
+              0.940456403667957,
+              1.294427190999916,
+              -2.199114857512855
+            ],
+            [
+              9.797174393178826e-17,
+              1.6,
+              -1.5707963267948968
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 16.000698109948754,
+          "retained_mass": 7.999301890051246,
+          "theta_min_deg": 0.00031931248510508727,
+          "log_volume": -175.83025023909164,
+          "count_near_null_rho_lt_1e-6": 6,
+          "rho_min": 3.1058933203098604e-11,
+          "cos2_desc": [
+            0.9999999999689411,
+            0.9999999998917408,
+            0.9999999984584329,
+            0.9999999929768193,
+            0.9999999409538509,
+            0.9999998103499069,
+            0.99995742831247,
+            0.9998571106354353,
+            0.9997191118387725,
+            0.9996602921493545,
+            0.9981710679708962,
+            0.9957327390158552,
+            0.9853690319704641,
+            0.9454313003879588,
+            0.7765752593862931,
+            0.7477268214516076,
+            0.3092414435782934,
+            0.2432567606516628
+          ],
+          "A_smooth_norms": {
+            "frobenius": 0.03183231098269116,
+            "spectral_2": 0.016184912199924056,
+            "row_norm_mean": 0.004571594495022699,
+            "row_norm_max": 0.0056031670770895015
+          },
+          "B_R_norms": {
+            "frobenius": 0.172252734920807,
+            "spectral_2": 0.09806348554267491,
+            "row_norm_mean": 0.018498879025037426,
+            "row_norm_max": 0.048823681881204256
+          }
+        },
+        {
+          "trajectory": "arc270_same_standoff",
+          "continuous_design_length": 7.5398223686155035,
+          "open_polyline_length_through_poses": 7.26384799583275,
+          "closed_polyline_length_if_closure_counted": 9.526589695629703,
+          "closure_counted_for_circle360": false,
+          "min_target_range": 1.6,
+          "max_target_range": 1.6,
+          "poses": [
+            [
+              -1.131370849898476,
+              -1.1313708498984762,
+              0.7853981633974484
+            ],
+            [
+              0.2502951440643695,
+              -1.5803013449522205,
+              1.7278759594743862
+            ],
+            [
+              1.4256104387013888,
+              -0.726384799583275,
+              2.670353755551324
+            ],
+            [
+              1.4256104387013888,
+              0.726384799583275,
+              -2.670353755551324
+            ],
+            [
+              0.2502951440643695,
+              1.5803013449522205,
+              -1.7278759594743862
+            ],
+            [
+              -1.131370849898476,
+              1.1313708498984762,
+              -0.7853981633974484
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 16.463637787010445,
+          "retained_mass": 7.536362212989555,
+          "theta_min_deg": 0.0004018091356007789,
+          "log_volume": -189.30704296222433,
+          "count_near_null_rho_lt_1e-6": 6,
+          "rho_min": 4.9180659544845184e-11,
+          "cos2_desc": [
+            0.9999999999508193,
+            0.9999999996435767,
+            0.9999999983012768,
+            0.999999995914342,
+            0.9999999865798164,
+            0.9999999669531119,
+            0.9999955410340605,
+            0.9999906233110081,
+            0.9998988630995378,
+            0.9997891619986274,
+            0.9996548137887056,
+            0.9993431953967967,
+            0.9679071876294839,
+            0.9451519506444612,
+            0.9269198303051542,
+            0.8624061386248079,
+            0.6402071231357243,
+            0.12237341069913381
+          ],
+          "A_smooth_norms": {
+            "frobenius": 0.031996924676802194,
+            "spectral_2": 0.015451858909156948,
+            "row_norm_mean": 0.004596425486572321,
+            "row_norm_max": 0.005504370819285775
+          },
+          "B_R_norms": {
+            "frobenius": 0.18341379558341825,
+            "spectral_2": 0.10118560028059223,
+            "row_norm_mean": 0.021356659261113988,
+            "row_norm_max": 0.049927460812850044
+          }
+        },
+        {
+          "trajectory": "circle360_same_standoff",
+          "continuous_design_length": 10.053096491487338,
+          "open_polyline_length_through_poses": 8.000000000000002,
+          "closed_polyline_length_if_closure_counted": 9.600000000000001,
+          "closure_counted_for_circle360": true,
+          "min_target_range": 1.6,
+          "max_target_range": 1.6,
+          "poses": [
+            [
+              1.6,
+              0.0,
+              -3.141592653589793
+            ],
+            [
+              0.8000000000000003,
+              1.3856406460551018,
+              -2.0943951023931957
+            ],
+            [
+              -0.7999999999999998,
+              1.385640646055102,
+              -1.0471975511965979
+            ],
+            [
+              -1.6,
+              1.9594348786357652e-16,
+              -1.2246467991473532e-16
+            ],
+            [
+              -0.8000000000000007,
+              -1.3856406460551014,
+              1.0471975511965972
+            ],
+            [
+              0.8000000000000003,
+              -1.3856406460551018,
+              2.0943951023931957
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 16.296367209342684,
+          "retained_mass": 7.703632790657316,
+          "theta_min_deg": 0.0003036806971778875,
+          "log_volume": -199.57080654007484,
+          "count_near_null_rho_lt_1e-6": 6,
+          "rho_min": 2.8092417281300186e-11,
+          "cos2_desc": [
+            0.9999999999719076,
+            0.9999999998595153,
+            0.9999999997835824,
+            0.9999999989803905,
+            0.999999998357676,
+            0.9999999928181471,
+            0.9999910065385564,
+            0.9999889760528285,
+            0.9999471775865323,
+            0.9999390327715063,
+            0.9998487443165723,
+            0.999425809031215,
+            0.9793830604634748,
+            0.9444403423616108,
+            0.8970003221143635,
+            0.8693564749980799,
+            0.333543984948314,
+            0.2735022883884108
+          ],
+          "A_smooth_norms": {
+            "frobenius": 0.03208995440866059,
+            "spectral_2": 0.017066122333081923,
+            "row_norm_mean": 0.004595103333288207,
+            "row_norm_max": 0.0056307376254126264
+          },
+          "B_R_norms": {
+            "frobenius": 0.19928197542737358,
+            "spectral_2": 0.09206681501365636,
+            "row_norm_mean": 0.024063606635201268,
+            "row_norm_max": 0.04638821156970586
+          }
+        }
+      ]
+    },
+    "normalized": {
+      "rows": [
+        {
+          "trajectory": "straight_same_mid",
+          "continuous_design_length": 5.026548245743669,
+          "open_polyline_length_through_poses": 5.026548245743669,
+          "closed_polyline_length_if_closure_counted": 10.053096491487338,
+          "closure_counted_for_circle360": false,
+          "min_target_range": 1.6770992435356615,
+          "max_target_range": 2.9793534225897385,
+          "poses": [
+            [
+              -2.5132741228718345,
+              1.6,
+              -0.5669115049410095
+            ],
+            [
+              -1.5079644737231006,
+              1.6,
+              -0.8150023106355891
+            ],
+            [
+              -0.5026548245743667,
+              1.6,
+              -1.2664005294302816
+            ],
+            [
+              0.5026548245743672,
+              1.6,
+              -1.8751921241595118
+            ],
+            [
+              1.507964473723101,
+              1.6,
+              -2.326590342954204
+            ],
+            [
+              2.5132741228718345,
+              1.6,
+              -2.574681148648784
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 15.730179760854423,
+          "retained_mass": 8.269820239145577,
+          "theta_min_deg": 9.947104204463978e-05,
+          "log_volume": -203.9637481959425,
+          "count_near_null_rho_lt_1e-6": 6,
+          "rho_min": 3.014033467252375e-12,
+          "cos2_desc": [
+            0.999999999996986,
+            0.9999999999920166,
+            0.9999999999563194,
+            0.9999999992904847,
+            0.9999999968206048,
+            0.9999999819408151,
+            0.9999982524997928,
+            0.9999968440355849,
+            0.9999903176076597,
+            0.9999401145484035,
+            0.9989851277877113,
+            0.9966515226698894,
+            0.9920159884728564,
+            0.8710450127262105,
+            0.7723103725131316,
+            0.47759865358491477,
+            0.4279948626158534,
+            0.19365271379518875
+          ],
+          "A_smooth_norms": {
+            "frobenius": 1.1312799165146046,
+            "spectral_2": 0.6205970569084773,
+            "row_norm_mean": 0.1624879138779229,
+            "row_norm_max": 0.19235504073637952
+          },
+          "B_R_norms": {
+            "frobenius": 7.230950868224112,
+            "spectral_2": 3.610954773237408,
+            "row_norm_mean": 0.9230940917073678,
+            "row_norm_max": 1.7762257732112479
+          }
+        },
+        {
+          "trajectory": "arc90_same_standoff",
+          "continuous_design_length": 2.5132741228718345,
+          "open_polyline_length_through_poses": 2.5029514406436943,
+          "closed_polyline_length_if_closure_counted": 4.765693140440646,
+          "closure_counted_for_circle360": false,
+          "min_target_range": 1.6,
+          "max_target_range": 1.6,
+          "poses": [
+            [
+              1.1313708498984762,
+              -1.131370849898476,
+              2.356194490192345
+            ],
+            [
+              1.4256104387013888,
+              -0.726384799583275,
+              2.670353755551324
+            ],
+            [
+              1.5803013449522205,
+              -0.2502951440643694,
+              2.9845130209103035
+            ],
+            [
+              1.5803013449522205,
+              0.2502951440643694,
+              -2.9845130209103035
+            ],
+            [
+              1.4256104387013888,
+              0.726384799583275,
+              -2.670353755551324
+            ],
+            [
+              1.1313708498984762,
+              1.131370849898476,
+              -2.356194490192345
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 14.59133896591367,
+          "retained_mass": 9.40866103408633,
+          "theta_min_deg": 0.00042707461202448843,
+          "log_volume": -167.69304198974973,
+          "count_near_null_rho_lt_1e-6": 5,
+          "rho_min": 5.5560001044341334e-11,
+          "cos2_desc": [
+            0.99999999994444,
+            0.9999999998577205,
+            0.999999998912052,
+            0.9999999942875033,
+            0.9999999447719018,
+            0.9999970889198188,
+            0.9999925094196267,
+            0.9999077644200169,
+            0.9987221485948062,
+            0.9964265048674148,
+            0.9941151602980355,
+            0.9921819320700774,
+            0.9899788371375995,
+            0.9711117483091085,
+            0.4404690015500568,
+            0.15701968266169103,
+            0.0464194427464833,
+            0.0049972071453156484
+          ],
+          "A_smooth_norms": {
+            "frobenius": 1.1306967990306434,
+            "spectral_2": 0.6403747736581358,
+            "row_norm_mean": 0.16239667789265474,
+            "row_norm_max": 0.19070970602971132
+          },
+          "B_R_norms": {
+            "frobenius": 7.043791720814061,
+            "spectral_2": 3.608476290689075,
+            "row_norm_mean": 0.8457717444489633,
+            "row_norm_max": 1.7726602356381567
+          }
+        },
+        {
+          "trajectory": "arc180_same_standoff",
+          "continuous_design_length": 5.026548245743669,
+          "open_polyline_length_through_poses": 4.944271909999159,
+          "closed_polyline_length_if_closure_counted": 8.144271909999159,
+          "closure_counted_for_circle360": false,
+          "min_target_range": 1.6,
+          "max_target_range": 1.6,
+          "poses": [
+            [
+              9.797174393178826e-17,
+              -1.6,
+              1.5707963267948968
+            ],
+            [
+              0.940456403667957,
+              -1.294427190999916,
+              2.199114857512855
+            ],
+            [
+              1.5216904260722457,
+              -0.49442719099991583,
+              2.827433388230814
+            ],
+            [
+              1.5216904260722457,
+              0.49442719099991583,
+              -2.827433388230814
+            ],
+            [
+              0.940456403667957,
+              1.294427190999916,
+              -2.199114857512855
+            ],
+            [
+              9.797174393178826e-17,
+              1.6,
+              -1.5707963267948968
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 16.002209738964766,
+          "retained_mass": 7.9977902610352345,
+          "theta_min_deg": 0.0003216665153272785,
+          "log_volume": -175.8197201840823,
+          "count_near_null_rho_lt_1e-6": 6,
+          "rho_min": 3.151856553529342e-11,
+          "cos2_desc": [
+            0.9999999999684814,
+            0.9999999998914435,
+            0.9999999984626358,
+            0.9999999930171688,
+            0.9999999412319851,
+            0.999999811168002,
+            0.9999571780976217,
+            0.9998573983807915,
+            0.9997197883747346,
+            0.9996602195165198,
+            0.998169631462583,
+            0.9956935393698649,
+            0.9853334071451819,
+            0.9455617660057309,
+            0.7770821390646366,
+            0.7466430604776283,
+            0.31163941784199506,
+            0.24289244948775682
+          ],
+          "A_smooth_norms": {
+            "frobenius": 1.1178947849529954,
+            "spectral_2": 0.5677439580452083,
+            "row_norm_mean": 0.16055718099657368,
+            "row_norm_max": 0.19497168772347231
+          },
+          "B_R_norms": {
+            "frobenius": 6.041265321789716,
+            "spectral_2": 3.4377261488723323,
+            "row_norm_mean": 0.649183262669142,
+            "row_norm_max": 1.7115692651389507
+          }
+        },
+        {
+          "trajectory": "arc270_same_standoff",
+          "continuous_design_length": 7.5398223686155035,
+          "open_polyline_length_through_poses": 7.26384799583275,
+          "closed_polyline_length_if_closure_counted": 9.526589695629703,
+          "closure_counted_for_circle360": false,
+          "min_target_range": 1.6,
+          "max_target_range": 1.6,
+          "poses": [
+            [
+              -1.131370849898476,
+              -1.1313708498984762,
+              0.7853981633974484
+            ],
+            [
+              0.2502951440643695,
+              -1.5803013449522205,
+              1.7278759594743862
+            ],
+            [
+              1.4256104387013888,
+              -0.726384799583275,
+              2.670353755551324
+            ],
+            [
+              1.4256104387013888,
+              0.726384799583275,
+              -2.670353755551324
+            ],
+            [
+              0.2502951440643695,
+              1.5803013449522205,
+              -1.7278759594743862
+            ],
+            [
+              -1.131370849898476,
+              1.1313708498984762,
+              -0.7853981633974484
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 16.4646573534629,
+          "retained_mass": 7.535342646537099,
+          "theta_min_deg": 0.00040322708856645705,
+          "log_volume": -189.30620604544958,
+          "count_near_null_rho_lt_1e-6": 6,
+          "rho_min": 4.9528381396157783e-11,
+          "cos2_desc": [
+            0.9999999999504716,
+            0.9999999996440692,
+            0.9999999982990879,
+            0.9999999959266981,
+            0.9999999865826985,
+            0.9999999670345798,
+            0.9999955350679236,
+            0.9999906699755038,
+            0.9998988706131546,
+            0.9997877785371335,
+            0.9996557947202218,
+            0.9993415459227037,
+            0.9678201586240299,
+            0.9454313270282599,
+            0.926609023215459,
+            0.862865255443953,
+            0.6405758558908408,
+            0.12268559098611198
+          ],
+          "A_smooth_norms": {
+            "frobenius": 1.1214800238841776,
+            "spectral_2": 0.5408808148015896,
+            "row_norm_mean": 0.161116043046064,
+            "row_norm_max": 0.19178869662262316
+          },
+          "B_R_norms": {
+            "frobenius": 6.424126976569205,
+            "spectral_2": 3.562678328783652,
+            "row_norm_mean": 0.748304980783321,
+            "row_norm_max": 1.757913004971845
+          }
+        },
+        {
+          "trajectory": "circle360_same_standoff",
+          "continuous_design_length": 10.053096491487338,
+          "open_polyline_length_through_poses": 8.000000000000002,
+          "closed_polyline_length_if_closure_counted": 9.600000000000001,
+          "closure_counted_for_circle360": true,
+          "min_target_range": 1.6,
+          "max_target_range": 1.6,
+          "poses": [
+            [
+              1.6,
+              0.0,
+              -3.141592653589793
+            ],
+            [
+              0.8000000000000003,
+              1.3856406460551018,
+              -2.0943951023931957
+            ],
+            [
+              -0.7999999999999998,
+              1.385640646055102,
+              -1.0471975511965979
+            ],
+            [
+              -1.6,
+              1.9594348786357652e-16,
+              -1.2246467991473532e-16
+            ],
+            [
+              -0.8000000000000007,
+              -1.3856406460551014,
+              1.0471975511965972
+            ],
+            [
+              0.8000000000000003,
+              -1.3856406460551018,
+              2.0943951023931957
+            ]
+          ],
+          "r_A": 24,
+          "r_B": 18,
+          "confusable_mass": 16.29877729780953,
+          "retained_mass": 7.701222702190471,
+          "theta_min_deg": 0.00030532048599779337,
+          "log_volume": -199.54977543206493,
+          "count_near_null_rho_lt_1e-6": 6,
+          "rho_min": 2.839661839004748e-11,
+          "cos2_desc": [
+            0.9999999999716034,
+            0.9999999998591032,
+            0.9999999997813984,
+            0.999999998996514,
+            0.9999999983634724,
+            0.9999999928997589,
+            0.9999908886164549,
+            0.9999889020349635,
+            0.9999462912339517,
+            0.9999390710799314,
+            0.9998477765655246,
+            0.9994322211415617,
+            0.9793751946717834,
+            0.9445109403441078,
+            0.8962315339310681,
+            0.8701108820114659,
+            0.33508211342878413,
+            0.27432149287808216
+          ],
+          "A_smooth_norms": {
+            "frobenius": 1.1267052297487274,
+            "spectral_2": 0.5978227824633384,
+            "row_norm_mean": 0.16133676491153506,
+            "row_norm_max": 0.19618468958928656
+          },
+          "B_R_norms": {
+            "frobenius": 6.982670820520012,
+            "spectral_2": 3.2312137909604854,
+            "row_norm_mean": 0.8439919046913226,
+            "row_norm_max": 1.6280592408870982
+          }
+        }
+      ]
+    }
+  },
+  "per_pose_block_norms": {
+    "rows": [
+      {
+        "trajectory": "straight_same_mid",
+        "per_pose_A_block_fro_pre": [
+          0.014968619908155113,
+          0.020537756925514728,
+          0.02717578351083762,
+          0.0270517088975181,
+          0.020426520115261332,
+          0.014939858974688445
+        ],
+        "per_pose_B_block_fro_pre": [
+          0.03161497284792942,
+          0.0678924631412178,
+          0.059252861706726945,
+          0.06756180581398277,
+          0.07325302363590935,
+          0.0539610794609098
+        ],
+        "per_pose_A_block_fro_post": [
+          1.0,
+          1.0000000000000002,
+          1.0,
+          0.9999999999999999,
+          1.0,
+          1.0
+        ],
+        "per_pose_B_block_fro_post": [
+          2.1120833478245475,
+          3.305738956179424,
+          2.180355229982499,
+          2.497506019672618,
+          3.586172447512466,
+          3.6118868024344994
+        ],
+        "per_pose_scale_1_over_A_fro": [
+          66.8064261191632,
+          48.690809012237715,
+          36.79746711263,
+          36.966241348684136,
+          48.955964812276896,
+          66.93503611340843
+        ]
+      },
+      {
+        "trajectory": "arc90_same_standoff",
+        "per_pose_A_block_fro_pre": [
+          0.02873276088110065,
+          0.02852983846025687,
+          0.028283987689370547,
+          0.02822281067216993,
+          0.028401553815030615,
+          0.028542012417269093
+        ],
+        "per_pose_B_block_fro_pre": [
+          0.09347071656814002,
+          0.050140296501807624,
+          0.039081203011479625,
+          0.08131161940149391,
+          0.10122856012139628,
+          0.10303005496571804
+        ],
+        "per_pose_A_block_fro_post": [
+          1.0,
+          1.0,
+          0.9999999999999999,
+          1.0,
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "per_pose_B_block_fro_post": [
+          3.2531059912735922,
+          1.7574686436326978,
+          1.3817430356953095,
+          2.881060300690534,
+          3.5641909164781076,
+          3.60976841644777
+        ],
+        "per_pose_scale_1_over_A_fro": [
+          34.803477610039316,
+          35.05102215678639,
+          35.355693510495044,
+          35.43233208115889,
+          35.2093412393086,
+          35.03607192725341
+        ]
+      },
+      {
+        "trajectory": "arc180_same_standoff",
+        "per_pose_A_block_fro_pre": [
+          0.028437463677590393,
+          0.028738362695185024,
+          0.02839591236773163,
+          0.02829339794506196,
+          0.028525682761217724,
+          0.028444474607488057
+        ],
+        "per_pose_B_block_fro_pre": [
+          0.019609856739334474,
+          0.09531817270730615,
+          0.028834728180990584,
+          0.09407642336098772,
+          0.09811891869923321,
+          0.029862467575982446
+        ],
+        "per_pose_A_block_fro_post": [
+          1.0000000000000002,
+          0.9999999999999999,
+          1.0,
+          1.0,
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "per_pose_B_block_fro_post": [
+          0.6895782606234203,
+          3.3167572459956554,
+          1.0154534852614072,
+          3.3250309327871608,
+          3.4396694207309704,
+          1.0498512624353797
+        ],
+        "per_pose_scale_1_over_A_fro": [
+          35.164880079935934,
+          34.79669355580738,
+          35.21633631805308,
+          35.34393436736466,
+          35.056128485014085,
+          35.156212719666414
+        ]
+      },
+      {
+        "trajectory": "arc270_same_standoff",
+        "per_pose_A_block_fro_pre": [
+          0.028630270655889967,
+          0.028482403142501066,
+          0.02852983846025687,
+          0.028401553815030615,
+          0.028417593816238818,
+          0.02870018367201567
+        ],
+        "per_pose_B_block_fro_pre": [
+          0.09863441773656934,
+          0.02287732839980048,
+          0.050140296501807624,
+          0.10122856012139628,
+          0.050351272903485705,
+          0.08995542503279019
+        ],
+        "per_pose_A_block_fro_post": [
+          1.0,
+          1.0,
+          1.0,
+          0.9999999999999999,
+          0.9999999999999999,
+          1.0
+        ],
+        "per_pose_B_block_fro_post": [
+          3.445109510911234,
+          0.8032092055344597,
+          1.7574686436326978,
+          3.5641909164781076,
+          1.7718344920080182,
+          3.1343153082501662
+        ],
+        "per_pose_scale_1_over_A_fro": [
+          34.928066591444356,
+          35.1093970195167,
+          35.05102215678639,
+          35.2093412393086,
+          35.18946771026633,
+          34.842982589517625
+        ]
+      },
+      {
+        "trajectory": "circle360_same_standoff",
+        "per_pose_A_block_fro_pre": [
+          0.0282198260649595,
+          0.028492950627785393,
+          0.028679794211355407,
+          0.028214372339167675,
+          0.028591288328075365,
+          0.028701208219665847
+        ],
+        "per_pose_B_block_fro_pre": [
+          0.06219971416133295,
+          0.09215465775148166,
+          0.09150715325313893,
+          0.05887011073938398,
+          0.08857697240692475,
+          0.08756078612857579
+        ],
+        "per_pose_A_block_fro_post": [
+          1.0,
+          0.9999999999999999,
+          1.0,
+          1.0,
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "per_pose_B_block_fro_post": [
+          2.2041140160876544,
+          3.2342967548476866,
+          3.1906488790950878,
+          2.0865291643457717,
+          3.098040612599682,
+          3.0507700393107426
+        ],
+        "per_pose_scale_1_over_A_fro": [
+          35.43607950304477,
+          35.096400266276135,
+          34.867753674608394,
+          35.44292915606643,
+          34.97568869668754,
+          34.841738798815015
+        ]
+      }
+    ]
+  },
+  "raw_retained_mass_by_trajectory": {
+    "straight_same_mid": 8.353516864083607,
+    "arc90_same_standoff": 9.407161866651286,
+    "arc180_same_standoff": 7.999301890051246,
+    "arc270_same_standoff": 7.536362212989555,
+    "circle360_same_standoff": 7.703632790657316
+  },
+  "normalized_retained_mass_by_trajectory": {
+    "straight_same_mid": 8.269820239145577,
+    "arc90_same_standoff": 9.40866103408633,
+    "arc180_same_standoff": 7.9977902610352345,
+    "arc270_same_standoff": 7.535342646537099,
+    "circle360_same_standoff": 7.701222702190471
+  },
+  "cannot_establish": [
+    "All claims are finite-dimensional and model-specific (N=16, p=24 smooth basis, T=6, R=1.6, this two-blob scene); no continuum-limit, universal-trajectory, or estimator claim.",
+    "Per-pose normalization is a declared gain/whitening control on the linearized blocks; it does not prescribe a physical noise covariance and is not a claim about optimal SNR whitening under correlated noise.",
+    "Same standoff fixes curved-path range but changes measurement count/budget with angular coverage (continuous design length and sampled polyline lengths differ), and the straight path still varies standoff, so even the normalized five-trajectory set is not a pure angular-coverage isolation.",
+    "No universal trajectory-ordering theorem is asserted; all ordering statements are observations on this discrete model and normalization/geometry convention."
+  ],
+  "figure_sha256": {
+    "figures/family4c_trajectory_control.png": "550b83e45ca544ff7eab0b98e432de8b24b662456910f605ca584fa01eb8c589"
+  },
+  "artifacts": {
+    "results_json": "results/family4c_trajectory_control.json",
+    "figure": "figures/family4c_trajectory_control.png",
+    "report_md": "notes/family4c_trajectory_control.md"
+  }
+}

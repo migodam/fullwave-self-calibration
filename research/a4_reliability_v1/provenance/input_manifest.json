@@ -1,0 +1,38 @@
+{
+  "inputs": [
+    {
+      "file": "A3_3_THEORY_AUDIT.md",
+      "bytes": 7302,
+      "sha256": "9f31ca3dac90d3352c4f84cbc4fb0ee73e929eb6b7b7cc5ece1c60fb636feff0"
+    },
+    {
+      "file": "ACCEPTANCE.md",
+      "bytes": 4622,
+      "sha256": "d86a02e9c24a93d5654efcc4c87a193793a8a3be2cedfd254145861c5137aef1"
+    },
+    {
+      "file": "REPRODUCIBILITY.md",
+      "bytes": 8367,
+      "sha256": "6a6dc5abfdd6fe390afd88b8a58117257f2ff9a44dc94050f2f045ebafcc0bd5"
+    },
+    {
+      "file": "PAPER_DRAFT_A3.md",
+      "bytes": 64611,
+      "sha256": "9c079872e140a7d5ca9358a1559195aefa0f995e926232ab269dee0bc9177c42"
+    },
+    {
+      "file": "GPT_PRO_REMAINING_QUESTIONS_ZH.md",
+      "bytes": 10233,
+      "sha256": "e24066c07132d05fc611636db09afb06181c68799803a0663bb8a2c87b6e005b"
+    },
+    {
+      "file": "A3_RESEARCH_REPORT_ZH.md",
+      "bytes": 40267,
+      "sha256": "2492e066fe30d944bfc0eb5db88eb11d01f55e1be71d48a98d8059b4be3117a4"
+    }
+  ],
+  "repo": "migodam/fullwave-self-calibration",
+  "observed_tree_sha": "0fd9ca488f1e0b19edc27d5492a37c3130f00a16",
+  "A3_reproduced": false,
+  "remote_written": false
+}

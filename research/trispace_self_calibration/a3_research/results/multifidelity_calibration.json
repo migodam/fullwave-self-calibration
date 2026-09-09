@@ -1,0 +1,1116 @@
+[
+  {
+    "seed": 8101,
+    "method": "fine_direct",
+    "status": "fine_optimizer_2",
+    "warm_status": null,
+    "estimated": [
+      2.55768394859369,
+      -0.07977289432304183,
+      -0.025571796511199563,
+      0.03243309796152867,
+      0.05835096031614687,
+      -0.0940759669069019,
+      0.020203883484212804,
+      0.05407149161572675,
+      -0.05282491412767531,
+      0.1384521426176115,
+      0.07235951521049248,
+      0.026573167897348055,
+      0.06444630151541542
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "online_seconds": 18.49064949998865,
+    "offline_evaluation_seconds": 0.8445237910491414,
+    "work": {
+      "fine": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 5.1704075440065935
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 5.230928708100691
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 6.526263542065863
+        }
+      ]
+    },
+    "fine_rhs": 216.0,
+    "coarse_rhs": 0,
+    "events": [],
+    "final_fine_objective": 474.5240336327543,
+    "pose_error_m": 0.0005736653592319786,
+    "material_relative_error": 0.023073579437476077,
+    "deployable_prediction": {
+      "relative_field_error": 0.010398899618235763,
+      "weighted_phase_rmse_rad": 0.006997920941998117
+    },
+    "structural_field": {
+      "relative_field_error": 0.03146705183241632,
+      "weighted_phase_rmse_rad": 0.021851734857886797
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8101,
+    "method": "coarse_only",
+    "status": "coarse_optimizer_2",
+    "warm_status": 2,
+    "estimated": [
+      2.673907797087567,
+      -0.07906780890009772,
+      -0.025501202009478904,
+      0.03291248693101854,
+      0.056408305032747415,
+      -0.12412110762620794,
+      -0.0073161437425434085,
+      0.023595707456918375,
+      -0.0888291476062353,
+      0.1456045723759972,
+      0.0844303938144185,
+      0.025737729671877714,
+      0.06770159252351554
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "online_seconds": 3.1178995830123313,
+    "offline_evaluation_seconds": 2.807242500013672,
+    "work": {
+      "coarse": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 0.8644610400078818
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 0.901976834051311
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 1.1143997079925612
+        }
+      ]
+    },
+    "fine_rhs": 0,
+    "coarse_rhs": 216.0,
+    "events": [],
+    "final_fine_objective": 1957.0838463210437,
+    "pose_error_m": 0.001413825481775773,
+    "material_relative_error": 0.06956311883502675,
+    "deployable_prediction": {
+      "relative_field_error": 0.02811658869824912,
+      "weighted_phase_rmse_rad": 0.01709472246891327
+    },
+    "structural_field": {
+      "relative_field_error": 0.07933120598556906,
+      "weighted_phase_rmse_rad": 0.05273298283807319
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8101,
+    "method": "coarse_warm_fine",
+    "status": "fine_optimizer_2",
+    "warm_status": 2,
+    "estimated": [
+      2.5576839480995126,
+      -0.07977289432556786,
+      -0.02557179651386609,
+      0.03243309795193678,
+      0.05835096026185169,
+      -0.0940759669135184,
+      0.02020388368226701,
+      0.05407149195105703,
+      -0.052824913723164224,
+      0.13845214381011428,
+      0.07235951674202132,
+      0.026573169121178825,
+      0.06444630269908953
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "online_seconds": 16.628871791996062,
+    "offline_evaluation_seconds": 0.8318239999935031,
+    "work": {
+      "coarse": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 0.868254084023647
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 0.9132439979584888
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 1.1156708330381662
+        }
+      ],
+      "fine": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 48.0,
+          "wall_seconds": 3.689798750972841
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 48.0,
+          "wall_seconds": 3.8977156679611653
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 48.0,
+          "wall_seconds": 4.848981915856712
+        }
+      ]
+    },
+    "fine_rhs": 144.0,
+    "coarse_rhs": 216.0,
+    "events": [],
+    "final_fine_objective": 474.52403363275533,
+    "pose_error_m": 0.0005736653499807621,
+    "material_relative_error": 0.02307357923980504,
+    "deployable_prediction": {
+      "relative_field_error": 0.010398899586510751,
+      "weighted_phase_rmse_rad": 0.006997920827254348
+    },
+    "structural_field": {
+      "relative_field_error": 0.031467051455504026,
+      "weighted_phase_rmse_rad": 0.02185173455251239
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8101,
+    "method": "value_corrected",
+    "status": "outer_trial_limit",
+    "warm_status": 2,
+    "estimated": [
+      2.5573834080346107,
+      -0.0797837543265891,
+      -0.02557396890141311,
+      0.03243924041393909,
+      0.058375145947589246,
+      -0.09405892998163727,
+      0.020234452503157477,
+      0.054082680913473055,
+      -0.05281950275402918,
+      0.13831065596121264,
+      0.07202830101572838,
+      0.02657048855358534,
+      0.06438860164002791
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "online_seconds": 34.51615112496074,
+    "offline_evaluation_seconds": 2.9351190829765983,
+    "work": {
+      "coarse": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 296.0,
+          "wall_seconds": 3.7503914568806067
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 296.0,
+          "wall_seconds": 3.8884838750236668
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 296.0,
+          "wall_seconds": 4.9146512089064345
+        }
+      ],
+      "fine": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 5.628471541975159
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 5.86218749784166
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 7.393319876049645
+        }
+      ]
+    },
+    "fine_rhs": 216.0,
+    "coarse_rhs": 888.0,
+    "events": [
+      {
+        "outer": 0,
+        "anchor_loss": 1957.083846321044,
+        "trial_loss": 504.3484282253271,
+        "predicted_reduction": 1433.9319810551747,
+        "ratio": 1.0131132001301104,
+        "radius": 0.25,
+        "accepted": true,
+        "surrogate_field_error": 0.01139569359104306,
+        "inner_nfev": 8,
+        "scaled_step": 0.5231158041967187
+      },
+      {
+        "outer": 1,
+        "anchor_loss": 504.3484282253271,
+        "trial_loss": 474.63248131721343,
+        "predicted_reduction": 30.161890821550003,
+        "ratio": 0.9852149881426624,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 0.0004728462631258354,
+        "inner_nfev": 6,
+        "scaled_step": 0.23811606573156388
+      },
+      {
+        "outer": 2,
+        "anchor_loss": 474.63248131721343,
+        "trial_loss": 474.5468494402467,
+        "predicted_reduction": 0.04807822362886327,
+        "ratio": 1.7810948596550737,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 8.214989469059792e-05,
+        "inner_nfev": 4,
+        "scaled_step": 0.008200714116246125
+      },
+      {
+        "outer": 3,
+        "anchor_loss": 474.5468494402467,
+        "trial_loss": 474.54388673119496,
+        "predicted_reduction": 0.0020782650240107614,
+        "ratio": 1.4255684513422973,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 1.5152621544552337e-05,
+        "inner_nfev": 3,
+        "scaled_step": 0.0016673232031774888
+      },
+      {
+        "outer": 4,
+        "anchor_loss": 474.54388673119496,
+        "trial_loss": 474.5443616827887,
+        "predicted_reduction": 6.120629649331022e-05,
+        "ratio": -7.7598485930688135,
+        "radius": 0.5,
+        "accepted": false,
+        "surrogate_field_error": 2.3437876398849335e-06,
+        "inner_nfev": 3,
+        "scaled_step": 0.000299627799811845
+      },
+      {
+        "outer": 5,
+        "anchor_loss": 474.54388673119496,
+        "trial_loss": 474.54436168241034,
+        "predicted_reduction": 6.120629637962338e-05,
+        "ratio": -7.759842425932005,
+        "radius": 0.25,
+        "accepted": false,
+        "surrogate_field_error": 2.343792359254485e-06,
+        "inner_nfev": 3,
+        "scaled_step": 0.00029962829788627844
+      },
+      {
+        "outer": 6,
+        "anchor_loss": 474.54388673119496,
+        "trial_loss": 474.5443616816266,
+        "predicted_reduction": 6.12062943332603e-05,
+        "ratio": -7.759829880202639,
+        "radius": 0.125,
+        "accepted": false,
+        "surrogate_field_error": 2.3438017970816933e-06,
+        "inner_nfev": 3,
+        "scaled_step": 0.0002996292952902682
+      },
+      {
+        "outer": 7,
+        "anchor_loss": 474.54388673119496,
+        "trial_loss": 474.5443616800824,
+        "predicted_reduction": 6.120629410588663e-05,
+        "ratio": -7.759804679462123,
+        "radius": 0.0625,
+        "accepted": false,
+        "surrogate_field_error": 2.3438206766216874e-06,
+        "inner_nfev": 3,
+        "scaled_step": 0.00029963129362325913
+      }
+    ],
+    "final_fine_objective": 474.54388673119496,
+    "pose_error_m": 0.000571672481577847,
+    "material_relative_error": 0.02295336321384429,
+    "deployable_prediction": {
+      "relative_field_error": 0.010418718322573323,
+      "weighted_phase_rmse_rad": 0.006985335934551619
+    },
+    "structural_field": {
+      "relative_field_error": 0.031222133379420744,
+      "weighted_phase_rmse_rad": 0.02164318904816552
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8101,
+    "method": "tangent_corrected",
+    "status": "fine_objective_stalled",
+    "warm_status": 2,
+    "estimated": [
+      2.5576839480147,
+      -0.07977289432918848,
+      -0.02557179651289588,
+      0.032433097955606255,
+      0.058350960300009865,
+      -0.09407596679445601,
+      0.02020388373640932,
+      0.05407149197033833,
+      -0.05282491372349244,
+      0.13845214313062473,
+      0.07235951597903817,
+      0.026573168514960388,
+      0.0644463021172022
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "online_seconds": 20.149382499977946,
+    "offline_evaluation_seconds": 0.8465778329991736,
+    "work": {
+      "coarse": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 184.0,
+          "wall_seconds": 2.3358675849740393
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 184.0,
+          "wall_seconds": 2.415157250012271
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 184.0,
+          "wall_seconds": 3.0511511240620166
+        }
+      ],
+      "fine": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 40.0,
+          "wall_seconds": 3.145313956949394
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 40.0,
+          "wall_seconds": 3.2663522089715116
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 40.0,
+          "wall_seconds": 4.132145665003918
+        }
+      ]
+    },
+    "fine_rhs": 120.0,
+    "coarse_rhs": 552.0,
+    "events": [
+      {
+        "outer": 0,
+        "anchor_loss": 1957.083846321044,
+        "trial_loss": 481.759140733282,
+        "predicted_reduction": 1476.044410649914,
+        "ratio": 0.9995124096152126,
+        "radius": 0.25,
+        "accepted": true,
+        "surrogate_field_error": 0.0012208639246450795,
+        "inner_nfev": 8,
+        "scaled_step": 0.5065472107402589
+      },
+      {
+        "outer": 1,
+        "anchor_loss": 481.759140733282,
+        "trial_loss": 474.5240559286991,
+        "predicted_reduction": 7.241346360011619,
+        "ratio": 0.9991353050776126,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 4.51610009780945e-06,
+        "inner_nfev": 5,
+        "scaled_step": 0.15615536188796156
+      },
+      {
+        "outer": 2,
+        "anchor_loss": 474.5240559286991,
+        "trial_loss": 474.52403363283406,
+        "predicted_reduction": 2.2336476092732482e-05,
+        "ratio": 0.9981818510013819,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 2.7555891727526354e-11,
+        "inner_nfev": 3,
+        "scaled_step": 0.0002405213864424679
+      },
+      {
+        "outer": 3,
+        "anchor_loss": 474.52403363283406,
+        "trial_loss": 474.52403363276056,
+        "predicted_reduction": 8.276401786133647e-11,
+        "ratio": 0.8880494505494505,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 9.872318603680556e-15,
+        "inner_nfev": 2,
+        "scaled_step": 5.359921911230969e-07
+      }
+    ],
+    "final_fine_objective": 474.52403363276034,
+    "pose_error_m": 0.0005736653506644186,
+    "material_relative_error": 0.02307357920588,
+    "deployable_prediction": {
+      "relative_field_error": 0.010398899601191412,
+      "weighted_phase_rmse_rad": 0.006997920844157015
+    },
+    "structural_field": {
+      "relative_field_error": 0.031467051388605435,
+      "weighted_phase_rmse_rad": 0.021851734496875188
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8102,
+    "method": "fine_direct",
+    "status": "fine_optimizer_2",
+    "warm_status": null,
+    "estimated": [
+      2.556663048119244,
+      0.058940999807037577,
+      0.0656922626008822,
+      0.019081184377349604,
+      0.05841579636640848,
+      -0.004854264663155427,
+      -0.10131701955098928,
+      -0.004744887698164676,
+      0.03683122423592361,
+      -0.10553789976591485,
+      0.20381416075081513,
+      -0.17864578080361165,
+      0.0388115727615828
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "online_seconds": 23.359421415952966,
+    "offline_evaluation_seconds": 0.8523750419844873,
+    "work": {
+      "fine": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 6.393427249859087
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 6.6727292067953385
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 8.344979874033015
+        }
+      ]
+    },
+    "fine_rhs": 264.0,
+    "coarse_rhs": 0,
+    "events": [],
+    "final_fine_objective": 448.29586336042945,
+    "pose_error_m": 0.000469021942592252,
+    "material_relative_error": 0.02266521924769762,
+    "deployable_prediction": {
+      "relative_field_error": 0.010546962738225439,
+      "weighted_phase_rmse_rad": 0.006221303141104322
+    },
+    "structural_field": {
+      "relative_field_error": 0.03059865060393253,
+      "weighted_phase_rmse_rad": 0.021091970754599076
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8102,
+    "method": "coarse_only",
+    "status": "coarse_optimizer_2",
+    "warm_status": 2,
+    "estimated": [
+      2.6723927325344947,
+      0.05960396198853598,
+      0.06575367418118999,
+      0.019544377735089685,
+      0.05647743295454563,
+      -0.03465928506315366,
+      -0.12835516044109418,
+      -0.03546561556385995,
+      0.0012345385320401015,
+      -0.09834879457860457,
+      0.21559088869270138,
+      -0.17909628945900036,
+      0.0423078752683725
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "online_seconds": 3.89264912501676,
+    "offline_evaluation_seconds": 2.848163291986566,
+    "work": {
+      "coarse": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 1.0815228331484832
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 1.1295532919466496
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 1.393426873954013
+        }
+      ]
+    },
+    "fine_rhs": 0,
+    "coarse_rhs": 264.0,
+    "events": [],
+    "final_fine_objective": 1877.8033410580792,
+    "pose_error_m": 0.0012771568278235439,
+    "material_relative_error": 0.06895709301379789,
+    "deployable_prediction": {
+      "relative_field_error": 0.027846225333699248,
+      "weighted_phase_rmse_rad": 0.016126776629289404
+    },
+    "structural_field": {
+      "relative_field_error": 0.07801088974429898,
+      "weighted_phase_rmse_rad": 0.051563246173509665
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8102,
+    "method": "coarse_warm_fine",
+    "status": "fine_optimizer_2",
+    "warm_status": 2,
+    "estimated": [
+      2.5566630479446264,
+      0.05894099980045049,
+      0.06569226260060472,
+      0.01908118438191477,
+      0.05841579650367,
+      -0.004854264596292588,
+      -0.101317019222261,
+      -0.0047448877543738764,
+      0.036831224385584595,
+      -0.10553790232022713,
+      0.2038141584972039,
+      -0.1786457832022456,
+      0.038811570609174145
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "online_seconds": 17.634248792019207,
+    "offline_evaluation_seconds": 0.8342848329921253,
+    "work": {
+      "coarse": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 1.079953541920986
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 1.118603374925442
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 88.0,
+          "wall_seconds": 1.3986860829754733
+        }
+      ],
+      "fine": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 48.0,
+          "wall_seconds": 3.7685891239671037
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 48.0,
+          "wall_seconds": 3.900789792998694
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 48.0,
+          "wall_seconds": 4.980042625917122
+        }
+      ]
+    },
+    "fine_rhs": 144.0,
+    "coarse_rhs": 264.0,
+    "events": [],
+    "final_fine_objective": 448.2958633604127,
+    "pose_error_m": 0.00046902193928868207,
+    "material_relative_error": 0.02266521917785056,
+    "deployable_prediction": {
+      "relative_field_error": 0.010546962740175294,
+      "weighted_phase_rmse_rad": 0.006221303144282172
+    },
+    "structural_field": {
+      "relative_field_error": 0.03059865045851573,
+      "weighted_phase_rmse_rad": 0.021091970627799685
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8102,
+    "method": "value_corrected",
+    "status": "outer_trial_limit",
+    "warm_status": 2,
+    "estimated": [
+      2.556377460658703,
+      0.05892784706495238,
+      0.06570403290834279,
+      0.01908698464172754,
+      0.058445762133612765,
+      -0.004895589860998076,
+      -0.10151157263605162,
+      -0.004601325821768012,
+      0.03676969262146655,
+      -0.1057509787011236,
+      0.2034349537064257,
+      -0.17869462171179876,
+      0.03850534981017269
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "online_seconds": 35.42555629200069,
+    "offline_evaluation_seconds": 2.936301166017074,
+    "work": {
+      "coarse": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 312.0,
+          "wall_seconds": 4.031539122806862
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 312.0,
+          "wall_seconds": 4.087294626922812
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 312.0,
+          "wall_seconds": 5.17160795716336
+        }
+      ],
+      "fine": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 5.698217625031248
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 5.900689834088553
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 72.0,
+          "wall_seconds": 7.390815543010831
+        }
+      ]
+    },
+    "fine_rhs": 216.0,
+    "coarse_rhs": 936.0,
+    "events": [
+      {
+        "outer": 0,
+        "anchor_loss": 1877.8033410580788,
+        "trial_loss": 477.36814286501703,
+        "predicted_reduction": 1383.3367023559817,
+        "ratio": 1.0123603283336293,
+        "radius": 0.25,
+        "accepted": true,
+        "surrogate_field_error": 0.01095357265462311,
+        "inner_nfev": 8,
+        "scaled_step": 0.5199495590160157
+      },
+      {
+        "outer": 1,
+        "anchor_loss": 477.36814286501703,
+        "trial_loss": 448.4218829113924,
+        "predicted_reduction": 29.3813679297549,
+        "ratio": 0.9851910238770868,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 0.0004811963730244241,
+        "inner_nfev": 6,
+        "scaled_step": 0.2324697056249796
+      },
+      {
+        "outer": 2,
+        "anchor_loss": 448.4218829113924,
+        "trial_loss": 448.33623846078547,
+        "predicted_reduction": 0.05512092814416292,
+        "ratio": 1.5537555968386674,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 8.959673428549862e-05,
+        "inner_nfev": 4,
+        "scaled_step": 0.009044973712699222
+      },
+      {
+        "outer": 3,
+        "anchor_loss": 448.33623846078547,
+        "trial_loss": 448.33229984136176,
+        "predicted_reduction": 0.002488666807323625,
+        "ratio": 1.5826222345700263,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 1.608783106953786e-05,
+        "inner_nfev": 3,
+        "scaled_step": 0.0018567751998564825
+      },
+      {
+        "outer": 4,
+        "anchor_loss": 448.33229984136176,
+        "trial_loss": 448.3328237817459,
+        "predicted_reduction": 7.04424400055359e-05,
+        "ratio": -7.437851160469764,
+        "radius": 0.5,
+        "accepted": false,
+        "surrogate_field_error": 2.4440162229399054e-06,
+        "inner_nfev": 3,
+        "scaled_step": 0.0003240780333203191
+      },
+      {
+        "outer": 5,
+        "anchor_loss": 448.33229984136176,
+        "trial_loss": 448.33282378215256,
+        "predicted_reduction": 7.044243920972804e-05,
+        "ratio": -7.437857017406627,
+        "radius": 0.25,
+        "accepted": false,
+        "surrogate_field_error": 2.4440232541971377e-06,
+        "inner_nfev": 3,
+        "scaled_step": 0.0003240789171981507
+      },
+      {
+        "outer": 6,
+        "anchor_loss": 448.33229984136176,
+        "trial_loss": 448.33282378297434,
+        "predicted_reduction": 7.044243454856769e-05,
+        "ratio": -7.437869175622852,
+        "radius": 0.125,
+        "accepted": false,
+        "surrogate_field_error": 2.444037304246028e-06,
+        "inner_nfev": 3,
+        "scaled_step": 0.0003240806830664626
+      },
+      {
+        "outer": 7,
+        "anchor_loss": 448.33229984136176,
+        "trial_loss": 448.3328237845382,
+        "predicted_reduction": 7.044243704967812e-05,
+        "ratio": -7.437891112302959,
+        "radius": 0.0625,
+        "accepted": false,
+        "surrogate_field_error": 2.4440653422302137e-06,
+        "inner_nfev": 3,
+        "scaled_step": 0.00032408420683688224
+      }
+    ],
+    "final_fine_objective": 448.3322998413618,
+    "pose_error_m": 0.00046046509790544955,
+    "material_relative_error": 0.022550984263481233,
+    "deployable_prediction": {
+      "relative_field_error": 0.010503949524067524,
+      "weighted_phase_rmse_rad": 0.006167941896176128
+    },
+    "structural_field": {
+      "relative_field_error": 0.030344866354310995,
+      "weighted_phase_rmse_rad": 0.02086133337752301
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  },
+  {
+    "seed": 8102,
+    "method": "tangent_corrected",
+    "status": "fine_objective_stalled",
+    "warm_status": 2,
+    "estimated": [
+      2.5566630472540584,
+      0.05894099979324068,
+      0.06569226259640007,
+      0.019081184375547,
+      0.058415796553531296,
+      -0.004854264278043047,
+      -0.10131701879193974,
+      -0.004744887478951185,
+      0.036831224815344496,
+      -0.10553790282959213,
+      0.20381415799852978,
+      -0.17864578368062553,
+      0.038811570192377035
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "online_seconds": 20.889056415995583,
+    "offline_evaluation_seconds": 0.8360086250468157,
+    "work": {
+      "coarse": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 200.0,
+          "wall_seconds": 2.54311329300981
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 200.0,
+          "wall_seconds": 2.6249918309040368
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 200.0,
+          "wall_seconds": 3.3057309541036375
+        }
+      ],
+      "fine": [
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 40.0,
+          "wall_seconds": 3.13898466702085
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 40.0,
+          "wall_seconds": 3.2867036249372177
+        },
+        {
+          "factorizations": 0.0,
+          "rhs_columns": 40.0,
+          "wall_seconds": 4.106215417094063
+        }
+      ]
+    },
+    "fine_rhs": 120.0,
+    "coarse_rhs": 600.0,
+    "events": [
+      {
+        "outer": 0,
+        "anchor_loss": 1877.8033410580788,
+        "trial_loss": 455.50762283948393,
+        "predicted_reduction": 1423.7567052069487,
+        "ratio": 0.9989738506705459,
+        "radius": 0.25,
+        "accepted": true,
+        "surrogate_field_error": 0.0011526398387535965,
+        "inner_nfev": 8,
+        "scaled_step": 0.5008386713416275
+      },
+      {
+        "outer": 1,
+        "anchor_loss": 455.50762283948393,
+        "trial_loss": 448.2959185071682,
+        "predicted_reduction": 7.223466407727813,
+        "ratio": 0.9983716854556823,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 4.88911775683969e-06,
+        "inner_nfev": 5,
+        "scaled_step": 0.15680306884758002
+      },
+      {
+        "outer": 2,
+        "anchor_loss": 448.2959185071682,
+        "trial_loss": 448.2958633610019,
+        "predicted_reduction": 5.532377912231823e-05,
+        "ratio": 0.9967895751934633,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 8.126459646031158e-11,
+        "inner_nfev": 3,
+        "scaled_step": 0.0004202477613602313
+      },
+      {
+        "outer": 3,
+        "anchor_loss": 448.2958633610019,
+        "trial_loss": 448.2958633604069,
+        "predicted_reduction": 5.936726665822789e-10,
+        "ratio": 1.0022979701263883,
+        "radius": 0.5,
+        "accepted": true,
+        "surrogate_field_error": 9.029811472933276e-15,
+        "inner_nfev": 2,
+        "scaled_step": 1.5197899070897639e-06
+      }
+    ],
+    "final_fine_objective": 448.295863360407,
+    "pose_error_m": 0.00046902193003352314,
+    "material_relative_error": 0.02266521890162334,
+    "deployable_prediction": {
+      "relative_field_error": 0.01054696274585883,
+      "weighted_phase_rmse_rad": 0.006221303075731865
+    },
+    "structural_field": {
+      "relative_field_error": 0.030598649937170666,
+      "weighted_phase_rmse_rad": 0.02109197020309096
+    },
+    "scope": "serial DEVELOPMENT; includes setup and warm start; two previously inspected scenes; no global novelty/performance certificate"
+  }
+]

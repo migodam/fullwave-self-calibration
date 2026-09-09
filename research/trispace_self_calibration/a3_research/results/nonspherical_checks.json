@@ -1,0 +1,8 @@
+{
+  "radiation_adapter_error": 9.377746218934896e-16,
+  "same_grid_rrc_error": 1.9352397992321367e-11,
+  "sphere_coarse_treams_error": 0.035888634275119305,
+  "material_tangent_fd_error": 2.881933760277859e-10,
+  "passed": true,
+  "scope": "adapter/derivative controls; continuum discrepancy not a pass criterion"
+}

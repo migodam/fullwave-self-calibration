@@ -1,0 +1,138 @@
+[
+  {
+    "seed": 6101,
+    "spacing": 0.03,
+    "method": "direct_rice_intensity",
+    "estimated": [
+      3.156235605256383,
+      3.716795649229877,
+      -0.05899591733952212,
+      -0.02088107306190395,
+      0.06827296300454909,
+      0.0,
+      -0.2672553196699602,
+      -0.21085546100893526,
+      -0.2922486911409239,
+      -0.238550828280825,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "true": [
+      2.5352794975486033,
+      2.9623516613513985,
+      -0.05262340390583441,
+      -0.020058834851899843,
+      0.07020271010258523,
+      0.06,
+      -0.02751792835565916,
+      0.02621135545929807,
+      -0.03917667431882498,
+      0.0201935274372244,
+      0.06966371344997796,
+      0.05543776027418831,
+      0.14740954957899083,
+      0.05239822429556767
+    ],
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "nfev": 46,
+    "nit": 39,
+    "pose_error_m": 0.006708869278716054,
+    "material_relative_error": 0.2506010106562781,
+    "heldout_phase_rmse_rad": 0.07765668751358883,
+    "heldout_field_relative_error": 0.29210725762070266,
+    "magnitude_relative_residual": 0.023949813400976985,
+    "elapsed_seconds": 35.67412416700972,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 552.0,
+        "wall_seconds": 10.79654420807492
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 552.0,
+        "wall_seconds": 11.035947792057414
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 552.0,
+        "wall_seconds": 11.943179709254764
+      }
+    ],
+    "unidentifiable_and_not_fitted": [
+      "common_delay",
+      "illumination_phases"
+    ],
+    "scope": "development same complex samples transformed to magnitudes, exact Rice likelihood, known two supports; not classical phaseless SOM; one common nominal initialization"
+  },
+  {
+    "seed": 6102,
+    "spacing": 0.03,
+    "method": "direct_rice_intensity",
+    "estimated": [
+      3.123807141951227,
+      4.42733119867814,
+      -0.05125116090813517,
+      -0.05342884229617363,
+      -0.05549126067429663,
+      0.0,
+      -0.36479812457992544,
+      -0.2593110060267809,
+      -0.38236836851298395,
+      -0.3299049691647473,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "true": [
+      2.455995372709204,
+      3.314781232782759,
+      -0.0478627397779375,
+      -0.0530216999209527,
+      -0.05475269380077917,
+      0.06,
+      -0.09661027292251921,
+      0.008191517267228419,
+      -0.09767932981788129,
+      -0.04065105936104975,
+      -0.3043778325336964,
+      -0.17056844710259725,
+      0.20174223796164603,
+      0.06952358045694917
+    ],
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "nfev": 45,
+    "nit": 40,
+    "pose_error_m": 0.0034917966286609446,
+    "material_relative_error": 0.31452974077246826,
+    "heldout_phase_rmse_rad": 0.08449934069844804,
+    "heldout_field_relative_error": 0.3306939413320829,
+    "magnitude_relative_residual": 0.024548700530287033,
+    "elapsed_seconds": 38.29907212499529,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 540.0,
+        "wall_seconds": 11.655653249996249
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 540.0,
+        "wall_seconds": 11.938868333934806
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 540.0,
+        "wall_seconds": 12.833581252256408
+      }
+    ],
+    "unidentifiable_and_not_fitted": [
+      "common_delay",
+      "illumination_phases"
+    ],
+    "scope": "development same complex samples transformed to magnitudes, exact Rice likelihood, known two supports; not classical phaseless SOM; one common nominal initialization"
+  }
+]

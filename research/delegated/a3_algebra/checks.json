@@ -1,0 +1,547 @@
+{
+  "generation": {
+    "generator": "regenerate_checks.py",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "cpu_threads": 1,
+    "seeds": "3101-3110 (B3 Gaussian draws); deterministic fixture seeds embedded per case"
+  },
+  "counts": {
+    "pass": 16,
+    "expected_fail": 4,
+    "fail": 0,
+    "total": 20
+  },
+  "cases": [
+    {
+      "block": "B1",
+      "case": "1A_state_only_counterexample",
+      "description": "M=I, b=e1+theta*e2, U=e1, theta=0: state exact but proxy derivative is zero while true derivative is e2.",
+      "inputs": {
+        "M": "I2",
+        "b_v": "e2",
+        "U": "e1",
+        "theta": 0.0,
+        "b": "e1+theta*e2"
+      },
+      "metrics": {
+        "state_err": 0.0,
+        "proxy_deriv_norm": 0.0,
+        "true_deriv_norm": 1.0,
+        "deriv_rel_err_vs_true": 1.0,
+        "state_exact_and_derivative_not": true
+      },
+      "thresholds": {
+        "state_err_lt": 1e-12,
+        "derivative_mismatch_rel_gt": 1e-06
+      },
+      "status": "pass",
+      "notes": [
+        "Explicit counterexample from Theorem 1 boundary note: exact state does NOT imply exact derivative under a fixed chart.",
+        "LS proxy derivative U*c_v = [0.+0.j 0.+0.j], true physical derivative t = [0.+0.j 1.+0.j]."
+      ]
+    },
+    {
+      "block": "B1",
+      "case": "1B_tangent_span_sufficiency",
+      "description": "Well-conditioned complex n=6 system, r=3 fixed chart containing j and t: c_v matches FD and U*c_v reproduces t.",
+      "inputs": {
+        "n": 6,
+        "r": 3,
+        "cond_M0": 5.0,
+        "h": 1e-06,
+        "seed": 3202,
+        "u_columns": 3
+      },
+      "metrics": {
+        "state_in_span_rel": 3.4703774196703677e-16,
+        "relative_residual": 4.758550370321161e-16,
+        "cv_vs_fd_rel": 1.0514066667843041e-10,
+        "Ucv_vs_t_rel": 5.439395301933335e-16
+      },
+      "thresholds": {
+        "cv_vs_fd_rel_lt": 0.0005,
+        "Ucv_vs_t_rel_lt": 0.0005
+      },
+      "status": "pass",
+      "notes": [
+        "j0,t0 placed in Ran U0; centered FD h=1e-6 on the fixed-chart LS coefficient.",
+        "zero-residual normal equation gives U*c_v=t as asserted by the theorem."
+      ]
+    },
+    {
+      "block": "B1",
+      "case": "1C_nonzero_residual_derivative",
+      "description": "Complex well-conditioned n=8 system, U fixed, j not in Ran U: correct LS coefficient derivative (with residual term) matches FD; omitted-residual formula is clearly worse.",
+      "inputs": {
+        "n": 8,
+        "r": 3,
+        "h": 1e-06,
+        "fixture_search_trial": 0,
+        "cond_M0": 5.000000000000003,
+        "relative_residual": 0.6689647316224497
+      },
+      "metrics": {
+        "correct_cv_vs_fd_rel": 6.326904792949266e-10,
+        "omitted_cv_vs_fd_rel": 0.546194555004371,
+        "omitted_to_correct_ratio": 863288721.5452536
+      },
+      "thresholds": {
+        "correct_rel_lt": 0.0005,
+        "omitted_rel_gt_10x_correct": true
+      },
+      "status": "pass",
+      "notes": [
+        "With residual r_s=b-C*c clearly nonzero, dropping (M_v U)^* r_s produces a wrong coefficient derivative; correct formula includes it.",
+        "Centered FD h=1e-6 used as reference."
+      ]
+    },
+    {
+      "block": "B1",
+      "case": "1D_moving_U_control",
+      "description": "U(theta) depends on theta with zero residual at theta=0: moving-chart formula reproduces the finite-difference proxy state derivative while the fixed-chart formula is wrong.",
+      "inputs": {
+        "n": 6,
+        "h": 1e-06,
+        "r": 1,
+        "fixture_search_trial": 0,
+        "cond_M0": 5.0
+      },
+      "metrics": {
+        "fixed_chart_proxy_deriv_rel": 0.9793686528676716,
+        "moving_chart_proxy_deriv_rel": 1.327582858546105e-10,
+        "moving_cv_vs_fd_rel": 1.1458619593888016e-10,
+        "fd_pv_vs_physical_t_rel": 1.3275839871740608e-10,
+        "Uv_analytic_vs_fd_rel": 1.1733366996357457e-10
+      },
+      "thresholds": {
+        "moving_rel_lt": 0.0005,
+        "fixed_rel_gt_10x_moving": true
+      },
+      "status": "pass",
+      "notes": [
+        "U(theta)=unit-normalized exact state, so proxy state is exact for every theta and residual is zero at theta=0 (residual actually zero throughout the ideal moving chart).",
+        "Fixed-chart formula (no U_v) fails; moving-chart formula C_v = M_v U0 + M0 U_v matches FD of U(theta)c(theta)."
+      ]
+    },
+    {
+      "block": "B2",
+      "case": "2A_gain_invariance",
+      "description": "R=5,T=4 complex H with |H_rt|>0.5: C(diag(a) H diag(b))=C(H).",
+      "inputs": {
+        "R": 5,
+        "T": 4,
+        "seed": 4101,
+        "min_H_abs": 0.5028611374887884
+      },
+      "metrics": {
+        "max_abs_invariance_err": 6.280369834735101e-16,
+        "min_denominator_abs": 0.7372397281560921
+      },
+      "thresholds": {
+        "max_abs_invariance_err_lt": 1e-10
+      },
+      "status": "pass",
+      "notes": [
+        "Cross ratio is invariant under diag(a) H diag(b) for arbitrary nonzero complex row/column gains (pure algebraic identity).",
+        "All H entries have magnitude >0.5; no denominators near zero."
+      ]
+    },
+    {
+      "block": "B2",
+      "case": "2B_equivalence_recovery",
+      "description": "Recover row/column factors from H'_rt/H_rt and verify Q_rt=a_r b_t.",
+      "inputs": {
+        "R": 5,
+        "T": 4,
+        "seed": 4102
+      },
+      "metrics": {
+        "max_abs_recovery_err": 5.551115123125783e-16,
+        "max_Q_abs": 1.7841024212884875
+      },
+      "thresholds": {
+        "max_abs_recovery_err_lt": 1e-10
+      },
+      "status": "pass",
+      "notes": [
+        "a_r=Q_{r1}/Q_{11}, b_t=Q_{1t} recovers the factorized ratio Q_rt=a_r b_t."
+      ]
+    },
+    {
+      "block": "B2",
+      "case": "2C_local_tangent_kernel",
+      "description": "ker L = {E_rt=u_r+v_t}; SVD null space vs gain subspace distance.",
+      "inputs": {
+        "R": 5,
+        "T": 4,
+        "K": 12,
+        "N": 20,
+        "expected_dim": 8
+      },
+      "metrics": {
+        "L_row_rank": 12,
+        "computed_null_dim": 8,
+        "gain_dim": 8,
+        "subspace_distance": 1.3313026269389756e-15,
+        "max_abs_LG": 3.885780586188048e-16
+      },
+      "thresholds": {
+        "subspace_distance_lt": 1e-09,
+        "dimension_eq_R_plus_T_minus_1": true
+      },
+      "status": "pass",
+      "notes": [
+        "Complex-linear kernel of the linearized log cross-ratio operator is the R+T-1 dimensional row+column gain tangent subspace.",
+        "No realification here; this is the complex version of the quotient-projection identity used in 2D."
+      ]
+    },
+    {
+      "block": "B2",
+      "case": "2D_whitened_quotient_projector",
+      "description": "Realified, whitened projector identity under non-identity covariance with cond(Sigma)=5.",
+      "inputs": {
+        "R": 5,
+        "T": 4,
+        "K": 12,
+        "2N": 40,
+        "dim_Gw": 16,
+        "cond_Sigma": 5.000000000000003,
+        "Sigma_is_identity": false
+      },
+      "metrics": {
+        "fro_diff_PL_vs_PG": 6.171862414987981e-15,
+        "max_gain_annihilation_err": 3.801632369863597e-16,
+        "orthogonal_vector_preserved_rel": 1.0604983978747356e-15,
+        "Lw_row_rank": 24
+      },
+      "thresholds": {
+        "fro_diff_lt": 1e-09,
+        "gain_err_lt": 1e-09,
+        "orth_err_lt": 1e-09
+      },
+      "status": "pass",
+      "notes": [
+        "Whitened quotient projector L_w^T(L_w L_w^T)^{-1} L_w with L_w=L_R Sigma^{1/2} equals orthogonal projector onto complement of G_w=Sigma^{-1/2} G_R (G_R the realified gain subspace).",
+        "Sigma is a fixed SPD 2RT x 2RT matrix with condition number 5 and Sigma != I; matrix square root taken via symmetric eigendecomposition.",
+        "Algebraic identity only; no claim about finite-noise ratio sufficiency or nonlinear ratio statistics."
+      ]
+    },
+    {
+      "block": "B2",
+      "case": "2E_rank_one_gain_hiding",
+      "description": "H=u v^T: every cross ratio equals 1 within tolerance.",
+      "inputs": {
+        "R": 5,
+        "T": 4,
+        "seed": 4103,
+        "min_H_abs": 0.4520302118136985
+      },
+      "metrics": {
+        "max_abs_C_minus_1": 2.2595252421495737e-16
+      },
+      "thresholds": {
+        "max_abs_C_minus_1_lt": 1e-10
+      },
+      "status": "pass",
+      "notes": [
+        "H=u v^T gives all cross ratios exactly one: unknown separable row/column gains can absorb rank-one geometry variation.",
+        "This verifies the algebra; it does not imply any physics claim about scattering models."
+      ]
+    },
+    {
+      "block": "B2",
+      "case": "2F_two_component_formula",
+      "description": "H=u v^T + eta s t^T satisfies the displayed closed form for C_rt-1.",
+      "inputs": {
+        "R": 5,
+        "T": 4,
+        "seed": 4104,
+        "eta": [
+          0.35,
+          0.2
+        ],
+        "max_ab": 0.5652380802597776
+      },
+      "metrics": {
+        "max_abs_formula_err": 2.514870450229076e-16,
+        "max_abs_lhs": 0.36620326847397805
+      },
+      "thresholds": {
+        "max_abs_formula_err_lt": 1e-10
+      },
+      "status": "pass",
+      "notes": [
+        "Closed-form two-component identity verified at machine precision with all entries and denominators safely nonzero."
+      ]
+    },
+    {
+      "block": "B2",
+      "case": "2G_near_zero_negative_control",
+      "description": "H with H_{2,1}=0 exactly: flag rather than blind division.",
+      "inputs": {
+        "R": 5,
+        "T": 4,
+        "seed": 4105,
+        "zero_location": "row 2, column 1"
+      },
+      "metrics": {
+        "near_zero_flag_detected": true,
+        "blind_division_attempted": false
+      },
+      "thresholds": {
+        "near_zero_flag_detected_is_true": true
+      },
+      "status": "expected_fail",
+      "notes": [
+        "Expected-fail control: cross-ratio routine returns the near-zero denominator flag instead of dividing blindly.",
+        "Only the flagging behavior is exercised; no division performed when any required denominator H_r1 or H_1t has |.|<1e-9."
+      ]
+    },
+    {
+      "block": "B3",
+      "case": "3A_two_candidate_bound",
+      "description": "K=2,m=4: mu1=0, mu2=4 e1, beta=1, i*=1, worst-case e.",
+      "inputs": {
+        "K": 2,
+        "m": 4,
+        "beta": 1.0,
+        "i_star": 0,
+        "seeds": "3101-3110",
+        "reps_per_seed": 1000,
+        "e_norm": 1.0
+      },
+      "metrics": {
+        "empirical_error": 0.1608,
+        "theorem_bound": 0.6065306597126334,
+        "mc_std_error": 0.0036734637605399076,
+        "bound_in_range": true
+      },
+      "thresholds": {
+        "empirical_le_bound_plus_0.03": true,
+        "bound_in_0.05_0.95": true
+      },
+      "status": "pass",
+      "notes": [
+        "Predictions and beta fixed before the 10000 independent Gaussian draws (seeds 3101..3110 x 1000).",
+        "Worst-case direction mismatch ||e||=beta toward candidate 2.",
+        "Empirical error 0.160800 <= bound 0.606531 + 0.03 (True); bound in [0.05,0.95] (True)."
+      ]
+    },
+    {
+      "block": "B3",
+      "case": "3B_three_candidate_bound_case1",
+      "description": "K=3,m=4: mu1=0, mu2=4 e1, mu3=4 e2, beta=0.5, i*=1, e toward candidate 2.",
+      "inputs": {
+        "K": 3,
+        "m": 4,
+        "beta": 0.5,
+        "i_star": 0,
+        "seeds": "3101-3110",
+        "reps_per_seed": 1000,
+        "e_norm": 0.5
+      },
+      "metrics": {
+        "empirical_error": 0.0911,
+        "theorem_bound": 0.6493049347166995,
+        "mc_std_error": 0.002877512641153814
+      },
+      "thresholds": {
+        "empirical_le_bound_plus_0.03": true
+      },
+      "status": "pass",
+      "notes": [
+        "Conditional (branch in candidate library) positive case; candidates and beta frozen before validation noise.",
+        "Empirical error 0.091100 <= bound 0.649305 + 0.03 (True)."
+      ]
+    },
+    {
+      "block": "B3",
+      "case": "3C_three_candidate_bound_case2",
+      "description": "K=3,m=4 same geometry, i*=2, beta=0.5, e toward candidate 1.",
+      "inputs": {
+        "K": 3,
+        "m": 4,
+        "beta": 0.5,
+        "i_star": 1,
+        "seeds": "3101-3110",
+        "reps_per_seed": 1000,
+        "e_norm": 0.5
+      },
+      "metrics": {
+        "empirical_error": 0.0689,
+        "theorem_bound": 0.3911369675955788,
+        "mc_std_error": 0.0025328401054942255
+      },
+      "thresholds": {
+        "empirical_le_bound_plus_0.03": true
+      },
+      "status": "pass",
+      "notes": [
+        "Conditional positive case with i*=2 and e toward candidate 1.",
+        "Empirical error 0.068900 <= bound 0.391137 + 0.03 (True)."
+      ]
+    },
+    {
+      "block": "B3",
+      "case": "3D_missing_candidate_control",
+      "description": "Candidate library {0,4 e1}, true branch mean 2 e1, i* absent.",
+      "inputs": {
+        "m": 4,
+        "beta": 0.1,
+        "candidate_means": "0,4e1",
+        "true_mean": "2e1",
+        "seeds": "3101-3110",
+        "reps": 10000
+      },
+      "metrics": {
+        "empirical_error": 1.0,
+        "mc_std_error": 0.0,
+        "truth_in_candidate_library": false
+      },
+      "thresholds": {
+        "truth_in_candidate_library": false
+      },
+      "status": "expected_fail",
+      "notes": [
+        "Expected-fail control: true branch mean (2 e1) is NOT in the candidate library, so no selection can recover i* and the theorem bound does not apply.",
+        "Empirical error is 1.0 by definition, not by numerical accident."
+      ]
+    },
+    {
+      "block": "B3",
+      "case": "3E_reused_validation_control",
+      "description": "Candidate 1 fixed at 0 before noise; candidate 2 refit to y after seeing it.",
+      "inputs": {
+        "m": 4,
+        "beta": 0.1,
+        "seeds": "3101-3110",
+        "reps": 10000
+      },
+      "metrics": {
+        "empirical_error": 1.0,
+        "mc_std_error": 0.0,
+        "avg_plugin_bound_with_refit_d": 0.6917217942033217
+      },
+      "thresholds": {
+        "empirical_error_is_one": true
+      },
+      "status": "expected_fail",
+      "notes": [
+        "Expected-fail control: candidate 2 is refit to the validation observation y, so it is always selected and the empirical error is 1.0 while the candidate-1 truth never wins.",
+        "The plug-in bound evaluated with refitted d=||y|| is invalid because validation data were reused; the recorded average is the value one would wrongly quote after the fit.",
+        "With m=4 the average plug-in bound is about 0.69 (not near zero), but it is still below the conditional error 1.0, so quoting it would understate the error and the bound is demonstrably invalid.",
+        "No claim of a global coverage guarantee: conditional selection bounds are fixture-level only."
+      ]
+    },
+    {
+      "block": "B4",
+      "case": "4A_dual_residual_identity",
+      "description": "Random well-conditioned complex M (n=8, sv in [1,5]) with arbitrary approximate adjoint.",
+      "inputs": {
+        "n": 8,
+        "cond_M": 4.999999999999999,
+        "seed": 5101,
+        "delta_norm": 0.001
+      },
+      "metrics": {
+        "lhs": -0.15561209820887434,
+        "rhs": -0.15561209820887534,
+        "abs_error": 9.992007221626409e-16,
+        "relative_error": 3.1113271751557975e-16
+      },
+      "thresholds": {
+        "relative_error_lt": 1e-09
+      },
+      "status": "pass",
+      "notes": [
+        "Complex identity q^*L(w-w_tilde)=p_tilde^*r+r_d^*M^{-1}r verified with conjugate-transpose adjoints on a cond~5 complex system."
+      ]
+    },
+    {
+      "block": "B4",
+      "case": "4B_certified_resolvent_bound",
+      "description": "Resolvent-certified correction bound for the same B4 fixture.",
+      "inputs": {
+        "n": 8,
+        "seed": 5101
+      },
+      "metrics": {
+        "gamma": 1.0000000000000002,
+        "inv_norm_2": 1.0000000000000004,
+        "gamma_rel_vs_invnorm": 2.2204460492503126e-16,
+        "bound_lhs": 1.1478678786678511,
+        "bound_rhs": 39.32005319030339,
+        "margin": 38.17218531163554
+      },
+      "thresholds": {
+        "gamma_rel_lt": 1e-09,
+        "lhs_le_rhs_plus_1e-8": true
+      },
+      "status": "pass",
+      "notes": [
+        "gamma=1/sigma_min(M) certified against ||M^{-1}||_2 computed from the exact offline SVD/inverse.",
+        "Post-correction bound |q^*L(w-w_tilde)-p_tilde^*r| <= gamma ||r_d|| ||r|| verified numerically."
+      ]
+    },
+    {
+      "block": "B4",
+      "case": "4C_near_singular_identities",
+      "description": "M=diag(1,eps), eps=1e-6: exact dual-residual identity values and resolvent quantities.",
+      "inputs": {
+        "eps": 1e-06,
+        "M": "diag(1,eps)",
+        "b": "0",
+        "w_tilde": "-e2",
+        "p_tilde": "0",
+        "L": "e2^T",
+        "q": 1.0
+      },
+      "metrics": {
+        "lhs": 1.0,
+        "p_r": 0.0,
+        "second_term": 1.0,
+        "abs_identity_err": 0.0,
+        "gamma": 1000000.0,
+        "certified_bound": 1.0,
+        "residual_norm": 1e-06,
+        "output_error": 1.0,
+        "exact_adjoint_correction": 1.0
+      },
+      "thresholds": {
+        "abs_identity_err_lt": 1e-09
+      },
+      "status": "pass",
+      "notes": [
+        "All numerical identities pass: lhs=1, p_tilde^*r=0, r_d^*M^{-1}r=1, gamma=1/eps, certified bound = 1, exact adjoint p=M^{-*}L^*q recovers the error exactly."
+      ]
+    },
+    {
+      "block": "B4",
+      "case": "4C_small_residual_control",
+      "description": "Small residual without resolvent control does not certify output accuracy.",
+      "inputs": {
+        "eps": 1e-06,
+        "b": "0",
+        "w_tilde": "-e2",
+        "p_tilde": "0"
+      },
+      "metrics": {
+        "residual_norm": 1e-06,
+        "remaining_output_error": 1.0,
+        "gamma": 1000000.0,
+        "certified_bound": 1.0,
+        "small_residual_certifies": false
+      },
+      "thresholds": {
+        "small_residual_certifies": false
+      },
+      "status": "expected_fail",
+      "notes": [
+        "Expected-fail control: residual is tiny (eps) yet the true output error after p_tilde=0 correction is 1, so a small residual alone is NOT a certificate.",
+        "Certified bound equals the actual error in this equality case; the bound needs a verified resolvent gamma.",
+        "Exact adjoint p=M^{-*}L^*q does recover the error (numerical identity checked in 4C_identities)."
+      ]
+    }
+  ]
+}

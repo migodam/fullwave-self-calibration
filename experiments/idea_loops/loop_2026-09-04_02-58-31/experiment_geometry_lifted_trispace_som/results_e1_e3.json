@@ -1,0 +1,175 @@
+{
+  "parameters": {
+    "N": 24,
+    "k": 12.0,
+    "M": 8,
+    "R_r": 1.6,
+    "R_t": 2.0,
+    "r": 4,
+    "singular_values_s": [
+      0.0021899374505699883,
+      0.00211286590553895,
+      0.0021128659055389496,
+      0.0018455126587175184,
+      0.0018060913272084837,
+      0.0017430897571135467,
+      0.001743089757113546,
+      0.0016721452570961776
+    ],
+    "rank_G_s": 8,
+    "diag_selfcell_max_abs_diff_vs_ih2o4": 0.0005126761730246752
+  },
+  "E1": {
+    "unrestricted_norm_R_full_over_norm_b": 5.517957254042236e-16,
+    "unrestricted_norm_dJ_full": 4.199779228673219,
+    "retained_r4_norm_R_U_over_norm_b": 0.7841149347494042,
+    "retained_r4_norm_dJ_r": 2.395714433705315,
+    "retained_r4_orthogonality_residual": 8.86778085634542e-18
+  },
+  "E3": [
+    {
+      "direction": "rx",
+      "type": "receiver",
+      "eps": 0.01,
+      "rel_err": 0.0022399077407065935
+    },
+    {
+      "direction": "rx",
+      "type": "transmitter",
+      "eps": 0.01,
+      "rel_err": 0.002382661920609562
+    },
+    {
+      "direction": "rx",
+      "type": "comoving",
+      "eps": 0.01,
+      "rel_err": 0.002226782359688621
+    },
+    {
+      "direction": "rx",
+      "type": "receiver",
+      "eps": 0.001,
+      "rel_err": 2.2414390432944922e-05
+    },
+    {
+      "direction": "rx",
+      "type": "transmitter",
+      "eps": 0.001,
+      "rel_err": 2.384342206534322e-05
+    },
+    {
+      "direction": "rx",
+      "type": "comoving",
+      "eps": 0.001,
+      "rel_err": 2.2302317506360573e-05
+    },
+    {
+      "direction": "rx",
+      "type": "receiver",
+      "eps": 0.0001,
+      "rel_err": 2.241454297848581e-07
+    },
+    {
+      "direction": "rx",
+      "type": "transmitter",
+      "eps": 0.0001,
+      "rel_err": 2.3843482522388153e-07
+    },
+    {
+      "direction": "rx",
+      "type": "comoving",
+      "eps": 0.0001,
+      "rel_err": 2.230268649945297e-07
+    },
+    {
+      "direction": "rx",
+      "type": "receiver",
+      "eps": 1e-05,
+      "rel_err": 2.2345821849650968e-09
+    },
+    {
+      "direction": "rx",
+      "type": "transmitter",
+      "eps": 1e-05,
+      "rel_err": 2.3770783999906352e-09
+    },
+    {
+      "direction": "rx",
+      "type": "comoving",
+      "eps": 1e-05,
+      "rel_err": 2.222265396357272e-09
+    },
+    {
+      "direction": "theta",
+      "type": "receiver",
+      "eps": 0.01,
+      "rel_err": 0.00015242038170668295
+    },
+    {
+      "direction": "theta",
+      "type": "transmitter",
+      "eps": 0.01,
+      "rel_err": 0.0001980677388568612
+    },
+    {
+      "direction": "theta",
+      "type": "comoving",
+      "eps": 0.01,
+      "rel_err": 0.00013585134885958554
+    },
+    {
+      "direction": "theta",
+      "type": "receiver",
+      "eps": 0.001,
+      "rel_err": 1.5243496231130282e-06
+    },
+    {
+      "direction": "theta",
+      "type": "transmitter",
+      "eps": 0.001,
+      "rel_err": 1.9808693540338394e-06
+    },
+    {
+      "direction": "theta",
+      "type": "comoving",
+      "eps": 0.001,
+      "rel_err": 1.3586575101516816e-06
+    },
+    {
+      "direction": "theta",
+      "type": "receiver",
+      "eps": 0.0001,
+      "rel_err": 1.5242828568586848e-08
+    },
+    {
+      "direction": "theta",
+      "type": "transmitter",
+      "eps": 0.0001,
+      "rel_err": 1.980904903041849e-08
+    },
+    {
+      "direction": "theta",
+      "type": "comoving",
+      "eps": 0.0001,
+      "rel_err": 1.3584336084202313e-08
+    },
+    {
+      "direction": "theta",
+      "type": "receiver",
+      "eps": 1e-05,
+      "rel_err": 1.5685238521213564e-10
+    },
+    {
+      "direction": "theta",
+      "type": "transmitter",
+      "eps": 1e-05,
+      "rel_err": 2.1445526121612764e-10
+    },
+    {
+      "direction": "theta",
+      "type": "comoving",
+      "eps": 1e-05,
+      "rel_err": 1.2777712240260271e-10
+    }
+  ]
+}

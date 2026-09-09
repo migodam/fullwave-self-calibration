@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "case": 0,
+      "information_identity_error": 1.5795895811334142e-16
+    },
+    {
+      "case": 1,
+      "information_identity_error": 2.257023964255099e-16
+    },
+    {
+      "case": 2,
+      "information_identity_error": 1.3664717306219077e-16
+    },
+    {
+      "case": 3,
+      "information_identity_error": 2.3820677568696154e-16
+    },
+    {
+      "case": 4,
+      "information_identity_error": 2.9243007265342895e-16
+    },
+    {
+      "case": 5,
+      "information_identity_error": 2.973141780130145e-16
+    },
+    {
+      "case": 6,
+      "information_identity_error": 8.070379093986978e-16
+    },
+    {
+      "case": 7,
+      "information_identity_error": 4.09468656324934e-16
+    },
+    {
+      "case": 8,
+      "information_identity_error": 8.526847043527895e-17
+    },
+    {
+      "case": 9,
+      "information_identity_error": 1.9540297021596484e-16
+    }
+  ],
+  "scalar_correct_model_mse": 0.2,
+  "scalar_misspecified_mse": 1.64,
+  "old_mse": 1.0,
+  "scope": "algebra only; no claim of known electromagnetic discrepancy envelope"
+}

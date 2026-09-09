@@ -1,0 +1,150 @@
+{
+  "integrity_and_intervention_passed": true,
+  "summary": [
+    {
+      "use_reference": false,
+      "choice": "low",
+      "count": 2,
+      "statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.2990214901182921,
+      "material_percent": 0.4778669792386036,
+      "sensor_phase_rad": 0.002710263759803214,
+      "structural_field_percent": 0.688799518302031
+    },
+    {
+      "use_reference": false,
+      "choice": "low_high",
+      "count": 2,
+      "statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.10490442460470603,
+      "material_percent": 0.07939795955533846,
+      "sensor_phase_rad": 0.0014093350662212874,
+      "structural_field_percent": 0.1269789196398482
+    },
+    {
+      "use_reference": false,
+      "choice": "low_repeat",
+      "count": 2,
+      "statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.2836226518073897,
+      "material_percent": 0.528490804541768,
+      "sensor_phase_rad": 0.0026360063819766285,
+      "structural_field_percent": 0.7570053249683502
+    },
+    {
+      "use_reference": true,
+      "choice": "low",
+      "count": 2,
+      "statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.30621586976801835,
+      "material_percent": 0.2968611834460688,
+      "sensor_phase_rad": 0.0024759688618770518,
+      "structural_field_percent": 0.44481676352630795
+    },
+    {
+      "use_reference": true,
+      "choice": "low_high",
+      "count": 2,
+      "statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.10454382125160494,
+      "material_percent": 0.07775671296027298,
+      "sensor_phase_rad": 0.0014346451252706936,
+      "structural_field_percent": 0.12402221726789296
+    },
+    {
+      "use_reference": true,
+      "choice": "low_repeat",
+      "count": 2,
+      "statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.28939227500712894,
+      "material_percent": 0.2973916896503592,
+      "sensor_phase_rad": 0.0024257285989014664,
+      "structural_field_percent": 0.44283444761040736
+    }
+  ],
+  "posthoc_oracle_mode_alignment": [
+    {
+      "seed": 8101,
+      "use_reference": false,
+      "true_numerical_error_white_norm": 63.049416489377165,
+      "pilot_mode_white_norm": 131.46019441403644,
+      "signed_cosine": -0.9781398412705694,
+      "rank1_error_energy_fraction": 0.9567575490808147,
+      "rank2_error_energy_fraction": 0.9567823685873936,
+      "scope": "Post-hoc diagnostic compares low-pilot mode with numerical discrepancy at truth, not at pilot; truth was not used in weights."
+    },
+    {
+      "seed": 8101,
+      "use_reference": true,
+      "true_numerical_error_white_norm": 63.049416489377165,
+      "pilot_mode_white_norm": 122.07379023100741,
+      "signed_cosine": -0.9731770063643571,
+      "rank1_error_energy_fraction": 0.9470734857162919,
+      "rank2_error_energy_fraction": 0.9517822795365274,
+      "scope": "Post-hoc diagnostic compares low-pilot mode with numerical discrepancy at truth, not at pilot; truth was not used in weights."
+    },
+    {
+      "seed": 8102,
+      "use_reference": false,
+      "true_numerical_error_white_norm": 61.75508025661113,
+      "pilot_mode_white_norm": 132.57976762296295,
+      "signed_cosine": -0.9761128273722202,
+      "rank1_error_energy_fraction": 0.9527962517605897,
+      "rank2_error_energy_fraction": 0.9530503594224049,
+      "scope": "Post-hoc diagnostic compares low-pilot mode with numerical discrepancy at truth, not at pilot; truth was not used in weights."
+    },
+    {
+      "seed": 8102,
+      "use_reference": true,
+      "true_numerical_error_white_norm": 61.75508025661113,
+      "pilot_mode_white_norm": 120.496842628353,
+      "signed_cosine": -0.9707058872192685,
+      "rank1_error_energy_fraction": 0.9422699194821473,
+      "rank2_error_energy_fraction": 0.9477363395703264,
+      "scope": "Post-hoc diagnostic compares low-pilot mode with numerical discrepancy at truth, not at pilot; truth was not used in weights."
+    }
+  ],
+  "scope": "Two inspected shared-model controls; neither independent validation nor expectation-level information adjudication."
+}

@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "kind": "scholarqa-citation-verification",
+  "created_at": "2026-09-07T04:16:33+00:00",
+  "fields": [
+    "paperId",
+    "title",
+    "authors",
+    "year",
+    "externalIds",
+    "url"
+  ],
+  "requested_count": 8,
+  "resolved_count": 7,
+  "unresolved_ids": [
+    "DOI:10.1137/S0895479802409837"
+  ],
+  "verification_scope": "Bibliographic identity only; claim support must be checked against the retrieved evidence.",
+  "items": [
+    {
+      "requested_id": "DOI:10.3390/s26154954",
+      "resolved": true,
+      "record": {
+        "paperId": "d1b5851e6b1e8851f3cdf19d07061adadb0cf016",
+        "externalIds": {
+          "PubMedCentral": "13469006",
+          "DOI": "10.3390/s26154954",
+          "CorpusId": 290861060,
+          "PubMed": "42590728"
+        },
+        "url": "https://www.semanticscholar.org/paper/d1b5851e6b1e8851f3cdf19d07061adadb0cf016",
+        "title": "Joint Self-Calibration of Receiver Geometry, Timing, and Target Positions for Multistatic Radar Autofocus",
+        "year": 2026,
+        "authors": [
+          {
+            "authorId": "145980580",
+            "name": "A. Weiss"
+          },
+          {
+            "authorId": "2195777895",
+            "name": "Guy Eliyahu"
+          },
+          {
+            "authorId": "2195794611",
+            "name": "Amnon Menashe Maor"
+          },
+          {
+            "authorId": "2455758829",
+            "name": "Ezra Zamir"
+          },
+          {
+            "authorId": "2455759979",
+            "name": "Oran Richman"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "arXiv:2503.07316",
+      "resolved": true,
+      "record": {
+        "paperId": "3b55b7fecb4a66fe5d44db2cb294015e17e15f0e",
+        "externalIds": {
+          "ArXiv": "2503.07316",
+          "CorpusId": 276929326
+        },
+        "url": "https://www.semanticscholar.org/paper/3b55b7fecb4a66fe5d44db2cb294015e17e15f0e",
+        "title": "Data-Driven Calibration Technique for Quantitative Radar Imaging",
+        "year": 2025,
+        "authors": [
+          {
+            "authorId": "94083779",
+            "name": "Zacharie Idriss"
+          },
+          {
+            "authorId": "2352142",
+            "name": "R. Raj"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "DOI:10.1109/TAP.2014.2308534",
+      "resolved": true,
+      "record": {
+        "paperId": "2631d406a7b6fcc9eb64fa98198f2ad7c3344959",
+        "externalIds": {
+          "MAG": "1883068445",
+          "DOI": "10.1109/TAP.2014.2308534",
+          "CorpusId": 26093397
+        },
+        "url": "https://www.semanticscholar.org/paper/2631d406a7b6fcc9eb64fa98198f2ad7c3344959",
+        "title": "An Improved Antenna Calibration Methodology for Microwave Diffraction Tomography in Limited-Aspect Configurations",
+        "year": 2014,
+        "authors": [
+          {
+            "authorId": "2272317",
+            "name": "L. Bellomo"
+          },
+          {
+            "authorId": "13848219",
+            "name": "S. Pioch"
+          },
+          {
+            "authorId": "1771657",
+            "name": "M. Saillard"
+          },
+          {
+            "authorId": "2258273",
+            "name": "K. Belkebir"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "DOI:10.1109/TGRS.2009.2025122",
+      "resolved": true,
+      "record": {
+        "paperId": "16b84bd4dfb430f5b1518d7a2f58367149c45497",
+        "externalIds": {
+          "MAG": "2035489376",
+          "DBLP": "journals/tgrs/Chen10",
+          "DOI": "10.1109/TGRS.2009.2025122",
+          "CorpusId": 1843364
+        },
+        "url": "https://www.semanticscholar.org/paper/16b84bd4dfb430f5b1518d7a2f58367149c45497",
+        "title": "Subspace-Based Optimization Method for Solving Inverse-Scattering Problems",
+        "year": 2010,
+        "authors": [
+          {
+            "authorId": "33207280",
+            "name": "Xudong Chen"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "DOI:10.1088/0266-5611/25/8/085003",
+      "resolved": true,
+      "record": {
+        "paperId": "70fd11af9932f84523334119c3ca9a183aa3c03b",
+        "externalIds": {
+          "MAG": "2133034273",
+          "DOI": "10.1088/0266-5611/25/8/085003",
+          "CorpusId": 123125248
+        },
+        "url": "https://www.semanticscholar.org/paper/70fd11af9932f84523334119c3ca9a183aa3c03b",
+        "title": "Twofold subspace-based optimization method for solving inverse scattering problems",
+        "year": 2009,
+        "authors": [
+          {
+            "authorId": "144281892",
+            "name": "Y. Zhong"
+          },
+          {
+            "authorId": "33207280",
+            "name": "Xudong Chen"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "DOI:10.1016/j.jcp.2006.10.026",
+      "resolved": true,
+      "record": {
+        "paperId": "221c6b37a73f27651513803c7ad452f08b801cf8",
+        "externalIds": {
+          "MAG": "2014330362",
+          "DBLP": "journals/jcphy/Bui-ThanhWGW07",
+          "DOI": "10.1016/j.jcp.2006.10.026",
+          "CorpusId": 10739162
+        },
+        "url": "https://www.semanticscholar.org/paper/221c6b37a73f27651513803c7ad452f08b801cf8",
+        "title": "Goal-oriented, model-constrained optimization for reduction of large-scale systems",
+        "year": 2007,
+        "authors": [
+          {
+            "authorId": "1389945781",
+            "name": "T. Bui-Thanh"
+          },
+          {
+            "authorId": "143606925",
+            "name": "K. Willcox"
+          },
+          {
+            "authorId": "1750853",
+            "name": "O. Ghattas"
+          },
+          {
+            "authorId": "1863062",
+            "name": "B. V. B. Waanders"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "DOI:10.1137/S0895479802409837",
+      "resolved": false,
+      "record": null
+    },
+    {
+      "requested_id": "DOI:10.1017/S0962492901000010",
+      "resolved": true,
+      "record": {
+        "paperId": "34a6f4386e8967efa7395ee591abf9a2da548c9a",
+        "externalIds": {
+          "MAG": "2133147107",
+          "DOI": "10.1017/S0962492901000010",
+          "CorpusId": 122954287
+        },
+        "url": "https://www.semanticscholar.org/paper/34a6f4386e8967efa7395ee591abf9a2da548c9a",
+        "title": "An optimal control approach to a posteriori error estimation in finite element methods",
+        "year": 2001,
+        "authors": [
+          {
+            "authorId": "46724568",
+            "name": "R. Becker"
+          },
+          {
+            "authorId": "1714508",
+            "name": "R. Rannacher"
+          }
+        ]
+      }
+    }
+  ]
+}

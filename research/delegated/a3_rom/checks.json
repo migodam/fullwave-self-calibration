@@ -1,0 +1,138 @@
+{
+  "checks": {
+    "fixed_chart_rank_trend_smoke": {
+      "rows": [
+        {
+          "map_jac_rel": 0.8876988077017234,
+          "method": "sensing",
+          "output_rel": 0.23349718734198344,
+          "pose_jac_rel": 2.49438516165954,
+          "rank": 4,
+          "state_rel": 0.944358824437808
+        },
+        {
+          "map_jac_rel": 0.5066850577243788,
+          "method": "sensing",
+          "output_rel": 0.06817331006611364,
+          "pose_jac_rel": 0.6273514685020377,
+          "rank": 12,
+          "state_rel": 0.7002112063025034
+        },
+        {
+          "map_jac_rel": 0.45156079981965314,
+          "method": "sensing",
+          "output_rel": 0.055419087247889486,
+          "pose_jac_rel": 0.4710565924346236,
+          "rank": 32,
+          "state_rel": 0.6359841033179348
+        },
+        {
+          "map_jac_rel": 0.4424697452862645,
+          "method": "sensing",
+          "output_rel": 0.05385545120420754,
+          "pose_jac_rel": 0.4872500494744301,
+          "rank": 36,
+          "state_rel": 0.614892078948717
+        },
+        {
+          "map_jac_rel": 0.4424697452862645,
+          "method": "sensing",
+          "output_rel": 0.05385545120420754,
+          "pose_jac_rel": 0.4872500494744301,
+          "rank": 36,
+          "state_rel": 0.614892078948717
+        },
+        {
+          "map_jac_rel": 0.8876988077017234,
+          "method": "twofold",
+          "output_rel": 0.23349718734198344,
+          "pose_jac_rel": 2.49438516165954,
+          "rank": 4,
+          "state_rel": 0.944358824437808
+        },
+        {
+          "map_jac_rel": 0.5066850577243788,
+          "method": "twofold",
+          "output_rel": 0.06817331006611364,
+          "pose_jac_rel": 0.6273514685020377,
+          "rank": 12,
+          "state_rel": 0.7002112063025034
+        },
+        {
+          "map_jac_rel": 0.45156079981965314,
+          "method": "twofold",
+          "output_rel": 0.055419087247889486,
+          "pose_jac_rel": 0.4710565924346236,
+          "rank": 32,
+          "state_rel": 0.6359841033179348
+        },
+        {
+          "map_jac_rel": 0.02459044953294875,
+          "method": "twofold",
+          "output_rel": 0.0022678239796121735,
+          "pose_jac_rel": 0.034059774785393744,
+          "rank": 60,
+          "state_rel": 0.0997976880980664
+        },
+        {
+          "map_jac_rel": 9.902709754872098e-16,
+          "method": "twofold",
+          "output_rel": 1.9635306335481795e-16,
+          "pose_jac_rel": 4.378357834789267e-15,
+          "rank": 64,
+          "state_rel": 9.725628464087757e-16
+        }
+      ]
+    },
+    "proxy_derivative_residual_term": {
+      "err_omitted_residual_term": 0.0004339219376476208,
+      "err_with_residual_term": 4.182861458969248e-11,
+      "rank": 48,
+      "residual_abs": 0.0063753283486636106
+    },
+    "proxy_output_jacobian_fd": {
+      "proxy_output_jacobian_rel_error": 7.680880932746638e-10
+    },
+    "reduced_loss_gradient_fd": {
+      "grad_norm": 0.5635780216806727,
+      "reduced_gradient_rel_error": 1.9112766917654698e-10
+    }
+  },
+  "config": {
+    "aperture": "full",
+    "freq_ids_in_model": [
+      0,
+      1,
+      3
+    ],
+    "frequency_k_rad_per_m": [
+      3.0,
+      6.0,
+      12.0
+    ],
+    "grid": 8,
+    "kmax": 12.0,
+    "lambda_min_m": 0.5235987755982988,
+    "material_q_default": 9,
+    "noise_snr_db": 30.0,
+    "pose_lever_m": 1.5,
+    "pose_scale": [
+      1.9098593171027443,
+      1.9098593171027443,
+      2.8647889756541165
+    ],
+    "snr_reference": "grid16_background_alpha_0.08"
+  },
+  "environment": {
+    "numpy": "2.5.2",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "scipy": "1.18.1"
+  },
+  "notes": [
+    "grid8 smoke only; finite differences are algebra checks, not physical acceptance",
+    "no final E4 seeds and no nonlinear runs were executed by this test"
+  ],
+  "status": "PASS",
+  "timestamp": "2026-09-07T12:31:17+08:00"
+}

@@ -1,0 +1,37 @@
+{
+  "Name": "a3_conditional_calibration_checks",
+  "Title": "Independent checks of fixed-chart derivatives, gain quotients and branch validation",
+  "Short Hypothesis": "A3 conditional algebra can be implemented with explicit failure controls; no performance or novelty claim follows.",
+  "Related Work": "SOM means subspace-based optimization, not self-organizing maps. Generic projection, gain closure and dual residual methods are prior art. Parent owns literature and scientific judgment.",
+  "Abstract": "Bounded independent reconstruction of A3 theorems 1\u20134. Read /Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_algebra/TASK.md. Root is /Volumes/migodam's-external-brain/Research/Inv_SLAM. Implement the supplied task without changing the scientific topic. No ACL review, no global novelty claim, no recursive workers or pipeline. Deliver auditable code/tests/raw outputs in research/delegated/a3_algebra/.",
+  "Experiments": {
+    "datasets": [
+      "deterministic complex linear systems and Gaussian validation fixtures"
+    ],
+    "baselines": [
+      "correct vs omitted residual derivative",
+      "rank-one vs nonseparable fields",
+      "covered vs missing candidate bank",
+      "certified vs uncontrolled resolvent"
+    ],
+    "metrics": [
+      "relative identity errors",
+      "empirical selection risk",
+      "conditional bounds",
+      "negative control violations"
+    ],
+    "compute_estimate": "single CPU thread, small NumPy/SciPy arrays, 10000 noise draws, existing venv",
+    "steps": [
+      "Read bounded task",
+      "Implement and execute checks",
+      "Audit controls and preserve failures",
+      "Summarize scope and remaining work"
+    ]
+  },
+  "Risk Factors and Limitations": [
+    "Conditional fixtures are not nonlinear calibration proof",
+    "No global candidate coverage",
+    "No SOM advantage evidence",
+    "Parent must independently audit"
+  ]
+}

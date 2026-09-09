@@ -1,0 +1,2030 @@
+{
+  "title": "E2 nested free-current rank loss, calibration-neutral admission, nonmonotone rho, and numerical-rank controls",
+  "date": "2026-09-05",
+  "package": "a2val",
+  "settings": {
+    "theory": "Theorem 5 identities (T5a, T5b), Theorem 6 neutral admission incl. complex J_c-safe kernel, nonmonotone relative map retention, rank/gap roundoff controls",
+    "matrices": "real, unit-noise whitened, gauge-fixed",
+    "e_basis_drop": "projected singular values <= 1e-12 of the largest are dropped",
+    "rho_support": "SVD of K0 with support tolerance 1e-12*max; undefined null directions excluded",
+    "random_tangent_seeds": [
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212
+    ],
+    "neutral_fixture_seed": 2600
+  },
+  "results": {
+    "exact_controls": {
+      "equality_case": {
+        "case": "equality_case",
+        "n": 3,
+        "A": [
+          [],
+          [],
+          []
+        ],
+        "B": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "C0": [
+          [],
+          [],
+          []
+        ],
+        "C1": [
+          [
+            0.0
+          ],
+          [
+            0.0
+          ],
+          [
+            1.0
+          ]
+        ],
+        "E": [
+          [
+            0.0
+          ],
+          [
+            0.0
+          ],
+          [
+            1.0
+          ]
+        ],
+        "j0": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "j1": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "actual_loss": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "predicted_loss": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "loss_residual_fro": 0.0,
+        "rank_bv0": 2,
+        "rank_bv1": 2,
+        "dim_E": 1,
+        "rank_drop_actual": 0,
+        "rank_drop_predicted": 0,
+        "intersection_dim": 0,
+        "t5a": true,
+        "t5b": true,
+        "expected": {
+          "j0": "I2",
+          "j1": "I2",
+          "loss": 0,
+          "rank_drop": 0
+        },
+        "j0_expect": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "j1_expect": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "strict_loss_case": {
+        "case": "strict_loss_case",
+        "n": 3,
+        "A": [
+          [],
+          [],
+          []
+        ],
+        "B": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "C0": [
+          [],
+          [],
+          []
+        ],
+        "C1": [
+          [
+            1.0
+          ],
+          [
+            0.0
+          ],
+          [
+            0.0
+          ]
+        ],
+        "E": [
+          [
+            1.0
+          ],
+          [
+            0.0
+          ],
+          [
+            0.0
+          ]
+        ],
+        "j0": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "j1": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "actual_loss": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "predicted_loss": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "loss_residual_fro": 0.0,
+        "rank_bv0": 2,
+        "rank_bv1": 1,
+        "dim_E": 1,
+        "rank_drop_actual": 1,
+        "rank_drop_predicted": 1,
+        "intersection_dim": 1,
+        "t5a": true,
+        "t5b": true,
+        "expected": {
+          "j0": "I2",
+          "j1": "diag(0,1)",
+          "loss": "e1 e1^T",
+          "rank_drop": 1
+        },
+        "j0_expect": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "j1_expect": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "complete_hiding_case": {
+        "case": "complete_hiding_case",
+        "n": 3,
+        "A": [
+          [],
+          [],
+          []
+        ],
+        "B": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "C0": [
+          [],
+          [],
+          []
+        ],
+        "C1": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "E": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "j0": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "j1": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "actual_loss": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "predicted_loss": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "loss_residual_fro": 0.0,
+        "rank_bv0": 2,
+        "rank_bv1": 0,
+        "dim_E": 2,
+        "rank_drop_actual": 2,
+        "rank_drop_predicted": 2,
+        "intersection_dim": 2,
+        "t5a": true,
+        "t5b": true,
+        "expected": {
+          "j0": "I2",
+          "j1": 0,
+          "loss": "I2",
+          "rank_drop": 2
+        },
+        "j0_expect": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "j1_expect": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "loss_without_rank_drop": {
+        "case": "loss_without_rank_drop",
+        "n": 2,
+        "A": [
+          [],
+          []
+        ],
+        "B": [
+          [
+            1.0
+          ],
+          [
+            1.0
+          ]
+        ],
+        "C0": [
+          [],
+          []
+        ],
+        "C1": [
+          [
+            1.0
+          ],
+          [
+            0.0
+          ]
+        ],
+        "E": [
+          [
+            1.0
+          ],
+          [
+            0.0
+          ]
+        ],
+        "j0": [
+          [
+            2.0
+          ]
+        ],
+        "j1": [
+          [
+            1.0
+          ]
+        ],
+        "actual_loss": [
+          [
+            1.0
+          ]
+        ],
+        "predicted_loss": [
+          [
+            1.0
+          ]
+        ],
+        "loss_residual_fro": 0.0,
+        "rank_bv0": 1,
+        "rank_bv1": 1,
+        "dim_E": 1,
+        "rank_drop_actual": 0,
+        "rank_drop_predicted": 0,
+        "intersection_dim": 0,
+        "t5a": true,
+        "t5b": true,
+        "expected": {
+          "j0": 2.0,
+          "j1": 1.0,
+          "rank_drop": 0
+        },
+        "j0_scalar": 2.0,
+        "j1_scalar": 1.0
+      },
+      "nonmonotone_rho": {
+        "case": "nonmonotone_rho",
+        "n": 3,
+        "A": [
+          [
+            1.0
+          ],
+          [
+            1.0
+          ],
+          [
+            0.0
+          ]
+        ],
+        "B": [
+          [
+            1.0
+          ],
+          [
+            0.0
+          ],
+          [
+            1.0
+          ]
+        ],
+        "expected_rho": [
+          0.75,
+          1.0,
+          0.0
+        ],
+        "rho_records": [
+          {
+            "chain": "C0",
+            "C": [
+              [],
+              [],
+              []
+            ],
+            "rho": [
+              0.75
+            ],
+            "expected": [
+              0.75
+            ],
+            "support_dim": 1,
+            "k0_singular_values": [
+              2.0
+            ]
+          },
+          {
+            "chain": "C1",
+            "C": [
+              [
+                1.0
+              ],
+              [
+                0.0
+              ],
+              [
+                0.0
+              ]
+            ],
+            "rho": [
+              1.0000000000000002
+            ],
+            "expected": [
+              1.0
+            ],
+            "support_dim": 1,
+            "k0_singular_values": [
+              1.0
+            ]
+          },
+          {
+            "chain": "C2",
+            "C": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ],
+            "rho": [
+              1.554312234475218e-15
+            ],
+            "expected": [
+              0.0
+            ],
+            "support_dim": 1,
+            "k0_singular_values": [
+              0.5000000000000004
+            ]
+          }
+        ],
+        "rho_sequence": [
+          0.75,
+          1.0000000000000002,
+          1.554312234475218e-15
+        ],
+        "rho_monotone_falsified": true,
+        "pass": true
+      },
+      "rank_uncertainty": {
+        "case": "rank_uncertainty",
+        "n": 1,
+        "A": [
+          []
+        ],
+        "B": [
+          [
+            1.0
+          ]
+        ],
+        "t_values": [
+          0.0,
+          1e-14,
+          1e-10,
+          1e-06,
+          0.1
+        ],
+        "records": [
+          {
+            "t": 0.0,
+            "j_x": 1.0,
+            "singular_value": 0.0,
+            "default_relative_rank": 0
+          },
+          {
+            "t": 1e-14,
+            "j_x": 0.0,
+            "singular_value": 1e-14,
+            "default_relative_rank": 1
+          },
+          {
+            "t": 1e-10,
+            "j_x": 0.0,
+            "singular_value": 1e-10,
+            "default_relative_rank": 1
+          },
+          {
+            "t": 1e-06,
+            "j_x": 0.0,
+            "singular_value": 1e-06,
+            "default_relative_rank": 1
+          },
+          {
+            "t": 0.1,
+            "j_x": 0.0,
+            "singular_value": 0.1,
+            "default_relative_rank": 1
+          }
+        ],
+        "j_x_0": 1.0,
+        "j_x_nonzero": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "discontinuity_confirmed": true,
+        "numerical_rank_ambiguity": "t=0 is exactly distinguishable only in exact arithmetic; for any tiny-but-nonzero t at or below roundoff of ||N|| no finite precision computation can certify the true rank without an oracle. A relative-to-itself SVD rank always reports rank 1 for a nonzero column, so record absolute singular values and the J discontinuity."
+      },
+      "saturation_control": {
+        "case": "saturation_control",
+        "n": 5,
+        "seed": 777,
+        "A": [
+          [
+            -0.16865859371014344,
+            0.1886331017957019
+          ],
+          [
+            -0.24893870600462673,
+            -0.606870332657797
+          ],
+          [
+            0.12586130275500884,
+            -0.3606841430954277
+          ],
+          [
+            0.2362003565341755,
+            -0.016834891332349368
+          ],
+          [
+            -0.42624935979296596,
+            0.16395646485979218
+          ]
+        ],
+        "B": [
+          [
+            -0.02721976076628035,
+            0.686293940375381,
+            -1.3076866311203206
+          ],
+          [
+            0.39029288480158464,
+            -0.9083405429590613,
+            -0.33197756001184714
+          ],
+          [
+            0.31401476635112296,
+            -0.07498548658006837,
+            -0.6744700402737211
+          ],
+          [
+            0.4237627998604287,
+            1.3586684398317121,
+            0.4931560043737082
+          ],
+          [
+            0.37273830594685514,
+            -0.4802484248998776,
+            0.2596619228876822
+          ]
+        ],
+        "C_rank": 5,
+        "j_x_fro": 7.045089983594941e-16,
+        "residual_R_fro": 8.220173483499371e-16,
+        "bv_absolute_singular_values": [
+          5.830590780421332e-16,
+          4.0047645015645957e-16,
+          2.260037530377122e-16
+        ],
+        "bv_max_abs_singular_value": 5.830590780421332e-16,
+        "backward_scaled_residual": 0.09711301478740043,
+        "backward_scale": 7.254527108460214e-15,
+        "note": "J_x is zero up to backward error; absolute singular values are recorded because a relative-to-self rank is meaningless for an all-roundoff residual matrix."
+      },
+      "rank_threshold_control": {
+        "case": "rank_threshold_control",
+        "D_diag": [
+          1.0,
+          1e-08,
+          1e-14,
+          0.0
+        ],
+        "singular_values": [
+          1.0,
+          1e-08,
+          1e-14,
+          0.0
+        ],
+        "tol_abs_formula": "1e-12 * max(1, n) * ||D||_2",
+        "tol_abs": 4e-12,
+        "rank_absolute": 2,
+        "tol_rel_formula": "sigma_i <= 1e-12 * sigma_1 (counted when sigma_i > tol)",
+        "tol_rel_rank_rule": "rank = count(sigma_i > 1e-12 * sigma_1)",
+        "tol_rel": 1e-12,
+        "rank_relative": 2,
+        "ratios_to_sigma1": [
+          1.0,
+          1e-08,
+          1e-14,
+          0.0
+        ],
+        "small_ratio_trap": "sigma_3/sigma_1 = 1e-14 is roundoff-level and must not be counted as physical rank; both cutoffs give rank 2.  A cutoff anchored to the previous singular value (sigma_3/sigma_2 = 1e-6 > 1e-12) or a naive eps-level absolute threshold would wrongly count sigma_3."
+      },
+      "projector_gap_closure": {
+        "case": "projector_gap_closure",
+        "H_t": "diag(1+t, 1-t)",
+        "records": [
+          {
+            "t": 0.5,
+            "eigenvalues": [
+              1.5,
+              0.5
+            ],
+            "spectral_gap": 1.0,
+            "rank_top_one_projector": 1,
+            "P": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "t": 0.05,
+            "eigenvalues": [
+              1.05,
+              0.95
+            ],
+            "spectral_gap": 0.1,
+            "rank_top_one_projector": 1,
+            "P": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "t": 1e-08,
+            "eigenvalues": [
+              1.00000001,
+              0.99999999
+            ],
+            "spectral_gap": 2e-08,
+            "rank_top_one_projector": 1,
+            "P": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "t": -1e-08,
+            "eigenvalues": [
+              1.00000001,
+              0.99999999
+            ],
+            "spectral_gap": 2e-08,
+            "rank_top_one_projector": 1,
+            "P": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          {
+            "t": -0.05,
+            "eigenvalues": [
+              1.05,
+              0.95
+            ],
+            "spectral_gap": 0.1,
+            "rank_top_one_projector": 1,
+            "P": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ],
+        "fro_P_plus_minus_0_05": 1.4142135623730951,
+        "left_right_limits": {
+          "P_plus_limit": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "P_minus_limit": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ],
+          "fro_distance": 1.4142135623730951
+        },
+        "distance_t0": 0.0,
+        "limit_nonunique": "At t=0 the eigenvalues are degenerate (I), so the top-one spectral projector has no unique limit: t->0+ gives diag(1,0) and t->0- gives diag(0,1); any unit vector defines an admissible rank-one choice.  distance(P(0),P(0)) is trivially 0 for a fixed choice.",
+        "rank_change_event_distinct": "rank(H(t)) = 2 for every t, so closing the spectral gap at t=0 is NOT a rank-change event of H; it is a discontinuity/non-uniqueness event of the rank-one spectral projector (coordinate instability)."
+      }
+    },
+    "neutral_admission": {
+      "real_safe_space": {
+        "case": "real_safe_space",
+        "seed": 2600,
+        "dims": {
+          "n": 8,
+          "q": 2,
+          "p": 3,
+          "d_candidate_cols": 4
+        },
+        "existing_nuisance": "N = Ran([C0, A])  (current basis plus map tangent)",
+        "nuisance_dim": 4,
+        "F_shape": [
+          3,
+          4
+        ],
+        "F_singular_values": [
+          1.354351723288153,
+          0.4402430914715446,
+          0.29984769432164504
+        ],
+        "rank_F": 3,
+        "dim_kerF": 1,
+        "bound": {
+          "d_minus_rankF": 1,
+          "d_minus_p": 1,
+          "holds": true
+        },
+        "j_before": [
+          [
+            1.0277398373898752,
+            -0.07882616427317454,
+            0.6062468398566931
+          ],
+          [
+            -0.07882616427317453,
+            0.5019748757178775,
+            -0.3947315265156968
+          ],
+          [
+            0.6062468398566931,
+            -0.3947315265156969,
+            1.3014474822894433
+          ]
+        ],
+        "j_before_eigs": [
+          1.880575653703323,
+          0.6660088555700528,
+          0.28457768612382056
+        ],
+        "safe_z": [
+          [
+            0.8417348003283399
+          ],
+          [
+            -0.18503991492656693
+          ],
+          [
+            -0.5071609299699052
+          ],
+          [
+            -0.005526926111276855
+          ]
+        ],
+        "j_after_safe": [
+          [
+            1.0277398373898756,
+            -0.0788261642731747,
+            0.6062468398566926
+          ],
+          [
+            -0.07882616427317463,
+            0.5019748757178774,
+            -0.39473152651569665
+          ],
+          [
+            0.6062468398566925,
+            -0.3947315265156966,
+            1.301447482289445
+          ]
+        ],
+        "j_after_safe_eigs": [
+          1.8805756537033234,
+          0.6660088555700533,
+          0.2845776861238215
+        ],
+        "safe_losses": [
+          {
+            "fro_loss": 2.062614662788812e-15,
+            "backward_scaled": 0.17513858769564308
+          }
+        ],
+        "safe_loss_fro": 2.062614662788812e-15,
+        "safe_preserves_j": true,
+        "unsafe_z": [
+          [
+            -0.471093677883864
+          ],
+          [
+            -0.5569788771630265
+          ],
+          [
+            -0.5746143752912601
+          ],
+          [
+            -0.3710304526055828
+          ]
+        ],
+        "unsafe_norm_Fz": 1.3543517232881535,
+        "j_after_unsafe": [
+          [
+            0.753047195306033,
+            0.04317508737710964,
+            0.06700175770495899
+          ],
+          [
+            0.04317508737710967,
+            0.4477895677630583,
+            -0.15523266528048565
+          ],
+          [
+            0.06700175770495906,
+            -0.15523266528048568,
+            0.24286339929796982
+          ]
+        ],
+        "j_after_unsafe_eigs": [
+          0.7636641876574353,
+          0.5311615973257785,
+          0.1488743773838473
+        ],
+        "diff_eigs": [
+          1.3874620330301362,
+          -3.510971280131343e-18,
+          -9.560008573013926e-16
+        ],
+        "unsafe_decreases_loewner": true,
+        "interpretation_note": "J_x always eliminates the map tangent A as well as current C0, so the existing nuisance of Theorem 6 is Ran([C0,A]); V is computed with that full nuisance.  Restricting N to C0 alone does not guarantee preservation of this J_x when A is present."
+      },
+      "complex_safe_space": {
+        "case": "complex_safe_space",
+        "seed": 2600,
+        "dims": {
+          "n": 8,
+          "q": 2,
+          "p": 3,
+          "d_complex": 3
+        },
+        "candidate_note": "designed genuinely-complex candidate K with declared complex null vector w0=(1,i,0) of V^T K so S is nonempty and the invariance test is non-vacuous; a generic full-rank random K gives S={0} when p=d (reported as generic_control).",
+        "w0_declared": {
+          "re": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "im": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "V_rank": 3,
+        "F_shape": [
+          3,
+          6
+        ],
+        "rank_F": 3,
+        "real_dim_S": 2,
+        "complex_dim_S": 1,
+        "lower_bound_real": 0,
+        "lower_bound_note": "2*(d-p)=0 with d=p=3, so the bound is not binding",
+        "jc_invariance_residual_fro": 6.346268097550992e-15,
+        "jc_invariant": true,
+        "max_abs_F_Z_S": 1.569072149297903e-15,
+        "z_S_in_ker_F": true,
+        "safe_loss_fro_after_S": 2.8188311711697844e-15,
+        "safe_complex_subspace_lossless": true,
+        "unsafe": {
+          "z_in_kerF": [
+            [
+              0.6107444073797225
+            ],
+            [
+              0.0631688393768813
+            ],
+            [
+              -0.7732561111622964
+            ],
+            [
+              -0.09453237532525445
+            ],
+            [
+              0.11135189669619056
+            ],
+            [
+              -0.061158304864164154
+            ]
+          ],
+          "z_in_ker_F": true,
+          "norm_F_Jc_z": 1.675790953663974,
+          "in_ker_F_Jc": false,
+          "j_after_Jc_z": [
+            [
+              0.9967670580739337,
+              0.037419610407717956,
+              0.5388853448880981
+            ],
+            [
+              0.03741961040771793,
+              0.06568596559718513,
+              -0.14191310533329451
+            ],
+            [
+              0.5388853448880984,
+              -0.14191310533329454,
+              1.1549455827305468
+            ]
+          ],
+          "diff_eigs": [
+            0.6137635889955314,
+            2.354235164768783e-16,
+            -1.1457378696126617e-15
+          ],
+          "decreases_loewner": true
+        },
+        "generic_control": {
+          "real_dim_S": 0,
+          "note": "generic complex K with d=p has empty complex-safe kernel"
+        },
+        "pass": true
+      },
+      "utility_projection": {
+        "case": "utility_projection",
+        "coeff_dim": 6,
+        "real_dim_S": 2,
+        "chosen_r": 1,
+        "T_psd": true,
+        "T_eigenvalues": [
+          0.055403852647616166,
+          1.3783644096316217,
+          2.088179528156417,
+          9.040346081549382,
+          11.294964145384563,
+          14.8812325983617
+        ],
+        "trace_claimed_maximizer": 10.699614946206584,
+        "n_random_trials": 300,
+        "max_random_trace": 10.69961277194953,
+        "mean_random_trace": 6.261941430095489,
+        "maximizer_dominates": true,
+        "leading_eigenvalue": 10.699614946206584
+      }
+    },
+    "random_tangents": {
+      "dims": {
+        "n": 12,
+        "q": 3,
+        "p": 4
+      },
+      "seeds": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212
+      ],
+      "n_checks": 36,
+      "max_scaled_residual": 0.2733944802249578,
+      "max_loss_residual_fro": 4.091117944211419e-15,
+      "all_t5b_matches": true,
+      "records": [
+        {
+          "seed": 201,
+          "pair": "C0->C1",
+          "loss_residual_fro": 3.816265483356246e-15,
+          "scaled_residual": 0.2550270934375953,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.7098179151825673,
+            0.4171847738980095,
+            -8.444645061495614e-17,
+            -6.773558339973272e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.7098179151825675,
+            0.4171847738980126,
+            4.5794787109431356e-17,
+            -4.1332450392628516e-17
+          ]
+        },
+        {
+          "seed": 201,
+          "pair": "C1->C2",
+          "loss_residual_fro": 4.091117944211419e-15,
+          "scaled_residual": 0.2733944802249578,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.5087512912775397,
+            0.09944971817551806,
+            3.4258482835920416e-15,
+            -5.4419457778591175e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            0.5087512912775394,
+            0.09944971817551754,
+            2.762592602727907e-17,
+            -1.959660283920406e-17
+          ]
+        },
+        {
+          "seed": 201,
+          "pair": "C2->C3",
+          "loss_residual_fro": 3.2212278229350383e-15,
+          "scaled_residual": 0.21526289839273982,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.5851241913139832,
+            0.1414998331554011,
+            -3.8835411311398044e-16,
+            -2.750741066631146e-15
+          ],
+          "b_T_P_E_b_eigs": [
+            0.5851241913139844,
+            0.14149983315540135,
+            8.040226307015746e-17,
+            9.37549287449573e-18
+          ]
+        },
+        {
+          "seed": 202,
+          "pair": "C0->C1",
+          "loss_residual_fro": 8.319730897167123e-16,
+          "scaled_residual": 0.05256549097350787,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            1.0295331043506843,
+            0.13805204884127423,
+            2.961895524126777e-16,
+            -6.218541143571204e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            1.029533104350684,
+            0.13805204884127378,
+            3.670204646552525e-17,
+            -5.909669065313694e-17
+          ]
+        },
+        {
+          "seed": 202,
+          "pair": "C1->C2",
+          "loss_residual_fro": 2.5626300528703785e-15,
+          "scaled_residual": 0.16191137499226732,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.8284153376634038,
+            0.08352773811785046,
+            -1.5322997409520916e-16,
+            -1.0247642017301388e-15
+          ],
+          "b_T_P_E_b_eigs": [
+            0.828415337663406,
+            0.0835277381178509,
+            3.7925234438472866e-18,
+            -1.662322136284233e-17
+          ]
+        },
+        {
+          "seed": 202,
+          "pair": "C2->C3",
+          "loss_residual_fro": 3.2503786297209247e-15,
+          "scaled_residual": 0.20536451314700022,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.36417320321330005,
+            0.051137210740019576,
+            2.537003373562937e-15,
+            2.1816024378710103e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.3641732032132985,
+            0.05113721074001904,
+            6.935745759055396e-17,
+            1.3991424214459428e-17
+          ]
+        },
+        {
+          "seed": 203,
+          "pair": "C0->C1",
+          "loss_residual_fro": 9.648868183258295e-16,
+          "scaled_residual": 0.06722506579392805,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            1.5615758802136117,
+            0.4666661655616586,
+            2.815035366834147e-17,
+            -2.3451781253825676e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            1.5615758802136108,
+            0.46666616556165885,
+            1.2687159616482835e-16,
+            2.8639078937911285e-17
+          ]
+        },
+        {
+          "seed": 203,
+          "pair": "C1->C2",
+          "loss_residual_fro": 7.911708450455923e-16,
+          "scaled_residual": 0.055122021673703926,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.9758068006732943,
+            0.06533157065662024,
+            2.424618812807054e-16,
+            -2.1558180881093193e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.975806800673294,
+            0.06533157065662018,
+            6.539218786196613e-18,
+            -5.684579031625616e-17
+          ]
+        },
+        {
+          "seed": 203,
+          "pair": "C2->C3",
+          "loss_residual_fro": 8.981395728659478e-16,
+          "scaled_residual": 0.06257468827567203,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.8587664311703345,
+            0.05568701906418386,
+            1.1867137799973758e-16,
+            -9.342209087869821e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            0.8587664311703338,
+            0.055687019064183704,
+            8.022142137773826e-18,
+            -7.427138833057496e-18
+          ]
+        },
+        {
+          "seed": 204,
+          "pair": "C0->C1",
+          "loss_residual_fro": 1.0933162657923326e-15,
+          "scaled_residual": 0.07616364834823948,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            1.0369217700419922,
+            0.26097856199994035,
+            4.719673814855661e-17,
+            -2.93937604428716e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            1.036921770041992,
+            0.2609785619999404,
+            4.027317970045149e-17,
+            -2.1125381090000893e-17
+          ]
+        },
+        {
+          "seed": 204,
+          "pair": "C1->C2",
+          "loss_residual_fro": 1.2299960136882917e-15,
+          "scaled_residual": 0.08568516429086534,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            1.0876263613954142,
+            0.2171755411936052,
+            2.1291787916752695e-16,
+            -4.112547047411173e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            1.0876263613954147,
+            0.21717554119360558,
+            6.822131475747868e-19,
+            -2.32187687700812e-17
+          ]
+        },
+        {
+          "seed": 204,
+          "pair": "C2->C3",
+          "loss_residual_fro": 1.3215226024645125e-15,
+          "scaled_residual": 0.09206117747220594,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.481193815037868,
+            0.1061343082913531,
+            3.9325251087458654e-16,
+            2.1525988773606043e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            0.48119381503786807,
+            0.10613430829135312,
+            1.7929575286422615e-17,
+            -5.721419665616859e-18
+          ]
+        },
+        {
+          "seed": 205,
+          "pair": "C0->C1",
+          "loss_residual_fro": 7.974371175523547e-16,
+          "scaled_residual": 0.07499936345609348,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.5650445340093057,
+            0.06820200822132604,
+            -1.0125455963210026e-16,
+            -1.6553813625630528e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.565044534009306,
+            0.06820200822132573,
+            -1.1580401780546157e-17,
+            -4.943602387958101e-17
+          ]
+        },
+        {
+          "seed": 205,
+          "pair": "C1->C2",
+          "loss_residual_fro": 1.3191134907493834e-15,
+          "scaled_residual": 0.12406328970014856,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.16367623479078688,
+            0.05091144617781241,
+            1.1739336699718482e-15,
+            6.151204102835205e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.1636762347907869,
+            0.05091144617781236,
+            1.7796495283773467e-17,
+            -8.839019107001228e-18
+          ]
+        },
+        {
+          "seed": 205,
+          "pair": "C2->C3",
+          "loss_residual_fro": 1.516112591012345e-15,
+          "scaled_residual": 0.14259115452602336,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.6869807646390239,
+            0.03651769892153155,
+            -1.7858345079446276e-16,
+            -3.4108565339108937e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.6869807646390246,
+            0.03651769892153255,
+            2.125464623891457e-17,
+            -1.5840438353636733e-17
+          ]
+        },
+        {
+          "seed": 206,
+          "pair": "C0->C1",
+          "loss_residual_fro": 1.0437270533315608e-15,
+          "scaled_residual": 0.08788884383619529,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.32531498838684136,
+            0.019942648002593377,
+            4.820470555854651e-16,
+            -1.7574651213034102e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.32531498838684125,
+            0.019942648002593183,
+            4.9065989800868615e-17,
+            -1.7163336626532174e-17
+          ]
+        },
+        {
+          "seed": 206,
+          "pair": "C1->C2",
+          "loss_residual_fro": 1.432742974585859e-15,
+          "scaled_residual": 0.12064660310264162,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.9544993500487471,
+            0.31251351862757015,
+            7.833347356390982e-17,
+            -5.487347187686893e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.9544993500487475,
+            0.31251351862756954,
+            7.428908592320451e-17,
+            -8.028659548995282e-17
+          ]
+        },
+        {
+          "seed": 206,
+          "pair": "C2->C3",
+          "loss_residual_fro": 1.4841884906620924e-15,
+          "scaled_residual": 0.12497866186653399,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.16651654948044156,
+            0.09177609582309469,
+            6.993838755603238e-16,
+            -6.239104742959162e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            0.1665165494804416,
+            0.09177609582309497,
+            3.4008921076475666e-17,
+            1.2355994375588568e-17
+          ]
+        },
+        {
+          "seed": 207,
+          "pair": "C0->C1",
+          "loss_residual_fro": 8.885324089297339e-16,
+          "scaled_residual": 0.06398873492584663,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.3060806120906164,
+            0.24984025591272785,
+            -7.402922663899626e-17,
+            -5.803812916983532e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.3060806120906166,
+            0.24984025591272813,
+            4.2547846451175365e-17,
+            2.6637284146096332e-17
+          ]
+        },
+        {
+          "seed": 207,
+          "pair": "C1->C2",
+          "loss_residual_fro": 6.19293851334254e-16,
+          "scaled_residual": 0.04459919491509292,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.6434625478235763,
+            0.08245160766086458,
+            2.4929491945801386e-16,
+            -2.7409140058778728e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            0.6434625478235765,
+            0.08245160766086439,
+            -1.4501000481561684e-17,
+            -7.136481066539097e-17
+          ]
+        },
+        {
+          "seed": 207,
+          "pair": "C2->C3",
+          "loss_residual_fro": 8.958700553510933e-16,
+          "scaled_residual": 0.06451716439799329,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.48998809773236235,
+            0.06161581339501375,
+            4.2426622265233484e-16,
+            2.6473167036029675e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.4899880977323623,
+            0.06161581339501314,
+            2.527200283858248e-17,
+            -2.878753602651851e-17
+          ]
+        },
+        {
+          "seed": 208,
+          "pair": "C0->C1",
+          "loss_residual_fro": 1.2916877273346555e-15,
+          "scaled_residual": 0.077451672707174,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.6559235379619561,
+            0.09032525570496353,
+            3.2313086910808154e-16,
+            -1.4124033710979806e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            0.6559235379619557,
+            0.09032525570496301,
+            1.3684136223214358e-16,
+            -2.019261219914143e-18
+          ]
+        },
+        {
+          "seed": 208,
+          "pair": "C1->C2",
+          "loss_residual_fro": 7.844600048859342e-16,
+          "scaled_residual": 0.047037483026694527,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.6970604441222084,
+            0.17142214877651615,
+            3.0705881070228453e-16,
+            5.5071517263309655e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            0.6970604441222088,
+            0.171422148776516,
+            1.8060549572492648e-16,
+            1.541809466399075e-17
+          ]
+        },
+        {
+          "seed": 208,
+          "pair": "C2->C3",
+          "loss_residual_fro": 2.2326477456570144e-15,
+          "scaled_residual": 0.13387314813608625,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.31477753283817544,
+            0.16748492251433647,
+            -2.7749263033273346e-16,
+            -1.1635819603021277e-15
+          ],
+          "b_T_P_E_b_eigs": [
+            0.31477753283817594,
+            0.16748492251433772,
+            3.919914923749421e-17,
+            -1.3645975388040229e-17
+          ]
+        },
+        {
+          "seed": 209,
+          "pair": "C0->C1",
+          "loss_residual_fro": 1.3396199170585762e-15,
+          "scaled_residual": 0.10334248433434562,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.6621828057444932,
+            0.43244340413848215,
+            7.643011727648816e-17,
+            -1.9599460999146493e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.6621828057444933,
+            0.4324434041384813,
+            -2.3653562556934836e-17,
+            -4.6415869061570977e-17
+          ]
+        },
+        {
+          "seed": 209,
+          "pair": "C1->C2",
+          "loss_residual_fro": 9.675683580169202e-16,
+          "scaled_residual": 0.0746412595151046,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.2784870431294742,
+            0.06563011910589511,
+            6.814623642948623e-16,
+            -1.1419823914046961e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.27848704312947437,
+            0.0656301191058954,
+            6.889381869983335e-18,
+            -6.019136931727367e-17
+          ]
+        },
+        {
+          "seed": 209,
+          "pair": "C2->C3",
+          "loss_residual_fro": 1.470947823906276e-15,
+          "scaled_residual": 0.11347353119566023,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.29752769459370415,
+            0.014992470680361688,
+            7.55704157068097e-16,
+            -1.195632295087645e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.297527694593704,
+            0.014992470680361093,
+            -3.2747192427257936e-18,
+            -2.9833071275426e-17
+          ]
+        },
+        {
+          "seed": 210,
+          "pair": "C0->C1",
+          "loss_residual_fro": 2.745943977081555e-15,
+          "scaled_residual": 0.1014844107541548,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.6053532742128614,
+            0.17488940678997095,
+            1.722817907636657e-15,
+            2.2134202837510595e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.6053532742128602,
+            0.1748894067899704,
+            1.2431444131361696e-17,
+            -3.8551813591477624e-17
+          ]
+        },
+        {
+          "seed": 210,
+          "pair": "C1->C2",
+          "loss_residual_fro": 2.0932930538913656e-15,
+          "scaled_residual": 0.0773637823214851,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            1.357614554153199,
+            0.6474549257995379,
+            -2.0499873781722169e-16,
+            -8.818133306844983e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            1.357614554153199,
+            0.6474549257995378,
+            8.853762499665404e-17,
+            -1.471943885692938e-16
+          ]
+        },
+        {
+          "seed": 210,
+          "pair": "C2->C3",
+          "loss_residual_fro": 2.7588801324023094e-15,
+          "scaled_residual": 0.10196250430271521,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            2.2881887588934378,
+            0.2303857484453956,
+            8.295049238084271e-16,
+            -1.3203275224326448e-15
+          ],
+          "b_T_P_E_b_eigs": [
+            2.2881887588934373,
+            0.23038574844539636,
+            1.0073210575407312e-16,
+            -2.164589625046879e-16
+          ]
+        },
+        {
+          "seed": 211,
+          "pair": "C0->C1",
+          "loss_residual_fro": 1.1357034679642283e-15,
+          "scaled_residual": 0.0749847487158761,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.9179584756518742,
+            0.3753690293061334,
+            2.823226412886945e-16,
+            -7.142945411900748e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.9179584756518737,
+            0.37536902930613386,
+            1.935934359669964e-17,
+            -1.6368416542884755e-17
+          ]
+        },
+        {
+          "seed": 211,
+          "pair": "C1->C2",
+          "loss_residual_fro": 2.0715707205722544e-15,
+          "scaled_residual": 0.1367753241149472,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.6581483747737104,
+            0.09827761745891618,
+            9.774069930616127e-16,
+            3.3194263163997965e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.6581483747737097,
+            0.09827761745891495,
+            2.7550814401976023e-17,
+            -2.9728039159312116e-17
+          ]
+        },
+        {
+          "seed": 211,
+          "pair": "C2->C3",
+          "loss_residual_fro": 1.2182354210170132e-15,
+          "scaled_residual": 0.08043391562894965,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.4437211487977374,
+            0.12571214693517815,
+            9.53759617768894e-17,
+            -8.071391842220726e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.4437211487977374,
+            0.12571214693517915,
+            3.589726306233189e-17,
+            -1.9670655324323142e-17
+          ]
+        },
+        {
+          "seed": 212,
+          "pair": "C0->C1",
+          "loss_residual_fro": 1.4989295757713734e-15,
+          "scaled_residual": 0.07123045133478766,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.7221716218524812,
+            0.304878461848729,
+            8.435237806763264e-16,
+            2.908502095015378e-18
+          ],
+          "b_T_P_E_b_eigs": [
+            0.7221716218524813,
+            0.304878461848729,
+            1.7356898307834136e-17,
+            -1.428484202225254e-16
+          ]
+        },
+        {
+          "seed": 212,
+          "pair": "C1->C2",
+          "loss_residual_fro": 1.3880259568646127e-15,
+          "scaled_residual": 0.06596021385526862,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 4,
+          "rank_drop_predicted": 0,
+          "rank_drop_actual": 0,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.7905586271037901,
+            0.08069331018396164,
+            2.0530918422126977e-16,
+            -5.561625686033477e-16
+          ],
+          "b_T_P_E_b_eigs": [
+            0.7905586271037903,
+            0.08069331018396177,
+            2.151798141019453e-17,
+            -3.22450048080373e-17
+          ]
+        },
+        {
+          "seed": 212,
+          "pair": "C2->C3",
+          "loss_residual_fro": 1.885914900946135e-15,
+          "scaled_residual": 0.0896203342336906,
+          "rank_bv_r": 4,
+          "rank_bv_r1": 3,
+          "rank_drop_predicted": 1,
+          "rank_drop_actual": 1,
+          "t5b_matches": true,
+          "dim_E": 2,
+          "j_r_minus_j_r1_eigs": [
+            0.7428400113088636,
+            0.06333052654792513,
+            1.2616854755365085e-15,
+            -5.747756711222326e-17
+          ],
+          "b_T_P_E_b_eigs": [
+            0.7428400113088631,
+            0.06333052654792531,
+            1.4984699989025725e-16,
+            1.3445752005486027e-17
+          ]
+        }
+      ]
+    }
+  },
+  "verdict": {
+    "all_exact_t5a": true,
+    "all_exact_t5b": true,
+    "nonmonotone_rho_pass": true,
+    "rank_uncertainty_discontinuity": true,
+    "neutral_real_safe": true,
+    "neutral_complex_pass": true,
+    "utility_projection_pass": true,
+    "random_tangents_all_t5b": true,
+    "random_tangents_max_scaled_below_100": true
+  }
+}

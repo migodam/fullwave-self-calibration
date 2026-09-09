@@ -1,0 +1,40 @@
+{
+  "scope": "development derivative/reference consistency, not inverse gate",
+  "checks": [
+    {
+      "name": "material_directional_derivative",
+      "error": 8.056685524300333e-11,
+      "tolerance": 2e-07,
+      "passed": true
+    },
+    {
+      "name": "geometry_directional_derivative",
+      "error": 2.8465618667303684e-09,
+      "tolerance": 2e-07,
+      "passed": true
+    },
+    {
+      "name": "electronics_directional_derivative",
+      "error": 6.22702937748582e-10,
+      "tolerance": 2e-07,
+      "passed": true
+    },
+    {
+      "name": "real_parameter_adjoint_identity",
+      "error": 2.800470485303415e-16,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "name": "dyadic_reciprocity",
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "name": "passive_reference_extinction_exceeds_scattering",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,18 @@
+{
+  "entry": "installed run_development_loop",
+  "loop": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-05_17-55-24_a2_development",
+  "args": {
+    "model": "deepseek-v4-pro",
+    "worker": "codex",
+    "codex_profile": "deepseek-flash",
+    "max_safety_rounds": 3,
+    "min_dev_rounds": 1,
+    "final_max_turns": 35,
+    "codex_timeout": 3600,
+    "num_cite_rounds": 3,
+    "writeup_retries": 1,
+    "wiki_path": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/pipeline_wiki.jsonl"
+  },
+  "initial_novelty": "parent-owned; automated acronym drift interrupted",
+  "task": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/TASK.md"
+}

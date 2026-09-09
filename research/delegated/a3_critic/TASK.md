@@ -1,0 +1,9 @@
+# Severe A3 paper review (read-only science review)
+
+You are isolated deepseek-pro; no delegation or pipeline. Read AGENTS.md. Write only research/delegated/a3_critic/. Parent owns final theorem validity, novelty and publication judgment; you identify objections and evidence gaps, not make final acceptance claims.
+
+Review research/trispace_self_calibration/a3_research/PAPER_DRAFT_A3.md, THEORY_AUDIT.md, PLAN.md, PIPELINE_AUDIT.md; a3_prior/CLAIM_LEDGER.md and EVIDENCE.md; a3_rom/SUMMARY.md and a3_maxwell_fft/SUMMARY.md; inspect parent maxwell3d.py/calibrate3d.py/gain_graph.py and result JSON where needed. Do not read worker logs wholesale. No numerical sweeps while other workers run.
+
+Three exacting reviewer perspectives: (A) EM physics and genuine application pain point, (B) mathematics/novelty/what is just known machinery, (C) experimental fairness/independent solver/hidden priors/leakage. Explicitly ask why new measurements or references are necessary versus optional; whether unified calibration ever improves actual material recovery without adding external calibration; whether spatial gain-graph result is merely a textbook graph corollary; whether high-frequency admission and error certificates yield an executable non-oracle decision; whether SOM baselines are genuinely classical SOM or just informed ROMs. Do not count intentional negative controls as a failure of an assumption-qualified theorem. A3 readme claims and test PASS strings are not proof.
+
+Deliver REVIEW.md with severity and exact evidence, BLOCKING_GAPS.md separating fatal claims from repairable implementation/experiment gaps, and SUMMARY.md <=10 findings. For each major issue prescribe the smallest discriminating experiment or analysis, not a generic request for more datasets. Do not assert a paper is novel or mature because it is long or reproducible. No journal submission or contacts.

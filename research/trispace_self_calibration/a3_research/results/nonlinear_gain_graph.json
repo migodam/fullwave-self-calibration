@@ -1,0 +1,865 @@
+{
+  "field_generation_seconds": 0.43111508403671905,
+  "rows": [
+    {
+      "seed": 8301,
+      "graph": "tree",
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "cycles": 0,
+      "candidate_scores": [
+        {
+          "candidate": "oracle_truth",
+          "pose": [
+            0.03,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 6.856013529403452e-29,
+          "starts": [
+            {
+              "loss": 6.856013529403452e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 0.00021358398953452706
+            },
+            {
+              "loss": 1.1087340965568071e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00032295798882842064
+            },
+            {
+              "loss": 7.853848954648243e-29,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00022720900597050786
+            }
+          ]
+        },
+        {
+          "candidate": "pose_plus",
+          "pose": [
+            0.15,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 9.109353274513207e-29,
+          "starts": [
+            {
+              "loss": 1.3219424760268335e-28,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 8.095800876617432e-05
+            },
+            {
+              "loss": 9.109353274513207e-29,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00021645799279212952
+            },
+            {
+              "loss": 2.1629030154293422e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00020866701379418373
+            }
+          ]
+        },
+        {
+          "candidate": "pose_minus",
+          "pose": [
+            -0.09,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 6.035009698505838e-29,
+          "starts": [
+            {
+              "loss": 9.54890609474762e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 7.616705261170864e-05
+            },
+            {
+              "loss": 6.035009698505838e-29,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00020291702821850777
+            },
+            {
+              "loss": 1.7228449620682218e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00020349997794255614
+            }
+          ]
+        },
+        {
+          "candidate": "material_plus",
+          "pose": [
+            0.03,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.9,
+            2.7
+          ],
+          "best_loss": 6.024905035971713e-29,
+          "starts": [
+            {
+              "loss": 6.024905035971713e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 7.445801747962832e-05
+            },
+            {
+              "loss": 2.4181720526976613e-27,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00020775001030415297
+            },
+            {
+              "loss": 8.552611630539284e-27,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00021129200467839837
+            }
+          ]
+        },
+        {
+          "candidate": "mixed",
+          "pose": [
+            0.03,
+            0.055,
+            -0.039999999999999994
+          ],
+          "eps": [
+            2.1,
+            3.5
+          ],
+          "best_loss": 7.490081103419762e-29,
+          "starts": [
+            {
+              "loss": 7.490081103419762e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 7.491704309359193e-05
+            },
+            {
+              "loss": 5.001050104701552e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00020762503845617175
+            },
+            {
+              "loss": 1.5207517113857324e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00020629202481359243
+            }
+          ]
+        }
+      ],
+      "lowest_loss_candidate": "material_plus",
+      "wrong_bank_best_loss": 6.024905035971713e-29,
+      "oracle_candidate_loss": 6.856013529403452e-29,
+      "seconds": 0.0069445830304175615,
+      "scope": "oracle covered finite bank, gain-profiled training residual; no independent validation or global coverage guarantee"
+    },
+    {
+      "seed": 8301,
+      "graph": "three_cycles",
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "cycles": 3,
+      "candidate_scores": [
+        {
+          "candidate": "oracle_truth",
+          "pose": [
+            0.03,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 0.7507871318053332,
+          "starts": [
+            {
+              "loss": 0.7507871318053396,
+              "status": 2,
+              "nfev": 6,
+              "seconds": 0.00041974999476224184
+            },
+            {
+              "loss": 0.7507871318053332,
+              "status": 2,
+              "nfev": 7,
+              "seconds": 0.00047383300261572003
+            },
+            {
+              "loss": 0.750787131805335,
+              "status": 2,
+              "nfev": 7,
+              "seconds": 0.0004320000298321247
+            }
+          ]
+        },
+        {
+          "candidate": "pose_plus",
+          "pose": [
+            0.15,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 127.99974533915062,
+          "starts": [
+            {
+              "loss": 127.99974533917597,
+              "status": 2,
+              "nfev": 13,
+              "seconds": 0.0007527919951826334
+            },
+            {
+              "loss": 127.99974533915062,
+              "status": 2,
+              "nfev": 12,
+              "seconds": 0.000678999989759177
+            },
+            {
+              "loss": 127.99974533915135,
+              "status": 2,
+              "nfev": 12,
+              "seconds": 0.0006799160037189722
+            }
+          ]
+        },
+        {
+          "candidate": "pose_minus",
+          "pose": [
+            -0.09,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 87.468603045409,
+          "starts": [
+            {
+              "loss": 87.46860304541427,
+              "status": 2,
+              "nfev": 10,
+              "seconds": 0.0006004589959047735
+            },
+            {
+              "loss": 87.46860304543588,
+              "status": 2,
+              "nfev": 10,
+              "seconds": 0.0005998340202495456
+            },
+            {
+              "loss": 87.468603045409,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006411249632947147
+            }
+          ]
+        },
+        {
+          "candidate": "material_plus",
+          "pose": [
+            0.03,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.9,
+            2.7
+          ],
+          "best_loss": 122.69707312362823,
+          "starts": [
+            {
+              "loss": 122.69707312362823,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006515829591080546
+            },
+            {
+              "loss": 122.69707312363116,
+              "status": 2,
+              "nfev": 10,
+              "seconds": 0.0006012499798089266
+            },
+            {
+              "loss": 122.69707312362976,
+              "status": 2,
+              "nfev": 10,
+              "seconds": 0.0006104999920353293
+            }
+          ]
+        },
+        {
+          "candidate": "mixed",
+          "pose": [
+            0.03,
+            0.055,
+            -0.039999999999999994
+          ],
+          "eps": [
+            2.1,
+            3.5
+          ],
+          "best_loss": 87.12017786795448,
+          "starts": [
+            {
+              "loss": 87.12017786795448,
+              "status": 2,
+              "nfev": 10,
+              "seconds": 0.0005990000208839774
+            },
+            {
+              "loss": 87.12017786796075,
+              "status": 2,
+              "nfev": 10,
+              "seconds": 0.0006162499776110053
+            },
+            {
+              "loss": 87.12017786795909,
+              "status": 2,
+              "nfev": 10,
+              "seconds": 0.0006297089857980609
+            }
+          ]
+        }
+      ],
+      "lowest_loss_candidate": "oracle_truth",
+      "wrong_bank_best_loss": 87.12017786795448,
+      "oracle_candidate_loss": 0.7507871318053332,
+      "seconds": 0.009256791963707656,
+      "scope": "oracle covered finite bank, gain-profiled training residual; no independent validation or global coverage guarantee"
+    },
+    {
+      "seed": 8302,
+      "graph": "tree",
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "cycles": 0,
+      "candidate_scores": [
+        {
+          "candidate": "oracle_truth",
+          "pose": [
+            0.03,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 5.442772723341166e-29,
+          "starts": [
+            {
+              "loss": 5.442772723341166e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 7.875001756474376e-05
+            },
+            {
+              "loss": 6.526003539764859e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00021341699175536633
+            },
+            {
+              "loss": 1.2919653280116856e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00021304201800376177
+            }
+          ]
+        },
+        {
+          "candidate": "pose_plus",
+          "pose": [
+            0.15,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 4.9214909993966575e-29,
+          "starts": [
+            {
+              "loss": 4.9214909993966575e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 8.933403296396136e-05
+            },
+            {
+              "loss": 7.860484753062799e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.0002239580499008298
+            },
+            {
+              "loss": 9.071928691375822e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00020579202100634575
+            }
+          ]
+        },
+        {
+          "candidate": "pose_minus",
+          "pose": [
+            -0.09,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 6.1814400172710424e-30,
+          "starts": [
+            {
+              "loss": 8.140128367241257e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 8.108303882181644e-05
+            },
+            {
+              "loss": 2.0491177894573257e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.0002227090299129486
+            },
+            {
+              "loss": 6.1814400172710424e-30,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00020662503084167838
+            }
+          ]
+        },
+        {
+          "candidate": "material_plus",
+          "pose": [
+            0.03,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.9,
+            2.7
+          ],
+          "best_loss": 7.477619963476322e-29,
+          "starts": [
+            {
+              "loss": 7.477619963476322e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 8.104101289063692e-05
+            },
+            {
+              "loss": 9.778653615838461e-29,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00021833402570337057
+            },
+            {
+              "loss": 4.019303913622344e-27,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.0002078340039588511
+            }
+          ]
+        },
+        {
+          "candidate": "mixed",
+          "pose": [
+            0.03,
+            0.055,
+            -0.039999999999999994
+          ],
+          "eps": [
+            2.1,
+            3.5
+          ],
+          "best_loss": 7.430297934635969e-29,
+          "starts": [
+            {
+              "loss": 7.430297934635969e-29,
+              "status": 1,
+              "nfev": 1,
+              "seconds": 7.829105015844107e-05
+            },
+            {
+              "loss": 1.9487285417127213e-27,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00021816702792420983
+            },
+            {
+              "loss": 5.47996488038288e-28,
+              "status": 1,
+              "nfev": 3,
+              "seconds": 0.00021245802054181695
+            }
+          ]
+        }
+      ],
+      "lowest_loss_candidate": "pose_minus",
+      "wrong_bank_best_loss": 6.1814400172710424e-30,
+      "oracle_candidate_loss": 5.442772723341166e-29,
+      "seconds": 0.0027549589867703617,
+      "scope": "oracle covered finite bank, gain-profiled training residual; no independent validation or global coverage guarantee"
+    },
+    {
+      "seed": 8302,
+      "graph": "three_cycles",
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "cycles": 3,
+      "candidate_scores": [
+        {
+          "candidate": "oracle_truth",
+          "pose": [
+            0.03,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 4.2672932923493905,
+          "starts": [
+            {
+              "loss": 4.2672932923493905,
+              "status": 2,
+              "nfev": 6,
+              "seconds": 0.0003910419763997197
+            },
+            {
+              "loss": 4.267293292349397,
+              "status": 2,
+              "nfev": 7,
+              "seconds": 0.0004414580180309713
+            },
+            {
+              "loss": 4.267293292349407,
+              "status": 2,
+              "nfev": 7,
+              "seconds": 0.0004445829545147717
+            }
+          ]
+        },
+        {
+          "candidate": "pose_plus",
+          "pose": [
+            0.15,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 99.83999343627231,
+          "starts": [
+            {
+              "loss": 99.83999343627639,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006662500090897083
+            },
+            {
+              "loss": 99.83999343627231,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006690410082228482
+            },
+            {
+              "loss": 99.83999343627352,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006456670234911144
+            }
+          ]
+        },
+        {
+          "candidate": "pose_minus",
+          "pose": [
+            -0.09,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.4,
+            3.1
+          ],
+          "best_loss": 88.7626694927972,
+          "starts": [
+            {
+              "loss": 88.7626694927972,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006741249817423522
+            },
+            {
+              "loss": 88.76266949280401,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006688329740427434
+            },
+            {
+              "loss": 88.76266949282555,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.000679416989441961
+            }
+          ]
+        },
+        {
+          "candidate": "material_plus",
+          "pose": [
+            0.03,
+            -0.025,
+            0.02
+          ],
+          "eps": [
+            2.9,
+            2.7
+          ],
+          "best_loss": 112.8475657307871,
+          "starts": [
+            {
+              "loss": 112.84756573079703,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006686670240014791
+            },
+            {
+              "loss": 112.8475657307871,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006629999843426049
+            },
+            {
+              "loss": 112.8475657307919,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006677089841105044
+            }
+          ]
+        },
+        {
+          "candidate": "mixed",
+          "pose": [
+            0.03,
+            0.055,
+            -0.039999999999999994
+          ],
+          "eps": [
+            2.1,
+            3.5
+          ],
+          "best_loss": 94.22579503241565,
+          "starts": [
+            {
+              "loss": 94.22579503241693,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006849589990451932
+            },
+            {
+              "loss": 94.22579503241607,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006615000311285257
+            },
+            {
+              "loss": 94.22579503241565,
+              "status": 2,
+              "nfev": 11,
+              "seconds": 0.0006671670125797391
+            }
+          ]
+        }
+      ],
+      "lowest_loss_candidate": "oracle_truth",
+      "wrong_bank_best_loss": 88.7626694927972,
+      "oracle_candidate_loss": 4.2672932923493905,
+      "seconds": 0.009473250014707446,
+      "scope": "oracle covered finite bank, gain-profiled training residual; no independent validation or global coverage guarantee"
+    }
+  ]
+}

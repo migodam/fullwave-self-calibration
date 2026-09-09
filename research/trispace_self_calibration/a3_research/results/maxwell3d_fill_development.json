@@ -1,0 +1,218 @@
+[
+  {
+    "scene": "single",
+    "k": 3.0,
+    "spacing": 0.06,
+    "voxels": 64,
+    "fill_quadrature": 6,
+    "relative_error": 0.0031775734185456165,
+    "volume_relative_error": 0.004176363015291789
+  },
+  {
+    "scene": "single",
+    "k": 3.0,
+    "spacing": 0.04,
+    "voxels": 184,
+    "fill_quadrature": 6,
+    "relative_error": 0.008137512936889184,
+    "volume_relative_error": 0.0014317201132042613
+  },
+  {
+    "scene": "single",
+    "k": 3.0,
+    "spacing": 0.03,
+    "voxels": 408,
+    "fill_quadrature": 6,
+    "relative_error": 0.0059972447064577635,
+    "volume_relative_error": 0.000860635034210076
+  },
+  {
+    "scene": "single",
+    "k": 3.0,
+    "spacing": 0.025,
+    "voxels": 672,
+    "fill_quadrature": 6,
+    "relative_error": 0.007096669088009791,
+    "volume_relative_error": 0.00037261411415469753
+  },
+  {
+    "scene": "single",
+    "k": 6.0,
+    "spacing": 0.06,
+    "voxels": 64,
+    "fill_quadrature": 6,
+    "relative_error": 0.023072424927734644,
+    "volume_relative_error": 0.004176363015291789
+  },
+  {
+    "scene": "single",
+    "k": 6.0,
+    "spacing": 0.04,
+    "voxels": 184,
+    "fill_quadrature": 6,
+    "relative_error": 0.008629606894877542,
+    "volume_relative_error": 0.0014317201132042613
+  },
+  {
+    "scene": "single",
+    "k": 6.0,
+    "spacing": 0.03,
+    "voxels": 408,
+    "fill_quadrature": 6,
+    "relative_error": 0.007735305761328414,
+    "volume_relative_error": 0.000860635034210076
+  },
+  {
+    "scene": "single",
+    "k": 6.0,
+    "spacing": 0.025,
+    "voxels": 672,
+    "fill_quadrature": 6,
+    "relative_error": 0.008586676846582089,
+    "volume_relative_error": 0.00037261411415469753
+  },
+  {
+    "scene": "single",
+    "k": 9.0,
+    "spacing": 0.06,
+    "voxels": 64,
+    "fill_quadrature": 6,
+    "relative_error": 0.06229580461695936,
+    "volume_relative_error": 0.004176363015291789
+  },
+  {
+    "scene": "single",
+    "k": 9.0,
+    "spacing": 0.04,
+    "voxels": 184,
+    "fill_quadrature": 6,
+    "relative_error": 0.028252568384474295,
+    "volume_relative_error": 0.0014317201132042613
+  },
+  {
+    "scene": "single",
+    "k": 9.0,
+    "spacing": 0.03,
+    "voxels": 408,
+    "fill_quadrature": 6,
+    "relative_error": 0.020764320292708728,
+    "volume_relative_error": 0.000860635034210076
+  },
+  {
+    "scene": "single",
+    "k": 9.0,
+    "spacing": 0.025,
+    "voxels": 672,
+    "fill_quadrature": 6,
+    "relative_error": 0.018133876517193045,
+    "volume_relative_error": 0.00037261411415469753
+  },
+  {
+    "scene": "pair",
+    "k": 3.0,
+    "spacing": 0.06,
+    "voxels": 111,
+    "fill_quadrature": 6,
+    "relative_error": 0.007758854049856403,
+    "volume_relative_error": 0.000435837294657955
+  },
+  {
+    "scene": "pair",
+    "k": 3.0,
+    "spacing": 0.04,
+    "voxels": 324,
+    "fill_quadrature": 6,
+    "relative_error": 0.009699868530137764,
+    "volume_relative_error": 0.00015061338230756987
+  },
+  {
+    "scene": "pair",
+    "k": 3.0,
+    "spacing": 0.03,
+    "voxels": 652,
+    "fill_quadrature": 6,
+    "relative_error": 0.009794547993422442,
+    "volume_relative_error": 8.923399853339618e-05
+  },
+  {
+    "scene": "pair",
+    "k": 3.0,
+    "spacing": 0.025,
+    "voxels": 1082,
+    "fill_quadrature": 6,
+    "relative_error": 0.0097448100043415,
+    "volume_relative_error": 0.0001068574412083665
+  },
+  {
+    "scene": "pair",
+    "k": 6.0,
+    "spacing": 0.06,
+    "voxels": 111,
+    "fill_quadrature": 6,
+    "relative_error": 0.01884582417312772,
+    "volume_relative_error": 0.000435837294657955
+  },
+  {
+    "scene": "pair",
+    "k": 6.0,
+    "spacing": 0.04,
+    "voxels": 324,
+    "fill_quadrature": 6,
+    "relative_error": 0.00844156296459472,
+    "volume_relative_error": 0.00015061338230756987
+  },
+  {
+    "scene": "pair",
+    "k": 6.0,
+    "spacing": 0.03,
+    "voxels": 652,
+    "fill_quadrature": 6,
+    "relative_error": 0.009456717186440713,
+    "volume_relative_error": 8.923399853339618e-05
+  },
+  {
+    "scene": "pair",
+    "k": 6.0,
+    "spacing": 0.025,
+    "voxels": 1082,
+    "fill_quadrature": 6,
+    "relative_error": 0.009980501733027008,
+    "volume_relative_error": 0.0001068574412083665
+  },
+  {
+    "scene": "pair",
+    "k": 9.0,
+    "spacing": 0.06,
+    "voxels": 111,
+    "fill_quadrature": 6,
+    "relative_error": 0.05625578115710008,
+    "volume_relative_error": 0.000435837294657955
+  },
+  {
+    "scene": "pair",
+    "k": 9.0,
+    "spacing": 0.04,
+    "voxels": 324,
+    "fill_quadrature": 6,
+    "relative_error": 0.026865890581798276,
+    "volume_relative_error": 0.00015061338230756987
+  },
+  {
+    "scene": "pair",
+    "k": 9.0,
+    "spacing": 0.03,
+    "voxels": 652,
+    "fill_quadrature": 6,
+    "relative_error": 0.020512247642093608,
+    "volume_relative_error": 8.923399853339618e-05
+  },
+  {
+    "scene": "pair",
+    "k": 9.0,
+    "spacing": 0.025,
+    "voxels": 1082,
+    "fill_quadrature": 6,
+    "relative_error": 0.01894478933166974,
+    "volume_relative_error": 0.0001068574412083665
+  }
+]

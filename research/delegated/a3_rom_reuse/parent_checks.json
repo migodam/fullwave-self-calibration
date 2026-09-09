@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "q": 9,
+      "dimension_and_pre_call_budget_pass": true
+    },
+    {
+      "q": 49,
+      "dimension_and_pre_call_budget_pass": true
+    },
+    {
+      "dominant_direct_field_cannot_mask_scattering_error": true
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "name": "physical_core",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_physics/test_physics.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.60770433297148,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_physical_core.txt"
+    },
+    {
+      "name": "solver_checks",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_solver_audited/test_solver.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.1804039579583332,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_solver_checks.txt"
+    },
+    {
+      "name": "parent_solver_checks",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_solver_audited/test_parent_audit.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.37402904202463105,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_parent_solver_checks.txt"
+    },
+    {
+      "name": "passivity",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/test_passivity.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.36385024996707216,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_passivity.txt"
+    },
+    {
+      "name": "larger_map",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_highdim/test_highdim.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 8.733653540955856,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_larger_map.txt"
+    },
+    {
+      "name": "theory_e1",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/tests/test_e1.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.7867078330018558,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_theory_e1.txt"
+    },
+    {
+      "name": "theory_e2",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/tests/test_e2.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.08439591602655128,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_theory_e2.txt"
+    },
+    {
+      "name": "theory_e3",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/tests/test_e3.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.07773312501376495,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_theory_e3.txt"
+    },
+    {
+      "name": "theory_e5",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/tests/test_e5.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.07682804099749774,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_theory_e5.txt"
+    },
+    {
+      "name": "theory_physical_runner",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/tests/test_physical_runner.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.19508975005010143,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_theory_physical_runner.txt"
+    },
+    {
+      "name": "final_parent",
+      "command": [
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+        "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/final_checks.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.29677191702649,
+      "log": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a2_research/results/delivery_check_final_parent.txt"
+    }
+  ],
+  "frozen_code_unchanged": true,
+  "larger_map_counts": {
+    "mismatch": 6,
+    "test": 48,
+    "tune": 8,
+    "smoke": 3
+  },
+  "sha256": {
+    "Theory/Questions/A2_PRASC_SOM_THEOREM_PACKAGE_EN.md": "6fbadec7f1dc8efcb1bd6162454378999007878c9bd7e12dd67df39d9b4fbfaa",
+    "Theory/Questions/A2_PRASC_SOM_VALIDATION_PROTOCOL.md": "82da29512b5daa7e141cc93225b368319376d9f1e7b97c22eea8ce6aeec7fe09",
+    "Theory/Questions/A2.md": "03008ffe4a6c4f52ae177fdb70e978f3774bb8067d63946a06c74bb910eb9ed1",
+    "research/delegated/a2_physics/physics.py": "ff38365c4bc30a524cfc0c71f79caa235b86f9e99daeaec1de73ca8e2bc42353",
+    "research/delegated/a2_physics/test_physics.py": "77ae2bac606ef1f0e02dd7f23ff336ad5939af27cad1a2ae51cf3bdf9769df04",
+    "research/delegated/a2_solver_audited/objective.py": "f7372aebf10cdc188044dd4f343001aff4bfa12f256331cfbb81fc318a694698",
+    "research/delegated/a2_solver_audited/solver.py": "5d7300641ba137bd4529f613ae552d6114ddb0235bae7e1032a24bfd64010c49",
+    "research/delegated/a2_solver_audited/reduced.py": "7d5e69e6c742f66b7e5596aaacb66d4f59b2b6f32b92642a647444264bb7f99a",
+    "research/delegated/a2_solver_audited/generate.py": "5bb4a613f406417efc881470df03114e0921f1b312952e9ad8d1b60883994bf1",
+    "research/delegated/a2_solver_audited/test_parent_audit.py": "8fd22cd7d0bca3a6695bff42a988cdd3bb47dc6d0331f6cdb6e48955bc16c809",
+    "research/delegated/a2_solver_audited/cert.py": "6d773cc2169797c63c28229ae7ecff9db9d338163699cd89e3268b0c5d23cef9",
+    "research/delegated/a2_solver_audited/common.py": "1aaf292f94fff2710a1ae9c9651f0789663a834c09ddd1650d0b00efa59b4af0",
+    "research/delegated/a2_solver_audited/test_solver.py": "ffa2ece4074cb4a0009d73b394289384ffc2023b0e6c95d99fa3f8b5df3baea4",
+    "research/delegated/a2_solver_audited/reference.py": "63dbdfebb690967db24615973c60b3e18a7d22f3e76e0ec90b7ef7dc597aa277",
+    "research/delegated/a2_solver_audited/run_e4.py": "11a61384df58600d59739334c2f351e37823d2452ec9c33a3ff61ad28dc7a144",
+    "research/delegated/a2_solver_audited/calibrate.py": "29c8bb2bb59a256c7f33b48d4c747066ee9227832f0b204229a040488a1f765c",
+    "research/delegated/a2_solver_audited/study.py": "9eba7253a19f7de2b66530ad92e881f2c9275b4e17414efd28031e9162fda96c",
+    "research/delegated/a2_solver_audited/frozen_parent.json": "f72fd9735e3ff8d07cf44190db46bf60ed7ab322f40eade7bcef1b02bd821779",
+    "research/delegated/a2_solver_audited/final_200.jsonl": "b1ec22d4f879746a095805346d1fa792d7b8f3b94060a8877bd31a484d8173ae",
+    "research/delegated/a2_solver_audited/final_800.jsonl": "d978ccd01fc900ca74ffbadf6eff08448bc86e5e4ff21b9c2f8f406d8a1e82f1",
+    "research/delegated/a2_highdim/mismatch.py": "86405d3916cb94abb34bed890d5a52cc11f89bb5012a2bab3800297e316e6c68",
+    "research/delegated/a2_highdim/objective.py": "2d6b379d50aea9d539e5e8e444fe7be9fdc8ddeca7e7c449e2978bc3287baae6",
+    "research/delegated/a2_highdim/runner.py": "e2bdf46e462015aaa74782f28a613bdca4c1f48bf24ee9db520858e0ab0a6e08",
+    "research/delegated/a2_highdim/solver.py": "a13d2b755b2126f978766184e7c156af593117c6c23b664d0f37872496e648a1",
+    "research/delegated/a2_highdim/summarize.py": "187503dce166924887bb60feb55dae0c847a43ce21b1f81691bb5b1419119e6b",
+    "research/delegated/a2_highdim/common.py": "adda1fa32355ac00f9d56932ebe122ed08fc247beac365b1c4911b2977716452",
+    "research/delegated/a2_highdim/figures.py": "6e9fbb554e3ea53ae7e5e9745926d850bbde89d98032b0c1de4af1dc5f025c25",
+    "research/delegated/a2_highdim/test_highdim.py": "92dac1df85f3c717e12e37857d24a10448f49db84bd3f4ef7e11868774c9c87f",
+    "research/delegated/a2_highdim/evaluate.py": "1234631eb25efd0a6effc04abe1dc7cec90324e124085c70e849626a0e89740c",
+    "research/delegated/a2_highdim/records.jsonl": "7aa447e5c21dced56efe8678d206d4a9bb8b960e3c5ba063231d4609d04566e6",
+    "research/delegated/a2_highdim/frozen.json": "f7a4871b44ff40b3c7930acde78bc105d2463e87959ffcfc494320e9fd256c83",
+    "research/trispace_self_calibration/a2_research/analyze_final.py": "d07add5eac51290181bdfa91ba90eea68bc32a20c7ef049509750455785bed36",
+    "research/trispace_self_calibration/a2_research/enrichment_probe.py": "372771ca3eacab9dad68e97f99e6fb9efe28fb52774886e1089d1f35c09ea243",
+    "research/trispace_self_calibration/a2_research/final_checks.py": "15a4d6de563c11a6a865560e1c535fa84cd65e14732d4a57eaf7df131cd179a9",
+    "research/trispace_self_calibration/a2_research/measured_corrected_pilot.py": "d637fa4e99828f758e49bec083a45da1ab36ae87d103a57b1bd1da15045e63b6",
+    "research/trispace_self_calibration/a2_research/build_paper.py": "98c197cc194ac20d964f5c12a2607ebc12467e1284d16ecf1e47794935fb8278",
+    "research/trispace_self_calibration/a2_research/certificates.py": "91bf7a0cca1f32780e40c94df698b7a9027880bea893c438bbb876a68c456a1b",
+    "research/trispace_self_calibration/a2_research/test_passivity.py": "56d3e5b729712e1b548a244ebdc75fb05855f0dd633a6dbb62a296aa1366f472",
+    "research/trispace_self_calibration/a2_research/run_pipeline.py": "d9f2ab4d9dd415148ee2b753d7858a0047a7161345beb23077d98578a9e27dfe",
+    "research/trispace_self_calibration/a2_research/paper_figures.py": "7b269127c0c00f5f4864f7bcaba2971f09e22c385be952581cda0dbdd7cfce28",
+    "research/trispace_self_calibration/a2_research/verify_delivery.py": "04a75f6ec37aa33483ba0e063725afca41b6c228c8423a3c71a8639b5d3ef9da",
+    "research/trispace_self_calibration/a2_research/GPT_PRO_NEXT_THEORY_AND_DESIGN_ZH.md": "16ed424ada5ddc29fac0b067825caf0795657c4b298993e1a4e54ab694cb3351",
+    "research/trispace_self_calibration/a2_research/README.md": "0c98ea8b5befb5eb8bfa8f6ddfec2bdfa92879e144e739e2288fcc52be9f8a54",
+    "research/trispace_self_calibration/a2_research/THEORY_AUDIT.md": "05976728393d511159837b20e7ea2c4ec99c8131178dc66c53cb35bb61901cc8",
+    "research/trispace_self_calibration/a2_research/FINAL_REVIEW.md": "bce1f6886db42004b2baa5b1ddce4686c142192b2983a08380eeba57f48728f1",
+    "research/trispace_self_calibration/a2_research/PAPER_DRAFT_A2.md": "d1da66d030d344bfe1e1bc60274bd3a797e76ea0c480f303095719ab84eed4d6",
+    "research/trispace_self_calibration/a2_research/REPRODUCIBILITY.md": "fbbbad1800381cfbd2960f34b9a2b130371ece6eb929cf88c34549e07d0b562e",
+    "research/trispace_self_calibration/a2_research/workshop.md": "c1546e599bba94fff076e366fd61ceef6347abaf7dade27ca05fe2daae92960e",
+    "research/trispace_self_calibration/a2_research/PIPELINE_AUDIT.md": "463ca6c5b6c2c1de619a5fb898326ee79767c9f79650c1ce86170fb18bf3c6bb",
+    "research/trispace_self_calibration/a2_research/PDF_QA.md": "90e60ab772ea7b8bc496147b28d97de98457727be3daf1240cfd61ba0c839fad",
+    "communication/A2_RESEARCH_REPORT_ZH.md": "e9cefbed5de26bd8a70f9d60dac53a9f5008050ed23978538a836dcfb247c1da"
+  },
+  "scope": "implementation and artifact integrity, not journal/scientific acceptance"
+}

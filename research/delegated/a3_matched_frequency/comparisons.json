@@ -1,0 +1,130 @@
+[
+  {
+    "seed": 8101,
+    "use_reference": false,
+    "contrast": "low_high minus low",
+    "negative_error_difference_means_high_better": true,
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": 0.008393260002755051,
+        "weighted_phase_rmse_rad": 0.0014672347053102967
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.004816758335456653,
+        "weighted_phase_rmse_rad": 8.918159978922677e-05
+      }
+    }
+  },
+  {
+    "seed": 8101,
+    "use_reference": false,
+    "contrast": "low_high minus low_repeat",
+    "negative_error_difference_means_high_better": true,
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": 0.008789233744379442,
+        "weighted_phase_rmse_rad": 0.001536088522393527
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.0023206656877549844,
+        "weighted_phase_rmse_rad": 0.0004865938680107514
+      }
+    }
+  },
+  {
+    "seed": 8101,
+    "use_reference": true,
+    "contrast": "low_high minus low",
+    "negative_error_difference_means_high_better": true,
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": 0.007563286875047344,
+        "weighted_phase_rmse_rad": 0.0013637778222730713
+      },
+      "structural_low_band": {
+        "relative_field_error": 0.025560731097475618,
+        "weighted_phase_rmse_rad": 0.0045570355447558724
+      }
+    }
+  },
+  {
+    "seed": 8101,
+    "use_reference": true,
+    "contrast": "low_high minus low_repeat",
+    "negative_error_difference_means_high_better": true,
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": 0.007875067686318538,
+        "weighted_phase_rmse_rad": 0.0015002022150809517
+      },
+      "structural_low_band": {
+        "relative_field_error": 0.02560213723059948,
+        "weighted_phase_rmse_rad": 0.004626945402905096
+      }
+    }
+  },
+  {
+    "seed": 8102,
+    "use_reference": false,
+    "contrast": "low_high minus low",
+    "negative_error_difference_means_high_better": true,
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": 0.007677712817192026,
+        "weighted_phase_rmse_rad": 0.001120831902065586
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.01962587042090327,
+        "weighted_phase_rmse_rad": -0.003245508638665514
+      }
+    }
+  },
+  {
+    "seed": 8102,
+    "use_reference": false,
+    "contrast": "low_high minus low_repeat",
+    "negative_error_difference_means_high_better": true,
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": 0.00799031483518316,
+        "weighted_phase_rmse_rad": 0.0011626600465925014
+      },
+      "structural_low_band": {
+        "relative_field_error": -0.01850537747484766,
+        "weighted_phase_rmse_rad": -0.0029787492160386897
+      }
+    }
+  },
+  {
+    "seed": 8102,
+    "use_reference": true,
+    "contrast": "low_high minus low",
+    "negative_error_difference_means_high_better": true,
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": 0.007199869301468712,
+        "weighted_phase_rmse_rad": 0.0013290880694599395
+      },
+      "structural_low_band": {
+        "relative_field_error": 0.023432447273178156,
+        "weighted_phase_rmse_rad": 0.003699240624984679
+      }
+    }
+  },
+  {
+    "seed": 8102,
+    "use_reference": true,
+    "contrast": "low_high minus low_repeat",
+    "negative_error_difference_means_high_better": true,
+    "differences": {
+      "sensor_low_band": {
+        "relative_field_error": 0.007459234407395207,
+        "weighted_phase_rmse_rad": 0.0013098065772240972
+      },
+      "structural_low_band": {
+        "relative_field_error": 0.02349580049163652,
+        "weighted_phase_rmse_rad": 0.0037679500514324503
+      }
+    }
+  }
+]

@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "k": 3.0,
+      "translation_name": "transverse",
+      "translation": [
+        0.0,
+        0.08,
+        0.0
+      ],
+      "common_clock_gauge": true,
+      "field_covariance_error": 2.107025113314961e-16,
+      "fixed_compensating_common_clock_error": 2.107025113314961e-16,
+      "individual_delay_compensation_error": 2.107025113314961e-16
+    },
+    {
+      "k": 3.0,
+      "translation_name": "common_clock",
+      "translation": [
+        0.05,
+        0.0,
+        0.05
+      ],
+      "common_clock_gauge": true,
+      "field_covariance_error": 9.875746024494598e-16,
+      "fixed_compensating_common_clock_error": 9.788726818649865e-16,
+      "individual_delay_compensation_error": 9.788726818649865e-16
+    },
+    {
+      "k": 3.0,
+      "translation_name": "non_gauge_translation",
+      "translation": [
+        0.06,
+        0.0,
+        0.0
+      ],
+      "common_clock_gauge": false,
+      "field_covariance_error": 6.524982177254497e-16,
+      "fixed_compensating_common_clock_error": 0.11631215558018544,
+      "individual_delay_compensation_error": 6.601633606759261e-16
+    },
+    {
+      "k": 9.0,
+      "translation_name": "transverse",
+      "translation": [
+        0.0,
+        0.08,
+        0.0
+      ],
+      "common_clock_gauge": true,
+      "field_covariance_error": 4.740645701605466e-16,
+      "fixed_compensating_common_clock_error": 4.740645701605466e-16,
+      "individual_delay_compensation_error": 4.740645701605466e-16
+    },
+    {
+      "k": 9.0,
+      "translation_name": "common_clock",
+      "translation": [
+        0.05,
+        0.0,
+        0.05
+      ],
+      "common_clock_gauge": true,
+      "field_covariance_error": 1.5776004507656125e-15,
+      "fixed_compensating_common_clock_error": 1.5697738725127787e-15,
+      "individual_delay_compensation_error": 1.5697738725127787e-15
+    },
+    {
+      "k": 9.0,
+      "translation_name": "non_gauge_translation",
+      "translation": [
+        0.06,
+        0.0,
+        0.0
+      ],
+      "common_clock_gauge": false,
+      "field_covariance_error": 1.194934462946431e-15,
+      "fixed_compensating_common_clock_error": 0.4128190509015518,
+      "individual_delay_compensation_error": 1.2102334963951832e-15
+    },
+    {
+      "k": 18.0,
+      "translation_name": "transverse",
+      "translation": [
+        0.0,
+        0.08,
+        0.0
+      ],
+      "common_clock_gauge": true,
+      "field_covariance_error": 1.3303277465546824e-15,
+      "fixed_compensating_common_clock_error": 1.3303277465546824e-15,
+      "individual_delay_compensation_error": 1.3303277465546824e-15
+    },
+    {
+      "k": 18.0,
+      "translation_name": "common_clock",
+      "translation": [
+        0.05,
+        0.0,
+        0.05
+      ],
+      "common_clock_gauge": true,
+      "field_covariance_error": 3.079325499206145e-15,
+      "fixed_compensating_common_clock_error": 3.077582102387027e-15,
+      "individual_delay_compensation_error": 3.077582102387027e-15
+    },
+    {
+      "k": 18.0,
+      "translation_name": "non_gauge_translation",
+      "translation": [
+        0.06,
+        0.0,
+        0.0
+      ],
+      "common_clock_gauge": false,
+      "field_covariance_error": 2.143992751152919e-15,
+      "fixed_compensating_common_clock_error": 0.8057927004220392,
+      "individual_delay_compensation_error": 2.160982786282457e-15
+    }
+  ],
+  "two_direction_difference_rank": 1,
+  "tetrahedral_direction_difference_rank": 3,
+  "scope": "full-wave covariance check; non-gauge row is not a proof of absence of every other ambiguity"
+}

@@ -1,0 +1,8 @@
+{
+  "machine": "arm64",
+  "numpy": "2.5.2",
+  "physics_file_unmodified": true,
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "python": "3.13.13",
+  "scipy": "1.18.1"
+}

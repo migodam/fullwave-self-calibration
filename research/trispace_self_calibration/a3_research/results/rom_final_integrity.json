@@ -1,0 +1,10 @@
+{
+  "completed_rows": 240,
+  "source_hashes_match": true,
+  "protocol_hash_matches": true,
+  "frozen_analyzer_hash_matches": true,
+  "exceptions": [],
+  "exception_stage_ambiguity_affects_results": false,
+  "all_accepted_timestamps_before_deadline": true,
+  "scope": "frozen-record/source integrity, not continuum accuracy, novelty or external review"
+}

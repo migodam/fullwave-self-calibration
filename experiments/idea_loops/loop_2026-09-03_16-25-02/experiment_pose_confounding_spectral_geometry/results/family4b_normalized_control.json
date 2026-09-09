@@ -1,0 +1,627 @@
+{
+  "generated_utc": "2026-09-03T10:26:31.557206+00:00",
+  "runner": "src/family4b_normalized_control.py",
+  "command": ".venv/bin/python src/family4b_normalized_control.py",
+  "family": "4b",
+  "title": "block-normalized (energy-matched) frequency-diversity control",
+  "deferred_control_resolution": "Family 4 deferred a block-normalized/SNR-matched control; this file executes it as a SUPPLEMENTARY control and does not modify results/family4_results.json or notes/family4_report.md",
+  "raw_metric_reference": "results/family4_results.json checks.C (raw identity-noise stack)",
+  "normalization_rule": "A_f_n = A_f / ||A_f||_F and B_f_n = B_f / ||A_f||_F (same scalar for A and B within each frequency block; per-block linearized model rescaled consistently; duplicate blocks normalized the same way before c-scaling)",
+  "self_cell_formula": "I_self = (i*pi*a/(2*k_b))*H_1^(1)(k_b*a) - 1/k_b^2, a = h/sqrt(pi)",
+  "self_cell_formula_version": "self-cell v2 corrected 2026-09-03: complete equal-area disk integral (adds the -1/k_b^2 lower-endpoint term omitted by v1)",
+  "runtime_seconds": 0.16978220800228883,
+  "platform": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.1"
+  },
+  "source_sha256": {
+    "src/helmholtz.py": "ee3b4ac45ad296dba533a8ccefd107a6cc53e4357b7a768d07f7db90f3ee6585",
+    "src/family1_pilot.py": "762af3bdd33af1ab80563c7257b3805e7972f786fa88af1bf5e1b51a768526d7",
+    "src/family2_algebraic_spine.py": "173d2b5d9f66be274c9a8422f4ac2c381bb91a60132b37c734748414cf3eb235",
+    "src/family4_frequency_trajectory.py": "ee7cac8b6233bcb0dbbb215df02452746dabf50774760910be5b16a0c0a40242",
+    "src/family4b_normalized_control.py": "26d1c7bc35613fcf97fecf5348d4d5afffa1bac84cd8114984bdfddcd36c63eb"
+  },
+  "family4_results_sha256": "c05c77a1402dab3b291c2e2ee3eda3ad9e2ef886fe05e4a7961d4dadd56c8b97",
+  "config": {
+    "N": 16,
+    "T": 6,
+    "n_rx": 4,
+    "arc_radius": 1.6,
+    "arc_phi_deg": [
+      -45.0,
+      45.0
+    ],
+    "k_b_rule": "k_b(f) = 2*pi*f",
+    "smooth_basis": {
+      "p": 24,
+      "x_centers_n": 4,
+      "y_centers_n": 6,
+      "x_span": [
+        -0.3,
+        0.3
+      ],
+      "y_span": [
+        -0.3,
+        0.3
+      ],
+      "sigma_b": 0.16,
+      "unit_columns": true,
+      "note": "identical construction/config to family2 and family3"
+    },
+    "chi_blobs": {
+      "amp1": 0.3,
+      "amp2": 0.5,
+      "sigma1": 0.09,
+      "sigma2": 0.07,
+      "c1": [
+        -0.15,
+        -0.12
+      ],
+      "c2": [
+        0.18,
+        0.14
+      ]
+    },
+    "poses_stack": [
+      [
+        1.1313708498984762,
+        -1.131370849898476,
+        2.356194490192345
+      ],
+      [
+        1.4256104387013888,
+        -0.726384799583275,
+        2.670353755551324
+      ],
+      [
+        1.5803013449522205,
+        -0.2502951440643694,
+        2.9845130209103035
+      ],
+      [
+        1.5803013449522205,
+        0.2502951440643694,
+        -2.9845130209103035
+      ],
+      [
+        1.4256104387013888,
+        0.726384799583275,
+        -2.670353755551324
+      ],
+      [
+        1.1313708498984762,
+        1.131370849898476,
+        -2.356194490192345
+      ]
+    ],
+    "grid_h_cell": 0.0625,
+    "distinct_frequencies": [
+      1.0,
+      1.4
+    ],
+    "monotonicity_frequencies": [
+      [
+        1.0
+      ],
+      [
+        1.0,
+        1.4
+      ],
+      [
+        1.0,
+        1.4,
+        1.8
+      ]
+    ],
+    "duplicate_c": 2.0,
+    "finite_prior_alpha": 1.0,
+    "tolerances": {
+      "rho_dup_movement_abs": 1e-10,
+      "rho_dist_movement": 0.0001,
+      "required_directions": 2,
+      "min_eig_rule": "min_eig(D) >= -1e-10 * max(1, ||larger||_2)"
+    },
+    "chi0_stats": {
+      "min": 8.972631644760144e-15,
+      "max": 0.4594929148736014,
+      "mean": 0.030661237224785164,
+      "l2": 1.2542541242210927
+    }
+  },
+  "direction_agreement_with_family4": [
+    {
+      "direction": 0,
+      "abs_cosine_with_family4_u": 1.0000000000000002,
+      "u_euclid_norm": 5492.14134097135
+    },
+    {
+      "direction": 1,
+      "abs_cosine_with_family4_u": 1.0,
+      "u_euclid_norm": 6503.953722047447
+    },
+    {
+      "direction": 2,
+      "abs_cosine_with_family4_u": 1.0,
+      "u_euclid_norm": 32711.22193777588
+    }
+  ],
+  "family4_raw_reference": {
+    "rho_single": [
+      5.510027267004533e-11,
+      1.414336994207909e-10,
+      1.0956067390479222e-09
+    ],
+    "rho_distinct": [
+      0.12126912637940077,
+      0.22391749919331405,
+      0.4768304588551937
+    ],
+    "movement_distinct_minus_single": [
+      0.1212691263243005,
+      0.22391749905188035,
+      0.476830457759587
+    ],
+    "movement_duplicate_minus_single": [
+      -6.566673746082787e-17,
+      2.8995153277311e-16,
+      1.3280909105008672e-16
+    ]
+  },
+  "block_norm_table": [
+    {
+      "label": "raw_f1.0",
+      "normA_fro": 0.03217208716024821,
+      "normA_spectral": 0.018257075168866686,
+      "normA_row_mean": 0.004620544448953503,
+      "normA_row_max": 0.005479616381056693,
+      "normB_fro": 0.20062940382221806,
+      "normB_spectral": 0.10299317509626872,
+      "normB_row_mean": 0.024078935986807937,
+      "normB_row_max": 0.05059529045718343,
+      "B_over_A_fro_ratio": 6.236132670624972,
+      "normalized": false,
+      "scaling_to_unit_A_fro": 0.03217208716024821
+    },
+    {
+      "label": "norm_f1.0",
+      "normA_fro": 1.0,
+      "normA_spectral": 0.5674818384622898,
+      "normA_row_mean": 0.14361966713377058,
+      "normA_row_max": 0.17032206688247756,
+      "normB_fro": 6.236132670624972,
+      "normB_spectral": 3.2013209022859708,
+      "normB_row_mean": 0.7484418361442163,
+      "normB_row_max": 1.5726455733247828,
+      "B_over_A_fro_ratio": 6.236132670624972,
+      "normalized": true,
+      "scaling_to_unit_A_fro": null
+    },
+    {
+      "label": "raw_f1.4",
+      "normA_fro": 0.025003013029269376,
+      "normA_spectral": 0.020112441412998526,
+      "normA_row_mean": 0.00346754853900596,
+      "normA_row_max": 0.005696475181742901,
+      "normB_fro": 0.2586318804163694,
+      "normB_spectral": 0.12557151845822745,
+      "normB_row_mean": 0.032248394529300235,
+      "normB_row_max": 0.06288019001387395,
+      "B_over_A_fro_ratio": 10.344028542224338,
+      "normalized": false,
+      "scaling_to_unit_A_fro": 0.025003013029269376
+    },
+    {
+      "label": "norm_f1.4",
+      "normA_fro": 1.0,
+      "normA_spectral": 0.8044007092046955,
+      "normA_row_mean": 0.1386852270543046,
+      "normA_row_max": 0.22783154874472183,
+      "normB_fro": 10.344028542224338,
+      "normB_spectral": 5.022255450222306,
+      "normB_row_mean": 1.289780335335952,
+      "normB_row_max": 2.5149045013200713,
+      "B_over_A_fro_ratio": 10.344028542224338,
+      "normalized": true,
+      "scaling_to_unit_A_fro": null
+    },
+    {
+      "label": "raw_f1.8",
+      "normA_fro": 0.016762168845207138,
+      "normA_spectral": 0.011735560053148224,
+      "normA_row_mean": 0.0023450504365695947,
+      "normA_row_max": 0.0036494042742793603,
+      "normB_fro": 0.16588576345601408,
+      "normB_spectral": 0.09085180472201163,
+      "normB_row_mean": 0.02101100889737185,
+      "normB_row_max": 0.045179259718021045,
+      "B_over_A_fro_ratio": 9.896437924466222,
+      "normalized": false,
+      "scaling_to_unit_A_fro": 0.016762168845207138
+    },
+    {
+      "label": "norm_f1.8",
+      "normA_fro": 1.0,
+      "normA_spectral": 0.7001218136818743,
+      "normA_row_mean": 0.1399013730398094,
+      "normA_row_max": 0.21771671124305889,
+      "normB_fro": 9.896437924466222,
+      "normB_spectral": 5.420050684430922,
+      "normB_row_mean": 1.253477941392984,
+      "normB_row_max": 2.695311098178044,
+      "B_over_A_fro_ratio": 9.896437924466222,
+      "normalized": true,
+      "scaling_to_unit_A_fro": null
+    }
+  ],
+  "block_normalization_scales_normA_fro": {
+    "1.0": 0.03217208716024821,
+    "1.4": 0.025003013029269376,
+    "1.8": 0.016762168845207138
+  },
+  "checks": {
+    "C_block_normalized_shared_pose_compensation": {
+      "directions_selected_from": "raw single-frequency generalized eigenvectors of K_SLAM_1 w.r.t. K_IS_1, reconstructed u = V_A diag(1/s_A) w (family4 audit rule 3)",
+      "rows": [
+        {
+          "direction": 0,
+          "generalized_eigenvalue_asc_raw": 5.5100528180796915e-11,
+          "u_component": [
+            -133.23829818164728,
+            459.68414951705023,
+            -733.259098490238,
+            716.0632828052053,
+            -491.05652436564384,
+            182.73302433804432,
+            -208.6952859451518,
+            849.428883935735,
+            -2015.916778723961,
+            2568.385044848624,
+            -1873.0079855353877,
+            571.0890335116898,
+            113.21816603625088,
+            -675.0003953695407,
+            1650.1182050877724,
+            -2469.843923622725,
+            1871.9865552822785,
+            -613.6315207230535,
+            -0.9450928625916176,
+            37.59884745193859,
+            -171.3476282695576,
+            281.4178618916207,
+            -250.5067695226721,
+            68.11519976255727
+          ],
+          "u_KIS_norm2_raw": 0.9999999999999984,
+          "rho_single_raw": 5.510027267004533e-11,
+          "rho_single_family4_reference": 5.510027267004533e-11,
+          "rho_single_norm": 5.5100015092269294e-11,
+          "rho_single_raw_crosscheck_abs_diff": 0.0,
+          "rho_distinct_norm": 0.10595678676889113,
+          "movement_distinct_norm_minus_single": 0.10595678671379086,
+          "movement_distinct_raw_reference": 0.1212691263243005,
+          "shared_z_residual_distinct_norm": 0.32551004096477787,
+          "rho_duplicate_norm": 5.510025208499017e-11,
+          "movement_duplicate_norm_minus_single": -2.058505515881891e-17,
+          "movement_duplicate_raw_reference": -6.566673746082787e-17,
+          "shared_z_residual_duplicate_norm": 7.422944599070097e-06,
+          "pass_distinct_norm_gt_1e-4": true,
+          "pass_duplicate_norm_lt_1e-10": true
+        },
+        {
+          "direction": 1,
+          "generalized_eigenvalue_asc_raw": 1.4143367305322847e-10,
+          "u_component": [
+            -207.29934733291768,
+            690.246338495454,
+            -911.1700501515413,
+            784.5134196101433,
+            -397.2613267950679,
+            147.13774032137374,
+            -140.4386622295045,
+            1030.9719130350416,
+            -2621.2799821270846,
+            3877.5077501431842,
+            -2976.6151568007867,
+            1084.5390994558923,
+            73.60653520976754,
+            -368.9923981513754,
+            1199.385801325851,
+            -1735.3686673432874,
+            1419.2823580210224,
+            -490.07633318793756,
+            -22.955821749583137,
+            82.07701796948889,
+            -221.98902461846467,
+            369.97469207554684,
+            -292.93211650621004,
+            78.76686669664643
+          ],
+          "u_KIS_norm2_raw": 0.9999999999999957,
+          "rho_single_raw": 1.414336994207909e-10,
+          "rho_single_family4_reference": 1.414336994207909e-10,
+          "rho_single_norm": 1.4143392454160598e-10,
+          "rho_single_raw_crosscheck_abs_diff": 0.0,
+          "rho_distinct_norm": 0.19444083291023959,
+          "movement_distinct_norm_minus_single": 0.1944408327688059,
+          "movement_distinct_raw_reference": 0.22391749905188035,
+          "shared_z_residual_distinct_norm": 0.4409544567302164,
+          "rho_duplicate_norm": 1.4143422258730066e-10,
+          "movement_duplicate_norm_minus_single": 5.231665097494262e-16,
+          "movement_duplicate_raw_reference": 2.8995153277311e-16,
+          "shared_z_residual_duplicate_norm": 1.1892591595539669e-05,
+          "pass_distinct_norm_gt_1e-4": true,
+          "pass_duplicate_norm_lt_1e-10": true
+        },
+        {
+          "direction": 2,
+          "generalized_eigenvalue_asc_raw": 1.0956060004844973e-09,
+          "u_component": [
+            -240.3736128711481,
+            670.2345192718445,
+            -830.3796969194473,
+            491.1527206825166,
+            -181.37121900799752,
+            178.35003119011978,
+            -2663.7745577132027,
+            9660.500964704446,
+            -17379.061343807345,
+            19455.58347677537,
+            -13118.289606039856,
+            4455.7768970267525,
+            684.0660936358562,
+            -2899.612146518616,
+            5526.6116878309895,
+            -6114.799410466345,
+            3986.2822857237447,
+            -994.9965834234566,
+            -59.56323487707463,
+            338.40969581299464,
+            -789.1564045937183,
+            916.589768110832,
+            -565.2012189792853,
+            121.8180345059752
+          ],
+          "u_KIS_norm2_raw": 0.9999999999999967,
+          "rho_single_raw": 1.0956067390479222e-09,
+          "rho_single_family4_reference": 1.0956067390479222e-09,
+          "rho_single_norm": 1.0956068873831483e-09,
+          "rho_single_raw_crosscheck_abs_diff": 0.0,
+          "rho_distinct_norm": 0.3814595033652515,
+          "movement_distinct_norm_minus_single": 0.38145950226964476,
+          "movement_distinct_raw_reference": 0.476830457759587,
+          "shared_z_residual_distinct_norm": 0.6176240793275887,
+          "rho_duplicate_norm": 1.0956068416354338e-09,
+          "movement_duplicate_norm_minus_single": 1.0258751156422007e-16,
+          "movement_duplicate_raw_reference": 1.3280909105008672e-16,
+          "shared_z_residual_duplicate_norm": 3.309995095678508e-05,
+          "pass_distinct_norm_gt_1e-4": true,
+          "pass_duplicate_norm_lt_1e-10": true
+        }
+      ],
+      "n_directions_with_distinct_norm_movement_gt_1e-4": 3,
+      "all_duplicate_norm_movements_lt_1e-10": true,
+      "pass_gate": true
+    },
+    "A_block_normalized_psd_monotonicity": {
+      "rows": [
+        {
+          "stack_from": 1,
+          "stack_to": 2,
+          "label": "K_SLAM_norm",
+          "min_eig_difference": 2.238206134517446e-10,
+          "scale_max_1_norm_larger_2": 1.0,
+          "tol": 1e-10,
+          "pass": true
+        },
+        {
+          "stack_from": 1,
+          "stack_to": 2,
+          "label": "K_eff_norm",
+          "min_eig_difference": 1.2378803169853738e-10,
+          "scale_max_1_norm_larger_2": 1.0,
+          "tol": 1e-10,
+          "pass": true
+        },
+        {
+          "stack_from": 2,
+          "stack_to": 3,
+          "label": "K_SLAM_norm",
+          "min_eig_difference": 3.094431875528208e-10,
+          "scale_max_1_norm_larger_2": 1.0,
+          "tol": 1e-10,
+          "pass": true
+        },
+        {
+          "stack_from": 2,
+          "stack_to": 3,
+          "label": "K_eff_norm",
+          "min_eig_difference": 1.34668430362596e-09,
+          "scale_max_1_norm_larger_2": 1.0,
+          "tol": 1e-10,
+          "pass": true
+        }
+      ],
+      "pass_gate": true,
+      "alpha": 1.0,
+      "K_SLAM_norm_F1_eig_desc": [
+        0.001997141651671172,
+        0.0009505494486801334,
+        0.0007241071331145195,
+        9.371631717175173e-05,
+        1.5559501808136837e-05,
+        1.0107164918971408e-05,
+        1.7697618324571556e-06,
+        6.964819399206128e-07,
+        4.3999210693558323e-07,
+        2.5694100874184773e-07,
+        1.468644906851767e-07,
+        1.1152339894924367e-07,
+        3.849301746732027e-08,
+        1.0475844203518283e-08,
+        5.555622749008698e-09,
+        2.273814255861234e-09,
+        1.4337688690041784e-09,
+        1.5333766597883748e-10,
+        2.8345277039906863e-12,
+        2.950801862926588e-13,
+        9.303905968069213e-14,
+        3.2426922041773453e-14,
+        5.45284412364193e-15,
+        3.046030729888896e-16
+      ],
+      "K_eff_norm_F1_eig_desc": [
+        0.15982060665148076,
+        0.11920247382577359,
+        0.09508035426628308,
+        0.07657518181080276,
+        0.03047878013548784,
+        0.02325406039527985,
+        0.008277782862184647,
+        0.005122932671892072,
+        0.002780605692112302,
+        0.00032925373463433286,
+        0.00015875670306755602,
+        2.35762443286889e-05,
+        2.1448348618902925e-06,
+        1.5419147820408169e-06,
+        7.228791177485374e-07,
+        3.8375438605176854e-07,
+        4.26913074863027e-08,
+        1.4103288805844787e-08,
+        9.22560066148533e-09,
+        5.284621750741627e-09,
+        3.818566273013742e-10,
+        1.5388353948579265e-11,
+        7.765617636807792e-12,
+        1.1454285682399921e-12
+      ],
+      "K_SLAM_norm_F2_eig_desc": [
+        0.2582403849427311,
+        0.1967971885284997,
+        0.1600548518926986,
+        0.07946436286621504,
+        0.06972080252551248,
+        0.04017038307006357,
+        0.020285305122897727,
+        0.016300651181874605,
+        0.008344001778953848,
+        0.004135748750480391,
+        0.001401608726353102,
+        0.0011467793574265123,
+        0.00013427230447013214,
+        7.099490089917945e-05,
+        1.9021004102971994e-05,
+        4.780201577204782e-06,
+        3.163229530222338e-06,
+        5.684517199875192e-07,
+        1.528109632634879e-07,
+        5.700548324671967e-08,
+        1.2584192669262225e-08,
+        4.781482718202232e-09,
+        1.0150405900306038e-09,
+        3.5745438614517364e-10
+      ],
+      "K_eff_norm_F2_eig_desc": [
+        0.30841292566849215,
+        0.28149033665042084,
+        0.22332275849637684,
+        0.11570575537109182,
+        0.0800513457392341,
+        0.07738990739761781,
+        0.047310417670809,
+        0.03555654274696461,
+        0.028491738467744516,
+        0.01578771806132541,
+        0.008236507236059242,
+        0.005067122537296752,
+        0.003769729172327477,
+        0.0021861295563757465,
+        0.0008456269155401858,
+        0.0006647942718791756,
+        0.00010409572831870995,
+        3.418595191606481e-05,
+        4.667972259771605e-06,
+        3.362259082861601e-06,
+        1.3873992234456173e-06,
+        6.353999382075183e-07,
+        6.68707238268348e-08,
+        2.9420872227323653e-08
+      ],
+      "K_SLAM_norm_F3_eig_desc": [
+        0.362924061986012,
+        0.3033138055144392,
+        0.2305743600994344,
+        0.12232114359032188,
+        0.10304566696081106,
+        0.08721179475515872,
+        0.06928471261394771,
+        0.040238449315535586,
+        0.029666273936347746,
+        0.02484792887670439,
+        0.00967562197599007,
+        0.005891268093822712,
+        0.005674012117844596,
+        0.0030802597584267777,
+        0.0024877619924560746,
+        0.0005467621888737495,
+        0.0004284552027843576,
+        9.210830703772988e-05,
+        7.689438851923054e-05,
+        3.676803316053325e-05,
+        5.163219610358241e-06,
+        9.929378987050504e-07,
+        1.840857336124499e-07,
+        1.0689996474369397e-07
+      ],
+      "K_eff_norm_F3_eig_desc": [
+        0.4042307270752723,
+        0.3612178034069101,
+        0.24297693557908212,
+        0.23722951934556738,
+        0.14289080657645795,
+        0.12105353137807384,
+        0.08450628065900392,
+        0.06693248613186897,
+        0.06018013545258745,
+        0.03717342982714334,
+        0.019851484956379287,
+        0.013692191566778202,
+        0.008114368700978713,
+        0.0047479346173475555,
+        0.0031402143401400647,
+        0.0016065653199507075,
+        0.001532310578091739,
+        0.0002589507846881254,
+        0.00013939969073379287,
+        5.514777521449203e-05,
+        1.5943407559244328e-05,
+        7.148915813385067e-06,
+        1.4298008822434272e-06,
+        8.414524031099448e-07
+      ]
+    }
+  },
+  "pass_summary": {
+    "distinct_normalized_n_directions_gt_1e-4": 3,
+    "distinct_normalized_pass": true,
+    "duplicate_normalized_max_abs_movement": 5.231665097494262e-16,
+    "duplicate_normalized_pass": true,
+    "monotonicity_normalized_pass": true,
+    "family4b_overall_pass": true
+  },
+  "scope_note": "Block normalization is an energy-matched per-frequency rescale of the SAME raw whitened/realified (A_R, B_R) Jacobian blocks. All statements remain finite-dimensional discrete-model statements on N=16, p=24; they are not continuum-limit or estimator claims, and the physical-noise interpretation is a per-block equal-||A_f||_F control, not a claim about optimal SNR whitening in the presence of correlated noise.",
+  "figure_sha256": {
+    "family4b_normalized_shared_z.png": "eed685c1bd084f2e8d69c45fffebedfb408c60ef1a02de4450f25fbe80aa5dc3"
+  },
+  "artifacts": {
+    "results_json": "results/family4b_normalized_control.json",
+    "figures": [
+      "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry/figures/family4b_normalized_shared_z.png"
+    ],
+    "report_md": "notes/family4b_normalized_control.md"
+  }
+}

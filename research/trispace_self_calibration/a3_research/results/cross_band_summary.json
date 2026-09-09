@@ -1,0 +1,136 @@
+{
+  "scene_count": 2,
+  "summary": [
+    {
+      "method": "unified",
+      "k": 3,
+      "band": "low",
+      "sensor_phase_mean": 0.0073355380290457475,
+      "sensor_field_mean": 0.01189134744800934,
+      "structural_phase_mean": 0.0011280346371404309,
+      "structural_field_mean": 0.05974610165109338
+    },
+    {
+      "method": "unified",
+      "k": 3,
+      "band": "high",
+      "sensor_phase_mean": 0.00819011252108921,
+      "sensor_field_mean": 0.016785972284299122,
+      "structural_phase_mean": 0.0010125532755286255,
+      "structural_field_mean": 0.03280570625270578
+    },
+    {
+      "method": "unified",
+      "k": 9,
+      "band": "low",
+      "sensor_phase_mean": 0.004367921203617331,
+      "sensor_field_mean": 0.006243314789109714,
+      "structural_phase_mean": 0.021362794029243584,
+      "structural_field_mean": 0.07453737174998971
+    },
+    {
+      "method": "unified",
+      "k": 9,
+      "band": "high",
+      "sensor_phase_mean": 0.007232398037421775,
+      "sensor_field_mean": 0.02307549907616272,
+      "structural_phase_mean": 0.012593491726812903,
+      "structural_field_mean": 0.04188147767079678
+    },
+    {
+      "method": "unified_reference",
+      "k": 3,
+      "band": "low",
+      "sensor_phase_mean": 0.0032821994742655335,
+      "sensor_field_mean": 0.0041586829564826625,
+      "structural_phase_mean": 0.00046142178863238346,
+      "structural_field_mean": 0.009562786254098735
+    },
+    {
+      "method": "unified_reference",
+      "k": 3,
+      "band": "high",
+      "sensor_phase_mean": 0.007288341548096958,
+      "sensor_field_mean": 0.017029265645940678,
+      "structural_phase_mean": 0.0011262472489087252,
+      "structural_field_mean": 0.031459771185987875
+    },
+    {
+      "method": "unified_reference",
+      "k": 9,
+      "band": "low",
+      "sensor_phase_mean": 0.003885010527748819,
+      "sensor_field_mean": 0.009639103389534033,
+      "structural_phase_mean": 0.004916090901871083,
+      "structural_field_mean": 0.015660532803573882
+    },
+    {
+      "method": "unified_reference",
+      "k": 9,
+      "band": "high",
+      "sensor_phase_mean": 0.0069599068783328735,
+      "sensor_field_mean": 0.023270799116815212,
+      "structural_phase_mean": 0.01209390171937353,
+      "structural_field_mean": 0.04026472287658094
+    }
+  ],
+  "paired": [
+    {
+      "seed": 6101,
+      "method": "unified",
+      "k": 3,
+      "sensor_phase_change": 0.0018157357125634854,
+      "structural_field_change": -0.024237374287093702
+    },
+    {
+      "seed": 6102,
+      "method": "unified",
+      "k": 3,
+      "sensor_phase_change": -0.00010658672847656259,
+      "structural_field_change": -0.029643416509681504
+    },
+    {
+      "seed": 6101,
+      "method": "unified",
+      "k": 9,
+      "sensor_phase_change": 0.0028533522922082073,
+      "structural_field_change": -0.029282688953600325
+    },
+    {
+      "seed": 6102,
+      "method": "unified",
+      "k": 9,
+      "sensor_phase_change": 0.0028756013754006804,
+      "structural_field_change": -0.03602909920478555
+    },
+    {
+      "seed": 6101,
+      "method": "unified_reference",
+      "k": 3,
+      "sensor_phase_change": 0.0034877400748034785,
+      "structural_field_change": 0.022296923117707826
+    },
+    {
+      "seed": 6102,
+      "method": "unified_reference",
+      "k": 3,
+      "sensor_phase_change": 0.00452454407285937,
+      "structural_field_change": 0.021497046746070447
+    },
+    {
+      "seed": 6101,
+      "method": "unified_reference",
+      "k": 9,
+      "sensor_phase_change": 0.002194373061527092,
+      "structural_field_change": 0.025056449227258675
+    },
+    {
+      "seed": 6102,
+      "method": "unified_reference",
+      "k": 9,
+      "sensor_phase_change": 0.003955419639641016,
+      "structural_field_change": 0.024151930918755445
+    }
+  ],
+  "scope": "same predicted k but training frequency sets/noise differ; frozen estimates; exploratory, not a pure high-frequency causal experiment"
+}

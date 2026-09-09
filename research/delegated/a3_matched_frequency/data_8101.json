@@ -1,0 +1,36 @@
+{
+  "seed": 8101,
+  "low_observation_sha256": "5387fbb6ba73ceee3792e4fe550a4f05c7ffb23d2bdde4fdf161de0257574fbf",
+  "reference_sha256": "ca1fe2ca300cf880de76de664ade48fb148f0fc61cd0314f7889ec45b1d60f5e",
+  "extra_standardized_noise_sha256": "9107553e3570b0c055dad45fd01f889dbca97a2d78f54851f7f95dbbcbc9daab",
+  "sigma": 0.0002617167877636827,
+  "low_exactly_shared": true,
+  "reference_exactly_shared": true,
+  "repeat_is_new_measurement": true,
+  "preparation_seconds": 0.8308070410275832,
+  "frequencies": {
+    "low": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "low_high": [
+      3.0,
+      6.0,
+      9.0,
+      18.0
+    ],
+    "low_repeat": [
+      3.0,
+      6.0,
+      9.0,
+      6.0
+    ]
+  },
+  "reference_frequencies": [
+    3.0,
+    6.0,
+    9.0
+  ],
+  "reference_sigma": 0.02
+}

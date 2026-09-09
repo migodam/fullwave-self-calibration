@@ -1,0 +1,34 @@
+{
+  "package": "research/delegated/a2_solver",
+  "timestamp": "2026-09-05",
+  "checks": [
+    {
+      "check": "unit_smoke_tests",
+      "status": "PASS",
+      "tests": [
+        "test_final_seed_gate",
+        "test_reduced_full_basis_matches_exact",
+        "test_phaseless_gradient_finite_difference",
+        "test_passive_certificate_available",
+        "test_direct_solve_returns_finite_and_ledgered",
+        "test_intensity_nll_stable"
+      ]
+    },
+    {
+      "check": "tuning_seeds_1_to_10_budget_800_by_seed_init_with_covariance_flags",
+      "status": "RUN_COMPLETED_NO_TEST_SEEDS",
+      "records": 200,
+      "successes": 0,
+      "final_seed_access": false,
+      "record_file": "records_tune_seeds1-10_800d.jsonl",
+      "covariance_surrogate_pass_count": 200,
+      "false_calibrated_surrogate_gap_count": 200
+    },
+    {
+      "check": "reference_design_full_rank",
+      "status": "PASS",
+      "full": {"rank": 12, "condition": 1780.12},
+      "limited": {"rank": 12, "condition": 1407.82}
+    }
+  ]
+}

@@ -1,0 +1,399 @@
+{
+  "e1": {
+    "source_file": "results/e1_results.json",
+    "skipped_models_empty_per_seed": [
+      "mismatch_intensity_noise"
+    ],
+    "models": {
+      "phase_only": {
+        "j_coh": {
+          "n": 10,
+          "mean": 1.975,
+          "min": 1.897,
+          "max": 2.046,
+          "sd": 0.05838,
+          "ci_mean": [
+            1.933,
+            2.017
+          ],
+          "analytic": 2.0,
+          "analytic_key": "j_coh_analytic",
+          "empirical_minus_analytic": {
+            "n": 10,
+            "mean": -0.02484,
+            "min": -0.1026,
+            "max": 0.04565,
+            "sd": 0.05838,
+            "ci_mean": [
+              -0.0666,
+              0.01692
+            ],
+            "analytic": 2.0,
+            "analytic_key": "j_coh_analytic"
+          },
+          "source_key": "j_coh_emp"
+        },
+        "j_ph": {
+          "n": 10,
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "sd": 0.0,
+          "ci_mean": [
+            0.0,
+            0.0
+          ],
+          "analytic": 0.0,
+          "analytic_key": "j_ph_analytic",
+          "empirical_minus_analytic": {
+            "n": 10,
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "sd": 0.0,
+            "ci_mean": [
+              0.0,
+              0.0
+            ],
+            "analytic": 0.0,
+            "analytic_key": "j_ph_analytic"
+          },
+          "source_key": "j_ph_emp"
+        }
+      },
+      "nuisance_phase": {
+        "j_coh": {
+          "n": 10,
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "sd": 0.0,
+          "ci_mean": [
+            0.0,
+            0.0
+          ],
+          "analytic": 0.0,
+          "analytic_key": "j_coh_analytic",
+          "empirical_minus_analytic": {
+            "n": 10,
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "sd": 0.0,
+            "ci_mean": [
+              0.0,
+              0.0
+            ],
+            "analytic": 0.0,
+            "analytic_key": "j_coh_analytic"
+          },
+          "source_key": "j_coh_emp"
+        },
+        "j_ph": {
+          "n": 10,
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "sd": 0.0,
+          "ci_mean": [
+            0.0,
+            0.0
+          ],
+          "analytic": 0.0,
+          "analytic_key": "j_ph_analytic",
+          "empirical_minus_analytic": {
+            "n": 10,
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "sd": 0.0,
+            "ci_mean": [
+              0.0,
+              0.0
+            ],
+            "analytic": 0.0,
+            "analytic_key": "j_ph_analytic"
+          },
+          "source_key": "j_ph_emp"
+        }
+      },
+      "scale_family": {
+        "j_coh": {
+          "n": 10,
+          "mean": 1.0,
+          "min": 0.8482,
+          "max": 1.087,
+          "sd": 0.08017,
+          "ci_mean": [
+            0.943,
+            1.058
+          ],
+          "analytic": 1.0,
+          "analytic_key": "j_coh_analytic",
+          "empirical_minus_analytic": {
+            "n": 10,
+            "mean": 0.0003205,
+            "min": -0.1518,
+            "max": 0.08741,
+            "sd": 0.08017,
+            "ci_mean": [
+              -0.05703,
+              0.05767
+            ],
+            "analytic": 1.0,
+            "analytic_key": "j_coh_analytic"
+          },
+          "source_key": "j_coh_emp"
+        },
+        "j_ph": {
+          "n": 10,
+          "mean": 1.0,
+          "min": 0.8482,
+          "max": 1.087,
+          "sd": 0.08017,
+          "ci_mean": [
+            0.943,
+            1.058
+          ],
+          "analytic": 1.0,
+          "analytic_key": "j_ph_analytic",
+          "empirical_minus_analytic": {
+            "n": 10,
+            "mean": 0.0003205,
+            "min": -0.1518,
+            "max": 0.08741,
+            "sd": 0.08017,
+            "ci_mean": [
+              -0.05703,
+              0.05767
+            ],
+            "analytic": 1.0,
+            "analytic_key": "j_ph_analytic"
+          },
+          "source_key": "j_ph_emp"
+        }
+      },
+      "total_field_ref": {
+        "j_coh": {
+          "n": 10,
+          "mean": 2.003,
+          "min": 1.87,
+          "max": 2.097,
+          "sd": 0.08342,
+          "ci_mean": [
+            1.943,
+            2.062
+          ],
+          "analytic": 2.0,
+          "analytic_key": "j_coh_analytic",
+          "empirical_minus_analytic": {
+            "n": 10,
+            "mean": 0.002705,
+            "min": -0.1296,
+            "max": 0.09669,
+            "sd": 0.08342,
+            "ci_mean": [
+              -0.05697,
+              0.06238
+            ],
+            "analytic": 2.0,
+            "analytic_key": "j_coh_analytic"
+          },
+          "source_key": "j_coh_emp"
+        },
+        "j_ph": {
+          "n": 10,
+          "mean": 0.5285,
+          "min": 0.4973,
+          "max": 0.5588,
+          "sd": 0.02012,
+          "ci_mean": [
+            0.5141,
+            0.5429
+          ],
+          "analytic": 0.5258,
+          "analytic_key": "j_ph_analytic",
+          "empirical_minus_analytic": {
+            "n": 10,
+            "mean": 0.00271,
+            "min": -0.02845,
+            "max": 0.03306,
+            "sd": 0.02012,
+            "ci_mean": [
+              -0.01169,
+              0.01711
+            ],
+            "analytic": 0.5258,
+            "analytic_key": "j_ph_analytic"
+          },
+          "source_key": "j_ph_emp"
+        }
+      }
+    }
+  },
+  "e2": {
+    "source_file": "results/e2_results.json",
+    "source_path": "results.random_tangents.records",
+    "n_records": 36,
+    "scaled_residual": {
+      "n": 36,
+      "mean": 0.1056,
+      "min": 0.0446,
+      "max": 0.2734,
+      "sd": 0.05578,
+      "ci_mean": [
+        0.08669,
+        0.1244
+      ],
+      "source_path": "results.random_tangents.records[].scaled_residual"
+    },
+    "loss_residual_fro": {
+      "n": 36,
+      "mean": 1.638e-15,
+      "min": 6.193e-16,
+      "max": 4.091e-15,
+      "sd": 8.987e-16,
+      "ci_mean": [
+        1.334e-15,
+        1.942e-15
+      ],
+      "source_path": "results.random_tangents.records[].loss_residual_fro"
+    }
+  },
+  "e3": {
+    "source_file": "results/e3_results.json",
+    "source_path": "results.theorem7.mc.records",
+    "n_records": 10,
+    "variance_rel": {
+      "n": 10,
+      "mean": 0.02129,
+      "min": 0.004961,
+      "max": 0.04108,
+      "sd": 0.01272,
+      "ci_mean": [
+        0.01219,
+        0.03039
+      ],
+      "source_key": "variance_rel_error",
+      "source_path": "results.theorem7.mc.records[].variance_rel_error"
+    },
+    "bias_rel": {
+      "n": 10,
+      "mean": 0.02711,
+      "min": 0.0007649,
+      "max": 0.05349,
+      "sd": 0.0172,
+      "ci_mean": [
+        0.01481,
+        0.03941
+      ],
+      "source_key": "bias_rel_error",
+      "source_path": "results.theorem7.mc.records[].bias_rel_error"
+    },
+    "sample_cov_vs_Jx_inv_fro_rel": {
+      "n": 10,
+      "mean": 0.05756,
+      "min": 0.03531,
+      "max": 0.1026,
+      "sd": 0.01969,
+      "ci_mean": [
+        0.04347,
+        0.07164
+      ],
+      "source_key": "sample_cov_vs_Jx_inv_fro_rel",
+      "source_path": "results.theorem7.mc.records[].sample_cov_vs_Jx_inv_fro_rel"
+    }
+  },
+  "e5": {
+    "source_file": "results/e5_results.json",
+    "note": "The 24 requested budget records are stored under results.rank_acquisition_budget.seeds.records.",
+    "source_path": "results.rank_acquisition_budget.seeds.records",
+    "n_records": 24,
+    "identity_fro_residual": {
+      "n": 24,
+      "mean": 9.526e-15,
+      "min": 4.139e-15,
+      "max": 2.341e-14,
+      "sd": 3.95e-15,
+      "ci_mean": [
+        7.858e-15,
+        1.119e-14
+      ],
+      "count_le_1e-12": 24,
+      "source_path": "results.rank_acquisition_budget.seeds.records[].identity_fro_residual"
+    },
+    "loewner_flag": {
+      "source_key": "loewner_I_ge_L",
+      "source_path": "results.rank_acquisition_budget.seeds.records[].loewner_I_ge_L",
+      "meaning": "flag is the Loewner condition I_acq >= L_rank",
+      "true": 0,
+      "false": 24,
+      "n": 24
+    }
+  },
+  "physical_optional": {
+    "source_file": "results/physical_optional_results.json",
+    "phase1": {
+      "per_seed_max_t5a_backward_scaled_residual": {
+        "source_path": "results.phase1.per_seed_records[].t5_pairs[].backward_scaled_residual -> max per seed",
+        "n": 12,
+        "min": 0.001916,
+        "mean": 0.005076,
+        "max": 0.01006,
+        "seed_maxima": [
+          0.008445,
+          0.005035,
+          0.004086,
+          0.00829,
+          0.01006,
+          0.003516,
+          0.0042,
+          0.001916,
+          0.005301,
+          0.00466,
+          0.003127,
+          0.002273
+        ]
+      },
+      "aggregate": {
+        "source_path": "results.phase1.aggregate",
+        "max_t5a_backward_scaled_residual": 0.01006,
+        "max_theorem3_residual_max_abs": 3.173e-11
+      }
+    },
+    "phase2": {
+      "per_seed_min_eig_J_stack_minus_sum": {
+        "source_path": "results.phase2.per_seed_records[].stack_vs_sum.min_eig_J_stack_minus_sum",
+        "n": 12,
+        "min": 7.51e-05,
+        "mean": 0.0001659,
+        "max": 0.0002106,
+        "per_seed": [
+          0.0002106,
+          8.814e-05,
+          0.0001651,
+          0.0001974,
+          0.0002053,
+          0.0001652,
+          0.0002006,
+          7.51e-05,
+          0.0001319,
+          0.0001852,
+          0.0002064,
+          0.0001594
+        ]
+      },
+      "aggregate": {
+        "source_path": "results.phase2.aggregate",
+        "max_innovation_rel_residual": 4.48e-16,
+        "max_budget_identity_rel_residual": 6.636e-17
+      }
+    }
+  },
+  "meta": {
+    "ci_description": "95% two-sided Student-t confidence interval for the mean; sample sd uses ddof=1",
+    "significant_figures": 4,
+    "generated_from_existing_results": true
+  },
+  "missing_keys": []
+}

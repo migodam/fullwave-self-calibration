@@ -1,0 +1,134 @@
+{
+  "idea": {
+    "Name": "a2_prasc_theory_validation",
+    "Title": "Auditable Rank, Bias and Acquisition Controls for Phase-Preserving Full-Wave Calibration",
+    "Short Hypothesis": "The supplied fixed-tangent rank-loss, neutral-admission, bias-risk and shared-map innovation identities can be converted into checkable algorithm controls, while matched coherent-to-intensity information contracts. This is a validation work package, not an assumption of novelty or nonlinear method superiority.",
+    "Related Work": "Projections, Schur complements, SOM/TSOM, coherent calibration, variable projection, source extension, continuation and experiment design are prior machinery. Idriss and Raj arXiv2503.07316 already jointly calibrate complex factors in multifrequency SOM. Retain this boundary; do not abandon the supplied validation task because ingredients are known.",
+    "Abstract": "We implement falsification-first validation of A2 rank, bias and acquisition certificates. The exact physical state, independent free-current nuisance and numerical state approximation are different models. Small algebraic examples, exact induced intensity likelihoods and fixed physical tangents test conditional identities, their counterexamples and numerical failure modes. Results do not establish a universal basin, SOM exclusivity, hardware success or full-plan completion. Read the full bounded task at /Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/TASK.md. All source paths are relative to /Volumes/migodam's-external-brain/Research/Inv_SLAM. SOM is subspace-based optimization, never self-organizing maps.",
+    "Experiments": {
+      "datasets": [
+        "A2 E1 scalar matched complex/intensity experiments",
+        "A2 E2/E3/E5 exact and random fixed tangent examples",
+        "Optional physical tangents from the separately implemented shared core"
+      ],
+      "baselines": [
+        "physical versus free-current envelope",
+        "relative-only versus absolute and bias-aware gates",
+        "shared-map versus independent-map profiling",
+        "greedy versus pair lookahead"
+      ],
+      "metrics": [
+        "backward-error-scaled identity residual",
+        "Fisher contraction and Monte Carlo uncertainty",
+        "covariance and bias risk",
+        "information loss and acquisition innovation"
+      ],
+      "compute_estimate": "Small CPU-only NumPy/SciPy experiments using the existing venv. Follow TASK.md seeds and sample counts. No GPU or installation.",
+      "steps": [
+        "Read research/delegated/a2_theory_validation/TASK.md and the A2 sources",
+        "Implement and execute minimal E1 E2 E3 E5 including negative controls",
+        "Run independent internal checks and preserve discrepancies",
+        "Produce a concise supplement with raw evidence; do not claim E4 or publication acceptance"
+      ]
+    },
+    "Risk Factors and Limitations": [
+      "Identities may be known or model conditional",
+      "No nonlinear superiority follows from a tangent test",
+      "Noise/realification and rank thresholds can create false positives",
+      "Do not resume stale geometry-lift claims"
+    ]
+  },
+  "report": {
+    "status": "completed",
+    "summary": "The A2 theory-validation work package was implemented and executed. The working directory contains an a2val Python package with E1/E2/E3/E5 modules, run scripts, tests, generated figures, and JSON/CSV result artifacts for E1, E2, E3, E5, and an optional physical-tangent run. No researcher final notes were written, so this report is reconstructed from the filesystem artifacts rather than a written summary. The artifacts indicate the planned falsification-first experiments were run and preserved, though numeric interpretation remains in the result files.",
+    "key_results": [
+      "E1 matched coherent vs phaseless experiment produced results/e1_results.json, results/e1_summary.csv, and figures e1_conditional_expectation.png, e1_fisher_comparison.png, e1_score_scatter.png.",
+      "E2 nested-rank/neutral-admission experiment produced results/e2_results.json, results/e2_summary.csv, and figures e2_neutral_admission.png, e2_rank_loss.png, e2_rho_nonmonotone.png.",
+      "E3 bias-risk/dual-spectra experiment produced results/e3_results.json, results/e3_summary.csv, and figures e3_bias_risk.png, e3_dual_spectra.png, e3_prior_extension.png, e3_thm7_mc.png.",
+      "E5 acquisition-innovation experiment produced results/e5_results.json, results/e5_summary.csv, and figures e5_budget.png, e5_innovation.png, e5_nonsubmodular.png, e5_policies.png.",
+      "Optional shared physical-core tangent run produced results/physical_optional_results.json, results/physical_optional_summary.csv, and figures/physical_tangents.png.",
+      "Test modules exist for E1/E2/E3/E5 and physical_runner, supporting independent internal checks."
+    ],
+    "files_of_interest": [
+      "results/e1_summary.csv",
+      "results/e1_results.json",
+      "figures/e1_fisher_comparison.png",
+      "figures/e1_conditional_expectation.png",
+      "figures/e1_score_scatter.png",
+      "results/e2_summary.csv",
+      "results/e2_results.json",
+      "figures/e2_neutral_admission.png",
+      "figures/e2_rank_loss.png",
+      "figures/e2_rho_nonmonotone.png",
+      "results/e3_summary.csv",
+      "results/e3_results.json",
+      "figures/e3_bias_risk.png",
+      "figures/e3_dual_spectra.png",
+      "figures/e3_prior_extension.png",
+      "figures/e3_thm7_mc.png",
+      "results/e5_summary.csv",
+      "results/e5_results.json",
+      "figures/e5_budget.png",
+      "figures/e5_innovation.png",
+      "figures/e5_nonsubmodular.png",
+      "figures/e5_policies.png",
+      "results/physical_optional_summary.csv",
+      "results/physical_optional_results.json",
+      "figures/physical_tangents.png"
+    ],
+    "working_assets": [
+      "a2val/common.py",
+      "a2val/e1.py",
+      "a2val/e2.py",
+      "a2val/e3.py",
+      "a2val/e5.py",
+      "a2val/physical_runner.py",
+      "scripts/run_e1.py",
+      "scripts/run_e2.py",
+      "scripts/run_e3.py",
+      "scripts/run_e5.py",
+      "scripts/run_physical_optional.py",
+      "tests/test_e1.py",
+      "tests/test_e2.py",
+      "tests/test_e3.py",
+      "tests/test_e5.py",
+      "tests/test_physical_runner.py",
+      "results/e1_results.json",
+      "results/e2_results.json",
+      "results/e3_results.json",
+      "results/e5_results.json",
+      "results/physical_optional_results.json",
+      "inputs/math_spec.md",
+      "inputs/a2_experiment_blueprint_en.md",
+      "inputs/a2_claim_ledger_en.md"
+    ],
+    "completed_steps": [
+      "Confirmed environment and shared physical core availability (env_report.txt, orientation_report.txt).",
+      "Ingested A2 theorem package, protocol, and claim ledger; extracted math spec, blueprint, and claim ledger into inputs/.",
+      "Implemented a2val package modules for common, E1, E2, E3, E5, and optional physical runner.",
+      "Wrote run scripts for E1/E2/E3/E5 and optional physical tangents.",
+      "Executed experiments producing JSON results, CSV summaries, and figures under results/ and figures/.",
+      "Added tests for E1/E2/E3/E5 and physical_runner."
+    ],
+    "dead_ends": [],
+    "next_steps": [
+      "Parse results/*_summary.csv and results/*_results.json to extract concrete tolerances, residuals, Fisher/risk/budget metrics, and discrepancy/negative-control outcomes.",
+      "Draft the concise supplement section from E1/E2/E3/E5 evidence; explicitly do not claim E4, nonlinear superiority, or publication acceptance.",
+      "Run the test suite (tests/test_e1.py, test_e2.py, test_e3.py, test_e5.py, test_physical_runner.py) and record pass/fail status.",
+      "Check results against preregistered thresholds in inputs/A2_PRASC_SOM_VALIDATION_PROTOCOL.md and preserve any disagreements."
+    ]
+  },
+  "verdict": {
+    "decision": "revise",
+    "unresolved_issues": [
+      "No written report or final researcher notes interpret the artifacts; the summary is reconstructed from file existence, so it is impossible to tell which hypotheses were actually confirmed or falsified.",
+      "No numeric results, tables, effect sizes, residuals, Fisher contraction values, confidence intervals, or uncertainty estimates are provided in the report, so central claims are not substantiated.",
+      "Replication is not documented: no seed counts, Monte Carlo sample sizes, or variability across repeated runs are reported for the core E1-E5 claims.",
+      "Robustness/sanity checks are only indicated by file names (e.g., negative controls, thresholds) but are not described or quantified; false-positive failure modes, rank/noise thresholds, and counterexamples are not summarized.",
+      "Baseline comparisons are listed in the proposal but no comparative outcomes are given (e.g., physical vs free-current, relative-only vs bias-aware, shared-map vs independent-map, greedy vs lookahead), so it is unclear whether the controls were executed and what they showed.",
+      "The optional physical-tangent run is present but not interpreted, so it cannot count as an additional setting/model corroborating the main results.",
+      "The empirical material appears to remain at a small synthetic validation-package scale; it is not yet clear how it would fill a full-length paper with rich appendix-level evidence."
+    ],
+    "reasoning": "The implementation clearly produced multiple experiment artifacts and tests, which suggests the validation work package is technically active and not obviously broken. However, the bar for locking a full ACL Rolling Review paper requires a thoroughly established empirical study, not merely the existence of result files. The report provides no interpreted findings, no numeric tables, no uncertainty quantification, no documented replication across seeds, and no concrete baseline comparisons. Because the reconstructed summary cannot say which identities held, which failed, or how robust the conclusions are, the work is currently at a pilot/engineering-validation level rather than a full-paper level. The core validation direction is still worth keeping, but it needs to be converted into a substantive written and quantitative study with clear positive/negative conclusions, replication, robustness checks, and baseline outcomes before it can be locked."
+  }
+}

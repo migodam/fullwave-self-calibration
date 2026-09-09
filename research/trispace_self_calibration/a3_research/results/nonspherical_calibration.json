@@ -1,0 +1,1234 @@
+[
+  {
+    "seed": 8101,
+    "n": 16,
+    "spacing": 0.02,
+    "method": "fixed_wrong_pose",
+    "estimated": [
+      3.201311739580284,
+      0.0,
+      0.0,
+      0.0,
+      0.01815549180521716,
+      -0.49999999999999994,
+      -0.4182646478299372,
+      -0.3461812359178251,
+      -0.43815893801013805,
+      0.7715116587176944,
+      0.7403003997219092,
+      -0.4994220068908398,
+      -0.45337267189127406
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 14,
+    "pose_error_m": 0.09,
+    "material_relative_error": 0.28052469583211365,
+    "delay_error_m": 0.04184450819478284,
+    "reduced_chisquare": 323.78379781563103,
+    "deployable_prediction": {
+      "relative_field_error": 0.562113731062178,
+      "weighted_phase_rmse_rad": 0.6107185385044632
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 1.1677717665223384,
+      "weighted_phase_rmse_rad": 1.1178053074184475
+    },
+    "fitting_seconds": 5.40362058399478,
+    "total_seconds": 5.437518749968149,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 112.0,
+        "wall_seconds": 1.5099702898878604
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 112.0,
+        "wall_seconds": 1.5528670430066995
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 112.0,
+        "wall_seconds": 1.9854527930729091
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8101,
+    "n": 16,
+    "spacing": 0.02,
+    "method": "geometry_only",
+    "estimated": [
+      3.10942161369409,
+      -0.024320746467346072,
+      -0.019596256129078785,
+      0.06993970984194185,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 33,
+    "pose_error_m": 0.06775946201240672,
+    "material_relative_error": 0.243768645477636,
+    "delay_error_m": 0.06,
+    "reduced_chisquare": 371.7762468896204,
+    "deployable_prediction": {
+      "relative_field_error": 0.6337370600304439,
+      "weighted_phase_rmse_rad": 0.5346902993213917
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.9713380330848678,
+      "weighted_phase_rmse_rad": 0.8975719368272024
+    },
+    "fitting_seconds": 13.314690208004322,
+    "total_seconds": 13.349949666997418,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 264.0,
+        "wall_seconds": 3.687046335078776
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 264.0,
+        "wall_seconds": 3.84647708106786
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 264.0,
+        "wall_seconds": 4.957610579032917
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8101,
+    "n": 16,
+    "spacing": 0.02,
+    "method": "unified",
+    "estimated": [
+      2.673907797087559,
+      -0.07906780890009871,
+      -0.02550120200947843,
+      0.03291248693101809,
+      0.05640830503274831,
+      -0.12412110762620492,
+      -0.007316143742540696,
+      0.023595707456922237,
+      -0.08882914760623117,
+      0.1456045723759897,
+      0.08443039381441089,
+      0.025737729671875095,
+      0.06770159252351259
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 9,
+    "pose_error_m": 0.001413825481774776,
+    "material_relative_error": 0.06956311883502356,
+    "delay_error_m": 0.003591694967251688,
+    "reduced_chisquare": 1.741794225260953,
+    "deployable_prediction": {
+      "relative_field_error": 0.02811658869824908,
+      "weighted_phase_rmse_rad": 0.017094722468912457
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.07933120598555865,
+      "weighted_phase_rmse_rad": 0.05273298283806178
+    },
+    "fitting_seconds": 3.174923625017982,
+    "total_seconds": 3.20987691701157,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 0.8804332920117304
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 0.9253035431029275
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 1.1371565839508548
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8101,
+    "n": 16,
+    "spacing": 0.02,
+    "method": "unified_reference",
+    "estimated": [
+      2.6478088784874134,
+      -0.07969957434492092,
+      -0.025541895204093334,
+      0.032673537813528004,
+      0.057733101233863326,
+      -0.11011734255577571,
+      0.007599910428979458,
+      0.03768721942568939,
+      -0.07359407289581153,
+      0.13735118774158214,
+      0.07652611029252335,
+      0.025466343705114153,
+      0.06418963519975271
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 9,
+    "pose_error_m": 0.0008143314478027846,
+    "material_relative_error": 0.05912355139496537,
+    "delay_error_m": 0.0022668987661366713,
+    "reduced_chisquare": 1.9159541770416193,
+    "deployable_prediction": {
+      "relative_field_error": 0.02897902583797425,
+      "weighted_phase_rmse_rad": 0.01477325985065859
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.06036310631620912,
+      "weighted_phase_rmse_rad": 0.03565990754435669
+    },
+    "fitting_seconds": 3.16716324997833,
+    "total_seconds": 3.202674209023826,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 0.8825215419637971
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 0.9207740410929546
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 1.130331457941793
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8101,
+    "n": 32,
+    "spacing": 0.01,
+    "method": "fixed_wrong_pose",
+    "estimated": [
+      3.048356789608904,
+      0.0,
+      0.0,
+      0.0,
+      0.018041030651119696,
+      -0.4999999999999994,
+      -0.40185803641299706,
+      -0.328365636990292,
+      -0.419144369124912,
+      0.7903439213366201,
+      0.7477483147815829,
+      -0.4833666335008318,
+      -0.43903971049378393
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 14,
+    "pose_error_m": 0.09,
+    "material_relative_error": 0.21934271584356163,
+    "delay_error_m": 0.0419589693488803,
+    "reduced_chisquare": 325.0366331520478,
+    "deployable_prediction": {
+      "relative_field_error": 0.5630396136531639,
+      "weighted_phase_rmse_rad": 0.6105548174372233
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 1.1448247359587833,
+      "weighted_phase_rmse_rad": 1.108937573414445
+    },
+    "fitting_seconds": 33.36441004194785,
+    "total_seconds": 33.620504582999274,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 112.0,
+        "wall_seconds": 9.282930372923147
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 112.0,
+        "wall_seconds": 9.419101999956183
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 112.0,
+        "wall_seconds": 12.166022375051398
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8101,
+    "n": 32,
+    "spacing": 0.01,
+    "method": "geometry_only",
+    "estimated": [
+      3.013253008369253,
+      -0.024999709294226315,
+      -0.019741772744476867,
+      0.06952183878014927,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 31,
+    "pose_error_m": 0.06695331108385821,
+    "material_relative_error": 0.20530120334770122,
+    "delay_error_m": 0.06,
+    "reduced_chisquare": 365.25802079992707,
+    "deployable_prediction": {
+      "relative_field_error": 0.6280830192419674,
+      "weighted_phase_rmse_rad": 0.5278644848066414
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.9726089773255594,
+      "weighted_phase_rmse_rad": 0.8989720180288447
+    },
+    "fitting_seconds": 76.20236424996983,
+    "total_seconds": 76.45667995896656,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 248.0,
+        "wall_seconds": 20.80924966407474
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 248.0,
+        "wall_seconds": 21.507342330762185
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 248.0,
+        "wall_seconds": 28.404857248882763
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8101,
+    "n": 32,
+    "spacing": 0.01,
+    "method": "unified",
+    "estimated": [
+      2.5576839485936893,
+      -0.07977289432304212,
+      -0.025571796511199472,
+      0.03243309796152895,
+      0.05835096031614685,
+      -0.09407596690690129,
+      0.020203883484214005,
+      0.0540714916157279,
+      -0.052824914127674864,
+      0.13845214261761035,
+      0.0723595152104914,
+      0.02657316789735013,
+      0.06444630151541834
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 9,
+    "pose_error_m": 0.0005736653592320207,
+    "material_relative_error": 0.023073579437475723,
+    "delay_error_m": 0.0016490396838531457,
+    "reduced_chisquare": 1.1152151201709886,
+    "deployable_prediction": {
+      "relative_field_error": 0.01039889961823588,
+      "weighted_phase_rmse_rad": 0.0069979209419980095
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.031467051832415376,
+      "weighted_phase_rmse_rad": 0.02185173485788546
+    },
+    "fitting_seconds": 19.022514707990922,
+    "total_seconds": 19.262583041971084,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 5.281024544034153
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 5.41753033187706
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 72.0,
+        "wall_seconds": 6.724666543013882
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8101,
+    "n": 32,
+    "spacing": 0.01,
+    "method": "unified_reference",
+    "estimated": [
+      2.5468357669858506,
+      -0.08006316565316123,
+      -0.02559115443694183,
+      0.0323154038989147,
+      0.059035904391257936,
+      -0.0877201331825924,
+      0.027401935910007946,
+      0.0606872055911182,
+      -0.04594772798661736,
+      0.13329100101554187,
+      0.0678573597112026,
+      0.025353910657497668,
+      0.06095395290190332
+    ],
+    "true": [
+      2.5,
+      -0.08012953652803784,
+      -0.025615602610795513,
+      0.0319859075013928,
+      0.06,
+      -0.07577085226560973,
+      0.039006748131919726,
+      0.07610893785220693,
+      -0.02846769049082797,
+      0.12695271651405932,
+      0.06629470170439275,
+      0.02324929782523945,
+      0.057161391243117914
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 8,
+    "pose_error_m": 0.0003370024958610454,
+    "material_relative_error": 0.018734306794340228,
+    "delay_error_m": 0.0009640956087420618,
+    "reduced_chisquare": 1.139269999410965,
+    "deployable_prediction": {
+      "relative_field_error": 0.010818401204458391,
+      "weighted_phase_rmse_rad": 0.0059395219815911475
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.02282455369064588,
+      "weighted_phase_rmse_rad": 0.01401200918533848
+    },
+    "fitting_seconds": 16.733705917024054,
+    "total_seconds": 16.97360187501181,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 64.0,
+        "wall_seconds": 4.586127125949133
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 64.0,
+        "wall_seconds": 4.665275540959556
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 64.0,
+        "wall_seconds": 6.040313332923688
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8102,
+    "n": 16,
+    "spacing": 0.02,
+    "method": "fixed_wrong_pose",
+    "estimated": [
+      2.1485818065962565,
+      0.0,
+      0.0,
+      0.0,
+      0.12158336849701733,
+      -0.033420653375703886,
+      -0.09264357359467751,
+      0.10728997379132237,
+      0.14290032077543088,
+      -0.6904064335055663,
+      -0.32660094272449075,
+      -0.332719292265058,
+      -0.1502243263963823
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 12,
+    "pose_error_m": 0.09,
+    "material_relative_error": 0.14056727736149738,
+    "delay_error_m": 0.06158336849701733,
+    "reduced_chisquare": 347.76830041811587,
+    "deployable_prediction": {
+      "relative_field_error": 0.5980981271004769,
+      "weighted_phase_rmse_rad": 0.6667967563428745
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.8269847240416204,
+      "weighted_phase_rmse_rad": 0.9653564395144762
+    },
+    "fitting_seconds": 3.8669039999949746,
+    "total_seconds": 3.901902917015832,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 96.0,
+        "wall_seconds": 1.087752581865061
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 96.0,
+        "wall_seconds": 1.11572333087679
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 96.0,
+        "wall_seconds": 1.3532954590045847
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8102,
+    "n": 16,
+    "spacing": 0.02,
+    "method": "geometry_only",
+    "estimated": [
+      3.084247349870975,
+      0.10530641224541493,
+      0.07146245467718461,
+      0.05127922381061196,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 28,
+    "pose_error_m": 0.05720583840108536,
+    "material_relative_error": 0.23369893994838992,
+    "delay_error_m": 0.06,
+    "reduced_chisquare": 325.98090303323994,
+    "deployable_prediction": {
+      "relative_field_error": 0.5854433989441556,
+      "weighted_phase_rmse_rad": 0.4887503791298378
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.8582977188934471,
+      "weighted_phase_rmse_rad": 0.7794072336324211
+    },
+    "fitting_seconds": 11.01676824997412,
+    "total_seconds": 11.052786957996432,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 224.0,
+        "wall_seconds": 3.0600061650038697
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 224.0,
+        "wall_seconds": 3.187879959063139
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 224.0,
+        "wall_seconds": 4.06327558303019
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8102,
+    "n": 16,
+    "spacing": 0.02,
+    "method": "unified",
+    "estimated": [
+      2.672392732534484,
+      0.05960396198853488,
+      0.06575367418118984,
+      0.01954437773508925,
+      0.056477432954546845,
+      -0.034659285063149095,
+      -0.12835516044108972,
+      -0.035465615563856065,
+      0.0012345385320440899,
+      -0.0983487945786152,
+      0.21559088869269113,
+      -0.1790962894590029,
+      0.04230787526836956
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 11,
+    "pose_error_m": 0.0012771568278223857,
+    "material_relative_error": 0.06895709301379363,
+    "delay_error_m": 0.0035225670454531524,
+    "reduced_chisquare": 1.7125265666023928,
+    "deployable_prediction": {
+      "relative_field_error": 0.027846225333699216,
+      "weighted_phase_rmse_rad": 0.01612677662928831
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.0780108897442855,
+      "weighted_phase_rmse_rad": 0.05156324617349455
+    },
+    "fitting_seconds": 3.926980749994982,
+    "total_seconds": 3.961974542005919,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 1.0977307931170799
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 1.1349157900549471
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 1.4052955850493163
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8102,
+    "n": 16,
+    "spacing": 0.02,
+    "method": "unified_reference",
+    "estimated": [
+      2.6498006461141337,
+      0.05914481242388483,
+      0.06571926234832769,
+      0.01938856975600104,
+      0.057482286696871186,
+      -0.022166265284074962,
+      -0.11543731918828398,
+      -0.023540117520001878,
+      0.01559562059440511,
+      -0.10348459917433513,
+      0.20986839709474936,
+      -0.1787327508104955,
+      0.04142815726112506
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 11,
+    "pose_error_m": 0.0008168030335880163,
+    "material_relative_error": 0.059920258445653476,
+    "delay_error_m": 0.0025177133031288115,
+    "reduced_chisquare": 1.8560672297994898,
+    "deployable_prediction": {
+      "relative_field_error": 0.028864283747077064,
+      "weighted_phase_rmse_rad": 0.014161652939927449
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.06199377133756456,
+      "weighted_phase_rmse_rad": 0.03746930435193827
+    },
+    "fitting_seconds": 3.9070737079600804,
+    "total_seconds": 3.9425002500065602,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 1.0914509161375463
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 1.1327422079630196
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 1.3944117928040214
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8102,
+    "n": 32,
+    "spacing": 0.01,
+    "method": "fixed_wrong_pose",
+    "estimated": [
+      2.0949543579280956,
+      0.0,
+      0.0,
+      0.0,
+      0.12211380139232109,
+      -0.01307600949348557,
+      -0.07141159207158843,
+      0.1301483893062372,
+      0.1715436413601472,
+      -0.6912279886583762,
+      -0.3303259619714536,
+      -0.33092911476413983,
+      -0.1494673922649344
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 12,
+    "pose_error_m": 0.09,
+    "material_relative_error": 0.16201825682876175,
+    "delay_error_m": 0.06211380139232109,
+    "reduced_chisquare": 347.1592981854617,
+    "deployable_prediction": {
+      "relative_field_error": 0.5974932702101577,
+      "weighted_phase_rmse_rad": 0.6650417263581282
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.8273131595313198,
+      "weighted_phase_rmse_rad": 0.9718089710697552
+    },
+    "fitting_seconds": 22.97063287498895,
+    "total_seconds": 23.212030249997042,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 96.0,
+        "wall_seconds": 6.278390125953592
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 96.0,
+        "wall_seconds": 6.569354334031232
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 96.0,
+        "wall_seconds": 8.00893824803643
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8102,
+    "n": 32,
+    "spacing": 0.01,
+    "method": "geometry_only",
+    "estimated": [
+      2.9867193140907378,
+      0.10478715488905736,
+      0.07133808884432397,
+      0.05096766744157136,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 27,
+    "pose_error_m": 0.05659221231190757,
+    "material_relative_error": 0.1946877256362951,
+    "delay_error_m": 0.06,
+    "reduced_chisquare": 320.6450379451316,
+    "deployable_prediction": {
+      "relative_field_error": 0.5803001244556961,
+      "weighted_phase_rmse_rad": 0.48297392380080606
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.8592163555586831,
+      "weighted_phase_rmse_rad": 0.7812815682344137
+    },
+    "fitting_seconds": 63.09386229200754,
+    "total_seconds": 63.347274959029164,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 216.0,
+        "wall_seconds": 17.164010790002067
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 216.0,
+        "wall_seconds": 17.95759250089759
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 216.0,
+        "wall_seconds": 23.253963544790167
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8102,
+    "n": 32,
+    "spacing": 0.01,
+    "method": "unified",
+    "estimated": [
+      2.556663048119246,
+      0.058940999807037764,
+      0.06569226260088216,
+      0.019081184377349743,
+      0.058415796366408305,
+      -0.004854264663155433,
+      -0.10131701955098917,
+      -0.004744887698166079,
+      0.03683122423592228,
+      -0.10553789976591377,
+      0.20381416075081624,
+      -0.17864578080360985,
+      0.038811572761584257
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 11,
+    "pose_error_m": 0.00046902194259248564,
+    "material_relative_error": 0.02266521924769833,
+    "delay_error_m": 0.0015842036335916923,
+    "reduced_chisquare": 1.0535742969692854,
+    "deployable_prediction": {
+      "relative_field_error": 0.01054696273822543,
+      "weighted_phase_rmse_rad": 0.0062213031411041736
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.030598650603935428,
+      "weighted_phase_rmse_rad": 0.02109197075460244
+    },
+    "fitting_seconds": 23.174626374966465,
+    "total_seconds": 23.420513040968217,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 6.391416251077317
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 6.595037790888455
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 88.0,
+        "wall_seconds": 8.255203499109484
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  },
+  {
+    "seed": 8102,
+    "n": 32,
+    "spacing": 0.01,
+    "method": "unified_reference",
+    "estimated": [
+      2.5494349376695364,
+      0.058814716766550444,
+      0.06568377365715869,
+      0.01903640113679196,
+      0.0587623672103536,
+      -0.00023100665029034847,
+      -0.09637814943736522,
+      -0.0005130001801285843,
+      0.04263397987347629,
+      -0.10737984218102281,
+      0.2014830105083788,
+      -0.17908507160821494,
+      0.038085007483541364
+    ],
+    "true": [
+      2.5,
+      0.05853857162439662,
+      0.0657133509602297,
+      0.018841208500334144,
+      0.06,
+      0.005899934950442283,
+      -0.08327391693909963,
+      0.013523405257247807,
+      0.05899510061899937,
+      -0.11313210454247807,
+      0.19117157184758182,
+      -0.1819693211552063,
+      0.03541834945322952
+    ],
+    "frequencies": [
+      6.0,
+      9.0,
+      18.0
+    ],
+    "optimizer_status": 2,
+    "nfev": 10,
+    "pose_error_m": 0.0003394570984962059,
+    "material_relative_error": 0.019773975067814576,
+    "delay_error_m": 0.0012376327896463993,
+    "reduced_chisquare": 1.0753364286730085,
+    "deployable_prediction": {
+      "relative_field_error": 0.01118523137845394,
+      "weighted_phase_rmse_rad": 0.005533732825363107
+    },
+    "reconstructed_structural_field": {
+      "relative_field_error": 0.02511206132280708,
+      "weighted_phase_rmse_rad": 0.016378780281565197
+    },
+    "fitting_seconds": 20.735656542005017,
+    "total_seconds": 20.980574458022602,
+    "reference_generation_seconds": 7.09624741593143,
+    "work": [
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 80.0,
+        "wall_seconds": 5.738974709995091
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 80.0,
+        "wall_seconds": 5.888336956966668
+      },
+      {
+        "factorizations": 0.0,
+        "rhs_columns": 80.0,
+        "wall_seconds": 7.334571543033235
+      }
+    ],
+    "status": "converged",
+    "scope": "development one known-support homogeneous ellipsoid, independent N64 ADDA LDR; frequency-shared illumination gains; no free Rx gains, no general image"
+  }
+]

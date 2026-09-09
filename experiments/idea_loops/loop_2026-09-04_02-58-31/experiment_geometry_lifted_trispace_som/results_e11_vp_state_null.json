@@ -1,0 +1,530 @@
+{
+  "experiment": "run_e11_vp_state_null",
+  "parameters": {
+    "N": 16,
+    "k": 12.0,
+    "M": 8,
+    "R_r": 1.6,
+    "R_t": 2.0,
+    "phi0": 0.7,
+    "s": 0.12,
+    "K": 3,
+    "retained_rank_r": 6,
+    "SNR_dB": 30.0,
+    "noise_ratio": 0.03162277660168379,
+    "noise_convention": "raw complex Gaussian noise length M, exactly scaled so ||noise||/||d_true||=10^(-SNR_dB/20)",
+    "noise_seeds": [
+      0,
+      1
+    ],
+    "alpha_true": [
+      1.5,
+      2.0,
+      0.0
+    ],
+    "alpha_init": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "p_true": [
+      0.08,
+      -0.06,
+      0.05
+    ],
+    "p_init_zero": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "p_init_pert_pos": [
+      0.18,
+      0.04,
+      0.15
+    ],
+    "baseline_ls": {
+      "method": "trf",
+      "x_scale": "jac",
+      "max_nfev": 1000,
+      "ftol": 1e-10,
+      "xtol": 1e-10,
+      "gtol": 1e-10
+    },
+    "vp_ls": {
+      "method": "trf",
+      "x_scale": "jac",
+      "jac": "2-point",
+      "max_nfev": 2000,
+      "ftol": 1e-10,
+      "xtol": 1e-10,
+      "gtol": 1e-10
+    },
+    "vp_fd_eps": {
+      "alpha": 1e-05,
+      "pose": 1e-05
+    }
+  },
+  "visible_pose_subspace_r6_at_p_init": {
+    "n_vis": 1,
+    "hidden_rank": 2,
+    "hid_sv": [
+      0.0005679192227713751,
+      5.371841415782989e-19,
+      1.7099015778500787e-19
+    ],
+    "threshold": 5.679192227713751e-12,
+    "hidden_directions": [
+      [
+        0.573274102210519,
+        0.8049237670477845,
+        -0.15314872828831338
+      ],
+      [
+        -0.03952661808844633,
+        -0.1595264480586086,
+        -0.986402026981035
+      ]
+    ]
+  },
+  "soft_filter": {
+    "lam_soft": 0.0026132493115735714,
+    "lam_formula": "0.5*(sv[r-1]+sv[r]) for python 0-based descending singular values of G_s(p_init); sv[5] and sv[6] (one-based s6=s7) are degenerate to machine precision on the r=6 retained/excluded boundary",
+    "singular_values_at_p_init": [
+      0.0032882152944308453,
+      0.003173919815520593,
+      0.0031739198155205923,
+      0.002762840276424583,
+      0.002706201735503529,
+      0.002613249311573572,
+      0.002613249311573571,
+      0.0025037017309928813
+    ],
+    "soft_weights_at_p_init": [
+      0.6128958212176279,
+      0.5959807710004377,
+      0.5959807710004376,
+      0.5278037097655838,
+      0.5174687292748696,
+      0.5000000000000001,
+      0.49999999999999994,
+      0.47860104715137747
+    ]
+  },
+  "projector_checks_at_p_init": {
+    "hard": {
+      "mode": "hard",
+      "hermitian_error": 0.0,
+      "hermitian_ok": true,
+      "idempotent_error": 1.7988710580399147e-15,
+      "idempotent_ok": true
+    },
+    "soft": {
+      "mode": "soft",
+      "hermitian_error": 3.878959614448864e-18,
+      "hermitian_ok": true
+    }
+  },
+  "vp_anchor_at_alpha_init_p_init": {
+    "hard": {
+      "discarded_current_fraction": 0.8362410343352565,
+      "J_phys_norm": 0.20224300583550964
+    },
+    "soft": {
+      "discarded_current_fraction": 0.8556757213250547,
+      "J_phys_norm": 0.20224300583550964
+    }
+  },
+  "finite_dimensional_vp_jacobian": {
+    "hard": {
+      "label": "vp_hard",
+      "alpha_column_norms": [
+        0.0001876924497299902,
+        0.000211115940907369,
+        0.00013186937390002903
+      ],
+      "pose_column_norms": [
+        0.002930526100081762,
+        0.002747773951745835,
+        8.889301557617769
+      ],
+      "alpha_rank_kept": 3,
+      "B_red_singular_values": [
+        8.74135820672492,
+        0.002582869963339914,
+        0.0015086110222648527
+      ],
+      "visible_pose_dof_above_cut": 3,
+      "threshold": 8.74135820672492e-08
+    },
+    "soft": {
+      "label": "vp_soft",
+      "alpha_column_norms": [
+        0.00011200067587528706,
+        0.0001198334468866716,
+        0.00010576141356383459
+      ],
+      "pose_column_norms": [
+        0.0004962582226484813,
+        0.00030756956040318853,
+        0.00012653691440908768
+      ],
+      "alpha_rank_kept": 3,
+      "B_red_singular_values": [
+        0.0005137841416338776,
+        0.00022382096413963137,
+        0.00010907489444544538
+      ],
+      "visible_pose_dof_above_cut": 3,
+      "threshold": 5.137841416338776e-12
+    },
+    "full_physics_alpha_only": {
+      "label": "full_physics_alpha_only",
+      "alpha_column_norms": [
+        0.00021031059220001373,
+        0.00021811165201046195,
+        0.00021327882875036777
+      ],
+      "pose_column_norms": [
+        0.0009043380352032954,
+        0.0006315986926950679,
+        0.0002481717424978249
+      ],
+      "alpha_rank_kept": 3,
+      "B_red_singular_values": [
+        0.0009514272822752645,
+        0.00045328779584446403,
+        0.0002109550648995247
+      ],
+      "visible_pose_dof_above_cut": 3,
+      "threshold": 9.514272822752646e-12
+    },
+    "note": "B_red = P_perp_alpha @ pose columns of the realified model Jacobian at (alpha_init,p_init); P_perp_alpha removes col(realified alpha columns).  VP Jacobians are centered finite differences (eps=1e-5); the full-physics Jacobian is analytic from run_e5.jacobians (Q ignored).  visible_pose_dof_above_cut counts singular values above 1e-8 * sv[0]."
+  },
+  "runs": [
+    {
+      "method": "direct",
+      "run_label": "direct",
+      "init_label": "zero",
+      "noise_seed": 0,
+      "r": 6,
+      "success": true,
+      "status": 1,
+      "nfev": 6,
+      "optimality": 1.5031047920696327e-11,
+      "alpha_est": [
+        1.5564598084907435,
+        2.0484176986656153,
+        -0.08683018601666481
+      ],
+      "p_est": [
+        0.08139231028328403,
+        -0.0633144433498872,
+        0.05066748219860718
+      ],
+      "p_shift_from_init": 0.1148939539849797,
+      "data_residual_ratio": 0.022221765167825803,
+      "map_error": 0.025482809421090998,
+      "pose_error": 0.0036564456963022744,
+      "pose_error_visible": 0.0030735975913803878,
+      "pose_error_hidden": 0.0019805537044645122,
+      "full_forward_data_residual_ratio": 0.022221765167825803
+    },
+    {
+      "method": "reduced_r6",
+      "run_label": "reduced_r6",
+      "init_label": "zero",
+      "noise_seed": 0,
+      "r": 6,
+      "success": true,
+      "status": 1,
+      "nfev": 6,
+      "optimality": 6.203387517223198e-12,
+      "alpha_est": [
+        1.5966041226969185,
+        2.030925042686189,
+        -0.14254547947148127
+      ],
+      "p_est": [
+        0.08302252704262628,
+        -0.05797835246331488,
+        0.00604974518541398
+      ],
+      "p_shift_from_init": 0.10144372217004077,
+      "data_residual_ratio": 0.035426062472123696,
+      "map_error": 0.041897854512312295,
+      "pose_error": 0.04410042660511385,
+      "pose_error_visible": 0.0013028090840923748,
+      "pose_error_hidden": 0.04408117869616738,
+      "full_forward_data_residual_ratio": 0.035426062472123696
+    },
+    {
+      "method": "vp_hard_r6",
+      "run_label": "vp_hard_r6",
+      "init_label": "zero",
+      "noise_seed": 0,
+      "r": 6,
+      "success": false,
+      "status": 4,
+      "nfev": 48,
+      "optimality": 0.1334678538783565,
+      "alpha_est": [
+        1.3898866636622766,
+        1.2922931320324267,
+        0.9418036724260341
+      ],
+      "p_est": [
+        8.214869582284892e-08,
+        3.407866498481674e-08,
+        2.0626359358756135e-14
+      ],
+      "p_shift_from_init": 8.893685193744355e-08,
+      "data_residual_ratio": 0.42651288436525264,
+      "map_error": 0.3327803652614948,
+      "pose_error": 0.11180335838271727,
+      "pose_error_visible": 0.10274648349989571,
+      "pose_error_hidden": 0.04408118730320195,
+      "discarded_current_fraction": 0.8550804298234886,
+      "J_phys_norm": 0.37190621436741733,
+      "full_forward_data_residual_ratio": 0.3434584340282295,
+      "mode": "hard",
+      "hermitian_error": 0.0,
+      "hermitian_ok": true,
+      "idempotent_error": 2.1602050178830115e-15,
+      "idempotent_ok": true
+    },
+    {
+      "method": "vp_soft_r6",
+      "run_label": "vp_soft_r6",
+      "init_label": "zero",
+      "noise_seed": 0,
+      "r": 6,
+      "success": true,
+      "status": 1,
+      "nfev": 8,
+      "optimality": 6.09840700175669e-11,
+      "alpha_est": [
+        2.688923674999856,
+        3.496009826662847,
+        0.253589651541229
+      ],
+      "p_est": [
+        0.08470070742082036,
+        -0.0602002278961808,
+        0.04392917934061584
+      ],
+      "p_shift_from_init": 0.11281866013155584,
+      "data_residual_ratio": 0.0653440320148782,
+      "map_error": 0.8334146958311563,
+      "pose_error": 0.007680599256892015,
+      "pose_error_visible": 0.0035994989796865736,
+      "pose_error_hidden": 0.006784925352589039,
+      "discarded_current_fraction": 0.8689025581320956,
+      "J_phys_norm": 0.6513480102965818,
+      "full_forward_data_residual_ratio": 0.8298020355823169,
+      "mode": "soft",
+      "hermitian_error": 4.091337135425211e-18,
+      "hermitian_ok": true
+    },
+    {
+      "method": "direct",
+      "run_label": "direct",
+      "init_label": "zero",
+      "noise_seed": 1,
+      "r": 6,
+      "success": true,
+      "status": 1,
+      "nfev": 5,
+      "optimality": 6.101385006840819e-11,
+      "alpha_est": [
+        1.515933002456075,
+        1.994674647475223,
+        0.014702383974163569
+      ],
+      "p_est": [
+        0.07963220697143703,
+        -0.06210143784478172,
+        0.06681735729624966
+      ],
+      "p_shift_from_init": 0.12108854696289718,
+      "data_residual_ratio": 0.02781001364278669,
+      "map_error": 0.010212405801630312,
+      "pose_error": 0.01695213317423686,
+      "pose_error_visible": 0.0019029617564242784,
+      "pose_error_hidden": 0.016844986070360776,
+      "full_forward_data_residual_ratio": 0.02781001364278669
+    },
+    {
+      "method": "reduced_r6",
+      "run_label": "reduced_r6",
+      "init_label": "zero",
+      "noise_seed": 1,
+      "r": 6,
+      "success": true,
+      "status": 1,
+      "nfev": 6,
+      "optimality": 2.9681442540321193e-12,
+      "alpha_est": [
+        1.5644033243967221,
+        1.9741120849119516,
+        -0.05742473263372454
+      ],
+      "p_est": [
+        0.08093448558620227,
+        -0.05652017950916705,
+        0.005897592279474845
+      ],
+      "p_shift_from_init": 0.09889238213101437,
+      "data_residual_ratio": 0.045053606796561764,
+      "map_error": 0.027393919357811564,
+      "pose_error": 0.04424934779978884,
+      "pose_error_visible": 0.0038541491231187733,
+      "pose_error_hidden": 0.04408117869616738,
+      "full_forward_data_residual_ratio": 0.045053606796561764
+    },
+    {
+      "method": "vp_hard_r6",
+      "run_label": "vp_hard_r6",
+      "init_label": "zero",
+      "noise_seed": 1,
+      "r": 6,
+      "success": false,
+      "status": 4,
+      "nfev": 54,
+      "optimality": 0.3309173955299928,
+      "alpha_est": [
+        1.4516899383250368,
+        1.2762198812053045,
+        0.9167683634444335
+      ],
+      "p_est": [
+        6.953743867816034e-08,
+        2.8668272092333086e-08,
+        2.784426532619896e-14
+      ],
+      "p_shift_from_init": 7.521519263207221e-08,
+      "data_residual_ratio": 0.44905206332042247,
+      "map_error": 0.33990509998737733,
+      "pose_error": 0.11180336450306554,
+      "pose_error_visible": 0.10274649072885686,
+      "pose_error_hidden": 0.04408118597667564,
+      "discarded_current_fraction": 0.8675304473932993,
+      "J_phys_norm": 0.3737519437740067,
+      "full_forward_data_residual_ratio": 0.328437003000179,
+      "mode": "hard",
+      "hermitian_error": 0.0,
+      "hermitian_ok": true,
+      "idempotent_error": 1.8821690801953576e-15,
+      "idempotent_ok": true
+    },
+    {
+      "method": "vp_soft_r6",
+      "run_label": "vp_soft_r6",
+      "init_label": "zero",
+      "noise_seed": 1,
+      "r": 6,
+      "success": true,
+      "status": 1,
+      "nfev": 8,
+      "optimality": 5.982119495551707e-11,
+      "alpha_est": [
+        2.6011152754201685,
+        3.368689823795283,
+        0.49244688155311367
+      ],
+      "p_est": [
+        0.08299899198268486,
+        -0.057830109416900206,
+        0.07516719380846433
+      ],
+      "p_shift_from_init": 0.1260288111915354,
+      "data_residual_ratio": 0.059240191315898506,
+      "map_error": 0.842565490745122,
+      "pose_error": 0.025437964192278405,
+      "pose_error_visible": 0.0027151243628535343,
+      "pose_error_hidden": 0.02529264956349725,
+      "discarded_current_fraction": 0.8696114885026932,
+      "J_phys_norm": 0.6524470863479396,
+      "full_forward_data_residual_ratio": 0.8307017699790907,
+      "mode": "soft",
+      "hermitian_error": 5.204170427930421e-18,
+      "hermitian_ok": true
+    },
+    {
+      "method": "vp_hard_r6",
+      "run_label": "vp_hard_r6_pert0",
+      "init_label": "pert_pos",
+      "noise_seed": 0,
+      "r": 6,
+      "success": true,
+      "status": 1,
+      "nfev": 15,
+      "optimality": 8.652534114913051e-11,
+      "alpha_est": [
+        2.1717195085337853,
+        1.690789942411586,
+        -0.4545783208907259
+      ],
+      "p_est": [
+        0.18161160785930444,
+        0.09834660523481227,
+        -0.005640491671084621
+      ],
+      "p_shift_from_init": 0.16622540801555025,
+      "data_residual_ratio": 0.15867084374265003,
+      "map_error": 0.2749252140611825,
+      "pose_error": 0.1961999759290061,
+      "pose_error_visible": 0.010658457732045025,
+      "pose_error_hidden": 0.19591025453844108,
+      "discarded_current_fraction": 0.8459322315625427,
+      "J_phys_norm": 0.33477838725352144,
+      "full_forward_data_residual_ratio": 0.20331668424492183,
+      "mode": "hard",
+      "hermitian_error": 0.0,
+      "hermitian_ok": true,
+      "idempotent_error": 2.5640260226151058e-15,
+      "idempotent_ok": true
+    }
+  ],
+  "medians_by_method": {
+    "direct": {
+      "n": 2,
+      "n_success": 2,
+      "data_residual_ratio_median": 0.025015889405306246,
+      "pose_error_median": 0.010304289435269566,
+      "pose_error_visible_median": 0.002488279673902333,
+      "pose_error_hidden_median": 0.009412769887412645,
+      "map_error_median": 0.017847607611360655
+    },
+    "reduced_r6": {
+      "n": 2,
+      "n_success": 2,
+      "data_residual_ratio_median": 0.04023983463434273,
+      "pose_error_median": 0.04417488720245134,
+      "pose_error_visible_median": 0.002578479103605574,
+      "pose_error_hidden_median": 0.04408117869616738,
+      "map_error_median": 0.03464588693506193
+    },
+    "vp_hard_r6": {
+      "n": 2,
+      "n_success": 0,
+      "data_residual_ratio_median": 0.4377824738428375,
+      "pose_error_median": 0.11180336144289141,
+      "pose_error_visible_median": 0.10274648711437628,
+      "pose_error_hidden_median": 0.04408118663993879,
+      "map_error_median": 0.33634273262443604,
+      "discarded_current_fraction_median": 0.861305438608394
+    },
+    "vp_soft_r6": {
+      "n": 2,
+      "n_success": 2,
+      "data_residual_ratio_median": 0.06229211166538835,
+      "pose_error_median": 0.01655928172458521,
+      "pose_error_visible_median": 0.0031573116712700538,
+      "pose_error_hidden_median": 0.016038787458043144,
+      "map_error_median": 0.8379900932881392,
+      "discarded_current_fraction_median": 0.8692570233173944
+    }
+  },
+  "interpretation": "Central question: can variable projection (hard state equality cur=P(p) J_phys, c eliminated) recover the two hidden pose directions that reduced_r6 freezes?\n\nMedian pose decomposition over seeds {0,1}, SNR 30 dB, zero p_init (decomposition basis: r6 V_vis at alpha_init,p_init):\n  direct      : visible=2.488e-03 hidden=9.413e-03  (full-physics reference; recovers pose)\n  reduced_r6  : visible=2.578e-03 hidden=4.408e-02  (reference; freezes hidden)\n  vp_hard_r6  : visible=1.027e-01 hidden=4.408e-02  data residual ratio=4.378e-01\n  vp_soft_r6  : visible=3.157e-03 hidden=1.604e-02  data residual ratio=6.229e-02 (noise ratio 0.0316)\n\nLinearized VP pose signature (B_vp_red singular values after removing the 3 realified alpha columns at alpha_init,p_init):\n  vp_hard : 8.741e+00, 2.583e-03, 1.509e-03\n  vp_soft : 5.138e-04, 2.238e-04, 1.091e-04\n  full physics (alpha-only removal): 9.514e-04, 4.533e-04, 2.110e-04\n\nResult 1 (hard): vp_hard_r6 from p_init=0 never left the cone (p_shift ~1e-7 for both seeds, status 4, optimality 1.33e-01/3.31e-01, VP data residual ~0.44). The hard r=6 projector cuts exactly through the degenerate s6=s7 singular pair at p_init, so its finite-difference pose Jacobian measures the conical subspace jump rather than a physical derivative (see the hard theta FD column norm ~8.9 vs smooth pose columns ~1e-4).  This is a gauge/numerical null, not a test of the VP model away from the cone.\n  vp_hard_r6 from the smooth perturbed start (p_init=[0.18,0.04,0.15], seed 0) converged (optimality 8.65e-11) to a distant local minimum: visible error=1.066e-02, hidden error=1.959e-01 (> the reduced_r6 freeze 4.408e-02), VP residual=0.159. So even away from the conical cut the hard-VP model does not pull the hidden directions toward p_true.\nResult 2 (soft): vp_soft_r6 substantially reduces the reduced_r6 hidden freeze (hidden median is 0.36x the freeze level and 1.70x the direct level), but does not reach direct-level recovery.  Its visible error median 3.157e-03 is at the direct/reduced level.  The smooth spectral projector escapes the conical hard cut, and its linearized pose signature keeps three nonzero DOF after alpha removal (5.138e-04, 2.238e-04, 1.091e-04); unlike the reduced_r6 Q-space freeze (n_vis=1), the VP model does have hidden-pose sensitivity at first order.\n\nWhy this still does not close the state thread positively: the VP data residual floor is 2.0x the 30 dB noise ratio (6.229e-02 vs 3.162e-02), and the hidden errors remain 1.7x the direct median (9.413e-03).  The enforced retained equality cur=P J_phys discards a visible-current fraction at every solution (discarded-current fractions ~0.85-0.87; see panel 3), so the VP model is systematically biased relative to the physical forward model: the optimizer compensates that bias in the contrast coefficients instead of recovering the scene, with median map error 0.84 (soft) / 0.34 (hard) and full-physics data residual at the VP solutions ~0.83 (soft) even though the VP model itself fits to ~0.06.  A clean answer to the central question is: neither hard nor soft variable projection recovers the frozen pose directions to the direct-physics level.  vp_hard is a null (conical freeze at p_init plus a biased local minimum from the smooth start); vp_soft is a partial, model-biased improvement over the reduced_r6 freeze rather than a recovery. The E7/E7b negative result is therefore not an artifact of the auxiliary retained-current coefficient c or the scalar penalty: eliminating c exactly by variable projection does not give a principled state-consistent route back to full pose recovery in this confounded scene.\n\nEvidence constraints: per-seed records, status/optimality, pose decomposition, VP residuals, discarded-current fractions, and the linearized signatures are all in results_e11_vp_state_null.json; no run was excluded.  The hard theta FD column at p_init is contaminated by the s6=s7 cut, so hard linearized DOF counts must be read with that caveat; the soft mode is the clean gauge-invariant VP test.",
+  "note": "VP data model eliminates the retained-current coefficient c exactly: cur = P(p) J_phys(alpha,p), d_vp = G_s(p) cur.  discarded_current_fraction = ||P J_phys - J_phys|| / ||J_phys|| at the solution is the E7/E7b state residual left free (not optimized).  hard projector = V[:,:r] V[:,:r]^H; soft projector = V diag(w) V^H, w_i=s_i^2/(s_i^2+lam_soft^2).  pose errors decomposed on the r6 V_vis at (alpha_init,p_init)."
+}

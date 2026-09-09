@@ -1,0 +1,42 @@
+{
+  "Name": "a3_conditional_calibration_checks_v2",
+  "Title": "Calibration and downstream checks for A3 conditional algebra with repeated stochastic trials",
+  "Short Hypothesis": "A3 conditional algebra can be implemented with explicit failure controls, and its branch/residual bounds are calibrated across seeds and small downstream linearized SLAM fixtures; any practical gain is measured rather than assumed.",
+  "Related Work": "SOM means subspace-based optimization, not self-organizing maps. Generic projection, gain closure, dual residual methods, and bootstrap calibration are prior art. Parent owns literature and scientific judgment; this revision does not claim novelty.",
+  "Abstract": "This revision keeps the completed deterministic B1-B4 identity checks as a frozen baseline and extends them into a small empirical study. It adds 50-seed stochastic trials with bootstrap intervals, a condition-number sweep for near-singular linearized systems, and two toy linearized pose-graph/bundle-adjustment tasks. The goal is to test whether the A3 conditional branch/residual bounds are calibrated beyond a single Gaussian fixture and whether full A3 conditional corrections improve downstream end-point error relative to LS/ridge. No global novelty, real 3D SLAM, or SOM-performance claim is made.",
+  "Experiments": {
+    "datasets": [
+      "deterministic complex linear systems and Gaussian validation fixtures from completed B1-B4",
+      "50-seed Gaussian and heavy-tailed residual fixtures with 2000 draws per seed",
+      "condition-number sweep ensemble of complex linear systems with known ground truth",
+      "two small linearized pose-graph/bundle-adjustment tasks with synthetic noisy observations"
+    ],
+    "baselines": [
+      "correct vs omitted residual derivative (frozen control)",
+      "plug-in theorem bound vs bootstrap percentile interval",
+      "full A3 conditional correction vs A3 without dual-residual correction",
+      "A3 conditional subspace projection vs unregularized least squares vs ridge-regularized least squares",
+      "fixed-chart vs moving-chart formula under near-degenerate charts"
+    ],
+    "metrics": [
+      "deterministic identity errors and expected-fail control statuses",
+      "empirical selection risk, coverage probability, and interval width across seeds",
+      "downstream root-mean-square endpoint/landmark error and failure rate",
+      "negative control violations and undercoverage flags"
+    ],
+    "compute_estimate": "single CPU thread, pinned venv, small NumPy/SciPy arrays; 50 seeds x 2000 draws, condition sweep, two toy tasks; roughly 2-4 CPU hours.",
+    "steps": [
+      "Reuse completed regenerate_checks.py and checks.json as a frozen baseline",
+      "Add seed-swept stochastic residual fixtures and bootstrap percentile intervals for branch bounds",
+      "Add condition-number sweep and two small linearized pose-graph/bundle-adjustment downstream tasks",
+      "Run full A3 conditional correction, no dual-residual ablation, and LS/ridge baselines",
+      "Audit deterministic expected-fail controls and summarize calibration/downstream findings"
+    ]
+  },
+  "Risk Factors and Limitations": [
+    "Synthetic and toy-linearized settings only; no real 3D or full SLAM evidence",
+    "Bootstrap intervals are approximate finite-sample calibrations, not proof",
+    "Downstream tasks may show no practical advantage; this would be recorded as a negative result",
+    "Parent must independently audit; no global candidate coverage or SOM performance claim"
+  ]
+}

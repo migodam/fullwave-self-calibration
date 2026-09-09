@@ -1,0 +1,127 @@
+{
+  "data_sharing_and_code_integrity_passed": true,
+  "summary": [
+    {
+      "use_reference": false,
+      "choice": "low",
+      "fit_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.23924739775346476,
+      "material_percent": 3.20288436746762,
+      "sensor_phase_rad": 0.002953531189457447,
+      "sensor_field_percent": 0.45586785602963564,
+      "structural_phase_rad": 0.007991089164327407,
+      "structural_field_percent": 4.389685566245273,
+      "mean_solve_seconds": 19.46204593751463
+    },
+    {
+      "use_reference": false,
+      "choice": "low_high",
+      "fit_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.4724650744165929,
+      "material_percent": 2.3022231507503754,
+      "sensor_phase_rad": 0.004247564493145388,
+      "sensor_field_percent": 1.2594164970269894,
+      "structural_phase_rad": 0.006412925644889263,
+      "structural_field_percent": 3.167554128427277,
+      "mean_solve_seconds": 28.496029833506327
+    },
+    {
+      "use_reference": false,
+      "choice": "low_repeat",
+      "fit_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.24114123949399566,
+      "material_percent": 3.071103428749318,
+      "sensor_phase_rad": 0.0028981902086523737,
+      "sensor_field_percent": 0.42043906804885933,
+      "structural_phase_rad": 0.007659003318903233,
+      "structural_field_percent": 4.20885628655741,
+      "mean_solve_seconds": 19.54595856249216
+    },
+    {
+      "use_reference": true,
+      "choice": "low",
+      "fit_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.3242737406751181,
+      "material_percent": 0.10770544935310156,
+      "sensor_phase_rad": 0.0027105436547645136,
+      "sensor_field_percent": 0.5342910110948326,
+      "structural_phase_rad": 0.0020885934320475905,
+      "structural_field_percent": 0.6393813559432148,
+      "mean_solve_seconds": 15.065163749997737
+    },
+    {
+      "use_reference": true,
+      "choice": "low_high",
+      "fit_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.4447674309858558,
+      "material_percent": 2.245612364475713,
+      "sensor_phase_rad": 0.004056976600631019,
+      "sensor_field_percent": 1.2724488199206354,
+      "structural_phase_rad": 0.006216731516917866,
+      "structural_field_percent": 3.0890402744759036,
+      "mean_solve_seconds": 28.47690139603219
+    },
+    {
+      "use_reference": true,
+      "choice": "low_repeat",
+      "fit_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "evaluation_statuses": [
+        "ok",
+        "ok"
+      ],
+      "pose_mm": 0.30360792840877343,
+      "material_percent": 0.1023896770531074,
+      "sensor_phase_rad": 0.0026519722044784943,
+      "sensor_field_percent": 0.505733715234948,
+      "structural_phase_rad": 0.002019283789749093,
+      "structural_field_percent": 0.6341433883641034,
+      "mean_solve_seconds": 15.1244776454987
+    }
+  ],
+  "source_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+  "scope": "two development scenes; original low data retained; equal extra count high versus repeat; independent-code N64 ADDA versus N32 inverse"
+}

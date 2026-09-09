@@ -1,0 +1,937 @@
+{
+  "generated_utc": "2026-09-03T12:18:30.361876+00:00",
+  "runner": "src/family5b2_alpha_tight.py",
+  "command": ".venv/bin/python src/family5b2_alpha_tight.py",
+  "family": "5b2",
+  "title": "alpha-aware TIGHT structural operator-Lipschitz bound for the robust first-order surrogate (family 5b2)",
+  "parent_gate": "read-only reuse of Family 5's verified API (base_scene/build_poses/smooth_AB_of_flat_X and its scene config); Family 5 and family 5b were not rerun; the family-5b result JSON was read from disk; no existing file was modified",
+  "runtime_seconds": 41.192247332997795,
+  "part_runtime_seconds": {
+    "fd_validation": 2.6580442499980563,
+    "affine_certificate": 0.4181534590024967,
+    "full_model_validation": 33.574824916999205,
+    "boundary_envelope": 4.158535958995344
+  },
+  "platform": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.1"
+  },
+  "environment_note": "Apple Silicon CPU, no GPU/MPS/CUDA; deterministic seeded numpy/scipy linear algebra",
+  "source_sha256": {
+    "src/helmholtz.py": "ee3b4ac45ad296dba533a8ccefd107a6cc53e4357b7a768d07f7db90f3ee6585",
+    "src/family1_pilot.py": "762af3bdd33af1ab80563c7257b3805e7972f786fa88af1bf5e1b51a768526d7",
+    "src/family2_algebraic_spine.py": "173d2b5d9f66be274c9a8422f4ac2c381bb91a60132b37c734748414cf3eb235",
+    "src/family4_frequency_trajectory.py": "ee7cac8b6233bcb0dbbb215df02452746dabf50774760910be5b16a0c0a40242",
+    "src/family5_sensitivity.py": "5e7368041cf69a3f23ee6bfcf498cc19f372c37bdf6fe84dfb1c434090758bb7"
+  },
+  "source_script_sha256": "a26bf62d177f897b75dfc1578822e464805c06c77db6c35e1bfd7f3b21620f3d",
+  "config": {
+    "N": 16,
+    "k_b": 6.283185307179586,
+    "T": 6,
+    "n_rx": 4,
+    "q": 1.0,
+    "q_pose": 18,
+    "rx_offsets": [
+      [
+        -0.06,
+        0.0
+      ],
+      [
+        0.06,
+        0.0
+      ],
+      [
+        0.0,
+        -0.06
+      ],
+      [
+        0.0,
+        0.06
+      ]
+    ],
+    "tx_offset": [
+      0.0,
+      0.0
+    ],
+    "arc_radius": 1.6,
+    "arc_phi_deg": [
+      -45.0,
+      45.0
+    ],
+    "pose_theta_convention": "theta = atan2(-p_y, -p_x): body +x axis points toward the origin",
+    "chi_blobs": {
+      "amp1": 0.3,
+      "amp2": 0.5,
+      "sigma1": 0.09,
+      "sigma2": 0.07,
+      "c1": [
+        -0.15,
+        -0.12
+      ],
+      "c2": [
+        0.18,
+        0.14
+      ]
+    },
+    "smooth_basis": {
+      "p": 24,
+      "x_centers_n": 4,
+      "y_centers_n": 6,
+      "x_span": [
+        -0.3,
+        0.3
+      ],
+      "y_span": [
+        -0.3,
+        0.3
+      ],
+      "sigma_b": 0.16,
+      "unit_columns": true,
+      "note": "identical construction/config to families 2, 3, 3b, 4, 4b"
+    },
+    "alpha_prior": 1.0,
+    "m_real": 48,
+    "n_smooth": 24,
+    "fd_delta": 0.0001,
+    "eps_grid": {
+      "log_min": -4.0,
+      "log_max": -1.0,
+      "n": 9
+    },
+    "part3_eps_list": [
+      0.001,
+      0.003,
+      0.01
+    ],
+    "part4_eps_list": [
+      0.001,
+      0.003,
+      0.01
+    ],
+    "part4_n_samples": 150,
+    "part3_n_samples": 150,
+    "part5_eps_list": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "part5_tau_grid": {
+      "min": -0.05,
+      "max": 0.05,
+      "n": 41
+    },
+    "part5_eps_crossing": 0.001,
+    "rank_tol_rule": "tol(M) = max(M.shape) * eps_machine * sigma_1(M)",
+    "sigma_min_B_event_threshold": 1e-08,
+    "eig_gap_invalid_threshold": 1e-06,
+    "randomness_note": "family5 is deterministic under fixed numpy default_rng seeds 2718, 4242, 5150, 9191 (recorded per use); dense numpy/scipy linear algebra",
+    "tolerances": {
+      "p1_rel_full_1e-3": 0.0001,
+      "p1_rel_frozen_1e-3": 0.0001,
+      "p1_full_slope_min": 1.0,
+      "p2_rel_full_eig_1e-3": 0.001,
+      "p2_frozen_over_full_factor": 10.0,
+      "p2_gap_invalid": 1e-06,
+      "p3_rel_adv_1e-2": 0.05,
+      "p3_decreasing": true,
+      "p3_sampled_min_slack": 1e-12,
+      "p4_violations": 0,
+      "p5_gate": "recorded only, no forced pass"
+    },
+    "title": "alpha-aware TIGHT structural operator-Lipschitz bound for the robust first-order surrogate (family 5b2)",
+    "fd_h1": 0.0001,
+    "fd_h2": 0.0002,
+    "o2_h_steps": [
+      0.0001,
+      0.0002,
+      0.0004,
+      0.0008
+    ],
+    "o2_check_columns_A": [
+      0,
+      8,
+      17
+    ],
+    "o2_check_columns_B": [
+      0,
+      8,
+      17
+    ],
+    "family5b2_seeds": {
+      "affine_unit_directions_2000": 7171,
+      "full_model_unit_directions_500": 9191,
+      "boundary_points_5": 5353,
+      "note": "numpy.random.default_rng(seed); directions normalised to unit 2-norm on R^18"
+    },
+    "affine_eps_list": [
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.1
+    ],
+    "affine_n_unit_samples": 2000,
+    "full_eps_list": [
+      0.001,
+      0.003,
+      0.01
+    ],
+    "full_n_unit_samples": 500,
+    "boundary_eps0": 0.01,
+    "boundary_n_points": 5,
+    "boundary_fd_h": 0.0001,
+    "norm_conventions": "input norm on R^18 is the Euclidean 2-norm; output norms are Frobenius for A/K matrices and spectral (||.||_2) for P, B, C^-1; JA_op = largest singular value of J_A (m_A x q) as a matrix, JB_op = largest singular value of J_B (m_B x q)",
+    "affine_test_convention": "u_i are unit 2-norm directions; the affine displacement is d = eps*u_i and the recorded quotient is ||K_aff(d)-K_aff(0)||/eps, i.e. a genuine radius-eps ball Lipschitz quotient",
+    "nonlinearity_note": "full-model samples use the exact smooth_AB_of_flat_X nonlinear map; the A and B Jacobians used in L_struct are centred finite differences at the evaluation point",
+    "parent_bound_note": "family5b_lipschitz_bound.py used the general alpha>=0 bound ||C^-1||_2 <= 1/sigma_min(B)^2 and therefore also needed sigma_min_aff > 0 for its affine rows; family5b2 uses the exact alpha-aware mu and mu_aff with an alpha floor, removing both issues",
+    "seeds_family5": {
+      "dX_unit": 2718,
+      "part3_sample_directions": 4242,
+      "part4_pairs": 5150,
+      "part5_path_direction": 9191,
+      "rng": "numpy.random.default_rng(seed); directions normalized to unit q-norm"
+    },
+    "poses": [
+      [
+        1.1313708498984762,
+        -1.131370849898476,
+        2.356194490192345
+      ],
+      [
+        1.4256104387013888,
+        -0.726384799583275,
+        2.670353755551324
+      ],
+      [
+        1.5803013449522205,
+        -0.2502951440643694,
+        2.9845130209103035
+      ],
+      [
+        1.5803013449522205,
+        0.2502951440643694,
+        -2.9845130209103035
+      ],
+      [
+        1.4256104387013888,
+        0.726384799583275,
+        -2.670353755551324
+      ],
+      [
+        1.1313708498984762,
+        1.131370849898476,
+        -2.356194490192345
+      ]
+    ],
+    "X0_flat": [
+      1.1313708498984762,
+      -1.131370849898476,
+      2.356194490192345,
+      1.4256104387013888,
+      -0.726384799583275,
+      2.670353755551324,
+      1.5803013449522205,
+      -0.2502951440643694,
+      2.9845130209103035,
+      1.5803013449522205,
+      0.2502951440643694,
+      -2.9845130209103035,
+      1.4256104387013888,
+      0.726384799583275,
+      -2.670353755551324,
+      1.1313708498984762,
+      1.131370849898476,
+      -2.356194490192345
+    ],
+    "grid_h_cell": 0.0625,
+    "chi0_stats": {
+      "min": 8.972631644760144e-15,
+      "max": 0.4594929148736014,
+      "mean": 0.030661237224785164,
+      "l2": 1.2542541242210927
+    }
+  },
+  "derivation": {
+    "objective": "K(X) = A(X)^T P(X) A(X), P = I - B (B^T B + alpha I)^-1 B^T, alpha = 1.0 > 0. Output norms Frobenius unless stated; pose perturbations measured with the Euclidean 2-norm on R^18.",
+    "step1_mu_exact": "C = B^T B + alpha I has eigenvalues s_i(B)^2 + alpha, so sigma_min(C) = sigma_min(B)^2 + alpha and mu := ||C^-1||_2 = 1/(sigma_min(B)^2 + alpha) EXACTLY (not the loose general alpha>=0 bound 1/sigma_min(B)^2 used by family 5b).",
+    "step2_directional_derivative": "D_d K = A^T dP A + dA^T P A + A^T P dA, hence ||D_d K||_F <= 2||A||_F ||dA||_F + ||A||_F^2 ||dP||_2 with ||P||_2 <= 1.",
+    "step3_dP_expansion": "dP = -dB C^-1 B^T - B C^-1 dB^T + B C^-1 (dB^T B + B^T dB) C^-1 B^T.",
+    "step4_dP_bound": "With tau = ||B||_2, ||dP||_2 <= 2||dB||_2 (tau*mu + tau^3*mu^2).",
+    "step5_structural_constant": "L_struct_tight = 2||A||_F JA_op + 2||A||_F^2 JB_op (tau*mu + tau^3*mu^2), with JA_op = sigma_max(J_A) and JB_op = sigma_max(J_B).",
+    "affine_certificate": "On the affine model A_aff(d) = A0 + J_A d, B_aff(d) = B0 + J_B d with ||d|| <= eps: A_max = ||A0||_F + JA_op eps; tau_max = tau + JB_op eps; sigma_min(B_aff) >= max(0, sigma_min(B0) - JB_op eps); mu_aff = 1/(max(0, sigma_min(B0) - JB_op eps)^2 + alpha); L_cert_affine(eps) = 2 A_max JA_op + 2 A_max^2 JB_op (tau_max mu_aff + tau_max^3 mu_aff^2). alpha > 0 keeps C_aff = B_aff^T B_aff + alpha I invertible for every d and eps, so the certificate is valid for all eps (no sigma_min_aff > 0 cutoff). The sampled checks evaluate d = eps*u and verify the quotient <= L_cert_affine(eps) on the actual radius-eps ball.",
+    "full_model_validation": "The exact nonlinear K(X0 + eps d) is sampled at 500 unit directions for eps in {1e-3, 3e-3, 1e-2}; observed quotients are compared with L_struct_tight at X0 and with a sampled ingredient envelope at X0 plus 5 boundary points X0 + 1e-2 u."
+  },
+  "jacobians": {
+    "J_A_shape": [
+      1152,
+      18
+    ],
+    "J_B_shape": [
+      864,
+      18
+    ],
+    "fd_h1": 0.0001,
+    "fd_h2": 0.0002
+  },
+  "fd_validation": {
+    "h1": 0.0001,
+    "h2": 0.0002,
+    "global_relative_diff_fro": {
+      "J_A": 5.990607185366029e-07,
+      "J_B": 5.374391772184613e-07
+    },
+    "per_column_relative_diff": {
+      "J_A": [
+        4.296055213206521e-07,
+        4.397534004274743e-07,
+        5.748652298374729e-09,
+        6.4044899485996e-07,
+        2.5070352824060964e-07,
+        5.770801122025472e-09,
+        7.671830579170451e-07,
+        1.5191474706218824e-07,
+        5.771151824720937e-09,
+        7.564360698927242e-07,
+        1.4906063485232323e-07,
+        5.7867245609087585e-09,
+        6.256524718312707e-07,
+        2.644149879682318e-07,
+        5.791260534295798e-09,
+        4.376251647748354e-07,
+        4.455075543646272e-07,
+        5.763622955032736e-09
+      ],
+      "J_B": [
+        3.8063002015053073e-07,
+        4.543944644035116e-07,
+        5.695181405678373e-09,
+        5.311886476116834e-07,
+        3.2888956050782904e-07,
+        6.04241701667406e-09,
+        7.072496787084434e-07,
+        1.419460918433013e-07,
+        6.133329403392217e-09,
+        7.613361322708305e-07,
+        1.365038452862623e-07,
+        5.730333188028181e-09,
+        6.297076801577659e-07,
+        2.06186584732218e-07,
+        5.716424451467657e-09,
+        4.0255885333498797e-07,
+        4.1167425171335563e-07,
+        5.695138389112735e-09
+      ]
+    },
+    "per_column_norm_h1": {
+      "J_A": [
+        0.12064323214166521,
+        0.12229234543513802,
+        0.0036407575491936616,
+        0.15086215010638246,
+        0.0787411839066523,
+        0.0036065186572440933,
+        0.16580398912724806,
+        0.0317401160644364,
+        0.0035777333762132186,
+        0.16014845779941908,
+        0.037975773987839245,
+        0.003488971130373798,
+        0.1418437581098898,
+        0.07915166031884416,
+        0.0034433847091073027,
+        0.11093625085734539,
+        0.11279458597708093,
+        0.003353745386754461
+      ],
+      "J_B": [
+        0.7914006836826881,
+        0.8600890323190584,
+        0.024840795149334363,
+        0.5195646143566657,
+        0.38163335848458474,
+        0.013722969832085343,
+        0.46401245942894237,
+        0.19560400492097563,
+        0.010722721996075138,
+        1.0086652495193633,
+        0.14694287572591938,
+        0.021663689352629002,
+        1.1378024097407984,
+        0.5655026764145707,
+        0.027003400304578762,
+        0.9064911842178878,
+        0.9228618921326769,
+        0.027492820574277172
+      ]
+    },
+    "per_column_relative_diff_max": {
+      "J_A": 7.671830579170451e-07,
+      "J_B": 7.613361322708305e-07
+    },
+    "per_column_relative_diff_min": {
+      "J_A": 5.748652298374729e-09,
+      "J_B": 5.695138389112735e-09
+    },
+    "o2_checks": {
+      "J_A": [
+        {
+          "column": 0,
+          "column_norm_h1": 0.12064323214166521,
+          "h_steps": [
+            0.0001,
+            0.0002,
+            0.0004,
+            0.0008
+          ],
+          "consecutive_relative_diff_dh": [
+            4.296055213206522e-07,
+            1.718421760064519e-06,
+            6.873678481381677e-06
+          ],
+          "consecutive_ratios": [
+            3.9999992429843805,
+            3.999995019338909
+          ],
+          "mean_ratio": 3.9999971311616447,
+          "mean_log2_slope": 1.999998965284912
+        },
+        {
+          "column": 8,
+          "column_norm_h1": 0.0035777333762132186,
+          "h_steps": [
+            0.0001,
+            0.0002,
+            0.0004,
+            0.0008
+          ],
+          "consecutive_relative_diff_dh": [
+            5.771151824720937e-09,
+            2.3075463074852697e-08,
+            9.23053568392447e-08
+          ],
+          "consecutive_ratios": [
+            3.9984155287698586,
+            4.0001518730013155
+          ],
+          "mean_ratio": 3.999283700885587,
+          "mean_log2_slope": 1.999741626570188
+        },
+        {
+          "column": 17,
+          "column_norm_h1": 0.003353745386754461,
+          "h_steps": [
+            0.0001,
+            0.0002,
+            0.0004,
+            0.0008
+          ],
+          "consecutive_relative_diff_dh": [
+            5.763622955032736e-09,
+            2.3116283026972392e-08,
+            9.246198045489487e-08
+          ],
+          "consecutive_ratios": [
+            4.010720896790706,
+            3.9998636609098868
+          ],
+          "mean_ratio": 4.0052922788502965,
+          "mean_log2_slope": 2.001907524497215
+        }
+      ],
+      "J_B": [
+        {
+          "column": 0,
+          "column_norm_h1": 0.7914006836826881,
+          "h_steps": [
+            0.0001,
+            0.0002,
+            0.0004,
+            0.0008
+          ],
+          "consecutive_relative_diff_dh": [
+            3.806300201505306e-07,
+            1.522520822714052e-06,
+            6.090076549930961e-06
+          ],
+          "consecutive_ratios": [
+            4.000001949693639,
+            3.9999955725234453
+          ],
+          "mean_ratio": 3.999998761108542,
+          "mean_log2_slope": 1.9999995531642902
+        },
+        {
+          "column": 8,
+          "column_norm_h1": 0.010722721996075138,
+          "h_steps": [
+            0.0001,
+            0.0002,
+            0.0004,
+            0.0008
+          ],
+          "consecutive_relative_diff_dh": [
+            6.133329403392217e-09,
+            2.4594539075457104e-08,
+            9.835532286062403e-08
+          ],
+          "consecutive_ratios": [
+            4.009981766486303,
+            3.9990716052399136
+          ],
+          "mean_ratio": 4.004526685863108,
+          "mean_log2_slope": 2.001631733692408
+        },
+        {
+          "column": 17,
+          "column_norm_h1": 0.027492820574277172,
+          "h_steps": [
+            0.0001,
+            0.0002,
+            0.0004,
+            0.0008
+          ],
+          "consecutive_relative_diff_dh": [
+            5.695138389112735e-09,
+            2.2831217910134626e-08,
+            9.13331654986815e-08
+          ],
+          "consecutive_ratios": [
+            4.0088960706873324,
+            4.000363268318652
+          ],
+          "mean_ratio": 4.004629669502992,
+          "mean_log2_slope": 2.001668834725268
+        }
+      ]
+    }
+  },
+  "constants": {
+    "A0_shape": [
+      48,
+      24
+    ],
+    "B0_shape": [
+      48,
+      18
+    ],
+    "alpha": 1.0,
+    "A_fro": 0.03217208716024821,
+    "B_fro": 0.20062940382221806,
+    "tau_spec": 0.10299317509626872,
+    "sigma_min_B": 0.0006748865400722514,
+    "JA_op_sigma_max": 0.17042257801915908,
+    "JB_op_sigma_max": 1.2915585751283485,
+    "JA_fro": 0.40687381635531616,
+    "JB_fro": 2.522873071259907,
+    "mu_Cinv2": 0.9999995445283655,
+    "dP_inner_tight": 0.10408563698876633,
+    "term_A": 0.010965700068213175,
+    "term_B": 0.0002782872956915148,
+    "L_struct_point_tight": 0.01124398736390469,
+    "P_spectral_norm": 1.0000000000000007,
+    "lambda_min_K0": 1.1886973472246245e-15,
+    "lambda_min_C0": 1.000000455471842,
+    "Cinv2_loose": 2195525.40432201,
+    "tau_mu": 0.10299312818579892,
+    "tau3_mu2": 0.0010925088029674135,
+    "B0_singular_values": [
+      0.10299317509626872,
+      0.10118560028059223,
+      0.09337877852872498,
+      0.0811375869026324,
+      0.049224660266039916,
+      0.03844541237712437,
+      0.009479526517710302,
+      0.006973846725139614,
+      0.0050511913416547176,
+      0.003712399323783234,
+      0.002731015176700984,
+      0.0026725714183624258,
+      0.0018430050205225131,
+      0.001660393730766305,
+      0.0011123112028480547,
+      0.0010586462970037496,
+      0.0008100356977293236,
+      0.0006748865400722514
+    ],
+    "sigma_min_A0": 3.447753222858961e-08
+  },
+  "L_struct_point": 0.01124398736390469,
+  "L_struct_loose_vs_tight": {
+    "recorded_source": "results/family5b_lipschitz_bound.json",
+    "recorded_loose_L_struct": 14080675.756682381,
+    "recomputed_loose_L_struct": 14080675.756682381,
+    "loose_formula": "family-5b general-alpha>=0 formula using ||C^-1|| <= 1/sigma^2; recorded for the tightness ratio only",
+    "tight_L_struct": 0.01124398736390469,
+    "tightness_ratio_recorded": 1252284914.681067,
+    "tightness_ratio_recomputed": 1252284914.681067
+  },
+  "affine_certificate": {
+    "n_unit_samples": 2000,
+    "seed": 7171,
+    "eps_list": [
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.1
+    ],
+    "rows": [
+      {
+        "eps": 0.001,
+        "A_max": 0.03234250973826737,
+        "tau_max": 0.10428473367139707,
+        "sigma_min_B_lb": -0.0006166720350560971,
+        "sigma_min_aff_lb_clamped": 0.0,
+        "mu_aff": 1.0,
+        "certificate_valid": true,
+        "L_cert_affine": 0.01130863360568646,
+        "worst_fro_ratio": 0.0003528163077371122,
+        "mean_fro_ratio": 0.00018791158422665802,
+        "worst_lambda_min_ratio": 3.698004846013962e-15,
+        "mean_lambda_min_ratio": 9.534264656813256e-16,
+        "ok_fro": true,
+        "ok_lambda_min": true,
+        "slack_fro": 0.010955817297949347,
+        "relative_slack_fro": 32.0524685443754,
+        "slack_lambda_min": 0.011308633605682761,
+        "relative_slack_lambda_min": 3058036448458.392
+      },
+      {
+        "eps": 0.003,
+        "A_max": 0.03268335489430569,
+        "tau_max": 0.10686785082165377,
+        "sigma_min_B_lb": -0.0031997891853127944,
+        "sigma_min_aff_lb_clamped": 0.0,
+        "mu_aff": 1.0,
+        "certificate_valid": true,
+        "L_cert_affine": 0.01143821034163484,
+        "worst_fro_ratio": 0.00035412882560336773,
+        "mean_fro_ratio": 0.0001886705059331275,
+        "worst_lambda_min_ratio": 3.7134913706220035e-15,
+        "mean_lambda_min_ratio": 9.542757388721935e-16,
+        "ok_fro": true,
+        "ok_lambda_min": true,
+        "slack_fro": 0.011084081516031472,
+        "relative_slack_fro": 32.29957437705422,
+        "slack_lambda_min": 0.011438210341631125,
+        "relative_slack_lambda_min": 3080176900941.3257
+      },
+      {
+        "eps": 0.01,
+        "A_max": 0.0338763129404398,
+        "tau_max": 0.11590876084755221,
+        "sigma_min_B_lb": -0.012240699211211233,
+        "sigma_min_aff_lb_clamped": 0.0,
+        "mu_aff": 1.0,
+        "certificate_valid": true,
+        "L_cert_affine": 0.011894792966847405,
+        "worst_fro_ratio": 0.00037440083837640155,
+        "mean_fro_ratio": 0.00019520956440884356,
+        "worst_lambda_min_ratio": 3.7984634805968056e-15,
+        "mean_lambda_min_ratio": 9.591094178659808e-16,
+        "ok_fro": true,
+        "ok_lambda_min": true,
+        "slack_fro": 0.011520392128471004,
+        "relative_slack_fro": 31.770209218626402,
+        "slack_lambda_min": 0.011894792966843606,
+        "relative_slack_lambda_min": 3131474878620.7954
+      },
+      {
+        "eps": 0.03,
+        "A_max": 0.037284764500822985,
+        "tau_max": 0.14173993235011917,
+        "sigma_min_B_lb": -0.038071870713778204,
+        "sigma_min_aff_lb_clamped": 0.0,
+        "mu_aff": 1.0,
+        "certificate_valid": true,
+        "L_cert_affine": 0.013227534993873857,
+        "worst_fro_ratio": 0.0005887917342444405,
+        "mean_fro_ratio": 0.00024131238532215082,
+        "worst_lambda_min_ratio": 4.171805550009499e-15,
+        "mean_lambda_min_ratio": 9.968146296862115e-16,
+        "ok_fro": true,
+        "ok_lambda_min": true,
+        "slack_fro": 0.012638743259629416,
+        "relative_slack_fro": 22.46555823486198,
+        "slack_lambda_min": 0.013227534993869685,
+        "relative_slack_lambda_min": 3170697875370.471
+      },
+      {
+        "eps": 0.1,
+        "A_max": 0.04921434496216412,
+        "tau_max": 0.23214903260910358,
+        "sigma_min_B_lb": -0.1284809709727626,
+        "sigma_min_aff_lb_clamped": 0.0,
+        "mu_aff": 1.0,
+        "certificate_valid": true,
+        "L_cert_affine": 0.018305174289675444,
+        "worst_fro_ratio": 0.001431485780935174,
+        "mean_fro_ratio": 0.000523813724168962,
+        "worst_lambda_min_ratio": 5.5048193352361095e-15,
+        "mean_lambda_min_ratio": 1.3208798186076632e-15,
+        "ok_fro": true,
+        "ok_lambda_min": true,
+        "slack_fro": 0.01687368850874027,
+        "relative_slack_fro": 12.78753483511158,
+        "slack_lambda_min": 0.018305174289669938,
+        "relative_slack_lambda_min": 3325299737360.1016
+      }
+    ],
+    "eps_for_sigma_min_lb_zero": 0.0005225365330451115,
+    "sample_note": "d = eps*u with unit u; K_aff(d) = K_ab(A0 + J_A d, B0 + J_B d)",
+    "all_rows_ok_fro": true,
+    "all_rows_ok_lambda_min": true
+  },
+  "full_model_validation": {
+    "n_unit_samples": 500,
+    "seed": 9191,
+    "rows": [
+      {
+        "eps": 0.001,
+        "worst_fro_ratio": 0.0003225994510881453,
+        "mean_fro_ratio": 0.00018782631859382384,
+        "worst_lambda_min_drop_ratio": 3.6085728038478565e-15,
+        "mean_lambda_min_drop_ratio": 9.665940047127894e-16,
+        "le_L_struct_point_tight_fro": true,
+        "le_L_struct_point_tight_lambda_min": true,
+        "le_L_struct_env_sample_fro": true,
+        "le_L_struct_env_sample_lambda_min": true,
+        "violation_magnitude_fro": 0.0,
+        "violation_magnitude_lambda_min": 0.0
+      },
+      {
+        "eps": 0.003,
+        "worst_fro_ratio": 0.00032265281457233167,
+        "mean_fro_ratio": 0.00018783431534245292,
+        "worst_lambda_min_drop_ratio": 3.5949253888574386e-15,
+        "mean_lambda_min_drop_ratio": 9.668906179486016e-16,
+        "le_L_struct_point_tight_fro": true,
+        "le_L_struct_point_tight_lambda_min": true,
+        "le_L_struct_env_sample_fro": true,
+        "le_L_struct_env_sample_lambda_min": true,
+        "violation_magnitude_fro": 0.0,
+        "violation_magnitude_lambda_min": 0.0
+      },
+      {
+        "eps": 0.01,
+        "worst_fro_ratio": 0.00032283419225555743,
+        "mean_fro_ratio": 0.00018786140152917397,
+        "worst_lambda_min_drop_ratio": 3.5609659360835966e-15,
+        "mean_lambda_min_drop_ratio": 9.66968339578483e-16,
+        "le_L_struct_point_tight_fro": true,
+        "le_L_struct_point_tight_lambda_min": true,
+        "le_L_struct_env_sample_fro": true,
+        "le_L_struct_env_sample_lambda_min": true,
+        "violation_magnitude_fro": 0.0,
+        "violation_magnitude_lambda_min": 0.0
+      }
+    ],
+    "overall_worst_fro_ratio": 0.00032283419225555743,
+    "overall_worst_lambda_min_drop_ratio": 3.6085728038478565e-15,
+    "all_le_L_struct_point_tight_fro": true,
+    "all_le_L_struct_point_tight_lambda_min": true,
+    "all_le_L_struct_env_sample_fro": true,
+    "all_le_L_struct_env_sample_lambda_min": true
+  },
+  "boundary_envelope": {
+    "eps0": 0.01,
+    "fd_h": 0.0001,
+    "seed": 5353,
+    "points": [
+      {
+        "point": 0,
+        "label": "X0",
+        "eps0": 0.0,
+        "direction": null,
+        "A_fro": 0.03217208716024821,
+        "tau_spec_B": 0.10299317509626872,
+        "sigma_min_B": 0.0006748865400722514,
+        "JA_op": 0.17042257801915908,
+        "JB_op": 1.2915585751283485,
+        "L_struct_point_tight": 0.01124398736390469
+      },
+      {
+        "point": 1,
+        "label": "X0+1e-02*u1",
+        "eps0": 0.01,
+        "direction": [
+          -0.19807777213875233,
+          -0.32562260028539697,
+          -0.04327084371939578,
+          0.13064590026564118,
+          0.07997122615783864,
+          -0.27607851131838107,
+          0.010821045830273041,
+          0.15717600877928062,
+          -0.008241298485424629,
+          -0.17419436828510082,
+          0.1870164104380902,
+          0.25151085356385694,
+          -0.20446392218672957,
+          0.17743719820409182,
+          0.22391437069373357,
+          0.4795122355026351,
+          0.38716147016017144,
+          0.31058128511934
+        ],
+        "A_fro": 0.03215636077499358,
+        "tau_spec_B": 0.1025798342252016,
+        "sigma_min_B": 0.0006682224765630492,
+        "JA_op": 0.17034273036979208,
+        "JB_op": 1.2863983816726894,
+        "L_struct_point_tight": 0.011230974639710657
+      },
+      {
+        "point": 2,
+        "label": "X0+1e-02*u2",
+        "eps0": 0.01,
+        "direction": [
+          0.021215127018338685,
+          -0.5169087647078163,
+          -0.3488818466797961,
+          -0.0786242413177042,
+          0.06238117845800261,
+          -0.15329279753703015,
+          0.09547926109566124,
+          0.0864532203680275,
+          -0.08606324414066555,
+          0.251159642034384,
+          -0.4676558305452071,
+          0.32398382239635404,
+          0.2183519441819045,
+          0.24631284794137803,
+          0.1460601994811234,
+          -0.16296099824296517,
+          0.04298375652106165,
+          -0.09074022120104752
+        ],
+        "A_fro": 0.03214647031925614,
+        "tau_spec_B": 0.10303518830902003,
+        "sigma_min_B": 0.0006807075212975567,
+        "JA_op": 0.1700189437942625,
+        "JB_op": 1.2920784920050536,
+        "L_struct_point_tight": 0.01120908977376165
+      },
+      {
+        "point": 3,
+        "label": "X0+1e-02*u3",
+        "eps0": 0.01,
+        "direction": [
+          0.01839350427132472,
+          0.14275012096438758,
+          0.049202760937838944,
+          0.1587962556451984,
+          0.37944007845412037,
+          -0.3338953890678275,
+          -0.019864560143411165,
+          -0.2926263963752159,
+          -0.22609415256568943,
+          0.04126534428249691,
+          -0.4202994248050255,
+          0.16973479035114106,
+          0.31488478452203633,
+          0.031334440274896944,
+          -0.06986037528514279,
+          0.3661794281685855,
+          0.324870574879186,
+          0.0850605439614824
+        ],
+        "A_fro": 0.03215470311962353,
+        "tau_spec_B": 0.10266078383976578,
+        "sigma_min_B": 0.0006703771351184195,
+        "JA_op": 0.17051412302925376,
+        "JB_op": 1.287408238441831,
+        "L_struct_point_tight": 0.011241842402958013
+      },
+      {
+        "point": 4,
+        "label": "X0+1e-02*u4",
+        "eps0": 0.01,
+        "direction": [
+          0.009023257972333327,
+          -0.08338862347911603,
+          0.38751711961556906,
+          -0.10084944228246234,
+          -0.011231926723427132,
+          0.33376241688761066,
+          -0.43036348336927754,
+          -0.1342502716949239,
+          -0.30362420205537444,
+          -0.422782950741028,
+          -0.18149928498926132,
+          -0.0683594984456276,
+          0.28936272139383934,
+          0.018025781880121657,
+          0.19506946323968619,
+          -0.14488610798788254,
+          0.18546867680699458,
+          -0.17837854614621454
+        ],
+        "A_fro": 0.03219378223005095,
+        "tau_spec_B": 0.10294688779818523,
+        "sigma_min_B": 0.0006830333110681157,
+        "JA_op": 0.17035274827501926,
+        "JB_op": 1.2909728311806705,
+        "L_struct_point_tight": 0.01124700711815049
+      },
+      {
+        "point": 5,
+        "label": "X0+1e-02*u5",
+        "eps0": 0.01,
+        "direction": [
+          0.412783505972312,
+          -0.1258142024445402,
+          0.10037302564947721,
+          -0.29095098121313456,
+          0.5639741388473545,
+          -0.023714967773122788,
+          0.21335529883320328,
+          0.15040399972128368,
+          -0.17362241214657262,
+          -0.20486539020394307,
+          -0.10175936551403941,
+          0.170230692421673,
+          0.029427628185248945,
+          -0.2867396873896856,
+          0.024890154457399786,
+          0.17237371260469592,
+          0.3230558956842301,
+          0.05523840234437899
+        ],
+        "A_fro": 0.032169727581077105,
+        "tau_spec_B": 0.10274034721906321,
+        "sigma_min_B": 0.0006761836532101882,
+        "JA_op": 0.16998745912843635,
+        "JB_op": 1.2883975297342223,
+        "L_struct_point_tight": 0.011213770362803863
+      }
+    ],
+    "L_struct_boundary_max": 0.01124700711815049,
+    "L_struct_env_sample": 0.01124700711815049,
+    "note": "tight alpha-aware L_struct at X0 plus 5 seeded boundary points; sampled envelope, not a uniform interval certificate"
+  },
+  "certification_status": {
+    "affine_tangent": "RIGOROUS certificate FOR THE AFFINE MODEL ONLY, conditional on the numerically computed FD Jacobians J_A, J_B being machine-accurate (supported by the O(h^2) h-convergence checks); holds for every eps in {1e-3,3e-3,1e-2,3e-2,1e-1} because alpha > 0 keeps C_aff invertible",
+    "full_nonlinear": "DERIVED structural bound with sampled ingredient envelope; NOT a formal interval certificate; every violation/slack is reported exactly",
+    "global_certification": "No claim of global certification of the nonlinear Helmholtz/smooth model is made",
+    "fd_Jacobians": "finite-difference estimates with recorded h1/h2 and O(h^2) convergence checks, not machine-precision exactness proofs"
+  },
+  "scope_note": "Finite-dimensional whitened/realified dense linear algebra on the validated Family-1 Jacobians with the shared smooth p=24 basis and alpha=1.0; alpha-aware structural Lipschitz statements are pointwise/sampled as described and are scenario-specific",
+  "figure_sha256": {
+    "family5b2_alpha_tight.png": "e08f2bbbb0521de3fe7e9233c78c199d3bea30c804ad0a737d57777819b5bac4"
+  },
+  "prior_artifacts_sha256": {
+    "results/family5b_lipschitz_bound.json": "7bdea64395dc9614377b21c8d1a84067aa330384177563e9ffef92d2d5c3a223"
+  },
+  "artifacts": {
+    "results_json": "results/family5b2_alpha_tight.json",
+    "figure": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry/figures/family5b2_alpha_tight.png",
+    "report": "notes/family5b2_alpha_tight.md"
+  }
+}

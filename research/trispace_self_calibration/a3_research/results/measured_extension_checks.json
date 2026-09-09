@@ -1,0 +1,6 @@
+{
+  "graf_addition_relative_error": 7.18271481975529e-15,
+  "cylinder_order_relative_error": 0.0,
+  "time_convention": "conjugated complete H1 model for exp(+i omega t)",
+  "passed": true
+}

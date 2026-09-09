@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "graph": "tree",
+      "jacobian_relative_error": 4.544987314070599e-11,
+      "constructive_residual": 9.76000944901355e-17
+    },
+    {
+      "graph": "three_cycles",
+      "jacobian_relative_error": 4.7804717441399396e-11,
+      "constructive_residual": 1.934805985474588
+    }
+  ]
+}

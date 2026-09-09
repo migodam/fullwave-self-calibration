@@ -1,0 +1,1134 @@
+{
+  "generated": "2026-09-05T19:31:09+08:00",
+  "scope": "written quantitative audit of already-executed A2 E1/E2/E3/E5 and optional physical tangent artifacts; no new experiments",
+  "experiments": {
+    "e1": {
+      "summary_verdict": {
+        "all_control_contraction_pass": true,
+        "all_control_score_expectation_ok": true,
+        "all_control_identity_within_4se": true,
+        "mismatch_control_violates_ordering_by_design": true
+      },
+      "summary_rows": [
+        {
+          "model": "phase_only",
+          "j_coh_analytic": "2.0",
+          "j_ph_analytic": "0.0",
+          "j_coh_emp_mean": "1.9751580345944728",
+          "j_ph_emp_mean": "0.0",
+          "max_bin_weighted_rmse": "0.22568722152362944",
+          "contraction_pass": true,
+          "j_mismatch_analytic": null,
+          "note": "strict contraction: J_ph=0 < J_coh=2"
+        },
+        {
+          "model": "nuisance_phase",
+          "j_coh_analytic": "0.0",
+          "j_ph_analytic": "0.0",
+          "j_coh_emp_mean": "0.0",
+          "j_ph_emp_mean": "0.0",
+          "max_bin_weighted_rmse": "0.21798737317920072",
+          "contraction_pass": true,
+          "j_mismatch_analytic": null,
+          "note": "efficient coherent and phaseless target information both zero"
+        },
+        {
+          "model": "scale_family",
+          "j_coh_analytic": "1.0",
+          "j_ph_analytic": "1.0",
+          "j_coh_emp_mean": "1.000320457787452",
+          "j_ph_emp_mean": "1.0003204577218316",
+          "max_bin_weighted_rmse": "4.831083005062539e-11",
+          "contraction_pass": true,
+          "j_mismatch_analytic": null,
+          "note": "positive equality control: intensity sufficient for scale score"
+        },
+        {
+          "model": "total_field_ref",
+          "j_coh_analytic": "2.0",
+          "j_ph_analytic": "0.5257812757214155",
+          "j_coh_emp_mean": "2.002705024610388",
+          "j_ph_emp_mean": "0.528490995208373",
+          "max_bin_weighted_rmse": "0.2032362079872521",
+          "contraction_pass": true,
+          "j_mismatch_analytic": null,
+          "note": "strict contraction with known reference (0 < J_ph < J_coh)"
+        },
+        {
+          "model": "mismatch_intensity_noise",
+          "j_coh_analytic": "2.0",
+          "j_ph_analytic": null,
+          "j_coh_emp_mean": null,
+          "j_ph_emp_mean": null,
+          "max_bin_weighted_rmse": null,
+          "contraction_pass": false,
+          "j_mismatch_analytic": "1959.9999999999998",
+          "note": "deliberate mismatch control, NOT covered by the contraction theorem"
+        }
+      ]
+    },
+    "e2": {
+      "verdict": {
+        "all_exact_t5a": true,
+        "all_exact_t5b": true,
+        "nonmonotone_rho_pass": true,
+        "rank_uncertainty_discontinuity": true,
+        "neutral_real_safe": true,
+        "neutral_complex_pass": true,
+        "utility_projection_pass": true,
+        "random_tangents_all_t5b": true,
+        "random_tangents_max_scaled_below_100": true
+      },
+      "summary_rows": [
+        {
+          "case": "equality_case",
+          "category": "exact_control",
+          "key_values": "loss_res=0.000e+00, drop=0, dimE=1",
+          "pass": true,
+          "note": "T5a loss identity and T5b rank-drop identity"
+        },
+        {
+          "case": "strict_loss_case",
+          "category": "exact_control",
+          "key_values": "loss_res=0.000e+00, drop=1, dimE=1",
+          "pass": true,
+          "note": "T5a loss identity and T5b rank-drop identity"
+        },
+        {
+          "case": "complete_hiding_case",
+          "category": "exact_control",
+          "key_values": "loss_res=0.000e+00, drop=2, dimE=2",
+          "pass": true,
+          "note": "T5a loss identity and T5b rank-drop identity"
+        },
+        {
+          "case": "loss_without_rank_drop",
+          "category": "exact_control",
+          "key_values": "loss_res=0.000e+00, drop=0, dimE=1",
+          "pass": true,
+          "note": "T5a loss identity and T5b rank-drop identity"
+        },
+        {
+          "case": "nonmonotone_rho",
+          "category": "exact_control",
+          "key_values": "rho=['0.75', '1', '1.554e-15']",
+          "pass": true,
+          "note": "canonical falsification of monotone map retention (3/4, 1, 0)"
+        },
+        {
+          "case": "rank_uncertainty",
+          "category": "exact_control",
+          "key_values": "J(0)=1.0, max|J(t>0)|=0.000e+00",
+          "pass": true,
+          "note": "no oracle exact-rank certificate; absolute singular values recorded"
+        },
+        {
+          "case": "saturation_control",
+          "category": "exact_control",
+          "key_values": "j_fro=7.045e-16, scaled=9.711e-02, max_sv_Bv=5.831e-16",
+          "pass": true,
+          "note": "J_x zero up to backward error; full-current rank saturates nuisance"
+        },
+        {
+          "case": "rank_threshold_control",
+          "category": "exact_control",
+          "key_values": "rank_abs=2, rank_rel=2, sv=['1', '1e-08', '1e-14', '0']",
+          "pass": true,
+          "note": "small-ratio trap: 1e-14/1 is roundoff and is never physical rank"
+        },
+        {
+          "case": "projector_gap_closure",
+          "category": "exact_control",
+          "key_values": "projector ranks all 1, ||P(0.05)-P(-0.05)||_F=1.414214",
+          "pass": true,
+          "note": "gap closure at t=0 is a projector discontinuity, not an H rank change"
+        },
+        {
+          "case": "real_safe_space",
+          "category": "neutral_admission",
+          "key_values": "dim_kerF=1, rankF=3, safe_loss=2.063e-15, max diff eig=1.3875",
+          "pass": true,
+          "note": "d-rank(F)=1 >= d-p=1; safe kernel leaves J_x unchanged"
+        },
+        {
+          "case": "complex_safe_space",
+          "category": "neutral_admission",
+          "key_values": "real_dim_S=2, complex_dim_S=1, Jc_resid=6.346e-15",
+          "pass": true,
+          "note": "S=ker F cap ker(F Jc) is J_c-invariant and lossless"
+        },
+        {
+          "case": "utility_projection",
+          "category": "neutral_admission",
+          "key_values": "trace_opt=10.699615, max_rand=10.699613, r=1",
+          "pass": true,
+          "note": "leading eigenvectors of P_S T P_S maximize utility inside S"
+        },
+        {
+          "case": "random_tangents_T5a_T5b",
+          "category": "fixed_random_tangents",
+          "key_values": "max_scaled_resid=0.273394, max_loss_resid=4.091e-15, t5b_matches=36/36",
+          "pass": true,
+          "note": "machine-precision T5a residual on 36 seed/pair checks"
+        }
+      ]
+    },
+    "e3": {
+      "verdict": {
+        "exact_small_dual_spectra": true,
+        "random_nuisance_theorem3": true,
+        "rho_undefined_control": true,
+        "scaling_control": true,
+        "b_zero_control": true,
+        "pose_prior_extension": true,
+        "theorem7_mc": true,
+        "adaptive_rank_caveat_demonstrated": true,
+        "confounding_sweep": true
+      },
+      "summary_rows": [
+        {
+          "case": "exact_small_pi/4",
+          "category": "dual_spectra",
+          "key_values": "map=['0.5', '1'], pose=['0.5', '1'], res=2.2e-16",
+          "pass": true,
+          "note": "Theorem 3 spectra and multiplicities at known principal angles"
+        },
+        {
+          "case": "exact_small_pi/2",
+          "category": "dual_spectra",
+          "key_values": "map=['1', '1'], pose=['1', '1'], res=0",
+          "pass": true,
+          "note": "Theorem 3 spectra and multiplicities at known principal angles"
+        },
+        {
+          "case": "random_nuisance",
+          "category": "dual_spectra",
+          "key_values": "max_res=8.9e-16, raw_Ke=['0.091', '0.2464', '0.4989', '1.158'], norm_map=['0.2281', '0.3564', '0.7146', '1']",
+          "pass": true,
+          "note": "Theorem 3 spectral identity on random nuisance fixture"
+        },
+        {
+          "case": "rho_undefined_control",
+          "category": "dual_spectra",
+          "key_values": "supp_map=2, supp_pose=1, undef_map=1, undef_pose=1",
+          "pass": true,
+          "note": "null K0/B0 directions excluded, never rho 0 or 1"
+        },
+        {
+          "case": "scaling_control",
+          "category": "dual_spectra",
+          "key_values": "s=0.1 rho_delta=2.8e-16, J_s2=1; s=1.0 rho_delta=0, J_s2=1; s=10.0 rho_delta=6.1e-16, J_s2=1",
+          "pass": true,
+          "note": "canonical rho invariant, J_x scales as s^2"
+        },
+        {
+          "case": "b_zero_control",
+          "category": "dual_spectra",
+          "key_values": "map_retention=[1.0, 1.0], J_x_sv=[0.0, 0.0]",
+          "pass": true,
+          "note": "relative-only gate failure: map retention maximal with zero pose info"
+        },
+        {
+          "case": "pose_prior_Loewner",
+          "category": "pose_prior_extension",
+          "key_values": "min_eig(K_eL-K_e)=1.2e-16, min_eig(K0-K_eL)=7e-18",
+          "pass": true,
+          "note": "K_e <= K_eL <= K0"
+        },
+        {
+          "case": "pose_prior_monotone",
+          "category": "pose_prior_extension",
+          "key_values": "min_eig_K(0.5L)-K_e=-1.1e-16; min_eig_K(1.0L)-K(0.5L)=1.3e-17; min_eig_K(2.0L)-K(1.0L)=2.2e-17; min_eig_K0-K(2.0L)=-5.1e-17",
+          "pass": true,
+          "note": "K_eL monotone nondecreasing in Lambda_x"
+        },
+        {
+          "case": "pose_prior_variational",
+          "category": "pose_prior_extension",
+          "key_values": "max_res=1.3e-15",
+          "pass": true,
+          "note": "v^T K_eL v = min_h (||A_c v - B_c h||^2 + ||Lambda^1/2 h||^2)"
+        },
+        {
+          "case": "pose_prior_augmented_angles",
+          "category": "pose_prior_extension",
+          "key_values": "aug_res=2.2e-16, closed_form_res=4.4e-16",
+          "pass": true,
+          "note": "augmented A/B canonical correlations reproduce whitened K_eL"
+        },
+        {
+          "case": "pose_prior_lambda_zero",
+          "category": "pose_prior_extension",
+          "key_values": "fro_res=6.1e-16",
+          "pass": true,
+          "note": "Lambda_x=0 recovers K_e"
+        },
+        {
+          "case": "theorem7_analytic",
+          "category": "theorem7",
+          "key_values": "var_tr=3.19967, bias2=6.21833, total=9.418",
+          "pass": true,
+          "note": "analytic risk decomposition"
+        },
+        {
+          "case": "theorem7_mc_variance",
+          "category": "theorem7",
+          "key_values": "max_rel=0.041, within_3se=True",
+          "pass": true,
+          "note": "per-seed MC variance trace vs tr(M_x J_x^{-1})"
+        },
+        {
+          "case": "theorem7_mc_bias",
+          "category": "theorem7",
+          "key_values": "max_rel=0.053, within_3se=True",
+          "pass": true,
+          "note": "per-seed MC total risk at worst SVD bias direction"
+        },
+        {
+          "case": "theorem7_cov_check",
+          "category": "theorem7",
+          "key_values": "cov_rel=[0.035, 0.1]",
+          "pass": true,
+          "note": "sample covariance of B_v^+ eps vs J_x^{-1}, Frobenius relative"
+        },
+        {
+          "case": "theorem7_deterministic_bound",
+          "category": "theorem7",
+          "key_values": "sigma_min=0.683067, bound=5.06615, worst_err=2.49366",
+          "pass": true,
+          "note": "worst analytic M_x error <= (delta+beta_r)/sigma_min"
+        },
+        {
+          "case": "adaptive_rank_caveat",
+          "category": "post_selection_caveat",
+          "key_values": "sel_N1=228/500, pool_vs_majority=2.26",
+          "pass": true,
+          "note": "pooled covariance of selected estimator != selected-model inverse info"
+        },
+        {
+          "case": "confounding_eps_0.2",
+          "category": "confounding",
+          "key_values": "full=26, trunc=2, better_trunc=True",
+          "pass": true,
+          "note": "full vs truncated risk"
+        },
+        {
+          "case": "confounding_eps_0.5",
+          "category": "confounding",
+          "key_values": "full=5, trunc=2, better_trunc=True",
+          "pass": true,
+          "note": "full vs truncated risk"
+        },
+        {
+          "case": "confounding_eps_1.0",
+          "category": "confounding",
+          "key_values": "full=2, trunc=2, better_trunc=False",
+          "pass": true,
+          "note": "full vs truncated risk"
+        },
+        {
+          "case": "confounding_eps_2.0",
+          "category": "confounding",
+          "key_values": "full=1.25, trunc=2, better_trunc=False",
+          "pass": true,
+          "note": "full vs truncated risk"
+        },
+        {
+          "case": "confounding_eps_5.0",
+          "category": "confounding",
+          "key_values": "full=1.04, trunc=2, better_trunc=False",
+          "pass": true,
+          "note": "full vs truncated risk"
+        },
+        {
+          "case": "confounding_small_residual_large_bias",
+          "category": "confounding",
+          "key_values": "full=1.000001, trunc=1.000001, trunc_bias=1.0, residual_y2=0.001, resid/pose_err=0.001",
+          "pass": true,
+          "note": "residual-only gate passes while pose is wrong by c*"
+        }
+      ]
+    },
+    "e5": {
+      "verdict": {
+        "minimal_pair": true,
+        "random_innovation": true,
+        "random_innovation_sweep": true,
+        "singular_fallback": true,
+        "compensation_criterion": true,
+        "stack_vs_sum": true,
+        "saturated_new_frame": true,
+        "rank_budget_seeds": true,
+        "rank_budget_crafted_compensate": true,
+        "rank_budget_crafted_noncompensate": true,
+        "rank_budget_neutral_control": true,
+        "nonsubmodularity": true,
+        "acquisition_policies_run": true,
+        "acquisition_policies_greedy_optimal": false,
+        "gauge_null_remains_null": true,
+        "anchor_restores_absolute": true,
+        "source_stabilizer": "not_yet_run"
+      },
+      "summary_rows": [
+        {
+          "case": "minimal_pair_contrast",
+          "category": "shared_map_algebra",
+          "key_values": "J1=0, J2=0, J_stack=2, sum_J=0, J_stack>sum=True",
+          "pass": true,
+          "note": "per-frame pose info zero; shared-map stack has information two"
+        },
+        {
+          "case": "minimal_pair_duplicate",
+          "category": "shared_map_algebra",
+          "key_values": "J_stack_dup=1e-15",
+          "pass": true,
+          "note": "duplicated b2=b1 gives zero stacked information"
+        },
+        {
+          "case": "random_innovation",
+          "category": "shared_map_algebra",
+          "key_values": "fro_res=5.6e-15, max_res=3.3e-15, V_eq_fro=0, ker_dist=0",
+          "pass": true,
+          "note": "Theorem 9 equals direct stack; V=0 no-innovation; ker identity"
+        },
+        {
+          "case": "random_innovation_sweep",
+          "category": "shared_map_algebra",
+          "key_values": "worst_fro=1.8e-14",
+          "pass": true,
+          "note": "20 random fixtures; formula-direct Frobenius residual"
+        },
+        {
+          "case": "singular_fallback",
+          "category": "shared_map_algebra",
+          "key_values": "rank_G=2, G_min_eig=4.5e-16, J_direct_min_eig=8.577, pinv_wrong_diff=1.061",
+          "pass": true,
+          "note": "singular G: naive pinv formula invalid; variational/direct PSD match"
+        },
+        {
+          "case": "compensation_visible",
+          "category": "shared_map_algebra",
+          "key_values": "rank_D=1, J_stack_min_eig=10.39",
+          "pass": true,
+          "note": "distinct compensators: every frame hides its pose, stack sees it"
+        },
+        {
+          "case": "compensation_hidden",
+          "category": "shared_map_algebra",
+          "key_values": "rank_D=0, J_stack_min_eig=-1e-14",
+          "pass": true,
+          "note": "equal compensators: stack stays hidden"
+        },
+        {
+          "case": "stack_vs_sum_random",
+          "category": "shared_map_algebra",
+          "key_values": "min_eig(J_stack-sum)=0.2552",
+          "pass": true,
+          "note": "J_stack >= sum J_l (Loewner) on a random 3-frame model"
+        },
+        {
+          "case": "stack_vs_sum_equality",
+          "category": "shared_map_algebra",
+          "key_values": "gap_fro=4.4e-16, J_stack_min_eig=3.576",
+          "pass": true,
+          "note": "common per-frame optimal map direction gives exact equality (nonzero J)"
+        },
+        {
+          "case": "saturated_new_frame",
+          "category": "shared_map_algebra",
+          "key_values": "a_clean=0, b_clean=0, J_change=6.8e-15",
+          "pass": true,
+          "note": "frame current spanning its data rows yields zero cleaned tangent"
+        },
+        {
+          "case": "rank_budget_overall",
+          "category": "rank_acquisition_budget",
+          "key_values": "worst_identity=2.3e-14",
+          "pass": true,
+          "note": "seeds 401-412, J_final-J_original = I_acq - L_rank exact"
+        },
+        {
+          "case": "rank_budget_loewner_counts",
+          "category": "rank_acquisition_budget",
+          "key_values": "loewner_holds=0/24",
+          "pass": true,
+          "note": "count of seeds/rank pairs satisfying I_acq >= L_rank"
+        },
+        {
+          "case": "rank_budget_C0_C1",
+          "category": "rank_acquisition_budget",
+          "key_values": "worst_identity=1.2e-14, loewner=0/12",
+          "pass": true,
+          "note": "empty -> 2-column current enlargement"
+        },
+        {
+          "case": "rank_budget_C1_C2",
+          "category": "rank_acquisition_budget",
+          "key_values": "worst_identity=2.3e-14, loewner=0/12",
+          "pass": true,
+          "note": "2-column -> 4-column current enlargement"
+        },
+        {
+          "case": "rank_budget_crafted_compensate",
+          "category": "rank_acquisition_budget",
+          "key_values": "J_final-J_orig_min_eig=-2.1e-14, I-L_min_eig=-1.9e-14",
+          "pass": true,
+          "note": "b = aH + W^{-1/2}U_E^T B makes I_acq=L_rank exactly"
+        },
+        {
+          "case": "rank_budget_crafted_noncompensate",
+          "category": "rank_acquisition_budget",
+          "key_values": "I-L_min_eig=-9.785, J_final-J_orig_min_eig=-9.785",
+          "pass": true,
+          "note": "half-strength acquisition: I_acq < L_rank, J_final < J_original"
+        },
+        {
+          "case": "rank_budget_neutral_control",
+          "category": "rank_acquisition_budget",
+          "key_values": "L_max_eig=3.1e-15, I_min_eig=-3.7e-16, delta_min_eig=2.9e-16",
+          "pass": true,
+          "note": "L_rank=0 neutral enlargement: PSD innovation cannot degrade J"
+        },
+        {
+          "case": "nonsubmodular_lambda_0.1",
+          "category": "non_submodularity",
+          "key_values": "g1+g2=-4.60517, g12+g0=-1.56065, gap=3.04452",
+          "pass": true,
+          "note": "g(1)+g(2) < g(1,2)+g(empty) violates submodularity"
+        },
+        {
+          "case": "nonsubmodular_lambda_0.001",
+          "category": "non_submodularity",
+          "key_values": "g1+g2=-13.8155, g12+g0=-6.21411, gap=7.6014",
+          "pass": true,
+          "note": "g(1)+g(2) < g(1,2)+g(empty) violates submodularity"
+        },
+        {
+          "case": "acquisition_policies",
+          "category": "policies",
+          "key_values": "greedy=8.04176, pair=8.04176, exhaustive=8.1263, random_best=8.1263, greedy_gap=0.0845427",
+          "pass": true,
+          "note": "K=3 over 8 candidates on the fixed old model; greedy is not optimal"
+        },
+        {
+          "case": "policy_evaluation_counts",
+          "category": "policies",
+          "key_values": "rank1_greedy=21, pair=62, exhaustive=168, random=36",
+          "pass": true,
+          "note": "matrix evaluations charged as rank-1 Schur updates; no forward/adjoint"
+        },
+        {
+          "case": "neutral_logdet_lambda0",
+          "category": "policies",
+          "key_values": "full_rank=56/56, best0=8.10256, best0.1=8.1263, same_best=True",
+          "pass": true,
+          "note": "Lambda_x=0 pose-Schur logdet on full-rank sets vs regularized value"
+        },
+        {
+          "case": "gauge_null_L2",
+          "category": "gauge_symmetry",
+          "key_values": "min_eig_J=1e-15, null_dim=1",
+          "pass": true,
+          "note": "global rigid gauge (1,-1) survives additional relative frames"
+        },
+        {
+          "case": "gauge_null_L4",
+          "category": "gauge_symmetry",
+          "key_values": "min_eig_J=0, null_dim=1",
+          "pass": true,
+          "note": "global rigid gauge (1,-1) survives additional relative frames"
+        },
+        {
+          "case": "anchor_restores_L2",
+          "category": "gauge_symmetry",
+          "key_values": "min_eig_J=1, null_dim=0",
+          "pass": true,
+          "note": "absolute anchor row (a=0,b=1) removes the gauge"
+        },
+        {
+          "case": "anchor_restores_L4",
+          "category": "gauge_symmetry",
+          "key_values": "min_eig_J=1, null_dim=0",
+          "pass": true,
+          "note": "absolute anchor row (a=0,b=1) removes the gauge"
+        },
+        {
+          "case": "source_stabilizer",
+          "category": "gauge_symmetry",
+          "key_values": "not_yet_run",
+          "pass": null,
+          "note": "True isotropic-vs-directional source-stabilizer behavior requires the physical full-wave core (secondary-stage tangent runner), which is not available in this synthetic tangent-matrix validation package."
+        }
+      ]
+    },
+    "physical_optional": {
+      "verdict": {
+        "phase0": true,
+        "phase1": true,
+        "phase2": true,
+        "statuses": {
+          "phase0": "ok",
+          "phase1": "ok",
+          "phase2": "ok"
+        }
+      },
+      "summary_rows": [
+        {
+          "phase": "phase0",
+          "status": "ok",
+          "key_values": "A_r=[576, 9], B_r=[576, 3], wall=0.0191s",
+          "pass": true,
+          "note": "import physics; N=8 full-aperture forward; realified shape sanity"
+        },
+        {
+          "phase": "phase1",
+          "status": "ok",
+          "key_values": "maxT5aScaled=0.0101, T5b=24/24, maxThm3=3.17e-11, priorMinEig=[-1.83e-17, -9.75e-19]",
+          "pass": true,
+          "note": "E2 T5a/T5b + E3 Theorem3/prior/Theorem7 on physical tangents; declared cutoffs, no oracle rank"
+        },
+        {
+          "phase": "phase2",
+          "status": "ok",
+          "key_values": "maxInnovRel=4.48e-16, maxBudgetRel=6.64e-17, stack>=sum=12/12",
+          "pass": true,
+          "note": "E5 shared-map innovation + Corollary-10 rank budget on 4-frequency physical frames; declared C4/C8 enlargement"
+        }
+      ]
+    }
+  },
+  "uncertainty": {
+    "e1": {
+      "source_file": "results/e1_results.json",
+      "skipped_models_empty_per_seed": [
+        "mismatch_intensity_noise"
+      ],
+      "models": {
+        "phase_only": {
+          "j_coh": {
+            "n": 10,
+            "mean": 1.975,
+            "min": 1.897,
+            "max": 2.046,
+            "sd": 0.05838,
+            "ci_mean": [
+              1.933,
+              2.017
+            ],
+            "analytic": 2.0,
+            "analytic_key": "j_coh_analytic",
+            "empirical_minus_analytic": {
+              "n": 10,
+              "mean": -0.02484,
+              "min": -0.1026,
+              "max": 0.04565,
+              "sd": 0.05838,
+              "ci_mean": [
+                -0.0666,
+                0.01692
+              ],
+              "analytic": 2.0,
+              "analytic_key": "j_coh_analytic"
+            },
+            "source_key": "j_coh_emp"
+          },
+          "j_ph": {
+            "n": 10,
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "sd": 0.0,
+            "ci_mean": [
+              0.0,
+              0.0
+            ],
+            "analytic": 0.0,
+            "analytic_key": "j_ph_analytic",
+            "empirical_minus_analytic": {
+              "n": 10,
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0,
+              "sd": 0.0,
+              "ci_mean": [
+                0.0,
+                0.0
+              ],
+              "analytic": 0.0,
+              "analytic_key": "j_ph_analytic"
+            },
+            "source_key": "j_ph_emp"
+          }
+        },
+        "nuisance_phase": {
+          "j_coh": {
+            "n": 10,
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "sd": 0.0,
+            "ci_mean": [
+              0.0,
+              0.0
+            ],
+            "analytic": 0.0,
+            "analytic_key": "j_coh_analytic",
+            "empirical_minus_analytic": {
+              "n": 10,
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0,
+              "sd": 0.0,
+              "ci_mean": [
+                0.0,
+                0.0
+              ],
+              "analytic": 0.0,
+              "analytic_key": "j_coh_analytic"
+            },
+            "source_key": "j_coh_emp"
+          },
+          "j_ph": {
+            "n": 10,
+            "mean": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "sd": 0.0,
+            "ci_mean": [
+              0.0,
+              0.0
+            ],
+            "analytic": 0.0,
+            "analytic_key": "j_ph_analytic",
+            "empirical_minus_analytic": {
+              "n": 10,
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0,
+              "sd": 0.0,
+              "ci_mean": [
+                0.0,
+                0.0
+              ],
+              "analytic": 0.0,
+              "analytic_key": "j_ph_analytic"
+            },
+            "source_key": "j_ph_emp"
+          }
+        },
+        "scale_family": {
+          "j_coh": {
+            "n": 10,
+            "mean": 1.0,
+            "min": 0.8482,
+            "max": 1.087,
+            "sd": 0.08017,
+            "ci_mean": [
+              0.943,
+              1.058
+            ],
+            "analytic": 1.0,
+            "analytic_key": "j_coh_analytic",
+            "empirical_minus_analytic": {
+              "n": 10,
+              "mean": 0.0003205,
+              "min": -0.1518,
+              "max": 0.08741,
+              "sd": 0.08017,
+              "ci_mean": [
+                -0.05703,
+                0.05767
+              ],
+              "analytic": 1.0,
+              "analytic_key": "j_coh_analytic"
+            },
+            "source_key": "j_coh_emp"
+          },
+          "j_ph": {
+            "n": 10,
+            "mean": 1.0,
+            "min": 0.8482,
+            "max": 1.087,
+            "sd": 0.08017,
+            "ci_mean": [
+              0.943,
+              1.058
+            ],
+            "analytic": 1.0,
+            "analytic_key": "j_ph_analytic",
+            "empirical_minus_analytic": {
+              "n": 10,
+              "mean": 0.0003205,
+              "min": -0.1518,
+              "max": 0.08741,
+              "sd": 0.08017,
+              "ci_mean": [
+                -0.05703,
+                0.05767
+              ],
+              "analytic": 1.0,
+              "analytic_key": "j_ph_analytic"
+            },
+            "source_key": "j_ph_emp"
+          }
+        },
+        "total_field_ref": {
+          "j_coh": {
+            "n": 10,
+            "mean": 2.003,
+            "min": 1.87,
+            "max": 2.097,
+            "sd": 0.08342,
+            "ci_mean": [
+              1.943,
+              2.062
+            ],
+            "analytic": 2.0,
+            "analytic_key": "j_coh_analytic",
+            "empirical_minus_analytic": {
+              "n": 10,
+              "mean": 0.002705,
+              "min": -0.1296,
+              "max": 0.09669,
+              "sd": 0.08342,
+              "ci_mean": [
+                -0.05697,
+                0.06238
+              ],
+              "analytic": 2.0,
+              "analytic_key": "j_coh_analytic"
+            },
+            "source_key": "j_coh_emp"
+          },
+          "j_ph": {
+            "n": 10,
+            "mean": 0.5285,
+            "min": 0.4973,
+            "max": 0.5588,
+            "sd": 0.02012,
+            "ci_mean": [
+              0.5141,
+              0.5429
+            ],
+            "analytic": 0.5258,
+            "analytic_key": "j_ph_analytic",
+            "empirical_minus_analytic": {
+              "n": 10,
+              "mean": 0.00271,
+              "min": -0.02845,
+              "max": 0.03306,
+              "sd": 0.02012,
+              "ci_mean": [
+                -0.01169,
+                0.01711
+              ],
+              "analytic": 0.5258,
+              "analytic_key": "j_ph_analytic"
+            },
+            "source_key": "j_ph_emp"
+          }
+        }
+      }
+    },
+    "e2": {
+      "source_file": "results/e2_results.json",
+      "source_path": "results.random_tangents.records",
+      "n_records": 36,
+      "scaled_residual": {
+        "n": 36,
+        "mean": 0.1056,
+        "min": 0.0446,
+        "max": 0.2734,
+        "sd": 0.05578,
+        "ci_mean": [
+          0.08669,
+          0.1244
+        ],
+        "source_path": "results.random_tangents.records[].scaled_residual"
+      },
+      "loss_residual_fro": {
+        "n": 36,
+        "mean": 1.638e-15,
+        "min": 6.193e-16,
+        "max": 4.091e-15,
+        "sd": 8.987e-16,
+        "ci_mean": [
+          1.334e-15,
+          1.942e-15
+        ],
+        "source_path": "results.random_tangents.records[].loss_residual_fro"
+      }
+    },
+    "e3": {
+      "source_file": "results/e3_results.json",
+      "source_path": "results.theorem7.mc.records",
+      "n_records": 10,
+      "variance_rel": {
+        "n": 10,
+        "mean": 0.02129,
+        "min": 0.004961,
+        "max": 0.04108,
+        "sd": 0.01272,
+        "ci_mean": [
+          0.01219,
+          0.03039
+        ],
+        "source_key": "variance_rel_error",
+        "source_path": "results.theorem7.mc.records[].variance_rel_error"
+      },
+      "bias_rel": {
+        "n": 10,
+        "mean": 0.02711,
+        "min": 0.0007649,
+        "max": 0.05349,
+        "sd": 0.0172,
+        "ci_mean": [
+          0.01481,
+          0.03941
+        ],
+        "source_key": "bias_rel_error",
+        "source_path": "results.theorem7.mc.records[].bias_rel_error"
+      },
+      "sample_cov_vs_Jx_inv_fro_rel": {
+        "n": 10,
+        "mean": 0.05756,
+        "min": 0.03531,
+        "max": 0.1026,
+        "sd": 0.01969,
+        "ci_mean": [
+          0.04347,
+          0.07164
+        ],
+        "source_key": "sample_cov_vs_Jx_inv_fro_rel",
+        "source_path": "results.theorem7.mc.records[].sample_cov_vs_Jx_inv_fro_rel"
+      }
+    },
+    "e5": {
+      "source_file": "results/e5_results.json",
+      "note": "The 24 requested budget records are stored under results.rank_acquisition_budget.seeds.records.",
+      "source_path": "results.rank_acquisition_budget.seeds.records",
+      "n_records": 24,
+      "identity_fro_residual": {
+        "n": 24,
+        "mean": 9.526e-15,
+        "min": 4.139e-15,
+        "max": 2.341e-14,
+        "sd": 3.95e-15,
+        "ci_mean": [
+          7.858e-15,
+          1.119e-14
+        ],
+        "count_le_1e-12": 24,
+        "source_path": "results.rank_acquisition_budget.seeds.records[].identity_fro_residual"
+      },
+      "loewner_flag": {
+        "source_key": "loewner_I_ge_L",
+        "source_path": "results.rank_acquisition_budget.seeds.records[].loewner_I_ge_L",
+        "meaning": "flag is the Loewner condition I_acq >= L_rank",
+        "true": 0,
+        "false": 24,
+        "n": 24
+      }
+    },
+    "physical_optional": {
+      "source_file": "results/physical_optional_results.json",
+      "phase1": {
+        "per_seed_max_t5a_backward_scaled_residual": {
+          "source_path": "results.phase1.per_seed_records[].t5_pairs[].backward_scaled_residual -> max per seed",
+          "n": 12,
+          "min": 0.001916,
+          "mean": 0.005076,
+          "max": 0.01006,
+          "seed_maxima": [
+            0.008445,
+            0.005035,
+            0.004086,
+            0.00829,
+            0.01006,
+            0.003516,
+            0.0042,
+            0.001916,
+            0.005301,
+            0.00466,
+            0.003127,
+            0.002273
+          ]
+        },
+        "aggregate": {
+          "source_path": "results.phase1.aggregate",
+          "max_t5a_backward_scaled_residual": 0.01006,
+          "max_theorem3_residual_max_abs": 3.173e-11
+        }
+      },
+      "phase2": {
+        "per_seed_min_eig_J_stack_minus_sum": {
+          "source_path": "results.phase2.per_seed_records[].stack_vs_sum.min_eig_J_stack_minus_sum",
+          "n": 12,
+          "min": 7.51e-05,
+          "mean": 0.0001659,
+          "max": 0.0002106,
+          "per_seed": [
+            0.0002106,
+            8.814e-05,
+            0.0001651,
+            0.0001974,
+            0.0002053,
+            0.0001652,
+            0.0002006,
+            7.51e-05,
+            0.0001319,
+            0.0001852,
+            0.0002064,
+            0.0001594
+          ]
+        },
+        "aggregate": {
+          "source_path": "results.phase2.aggregate",
+          "max_innovation_rel_residual": 4.48e-16,
+          "max_budget_identity_rel_residual": 6.636e-17
+        }
+      }
+    },
+    "meta": {
+      "ci_description": "95% two-sided Student-t confidence interval for the mean; sample sd uses ddof=1",
+      "significant_figures": 4,
+      "generated_from_existing_results": true
+    },
+    "missing_keys": []
+  },
+  "test_suite": {
+    "interpreter": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-04_02-58-31/experiment_geometry_lifted_trispace_som/.venv/bin/python",
+    "generated": "2026-09-05T19:21:22+08:00",
+    "files": {
+      "tests/test_e1.py": {
+        "exit_code": 0,
+        "passed": 9,
+        "failed": 0,
+        "tail": "PASS test_mismatch_fisher_value\nPASS test_orth_proj_and_null\nPASS test_phase_only_jcoh_two\nPASS test_phase_only_jph_zero\nPASS test_s_lambda_expectation_zero\nPASS test_s_lambda_matches_logpdf_fd\nPASS test_scale_coherent_and_phaseless_empirical_fisher_one\nPASS test_scale_family_jph_one\nPASS test_total_field_contraction\n\n9/9 tests passed\n"
+      },
+      "tests/test_e2.py": {
+        "exit_code": 0,
+        "passed": 11,
+        "failed": 0,
+        "tail": "PASS test_complex_safe_kernel\nPASS test_exact_expected_values\nPASS test_exact_t5a_t5b\nPASS test_nonmonotone_rho\nPASS test_projector_gap_closure\nPASS test_random_tangents\nPASS test_rank_threshold_control\nPASS test_rank_uncertainty\nPASS test_real_safe_space\nPASS test_saturation_zero_up_to_backward_error\nPASS test_utility_projection\n\n11/11 tests passed\n"
+      },
+      "tests/test_e3.py": {
+        "exit_code": 0,
+        "passed": 15,
+        "failed": 0,
+        "tail": "PASS test_adaptive_rank_caveat_labeled\nPASS test_b_zero_control\nPASS test_confounding_sweep_and_crossover\nPASS test_exact_small_dual_spectra\nPASS test_pose_prior_augmented_angles\nPASS test_pose_prior_lambda_zero_recovers_ke\nPASS test_pose_prior_loewner_sandwich\nPASS test_pose_prior_monotonicity\nPASS test_pose_prior_variational\nPASS test_random_nuisance_theorem3\nPASS test_rho_undefined_control\nPASS test_scaling_control\nPASS test_small_residual_large_bias_numbers\nPASS test_theorem7_analytic_mc_variance\nPASS test_theorem7_deterministic_bound\n\n15/15 tests passed\n"
+      },
+      "tests/test_e5.py": {
+        "exit_code": 0,
+        "passed": 14,
+        "failed": 0,
+        "tail": "PASS test_acquisition_policies_run\nPASS test_anchor_restores_absolute\nPASS test_compensation_criterion\nPASS test_crafted_budget_compensation_and_degradation\nPASS test_global_gauge_null_persists\nPASS test_innovation_matches_direct_stack\nPASS test_minimal_pair_values\nPASS test_neutral_rank_budget_control\nPASS test_nonsubmodularity_inequality\nPASS test_rank_acquisition_budget_identity\nPASS test_saturated_new_frame_no_innovation\nPASS test_singular_fallback_psd_and_direct_match\nPASS test_source_stabilizer_is_not_claimed_passed\nPASS test_stack_vs_sum_psd_and_equality\n\n14/14 tests passed\n"
+      },
+      "tests/test_physical_runner.py": {
+        "exit_code": 0,
+        "passed": 1,
+        "failed": 0,
+        "tail": "test_physical_runner: OK\n"
+      }
+    },
+    "overall": {
+      "total_passed": 50,
+      "total_failed": 0,
+      "all_exit_zero": true
+    }
+  },
+  "protocol_status": [
+    {
+      "item": "common_1_matched_phaseless",
+      "status": "pass"
+    },
+    {
+      "item": "common_2_fixed_conventions",
+      "status": "pass"
+    },
+    {
+      "item": "common_3_shared_map",
+      "status": "pass"
+    },
+    {
+      "item": "common_4_seed_separation_no_oracle_rank",
+      "status": "pass"
+    },
+    {
+      "item": "common_5_truth_only_evaluation",
+      "status": "pass"
+    },
+    {
+      "item": "common_6_physical_vs_envelope",
+      "status": "pass"
+    },
+    {
+      "item": "common_7_rank_tolerance_recording",
+      "status": "pass"
+    },
+    {
+      "item": "e1_scalar_matched_models",
+      "status": "pass"
+    },
+    {
+      "item": "e1_physical_fullwave_fisher_scene",
+      "status": "not_run"
+    },
+    {
+      "item": "e2_exact_nested_rank_controls",
+      "status": "pass"
+    },
+    {
+      "item": "e2_physical_linearizations_201_212",
+      "status": "pass"
+    },
+    {
+      "item": "e2_numerical_rank_controls",
+      "status": "pass"
+    },
+    {
+      "item": "e3_confounding_sweep",
+      "status": "pass"
+    },
+    {
+      "item": "e3_theorem7_mc",
+      "status": "pass"
+    },
+    {
+      "item": "e3_physical_limited_aperture",
+      "status": "not_run"
+    },
+    {
+      "item": "e3_controls_nearly_parallel",
+      "status": "not_run"
+    },
+    {
+      "item": "e4_primary_comparison",
+      "status": "not_run"
+    },
+    {
+      "item": "e5_minimal_pair_shared_vs_independent",
+      "status": "pass"
+    },
+    {
+      "item": "e5_rank_budget_identity",
+      "status": "pass"
+    },
+    {
+      "item": "e5_physical_8_candidate_policies",
+      "status": "not_run"
+    },
+    {
+      "item": "e5_gauge_null_anchor",
+      "status": "pass"
+    },
+    {
+      "item": "e5_source_stabilizer",
+      "status": "not_run"
+    },
+    {
+      "item": "publication_evidence_boundary",
+      "status": "not_run"
+    }
+  ]
+}

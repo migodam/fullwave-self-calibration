@@ -1,0 +1,1910 @@
+[
+  {
+    "fold": 0,
+    "method": "plane",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13221933596258226,
+          2.606376290682869,
+          3.4269512441231873
+        ],
+        "objective": 0.021632580523532643,
+        "status": 0,
+        "nit": 8,
+        "nfev": 60
+      },
+      {
+        "start": [
+          0,
+          3,
+          3
+        ],
+        "estimated": [
+          0.13221948184096555,
+          2.606376242248156,
+          3.426951472238151
+        ],
+        "objective": 0.021632580523538877,
+        "status": 0,
+        "nit": 9,
+        "nfev": 40
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.1322192586732982,
+          2.606376090351723,
+          3.426950897588768
+        ],
+        "objective": 0.021632580523541264,
+        "status": 0,
+        "nit": 8,
+        "nfev": 64
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3
+        ],
+        "estimated": [
+          0.1322193196236212,
+          2.6063761947825403,
+          3.4269512028282456
+        ],
+        "objective": 0.02163258052353196,
+        "status": 0,
+        "nit": 9,
+        "nfev": 84
+      }
+    ],
+    "best_estimated": [
+      0.1322193196236212,
+      2.6063761947825403,
+      3.4269512028282456
+    ],
+    "training_normalized_squared_residual": 0.02163258052353196,
+    "test_normalized_squared_residual": 0.021591265951946423,
+    "training_phase_rmse_rad": 0.1371467264188118,
+    "test_phase_rmse_rad": 0.13709863213583495,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08132545557377534,
+        "weighted_phase_rmse_rad": 0.2452649426792571
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.00791627451796767,
+        "weighted_phase_rmse_rad": 0.08265105502755742
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012266857947075334,
+        "weighted_phase_rmse_rad": 0.10401030510677063
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016505090532941392,
+        "weighted_phase_rmse_rad": 0.12399648207920248
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025149213543380802,
+        "weighted_phase_rmse_rad": 0.15040287089107998
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.02361530456677684,
+        "weighted_phase_rmse_rad": 0.1438551853634921
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03821697109503683,
+        "weighted_phase_rmse_rad": 0.18299489385850914
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.047780339537767565,
+        "weighted_phase_rmse_rad": 0.1899597810483673
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.0813745755596205,
+        "weighted_phase_rmse_rad": 0.24528087045676475
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007907151879451407,
+        "weighted_phase_rmse_rad": 0.08260299811431525
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012267427552644946,
+        "weighted_phase_rmse_rad": 0.10398458139445921
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.01650133848571283,
+        "weighted_phase_rmse_rad": 0.12395921001748511
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025105674280577448,
+        "weighted_phase_rmse_rad": 0.15039785927560056
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023535718949109188,
+        "weighted_phase_rmse_rad": 0.14372302006016457
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03832637816933282,
+        "weighted_phase_rmse_rad": 0.1830763323562554
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04734333949201256,
+        "weighted_phase_rmse_rad": 0.18977467629557235
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -1.1689482860276854,
+        0.07593423442720568
+      ],
+      "2": [
+        -0.8125746441685417,
+        1.2926738254920902
+      ],
+      "3": [
+        -1.5862483489731984,
+        -0.05269426646314677
+      ],
+      "4": [
+        -0.21611516713451648,
+        -1.4873283740950312
+      ],
+      "5": [
+        0.9716055364422993,
+        -0.46162798577999853
+      ],
+      "6": [
+        0.5836148201459695,
+        0.8524558607246737
+      ],
+      "7": [
+        -0.5365775664313349,
+        0.4142348183956921
+      ],
+      "8": [
+        -0.4744980617375826,
+        -0.47291199893084673
+      ]
+    },
+    "radii_bound_active": false,
+    "source_radius_m": 0.72,
+    "receiver_radius_m": 0.76,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 2.566350082983263,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  },
+  {
+    "fold": 0,
+    "method": "line",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.1344398130920947,
+          2.6059585642618046,
+          3.4143588304515444
+        ],
+        "objective": 0.02128076116401923,
+        "status": 0,
+        "nit": 8,
+        "nfev": 64
+      },
+      {
+        "start": [
+          0,
+          3,
+          3
+        ],
+        "estimated": [
+          0.13444000783531576,
+          2.6059585434695496,
+          3.414358540920578
+        ],
+        "objective": 0.02128076116401033,
+        "status": 0,
+        "nit": 9,
+        "nfev": 40
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13443990550989743,
+          2.6059584732406145,
+          3.4143584891692575
+        ],
+        "objective": 0.021280761164010335,
+        "status": 0,
+        "nit": 9,
+        "nfev": 68
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3
+        ],
+        "estimated": [
+          0.13443995795859953,
+          2.605958493995064,
+          3.4143584563973914
+        ],
+        "objective": 0.021280761164009558,
+        "status": 0,
+        "nit": 12,
+        "nfev": 92
+      }
+    ],
+    "best_estimated": [
+      0.13443995795859953,
+      2.605958493995064,
+      3.4143584563973914
+    ],
+    "training_normalized_squared_residual": 0.021280761164009558,
+    "test_normalized_squared_residual": 0.021237015024324627,
+    "training_phase_rmse_rad": 0.13705774547271307,
+    "test_phase_rmse_rad": 0.13700614959910437,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08139121762104015,
+        "weighted_phase_rmse_rad": 0.24512281713098705
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007802786335619549,
+        "weighted_phase_rmse_rad": 0.08304349756282363
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.01217957937486127,
+        "weighted_phase_rmse_rad": 0.10458956107426588
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016378260827863225,
+        "weighted_phase_rmse_rad": 0.12423341539389411
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025026156840721344,
+        "weighted_phase_rmse_rad": 0.15120925160054116
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023147086828742378,
+        "weighted_phase_rmse_rad": 0.14321250163582222
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.037108668609301454,
+        "weighted_phase_rmse_rad": 0.18138091357807345
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04594541503556824,
+        "weighted_phase_rmse_rad": 0.18882055091601047
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08143896629355267,
+        "weighted_phase_rmse_rad": 0.24513869216887904
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007794213915409931,
+        "weighted_phase_rmse_rad": 0.08299356252612472
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012179283070840312,
+        "weighted_phase_rmse_rad": 0.10456320959782982
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016370181559940314,
+        "weighted_phase_rmse_rad": 0.12419267557288534
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.02498391396924266,
+        "weighted_phase_rmse_rad": 0.1512047697013686
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023065649575736855,
+        "weighted_phase_rmse_rad": 0.1430705306716565
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03722104201372105,
+        "weighted_phase_rmse_rad": 0.18146415517382297
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04548990661068914,
+        "weighted_phase_rmse_rad": 0.18862452856730216
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -3.747608810620984,
+        4.345562818231034
+      ],
+      "2": [
+        2.4201160582841093,
+        10.26737444544112
+      ],
+      "3": [
+        -9.76668084333982,
+        9.184148883740177
+      ],
+      "4": [
+        -11.792834301894521,
+        -8.74370398050327
+      ],
+      "5": [
+        3.916625119816088,
+        -11.041302267489247
+      ],
+      "6": [
+        12.142818477167676,
+        2.2836739878549617
+      ],
+      "7": [
+        -1.1253001104629234,
+        8.639689155075281
+      ],
+      "8": [
+        -9.24613446072217,
+        -0.04224347929425873
+      ]
+    },
+    "radii_bound_active": false,
+    "source_radius_m": 0.72,
+    "receiver_radius_m": 0.76,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 3.8055698749958538,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  },
+  {
+    "fold": 0,
+    "method": "line_effective_radii",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.1344397521907811,
+          2.605958550370352,
+          3.4143588200119415,
+          3.8973971242671786e-05,
+          2.068903678272692e-05
+        ],
+        "objective": 0.021280761129371654,
+        "status": 0,
+        "nit": 8,
+        "nfev": 96
+      },
+      {
+        "start": [
+          0,
+          3,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.1344398964138495,
+          2.605958525841076,
+          3.414358541913913,
+          3.209852319369489e-05,
+          2.600640837321396e-05
+        ],
+        "objective": 0.021280761131034494,
+        "status": 0,
+        "nit": 9,
+        "nfev": 60
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13443998721507622,
+          2.6059583939502504,
+          3.414358442867361,
+          4.1539885243591535e-05,
+          4.866128727794631e-05
+        ],
+        "objective": 0.021280761113915626,
+        "status": 0,
+        "nit": 9,
+        "nfev": 102
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13444729817850512,
+          2.606096573200013,
+          3.4144567097865646,
+          3.0,
+          2.407869896872696
+        ],
+        "objective": 0.021277739797260678,
+        "status": 0,
+        "nit": 23,
+        "nfev": 234
+      }
+    ],
+    "best_estimated": [
+      0.13444729817850512,
+      2.606096573200013,
+      3.4144567097865646,
+      3.0,
+      2.407869896872696
+    ],
+    "training_normalized_squared_residual": 0.021277739797260678,
+    "test_normalized_squared_residual": 0.02123406085309481,
+    "training_phase_rmse_rad": 0.137051146787199,
+    "test_phase_rmse_rad": 0.1369995990424826,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08138778442697338,
+        "weighted_phase_rmse_rad": 0.24512326453686178
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007802323555162581,
+        "weighted_phase_rmse_rad": 0.08303681659710196
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012176448654328613,
+        "weighted_phase_rmse_rad": 0.10457947971381268
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016377169449107522,
+        "weighted_phase_rmse_rad": 0.12422915711280161
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025022753065111873,
+        "weighted_phase_rmse_rad": 0.15120212617794107
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.02313961955517233,
+        "weighted_phase_rmse_rad": 0.14320434654865205
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03710422551877361,
+        "weighted_phase_rmse_rad": 0.18137964151758043
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04594452874301158,
+        "weighted_phase_rmse_rad": 0.1888067908569327
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08143553401186472,
+        "weighted_phase_rmse_rad": 0.2451391269391599
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007793741653883292,
+        "weighted_phase_rmse_rad": 0.08298681776124239
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012176155821017259,
+        "weighted_phase_rmse_rad": 0.10455307162767713
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016369062418860998,
+        "weighted_phase_rmse_rad": 0.12418817926457877
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.024980520560823324,
+        "weighted_phase_rmse_rad": 0.15119743884172201
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023058332631571952,
+        "weighted_phase_rmse_rad": 0.143062727662919
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03721631081289835,
+        "weighted_phase_rmse_rad": 0.18146248210324198
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04549009135390876,
+        "weighted_phase_rmse_rad": 0.1886121903704844
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -4.230406028235587,
+        3.9078112191964163
+      ],
+      "2": [
+        0.05101600023049235,
+        10.58703039253235
+      ],
+      "3": [
+        -12.314881587941173,
+        5.4218926820315
+      ],
+      "4": [
+        -6.798037245685496,
+        -13.072253085982293
+      ],
+      "5": [
+        9.26457985981521,
+        -7.240612919142606
+      ],
+      "6": [
+        8.036787779520244,
+        9.44404983221403
+      ],
+      "7": [
+        -6.971409111223024,
+        5.279353240207325
+      ],
+      "8": [
+        -5.688458072482268,
+        -7.332185256533328
+      ]
+    },
+    "radii_bound_active": true,
+    "source_radius_m": 0.723,
+    "receiver_radius_m": 0.7624078698968727,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 7.0592649999889545,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  },
+  {
+    "fold": 1,
+    "method": "plane",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13236447825136133,
+          2.6064113850198756,
+          3.426907847696736
+        ],
+        "objective": 0.021615560338946436,
+        "status": 0,
+        "nit": 8,
+        "nfev": 60
+      },
+      {
+        "start": [
+          0,
+          3,
+          3
+        ],
+        "estimated": [
+          0.1323644828042216,
+          2.6064112951737037,
+          3.4269078103646247
+        ],
+        "objective": 0.021615560338947855,
+        "status": 0,
+        "nit": 9,
+        "nfev": 40
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13236445438361966,
+          2.606411362843369,
+          3.4269077942706234
+        ],
+        "objective": 0.021615560338945232,
+        "status": 0,
+        "nit": 9,
+        "nfev": 68
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3
+        ],
+        "estimated": [
+          0.1323644183059596,
+          2.606411355113505,
+          3.4269072911119016
+        ],
+        "objective": 0.021615560338952913,
+        "status": 0,
+        "nit": 9,
+        "nfev": 88
+      }
+    ],
+    "best_estimated": [
+      0.13236445438361966,
+      2.606411362843369,
+      3.4269077942706234
+    ],
+    "training_normalized_squared_residual": 0.021615560338945232,
+    "test_normalized_squared_residual": 0.0216252907214448,
+    "training_phase_rmse_rad": 0.1371437680586416,
+    "test_phase_rmse_rad": 0.13710464874125317,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08134881834706649,
+        "weighted_phase_rmse_rad": 0.24527483983108608
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007913863815251205,
+        "weighted_phase_rmse_rad": 0.08263361491535834
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012273076798754024,
+        "weighted_phase_rmse_rad": 0.10403494542856312
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016517534525850294,
+        "weighted_phase_rmse_rad": 0.12400742360665304
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.02512253682070638,
+        "weighted_phase_rmse_rad": 0.15043197964359337
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023528772055191688,
+        "weighted_phase_rmse_rad": 0.14370174606782812
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.038283825194629785,
+        "weighted_phase_rmse_rad": 0.18308192482535396
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.047661281612942835,
+        "weighted_phase_rmse_rad": 0.1900401777615519
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08132462104651789,
+        "weighted_phase_rmse_rad": 0.24525335268428278
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.0079125899895195,
+        "weighted_phase_rmse_rad": 0.08263983443173914
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012252643612248948,
+        "weighted_phase_rmse_rad": 0.10392251573368266
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016476989516270357,
+        "weighted_phase_rmse_rad": 0.12393967152753112
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025161167997027428,
+        "weighted_phase_rmse_rad": 0.15034534880128
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023709857096459997,
+        "weighted_phase_rmse_rad": 0.14403335259801495
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03818968139590666,
+        "weighted_phase_rmse_rad": 0.18289676516736195
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04757965873040877,
+        "weighted_phase_rmse_rad": 0.18961311982463427
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -1.1689407733343344,
+        0.0759363035661236
+      ],
+      "2": [
+        -0.8126463222703383,
+        1.2926470304447402
+      ],
+      "3": [
+        -1.586185141429689,
+        -0.052790392325613354
+      ],
+      "4": [
+        -0.21610378222975155,
+        -1.4872456938489387
+      ],
+      "5": [
+        0.9717075121108384,
+        -0.4616981031929753
+      ],
+      "6": [
+        0.5836534285199728,
+        0.8524364474913948
+      ],
+      "7": [
+        -0.5365324669508332,
+        0.41421693363189516
+      ],
+      "8": [
+        -0.4745737669028813,
+        -0.4728742750734772
+      ]
+    },
+    "radii_bound_active": false,
+    "source_radius_m": 0.72,
+    "receiver_radius_m": 0.76,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 2.6187505000270903,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  },
+  {
+    "fold": 1,
+    "method": "line",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13458476741570183,
+          2.6059914033197216,
+          3.4143143712735613
+        ],
+        "objective": 0.021261564283992628,
+        "status": 0,
+        "nit": 8,
+        "nfev": 64
+      },
+      {
+        "start": [
+          0,
+          3,
+          3
+        ],
+        "estimated": [
+          0.13458478602789667,
+          2.60599138464615,
+          3.4143141576690312
+        ],
+        "objective": 0.021261564283989863,
+        "status": 0,
+        "nit": 9,
+        "nfev": 44
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13458473005135785,
+          2.6059913862462945,
+          3.4143144872542357
+        ],
+        "objective": 0.021261564283996205,
+        "status": 0,
+        "nit": 9,
+        "nfev": 68
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3
+        ],
+        "estimated": [
+          0.13458479091916717,
+          2.6059913977190563,
+          3.4143141646844284
+        ],
+        "objective": 0.021261564283990127,
+        "status": 0,
+        "nit": 12,
+        "nfev": 96
+      }
+    ],
+    "best_estimated": [
+      0.13458478602789667,
+      2.60599138464615,
+      3.4143141576690312
+    ],
+    "training_normalized_squared_residual": 0.021261564283989863,
+    "test_normalized_squared_residual": 0.021275392849974574,
+    "training_phase_rmse_rad": 0.13705264719632107,
+    "test_phase_rmse_rad": 0.1370177545045738,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08141416220308183,
+        "weighted_phase_rmse_rad": 0.24513288299627486
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.0078008842959312675,
+        "weighted_phase_rmse_rad": 0.0830259946195977
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012186261111782734,
+        "weighted_phase_rmse_rad": 0.1046155928116356
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.01638769354367884,
+        "weighted_phase_rmse_rad": 0.1242436135456595
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025001038225119933,
+        "weighted_phase_rmse_rad": 0.15124082412742715
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023058390644692048,
+        "weighted_phase_rmse_rad": 0.1430499021135264
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03717642682056392,
+        "weighted_phase_rmse_rad": 0.18146983419400195
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04580517143095363,
+        "weighted_phase_rmse_rad": 0.18888855571559288
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08139001431935822,
+        "weighted_phase_rmse_rad": 0.24511136313094037
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007798711857480524,
+        "weighted_phase_rmse_rad": 0.08303174541399515
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012163784226710791,
+        "weighted_phase_rmse_rad": 0.10450091591098311
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016351731066757618,
+        "weighted_phase_rmse_rad": 0.12417561717079127
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.02503627075034692,
+        "weighted_phase_rmse_rad": 0.15114866831860538
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023243865641848497,
+        "weighted_phase_rmse_rad": 0.14340003801253365
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03708291774863641,
+        "weighted_phase_rmse_rad": 0.18128258566845823
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04576881216556444,
+        "weighted_phase_rmse_rad": 0.18848933622982678
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -3.747579431069278,
+        4.345546210551382
+      ],
+      "2": [
+        2.4196447512887342,
+        10.267597067095714
+      ],
+      "3": [
+        -9.76687100107601,
+        9.183207631705772
+      ],
+      "4": [
+        -11.79220338152565,
+        -8.74323465644187
+      ],
+      "5": [
+        3.9168571965165224,
+        -11.042623154718028
+      ],
+      "6": [
+        12.142996074316775,
+        2.2832069858607675
+      ],
+      "7": [
+        -1.1250300788223406,
+        8.639115863250673
+      ],
+      "8": [
+        -9.246614150433869,
+        -0.04110968448315362
+      ]
+    },
+    "radii_bound_active": false,
+    "source_radius_m": 0.72,
+    "receiver_radius_m": 0.76,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 3.9151604170328937,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  },
+  {
+    "fold": 1,
+    "method": "line_effective_radii",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13458467171042454,
+          2.6059914054461673,
+          3.4143143646348166,
+          3.820022686681882e-05,
+          2.15786669712758e-05
+        ],
+        "objective": 0.021261564249817733,
+        "status": 0,
+        "nit": 8,
+        "nfev": 96
+      },
+      {
+        "start": [
+          0,
+          3,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13458481565824235,
+          2.605991434548978,
+          3.4143141449583605,
+          3.462373559295086e-05,
+          2.782222874665726e-05
+        ],
+        "objective": 0.02126156424901829,
+        "status": 0,
+        "nit": 9,
+        "nfev": 66
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.1345933083143785,
+          2.606143646002929,
+          3.414421165896788,
+          3.0,
+          3.0
+        ],
+        "objective": 0.021258308124873858,
+        "status": 0,
+        "nit": 27,
+        "nfev": 240
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13459301844333288,
+          2.6061278614207044,
+          3.4144112414966834,
+          3.0,
+          2.357212114910146
+        ],
+        "objective": 0.021258608299679953,
+        "status": 0,
+        "nit": 27,
+        "nfev": 252
+      }
+    ],
+    "best_estimated": [
+      0.1345933083143785,
+      2.606143646002929,
+      3.414421165896788,
+      3.0,
+      3.0
+    ],
+    "training_normalized_squared_residual": 0.021258308124873858,
+    "test_normalized_squared_residual": 0.021272069430546287,
+    "training_phase_rmse_rad": 0.1370455536989018,
+    "test_phase_rmse_rad": 0.13701056616194843,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.0814102311091385,
+        "weighted_phase_rmse_rad": 0.24513343697734993
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007800448564317329,
+        "weighted_phase_rmse_rad": 0.08301872462797825
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012182822248341912,
+        "weighted_phase_rmse_rad": 0.10460480049497715
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016386464289631142,
+        "weighted_phase_rmse_rad": 0.12423874997344292
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.024997269697967964,
+        "weighted_phase_rmse_rad": 0.15123296438763284
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023050355546124765,
+        "weighted_phase_rmse_rad": 0.14304134622413883
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03717138746588045,
+        "weighted_phase_rmse_rad": 0.18146838608785526
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04580501483269505,
+        "weighted_phase_rmse_rad": 0.18887459594627892
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08138609130501784,
+        "weighted_phase_rmse_rad": 0.2451119201058324
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007798280426920585,
+        "weighted_phase_rmse_rad": 0.08302449388069744
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012160340114758328,
+        "weighted_phase_rmse_rad": 0.10449011807420025
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016350494140188167,
+        "weighted_phase_rmse_rad": 0.12417081500794688
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025032521379853193,
+        "weighted_phase_rmse_rad": 0.15114101141583142
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023235593455014778,
+        "weighted_phase_rmse_rad": 0.14339099329750288
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03707813933573503,
+        "weighted_phase_rmse_rad": 0.1812812615607511
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.045767960048418335,
+        "weighted_phase_rmse_rad": 0.18847462848433796
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -4.280197705366089,
+        3.856468584945321
+      ],
+      "2": [
+        -0.21232010873314414,
+        10.58922018742853
+      ],
+      "3": [
+        -12.512789450159204,
+        4.96084117107826
+      ],
+      "4": [
+        -6.1432267827291325,
+        -13.39784905097386
+      ],
+      "5": [
+        9.700363478728072,
+        -6.655862451115892
+      ],
+      "6": [
+        7.315462834325366,
+        10.019243360205873
+      ],
+      "7": [
+        -7.405316451552426,
+        4.6564527383668315
+      ],
+      "8": [
+        -4.937089185623829,
+        -7.86258105324469
+      ]
+    },
+    "radii_bound_active": true,
+    "source_radius_m": 0.723,
+    "receiver_radius_m": 0.763,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 9.34630091598956,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  },
+  {
+    "fold": 2,
+    "method": "plane",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13249375284800957,
+          2.6064592816517793,
+          3.426794532921629
+        ],
+        "objective": 0.02160824692549254,
+        "status": 0,
+        "nit": 8,
+        "nfev": 64
+      },
+      {
+        "start": [
+          0,
+          3,
+          3
+        ],
+        "estimated": [
+          0.13249402074631333,
+          2.6064593600578325,
+          3.4267946199278585
+        ],
+        "objective": 0.02160824692550262,
+        "status": 0,
+        "nit": 9,
+        "nfev": 40
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.1324937472457142,
+          2.6064592909842412,
+          3.4267945234928088
+        ],
+        "objective": 0.021608246925492593,
+        "status": 0,
+        "nit": 9,
+        "nfev": 68
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3
+        ],
+        "estimated": [
+          0.13249371682676453,
+          2.606459379393082,
+          3.4267936659894187
+        ],
+        "objective": 0.02160824692551548,
+        "status": 0,
+        "nit": 11,
+        "nfev": 92
+      }
+    ],
+    "best_estimated": [
+      0.13249375284800957,
+      2.6064592816517793,
+      3.426794532921629
+    ],
+    "training_normalized_squared_residual": 0.02160824692549254,
+    "test_normalized_squared_residual": 0.02163993955599898,
+    "training_phase_rmse_rad": 0.1371030917341773,
+    "test_phase_rmse_rad": 0.13719058675239543,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08134767295037554,
+        "weighted_phase_rmse_rad": 0.2452624602771695
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.0079102281085706,
+        "weighted_phase_rmse_rad": 0.08262285554943673
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.01225893152499177,
+        "weighted_phase_rmse_rad": 0.10394673005108938
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016489218183107848,
+        "weighted_phase_rmse_rad": 0.12395157138284245
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025135021387310382,
+        "weighted_phase_rmse_rad": 0.15037776276694945
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.02362364761326983,
+        "weighted_phase_rmse_rad": 0.14388258610528543
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.038255655791790404,
+        "weighted_phase_rmse_rad": 0.18298540609927144
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.047459859257147595,
+        "weighted_phase_rmse_rad": 0.18969472164649614
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08132277755510237,
+        "weighted_phase_rmse_rad": 0.24526804423380452
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007920681311657655,
+        "weighted_phase_rmse_rad": 0.08266501124137693
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012278911017101357,
+        "weighted_phase_rmse_rad": 0.10408533669531145
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016533649021738095,
+        "weighted_phase_rmse_rad": 0.12405709516906717
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025140035486716294,
+        "weighted_phase_rmse_rad": 0.15046960273513268
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023522149489205307,
+        "weighted_phase_rmse_rad": 0.1436830626469929
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03824057210137849,
+        "weighted_phase_rmse_rad": 0.18308930208797197
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04797868523542372,
+        "weighted_phase_rmse_rad": 0.19030631991199387
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -1.1689610190937687,
+        0.07592903441043712
+      ],
+      "2": [
+        -0.8126833774480923,
+        1.2927147962889587
+      ],
+      "3": [
+        -1.586321015646823,
+        -0.05280973447736873
+      ],
+      "4": [
+        -0.21603829991671847,
+        -1.4873783670454925
+      ],
+      "5": [
+        0.9716773469210254,
+        -0.4616043820298321
+      ],
+      "6": [
+        0.5837216078161465,
+        0.8524330241095148
+      ],
+      "7": [
+        -0.5366122263027839,
+        0.4142535988644507
+      ],
+      "8": [
+        -0.47468699916780477,
+        -0.47282285544541636
+      ]
+    },
+    "radii_bound_active": false,
+    "source_radius_m": 0.72,
+    "receiver_radius_m": 0.76,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 2.7038592500030063,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  },
+  {
+    "fold": 2,
+    "method": "line",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13471653938094535,
+          2.6060373200453015,
+          3.4142115045752868
+        ],
+        "objective": 0.021256172762253483,
+        "status": 0,
+        "nit": 8,
+        "nfev": 64
+      },
+      {
+        "start": [
+          0,
+          3,
+          3
+        ],
+        "estimated": [
+          0.13471654202240493,
+          2.606037200745826,
+          3.414211349300587
+        ],
+        "objective": 0.021256172762252463,
+        "status": 0,
+        "nit": 9,
+        "nfev": 40
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3
+        ],
+        "estimated": [
+          0.13471638757637613,
+          2.60603731023929,
+          3.4142117044419105
+        ],
+        "objective": 0.021256172762263097,
+        "status": 0,
+        "nit": 9,
+        "nfev": 68
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3
+        ],
+        "estimated": [
+          0.13471654852762677,
+          2.606037295374002,
+          3.4142113731816726
+        ],
+        "objective": 0.021256172762251176,
+        "status": 0,
+        "nit": 12,
+        "nfev": 92
+      }
+    ],
+    "best_estimated": [
+      0.13471654852762677,
+      2.606037295374002,
+      3.4142113731816726
+    ],
+    "training_normalized_squared_residual": 0.021256172762251176,
+    "test_normalized_squared_residual": 0.02128619819956255,
+    "training_phase_rmse_rad": 0.13701392462103829,
+    "test_phase_rmse_rad": 0.13710069320155951,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08141263769159927,
+        "weighted_phase_rmse_rad": 0.24512064974422543
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007796849291867151,
+        "weighted_phase_rmse_rad": 0.08301458967268104
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012170491720229137,
+        "weighted_phase_rmse_rad": 0.10452636171665527
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.01636097866746601,
+        "weighted_phase_rmse_rad": 0.12418681279719562
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.02501164411970667,
+        "weighted_phase_rmse_rad": 0.15118333943170656
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023155354696989573,
+        "weighted_phase_rmse_rad": 0.14323952983617647
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03715008635210035,
+        "weighted_phase_rmse_rad": 0.18137338743856737
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.045627967085328104,
+        "weighted_phase_rmse_rad": 0.18855853014922658
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08138906361182831,
+        "weighted_phase_rmse_rad": 0.24512631900943166
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007807651233232004,
+        "weighted_phase_rmse_rad": 0.08305909073991095
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012193381713179938,
+        "weighted_phase_rmse_rad": 0.10466784029041008
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.01640515358337363,
+        "weighted_phase_rmse_rad": 0.12429604723982607
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025018758790891903,
+        "weighted_phase_rmse_rad": 0.15128016895513685
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023051315541345905,
+        "weighted_phase_rmse_rad": 0.1430312453343963
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03713140603401127,
+        "weighted_phase_rmse_rad": 0.18147757923503055
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04612003528204598,
+        "weighted_phase_rmse_rad": 0.18915323516739677
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -3.7476596659407004,
+        4.345570139646932
+      ],
+      "2": [
+        2.4197615794757183,
+        10.268088455203321
+      ],
+      "3": [
+        -9.7678012971908,
+        9.18387085556525
+      ],
+      "4": [
+        -11.792596483231186,
+        -8.744623644765143
+      ],
+      "5": [
+        3.917378057226099,
+        -11.04166750478433
+      ],
+      "6": [
+        12.143491977258943,
+        2.2826570950842027
+      ],
+      "7": [
+        -1.1254656735285828,
+        8.640182839819508
+      ],
+      "8": [
+        -9.247092920658044,
+        -0.0395516490836327
+      ]
+    },
+    "radii_bound_active": false,
+    "source_radius_m": 0.72,
+    "receiver_radius_m": 0.76,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 3.7787701659835875,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  },
+  {
+    "fold": 2,
+    "method": "line_effective_radii",
+    "fits": [
+      {
+        "start": [
+          3,
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13471641613415425,
+          2.6060372262264604,
+          3.4142114910346226,
+          3.6857197099928816e-05,
+          2.0983779227883182e-05
+        ],
+        "objective": 0.021256172729038576,
+        "status": 0,
+        "nit": 8,
+        "nfev": 96
+      },
+      {
+        "start": [
+          0,
+          3,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13471647981786408,
+          2.6060372013734754,
+          3.4142113614835674,
+          3.2657696701151986e-05,
+          2.5417609673323773e-05
+        ],
+        "objective": 0.02125617272949069,
+        "status": 0,
+        "nit": 9,
+        "nfev": 60
+      },
+      {
+        "start": [
+          -3,
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13472491917966298,
+          2.606189949363786,
+          3.4143174717428866,
+          3.0,
+          3.0
+        ],
+        "objective": 0.021252897702338746,
+        "status": 0,
+        "nit": 19,
+        "nfev": 186
+      },
+      {
+        "start": [
+          0,
+          -3,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          0.13471656467814952,
+          2.606037209086511,
+          3.414211440734818,
+          0.0001262479066470572,
+          9.456435294429701e-05
+        ],
+        "objective": 0.021256172637406853,
+        "status": 0,
+        "nit": 12,
+        "nfev": 138
+      }
+    ],
+    "best_estimated": [
+      0.13472491917966298,
+      2.606189949363786,
+      3.4143174717428866,
+      3.0,
+      3.0
+    ],
+    "training_normalized_squared_residual": 0.021252897702338746,
+    "test_normalized_squared_residual": 0.021282912604823175,
+    "training_phase_rmse_rad": 0.1370068032798271,
+    "test_phase_rmse_rad": 0.13709359467201765,
+    "train_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08140870279042858,
+        "weighted_phase_rmse_rad": 0.2451211802316965
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.007796416284683905,
+        "weighted_phase_rmse_rad": 0.0830073278508993
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012167049754368504,
+        "weighted_phase_rmse_rad": 0.1045155327797134
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.01635973537339235,
+        "weighted_phase_rmse_rad": 0.12418192079830115
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.025007902470922997,
+        "weighted_phase_rmse_rad": 0.1511755773601588
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.02314722239216359,
+        "weighted_phase_rmse_rad": 0.14323081202804314
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.037145106861168564,
+        "weighted_phase_rmse_rad": 0.1813718883633744
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04562772338959758,
+        "weighted_phase_rmse_rad": 0.18854459601520698
+      }
+    ],
+    "test_per_frequency": [
+      {
+        "frequency_ghz": 1,
+        "normalized_squared_residual": 0.08138512010184339,
+        "weighted_phase_rmse_rad": 0.24512685860171884
+      },
+      {
+        "frequency_ghz": 2,
+        "normalized_squared_residual": 0.0078072201597200516,
+        "weighted_phase_rmse_rad": 0.08305186000686302
+      },
+      {
+        "frequency_ghz": 3,
+        "normalized_squared_residual": 0.012189937799528079,
+        "weighted_phase_rmse_rad": 0.1046570662221856
+      },
+      {
+        "frequency_ghz": 4,
+        "normalized_squared_residual": 0.016403944946888543,
+        "weighted_phase_rmse_rad": 0.12429131963110283
+      },
+      {
+        "frequency_ghz": 5,
+        "normalized_squared_residual": 0.0250149847363814,
+        "weighted_phase_rmse_rad": 0.15127242915985084
+      },
+      {
+        "frequency_ghz": 6,
+        "normalized_squared_residual": 0.023043246677857374,
+        "weighted_phase_rmse_rad": 0.14302260794756855
+      },
+      {
+        "frequency_ghz": 7,
+        "normalized_squared_residual": 0.03712647823454302,
+        "weighted_phase_rmse_rad": 0.18147637329807773
+      },
+      {
+        "frequency_ghz": 8,
+        "normalized_squared_residual": 0.04611931027293562,
+        "weighted_phase_rmse_rad": 0.18913847849915694
+      }
+    ],
+    "training_gains": {
+      "1": [
+        -4.280282131643293,
+        3.85648440715912
+      ],
+      "2": [
+        -0.21232642694622492,
+        10.589730180442443
+      ],
+      "3": [
+        -12.513904985096918,
+        4.961119428771971
+      ],
+      "4": [
+        -6.142907770992936,
+        -13.399262023562244
+      ],
+      "5": [
+        9.700220492838827,
+        -6.654781867065337
+      ],
+      "6": [
+        7.316210613588912,
+        10.01918141598993
+      ],
+      "7": [
+        -7.406416684673943,
+        4.6568010800480035
+      ],
+      "8": [
+        -4.938673276962595,
+        -7.862147658958651
+      ]
+    },
+    "radii_bound_active": true,
+    "source_radius_m": 0.723,
+    "receiver_radius_m": 0.763,
+    "sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+    "wall_seconds": 6.846172708028462,
+    "split": "source view modulo 3; 24 training and 12 held-out views per fold; overlapping folds are not independent scenes",
+    "known_antenna_offset_truth": false,
+    "preregistered": false,
+    "scope": "exploratory real-data model adequacy; effective radii may absorb unmodeled horn/illumination error; no calibrated hardware-position claim"
+  }
+]

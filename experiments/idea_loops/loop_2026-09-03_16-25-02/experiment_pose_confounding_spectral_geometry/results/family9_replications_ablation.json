@@ -1,0 +1,2574 @@
+{
+  "family": 9,
+  "generated_utc": "2026-09-03T11:58:36+00:00",
+  "command": ".venv/bin/python src/family9_replications_ablation.py",
+  "source_sha256": "a003d3b3067995d5201a9a892c440880669cc27bf3330980bebc344f8db78803",
+  "reused_sha256": {
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry/src/helmholtz.py": "ee3b4ac45ad296dba533a8ccefd107a6cc53e4357b7a768d07f7db90f3ee6585",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry/src/family1_pilot.py": "762af3bdd33af1ab80563c7257b3805e7972f786fa88af1bf5e1b51a768526d7",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry/src/family2_algebraic_spine.py": "173d2b5d9f66be274c9a8422f4ac2c381bb91a60132b37c734748414cf3eb235",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry/src/family4_frequency_trajectory.py": "ee7cac8b6233bcb0dbbb215df02452746dabf50774760910be5b16a0c0a40242"
+  },
+  "config": {
+    "title": "deterministic seed replications of the algebraic-spine and frequency-diversity claims, plus pose-DOF / receiver / pose-count / basis ablations",
+    "N": 16,
+    "T": 6,
+    "n_rx": 4,
+    "q_pose": 18,
+    "m_real": 48,
+    "f_single": 1.0,
+    "f_distinct": 1.4,
+    "k_b_rule": "k_b(f) = 2*pi*f",
+    "whitening_convention": "W = None (identity noise): hh.whiten_realify(A,B,None) returns sqrt(2)*[Re; Im] row stacks; raw identity-noise stacks throughout",
+    "rx_offsets": [
+      [
+        -0.06,
+        0.0
+      ],
+      [
+        0.06,
+        0.0
+      ],
+      [
+        0.0,
+        -0.06
+      ],
+      [
+        0.0,
+        0.06
+      ]
+    ],
+    "tx_offset": [
+      0.0,
+      0.0
+    ],
+    "arc_radius": 1.6,
+    "arc_phi_deg": [
+      -45.0,
+      45.0
+    ],
+    "pose_builder": "family1.build_poses",
+    "pose_theta_convention": "theta = atan2(-p_y,-p_x): body +x axis points toward the origin",
+    "chi_blobs": {
+      "amp1": 0.3,
+      "amp2": 0.5,
+      "sigma1": 0.09,
+      "sigma2": 0.07,
+      "c1": [
+        -0.15,
+        -0.12
+      ],
+      "c2": [
+        0.18,
+        0.14
+      ]
+    },
+    "smooth_basis": {
+      "p": 24,
+      "x_centers_n": 4,
+      "y_centers_n": 6,
+      "x_span": [
+        -0.3,
+        0.3
+      ],
+      "y_span": [
+        -0.3,
+        0.3
+      ],
+      "sigma_b": 0.16,
+      "unit_columns": true,
+      "note": "identical construction/config to families 2-8"
+    },
+    "partA_scenes": {
+      "random": {
+        "n_blobs": 8,
+        "seeds": [
+          1001,
+          1002,
+          1003,
+          1004,
+          1005
+        ],
+        "a_range": [
+          0.1,
+          0.6
+        ],
+        "c_range": [
+          -0.35,
+          0.35
+        ],
+        "sigma_range": [
+          0.05,
+          0.12
+        ],
+        "formula": "chi(r) = sum_{m=1..8} a_m exp(-|r-c_m|^2/(2 s_m^2)); a_m ~ U(0.1,0.6), c_m ~ U(-0.35,0.35)^2, s_m ~ U(0.05,0.12)"
+      },
+      "ring": {
+        "amplitude": 0.5,
+        "radius": 0.25,
+        "width": 0.05,
+        "formula": "chi_ring = 0.5 exp(-((|r|-0.25)/0.05)^2)"
+      },
+      "l2_reference": "standard two-blob chi0 (family1.make_chi0)",
+      "l2_metric": "sample vector 2-norm over the N^2 cell-centre values (no h weighting)",
+      "scene_order": [
+        "seed_1001",
+        "seed_1002",
+        "seed_1003",
+        "seed_1004",
+        "seed_1005",
+        "two_blob",
+        "ring"
+      ]
+    },
+    "alpha_prior": 1.0,
+    "movement_threshold": 0.0001,
+    "gates": {
+      "rank_identity": "integer residual == 0 (family 2 c2)",
+      "retention_identity_scale": "1e-10 * max(1, ||A_s||_2^2) (family 2 c3)",
+      "kernel_identity_scale": "1e-8 * max(1, ||A_s||_2^2) for the family-2 subspace-distance gate; identity_support additionally requires equal nullities, cross residuals <= 1e-10, and min singular N1^T N2 > 1-1e-6 when the null spaces are non-empty",
+      "check_C": ">= 2 of 3 directions with rho movement > 1e-4 (family 4 gate)"
+    },
+    "rank_tol_rule": "tol(M) = max(M.shape) * eps_machine * sigma_1(M)",
+    "partB_pose_dof": {
+      "pose_column_order": "[px, py, theta] repeated per pose t",
+      "subsets": {
+        "known_pose": [],
+        "x_only": "3t+0",
+        "y_only": "3t+1",
+        "theta_only": "3t+2",
+        "xy": "3t+0,3t+1",
+        "x_theta": "3t+0,3t+2",
+        "y_theta": "3t+1,3t+2",
+        "full": "all 3T columns"
+      },
+      "claim_scope": "descriptive ablation; no forced pass"
+    },
+    "partC_receiver_sweep": {
+      "rows": [
+        {
+          "n_rx": 1,
+          "rx_offsets": [
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "n_rx": 2,
+          "rx_offsets": [
+            [
+              -0.06,
+              0.0
+            ],
+            [
+              0.06,
+              0.0
+            ]
+          ]
+        },
+        {
+          "n_rx": 4,
+          "rx_offsets": [
+            [
+              -0.06,
+              0.0
+            ],
+            [
+              0.06,
+              0.0
+            ],
+            [
+              0.0,
+              -0.06
+            ],
+            [
+              0.0,
+              0.06
+            ]
+          ]
+        },
+        {
+          "n_rx": 8,
+          "rx_offsets": [
+            [
+              -0.06,
+              0.0
+            ],
+            [
+              0.06,
+              0.0
+            ],
+            [
+              0.0,
+              -0.06
+            ],
+            [
+              0.0,
+              0.06
+            ],
+            [
+              0.0424,
+              0.0424
+            ],
+            [
+              -0.0424,
+              0.0424
+            ],
+            [
+              0.0424,
+              -0.0424
+            ],
+            [
+              -0.0424,
+              -0.0424
+            ]
+          ]
+        }
+      ],
+      "claim_scope": "descriptive ablation; no forced pass"
+    },
+    "partD_pose_sweep": {
+      "Ts": [
+        3,
+        6,
+        12
+      ],
+      "geometry": "Family-1 arc: R=1.6, phi=linspace(-45,45,T) deg, theta=atan2(-py,-px); q=3T",
+      "claim_scope": "descriptive ablation; no forced pass"
+    },
+    "partE_basis_sweep": {
+      "configs": [
+        {
+          "p": 12,
+          "x_centers_n": 3,
+          "y_centers_n": 4
+        },
+        {
+          "p": 24,
+          "x_centers_n": 4,
+          "y_centers_n": 6
+        },
+        {
+          "p": 36,
+          "x_centers_n": 4,
+          "y_centers_n": 9
+        }
+      ],
+      "fixed": {
+        "x_span": [
+          -0.3,
+          0.3
+        ],
+        "y_span": [
+          -0.3,
+          0.3
+        ],
+        "sigma_b": 0.16,
+        "unit_columns": true
+      },
+      "claim_scope": "descriptive ablation; no forced pass"
+    },
+    "randomness_note": "seeded numpy default_rng(1001..1005) only for random scenes; dense linear algebra is deterministic",
+    "claim_scope": "finite-grid (N=16) replications and descriptive ablations only; no continuum transfer, no universal monotonicity theorem, no silent conflation of machine-rank boundary events with exact algebraic violations"
+  },
+  "platform": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "numpy": "2.5.2",
+    "matplotlib": "3.11.1"
+  },
+  "standard_scene_metrics": {
+    "r_A": 24,
+    "r_B": 18,
+    "r_AB": 42,
+    "r_KIS": 24,
+    "r_KSL": 24,
+    "rank_identity_lhs": 0,
+    "rank_identity_rhs": 0,
+    "rank_identity_residual": 0,
+    "rank_identity_holds": true,
+    "confusable_mass": 14.592838133348714,
+    "retained_mass": 9.407161866651286,
+    "theta_min_rad": 7.423007129608209e-06,
+    "theta_min_deg": 0.00042530697982207,
+    "rho_min": 5.5101034845961294e-11,
+    "count_rho_lt_1e-6": 5,
+    "cos2_len": 18,
+    "K_IS_fro": 0.00046217181710171365,
+    "K_SLAM_fro": 2.410913353441397e-06,
+    "K_eff_fro": 0.00046013782019529054,
+    "sigma_min_B": 0.0006748865400722514,
+    "rank_tol_B": 1.097715785962827e-15
+  },
+  "part_seconds": {
+    "A": 0.5076384589992813,
+    "B": 0.0024613330024294555,
+    "C": 0.08894895800040103,
+    "D": 0.0742210829994292,
+    "E": 0.0014868330035824329
+  },
+  "partA_seed_replications": {
+    "scenes": [
+      {
+        "scene": "seed_1001",
+        "l2_ratio_to_two_blob": 1.0,
+        "chi_min": 7.576621851605048e-11,
+        "chi_max": 0.302736425059872,
+        "A_s_norm_fro": 0.03199567313411852,
+        "A_s_norm_2": 0.01599721548095654,
+        "B_R_norm_fro": 0.14448837971380318,
+        "core_family2": {
+          "c1_kernel_identity": {
+            "nullity_KSL_eig": 0,
+            "nullity_C": 0,
+            "nullity_match": true,
+            "tol_KSL_eig_selector": 1.3452175187010724e-20,
+            "tol_C": 1.6933704874571144e-17,
+            "max_norm_KSL_on_N1": 0.0,
+            "max_norm_C_on_N2": 0.0,
+            "max_norm_KSL_on_N2": 0.0,
+            "max_norm_C_on_N1": 0.0,
+            "subspace_distance": 0.0,
+            "min_singular_N1T_N2": null,
+            "pass_gate_f2": true,
+            "pass_gate_tol": 1e-08,
+            "identity_support_f2": true,
+            "note": "N1 = eig(K_SLAM) with |eigenvalue| <= tol; N2 = null(P_perp A) from the full SVD.  Empty bases give distance 0 and vacuous min singular.  max_norm_KSL_on_N2 and max_norm_C_on_N1 are the cross residuals reported by family 2; the literal same-space residuals on N1/N2 are recorded as well."
+          },
+          "c2_rank_identity": {
+            "r_A": 24,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "lhs_rKIS_minus_rKSL": 0,
+            "rhs_rA_plus_rB_minus_rAB": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true
+          },
+          "c3_retention": {
+            "r_A": 24,
+            "rho_min": 4.256411422865211e-11,
+            "max_abs_diff_rho_vs_pred": 1.9120178215209564e-15,
+            "pass_gate": true,
+            "pass_gate_tol": 1e-10,
+            "note": "rho = retention_spectrum(A_s, I - Z Z^T); prediction = desc(concat(1 - sv(Z^T Q_A)^2, ones(r_A - len)))."
+          }
+        },
+        "frequency_diversity": {
+          "rows": [
+            {
+              "direction": 0,
+              "generalized_eigenvalue_asc": 4.256410021037402e-11,
+              "rho_single": 4.2564178512169195e-11,
+              "rho_distinct": 0.08614478971551183,
+              "movement_distinct_minus_single": 0.08614478967294766,
+              "shared_z_residual_distinct": 0.2935043265703452,
+              "u_KIS_norm2": 1.000000000000009
+            },
+            {
+              "direction": 1,
+              "generalized_eigenvalue_asc": 4.213179646986643e-09,
+              "rho_single": 4.2131795062850155e-09,
+              "rho_distinct": 0.3264371085316022,
+              "movement_distinct_minus_single": 0.32643710431842266,
+              "shared_z_residual_distinct": 0.571346749821509,
+              "u_KIS_norm2": 0.9999999999998173
+            },
+            {
+              "direction": 2,
+              "generalized_eigenvalue_asc": 5.340696234721823e-08,
+              "rho_single": 5.340696211991205e-08,
+              "rho_distinct": 0.5683067881100595,
+              "movement_distinct_minus_single": 0.5683067347030974,
+              "shared_z_residual_distinct": 0.753861252559156,
+              "u_KIS_norm2": 1.0000000000001212
+            }
+          ],
+          "n_directions_with_movement_gt_1e-4": 3,
+          "family4_pass_ge2_moved": true,
+          "directions_method": "family4.generalized_eigen_directions(A1, P1), P1 = I - Z Z^T for Range(B1); three ascending (most confounded) directions; u = V_A diag(1/s_A) w"
+        }
+      },
+      {
+        "scene": "seed_1002",
+        "l2_ratio_to_two_blob": 1.0000000000000002,
+        "chi_min": 8.821733573223368e-11,
+        "chi_max": 0.3907475953080697,
+        "A_s_norm_fro": 0.034625528930436314,
+        "A_s_norm_2": 0.020737187920154086,
+        "B_R_norm_fro": 0.1715523730864513,
+        "core_family2": {
+          "c1_kernel_identity": {
+            "nullity_KSL_eig": 0,
+            "nullity_C": 0,
+            "nullity_match": true,
+            "tol_KSL_eig_selector": 1.093574614799596e-19,
+            "tol_C": 4.828140942094079e-17,
+            "max_norm_KSL_on_N1": 0.0,
+            "max_norm_C_on_N2": 0.0,
+            "max_norm_KSL_on_N2": 0.0,
+            "max_norm_C_on_N1": 0.0,
+            "subspace_distance": 0.0,
+            "min_singular_N1T_N2": null,
+            "pass_gate_f2": true,
+            "pass_gate_tol": 1e-08,
+            "identity_support_f2": true,
+            "note": "N1 = eig(K_SLAM) with |eigenvalue| <= tol; N2 = null(P_perp A) from the full SVD.  Empty bases give distance 0 and vacuous min singular.  max_norm_KSL_on_N2 and max_norm_C_on_N1 are the cross residuals reported by family 2; the literal same-space residuals on N1/N2 are recorded as well."
+          },
+          "c2_rank_identity": {
+            "r_A": 24,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "lhs_rKIS_minus_rKSL": 0,
+            "rhs_rA_plus_rB_minus_rAB": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true
+          },
+          "c3_retention": {
+            "r_A": 24,
+            "rho_min": 1.9666465953546444e-10,
+            "max_abs_diff_rho_vs_pred": 1.3322676295501878e-15,
+            "pass_gate": true,
+            "pass_gate_tol": 1e-10,
+            "note": "rho = retention_spectrum(A_s, I - Z Z^T); prediction = desc(concat(1 - sv(Z^T Q_A)^2, ones(r_A - len)))."
+          }
+        },
+        "frequency_diversity": {
+          "rows": [
+            {
+              "direction": 0,
+              "generalized_eigenvalue_asc": 1.9666497937251196e-10,
+              "rho_single": 1.966646579727966e-10,
+              "rho_distinct": 0.20695370055545492,
+              "movement_distinct_minus_single": 0.20695370035879027,
+              "shared_z_residual_distinct": 0.45492164221484904,
+              "u_KIS_norm2": 0.9999999999999922
+            },
+            {
+              "direction": 1,
+              "generalized_eigenvalue_asc": 1.0254025423971127e-09,
+              "rho_single": 1.0254023787407117e-09,
+              "rho_distinct": 0.519354447200004,
+              "movement_distinct_minus_single": 0.5193544461746016,
+              "shared_z_residual_distinct": 0.7206625057542567,
+              "u_KIS_norm2": 1.000000000000012
+            },
+            {
+              "direction": 2,
+              "generalized_eigenvalue_asc": 3.915757725380939e-09,
+              "rho_single": 3.915757862186397e-09,
+              "rho_distinct": 0.6063516752844347,
+              "movement_distinct_minus_single": 0.6063516713686768,
+              "shared_z_residual_distinct": 0.77868586431528,
+              "u_KIS_norm2": 0.9999999999999818
+            }
+          ],
+          "n_directions_with_movement_gt_1e-4": 3,
+          "family4_pass_ge2_moved": true,
+          "directions_method": "family4.generalized_eigen_directions(A1, P1), P1 = I - Z Z^T for Range(B1); three ascending (most confounded) directions; u = V_A diag(1/s_A) w"
+        }
+      },
+      {
+        "scene": "seed_1003",
+        "l2_ratio_to_two_blob": 0.9999999999999998,
+        "chi_min": 9.35388671049103e-13,
+        "chi_max": 0.3628116100489394,
+        "A_s_norm_fro": 0.028639261282872766,
+        "A_s_norm_2": 0.015666860774948464,
+        "B_R_norm_fro": 0.17276417596132315,
+        "core_family2": {
+          "c1_kernel_identity": {
+            "nullity_KSL_eig": 0,
+            "nullity_C": 0,
+            "nullity_match": true,
+            "tol_KSL_eig_selector": 2.898781963786463e-20,
+            "tol_C": 2.4857846650027105e-17,
+            "max_norm_KSL_on_N1": 0.0,
+            "max_norm_C_on_N2": 0.0,
+            "max_norm_KSL_on_N2": 0.0,
+            "max_norm_C_on_N1": 0.0,
+            "subspace_distance": 0.0,
+            "min_singular_N1T_N2": null,
+            "pass_gate_f2": true,
+            "pass_gate_tol": 1e-08,
+            "identity_support_f2": true,
+            "note": "N1 = eig(K_SLAM) with |eigenvalue| <= tol; N2 = null(P_perp A) from the full SVD.  Empty bases give distance 0 and vacuous min singular.  max_norm_KSL_on_N2 and max_norm_C_on_N1 are the cross residuals reported by family 2; the literal same-space residuals on N1/N2 are recorded as well."
+          },
+          "c2_rank_identity": {
+            "r_A": 24,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "lhs_rKIS_minus_rKSL": 0,
+            "rhs_rA_plus_rB_minus_rAB": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true
+          },
+          "c3_retention": {
+            "r_A": 24,
+            "rho_min": 4.197447481913189e-11,
+            "max_abs_diff_rho_vs_pred": 1.4432899320127035e-15,
+            "pass_gate": true,
+            "pass_gate_tol": 1e-10,
+            "note": "rho = retention_spectrum(A_s, I - Z Z^T); prediction = desc(concat(1 - sv(Z^T Q_A)^2, ones(r_A - len)))."
+          }
+        },
+        "frequency_diversity": {
+          "rows": [
+            {
+              "direction": 0,
+              "generalized_eigenvalue_asc": 4.1974419666113926e-11,
+              "rho_single": 4.1974424581889623e-11,
+              "rho_distinct": 0.26917389895668814,
+              "movement_distinct_minus_single": 0.2691738989147137,
+              "shared_z_residual_distinct": 0.5188197172011565,
+              "u_KIS_norm2": 0.9999999999999734
+            },
+            {
+              "direction": 1,
+              "generalized_eigenvalue_asc": 1.555982585459319e-09,
+              "rho_single": 1.5559831862094188e-09,
+              "rho_distinct": 0.3443572673479774,
+              "movement_distinct_minus_single": 0.3443572657919942,
+              "shared_z_residual_distinct": 0.5868196207932872,
+              "u_KIS_norm2": 0.9999999999999895
+            },
+            {
+              "direction": 2,
+              "generalized_eigenvalue_asc": 5.242976193229473e-09,
+              "rho_single": 5.242976260697616e-09,
+              "rho_distinct": 0.7401390260587294,
+              "movement_distinct_minus_single": 0.7401390208157531,
+              "shared_z_residual_distinct": 0.8603133301644985,
+              "u_KIS_norm2": 1.0000000000000144
+            }
+          ],
+          "n_directions_with_movement_gt_1e-4": 3,
+          "family4_pass_ge2_moved": true,
+          "directions_method": "family4.generalized_eigen_directions(A1, P1), P1 = I - Z Z^T for Range(B1); three ascending (most confounded) directions; u = V_A diag(1/s_A) w"
+        }
+      },
+      {
+        "scene": "seed_1004",
+        "l2_ratio_to_two_blob": 1.0,
+        "chi_min": 4.760804982956327e-10,
+        "chi_max": 0.27515810648734285,
+        "A_s_norm_fro": 0.029067293609613683,
+        "A_s_norm_2": 0.01469393967906636,
+        "B_R_norm_fro": 0.13953489153045437,
+        "core_family2": {
+          "c1_kernel_identity": {
+            "nullity_KSL_eig": 0,
+            "nullity_C": 0,
+            "nullity_match": true,
+            "tol_KSL_eig_selector": 5.818506080184379e-20,
+            "tol_C": 3.521773940041149e-17,
+            "max_norm_KSL_on_N1": 0.0,
+            "max_norm_C_on_N2": 0.0,
+            "max_norm_KSL_on_N2": 0.0,
+            "max_norm_C_on_N1": 0.0,
+            "subspace_distance": 0.0,
+            "min_singular_N1T_N2": null,
+            "pass_gate_f2": true,
+            "pass_gate_tol": 1e-08,
+            "identity_support_f2": true,
+            "note": "N1 = eig(K_SLAM) with |eigenvalue| <= tol; N2 = null(P_perp A) from the full SVD.  Empty bases give distance 0 and vacuous min singular.  max_norm_KSL_on_N2 and max_norm_C_on_N1 are the cross residuals reported by family 2; the literal same-space residuals on N1/N2 are recorded as well."
+          },
+          "c2_rank_identity": {
+            "r_A": 24,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "lhs_rKIS_minus_rKSL": 0,
+            "rhs_rA_plus_rB_minus_rAB": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true
+          },
+          "c3_retention": {
+            "r_A": 24,
+            "rho_min": 6.070677289183003e-10,
+            "max_abs_diff_rho_vs_pred": 2.0713077174563296e-15,
+            "pass_gate": true,
+            "pass_gate_tol": 1e-10,
+            "note": "rho = retention_spectrum(A_s, I - Z Z^T); prediction = desc(concat(1 - sv(Z^T Q_A)^2, ones(r_A - len)))."
+          }
+        },
+        "frequency_diversity": {
+          "rows": [
+            {
+              "direction": 0,
+              "generalized_eigenvalue_asc": 6.070674882441401e-10,
+              "rho_single": 6.070678073591336e-10,
+              "rho_distinct": 0.29222239726268817,
+              "movement_distinct_minus_single": 0.2922223966556204,
+              "shared_z_residual_distinct": 0.5405759865760671,
+              "u_KIS_norm2": 1.0000000000000213
+            },
+            {
+              "direction": 1,
+              "generalized_eigenvalue_asc": 2.740862619723127e-09,
+              "rho_single": 2.740862542554413e-09,
+              "rho_distinct": 0.3614272357052282,
+              "movement_distinct_minus_single": 0.3614272329643657,
+              "shared_z_residual_distinct": 0.6011881865981967,
+              "u_KIS_norm2": 1.0000000000000127
+            },
+            {
+              "direction": 2,
+              "generalized_eigenvalue_asc": 8.967171867065842e-09,
+              "rho_single": 8.967171884722947e-09,
+              "rho_distinct": 0.5739868906222823,
+              "movement_distinct_minus_single": 0.5739868816551104,
+              "shared_z_residual_distinct": 0.7576192253515495,
+              "u_KIS_norm2": 1.0000000000002203
+            }
+          ],
+          "n_directions_with_movement_gt_1e-4": 3,
+          "family4_pass_ge2_moved": true,
+          "directions_method": "family4.generalized_eigen_directions(A1, P1), P1 = I - Z Z^T for Range(B1); three ascending (most confounded) directions; u = V_A diag(1/s_A) w"
+        }
+      },
+      {
+        "scene": "seed_1005",
+        "l2_ratio_to_two_blob": 0.9999999999999998,
+        "chi_min": 8.180517154651602e-09,
+        "chi_max": 0.3219662273451251,
+        "A_s_norm_fro": 0.03175943592002766,
+        "A_s_norm_2": 0.016730943899093277,
+        "B_R_norm_fro": 0.10738639126120854,
+        "core_family2": {
+          "c1_kernel_identity": {
+            "nullity_KSL_eig": 0,
+            "nullity_C": 0,
+            "nullity_match": true,
+            "tol_KSL_eig_selector": 4.888663975716783e-19,
+            "tol_C": 1.0208238842500184e-16,
+            "max_norm_KSL_on_N1": 0.0,
+            "max_norm_C_on_N2": 0.0,
+            "max_norm_KSL_on_N2": 0.0,
+            "max_norm_C_on_N1": 0.0,
+            "subspace_distance": 0.0,
+            "min_singular_N1T_N2": null,
+            "pass_gate_f2": true,
+            "pass_gate_tol": 1e-08,
+            "identity_support_f2": true,
+            "note": "N1 = eig(K_SLAM) with |eigenvalue| <= tol; N2 = null(P_perp A) from the full SVD.  Empty bases give distance 0 and vacuous min singular.  max_norm_KSL_on_N2 and max_norm_C_on_N1 are the cross residuals reported by family 2; the literal same-space residuals on N1/N2 are recorded as well."
+          },
+          "c2_rank_identity": {
+            "r_A": 24,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "lhs_rKIS_minus_rKSL": 0,
+            "rhs_rA_plus_rB_minus_rAB": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true
+          },
+          "c3_retention": {
+            "r_A": 24,
+            "rho_min": 1.1669830021195862e-10,
+            "max_abs_diff_rho_vs_pred": 2.8171909249863347e-15,
+            "pass_gate": true,
+            "pass_gate_tol": 1e-10,
+            "note": "rho = retention_spectrum(A_s, I - Z Z^T); prediction = desc(concat(1 - sv(Z^T Q_A)^2, ones(r_A - len)))."
+          }
+        },
+        "frequency_diversity": {
+          "rows": [
+            {
+              "direction": 0,
+              "generalized_eigenvalue_asc": 1.1669833565807178e-10,
+              "rho_single": 1.1669840361651036e-10,
+              "rho_distinct": 0.10601940841073587,
+              "movement_distinct_minus_single": 0.10601940829403747,
+              "shared_z_residual_distinct": 0.3256062167876035,
+              "u_KIS_norm2": 0.9999999999999958
+            },
+            {
+              "direction": 1,
+              "generalized_eigenvalue_asc": 8.152262976936268e-10,
+              "rho_single": 8.152262157515778e-10,
+              "rho_distinct": 0.42667041473846273,
+              "movement_distinct_minus_single": 0.4266704139232365,
+              "shared_z_residual_distinct": 0.6532001337556987,
+              "u_KIS_norm2": 1.0000000000000235
+            },
+            {
+              "direction": 2,
+              "generalized_eigenvalue_asc": 9.774850169294728e-09,
+              "rho_single": 9.774850168411086e-09,
+              "rho_distinct": 0.24461673922427565,
+              "movement_distinct_minus_single": 0.24461672944942547,
+              "shared_z_residual_distinct": 0.4945874434559327,
+              "u_KIS_norm2": 1.0000000000000386
+            }
+          ],
+          "n_directions_with_movement_gt_1e-4": 3,
+          "family4_pass_ge2_moved": true,
+          "directions_method": "family4.generalized_eigen_directions(A1, P1), P1 = I - Z Z^T for Range(B1); three ascending (most confounded) directions; u = V_A diag(1/s_A) w"
+        }
+      },
+      {
+        "scene": "two_blob",
+        "l2_ratio_to_two_blob": 1.0,
+        "chi_min": 8.972631644760144e-15,
+        "chi_max": 0.4594929148736014,
+        "A_s_norm_fro": 0.03217208716024821,
+        "A_s_norm_2": 0.018257075168866686,
+        "B_R_norm_fro": 0.20062940382221806,
+        "core_family2": {
+          "c1_kernel_identity": {
+            "nullity_KSL_eig": 0,
+            "nullity_C": 0,
+            "nullity_match": true,
+            "tol_KSL_eig_selector": 1.1015870192109052e-20,
+            "tol_C": 1.532375268308577e-17,
+            "max_norm_KSL_on_N1": 0.0,
+            "max_norm_C_on_N2": 0.0,
+            "max_norm_KSL_on_N2": 0.0,
+            "max_norm_C_on_N1": 0.0,
+            "subspace_distance": 0.0,
+            "min_singular_N1T_N2": null,
+            "pass_gate_f2": true,
+            "pass_gate_tol": 1e-08,
+            "identity_support_f2": true,
+            "note": "N1 = eig(K_SLAM) with |eigenvalue| <= tol; N2 = null(P_perp A) from the full SVD.  Empty bases give distance 0 and vacuous min singular.  max_norm_KSL_on_N2 and max_norm_C_on_N1 are the cross residuals reported by family 2; the literal same-space residuals on N1/N2 are recorded as well."
+          },
+          "c2_rank_identity": {
+            "r_A": 24,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "lhs_rKIS_minus_rKSL": 0,
+            "rhs_rA_plus_rB_minus_rAB": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true
+          },
+          "c3_retention": {
+            "r_A": 24,
+            "rho_min": 5.510026997615865e-11,
+            "max_abs_diff_rho_vs_pred": 1.5543122344752192e-15,
+            "pass_gate": true,
+            "pass_gate_tol": 1e-10,
+            "note": "rho = retention_spectrum(A_s, I - Z Z^T); prediction = desc(concat(1 - sv(Z^T Q_A)^2, ones(r_A - len)))."
+          }
+        },
+        "frequency_diversity": {
+          "rows": [
+            {
+              "direction": 0,
+              "generalized_eigenvalue_asc": 5.5100528180796915e-11,
+              "rho_single": 5.510027267004533e-11,
+              "rho_distinct": 0.12126912637940077,
+              "movement_distinct_minus_single": 0.1212691263243005,
+              "shared_z_residual_distinct": 0.348237169726898,
+              "u_KIS_norm2": 0.9999999999999984
+            },
+            {
+              "direction": 1,
+              "generalized_eigenvalue_asc": 1.4143367305322847e-10,
+              "rho_single": 1.414336994207909e-10,
+              "rho_distinct": 0.22391749919331405,
+              "movement_distinct_minus_single": 0.22391749905188035,
+              "shared_z_residual_distinct": 0.4731992172365819,
+              "u_KIS_norm2": 0.9999999999999957
+            },
+            {
+              "direction": 2,
+              "generalized_eigenvalue_asc": 1.0956060004844973e-09,
+              "rho_single": 1.0956067390479222e-09,
+              "rho_distinct": 0.4768304588551937,
+              "movement_distinct_minus_single": 0.476830457759587,
+              "shared_z_residual_distinct": 0.6905291151393935,
+              "u_KIS_norm2": 0.9999999999999967
+            }
+          ],
+          "n_directions_with_movement_gt_1e-4": 3,
+          "family4_pass_ge2_moved": true,
+          "directions_method": "family4.generalized_eigen_directions(A1, P1), P1 = I - Z Z^T for Range(B1); three ascending (most confounded) directions; u = V_A diag(1/s_A) w"
+        }
+      },
+      {
+        "scene": "ring",
+        "l2_ratio_to_two_blob": 0.9999999999999998,
+        "chi_min": 6.085476718141738e-31,
+        "chi_max": 0.2385509470237587,
+        "A_s_norm_fro": 0.030609389382352734,
+        "A_s_norm_2": 0.01607710650550152,
+        "B_R_norm_fro": 0.15437927289154513,
+        "core_family2": {
+          "c1_kernel_identity": {
+            "nullity_KSL_eig": 1,
+            "nullity_C": 0,
+            "nullity_match": false,
+            "tol_KSL_eig_selector": 4.585591896135665e-19,
+            "tol_C": 9.886747206679627e-17,
+            "max_norm_KSL_on_N1": 2.4249184957284407e-19,
+            "max_norm_C_on_N2": 0.0,
+            "max_norm_KSL_on_N2": 0.0,
+            "max_norm_C_on_N1": 4.928076961321756e-10,
+            "subspace_distance": 0.0,
+            "min_singular_N1T_N2": null,
+            "pass_gate_f2": true,
+            "pass_gate_tol": 1e-08,
+            "identity_support_f2": false,
+            "note": "N1 = eig(K_SLAM) with |eigenvalue| <= tol; N2 = null(P_perp A) from the full SVD.  Empty bases give distance 0 and vacuous min singular.  max_norm_KSL_on_N2 and max_norm_C_on_N1 are the cross residuals reported by family 2; the literal same-space residuals on N1/N2 are recorded as well."
+          },
+          "c2_rank_identity": {
+            "r_A": 24,
+            "r_KIS": 24,
+            "r_KSL": 23,
+            "r_B": 18,
+            "r_AB": 42,
+            "lhs_rKIS_minus_rKSL": 1,
+            "rhs_rA_plus_rB_minus_rAB": 0,
+            "rank_identity_residual": 1,
+            "rank_identity_holds": false
+          },
+          "c3_retention": {
+            "r_A": 24,
+            "rho_min": 1.6727988099620703e-10,
+            "max_abs_diff_rho_vs_pred": 1.9873471661940892e-15,
+            "pass_gate": true,
+            "pass_gate_tol": 1e-10,
+            "note": "rho = retention_spectrum(A_s, I - Z Z^T); prediction = desc(concat(1 - sv(Z^T Q_A)^2, ones(r_A - len)))."
+          }
+        },
+        "frequency_diversity": {
+          "rows": [
+            {
+              "direction": 0,
+              "generalized_eigenvalue_asc": 1.6727979700370998e-10,
+              "rho_single": 1.6727985199932312e-10,
+              "rho_distinct": 0.6877415617830341,
+              "movement_distinct_minus_single": 0.6877415616157543,
+              "shared_z_residual_distinct": 0.8293018520315947,
+              "u_KIS_norm2": 1.0000000000000022
+            },
+            {
+              "direction": 1,
+              "generalized_eigenvalue_asc": 3.614685733420491e-10,
+              "rho_single": 3.6146860295638074e-10,
+              "rho_distinct": 0.8660678722918023,
+              "movement_distinct_minus_single": 0.8660678719303336,
+              "shared_z_residual_distinct": 0.9306276765128889,
+              "u_KIS_norm2": 1.0000000000000422
+            },
+            {
+              "direction": 2,
+              "generalized_eigenvalue_asc": 1.807519364073612e-09,
+              "rho_single": 1.8075194247467723e-09,
+              "rho_distinct": 0.5203301938093133,
+              "movement_distinct_minus_single": 0.5203301920017939,
+              "shared_z_residual_distinct": 0.7213391669730091,
+              "u_KIS_norm2": 1.0000000000000024
+            }
+          ],
+          "n_directions_with_movement_gt_1e-4": 3,
+          "family4_pass_ge2_moved": true,
+          "directions_method": "family4.generalized_eigen_directions(A1, P1), P1 = I - Z Z^T for Range(B1); three ascending (most confounded) directions; u = V_A diag(1/s_A) w"
+        }
+      }
+    ],
+    "pass_rates": {
+      "n_scenes": 7,
+      "rank_identity_pass": 6,
+      "retention_identity_pass": 7,
+      "kernel_identity_f2_gate_pass": 7,
+      "kernel_identity_support_pass": 6,
+      "kernel_nullity_match": 6,
+      "frequency_diversity_pass_ge2": 7,
+      "count_moved_gt_1e-4_per_scene": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "literal_generalized_second_argument_diagnostic": {
+      "raised": true,
+      "exception_type": "ValueError",
+      "exception_message": "matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 48 is different from 24)",
+      "dimensions": {
+        "A1": [
+          48,
+          24
+        ],
+        "A1.T@A1": [
+          24,
+          24
+        ],
+        "Q_A": [
+          48,
+          24
+        ]
+      }
+    },
+    "crosscheck_vs_family2_4": {
+      "available": true,
+      "standard_rank_residual_match": true,
+      "standard_rank_residual_f2": 0,
+      "standard_retention_diff_f2": 1.5543122344752192e-15,
+      "standard_retention_max_abs_residual": 1.5543122344752192e-15,
+      "standard_retention_pass_match": true,
+      "standard_kernel_gate_match": true,
+      "standard_kernel_support_match": true,
+      "standard_freq_movement_max_abs_diff_vs_f4": 0.0,
+      "standard_freq_movement_match_lt_1e-12": true,
+      "family4_checkC_pass": true,
+      "replication_note": "two_blob row is compared to results/family2_results.json (cases.smooth) and results/family4_results.json (checks.C) read-only."
+    }
+  },
+  "partB_pose_dof_nuisance": {
+    "A_s_fro": 0.03217208716024821,
+    "B_R_fro_full": 0.20062940382221806,
+    "pose_column_order": [
+      0,
+      1,
+      2
+    ],
+    "pose_column_order_note": "[px, py, theta] repeated per pose",
+    "rows": [
+      {
+        "subset": "known_pose",
+        "q_sub": 18,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 0,
+          "r_AB": 24,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 0.0,
+          "retained_mass": 24.0,
+          "theta_min_rad": 1.5707963267948966,
+          "theta_min_deg": 90.0,
+          "rho_min": 1.0,
+          "count_rho_lt_1e-6": 0,
+          "cos2_len": 0,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 0.00046217181710171365,
+          "K_eff_fro": 0.00046217181710171365,
+          "sigma_min_B": 0.0,
+          "rank_tol_B": 0.0
+        },
+        "B_over_A_fro": 0.0
+      },
+      {
+        "subset": "x_only",
+        "q_sub": 6,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 6,
+          "r_AB": 30,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 5.979897805737015,
+          "retained_mass": 18.020102194262986,
+          "theta_min_rad": 0.0005368613713262856,
+          "theta_min_deg": 0.030759890760601875,
+          "rho_min": 2.88220104338599e-07,
+          "count_rho_lt_1e-6": 1,
+          "cos2_len": 6,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 0.0002212715620176791,
+          "K_eff_fro": 0.00046082176001185525,
+          "sigma_min_B": 0.035816714077236744,
+          "rank_tol_B": 9.676672435776458e-16
+        },
+        "B_over_A_fro": 5.1001970667271515
+      },
+      {
+        "subset": "y_only",
+        "q_sub": 6,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 6,
+          "r_AB": 30,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 5.971152688703427,
+          "retained_mass": 18.028847311296573,
+          "theta_min_rad": 0.00017135694567188656,
+          "theta_min_deg": 0.009818029777251639,
+          "rho_min": 2.9363202536103472e-08,
+          "count_rho_lt_1e-6": 1,
+          "cos2_len": 6,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 0.00023039382395416744,
+          "K_eff_fro": 0.00046148036942980224,
+          "sigma_min_B": 0.010316204410164566,
+          "rank_tol_B": 7.838720327819719e-16
+        },
+        "B_over_A_fro": 3.586069279073891
+      },
+      {
+        "subset": "theta_only",
+        "q_sub": 6,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 6,
+          "r_AB": 30,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 2.637710750148465,
+          "retained_mass": 21.362289249851536,
+          "theta_min_rad": 0.08865508437224026,
+          "theta_min_deg": 5.079562166905588,
+          "rho_min": 0.007839153798631426,
+          "count_rho_lt_1e-6": 0,
+          "cos2_len": 6,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 0.00046123804713221604,
+          "K_eff_fro": 0.0004621718156947223,
+          "sigma_min_B": 0.0008296200255494587,
+          "rank_tol_B": 2.3254706525921212e-17
+        },
+        "B_over_A_fro": 0.1320897114327038
+      },
+      {
+        "subset": "xy",
+        "q_sub": 12,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 12,
+          "r_AB": 36,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 11.427251963762227,
+          "retained_mass": 12.572748036237773,
+          "theta_min_rad": 2.2797442301051354e-05,
+          "theta_min_deg": 0.0013061972275432545,
+          "rho_min": 5.197233754472563e-10,
+          "count_rho_lt_1e-6": 2,
+          "cos2_len": 12,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 7.568635589265276e-05,
+          "K_eff_fro": 0.00046013782159671655,
+          "sigma_min_B": 0.001684526280959043,
+          "rank_tol_B": 1.0977157814476008e-15
+        },
+        "B_over_A_fro": 6.2347335944505105
+      },
+      {
+        "subset": "x_theta",
+        "q_sub": 12,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 12,
+          "r_AB": 36,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 8.617763371358803,
+          "retained_mass": 15.382236628641197,
+          "theta_min_rad": 6.141121973887602e-05,
+          "theta_min_deg": 0.00351860370578809,
+          "rho_min": 3.771337908631267e-09,
+          "count_rho_lt_1e-6": 3,
+          "cos2_len": 12,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 0.0002208122234889117,
+          "K_eff_fro": 0.00046082175860893623,
+          "sigma_min_B": 0.0008252103246442632,
+          "rank_tol_B": 9.676672436332288e-16
+        },
+        "B_over_A_fro": 5.101907271924747
+      },
+      {
+        "subset": "y_theta",
+        "q_sub": 12,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 12,
+          "r_AB": 36,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 8.6216333657216,
+          "retained_mass": 15.3783666342784,
+          "theta_min_rad": 6.600654835979925e-05,
+          "theta_min_deg": 0.0037818966412426634,
+          "rho_min": 4.356864424792661e-09,
+          "count_rho_lt_1e-6": 2,
+          "cos2_len": 12,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 0.00022913069105732795,
+          "K_eff_fro": 0.0004614803680243167,
+          "sigma_min_B": 0.0008296200255409678,
+          "rank_tol_B": 7.838720652148346e-16
+        },
+        "B_over_A_fro": 3.588501158726845
+      },
+      {
+        "subset": "full",
+        "q_sub": 18,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 18,
+          "r_AB": 42,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 14.592838133348714,
+          "retained_mass": 9.407161866651286,
+          "theta_min_rad": 7.423007129608209e-06,
+          "theta_min_deg": 0.00042530697982207,
+          "rho_min": 5.5101034845961294e-11,
+          "count_rho_lt_1e-6": 5,
+          "cos2_len": 18,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 2.410913353441397e-06,
+          "K_eff_fro": 0.00046013782019529054,
+          "sigma_min_B": 0.0006748865400722514,
+          "rank_tol_B": 1.097715785962827e-15
+        },
+        "B_over_A_fro": 6.236132670624973
+      }
+    ],
+    "marginal_destruction": [
+      {
+        "from": "known_pose",
+        "to": "x_only",
+        "label": "add x nuisance",
+        "retained_from": 24.0,
+        "retained_to": 18.020102194262986,
+        "marginal_destruction_retained": 5.979897805737014,
+        "confusable_from": 0.0,
+        "confusable_to": 5.979897805737015,
+        "confusable_increase": 5.979897805737015
+      },
+      {
+        "from": "known_pose",
+        "to": "y_only",
+        "label": "add y nuisance",
+        "retained_from": 24.0,
+        "retained_to": 18.028847311296573,
+        "marginal_destruction_retained": 5.971152688703427,
+        "confusable_from": 0.0,
+        "confusable_to": 5.971152688703427,
+        "confusable_increase": 5.971152688703427
+      },
+      {
+        "from": "known_pose",
+        "to": "theta_only",
+        "label": "add theta nuisance",
+        "retained_from": 24.0,
+        "retained_to": 21.362289249851536,
+        "marginal_destruction_retained": 2.6377107501484645,
+        "confusable_from": 0.0,
+        "confusable_to": 2.637710750148465,
+        "confusable_increase": 2.637710750148465
+      },
+      {
+        "from": "x_only",
+        "to": "xy",
+        "label": "add y to x-only",
+        "retained_from": 18.020102194262986,
+        "retained_to": 12.572748036237773,
+        "marginal_destruction_retained": 5.447354158025213,
+        "confusable_from": 5.979897805737015,
+        "confusable_to": 11.427251963762227,
+        "confusable_increase": 5.447354158025212
+      },
+      {
+        "from": "x_only",
+        "to": "x_theta",
+        "label": "add theta to x-only",
+        "retained_from": 18.020102194262986,
+        "retained_to": 15.382236628641197,
+        "marginal_destruction_retained": 2.637865565621789,
+        "confusable_from": 5.979897805737015,
+        "confusable_to": 8.617763371358803,
+        "confusable_increase": 2.637865565621788
+      },
+      {
+        "from": "y_only",
+        "to": "xy",
+        "label": "add x to y-only",
+        "retained_from": 18.028847311296573,
+        "retained_to": 12.572748036237773,
+        "marginal_destruction_retained": 5.456099275058801,
+        "confusable_from": 5.971152688703427,
+        "confusable_to": 11.427251963762227,
+        "confusable_increase": 5.456099275058801
+      },
+      {
+        "from": "y_only",
+        "to": "y_theta",
+        "label": "add theta to y-only",
+        "retained_from": 18.028847311296573,
+        "retained_to": 15.3783666342784,
+        "marginal_destruction_retained": 2.650480677018173,
+        "confusable_from": 5.971152688703427,
+        "confusable_to": 8.6216333657216,
+        "confusable_increase": 2.650480677018173
+      },
+      {
+        "from": "theta_only",
+        "to": "x_theta",
+        "label": "add x to theta-only",
+        "retained_from": 21.362289249851536,
+        "retained_to": 15.382236628641197,
+        "marginal_destruction_retained": 5.980052621210339,
+        "confusable_from": 2.637710750148465,
+        "confusable_to": 8.617763371358803,
+        "confusable_increase": 5.980052621210339
+      },
+      {
+        "from": "theta_only",
+        "to": "y_theta",
+        "label": "add y to theta-only",
+        "retained_from": 21.362289249851536,
+        "retained_to": 15.3783666342784,
+        "marginal_destruction_retained": 5.983922615573135,
+        "confusable_from": 2.637710750148465,
+        "confusable_to": 8.6216333657216,
+        "confusable_increase": 5.983922615573135
+      },
+      {
+        "from": "x_only",
+        "to": "full",
+        "label": "add y+theta to x-only",
+        "retained_from": 18.020102194262986,
+        "retained_to": 9.407161866651286,
+        "marginal_destruction_retained": 8.6129403276117,
+        "confusable_from": 5.979897805737015,
+        "confusable_to": 14.592838133348714,
+        "confusable_increase": 8.6129403276117
+      },
+      {
+        "from": "y_only",
+        "to": "full",
+        "label": "add x+theta to y-only",
+        "retained_from": 18.028847311296573,
+        "retained_to": 9.407161866651286,
+        "marginal_destruction_retained": 8.621685444645287,
+        "confusable_from": 5.971152688703427,
+        "confusable_to": 14.592838133348714,
+        "confusable_increase": 8.621685444645287
+      },
+      {
+        "from": "theta_only",
+        "to": "full",
+        "label": "add x+y to theta-only",
+        "retained_from": 21.362289249851536,
+        "retained_to": 9.407161866651286,
+        "marginal_destruction_retained": 11.95512738320025,
+        "confusable_from": 2.637710750148465,
+        "confusable_to": 14.592838133348714,
+        "confusable_increase": 11.95512738320025
+      },
+      {
+        "from": "xy",
+        "to": "full",
+        "label": "add theta to xy",
+        "retained_from": 12.572748036237773,
+        "retained_to": 9.407161866651286,
+        "marginal_destruction_retained": 3.1655861695864864,
+        "confusable_from": 11.427251963762227,
+        "confusable_to": 14.592838133348714,
+        "confusable_increase": 3.1655861695864864
+      },
+      {
+        "from": "x_theta",
+        "to": "full",
+        "label": "add y to x-theta",
+        "retained_from": 15.382236628641197,
+        "retained_to": 9.407161866651286,
+        "marginal_destruction_retained": 5.9750747619899105,
+        "confusable_from": 8.617763371358803,
+        "confusable_to": 14.592838133348714,
+        "confusable_increase": 5.9750747619899105
+      },
+      {
+        "from": "y_theta",
+        "to": "full",
+        "label": "add x to y-theta",
+        "retained_from": 15.3783666342784,
+        "retained_to": 9.407161866651286,
+        "marginal_destruction_retained": 5.971204767627114,
+        "confusable_from": 8.6216333657216,
+        "confusable_to": 14.592838133348714,
+        "confusable_increase": 5.971204767627114
+      }
+    ],
+    "known_pose_retained_mass_reference": 24.0,
+    "claim_scope": "descriptive ablation; no forced pass"
+  },
+  "partC_receiver_ablation": {
+    "rows": [
+      {
+        "n_rx": 1,
+        "m_real": 12,
+        "rx_offsets": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "info_metrics": {
+          "r_A": 12,
+          "r_B": 12,
+          "r_AB": 12,
+          "r_KIS": 12,
+          "r_KSL": 12,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 12,
+          "rank_identity_residual": -12,
+          "rank_identity_holds": false,
+          "confusable_mass": 12.0,
+          "retained_mass": 0.0,
+          "theta_min_rad": 0.0,
+          "theta_min_deg": 0.0,
+          "rho_min": -8.881784197001252e-16,
+          "count_rho_lt_1e-6": 12,
+          "cos2_len": 12,
+          "K_IS_fro": 0.00011545656417931809,
+          "K_SLAM_fro": 3.056367281172872e-20,
+          "K_eff_fro": 0.00011532837469634473,
+          "sigma_min_B": 0.00040976918530138663,
+          "rank_tol_B": 2.05853469637309e-16
+        },
+        "B_over_A_fro": 6.237268066119357
+      },
+      {
+        "n_rx": 2,
+        "m_real": 24,
+        "rx_offsets": [
+          [
+            -0.06,
+            0.0
+          ],
+          [
+            0.06,
+            0.0
+          ]
+        ],
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 18,
+          "r_AB": 24,
+          "r_KIS": 24,
+          "r_KSL": 16,
+          "rank_identity_lhs": 8,
+          "rank_identity_rhs": 18,
+          "rank_identity_residual": -10,
+          "rank_identity_holds": false,
+          "confusable_mass": 17.999999999999996,
+          "retained_mass": 6.0000000000000036,
+          "theta_min_rad": 0.0,
+          "theta_min_deg": 0.0,
+          "rho_min": -4.440892098500626e-16,
+          "count_rho_lt_1e-6": 18,
+          "cos2_len": 18,
+          "K_IS_fro": 0.0002312603032585069,
+          "K_SLAM_fro": 7.4126745641607295e-09,
+          "K_eff_fro": 0.000230747297271641,
+          "sigma_min_B": 2.7661192711319977e-05,
+          "rank_tol_B": 3.8847841677333333e-16
+        },
+        "B_over_A_fro": 6.2375953087718425
+      },
+      {
+        "n_rx": 4,
+        "m_real": 48,
+        "rx_offsets": [
+          [
+            -0.06,
+            0.0
+          ],
+          [
+            0.06,
+            0.0
+          ],
+          [
+            0.0,
+            -0.06
+          ],
+          [
+            0.0,
+            0.06
+          ]
+        ],
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 18,
+          "r_AB": 42,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 14.592838133348714,
+          "retained_mass": 9.407161866651286,
+          "theta_min_rad": 7.423007129608209e-06,
+          "theta_min_deg": 0.00042530697982207,
+          "rho_min": 5.5101034845961294e-11,
+          "count_rho_lt_1e-6": 5,
+          "cos2_len": 18,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 2.410913353441397e-06,
+          "K_eff_fro": 0.00046013782019529054,
+          "sigma_min_B": 0.0006748865400722514,
+          "rank_tol_B": 1.097715785962827e-15
+        },
+        "B_over_A_fro": 6.236132670624972
+      },
+      {
+        "n_rx": 8,
+        "m_real": 96,
+        "rx_offsets": [
+          [
+            -0.06,
+            0.0
+          ],
+          [
+            0.06,
+            0.0
+          ],
+          [
+            0.0,
+            -0.06
+          ],
+          [
+            0.0,
+            0.06
+          ],
+          [
+            0.0424,
+            0.0424
+          ],
+          [
+            -0.0424,
+            0.0424
+          ],
+          [
+            0.0424,
+            -0.0424
+          ],
+          [
+            -0.0424,
+            -0.0424
+          ]
+        ],
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 18,
+          "r_AB": 42,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 14.600637145607957,
+          "retained_mass": 9.399362854392043,
+          "theta_min_rad": 1.6381792011815874e-05,
+          "theta_min_deg": 0.0009386075431381755,
+          "rho_min": 2.6836310951239284e-10,
+          "count_rho_lt_1e-6": 5,
+          "cos2_len": 18,
+          "K_IS_fro": 0.0009243431230232992,
+          "K_SLAM_fro": 4.827531566543225e-06,
+          "K_eff_fro": 0.0009162842005702007,
+          "sigma_min_B": 0.0009544722995394847,
+          "rank_tol_B": 3.1048038634712148e-15
+        },
+        "B_over_A_fro": 6.2361299375692845
+      }
+    ],
+    "observed": {
+      "n_rx": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "retained_mass": [
+        0.0,
+        6.0000000000000036,
+        9.407161866651286,
+        9.399362854392043
+      ],
+      "confusable_mass": [
+        12.0,
+        17.999999999999996,
+        14.592838133348714,
+        14.600637145607957
+      ],
+      "theta_min_deg": [
+        0.0,
+        0.0,
+        0.00042530697982207,
+        0.0009386075431381755
+      ],
+      "rho_min": [
+        -8.881784197001252e-16,
+        -4.440892098500626e-16,
+        5.5101034845961294e-11,
+        2.6836310951239284e-10
+      ],
+      "B_over_A_fro": [
+        6.237268066119357,
+        6.2375953087718425,
+        6.236132670624972,
+        6.2361299375692845
+      ]
+    },
+    "observed_flags": {
+      "retained_non_increasing": false,
+      "retained_non_decreasing": false,
+      "confusable_non_decreasing": false,
+      "confusable_non_increasing": false
+    },
+    "note": "r_A itself changes with measurement count: n_rx=1 gives r_A=12 and Range(B_R)=R^12 (A fully B-confounded, retained 0); n_rx=2 gives r_A=24 with Range(B_R) contained in Range(A_s) (retained 6); n_rx>=4 keeps r_A=24 with a transverse intersection (retained 9.41 for n_rx=4 and 9.40 for n_rx=8). The literal monotonicity flags over the mixed-r_A rows are therefore not interpretable as a pure receiver-count effect.",
+    "claim_scope": "descriptive ablation; no forced pass"
+  },
+  "partD_pose_count_ablation": {
+    "rows": [
+      {
+        "T": 3,
+        "q_pose": 9,
+        "m_real": 24,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 9,
+          "r_AB": 24,
+          "r_KIS": 23,
+          "r_KSL": 15,
+          "rank_identity_lhs": 8,
+          "rank_identity_rhs": 9,
+          "rank_identity_residual": -1,
+          "rank_identity_holds": false,
+          "confusable_mass": 9.000000000000004,
+          "retained_mass": 14.999999999999996,
+          "theta_min_rad": 0.0,
+          "theta_min_deg": 0.0,
+          "rho_min": -1.3322676295501878e-15,
+          "count_rho_lt_1e-6": 9,
+          "cos2_len": 9,
+          "K_IS_fro": 0.00023597334176352934,
+          "K_SLAM_fro": 1.6124206288749083e-06,
+          "K_eff_fro": 0.0002347106217345531,
+          "sigma_min_B": 0.0006748865400722513,
+          "rank_tol_B": 5.488578929814133e-16
+        },
+        "B_over_A_fro": 6.714461938888372
+      },
+      {
+        "T": 6,
+        "q_pose": 18,
+        "m_real": 48,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 18,
+          "r_AB": 42,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 14.592838133348714,
+          "retained_mass": 9.407161866651286,
+          "theta_min_rad": 7.423007129608209e-06,
+          "theta_min_deg": 0.00042530697982207,
+          "rho_min": 5.5101034845961294e-11,
+          "count_rho_lt_1e-6": 5,
+          "cos2_len": 18,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 2.410913353441397e-06,
+          "K_eff_fro": 0.00046013782019529054,
+          "sigma_min_B": 0.0006748865400722514,
+          "rank_tol_B": 1.097715785962827e-15
+        },
+        "B_over_A_fro": 6.236132670624972
+      },
+      {
+        "T": 12,
+        "q_pose": 36,
+        "m_real": 96,
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 36,
+          "r_AB": 60,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 17.42087950665824,
+          "retained_mass": 6.579120493341762,
+          "theta_min_rad": 4.944392106983451e-05,
+          "theta_min_deg": 0.0028329279998794837,
+          "rho_min": 2.444701330261978e-09,
+          "count_rho_lt_1e-6": 4,
+          "cos2_len": 24,
+          "K_IS_fro": 0.0009484080845155614,
+          "K_SLAM_fro": 2.0434747693536602e-05,
+          "K_eff_fro": 0.0009445441716712061,
+          "sigma_min_B": 0.00015167012883173585,
+          "rank_tol_B": 2.2172192804692128e-15
+        },
+        "B_over_A_fro": 6.075673399448019
+      }
+    ],
+    "observed": {
+      "T": [
+        3,
+        6,
+        12
+      ],
+      "retained_mass": [
+        14.999999999999996,
+        9.407161866651286,
+        6.579120493341762
+      ],
+      "confusable_mass": [
+        9.000000000000004,
+        14.592838133348714,
+        17.42087950665824
+      ],
+      "theta_min_deg": [
+        0.0,
+        0.00042530697982207,
+        0.0028329279998794837
+      ]
+    },
+    "observed_flags": {
+      "retained_non_decreasing": false,
+      "retained_non_increasing": true,
+      "confusable_non_decreasing": true,
+      "confusable_non_increasing": false
+    },
+    "note": "q=3T grows with T and r_A stays 24 (A_s has p=24 columns), so retained mass falls monotonically here (15 -> 9.41 -> 6.58) as more pose nuisance columns occupy more of the data space.",
+    "claim_scope": "descriptive ablation; no forced pass"
+  },
+  "partE_basis_ablation": {
+    "rows": [
+      {
+        "p": 12,
+        "x_centers_n": 3,
+        "y_centers_n": 4,
+        "smooth_basis_config": {
+          "p": 12,
+          "x_centers_n": 3,
+          "y_centers_n": 4,
+          "x_span": [
+            -0.3,
+            0.3
+          ],
+          "y_span": [
+            -0.3,
+            0.3
+          ],
+          "sigma_b": 0.16,
+          "unit_columns": true,
+          "note": "identical construction/config to families 2-8"
+        },
+        "info_metrics": {
+          "r_A": 12,
+          "r_B": 18,
+          "r_AB": 30,
+          "r_KIS": 12,
+          "r_KSL": 12,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 11.842982036707546,
+          "retained_mass": 0.15701796329245354,
+          "theta_min_rad": 0.000889492403004484,
+          "theta_min_deg": 0.05096416060110668,
+          "rho_min": 7.911965262952236e-07,
+          "count_rho_lt_1e-6": 1,
+          "cos2_len": 12,
+          "K_IS_fro": 0.0002798481380336295,
+          "K_SLAM_fro": 1.6777402873310747e-06,
+          "K_eff_fro": 0.00027873229417475895,
+          "sigma_min_B": 0.0006748865400722514,
+          "rank_tol_B": 1.097715785962827e-15
+        },
+        "B_over_A_fro": 8.425665772992964
+      },
+      {
+        "p": 24,
+        "x_centers_n": 4,
+        "y_centers_n": 6,
+        "smooth_basis_config": {
+          "p": 24,
+          "x_centers_n": 4,
+          "y_centers_n": 6,
+          "x_span": [
+            -0.3,
+            0.3
+          ],
+          "y_span": [
+            -0.3,
+            0.3
+          ],
+          "sigma_b": 0.16,
+          "unit_columns": true,
+          "note": "identical construction/config to families 2-8"
+        },
+        "info_metrics": {
+          "r_A": 24,
+          "r_B": 18,
+          "r_AB": 42,
+          "r_KIS": 24,
+          "r_KSL": 24,
+          "rank_identity_lhs": 0,
+          "rank_identity_rhs": 0,
+          "rank_identity_residual": 0,
+          "rank_identity_holds": true,
+          "confusable_mass": 14.592838133348714,
+          "retained_mass": 9.407161866651286,
+          "theta_min_rad": 7.423007129608209e-06,
+          "theta_min_deg": 0.00042530697982207,
+          "rho_min": 5.5101034845961294e-11,
+          "count_rho_lt_1e-6": 5,
+          "cos2_len": 18,
+          "K_IS_fro": 0.00046217181710171365,
+          "K_SLAM_fro": 2.410913353441397e-06,
+          "K_eff_fro": 0.00046013782019529054,
+          "sigma_min_B": 0.0006748865400722514,
+          "rank_tol_B": 1.097715785962827e-15
+        },
+        "B_over_A_fro": 6.236132670624972
+      },
+      {
+        "p": 36,
+        "x_centers_n": 4,
+        "y_centers_n": 9,
+        "smooth_basis_config": {
+          "p": 36,
+          "x_centers_n": 4,
+          "y_centers_n": 9,
+          "x_span": [
+            -0.3,
+            0.3
+          ],
+          "y_span": [
+            -0.3,
+            0.3
+          ],
+          "sigma_b": 0.16,
+          "unit_columns": true,
+          "note": "identical construction/config to families 2-8"
+        },
+        "info_metrics": {
+          "r_A": 36,
+          "r_B": 18,
+          "r_AB": 48,
+          "r_KIS": 28,
+          "r_KSL": 27,
+          "rank_identity_lhs": 1,
+          "rank_identity_rhs": 6,
+          "rank_identity_residual": -5,
+          "rank_identity_holds": false,
+          "confusable_mass": 17.250369354190536,
+          "retained_mass": 18.749630645809464,
+          "theta_min_rad": 0.0,
+          "theta_min_deg": 0.0,
+          "rho_min": -4.440892098500626e-16,
+          "count_rho_lt_1e-6": 10,
+          "cos2_len": 18,
+          "K_IS_fro": 0.0006975282074893315,
+          "K_SLAM_fro": 3.429170384723749e-06,
+          "K_eff_fro": 0.000694443940753947,
+          "sigma_min_B": 0.0006748865400722514,
+          "rank_tol_B": 1.097715785962827e-15
+        },
+        "B_over_A_fro": 5.112879095551422
+      }
+    ],
+    "observed": {
+      "p": [
+        12,
+        24,
+        36
+      ],
+      "retained_mass": [
+        0.15701796329245354,
+        9.407161866651286,
+        18.749630645809464
+      ],
+      "confusable_mass": [
+        11.842982036707546,
+        14.592838133348714,
+        17.250369354190536
+      ],
+      "theta_min_deg": [
+        0.05096416060110668,
+        0.00042530697982207,
+        0.0
+      ]
+    },
+    "observed_flags": {
+      "retained_non_decreasing": true,
+      "retained_non_increasing": false,
+      "confusable_non_decreasing": true,
+      "confusable_non_increasing": false
+    },
+    "note": "B_R_standard is fixed (r_B=18) while r_A = p grows, so retained mass increases with p (0.157 -> 9.41 -> 18.75) partly because more A directions are added outside the fixed B range; confusable mass also increases (11.84 -> 14.59 -> 17.25).",
+    "claim_scope": "descriptive ablation; no forced pass"
+  },
+  "checks": [
+    {
+      "id": "A_rank_identity",
+      "claim": "rank identity r(K_IS)-r(K_SLAM) == r(A)+r(B)-r([A,B]) at machine rank over the 7 scenes",
+      "threshold": "integer residual == 0 in every scene",
+      "observed_pass": 6,
+      "observed_total": 7,
+      "failing_scenes": [
+        "ring"
+      ],
+      "pass": false,
+      "note": "recorded at the family-2 machine tolerance; a tolerance boundary on K_SLAM's smallest eigenvalue can flip one rank unit (ring scene), see report."
+    },
+    {
+      "id": "A_retention_principal_angle_identity",
+      "claim": "no-prior retention spectrum equals 1 - cos^2 of the principal angles (padded) within the family-2 gate",
+      "threshold": "max abs diff < 1e-10 * max(1, ||A_s||_2^2)",
+      "observed_pass": 7,
+      "observed_total": 7,
+      "pass": true
+    },
+    {
+      "id": "A_kernel_identity",
+      "claim": "kernel identity between null(K_SLAM) and null((I-ZZ^T)A_s) at the family-2 threshold",
+      "threshold": "family-2 subspace gate < 1e-8*max(1,||A_s||_2^2) and identity_support (equal nullity + cross residuals + subspace agreement)",
+      "observed_f2_gate_pass": 7,
+      "observed_identity_support_pass": 6,
+      "observed_nullity_match": 6,
+      "observed_total": 7,
+      "pass": true,
+      "note": "null(K_SLAM) and null(C) are empty on the two-blob and most seed scenes at the declared eig thresholds; the ring scene selects one K_SLAM eig below tol while C stays full rank, so its nullity match is false (identity_support false) although the family-2 subspace-distance gate is vacuous-true."
+    },
+    {
+      "id": "A_frequency_diversity",
+      "claim": "stacking distinct f in {1.0,1.4} moves the 3 most-confounded single-frequency directions; family-4 gate >=2/3 > 1e-4",
+      "threshold": "rho movement > 1e-4 in at least 2 of 3 directions",
+      "observed_pass": 7,
+      "observed_total": 7,
+      "observed_movement_counts": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "pass": true
+    },
+    {
+      "id": "B_pose_dof_nuisance",
+      "claim": "pose-DOF nuisance retained/confusable masses and marginal destruction pattern (recorded; no forced pass)",
+      "threshold": null,
+      "observed": [
+        {
+          "subset": "known_pose",
+          "q_sub": 18,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 0,
+            "r_AB": 24,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 0.0,
+            "retained_mass": 24.0,
+            "theta_min_rad": 1.5707963267948966,
+            "theta_min_deg": 90.0,
+            "rho_min": 1.0,
+            "count_rho_lt_1e-6": 0,
+            "cos2_len": 0,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 0.00046217181710171365,
+            "K_eff_fro": 0.00046217181710171365,
+            "sigma_min_B": 0.0,
+            "rank_tol_B": 0.0
+          },
+          "B_over_A_fro": 0.0
+        },
+        {
+          "subset": "x_only",
+          "q_sub": 6,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 6,
+            "r_AB": 30,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 5.979897805737015,
+            "retained_mass": 18.020102194262986,
+            "theta_min_rad": 0.0005368613713262856,
+            "theta_min_deg": 0.030759890760601875,
+            "rho_min": 2.88220104338599e-07,
+            "count_rho_lt_1e-6": 1,
+            "cos2_len": 6,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 0.0002212715620176791,
+            "K_eff_fro": 0.00046082176001185525,
+            "sigma_min_B": 0.035816714077236744,
+            "rank_tol_B": 9.676672435776458e-16
+          },
+          "B_over_A_fro": 5.1001970667271515
+        },
+        {
+          "subset": "y_only",
+          "q_sub": 6,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 6,
+            "r_AB": 30,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 5.971152688703427,
+            "retained_mass": 18.028847311296573,
+            "theta_min_rad": 0.00017135694567188656,
+            "theta_min_deg": 0.009818029777251639,
+            "rho_min": 2.9363202536103472e-08,
+            "count_rho_lt_1e-6": 1,
+            "cos2_len": 6,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 0.00023039382395416744,
+            "K_eff_fro": 0.00046148036942980224,
+            "sigma_min_B": 0.010316204410164566,
+            "rank_tol_B": 7.838720327819719e-16
+          },
+          "B_over_A_fro": 3.586069279073891
+        },
+        {
+          "subset": "theta_only",
+          "q_sub": 6,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 6,
+            "r_AB": 30,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 2.637710750148465,
+            "retained_mass": 21.362289249851536,
+            "theta_min_rad": 0.08865508437224026,
+            "theta_min_deg": 5.079562166905588,
+            "rho_min": 0.007839153798631426,
+            "count_rho_lt_1e-6": 0,
+            "cos2_len": 6,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 0.00046123804713221604,
+            "K_eff_fro": 0.0004621718156947223,
+            "sigma_min_B": 0.0008296200255494587,
+            "rank_tol_B": 2.3254706525921212e-17
+          },
+          "B_over_A_fro": 0.1320897114327038
+        },
+        {
+          "subset": "xy",
+          "q_sub": 12,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 12,
+            "r_AB": 36,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 11.427251963762227,
+            "retained_mass": 12.572748036237773,
+            "theta_min_rad": 2.2797442301051354e-05,
+            "theta_min_deg": 0.0013061972275432545,
+            "rho_min": 5.197233754472563e-10,
+            "count_rho_lt_1e-6": 2,
+            "cos2_len": 12,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 7.568635589265276e-05,
+            "K_eff_fro": 0.00046013782159671655,
+            "sigma_min_B": 0.001684526280959043,
+            "rank_tol_B": 1.0977157814476008e-15
+          },
+          "B_over_A_fro": 6.2347335944505105
+        },
+        {
+          "subset": "x_theta",
+          "q_sub": 12,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 12,
+            "r_AB": 36,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 8.617763371358803,
+            "retained_mass": 15.382236628641197,
+            "theta_min_rad": 6.141121973887602e-05,
+            "theta_min_deg": 0.00351860370578809,
+            "rho_min": 3.771337908631267e-09,
+            "count_rho_lt_1e-6": 3,
+            "cos2_len": 12,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 0.0002208122234889117,
+            "K_eff_fro": 0.00046082175860893623,
+            "sigma_min_B": 0.0008252103246442632,
+            "rank_tol_B": 9.676672436332288e-16
+          },
+          "B_over_A_fro": 5.101907271924747
+        },
+        {
+          "subset": "y_theta",
+          "q_sub": 12,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 12,
+            "r_AB": 36,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 8.6216333657216,
+            "retained_mass": 15.3783666342784,
+            "theta_min_rad": 6.600654835979925e-05,
+            "theta_min_deg": 0.0037818966412426634,
+            "rho_min": 4.356864424792661e-09,
+            "count_rho_lt_1e-6": 2,
+            "cos2_len": 12,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 0.00022913069105732795,
+            "K_eff_fro": 0.0004614803680243167,
+            "sigma_min_B": 0.0008296200255409678,
+            "rank_tol_B": 7.838720652148346e-16
+          },
+          "B_over_A_fro": 3.588501158726845
+        },
+        {
+          "subset": "full",
+          "q_sub": 18,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 14.592838133348714,
+            "retained_mass": 9.407161866651286,
+            "theta_min_rad": 7.423007129608209e-06,
+            "theta_min_deg": 0.00042530697982207,
+            "rho_min": 5.5101034845961294e-11,
+            "count_rho_lt_1e-6": 5,
+            "cos2_len": 18,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 2.410913353441397e-06,
+            "K_eff_fro": 0.00046013782019529054,
+            "sigma_min_B": 0.0006748865400722514,
+            "rank_tol_B": 1.097715785962827e-15
+          },
+          "B_over_A_fro": 6.236132670624973
+        }
+      ],
+      "pass": null
+    },
+    {
+      "id": "C_receiver_count",
+      "claim": "receiver-count ablation trend (recorded; no forced pass)",
+      "threshold": null,
+      "observed": [
+        {
+          "n_rx": 1,
+          "m_real": 12,
+          "rx_offsets": [
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "info_metrics": {
+            "r_A": 12,
+            "r_B": 12,
+            "r_AB": 12,
+            "r_KIS": 12,
+            "r_KSL": 12,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 12,
+            "rank_identity_residual": -12,
+            "rank_identity_holds": false,
+            "confusable_mass": 12.0,
+            "retained_mass": 0.0,
+            "theta_min_rad": 0.0,
+            "theta_min_deg": 0.0,
+            "rho_min": -8.881784197001252e-16,
+            "count_rho_lt_1e-6": 12,
+            "cos2_len": 12,
+            "K_IS_fro": 0.00011545656417931809,
+            "K_SLAM_fro": 3.056367281172872e-20,
+            "K_eff_fro": 0.00011532837469634473,
+            "sigma_min_B": 0.00040976918530138663,
+            "rank_tol_B": 2.05853469637309e-16
+          },
+          "B_over_A_fro": 6.237268066119357
+        },
+        {
+          "n_rx": 2,
+          "m_real": 24,
+          "rx_offsets": [
+            [
+              -0.06,
+              0.0
+            ],
+            [
+              0.06,
+              0.0
+            ]
+          ],
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 18,
+            "r_AB": 24,
+            "r_KIS": 24,
+            "r_KSL": 16,
+            "rank_identity_lhs": 8,
+            "rank_identity_rhs": 18,
+            "rank_identity_residual": -10,
+            "rank_identity_holds": false,
+            "confusable_mass": 17.999999999999996,
+            "retained_mass": 6.0000000000000036,
+            "theta_min_rad": 0.0,
+            "theta_min_deg": 0.0,
+            "rho_min": -4.440892098500626e-16,
+            "count_rho_lt_1e-6": 18,
+            "cos2_len": 18,
+            "K_IS_fro": 0.0002312603032585069,
+            "K_SLAM_fro": 7.4126745641607295e-09,
+            "K_eff_fro": 0.000230747297271641,
+            "sigma_min_B": 2.7661192711319977e-05,
+            "rank_tol_B": 3.8847841677333333e-16
+          },
+          "B_over_A_fro": 6.2375953087718425
+        },
+        {
+          "n_rx": 4,
+          "m_real": 48,
+          "rx_offsets": [
+            [
+              -0.06,
+              0.0
+            ],
+            [
+              0.06,
+              0.0
+            ],
+            [
+              0.0,
+              -0.06
+            ],
+            [
+              0.0,
+              0.06
+            ]
+          ],
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 14.592838133348714,
+            "retained_mass": 9.407161866651286,
+            "theta_min_rad": 7.423007129608209e-06,
+            "theta_min_deg": 0.00042530697982207,
+            "rho_min": 5.5101034845961294e-11,
+            "count_rho_lt_1e-6": 5,
+            "cos2_len": 18,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 2.410913353441397e-06,
+            "K_eff_fro": 0.00046013782019529054,
+            "sigma_min_B": 0.0006748865400722514,
+            "rank_tol_B": 1.097715785962827e-15
+          },
+          "B_over_A_fro": 6.236132670624972
+        },
+        {
+          "n_rx": 8,
+          "m_real": 96,
+          "rx_offsets": [
+            [
+              -0.06,
+              0.0
+            ],
+            [
+              0.06,
+              0.0
+            ],
+            [
+              0.0,
+              -0.06
+            ],
+            [
+              0.0,
+              0.06
+            ],
+            [
+              0.0424,
+              0.0424
+            ],
+            [
+              -0.0424,
+              0.0424
+            ],
+            [
+              0.0424,
+              -0.0424
+            ],
+            [
+              -0.0424,
+              -0.0424
+            ]
+          ],
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 14.600637145607957,
+            "retained_mass": 9.399362854392043,
+            "theta_min_rad": 1.6381792011815874e-05,
+            "theta_min_deg": 0.0009386075431381755,
+            "rho_min": 2.6836310951239284e-10,
+            "count_rho_lt_1e-6": 5,
+            "cos2_len": 18,
+            "K_IS_fro": 0.0009243431230232992,
+            "K_SLAM_fro": 4.827531566543225e-06,
+            "K_eff_fro": 0.0009162842005702007,
+            "sigma_min_B": 0.0009544722995394847,
+            "rank_tol_B": 3.1048038634712148e-15
+          },
+          "B_over_A_fro": 6.2361299375692845
+        }
+      ],
+      "pass": null
+    },
+    {
+      "id": "D_pose_count",
+      "claim": "pose-count ablation trend (recorded; no forced pass)",
+      "threshold": null,
+      "observed": [
+        {
+          "T": 3,
+          "q_pose": 9,
+          "m_real": 24,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 9,
+            "r_AB": 24,
+            "r_KIS": 23,
+            "r_KSL": 15,
+            "rank_identity_lhs": 8,
+            "rank_identity_rhs": 9,
+            "rank_identity_residual": -1,
+            "rank_identity_holds": false,
+            "confusable_mass": 9.000000000000004,
+            "retained_mass": 14.999999999999996,
+            "theta_min_rad": 0.0,
+            "theta_min_deg": 0.0,
+            "rho_min": -1.3322676295501878e-15,
+            "count_rho_lt_1e-6": 9,
+            "cos2_len": 9,
+            "K_IS_fro": 0.00023597334176352934,
+            "K_SLAM_fro": 1.6124206288749083e-06,
+            "K_eff_fro": 0.0002347106217345531,
+            "sigma_min_B": 0.0006748865400722513,
+            "rank_tol_B": 5.488578929814133e-16
+          },
+          "B_over_A_fro": 6.714461938888372
+        },
+        {
+          "T": 6,
+          "q_pose": 18,
+          "m_real": 48,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 14.592838133348714,
+            "retained_mass": 9.407161866651286,
+            "theta_min_rad": 7.423007129608209e-06,
+            "theta_min_deg": 0.00042530697982207,
+            "rho_min": 5.5101034845961294e-11,
+            "count_rho_lt_1e-6": 5,
+            "cos2_len": 18,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 2.410913353441397e-06,
+            "K_eff_fro": 0.00046013782019529054,
+            "sigma_min_B": 0.0006748865400722514,
+            "rank_tol_B": 1.097715785962827e-15
+          },
+          "B_over_A_fro": 6.236132670624972
+        },
+        {
+          "T": 12,
+          "q_pose": 36,
+          "m_real": 96,
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 36,
+            "r_AB": 60,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 17.42087950665824,
+            "retained_mass": 6.579120493341762,
+            "theta_min_rad": 4.944392106983451e-05,
+            "theta_min_deg": 0.0028329279998794837,
+            "rho_min": 2.444701330261978e-09,
+            "count_rho_lt_1e-6": 4,
+            "cos2_len": 24,
+            "K_IS_fro": 0.0009484080845155614,
+            "K_SLAM_fro": 2.0434747693536602e-05,
+            "K_eff_fro": 0.0009445441716712061,
+            "sigma_min_B": 0.00015167012883173585,
+            "rank_tol_B": 2.2172192804692128e-15
+          },
+          "B_over_A_fro": 6.075673399448019
+        }
+      ],
+      "pass": null
+    },
+    {
+      "id": "E_basis_p",
+      "claim": "smooth-basis-p ablation trend (recorded; no forced pass)",
+      "threshold": null,
+      "observed": [
+        {
+          "p": 12,
+          "x_centers_n": 3,
+          "y_centers_n": 4,
+          "smooth_basis_config": {
+            "p": 12,
+            "x_centers_n": 3,
+            "y_centers_n": 4,
+            "x_span": [
+              -0.3,
+              0.3
+            ],
+            "y_span": [
+              -0.3,
+              0.3
+            ],
+            "sigma_b": 0.16,
+            "unit_columns": true,
+            "note": "identical construction/config to families 2-8"
+          },
+          "info_metrics": {
+            "r_A": 12,
+            "r_B": 18,
+            "r_AB": 30,
+            "r_KIS": 12,
+            "r_KSL": 12,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 11.842982036707546,
+            "retained_mass": 0.15701796329245354,
+            "theta_min_rad": 0.000889492403004484,
+            "theta_min_deg": 0.05096416060110668,
+            "rho_min": 7.911965262952236e-07,
+            "count_rho_lt_1e-6": 1,
+            "cos2_len": 12,
+            "K_IS_fro": 0.0002798481380336295,
+            "K_SLAM_fro": 1.6777402873310747e-06,
+            "K_eff_fro": 0.00027873229417475895,
+            "sigma_min_B": 0.0006748865400722514,
+            "rank_tol_B": 1.097715785962827e-15
+          },
+          "B_over_A_fro": 8.425665772992964
+        },
+        {
+          "p": 24,
+          "x_centers_n": 4,
+          "y_centers_n": 6,
+          "smooth_basis_config": {
+            "p": 24,
+            "x_centers_n": 4,
+            "y_centers_n": 6,
+            "x_span": [
+              -0.3,
+              0.3
+            ],
+            "y_span": [
+              -0.3,
+              0.3
+            ],
+            "sigma_b": 0.16,
+            "unit_columns": true,
+            "note": "identical construction/config to families 2-8"
+          },
+          "info_metrics": {
+            "r_A": 24,
+            "r_B": 18,
+            "r_AB": 42,
+            "r_KIS": 24,
+            "r_KSL": 24,
+            "rank_identity_lhs": 0,
+            "rank_identity_rhs": 0,
+            "rank_identity_residual": 0,
+            "rank_identity_holds": true,
+            "confusable_mass": 14.592838133348714,
+            "retained_mass": 9.407161866651286,
+            "theta_min_rad": 7.423007129608209e-06,
+            "theta_min_deg": 0.00042530697982207,
+            "rho_min": 5.5101034845961294e-11,
+            "count_rho_lt_1e-6": 5,
+            "cos2_len": 18,
+            "K_IS_fro": 0.00046217181710171365,
+            "K_SLAM_fro": 2.410913353441397e-06,
+            "K_eff_fro": 0.00046013782019529054,
+            "sigma_min_B": 0.0006748865400722514,
+            "rank_tol_B": 1.097715785962827e-15
+          },
+          "B_over_A_fro": 6.236132670624972
+        },
+        {
+          "p": 36,
+          "x_centers_n": 4,
+          "y_centers_n": 9,
+          "smooth_basis_config": {
+            "p": 36,
+            "x_centers_n": 4,
+            "y_centers_n": 9,
+            "x_span": [
+              -0.3,
+              0.3
+            ],
+            "y_span": [
+              -0.3,
+              0.3
+            ],
+            "sigma_b": 0.16,
+            "unit_columns": true,
+            "note": "identical construction/config to families 2-8"
+          },
+          "info_metrics": {
+            "r_A": 36,
+            "r_B": 18,
+            "r_AB": 48,
+            "r_KIS": 28,
+            "r_KSL": 27,
+            "rank_identity_lhs": 1,
+            "rank_identity_rhs": 6,
+            "rank_identity_residual": -5,
+            "rank_identity_holds": false,
+            "confusable_mass": 17.250369354190536,
+            "retained_mass": 18.749630645809464,
+            "theta_min_rad": 0.0,
+            "theta_min_deg": 0.0,
+            "rho_min": -4.440892098500626e-16,
+            "count_rho_lt_1e-6": 10,
+            "cos2_len": 18,
+            "K_IS_fro": 0.0006975282074893315,
+            "K_SLAM_fro": 3.429170384723749e-06,
+            "K_eff_fro": 0.000694443940753947,
+            "sigma_min_B": 0.0006748865400722514,
+            "rank_tol_B": 1.097715785962827e-15
+          },
+          "B_over_A_fro": 5.112879095551422
+        }
+      ],
+      "pass": null
+    }
+  ],
+  "runtime_seconds": 1.3458062080026139,
+  "figures": {
+    "seed_replications": "figures/family9_seed_replications.png",
+    "pose_dof_ablation": "figures/family9_pose_dof_ablation.png",
+    "rx_T_basis_ablation": "figures/family9_rx_T_basis_ablation.png"
+  }
+}

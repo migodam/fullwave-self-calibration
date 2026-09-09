@@ -1,0 +1,140 @@
+{
+  "scope": "bounded discrete-model verification of FFT material tangent against the dense parent and central differences; not a continuum or production gate",
+  "checks": [
+    {
+      "name": "single_k6_dense_parent_currents_and_tangent",
+      "voxels": 64,
+      "dof": 192,
+      "p_shape": [
+        192,
+        4
+      ],
+      "dp_shape": [
+        192,
+        4,
+        1
+      ],
+      "relative_current_error": 5.867416079543115e-12,
+      "relative_tangent_error": 7.108799937212646e-12,
+      "max_abs_tangent_error": 8.790688134144502e-16,
+      "true_relative_residuals": [
+        5.673253768713286e-12,
+        5.673255594395025e-12,
+        5.673262241736536e-12,
+        5.6732657074051645e-12,
+        5.6312960167651466e-12,
+        5.63129023080474e-12,
+        5.6313073491240855e-12,
+        5.631258760773173e-12
+      ],
+      "gmres_converged": true,
+      "work": {
+        "factorizations": 0.0,
+        "rhs_columns": 8.0,
+        "wall_seconds": 0.018532999965827912
+      },
+      "fft_work": {
+        "solves": 8.0,
+        "matvecs": 120.0,
+        "true_check_matvecs": 8.0,
+        "tangent_field_convolutions": 4.0,
+        "operator_updates": 1.0
+      },
+      "passed": true
+    },
+    {
+      "name": "pair_k9_dense_parent_currents_and_tangent",
+      "voxels": 324,
+      "dof": 972,
+      "p_shape": [
+        972,
+        4
+      ],
+      "dp_shape": [
+        972,
+        4,
+        2
+      ],
+      "relative_current_error": 5.524578528157542e-12,
+      "relative_tangent_error": 5.104937178695825e-12,
+      "max_abs_tangent_error": 4.873779367632307e-16,
+      "true_relative_residuals": [
+        7.140334449875856e-12,
+        5.5708724825708645e-12,
+        5.1944963612170696e-12,
+        5.0340159888455705e-12,
+        4.952095508703469e-12,
+        6.542086443061364e-12,
+        3.3040752444025983e-12,
+        5.401737576802242e-12,
+        3.5678566485060866e-12,
+        4.415304691674393e-12,
+        4.689409991519109e-12,
+        5.18990457711634e-12
+      ],
+      "gmres_converged": true,
+      "work": {
+        "factorizations": 0.0,
+        "rhs_columns": 12.0,
+        "wall_seconds": 0.11683020798955113
+      },
+      "fft_work": {
+        "solves": 12.0,
+        "matvecs": 252.0,
+        "true_check_matvecs": 12.0,
+        "tangent_field_convolutions": 4.0,
+        "operator_updates": 1.0
+      },
+      "passed": true
+    },
+    {
+      "name": "single_region0_finite_difference",
+      "relative_error": 9.954051135767401e-11,
+      "delta": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "pair_region0_finite_difference",
+      "relative_error": 9.765529584368886e-11,
+      "delta": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "pair_region1_finite_difference",
+      "relative_error": 1.6344949272614816e-10,
+      "delta": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "adapter_points_and_work_ledger",
+      "points_match": true,
+      "labels_match": true,
+      "fill_match": true,
+      "parent_work_keys_subset": true,
+      "work": {
+        "factorizations": 0.0,
+        "rhs_columns": 12.0,
+        "wall_seconds": 0.059868708020076156
+      },
+      "fft_work": {
+        "solves": 12.0,
+        "matvecs": 216.0,
+        "true_check_matvecs": 12.0,
+        "tangent_field_convolutions": 4.0,
+        "operator_updates": 1.0
+      },
+      "solves": 12,
+      "matvecs": 216,
+      "true_check_matvecs": 12,
+      "passed": true
+    },
+    {
+      "name": "joint_ordering_dense_fft",
+      "prediction_error": 2.404901509123538e-12,
+      "jacobian_error": 2.526860112496702e-12,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "n_checks": 7
+}

@@ -1,0 +1,6 @@
+model,j_coh_analytic,j_ph_analytic,j_coh_emp_mean,j_ph_emp_mean,max_bin_weighted_rmse,contraction_pass,j_mismatch_analytic,note
+phase_only,2.0,0.0,1.9751580345944728,0.0,0.22568722152362944,True,,strict contraction: J_ph=0 < J_coh=2
+nuisance_phase,0.0,0.0,0.0,0.0,0.21798737317920072,True,,efficient coherent and phaseless target information both zero
+scale_family,1.0,1.0,1.000320457787452,1.0003204577218316,4.831083005062539e-11,True,,positive equality control: intensity sufficient for scale score
+total_field_ref,2.0,0.5257812757214155,2.002705024610388,0.528490995208373,0.2032362079872521,True,,strict contraction with known reference (0 < J_ph < J_coh)
+mismatch_intensity_noise,2.0,,,,,False,1959.9999999999998,"deliberate mismatch control, NOT covered by the contraction theorem"

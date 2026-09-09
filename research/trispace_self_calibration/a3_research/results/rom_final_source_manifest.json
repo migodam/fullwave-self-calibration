@@ -1,0 +1,21 @@
+{
+  "protocol_sha256": "e865af04b755edbea4b453debbadf45301f10eea8b3ad1825eb17e4c82eef5b5",
+  "source_digest": "cf1596d6737e6f39a53eb67eeca2e9f41b4572dd3e2d9e78b6872f31cc7aff33",
+  "source_hashes": {
+    "research/delegated/a2_physics/physics.py": "ff38365c4bc30a524cfc0c71f79caa235b86f9e99daeaec1de73ca8e2bc42353",
+    "research/delegated/a2_physics/test_physics.py": "77ae2bac606ef1f0e02dd7f23ff336ad5939af27cad1a2ae51cf3bdf9769df04",
+    "research/delegated/a3_rom/audit.py": "333b3344c26426df0db9b6429aabcab048f60940c6e293e197e3628e76571387",
+    "research/delegated/a3_rom/basis.py": "102db799912ab47e5af22b4fa61b7bb0aae4618d67c06023710af3f53f02708c",
+    "research/delegated/a3_rom/common.py": "fad5bf535618fb22878c6e1efcc66466137fe072fba82a0eeece18cd1e5e6e4f",
+    "research/delegated/a3_rom/rank_study.py": "fe64fe4bb98fbd6245ee26ddd3a90ef9983ff47f73e98cbd6783995087e9fe37",
+    "research/delegated/a3_rom/run_nonlinear.py": "29b09974ae5d0bd5b09c01470916a4df8ab720e6178f6156c0c533e024c5c135",
+    "research/delegated/a3_rom/solver.py": "1f45da53766826c7ba11b23bb67f8703850f8de7bbc81f50c8df4008df29ab13",
+    "research/delegated/a3_rom/test_rom.py": "359d1d02fd72e10a8990726ef4f42f9841020f91e4579b3f2bada3bdf1591b80",
+    "research/delegated/a3_rom/wave.py": "1309f9217ccf08399f81ce272c8f3cae1149e6194e10956b304c0ab4c923e668",
+    "research/delegated/a3_rom_reuse/controller.py": "7d3233fbc257416780cf99fdf4b9c39fe348e5b8e38c70eb60bf3dbba5087717",
+    "research/delegated/a3_rom_reuse/cost.py": "4e250ce32fbb51252c9c3ecbb49f33eb5ebdbfe37a882a65d307cc63fb5b6547",
+    "research/trispace_self_calibration/a3_research/rom_final.py": "f7cca52da44b131ad37d50f16135e5225b33f99c2da526562097f973a7123fa4",
+    "research/trispace_self_calibration/a3_research/rom_seed_comparison.py": "02c985b41fb76628de4131307e8b32a312a0374abf5110ef155ba3dc98f59269",
+    "research/trispace_self_calibration/a3_research/timed_rom.py": "66e6dfc348f363d7e737e630ba36bcd87e58625b02f03c08ca968a9f2883e9f2"
+  }
+}

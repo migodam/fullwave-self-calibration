@@ -1,0 +1,19 @@
+{
+  "entry": "installed run_development_loop",
+  "loop": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-07_12-08-29_a3_development",
+  "args": {
+    "model": "deepseek-v4-pro",
+    "worker": "codex",
+    "codex_profile": "deepseek-flash",
+    "max_safety_rounds": 2,
+    "min_dev_rounds": 1,
+    "final_max_turns": 28,
+    "codex_timeout": 2400,
+    "num_cite_rounds": 1,
+    "writeup_retries": 1,
+    "wiki_path": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/pipeline_wiki.jsonl"
+  },
+  "task": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_algebra/TASK.md",
+  "initial_novelty": "parent-owned evidence QA; supplied bounded validation",
+  "completion_boundary": "pipeline completion is not paper acceptance"
+}

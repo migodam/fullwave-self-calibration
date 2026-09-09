@@ -1,0 +1,29 @@
+{
+  "all_passed": true,
+  "checks": {
+    "hash:src/dda.py": true,
+    "hash:src/controls.py": true,
+    "hash:src/experiments.py": true,
+    "hash:src/coverage.py": true,
+    "hash:src/risk.py": true,
+    "hash:src/modal.py": true,
+    "hash:tests/test_core.py": true,
+    "hash:docs/FROZEN_PROTOCOL.md": true,
+    "counts": true,
+    "branch_scene_units": true,
+    "calibration_scene_units": true,
+    "branch_flags": true,
+    "cell_acceptance_never_hides_unresolved": true,
+    "acquisition_counts": true,
+    "loss_matches_raw_parameters": true,
+    "charged_cost_sum": true,
+    "negative_controller_result": true,
+    "raw_hash:frozen_branch_data.npz": true,
+    "finite:frozen_branch_data.npz": true,
+    "raw_hash:frozen_calibration_data.npz": true,
+    "finite:frozen_calibration_data.npz": true,
+    "fresh_reference_sample": true,
+    "known_bug_preserved_and_disclosed": true
+  },
+  "scope": "file integrity and stored finite-model invariants, not physical certification"
+}

@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "zero-deadline accepts no update",
+    "positive-deadline timestamps valid",
+    "GN/ROM unrestricted endpoints match prior development controller"
+  ],
+  "passed": true,
+  "scope": "one inspected development scene; direct adjoint allowed 200 iterations rather than 24"
+}

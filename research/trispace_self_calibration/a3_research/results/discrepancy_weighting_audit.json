@@ -1,0 +1,223 @@
+{
+  "integrity_passed": true,
+  "modes": [
+    {
+      "seed": 8101,
+      "use_reference": false,
+      "status": "ok",
+      "trace_inflation": 17281.78271537626,
+      "isotropic_precision": 0.016391779264746158,
+      "rank1_mode_precision": 5.786105261337999e-05,
+      "construction_seconds": 1.131853749975562
+    },
+    {
+      "seed": 8101,
+      "use_reference": true,
+      "status": "ok",
+      "trace_inflation": 14902.010261364,
+      "isotropic_precision": 0.018959829193304235,
+      "rank1_mode_precision": 6.710053757343887e-05,
+      "construction_seconds": 1.0829512500204146
+    },
+    {
+      "seed": 8102,
+      "use_reference": false,
+      "status": "ok",
+      "trace_inflation": 17577.394782958858,
+      "isotropic_precision": 0.016120550567106002,
+      "rank1_mode_precision": 5.6888015791375716e-05,
+      "construction_seconds": 1.2009653330314904
+    },
+    {
+      "seed": 8102,
+      "use_reference": true,
+      "status": "ok",
+      "trace_inflation": 14519.489083402066,
+      "isotropic_precision": 0.019449617580527104,
+      "rank1_mode_precision": 6.886820369866673e-05,
+      "construction_seconds": 1.1558440829976462
+    }
+  ],
+  "summary": [
+    {
+      "use_reference": false,
+      "method": "warm_raw",
+      "count": 2,
+      "evaluated_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "pose_mm": 0.4724650740195562,
+      "material_percent": 2.3022231425822515,
+      "sensor_phase_rad": 0.004247564556089769,
+      "sensor_field_percent": 1.2594164969815576,
+      "structural_field_percent": 3.167554117163894,
+      "high_raw_objective": 363.58230105583516,
+      "historical_pilot_plus_new_cost_sum": 35.731205728516215
+    },
+    {
+      "use_reference": false,
+      "method": "isotropic",
+      "count": 2,
+      "evaluated_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "pose_mm": 0.15623595350126226,
+      "material_percent": 2.171380999963786,
+      "sensor_phase_rad": 0.002470057335459394,
+      "sensor_field_percent": 0.43895079065516557,
+      "structural_field_percent": 2.975097732507336,
+      "high_raw_objective": 785.2441910540995,
+      "historical_pilot_plus_new_cost_sum": 35.13390733249253
+    },
+    {
+      "use_reference": false,
+      "method": "rank1",
+      "count": 2,
+      "evaluated_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "pose_mm": 0.13587637407805248,
+      "material_percent": 0.0926679858856172,
+      "sensor_phase_rad": 0.0021220716028457613,
+      "sensor_field_percent": 0.5104114339417338,
+      "structural_field_percent": 0.579513271219772,
+      "high_raw_objective": 2530.248282366365,
+      "historical_pilot_plus_new_cost_sum": 39.39259406205383
+    },
+    {
+      "use_reference": false,
+      "method": "rank2",
+      "count": 2,
+      "evaluated_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "pose_mm": 0.13191681277576792,
+      "material_percent": 0.08760216636007456,
+      "sensor_phase_rad": 0.002131888414975833,
+      "sensor_field_percent": 0.5103071151630882,
+      "structural_field_percent": 0.5728548329334681,
+      "high_raw_objective": 2541.6074919343096,
+      "historical_pilot_plus_new_cost_sum": 36.47761345750769
+    },
+    {
+      "use_reference": true,
+      "method": "warm_raw",
+      "count": 2,
+      "evaluated_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "pose_mm": 0.44476741803474984,
+      "material_percent": 2.2456123570759523,
+      "sensor_phase_rad": 0.004056976145977135,
+      "sensor_field_percent": 1.2724488134957377,
+      "structural_field_percent": 3.089040264010967,
+      "high_raw_objective": 362.93768772856424,
+      "historical_pilot_plus_new_cost_sum": 31.238263208477292
+    },
+    {
+      "use_reference": true,
+      "method": "isotropic",
+      "count": 2,
+      "evaluated_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "pose_mm": 0.22391590406774625,
+      "material_percent": 0.8960294700786252,
+      "sensor_phase_rad": 0.0025062513681909458,
+      "sensor_field_percent": 0.5208469594170749,
+      "structural_field_percent": 1.274315308180793,
+      "high_raw_objective": 996.1999036411723,
+      "historical_pilot_plus_new_cost_sum": 32.10808539550635
+    },
+    {
+      "use_reference": true,
+      "method": "rank1",
+      "count": 2,
+      "evaluated_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "pose_mm": 0.11458403495196649,
+      "material_percent": 0.2845832736076037,
+      "sensor_phase_rad": 0.002183638038631531,
+      "sensor_field_percent": 0.502416807726931,
+      "structural_field_percent": 0.6397246600155132,
+      "high_raw_objective": 2217.349926621468,
+      "historical_pilot_plus_new_cost_sum": 32.01897791700321
+    },
+    {
+      "use_reference": true,
+      "method": "rank2",
+      "count": 2,
+      "evaluated_count": 2,
+      "optimizer_statuses": [
+        2,
+        2
+      ],
+      "pose_mm": 0.11425739345915796,
+      "material_percent": 0.12340199491447379,
+      "sensor_phase_rad": 0.002174041176484053,
+      "sensor_field_percent": 0.5095983635522584,
+      "structural_field_percent": 0.5755295021714855,
+      "high_raw_objective": 2525.2505597629292,
+      "historical_pilot_plus_new_cost_sum": 32.18236493700533
+    }
+  ],
+  "paired": [
+    {
+      "seed": 8101,
+      "use_reference": false,
+      "warm_minus_cold_raw_objective": 3.865352482534945e-11,
+      "rank1_minus_isotropic": {
+        "pose_mm": 0.042671206917897705,
+        "material_percent": -1.993998006777318,
+        "sensor_phase_rad": -0.0005847272049141093
+      }
+    },
+    {
+      "seed": 8101,
+      "use_reference": true,
+      "warm_minus_cold_raw_objective": -4.615685611497611e-11,
+      "rank1_minus_isotropic": {
+        "pose_mm": -0.11158788052488915,
+        "material_percent": -0.5488411942545568,
+        "sensor_phase_rad": -0.00077677300248242
+      }
+    },
+    {
+      "seed": 8102,
+      "use_reference": false,
+      "warm_minus_cold_raw_objective": 7.651124178664759e-11,
+      "rank1_minus_isotropic": {
+        "pose_mm": -0.08339036576431733,
+        "material_percent": -2.163428021379019,
+        "sensor_phase_rad": -0.00011124426031315594
+      }
+    },
+    {
+      "seed": 8102,
+      "use_reference": true,
+      "warm_minus_cold_raw_objective": 3.9904080040287226e-11,
+      "rank1_minus_isotropic": {
+        "pose_mm": -0.10707585770667034,
+        "material_percent": -0.6740511986874865,
+        "sensor_phase_rad": 0.00013154634336359078
+      }
+    }
+  ],
+  "failures": [],
+  "scope": "Two previously inspected development scenes, no population inference or novelty claim; cost sum is not fresh end-to-end timing."
+}

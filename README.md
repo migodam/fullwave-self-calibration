@@ -1,37 +1,50 @@
-# Full-Wave Self-Calibration
+# Full-Wave Self-Calibration · A1–A4 research archive
 
-Public research snapshot on coherent electromagnetic inverse scattering,
-geometry/electronics attribution, and numerical model discrepancy.
+Coherent electromagnetic inverse scattering, TriSpace SOM, map–pose coupling,
+unknown arrays, geometry/electronic calibration, and model discrepancy.
 
-**Status: working research, not a submission-ready or accepted TAP paper.**
-The snapshot includes both positive and negative results. It does not claim
-universal SOM superiority, certified global recovery, or hardware position
-calibration ground truth from public measured data.
+**Working research, not a submission-ready or accepted TAP paper.** This archive
+preserves theories, implementations, experiments, corrections and failed routes.
+Historical positive claims must be read alongside later audits. The supplied
+A4 package is included intact; packaging checks are not independent validation
+of all scientific claims.
 
-## Start here
+## 给 GPT / ChatGPT 的入口
 
-- [English manuscript and appendices](research/trispace_self_calibration/a3_research/PAPER_DRAFT_A3.md)
-- [中文研究汇报](communication/A3_RESEARCH_REPORT_ZH.md) — latest discussion in sections 29–30
-- [GPT Pro theory and algorithm-design prompt](research/trispace_self_calibration/a3_research/GPT_PRO_REMAINING_QUESTIONS_ZH.md)
-- [Research status and open work](research/trispace_self_calibration/a3_research/STATUS.md)
-- [Criticism and repairs](research/trispace_self_calibration/a3_research/CRITIC_AND_REPAIR.md)
-- [Contribution evidence](research/trispace_self_calibration/a3_research/CONTRIBUTION_EVIDENCE.md)
-- [A3_3 theory audit](research/trispace_self_calibration/a3_research/A3_3_THEORY_AUDIT.md)
-- [A3_3 prior-work verification](research/trispace_self_calibration/a3_research/A3_3_PRIOR_LEDGER.md)
+Start with **[GPT_READING_GUIDE.md](GPT_READING_GUIDE.md)** for reading order and
+direct raw-file links. Use [RESEARCH_NAVIGATION.md](RESEARCH_NAVIGATION.md) for
+the A1→A4 timeline and SOM/SLAM topic map. Every exported file is enumerated in
+[FILE_INDEX.md](FILE_INDEX.md), with source hashes in [PUBLIC_MANIFEST.json](PUBLIC_MANIFEST.json).
 
-## Publication scope
+| Need | Entry |
+| --- | --- |
+| Latest supplied A4 English manuscript | [A4 paper](research/a4_reliability_v1/PAPER_DRAFT_A4.md) |
+| A4 theory, proofs, code and experiments | [A4 package](research/a4_reliability_v1/README.md) |
+| Last parent-audited A3 English manuscript | [A3 paper](research/trispace_self_calibration/a3_research/PAPER_DRAFT_A3.md) |
+| GPT Pro total prompt through A3_3 | [Remaining theory/design questions](research/trispace_self_calibration/a3_research/GPT_PRO_REMAINING_QUESTIONS_ZH.md) — historical input to A4, not a post-A4 rewrite |
+| A4 input question | [Q4](Theory/Questions/Q4.md) |
+| 中文汇报 | [A3 report](communication/A3_RESEARCH_REPORT_ZH.md), [A2 report](communication/A2_RESEARCH_REPORT_ZH.md) |
+| Original theory context | [SOM / SLAM context](Theory/SOM_SLAM_THEORY_CONTEXT.md) |
+| Original Q/A documents | [Theory/Questions](Theory/Questions) |
+| Code entrypoints and dependencies | [Code and reproducibility](CODE_AND_REPRODUCIBILITY.md) |
+| Boundaries and checks of this upload | [Publication scope](PUBLICATION_SCOPE.md) |
 
-Published 9 September 2026 from the 8 September working checkpoint. This first
-public release contains authored documents and generated scientific figures.
-It is **not a complete executable reproduction package**. References in the
-documents to local scripts, result archives, source questions, and worker logs
-may refer to material not included here. In particular, the GPT Pro prompt's
-original A3/A3_2 attachments are not included in this public snapshot.
+## Layout
 
-API configurations, credentials, private user files, model-provider logs,
-virtual environments, caches, third-party solver source, and original measured
-datasets are excluded. Dataset and software reuse permissions require separate
-review before a later reproducibility release.
+```text
+Theory/                         Original research context and Q/A inputs
+communication/                  Chinese research reports
+research/a4_reliability_v1/      Supplied A4 package, source and results
+research/trispace_self_calibration/
+  a2_research/                  A2 paper, theory audit, analysis and results
+  a3_research/                  A3 physics/solver code, protocols and results
+research/delegated/              Supporting implementations, tests and reviews
+experiments/idea_loops/          Historical autonomous idea-validation iterations
+```
 
-No open-source license is granted by this snapshot; no third-party license is
-overridden. Publication is not journal submission or peer-review endorsement.
+Code and numerical results are now included. This is not a single installable
+application: historical paths may refer to local environments, excluded solver
+dependencies or original measured datasets. Credentials, private user files,
+raw model transcripts, virtual environments, third-party article PDFs and
+bundled external solver source are not published. No open-source license is
+assigned by this upload; third-party rights are not overridden.

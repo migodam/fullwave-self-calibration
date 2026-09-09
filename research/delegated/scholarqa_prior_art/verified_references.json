@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "kind": "scholarqa-citation-verification",
+  "created_at": "2026-09-03T08:31:25+00:00",
+  "fields": [
+    "paperId",
+    "title",
+    "authors",
+    "year",
+    "externalIds",
+    "url"
+  ],
+  "requested_count": 21,
+  "resolved_count": 21,
+  "unresolved_ids": [],
+  "verification_scope": "Bibliographic identity only; claim support must be checked against the retrieved evidence.",
+  "items": [
+    {
+      "requested_id": "33f8e5c7ee0d77321c157bd1dfb222731e3b67d7",
+      "resolved": true,
+      "record": {
+        "paperId": "33f8e5c7ee0d77321c157bd1dfb222731e3b67d7",
+        "externalIds": {
+          "DOI": "10.46620/22-0065",
+          "CorpusId": 258538075
+        },
+        "url": "https://www.semanticscholar.org/paper/33f8e5c7ee0d77321c157bd1dfb222731e3b67d7",
+        "title": "Singular Value Optimization for Multifrequency Multimonostatic Inverse Scattering Over Circular Domains Under the Born Approximation",
+        "year": 2023,
+        "authors": [
+          {
+            "authorId": "2131223",
+            "name": "A. Capozzoli"
+          },
+          {
+            "authorId": "4919717",
+            "name": "C. Curcio"
+          },
+          {
+            "authorId": "2559055",
+            "name": "A. Liseno"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "b2d77880f9e2172666e6157f8322824b855365de",
+      "resolved": true,
+      "record": {
+        "paperId": "b2d77880f9e2172666e6157f8322824b855365de",
+        "externalIds": {
+          "DOI": "10.1109/TAP.2024.3524008",
+          "CorpusId": 275396509
+        },
+        "url": "https://www.semanticscholar.org/paper/b2d77880f9e2172666e6157f8322824b855365de",
+        "title": "Parameter Identification for Inverse Scattering Problem of Electrically Large Curved Surfaces",
+        "year": 2025,
+        "authors": [
+          {
+            "authorId": "2144110596",
+            "name": "Xu Zhang"
+          },
+          {
+            "authorId": "2304712441",
+            "name": "Feng Xu"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "09cc53da44b9181b3c8154b23cc8402aaacbe300",
+      "resolved": true,
+      "record": {
+        "paperId": "09cc53da44b9181b3c8154b23cc8402aaacbe300",
+        "externalIds": {
+          "DBLP": "journals/adcm/BorgesR22",
+          "ArXiv": "2104.13489",
+          "DOI": "10.1007/s10444-021-09915-1",
+          "CorpusId": 233423577
+        },
+        "url": "https://www.semanticscholar.org/paper/09cc53da44b9181b3c8154b23cc8402aaacbe300",
+        "title": "Multifrequency inverse obstacle scattering with unknown impedance boundary conditions using recursive linearization",
+        "year": 2021,
+        "authors": [
+          {
+            "authorId": "2055713630",
+            "name": "C. Borges"
+          },
+          {
+            "authorId": "8231820",
+            "name": "Manas Rachh"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "4babffad2e2855db27b0bdde500c54cab5859eab",
+      "resolved": true,
+      "record": {
+        "paperId": "4babffad2e2855db27b0bdde500c54cab5859eab",
+        "externalIds": {
+          "ArXiv": "2607.13473",
+          "CorpusId": 290178936
+        },
+        "url": "https://www.semanticscholar.org/paper/4babffad2e2855db27b0bdde500c54cab5859eab",
+        "title": "Inverse scattering for three-dimensional random obstacles with multi-frequency data",
+        "year": 2026,
+        "authors": [
+          {
+            "authorId": "2374269187",
+            "name": "Zhiqi Sun"
+          },
+          {
+            "authorId": "2373997679",
+            "name": "Yiwen Lin"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "16b84bd4dfb430f5b1518d7a2f58367149c45497",
+      "resolved": true,
+      "record": {
+        "paperId": "16b84bd4dfb430f5b1518d7a2f58367149c45497",
+        "externalIds": {
+          "DBLP": "journals/tgrs/Chen10",
+          "MAG": "2035489376",
+          "DOI": "10.1109/TGRS.2009.2025122",
+          "CorpusId": 1843364
+        },
+        "url": "https://www.semanticscholar.org/paper/16b84bd4dfb430f5b1518d7a2f58367149c45497",
+        "title": "Subspace-Based Optimization Method for Solving Inverse-Scattering Problems",
+        "year": 2010,
+        "authors": [
+          {
+            "authorId": "33207280",
+            "name": "Xudong Chen"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "e5eff7c7a6a23de2571cded519dd3f38585cd9a7",
+      "resolved": true,
+      "record": {
+        "paperId": "e5eff7c7a6a23de2571cded519dd3f38585cd9a7",
+        "externalIds": {
+          "MAG": "2144559213",
+          "DOI": "10.1109/TAP.2010.2103027",
+          "CorpusId": 9768690
+        },
+        "url": "https://www.semanticscholar.org/paper/e5eff7c7a6a23de2571cded519dd3f38585cd9a7",
+        "title": "An FFT Twofold Subspace-Based Optimization Method for Solving Electromagnetic Inverse Scattering Problems",
+        "year": 2011,
+        "authors": [
+          {
+            "authorId": "144281892",
+            "name": "Y. Zhong"
+          },
+          {
+            "authorId": "33207280",
+            "name": "Xudong Chen"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "863518871fbd222749c198b61a73065597b6f692",
+      "resolved": true,
+      "record": {
+        "paperId": "863518871fbd222749c198b61a73065597b6f692",
+        "externalIds": {
+          "MAG": "2153307923",
+          "DBLP": "journals/tgrs/ZhongCA10",
+          "DOI": "10.1109/TGRS.2010.2049744",
+          "CorpusId": 4400848
+        },
+        "url": "https://www.semanticscholar.org/paper/863518871fbd222749c198b61a73065597b6f692",
+        "title": "An Improved Subspace-Based Optimization Method and Its Implementation in Solving Three-Dimensional Inverse Problems",
+        "year": 2010,
+        "authors": [
+          {
+            "authorId": "144281892",
+            "name": "Y. Zhong"
+          },
+          {
+            "authorId": "33207280",
+            "name": "Xudong Chen"
+          },
+          {
+            "authorId": "144214246",
+            "name": "K. Agarwal"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "c0bc431a56b37f41d6f9fc27a9a7335a4aa6fd30",
+      "resolved": true,
+      "record": {
+        "paperId": "c0bc431a56b37f41d6f9fc27a9a7335a4aa6fd30",
+        "externalIds": {
+          "DOI": "10.1109/TAP.2024.3450328",
+          "CorpusId": 272352478
+        },
+        "url": "https://www.semanticscholar.org/paper/c0bc431a56b37f41d6f9fc27a9a7335a4aa6fd30",
+        "title": "Cross-Correlated Subspace-Based Optimization Method for Solving Electromagnetic Inverse Scattering Problems",
+        "year": 2024,
+        "authors": [
+          {
+            "authorId": "2260722890",
+            "name": "Miao Wang"
+          },
+          {
+            "authorId": "47392653",
+            "name": "Shilong Sun"
+          },
+          {
+            "authorId": "2260029737",
+            "name": "Dahai Dai"
+          },
+          {
+            "authorId": "2282727000",
+            "name": "Yongsheng Zhang"
+          },
+          {
+            "authorId": "2268173702",
+            "name": "Yi Su"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "0ab5f694342580d436815deb0331b29bc517b955",
+      "resolved": true,
+      "record": {
+        "paperId": "0ab5f694342580d436815deb0331b29bc517b955",
+        "externalIds": {
+          "DOI": "10.47852/bonviewjopr42022785",
+          "CorpusId": 270778981
+        },
+        "url": "https://www.semanticscholar.org/paper/0ab5f694342580d436815deb0331b29bc517b955",
+        "title": "Revealing the Invisible: Imaging Through Non-Radiating Subspace",
+        "year": 2024,
+        "authors": [
+          {
+            "authorId": "6208434",
+            "name": "Hamidreza Siampour"
+          },
+          {
+            "authorId": "2043194",
+            "name": "A. Z. Nezhad"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "a1c65e723b23b9a33b8ddb158760f1dbabd2386e",
+      "resolved": true,
+      "record": {
+        "paperId": "a1c65e723b23b9a33b8ddb158760f1dbabd2386e",
+        "externalIds": {
+          "DOI": "10.1109/LAWP.2025.3594841",
+          "CorpusId": 280425712
+        },
+        "url": "https://www.semanticscholar.org/paper/a1c65e723b23b9a33b8ddb158760f1dbabd2386e",
+        "title": "Electromagnetic Inverse Scattering Imaging via Kernel Subspace Optimization With Shape Priors",
+        "year": 2025,
+        "authors": [
+          {
+            "authorId": "2303291225",
+            "name": "Tingsen Zhang"
+          },
+          {
+            "authorId": "14629281",
+            "name": "Yongle Xie"
+          },
+          {
+            "authorId": "145924251",
+            "name": "Libiao Peng"
+          },
+          {
+            "authorId": "50078907",
+            "name": "Xifeng Li"
+          },
+          {
+            "authorId": "2070639",
+            "name": "Dongjie Bi"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "8f08f1a299b9fdab25e7cf3e62a3c9ab1c363b9c",
+      "resolved": true,
+      "record": {
+        "paperId": "8f08f1a299b9fdab25e7cf3e62a3c9ab1c363b9c",
+        "externalIds": {
+          "MAG": "2900270760",
+          "DOI": "10.1109/ICEAA.2018.8520511",
+          "CorpusId": 53227159
+        },
+        "url": "https://www.semanticscholar.org/paper/8f08f1a299b9fdab25e7cf3e62a3c9ab1c363b9c",
+        "title": "Effects of Multiple Scattering on Resolution of Full-Wave Inverse-Scattering Solver",
+        "year": 2018,
+        "authors": [
+          {
+            "authorId": "5100414",
+            "name": "Zhun Wei"
+          },
+          {
+            "authorId": "33207280",
+            "name": "Xudong Chen"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "c4eafff1cf52243494cd66de98b4e6d1b75f2989",
+      "resolved": true,
+      "record": {
+        "paperId": "c4eafff1cf52243494cd66de98b4e6d1b75f2989",
+        "externalIds": {
+          "DOI": "10.1109/TAP.2023.3329645",
+          "CorpusId": 265107364
+        },
+        "url": "https://www.semanticscholar.org/paper/c4eafff1cf52243494cd66de98b4e6d1b75f2989",
+        "title": "Inverse Scattering Under the Born Approximation Using an Object T-Matrix and Full Bistatic Spherical Sampling Geometry",
+        "year": 2024,
+        "authors": [
+          {
+            "authorId": "2060354286",
+            "name": "M. Haynes"
+          },
+          {
+            "authorId": "9208254",
+            "name": "I. Fenni"
+          },
+          {
+            "authorId": "2237191036",
+            "name": "Bjorn Davidsson"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "5c9fcb23ce10e6faf767e39624751cb8a01868b9",
+      "resolved": true,
+      "record": {
+        "paperId": "5c9fcb23ce10e6faf767e39624751cb8a01868b9",
+        "externalIds": {
+          "ArXiv": "2511.15058",
+          "DBLP": "journals/corr/abs-2511-15058",
+          "DOI": "10.48550/arXiv.2511.15058",
+          "CorpusId": 283103670
+        },
+        "url": "https://www.semanticscholar.org/paper/5c9fcb23ce10e6faf767e39624751cb8a01868b9",
+        "title": "Lippmann-Schwinger-Lanczos algorithm for inverse scattering problems with unknown reflectivity and loss distributions: One-dimensional Case",
+        "year": 2025,
+        "authors": [
+          {
+            "authorId": "40880548",
+            "name": "J. Zimmerling"
+          },
+          {
+            "authorId": "145391320",
+            "name": "M. Zaslavsky"
+          },
+          {
+            "authorId": "96937695",
+            "name": "A. Mamonov"
+          },
+          {
+            "authorId": "1685886",
+            "name": "V. Druskin"
+          },
+          {
+            "authorId": "2354171474",
+            "name": "Anarzhan Abilgazy"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "6269e09f30f4de6ed4ecb19f6ecf6dc4c2399a72",
+      "resolved": true,
+      "record": {
+        "paperId": "6269e09f30f4de6ed4ecb19f6ecf6dc4c2399a72",
+        "externalIds": {
+          "CorpusId": 290990201
+        },
+        "url": "https://www.semanticscholar.org/paper/6269e09f30f4de6ed4ecb19f6ecf6dc4c2399a72",
+        "title": "Coordinate-Residual Physics-Driven Neural Network for Electromagnetic Inverse Scattering",
+        "year": null,
+        "authors": [
+          {
+            "authorId": "2358130593",
+            "name": "Yutong Du"
+          },
+          {
+            "authorId": "2316826990",
+            "name": "Zicheng Liu"
+          },
+          {
+            "authorId": "2372382295",
+            "name": "Bo Qi"
+          },
+          {
+            "authorId": "2280956877",
+            "name": "Yali Zong"
+          },
+          {
+            "authorId": "2087682247",
+            "name": "Pei-Xian Han"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "0dac64ff7d2f2b0ed4d410ae6a514344da890ad8",
+      "resolved": true,
+      "record": {
+        "paperId": "0dac64ff7d2f2b0ed4d410ae6a514344da890ad8",
+        "externalIds": {
+          "DOI": "10.3390/math14101586",
+          "CorpusId": 288103313
+        },
+        "url": "https://www.semanticscholar.org/paper/0dac64ff7d2f2b0ed4d410ae6a514344da890ad8",
+        "title": "A Review of Inverse Scattering Imaging Methods Based on Transmission Eigenfunctions",
+        "year": 2026,
+        "authors": [
+          {
+            "authorId": "1520457277",
+            "name": "Youzi He"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "6d09c4e2fdc5f45e5650940c2db802b9db1185dd",
+      "resolved": true,
+      "record": {
+        "paperId": "6d09c4e2fdc5f45e5650940c2db802b9db1185dd",
+        "externalIds": {
+          "DOI": "10.23919/ACES66556.2025.11052550",
+          "CorpusId": 279802434
+        },
+        "url": "https://www.semanticscholar.org/paper/6d09c4e2fdc5f45e5650940c2db802b9db1185dd",
+        "title": "Non-Iterative Approximations for Inverse Scattering Problems Based on Eigenfunction Expansions",
+        "year": 2025,
+        "authors": [
+          {
+            "authorId": "2122074968",
+            "name": "Ricardo E. Sendrea"
+          },
+          {
+            "authorId": "9390735",
+            "name": "C. Zekios"
+          },
+          {
+            "authorId": "2928526",
+            "name": "S. Georgakopoulos"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "8b9ad0c5d2a6ffd97aac30dea714fd9458efe65d",
+      "resolved": true,
+      "record": {
+        "paperId": "8b9ad0c5d2a6ffd97aac30dea714fd9458efe65d",
+        "externalIds": {
+          "DOI": "10.1088/1361-6420/ad3089",
+          "CorpusId": 268269573
+        },
+        "url": "https://www.semanticscholar.org/paper/8b9ad0c5d2a6ffd97aac30dea714fd9458efe65d",
+        "title": "Consistency of the Bayes method for the inverse scattering problem",
+        "year": 2024,
+        "authors": [
+          {
+            "authorId": "2290221837",
+            "name": "Takashi Furuya"
+          },
+          {
+            "authorId": "104165026",
+            "name": "Pu-Zhao Kow"
+          },
+          {
+            "authorId": "2171351987",
+            "name": "Jenn-Nan Wang"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "c08f4f1745f46afda7a7eb4ef1ec78f01ae7144f",
+      "resolved": true,
+      "record": {
+        "paperId": "c08f4f1745f46afda7a7eb4ef1ec78f01ae7144f",
+        "externalIds": {
+          "ArXiv": "2408.10132",
+          "DOI": "10.3934/cac.2024014",
+          "CorpusId": 271902982
+        },
+        "url": "https://www.semanticscholar.org/paper/c08f4f1745f46afda7a7eb4ef1ec78f01ae7144f",
+        "title": "Solving Schiffer's problem in inverse scattering theory almost surely",
+        "year": 2024,
+        "authors": [
+          {
+            "authorId": "2271712388",
+            "name": "Hongyu Liu"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "8c64d4be9472bb988211915523f5146b58bb0917",
+      "resolved": true,
+      "record": {
+        "paperId": "8c64d4be9472bb988211915523f5146b58bb0917",
+        "externalIds": {
+          "PubMedCentral": "12414664",
+          "DOI": "10.1016/j.bpj.2025.06.031",
+          "CorpusId": 273201093,
+          "PubMed": "40581817"
+        },
+        "url": "https://www.semanticscholar.org/paper/8c64d4be9472bb988211915523f5146b58bb0917",
+        "title": "Information theory optimization of signals from small-angle scattering measurements",
+        "year": 2024,
+        "authors": [
+          {
+            "authorId": "2264035725",
+            "name": "Robert P. Rambo"
+          },
+          {
+            "authorId": "2178688",
+            "name": "J. Tainer"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "9fb62b8817283e8bb5bcbd55be81ac9025a437aa",
+      "resolved": true,
+      "record": {
+        "paperId": "9fb62b8817283e8bb5bcbd55be81ac9025a437aa",
+        "externalIds": {
+          "ArXiv": "2608.13670",
+          "CorpusId": 291167355
+        },
+        "url": "https://www.semanticscholar.org/paper/9fb62b8817283e8bb5bcbd55be81ac9025a437aa",
+        "title": "Fixed angle inverse scattering with non-constant velocity",
+        "year": 2026,
+        "authors": [
+          {
+            "authorId": "3397026",
+            "name": "L. Oksanen"
+          },
+          {
+            "authorId": "2323373892",
+            "name": "Rakesh"
+          },
+          {
+            "authorId": "2284763818",
+            "name": "Mikko Salo"
+          }
+        ]
+      }
+    },
+    {
+      "requested_id": "7dab2b76dfdb113d479e3acb1faf92dee85e3cb7",
+      "resolved": true,
+      "record": {
+        "paperId": "7dab2b76dfdb113d479e3acb1faf92dee85e3cb7",
+        "externalIds": {
+          "DOI": "10.1088/1361-6420/ad6fc6",
+          "CorpusId": 272109694
+        },
+        "url": "https://www.semanticscholar.org/paper/7dab2b76dfdb113d479e3acb1faf92dee85e3cb7",
+        "title": "Phase retrieval and phaseless inverse scattering with background information",
+        "year": 2024,
+        "authors": []
+      }
+    }
+  ]
+}

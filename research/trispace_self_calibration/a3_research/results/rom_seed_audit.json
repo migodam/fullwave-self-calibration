@@ -1,0 +1,294 @@
+{
+  "groups": [
+    {
+      "q": 9,
+      "method": "direct_gn",
+      "scenes": 4,
+      "mean_cold_seconds": 0.8521011459670262,
+      "cold_seconds": [
+        0.9392416249611415,
+        0.8620596249820665,
+        0.80695537495194,
+        0.800147958972957
+      ],
+      "mean_pose_error_m": 0.031445905035637725,
+      "mean_material_rmse": 0.029276930840902077,
+      "mean_loss": 213.4161049006412,
+      "mean_full_rhs": 2034.0,
+      "accepted_reduced": 0,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial"
+      ]
+    },
+    {
+      "q": 9,
+      "method": "direct_adjoint",
+      "scenes": 4,
+      "mean_cold_seconds": 0.9982308235194068,
+      "cold_seconds": [
+        1.042274167004507,
+        0.968014000041876,
+        0.9829687930177897,
+        0.9996663340134546
+      ],
+      "mean_pose_error_m": 0.029379775413628975,
+      "mean_material_rmse": 0.0270037812336062,
+      "mean_loss": 213.5809931517613,
+      "mean_full_rhs": 990.0,
+      "accepted_reduced": 0,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      ]
+    },
+    {
+      "q": 9,
+      "method": "generic_task",
+      "scenes": 4,
+      "mean_cold_seconds": 2.7245807392464485,
+      "cold_seconds": [
+        2.861688956967555,
+        3.3338362079812214,
+        2.3363056250382215,
+        2.366492166998796
+      ],
+      "mean_pose_error_m": 0.03143351985291279,
+      "mean_material_rmse": 0.029288280320177745,
+      "mean_loss": 213.4161058486982,
+      "mean_full_rhs": 279.0,
+      "accepted_reduced": 26,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.000468243703994622,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial"
+      ]
+    },
+    {
+      "q": 9,
+      "method": "sensing_task",
+      "scenes": 4,
+      "mean_cold_seconds": 2.7366324272443308,
+      "cold_seconds": [
+        2.6574042920256034,
+        3.0679486250155605,
+        2.6151889589382336,
+        2.6059878329979256
+      ],
+      "mean_pose_error_m": 0.031475458747435084,
+      "mean_material_rmse": 0.029266074073185225,
+      "mean_loss": 213.41611047173384,
+      "mean_full_rhs": 279.0,
+      "accepted_reduced": 26,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0011110051840520138,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial"
+      ]
+    },
+    {
+      "q": 9,
+      "method": "twofold_task",
+      "scenes": 4,
+      "mean_cold_seconds": 2.5322839897562517,
+      "cold_seconds": [
+        2.5414722920395434,
+        2.967540125013329,
+        2.1146595829632133,
+        2.505463959008921
+      ],
+      "mean_pose_error_m": 0.03144656703362497,
+      "mean_material_rmse": 0.029280847242008315,
+      "mean_loss": 213.41610646329127,
+      "mean_full_rhs": 279.0,
+      "accepted_reduced": 26,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0006178083075627152,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial"
+      ]
+    },
+    {
+      "q": 9,
+      "method": "krylov_task",
+      "scenes": 4,
+      "mean_cold_seconds": 2.1940776042756625,
+      "cold_seconds": [
+        2.138848998991307,
+        2.455858041997999,
+        2.0964234170969576,
+        2.0851799590163864
+      ],
+      "mean_pose_error_m": 0.03143122103980843,
+      "mean_material_rmse": 0.029259876964188088,
+      "mean_loss": 213.41612003054092,
+      "mean_full_rhs": 279.0,
+      "accepted_reduced": 26,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0023493536654669547,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial",
+        "no_improving_trial"
+      ]
+    },
+    {
+      "q": 49,
+      "method": "direct_gn",
+      "scenes": 2,
+      "mean_cold_seconds": 13.520928437501425,
+      "cold_seconds": [
+        14.314698458008934,
+        12.727158416993916
+      ],
+      "mean_pose_error_m": 0.005609758320675645,
+      "mean_material_rmse": 0.1400137291683476,
+      "mean_loss": 202.49560203701586,
+      "mean_full_rhs": 7533.0,
+      "accepted_reduced": 0,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "budget_stopped_before_call",
+        "budget_stopped_before_call"
+      ]
+    },
+    {
+      "q": 49,
+      "method": "direct_adjoint",
+      "scenes": 2,
+      "mean_cold_seconds": 8.054178312479053,
+      "cold_seconds": [
+        8.550212082976941,
+        7.558144541981164
+      ],
+      "mean_pose_error_m": 0.003029392345161348,
+      "mean_material_rmse": 0.10490442236626554,
+      "mean_loss": 204.06391116797377,
+      "mean_full_rhs": 1026.0,
+      "accepted_reduced": 0,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      ]
+    },
+    {
+      "q": 49,
+      "method": "generic_task",
+      "scenes": 2,
+      "mean_cold_seconds": 55.89247285397141,
+      "cold_seconds": [
+        54.56956612400245,
+        57.215379583940376
+      ],
+      "mean_pose_error_m": 0.005095988670510143,
+      "mean_material_rmse": 0.13579879178162652,
+      "mean_loss": 197.64525368998045,
+      "mean_full_rhs": 2997.0,
+      "accepted_reduced": 48,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0014774357241558501,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "iteration_limit",
+        "iteration_limit"
+      ]
+    },
+    {
+      "q": 49,
+      "method": "sensing_task",
+      "scenes": 2,
+      "mean_cold_seconds": 53.548390791518614,
+      "cold_seconds": [
+        50.227205667004455,
+        56.86957591603277
+      ],
+      "mean_pose_error_m": 0.00512674073279722,
+      "mean_material_rmse": 0.1358032680378176,
+      "mean_loss": 197.6521290432654,
+      "mean_full_rhs": 2997.0,
+      "accepted_reduced": 48,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0022605272532398245,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "iteration_limit",
+        "iteration_limit"
+      ]
+    },
+    {
+      "q": 49,
+      "method": "twofold_task",
+      "scenes": 2,
+      "mean_cold_seconds": 58.36783758352976,
+      "cold_seconds": [
+        53.68780783301918,
+        63.04786733404035
+      ],
+      "mean_pose_error_m": 0.005083903478836115,
+      "mean_material_rmse": 0.1356726166221609,
+      "mean_loss": 197.65777182157206,
+      "mean_full_rhs": 2997.0,
+      "accepted_reduced": 48,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0014921120537826952,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "iteration_limit",
+        "iteration_limit"
+      ]
+    },
+    {
+      "q": 49,
+      "method": "krylov_task",
+      "scenes": 2,
+      "mean_cold_seconds": 49.77624918802758,
+      "cold_seconds": [
+        48.19914158398751,
+        51.35335679206764
+      ],
+      "mean_pose_error_m": 0.005044812725908333,
+      "mean_material_rmse": 0.13565542849182094,
+      "mean_loss": 197.65577372626322,
+      "mean_full_rhs": 2997.0,
+      "accepted_reduced": 48,
+      "fallback_steps": 0,
+      "max_audited_jacobian_error": 0.0009890369620816541,
+      "all_accepted_jacobians_within_one_percent": true,
+      "statuses": [
+        "iteration_limit",
+        "iteration_limit"
+      ]
+    }
+  ],
+  "scope": "serial DEVELOPMENT; four q9 and two q49 scenes; RHS/iteration caps are not equal wall budgets",
+  "completion_check": true
+}

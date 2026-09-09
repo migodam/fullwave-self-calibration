@@ -1,0 +1,2539 @@
+{
+  "experiment": "run_e9_grid_scenes",
+  "goal": "Bounded grid/scene robustness check of the core E5 claims: reduced_r4 lossless vs direct for identifiable pose, and reduced_r6 freezes hidden directions whenever hidden_rank>0.",
+  "methods": [
+    "wrongpose",
+    "direct",
+    "reduced_r4",
+    "reduced_r6"
+  ],
+  "parameters": {
+    "k": 12.0,
+    "M": 8,
+    "R_r": 1.6,
+    "R_t": 2.0,
+    "phi0": 0.7,
+    "s": 0.12,
+    "basis_centers": [
+      [
+        -0.15,
+        0.1
+      ],
+      [
+        0.2,
+        -0.1
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "SNR_dB": 30.0,
+    "noise_ratio": 0.03162277660168379,
+    "noise_seeds": [
+      0,
+      1,
+      2
+    ],
+    "p_init_label": "zero",
+    "least_squares": {
+      "method": "trf",
+      "x_scale": "jac",
+      "max_nfev": 1000,
+      "ftol": 1e-10,
+      "xtol": 1e-10,
+      "gtol": 1e-10
+    },
+    "success_definition": "status > 0 and optimality < 1e-7",
+    "visible_hidden_cutoff": "1e-8 * hid_sv[0]",
+    "noise_formula": "noise = scale * (rng.standard_normal(M) + 1j*rng.standard_normal(M))/sqrt(2) with ||noise||/||d_true|| = 10^(-SNR_dB/20) exactly"
+  },
+  "scene_grids": [
+    {
+      "scene_id": "base",
+      "N": 24,
+      "alpha_true": [
+        1.5,
+        2.0,
+        0.0
+      ],
+      "alpha_init": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "p_true": [
+        0.08,
+        -0.06,
+        0.05
+      ],
+      "p_init_zero": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "p_init_pert_pos": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "K": 3,
+      "basis_centers": [
+        [
+          -0.15,
+          0.1
+        ],
+        [
+          0.2,
+          -0.1
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "transmitter_mode": "single, co-moving pose p=(tx,ty,theta)"
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "alpha_true": [
+        1.5,
+        2.0,
+        0.0
+      ],
+      "alpha_init": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "p_true": [
+        0.08,
+        -0.06,
+        0.05
+      ],
+      "p_init_zero": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "p_init_pert_pos": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "K": 3,
+      "basis_centers": [
+        [
+          -0.15,
+          0.1
+        ],
+        [
+          0.2,
+          -0.1
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "transmitter_mode": "single, co-moving pose p=(tx,ty,theta)"
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "alpha_true": [
+        2.0,
+        -1.0,
+        0.8
+      ],
+      "alpha_init": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "p_true": [
+        0.08,
+        -0.06,
+        0.05
+      ],
+      "p_init_zero": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "p_init_pert_pos": [
+        0.18,
+        0.04,
+        0.15
+      ],
+      "K": 3,
+      "basis_centers": [
+        [
+          -0.15,
+          0.1
+        ],
+        [
+          0.2,
+          -0.1
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "transmitter_mode": "single, co-moving pose p=(tx,ty,theta)"
+    }
+  ],
+  "rank_and_subspace_checks_per_scene_grid": {
+    "base N24": {
+      "scene_id": "base",
+      "N": 24,
+      "rank_check": {
+        "singular_values": [
+          0.0021899374505699887,
+          0.0021128659055389505,
+          0.00211286590553895,
+          0.0018455126587175175,
+          0.0018060913272084846,
+          0.0017430897571135465,
+          0.0017430897571135463,
+          0.0016721452570961776
+        ],
+        "gaps_s3_minus_s4": 3.9421331509032886e-05,
+        "gaps_s4_minus_s5": 6.300157009493808e-05,
+        "gaps_s5_minus_s6": 2.168404344971009e-19,
+        "gaps_s6_minus_s7": 7.094450001736874e-05,
+        "p_init": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "subspaces": {
+        "zero_r4": {
+          "rank": 4,
+          "p_init_label": "zero",
+          "n_vis": 3,
+          "hidden_rank": 0,
+          "hid_sv": [
+            0.0007457235971567367,
+            0.0002641384551276694,
+            0.0001587661560063712
+          ],
+          "threshold": 7.457235971567368e-12,
+          "V_vis_columns": [
+            [
+              -0.9417013311838568,
+              -0.3051473542825023,
+              0.14171695389381417
+            ],
+            [
+              0.33642115869480405,
+              -0.8595292349072496,
+              0.38474705758745364
+            ],
+            [
+              0.004405318262947023,
+              0.4099933981348321,
+              0.9120778512039721
+            ]
+          ],
+          "hidden_directions": [],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        },
+        "zero_r6": {
+          "rank": 6,
+          "p_init_label": "zero",
+          "n_vis": 1,
+          "hidden_rank": 2,
+          "hid_sv": [
+            0.0005438927037778594,
+            3.083143189049778e-19,
+            1.3422072982202873e-19
+          ],
+          "threshold": 5.4389270377785935e-12,
+          "V_vis_columns": [
+            [
+              -0.8418220069237603
+            ],
+            [
+              0.5379971268559552
+            ],
+            [
+              -0.0435293022410151
+            ]
+          ],
+          "hidden_directions": [
+            [
+              -0.5222495984583386,
+              -0.8322388136006927,
+              -0.18610189157183496
+            ],
+            [
+              0.1363490578220341,
+              0.13393150723876832,
+              -0.981565731777447
+            ]
+          ],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        },
+        "pert_pos_r6": {
+          "rank": 6,
+          "p_init_label": "zero",
+          "n_vis": 1,
+          "hidden_rank": 2,
+          "hid_sv": [
+            0.00042883139440832085,
+            3.6128810640579863e-19,
+            1.868438784658155e-19
+          ],
+          "threshold": 4.288313944083208e-12,
+          "V_vis_columns": [
+            [
+              0.959854059177467
+            ],
+            [
+              -0.21958179359215335
+            ],
+            [
+              0.17453945400221824
+            ]
+          ],
+          "hidden_directions": [
+            [
+              0.2597833261357468,
+              0.9305926830330978,
+              -0.2578950983386623
+            ],
+            [
+              -0.10579607054322801,
+              0.2928840968849505,
+              0.9502768529483917
+            ]
+          ],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        }
+      }
+    },
+    "base N32": {
+      "scene_id": "base",
+      "N": 32,
+      "rank_check": {
+        "singular_values": [
+          0.0016418735156890224,
+          0.0015838672567615084,
+          0.001583867256761508,
+          0.0013850387742861947,
+          0.001355076429958302,
+          0.001307564503447463,
+          0.0013075645034474625,
+          0.0012548743600760222
+        ],
+        "gaps_s3_minus_s4": 2.996234432789272e-05,
+        "gaps_s4_minus_s5": 4.751192651083905e-05,
+        "gaps_s5_minus_s6": 4.336808689942018e-19,
+        "gaps_s6_minus_s7": 5.2690143371440356e-05,
+        "p_init": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "subspaces": {
+        "zero_r4": {
+          "rank": 4,
+          "p_init_label": "zero",
+          "n_vis": 3,
+          "hidden_rank": 0,
+          "hid_sv": [
+            0.0007457115262896138,
+            0.0002640093280635691,
+            0.00015874787666681454
+          ],
+          "threshold": 7.457115262896138e-12,
+          "V_vis_columns": [
+            [
+              -0.9416787661617633,
+              -0.305191505705612,
+              0.14177181033336958
+            ],
+            [
+              0.33648593929850174,
+              -0.8593187272421043,
+              0.385160405111189
+            ],
+            [
+              0.004279487640412921,
+              0.4104015958255423,
+              0.9118948492723182
+            ]
+          ],
+          "hidden_directions": [],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        },
+        "zero_r6": {
+          "rank": 6,
+          "p_init_label": "zero",
+          "n_vis": 1,
+          "hidden_rank": 2,
+          "hid_sv": [
+            0.0005610407701932752,
+            3.4675764320792927e-19,
+            8.180356990866764e-20
+          ],
+          "threshold": 5.610407701932752e-12,
+          "V_vis_columns": [
+            [
+              -0.8146211783552822
+            ],
+            [
+              0.5758860492015554
+            ],
+            [
+              -0.06890278738973867
+            ]
+          ],
+          "hidden_directions": [
+            [
+              -0.5750777293512438,
+              -0.817431211679614,
+              -0.033042690208518674
+            ],
+            [
+              0.0753521133032716,
+              -0.012707183284370344,
+              -0.997076018422722
+            ]
+          ],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        },
+        "pert_pos_r6": {
+          "rank": 6,
+          "p_init_label": "zero",
+          "n_vis": 1,
+          "hidden_rank": 2,
+          "hid_sv": [
+            0.00042772343209094063,
+            3.642800544972315e-19,
+            2.564400016704828e-19
+          ],
+          "threshold": 4.277234320909406e-12,
+          "V_vis_columns": [
+            [
+              0.960657663399478
+            ],
+            [
+              -0.21698880068919535
+            ],
+            [
+              0.17335718654650564
+            ]
+          ],
+          "hidden_directions": [
+            [
+              0.2180037524764208,
+              0.9758559459055783,
+              0.013399132319975323
+            ],
+            [
+              -0.17207910290925738,
+              0.024920538039805318,
+              0.9847678656037432
+            ]
+          ],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        }
+      }
+    },
+    "alt N16": {
+      "scene_id": "alt",
+      "N": 16,
+      "rank_check": {
+        "singular_values": [
+          0.0032882152944308453,
+          0.003173919815520593,
+          0.0031739198155205923,
+          0.002762840276424583,
+          0.002706201735503529,
+          0.002613249311573572,
+          0.002613249311573571,
+          0.0025037017309928813
+        ],
+        "gaps_s3_minus_s4": 5.6638540921053956e-05,
+        "gaps_s4_minus_s5": 9.295242392995699e-05,
+        "gaps_s5_minus_s6": 8.673617379884035e-19,
+        "gaps_s6_minus_s7": 0.00010954758058068963,
+        "p_init": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "subspaces": {
+        "zero_r4": {
+          "rank": 4,
+          "p_init_label": "zero",
+          "n_vis": 3,
+          "hidden_rank": 0,
+          "hid_sv": [
+            0.0007458087352463018,
+            0.00026452432177096104,
+            0.00015881254011808777
+          ],
+          "threshold": 7.458087352463018e-12,
+          "V_vis_columns": [
+            [
+              -0.9417857350498001,
+              -0.30498889405924917,
+              0.14149700971124393
+            ],
+            [
+              0.3361800874942004,
+              -0.8601829087913193,
+              0.3834948659313414
+            ],
+            [
+              0.004751634360891467,
+              0.4087384713038664,
+              0.9126391861229054
+            ]
+          ],
+          "hidden_directions": [],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        },
+        "zero_r6": {
+          "rank": 6,
+          "p_init_label": "zero",
+          "n_vis": 1,
+          "hidden_rank": 2,
+          "hid_sv": [
+            0.0005679192227713751,
+            5.371841415782989e-19,
+            1.7099015778500787e-19
+          ],
+          "threshold": 5.679192227713751e-12,
+          "V_vis_columns": [
+            [
+              -0.8184097080296724
+            ],
+            [
+              0.5715321877299722
+            ],
+            [
+              -0.05963646695922049
+            ]
+          ],
+          "hidden_directions": [
+            [
+              0.573274102210519,
+              0.8049237670477845,
+              -0.15314872828831338
+            ],
+            [
+              -0.03952661808844633,
+              -0.1595264480586086,
+              -0.986402026981035
+            ]
+          ],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        },
+        "pert_pos_r6": {
+          "rank": 6,
+          "p_init_label": "zero",
+          "n_vis": 1,
+          "hidden_rank": 2,
+          "hid_sv": [
+            0.0004320097859000344,
+            2.2915748440948713e-19,
+            1.9455767574874622e-19
+          ],
+          "threshold": 4.320097859000344e-12,
+          "V_vis_columns": [
+            [
+              0.9574917423437274
+            ],
+            [
+              -0.22703530151464935
+            ],
+            [
+              0.1779453152227543
+            ]
+          ],
+          "hidden_directions": [
+            [
+              -0.27856055842688204,
+              -0.5675115065497128,
+              0.7748126904114173
+            ],
+            [
+              0.07492381885940397,
+              0.791445299309957,
+              0.6066306615789343
+            ]
+          ],
+          "hidden_direction_note": "rows of Vhb (right-singular 3-vectors) for hid_sv at or below 1e-8*hid_sv[0]"
+        }
+      }
+    }
+  },
+  "noise_diagnostics": [
+    {
+      "scene_grid": "base N24",
+      "scene_id": "base",
+      "N": 24,
+      "noise_seed": 0,
+      "noise_over_true_norm": 0.03162277660168379,
+      "requested_ratio": 0.03162277660168379
+    },
+    {
+      "scene_grid": "base N24",
+      "scene_id": "base",
+      "N": 24,
+      "noise_seed": 1,
+      "noise_over_true_norm": 0.03162277660168378,
+      "requested_ratio": 0.03162277660168379
+    },
+    {
+      "scene_grid": "base N24",
+      "scene_id": "base",
+      "N": 24,
+      "noise_seed": 2,
+      "noise_over_true_norm": 0.031622776601683784,
+      "requested_ratio": 0.03162277660168379
+    },
+    {
+      "scene_grid": "base N32",
+      "scene_id": "base",
+      "N": 32,
+      "noise_seed": 0,
+      "noise_over_true_norm": 0.031622776601683805,
+      "requested_ratio": 0.03162277660168379
+    },
+    {
+      "scene_grid": "base N32",
+      "scene_id": "base",
+      "N": 32,
+      "noise_seed": 1,
+      "noise_over_true_norm": 0.0316227766016838,
+      "requested_ratio": 0.03162277660168379
+    },
+    {
+      "scene_grid": "base N32",
+      "scene_id": "base",
+      "N": 32,
+      "noise_seed": 2,
+      "noise_over_true_norm": 0.031622776601683784,
+      "requested_ratio": 0.03162277660168379
+    },
+    {
+      "scene_grid": "alt N16",
+      "scene_id": "alt",
+      "N": 16,
+      "noise_seed": 0,
+      "noise_over_true_norm": 0.0316227766016838,
+      "requested_ratio": 0.03162277660168379
+    },
+    {
+      "scene_grid": "alt N16",
+      "scene_id": "alt",
+      "N": 16,
+      "noise_seed": 1,
+      "noise_over_true_norm": 0.031622776601683805,
+      "requested_ratio": 0.03162277660168379
+    },
+    {
+      "scene_grid": "alt N16",
+      "scene_id": "alt",
+      "N": 16,
+      "noise_seed": 2,
+      "noise_over_true_norm": 0.03162277660168378,
+      "requested_ratio": 0.03162277660168379
+    }
+  ],
+  "seed_policy": "All three seeds 0,1,2 were retained for every scene-grid including N=32; N=32 analytic-Jacobian TRF runs were fast enough that no seed dropping was required.",
+  "records": [
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.2747186186676152e-12,
+      "nfev": 3,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.300341055116488,
+        1.449081053980835,
+        0.4903597497584677
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10180205327730892,
+      "pose_error_hidden": 0.04622057927508007,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.19788410491029634,
+      "final_residual": 0.29761244138598963,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.8140200464484453,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.5027372587175044e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5564683223162556,
+        2.0483947587231204,
+        -0.08681247131650353
+      ],
+      "p_est": [
+        0.08139578859568203,
+        -0.06330737840526621,
+        0.05067077145016499
+      ],
+      "pose_error": 0.0036519737208547515,
+      "pose_error_visible": 0.0029835638495058674,
+      "pose_error_hidden": 0.00210600541635947,
+      "tx_err": 0.0013957885956820265,
+      "ty_err": 0.003307378405266209,
+      "theta_err": 0.0006707714501649892,
+      "map_error": 0.025477615302845747,
+      "final_residual": 0.022222285709620808,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.8480217828210278,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.5826208613156903e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5564683223162583,
+        2.0483947587231195,
+        -0.0868124713165048
+      ],
+      "p_est": [
+        0.0813957885956823,
+        -0.06330737840526604,
+        0.05067077145016516
+      ],
+      "pose_error": 0.003651973720854737,
+      "pose_error_visible": 0.003651973720854737,
+      "pose_error_hidden": 1.1727439577597817e-18,
+      "tx_err": 0.001395788595682304,
+      "ty_err": 0.0033073784052660427,
+      "theta_err": 0.0006707714501651557,
+      "map_error": 0.02547761530284608,
+      "final_residual": 0.022222285709622504,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007457235971567367,
+        0.0002641384551276694,
+        0.0001587661560063712
+      ],
+      "threshold": 7.457235971567368e-12,
+      "T_U": 0.8480217828210276,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 5.680137749040122e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.6085776126064533,
+        2.021165497921611,
+        -0.1442224414420289
+      ],
+      "p_est": [
+        0.08498229185094404,
+        -0.054311040188312405,
+        0.004394301689298695
+      ],
+      "pose_error": 0.04622842431052224,
+      "pose_error_visible": 0.0008516253341243839,
+      "pose_error_hidden": 0.04622057927508007,
+      "tx_err": 0.004982291850944037,
+      "ty_err": 0.0056889598116875925,
+      "theta_err": 0.045605698310701305,
+      "map_error": 0.0442467592444009,
+      "final_residual": 0.03729345816756314,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.8863024756274029,
+      "T_U_rank": 6
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 8.15582896018922e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3248151885650241,
+        1.4210241620064827,
+        0.5074761334573094
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10180205327730892,
+      "pose_error_hidden": 0.04622057927508007,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.20866366637024877,
+      "final_residual": 0.28164778120533684,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.8148607689877971,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 6.139930007432869e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5159100046844853,
+        1.9946474236631233,
+        0.014734054793238409
+      ],
+      "p_est": [
+        0.07962738049057251,
+        -0.06210475650016189,
+        0.06683477568878933
+      ],
+      "pose_error": 0.016969929808800976,
+      "pose_error_visible": 0.0015514796856902992,
+      "pose_error_hidden": 0.01689885879284522,
+      "tx_err": 0.0003726195094274909,
+      "ty_err": 0.0021047565001618904,
+      "theta_err": 0.016834775688789327,
+      "map_error": 0.010213699018289574,
+      "final_residual": 0.027806801565656826,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.8481718074975847,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 5.1913845246237336e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5159100046844876,
+        1.994647423663124,
+        0.014734054793236466
+      ],
+      "p_est": [
+        0.07962738049057204,
+        -0.06210475650016232,
+        0.06683477568878937
+      ],
+      "pose_error": 0.01696992980880108,
+      "pose_error_visible": 0.01696992980880108,
+      "pose_error_hidden": 5.114171419281514e-19,
+      "tx_err": 0.00037261950942796274,
+      "ty_err": 0.0021047565001623206,
+      "theta_err": 0.01683477568878937,
+      "map_error": 0.010213699018289748,
+      "final_residual": 0.02780680156565667,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007457235971567367,
+        0.0002641384551276694,
+        0.0001587661560063712
+      ],
+      "threshold": 7.457235971567368e-12,
+      "T_U": 0.8481718074975847,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 2.4833789040886064e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5761773105871033,
+        1.9649616893242312,
+        -0.059284567154659365
+      ],
+      "p_est": [
+        0.08293718526459742,
+        -0.05300404006415396,
+        0.004288552419286757
+      ],
+      "pose_error": 0.04633688544374585,
+      "pose_error_visible": 0.0032810065685494275,
+      "pose_error_hidden": 0.04622057927508007,
+      "tx_err": 0.0029371852645974222,
+      "ty_err": 0.006995959935846036,
+      "theta_err": 0.045711447580713244,
+      "map_error": 0.03216177645006696,
+      "final_residual": 0.04599496582062608,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.8855690378387873,
+      "T_U_rank": 6
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 7.494216863958281e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3053210080494262,
+        1.3955064568972961,
+        0.5453667409147797
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10180205327730892,
+      "pose_error_hidden": 0.04622057927508007,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.21909759186832828,
+      "final_residual": 0.28242611752364105,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.814778380770858,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 6.134989562156058e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.4858674045187703,
+        1.9908574493803182,
+        0.04109278780366922
+      ],
+      "p_est": [
+        0.08053305602323706,
+        -0.06233559473799536,
+        0.06565525154501145
+      ],
+      "pose_error": 0.01583748883004008,
+      "pose_error_visible": 0.0023867437259875307,
+      "pose_error_hidden": 0.015656612239820702,
+      "tx_err": 0.0005330560232370551,
+      "ty_err": 0.0023355947379953626,
+      "theta_err": 0.015655251545011448,
+      "map_error": 0.012372089343916324,
+      "final_residual": 0.028586350842673598,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.84831283698205,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 5.7426481444813615e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.485867404518768,
+        1.9908574493803193,
+        0.0410927878036698
+      ],
+      "p_est": [
+        0.08053305602323696,
+        -0.06233559473799535,
+        0.06565525154501116
+      ],
+      "pose_error": 0.015837488830039787,
+      "pose_error_visible": 0.015837488830039787,
+      "pose_error_hidden": 7.818293051731877e-19,
+      "tx_err": 0.000533056023236958,
+      "ty_err": 0.0023355947379953557,
+      "theta_err": 0.015655251545011156,
+      "map_error": 0.012372089343916405,
+      "final_residual": 0.028586350842676037,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007457235971567367,
+        0.0002641384551276694,
+        0.0001587661560063712
+      ],
+      "threshold": 7.457235971567368e-12,
+      "T_U": 0.8483128369820506,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.4571701362052485e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5448557708918325,
+        1.962117635608877,
+        -0.030986104625054404
+      ],
+      "p_est": [
+        0.08376846860663774,
+        -0.053535302071968646,
+        0.00433153678361316
+      ],
+      "pose_error": 0.046277448152273755,
+      "pose_error_visible": 0.002293525444032331,
+      "pose_error_hidden": 0.046220579275080075,
+      "tx_err": 0.003768468606637737,
+      "ty_err": 0.006464697928031352,
+      "theta_err": 0.045668463216386845,
+      "map_error": 0.023372567793224427,
+      "final_residual": 0.0466113743024021,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005438927037778594,
+        3.083143189049778e-19,
+        1.3422072982202873e-19
+      ],
+      "threshold": 5.4389270377785935e-12,
+      "T_U": 0.885817734791252,
+      "T_U_rank": 6
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.2744797757962842e-12,
+      "nfev": 3,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3003319921079397,
+        1.449030726577352,
+        0.49037706416128357
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10316799659000284,
+      "pose_error_hidden": 0.04308554838464015,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.1978988737706869,
+      "final_residual": 0.2976535154835489,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8139632305431013,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.502685949273513e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5564715912042861,
+        2.0483868501860716,
+        -0.0868063400267544
+      ],
+      "p_est": [
+        0.08139705514728027,
+        -0.0633048520449242,
+        0.05067180449249752
+      ],
+      "pose_error": 0.0036503604478902905,
+      "pose_error_visible": 0.00308757809976587,
+      "pose_error_hidden": 0.0019473040022985602,
+      "tx_err": 0.0013970551472802656,
+      "ty_err": 0.0033048520449242003,
+      "theta_err": 0.00067180449249752,
+      "map_error": 0.025475840460746937,
+      "final_residual": 0.022222448478191013,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8478646939713095,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.582616630830592e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.55647159120429,
+        2.048386850186071,
+        -0.0868063400267569
+      ],
+      "p_est": [
+        0.08139705514728016,
+        -0.06330485204492443,
+        0.050671804492497204
+      ],
+      "pose_error": 0.003650360447890403,
+      "pose_error_visible": 0.0036503604478904036,
+      "pose_error_hidden": 1.045566710576005e-18,
+      "tx_err": 0.0013970551472801546,
+      "ty_err": 0.003304852044924436,
+      "theta_err": 0.0006718044924972008,
+      "map_error": 0.025475840460747634,
+      "final_residual": 0.022222448478191714,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007457115262896138,
+        0.0002640093280635691,
+        0.00015874787666681454
+      ],
+      "threshold": 7.457115262896138e-12,
+      "T_U": 0.8478646939713095,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 6.2478400306562e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5944824918233873,
+        2.0324615483495707,
+        -0.1413797162123513
+      ],
+      "p_est": [
+        0.0827658333838728,
+        -0.05851024999441526,
+        0.0070005504058922845
+      ],
+      "pose_error": 0.04311405634804843,
+      "pose_error_visible": 0.0015676017279679384,
+      "pose_error_hidden": 0.04308554838464015,
+      "tx_err": 0.002765833383872804,
+      "ty_err": 0.001489750005584739,
+      "theta_err": 0.042999449594107716,
+      "map_error": 0.0413302246808199,
+      "final_residual": 0.03489781572182901,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8825373511890993,
+      "T_U_rank": 6
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 8.122430958109681e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.324813028631421,
+        1.420975146055016,
+        0.5075013644364056
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10316799659000284,
+      "pose_error_hidden": 0.04308554838464015,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.2086793469130147,
+      "final_residual": 0.2816859497338396,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8148002749100336,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 6.152931380587052e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5159027852645828,
+        1.9946378076887872,
+        0.014744964539152389
+      ],
+      "p_est": [
+        0.07962586190199669,
+        -0.06210573432149112,
+        0.06684103178804934
+      ],
+      "pose_error": 0.016976290761976584,
+      "pose_error_visible": 0.002068276233524375,
+      "pose_error_hidden": 0.016849827342053383,
+      "tx_err": 0.0003741380980033099,
+      "ty_err": 0.0021057343214911234,
+      "theta_err": 0.01684103178804934,
+      "map_error": 0.010214394395394493,
+      "final_residual": 0.027805607169448725,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8480990914667653,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 5.2061375113146564e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5159027852645854,
+        1.994637807688787,
+        0.01474496453915064
+      ],
+      "p_est": [
+        0.07962586190199669,
+        -0.062105734321491135,
+        0.06684103178804959
+      ],
+      "pose_error": 0.016976290761976837,
+      "pose_error_visible": 0.01697629076197684,
+      "pose_error_hidden": 6.230390212501059e-18,
+      "tx_err": 0.0003741380980033099,
+      "ty_err": 0.0021057343214911373,
+      "theta_err": 0.01684103178804959,
+      "map_error": 0.010214394395394875,
+      "final_residual": 0.027805607169448996,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007457115262896138,
+        0.0002640093280635691,
+        0.00015874787666681454
+      ],
+      "threshold": 7.457115262896138e-12,
+      "T_U": 0.8480990914667657,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 3.0188173978377095e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.5623429946697889,
+        1.9755633424971195,
+        -0.05630374795686636
+      ],
+      "p_est": [
+        0.08067333139636894,
+        -0.05703098241023217,
+        0.006823561121316254
+      ],
+      "pose_error": 0.04328363795780572,
+      "pose_error_visible": 0.004136282782551642,
+      "pose_error_hidden": 0.04308554838464015,
+      "tx_err": 0.0006733313963689369,
+      "ty_err": 0.002969017589767829,
+      "theta_err": 0.04317643887868375,
+      "map_error": 0.0264856216297497,
+      "final_residual": 0.04464410855064776,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8818130073007042,
+      "T_U_rank": 6
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 7.461787007814301e-11,
+      "nfev": 2,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.3053178060158608,
+        1.3954580063193038,
+        0.5453914494882736
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10316799659000284,
+      "pose_error_hidden": 0.04308554838464015,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.21911285255551488,
+      "final_residual": 0.28246698436459255,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8147167274932391,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 6.130633629002805e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.4858656203549074,
+        1.9908559832223809,
+        0.041094607648591436
+      ],
+      "p_est": [
+        0.08053250010868727,
+        -0.06233592550780683,
+        0.06566011612237876
+      ],
+      "pose_error": 0.015842327521868805,
+      "pose_error_visible": 0.0028580384296120398,
+      "pose_error_hidden": 0.015582392552012754,
+      "tx_err": 0.0005325001086872727,
+      "ty_err": 0.002335925507806834,
+      "theta_err": 0.01566011612237876,
+      "map_error": 0.012372456331045166,
+      "final_residual": 0.0285859190371228,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8482364859436872,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 5.739565215750227e-11,
+      "nfev": 5,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.4858656203549099,
+        1.9908559832223818,
+        0.04109460764858998
+      ],
+      "p_est": [
+        0.08053250010868777,
+        -0.06233592550780635,
+        0.06566011612237846
+      ],
+      "pose_error": 0.01584232752186845,
+      "pose_error_visible": 0.01584232752186845,
+      "pose_error_hidden": 4.790161764288452e-18,
+      "tx_err": 0.0005325001086877723,
+      "ty_err": 0.002335925507806355,
+      "theta_err": 0.015660116122378456,
+      "map_error": 0.012372456331044994,
+      "final_residual": 0.028585919037123073,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007457115262896138,
+        0.0002640093280635691,
+        0.00015874787666681454
+      ],
+      "threshold": 7.457115262896138e-12,
+      "T_U": 0.8482364859436877,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.6465238448528825e-12,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.530830687470058,
+        1.9730866984329236,
+        -0.028341969953859125
+      ],
+      "p_est": [
+        0.08151253248877857,
+        -0.05762424491608693,
+        0.006894542942049521
+      ],
+      "pose_error": 0.043197365601656344,
+      "pose_error_visible": 0.0031061093538372344,
+      "pose_error_hidden": 0.043085548384640154,
+      "tx_err": 0.0015125324887785702,
+      "ty_err": 0.002375755083913071,
+      "theta_err": 0.043105457057950484,
+      "map_error": 0.017509958815417156,
+      "final_residual": 0.044988974146901256,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005610407701932752,
+        3.4675764320792927e-19,
+        8.180356990866764e-20
+      ],
+      "threshold": 5.610407701932752e-12,
+      "T_U": 0.8820235108634097,
+      "T_U_rank": 6
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 6.356932086749431e-13,
+      "nfev": 4,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        3.0387582124135863,
+        -0.28462025154993964,
+        -1.3704733674332736
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.6204786638765952,
+      "final_residual": 0.2686664479398266,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.754684366328057,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 5.4127185542968096e-11,
+      "nfev": 8,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        2.0793192090562873,
+        -0.9608021178859727,
+        0.6927741312958351
+      ],
+      "p_est": [
+        0.07743026735517405,
+        -0.06013714414922628,
+        0.04964486805201504
+      ],
+      "pose_error": 0.002597778490177859,
+      "pose_error_visible": 0.0020458906626068273,
+      "pose_error_hidden": 0.0016008699137309542,
+      "tx_err": 0.0025697326448259478,
+      "ty_err": 0.00013714414922628287,
+      "theta_err": 0.00035513194798496295,
+      "map_error": 0.031480687132838046,
+      "final_residual": 0.024566799635676734,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.7467937431160991,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 6.861532411746721e-11,
+      "nfev": 9,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        2.074577093617906,
+        -0.9631610370791692,
+        0.7005677351589279
+      ],
+      "p_est": [
+        0.07762441360442263,
+        -0.06047467180995079,
+        0.048052024710596705
+      ],
+      "pose_error": 0.003108589998398008,
+      "pose_error_visible": 0.0031085899983980094,
+      "pose_error_hidden": 1.4905315572151176e-18,
+      "tx_err": 0.0023755863955773754,
+      "ty_err": 0.0004746718099507899,
+      "theta_err": 0.0019479752894032976,
+      "map_error": 0.029295800203032452,
+      "final_residual": 0.02457074105735624,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007458087352463018,
+        0.00026452432177096104,
+        0.00015881254011808777
+      ],
+      "threshold": 7.458087352463018e-12,
+      "T_U": 0.746793038921585,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 0,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 2.5132644558800712e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.9826116366772577,
+        -1.0291376217285253,
+        0.8606694053439594
+      ],
+      "p_est": [
+        0.08881780897890554,
+        -0.062025457636991035,
+        0.006472039955773369
+      ],
+      "pose_error": 0.04445828988433431,
+      "pose_error_visible": 0.0057783409553315785,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.008817808978905536,
+      "ty_err": 0.0020254576369910376,
+      "theta_err": 0.043527960044226634,
+      "map_error": 0.018360623115571455,
+      "final_residual": 0.041911829698892795,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.768625617613021,
+      "T_U_rank": 6
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 5.426695336543238e-13,
+      "nfev": 4,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        3.065088384192248,
+        -0.3059746320760645,
+        -1.3606582665182203
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.6172515162098463,
+      "final_residual": 0.2590072992772011,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.7541135019158899,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 2.363327158243426e-11,
+      "nfev": 9,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        2.053001851137705,
+        -0.9913678512646734,
+        0.7529898813205806
+      ],
+      "p_est": [
+        0.07669636865545792,
+        -0.06011230202948217,
+        0.061661919741178566
+      ],
+      "pose_error": 0.012121343318962505,
+      "pose_error_visible": 0.0019440640482020148,
+      "pose_error_hidden": 0.01196442973286422,
+      "tx_err": 0.0033036313445420767,
+      "ty_err": 0.00011230202948217527,
+      "theta_err": 0.011661919741178563,
+      "map_error": 0.017355360108936294,
+      "final_residual": 0.02746466619433372,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.7451797386924277,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.2085500349977263e-11,
+      "nfev": 9,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        2.051955284262452,
+        -0.9915444472257854,
+        0.7543745056112904
+      ],
+      "p_est": [
+        0.0767846408566758,
+        -0.060107362200330416,
+        0.06192487762769552
+      ],
+      "pose_error": 0.01235122534399447,
+      "pose_error_visible": 0.012351225343994474,
+      "pose_error_hidden": 5.287240178153896e-18,
+      "tx_err": 0.0032153591433242007,
+      "ty_err": 0.00010736220033041866,
+      "theta_err": 0.011924877627695514,
+      "map_error": 0.016960788657174562,
+      "final_residual": 0.027464648390867215,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007458087352463018,
+        0.00026452432177096104,
+        0.00015881254011808777
+      ],
+      "threshold": 7.458087352463018e-12,
+      "T_U": 0.745162416263498,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 1,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.9929712864766424e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.9157696967389064,
+        -1.078161022943411,
+        0.9819456726534015
+      ],
+      "p_est": [
+        0.09066003176297442,
+        -0.06331196439239076,
+        0.006606280369976354
+      ],
+      "pose_error": 0.04480647596780166,
+      "pose_error_visible": 0.008029319610636205,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.01066003176297442,
+      "ty_err": 0.0033119643923907593,
+      "theta_err": 0.04339371963002365,
+      "map_error": 0.05200934294095622,
+      "final_residual": 0.046744930459610735,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.7683692311425336,
+      "T_U_rank": 6
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "wrongpose",
+      "r": null,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 5.496437257009482e-13,
+      "nfev": 4,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        3.046556476620258,
+        -0.33007757756210443,
+        -1.3248982518149282
+      ],
+      "p_est": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pose_error": 0.11180339887498948,
+      "pose_error_visible": 0.10274653125413315,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.08,
+      "ty_err": 0.06,
+      "theta_err": 0.05,
+      "map_error": 0.607550117658122,
+      "final_residual": 0.25449541283015553,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.7533463962255752,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "direct",
+      "r": null,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.3282066978426929e-11,
+      "nfev": 9,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        2.1131307592985085,
+        -0.9744494989784203,
+        0.6526749831267785
+      ],
+      "p_est": [
+        0.06986962714924423,
+        -0.05847074937262889,
+        0.05748156589668068
+      ],
+      "pose_error": 0.012686090408121008,
+      "pose_error_visible": 0.008718637286266965,
+      "pose_error_hidden": 0.009215327108330734,
+      "tx_err": 0.01013037285075577,
+      "ty_err": 0.0015292506273711093,
+      "theta_err": 0.007481565896680677,
+      "map_error": 0.045195503522723016,
+      "final_residual": 0.025587313485043586,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.7451369956568584,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "reduced_r4",
+      "r": 4,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 2.1417200167938575e-11,
+      "nfev": 9,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        2.1134042828712647,
+        -0.9743732428123372,
+        0.652281765762051
+      ],
+      "p_est": [
+        0.06984881966608367,
+        -0.058466779499522045,
+        0.057459070771488534
+      ],
+      "pose_error": 0.012689955242192548,
+      "pose_error_visible": 0.01268995524219255,
+      "pose_error_hidden": 2.909219710836648e-18,
+      "tx_err": 0.010151180333916335,
+      "ty_err": 0.0015332205004779526,
+      "theta_err": 0.007459070771488531,
+      "map_error": 0.045312366117804224,
+      "final_residual": 0.02558742054837982,
+      "n_vis": 3,
+      "hidden_rank": 0,
+      "decomposition_basis": "r4",
+      "hid_sv": [
+        0.0007458087352463018,
+        0.00026452432177096104,
+        0.00015881254011808777
+      ],
+      "threshold": 7.458087352463018e-12,
+      "T_U": 0.7451395858493666,
+      "T_U_rank": 4
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "reduced_r6",
+      "r": 6,
+      "noise_seed": 2,
+      "p_init_label": "zero",
+      "p_init": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success": true,
+      "status": 1,
+      "optimality": 1.7126040434498855e-11,
+      "nfev": 6,
+      "message": "`gtol` termination condition is satisfied.",
+      "alpha_est": [
+        1.95088740027122,
+        -1.0728664558557595,
+        0.9200786531945268
+      ],
+      "p_est": [
+        0.08707662802834772,
+        -0.06080951292355176,
+        0.006345162330533615
+      ],
+      "pose_error": 0.04423210177430477,
+      "pose_error_visible": 0.003650823486422607,
+      "pose_error_hidden": 0.04408117869616738,
+      "tx_err": 0.0070766280283477145,
+      "ty_err": 0.0008095129235517612,
+      "theta_err": 0.04365483766946639,
+      "map_error": 0.03604716057268443,
+      "final_residual": 0.05012995804609542,
+      "n_vis": 1,
+      "hidden_rank": 2,
+      "decomposition_basis": "r6",
+      "hid_sv": [
+        0.0005679192227713751,
+        5.371841415782989e-19,
+        1.7099015778500787e-19
+      ],
+      "threshold": 5.679192227713751e-12,
+      "T_U": 0.767231916771857,
+      "T_U_rank": 6
+    }
+  ],
+  "summary_groups": [
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "direct",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.012121343318962505,
+      "iqr_pose_error": 0.005044155958971576,
+      "median_theta_err": 0.007481565896680677,
+      "iqr_theta_err": 0.0056533938965968,
+      "median_map_error": 0.031480687132838046,
+      "iqr_map_error": 0.013920071706893355,
+      "median_final_residual": 0.025587313485043586,
+      "iqr_final_residual": 0.0014489332793284904
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "reduced_r4",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.01235122534399447,
+      "iqr_pose_error": 0.00479068262189727,
+      "median_theta_err": 0.007459070771488531,
+      "iqr_theta_err": 0.004988451169146108,
+      "median_map_error": 0.029295800203032452,
+      "iqr_map_error": 0.014175788730314831,
+      "median_final_residual": 0.02558742054837982,
+      "iqr_final_residual": 0.001446953666755485
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "reduced_r6",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.04445828988433431,
+      "iqr_pose_error": 0.00028718709674844384,
+      "median_theta_err": 0.043527960044226634,
+      "iqr_theta_err": 0.00013055901972137268,
+      "median_map_error": 0.03604716057268443,
+      "iqr_map_error": 0.016824359912692384,
+      "median_final_residual": 0.046744930459610735,
+      "iqr_final_residual": 0.004109064173601316
+    },
+    {
+      "scene_id": "alt",
+      "N": 16,
+      "method": "wrongpose",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.11180339887498948,
+      "iqr_pose_error": 0.0,
+      "median_theta_err": 0.05,
+      "iqr_theta_err": 0.0,
+      "median_map_error": 0.6172515162098463,
+      "iqr_map_error": 0.006464273109236696,
+      "median_final_residual": 0.2590072992772011,
+      "iqr_final_residual": 0.0070855175548354965
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "direct",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.01583748883004008,
+      "iqr_pose_error": 0.006658978043973113,
+      "median_theta_err": 0.015655251545011448,
+      "iqr_theta_err": 0.008082002119312169,
+      "median_map_error": 0.012372089343916324,
+      "iqr_map_error": 0.007631958142278086,
+      "median_final_residual": 0.027806801565656826,
+      "iqr_final_residual": 0.0031820325665263965
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "reduced_r4",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.015837488830039787,
+      "iqr_pose_error": 0.006658978043973172,
+      "median_theta_err": 0.015655251545011156,
+      "iqr_theta_err": 0.008082002119312107,
+      "median_map_error": 0.012372089343916405,
+      "iqr_map_error": 0.007631958142278168,
+      "median_final_residual": 0.02780680156565667,
+      "iqr_final_residual": 0.0031820325665267643
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "reduced_r6",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.046277448152273755,
+      "iqr_pose_error": 5.423056661180842e-05,
+      "median_theta_err": 0.045668463216386845,
+      "iqr_theta_err": 5.287463500597278e-05,
+      "median_map_error": 0.03216177645006696,
+      "iqr_map_error": 0.010437095725588236,
+      "median_final_residual": 0.04599496582062608,
+      "iqr_final_residual": 0.0046589580674194775
+    },
+    {
+      "scene_id": "base",
+      "N": 24,
+      "method": "wrongpose",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.11180339887498948,
+      "iqr_pose_error": 0.0,
+      "median_theta_err": 0.05,
+      "iqr_theta_err": 0.0,
+      "median_map_error": 0.20866366637024877,
+      "iqr_map_error": 0.010606743479015968,
+      "median_final_residual": 0.28242611752364105,
+      "iqr_final_residual": 0.00798233009032634
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "direct",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.015842327521868805,
+      "iqr_pose_error": 0.006662965157043146,
+      "median_theta_err": 0.01566011612237876,
+      "iqr_theta_err": 0.00808461364777591,
+      "median_map_error": 0.012372456331045166,
+      "iqr_map_error": 0.007630723032676222,
+      "median_final_residual": 0.027805607169448725,
+      "iqr_final_residual": 0.003181735279465893
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "reduced_r4",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.01584232752186845,
+      "iqr_pose_error": 0.006662965157043217,
+      "median_theta_err": 0.015660116122378456,
+      "iqr_theta_err": 0.008084613647776195,
+      "median_map_error": 0.012372456331044994,
+      "iqr_map_error": 0.00763072303267638,
+      "median_final_residual": 0.027805607169448996,
+      "iqr_final_residual": 0.0031817352794656813
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "reduced_r6",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.043197365601656344,
+      "iqr_pose_error": 8.479080487864415e-05,
+      "median_theta_err": 0.043105457057950484,
+      "iqr_theta_err": 8.849464228802284e-05,
+      "median_map_error": 0.0264856216297497,
+      "iqr_map_error": 0.011910132932701371,
+      "median_final_residual": 0.04464410855064776,
+      "iqr_final_residual": 0.005045579212536122
+    },
+    {
+      "scene_id": "base",
+      "N": 32,
+      "method": "wrongpose",
+      "n_seeds": 3,
+      "n_success": 3,
+      "median_pose_error": 0.11180339887498948,
+      "iqr_pose_error": 0.0,
+      "median_theta_err": 0.05,
+      "iqr_theta_err": 0.0,
+      "median_map_error": 0.2086793469130147,
+      "iqr_map_error": 0.010606989392413974,
+      "median_final_residual": 0.28246698436459255,
+      "iqr_final_residual": 0.007983782874854684
+    }
+  ],
+  "failures": [],
+  "counts": {
+    "n_records": 36,
+    "n_success": 36,
+    "n_failures": 0
+  },
+  "dropped_n32_note": null,
+  "note": "Reduced runs optimize (alpha, q) with p = p_zero + V_vis @ q using the fixed V_vis computed at (alpha_init, p_zero); wrongpose/direct decompose their pose error on the r=6 V_vis at p_zero (decomposition_basis='r6'), while reduced runs use their own V_vis. T_U is the receiver-rx state-consistency witness at rank 4 for wrongpose/direct/reduced_r4 and rank 6 for reduced_r6. pose_error_visible/hidden are orthogonal projection norms of p_est-p_true onto V_vis and its complement. Alt scene keeps the same geometry but a different contrast coefficient vector."
+}

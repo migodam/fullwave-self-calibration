@@ -1,0 +1,17 @@
+All bounded A2 replication work is complete. Fresh run summary and full artifacts live in [research/delegated/a2_theory_validation/replication](/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication).
+
+Key findings:
+
+1. Fresh 50/50 test rerun passed in an isolated byte-identical copy of the package: E1 9, E2 11, E3 15, E5 14, physical smoke 1. No original package outputs or physics files were modified.
+2. All seven experiment scripts reran into the new results folder with fixed seeds, matching the prior headline metrics: E2 T5b 36/36 and 24/24 physical; E3 Theorem-7 MC within 3 SE; E5 stack/budget identities at machine precision.
+3. Optional E1 physical Fisher scene is now executed and passes: `J_coh >= J_ph` within backward tolerance on all 10 seeds, with strict positive information `tr(J_ph)=2.2e-3 < tr(J_coh)=1.36`.
+4. Optional E3 limited-aperture extension ran (10 seeds × full/limited): Theorem 3 and pose-prior checks pass, limited aperture measurably reduces map retention, and physical nuisance saturation is explicit — Theorem 7 MC was evaluable 0/20 and that vacuous MC flag is not treated as evidence.
+5. New ablations (raw, no selection): physical reduced-state pose info is positive on 12/12 seeds while the declared free-current envelope is saturated (zero visibility) on all 36 seed/width records — confirming the G0-D envelope-vs-physical distinction.
+6. Gate controls reproduce intended false assurances: relative-only gate fails 9/9 b-zero combinations; residual-only gate fails 6/6 small-residual/large-bias combinations; confounding crossover stays at eps=1.
+7. Shared-map vs independent-map controls: exact stack beats per-frame-sum criterion, with 27/27 complementary records showing independent-map false invisibility; greedy/pair-lookahead rerun matches the known non-submodularity (exhaustive strictly better in 7/9 swept combos, gap up to 0.0855).
+8. E5 physical acquisition extension with 8 supported receiver configurations ran with reference-only decisions (seed 501) and separate truth evaluation (seeds 1001/1002). Greedy equals exhaustive at reference; the incorrect independent-map criterion incurs a 0.064 exact-objective gap; reference-to-truth rank agreement is high (Spearman 0.994–0.995).
+9. Missing/unchanged scope: E4 matched-budget comparison, E5 source-stabilizer, publication evidence boundary, and a separately labeled nearly-parallel fixture remain not run.
+
+Main artifacts: [summary.md](</Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/summary.md>), raw JSON/CSV under `.../replication/results/`, and figures [ablation_2x2.png](</Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/figures/ablation_2x2.png>) and [e5_physical_acquisition_2x2.png](</Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a2_theory_validation/replication/figures/e5_physical_acquisition_2x2.png>).
+
+Uncertainties: all physical evidence is N=8 tangent-level; the E5 acquisition “reference state” is the deterministic declared point used by the existing physical runners, not a noisy nonlinear estimate; no Codex intervention is needed for this bounded supplement, but final theory interpretation remains with the orchestrator.

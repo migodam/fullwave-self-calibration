@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "Clopper-Pearson zero/all endpoints",
+    "constant and insufficient-sample median interval",
+    "exact zero-count sign tail"
+  ],
+  "reads_final_results": false
+}

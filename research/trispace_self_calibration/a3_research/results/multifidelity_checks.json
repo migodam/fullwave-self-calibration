@@ -1,0 +1,6 @@
+{
+  "anchor_value_error": 5.350667688345117e-19,
+  "anchor_jacobian_error": 9.982081945455114e-19,
+  "surrogate_directional_error": 2.6238896660815885e-09,
+  "passed": true
+}

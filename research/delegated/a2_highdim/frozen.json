@@ -1,0 +1,129 @@
+{
+  "frozen_at": "2026-09-06T05:07:31+00:00",
+  "frozen_by": "a2_highdim worker",
+  "settings": {
+    "alpha_box": [
+      0.0,
+      2.5
+    ],
+    "alpha_init": 0.08,
+    "budget_rhs_columns": 5000,
+    "data_grid": 32,
+    "frequencies_rad_per_m": [
+      3.141592653589793,
+      6.283185307179586,
+      9.42477796076938,
+      12.566370614359172
+    ],
+    "ftol": 1e-10,
+    "gtol": 1e-07,
+    "inverse_grid": 20,
+    "kmax": 12.566370614359172,
+    "label": "a2_highdim_exploratory",
+    "lambda_min_m": 0.5,
+    "material_basis": {
+      "centres_max": 0.35,
+      "centres_min": -0.35,
+      "centres_per_axis": 7,
+      "type": "gaussian_unnormalised",
+      "width_std_m": 0.1
+    },
+    "maxls": 12,
+    "noise_reference": "nominal_n32_background_alpha_0_08",
+    "pose_lever_m": 1.5,
+    "pose_scale": [
+      2.0,
+      2.0,
+      3.0
+    ],
+    "prior_center": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "prior_strength": 0.0,
+    "snr_db": 30.0,
+    "stage_freqs": [
+      [
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "stage_maxiter": [
+      18,
+      18,
+      14,
+      18
+    ],
+    "version": 1,
+    "x_box_rotation_rad": [
+      -0.7,
+      0.7
+    ],
+    "x_box_translation_m": [
+      -0.7,
+      0.7
+    ]
+  },
+  "sha256": "efa530c3fd1a3ee9d1fba9cae98a4cfd24bf1e171092bef7521a712d0d02dab7"
+}

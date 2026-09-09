@@ -1,0 +1,85 @@
+{
+  "scope": "parent algebra only; not final physical or SOM gate",
+  "seed": 5101,
+  "checks": [
+    {
+      "name": "rectangle_has_one_complex_cycle",
+      "value": 0.0,
+      "threshold": 0.0,
+      "passed": true
+    },
+    {
+      "name": "one_cycle_at_most_two_real_geometry_directions",
+      "value": 0.0,
+      "threshold": 0.0,
+      "passed": true
+    },
+    {
+      "name": "forest_zero_information_1",
+      "value": 0.0,
+      "threshold": 1e-12,
+      "passed": true
+    },
+    {
+      "name": "forest_zero_information_2",
+      "value": 3.0135748322633193e-16,
+      "threshold": 1e-12,
+      "passed": true
+    },
+    {
+      "name": "forest_zero_information_3",
+      "value": 4.771161142256627e-16,
+      "threshold": 1e-12,
+      "passed": true
+    },
+    {
+      "name": "correlated_noise_cycle_projector",
+      "value": 1.8194173134869766e-15,
+      "threshold": 1e-11,
+      "passed": true
+    },
+    {
+      "name": "negative_control_unwhitened_projection_disagrees",
+      "value": 0.9529469051775494,
+      "threshold": 100.0,
+      "passed": true
+    },
+    {
+      "name": "rank_one_pose_hidden",
+      "value": 5.090838306120622e-16,
+      "threshold": 1e-12,
+      "passed": true
+    },
+    {
+      "name": "pair_complementarity",
+      "value": 0.0,
+      "threshold": 0.0,
+      "passed": true
+    },
+    {
+      "name": "two_3D_orientations_rank5",
+      "value": 0.0,
+      "threshold": 0.0,
+      "passed": true
+    },
+    {
+      "name": "three_noncoaxial_orientations_rank6",
+      "value": 0.0,
+      "threshold": 0.0,
+      "passed": true
+    },
+    {
+      "name": "all_frequency_range_clock_gain_gauge",
+      "value": 7.850462293418876e-17,
+      "threshold": 1e-12,
+      "passed": true
+    },
+    {
+      "name": "conditional_not_global_certificate",
+      "value": 0.0,
+      "threshold": 0.0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

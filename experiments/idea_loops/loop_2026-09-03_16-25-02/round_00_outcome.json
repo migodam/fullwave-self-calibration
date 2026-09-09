@@ -1,0 +1,160 @@
+{
+  "idea": {
+    "Name": "pose_confounding_spectral_geometry",
+    "Title": "Pose-Confounding Spectral Geometry for Full-Wave Inverse-Scattering SLAM",
+    "Short Hypothesis": "After noise whitening and realification, eliminating unknown pose from the local full-wave inverse-scattering SLAM model produces an effective map-information operator whose finite-dimensional loss is low rank, whose no-prior normalized spectrum is governed by principal angles between map- and pose-induced data tangent spaces, and whose useful information can be improved by genuinely diverse frequencies and trajectories while remaining sensitive to rank events and execution error.",
+    "Related Work": "The individual ingredients are mature and must not be claimed as novel: Chen-style subspace optimization decomposes induced-current recovery through the current-to-data operator G_S; equivalent Fisher information uses Schur complements to eliminate nuisance parameters; principal angles and finite-rank Hermitian perturbation describe subspace overlap and interlacing; gauge analysis treats identifiability up to group actions; active sensing optimizes Fisher-information criteria. The research question is whether their explicit synthesis for a full-wave volumetric contrast field jointly estimated with platform pose yields a useful, correctly scoped theory and reproducible numerical consequences. Closest overlap must be checked against full-wave inverse-scattering degrees-of-freedom work, inverse scattering with unknown sensor geometry, coherent RF/radar SLAM, RF-SLAM PCRB/identifiability, blind calibration/bilinear inverse problems, and robust experimental design. Novelty is retrieval-bounded; never claim first or no prior work.",
+    "Abstract": "We study local observability of a volumetric material-contrast map when the transmitting and receiving platform pose is unknown. Starting from a two-dimensional scalar Helmholtz contrast-source model, we derive whitened and realified map and pose Jacobians A and B, and compare the known-pose information K_IS=A^T A with the pose-eliminated information K_SLAM=A^T P_{Range(B)^perp} A and its finite-prior Schur complement K_eff. The finite-dimensional theory links exact map-pose ambiguity to Range(A) intersect Range(B), identifies the no-prior generalized retention spectrum with squared sines of principal angles, and bounds information loss by pose dimension. We then test the theory in a unified CPU-only simulator through analytic-Jacobian checks, rank and spectral identities, gauge and Born-empty-background controls, multi-frequency and equal-budget trajectory comparisons, and first-order robust-sensitivity tests. The study is designed to retain counterexamples: numerical evidence may validate the algebraic implementation, refine conditions, or falsify proposed physical generalizations, but it cannot establish continuum transfer, global nonlinear convergence, online SLAM performance, or global novelty.",
+    "Experiments": {
+      "datasets": [
+        "Deterministic synthetic 2D scalar Helmholtz contrast-source scenes on D=[-0.5,0.5]^2, using two smooth nonzero dielectric blobs; begin with small pilot grids and run the specified 32x32 reference plus a 40x40 sensitivity case when CPU cost permits.",
+        "One transmitter and 4-8 body-fixed receivers per SE(2) pose, with straight, 90-degree arc, 180-degree arc, and 360-degree circular trajectories matched for path length and measurement count.",
+        "Controlled Born/full-wave, single/genuinely-multifrequency/duplicate-block, identity/colored-noise, smooth-basis/pixel-basis, free-pose/finite-prior, anchored/unanchored, and trajectory-perturbation variants with deterministic seeds."
+      ],
+      "baselines": [
+        "Known-pose information K_IS versus free-pose K_SLAM and finite-prior K_eff.",
+        "Analytic A and B versus centered finite differences of the same forward solver.",
+        "Principal-angle closed forms versus generalized eigenvalues on the observable support.",
+        "Genuinely distinct frequency blocks versus an exact scaled duplicate block, with no prior, fixed finite prior, and proportionally scaled prior controls.",
+        "Full trajectory derivative including pose-Hessian terms versus finite differences and the explicitly labeled frozen-nuisance-subspace approximation.",
+        "Sampled worst-case perturbations and the analytic Euclidean-ball gradient direction versus the first-order surrogate; use a Lipschitz lower bound as certified only if a uniform operator-Lipschitz constant over the full ball is derived, otherwise label it empirical."
+      ],
+      "metrics": [
+        "Centered finite-difference relative errors and observed O(h^2) region for map and pose Jacobians; state-equation residual and sigma_min(M)/norm(M).",
+        "Backward-error-scaled residuals for kernel/rank identity, PSD ordering, loss-rank bound, interlacing, and generalized-spectrum/principal-angle equality; machine-precision rank tolerance only.",
+        "Retention eigenvalues rho, principal angles, exact destroyed degrees of freedom, affected-mode count, continuous confusion dimension, log-volume retention, and absolute eigenvalues of K_IS and K_eff.",
+        "SE(2) generator cancellation residuals, Born empty-background bilinear scaling, and anchor/symmetry controls.",
+        "Frequency-stacking PSD increments, shared-compensation residuals, duplicate-block invariance controls, and equal-budget trajectory comparisons.",
+        "First-order eigenvalue prediction error versus perturbation radius, spectral gaps, sigma_min(B), projector movement, sampled/analytic worst case, explicitly certified-or-empirical Lipschitz lower-bound checks, and frozen-nuisance approximation error.",
+        "Exact commands, configs, random seeds, runtime/environment record, result tables, figure paths, and SHA-256 hashes."
+      ],
+      "compute_estimate": "Apple Silicon CPU only. Use staged resolution: cheap algebraic/Jacobian falsifiers first, then the 32x32 reference sweeps and a limited 40x40 discretization check. Reuse Green matrices and factorizations. No CUDA, GPU Docker, neural-network training, daemon, scheduler, database, web UI, or new orchestration framework. Report actual runtime and any family that cannot be completed rather than silently reducing scope.",
+      "steps": [
+        "Before coding, read /Volumes/migodam's-external-brain/Research/Inv_SLAM/research/agentic_input/workshop.md and the three source files it names. Preserve its status ledger and semantic-drift prohibitions.",
+        "Family 1: implement the 2D forward solver and analytic A/B builders; verify centered map/pose derivatives across h, solver residuals, weak-scattering Born/full-wave asymptotics, and non-resonant conditioning.",
+        "Family 2: after whitening and realification, verify kernel/rank identities, rho=sin^2(theta), loss-rank and interlacing, prior ordering and limits, and distinguish generalized retention directions from ordinary K_IS eigenmodes.",
+        "Family 3: construct smooth-basis SE(2) gauge generators with anchor/symmetry controls; separately verify B=0 at Born empty background and the leading bilinear sensing-operator mismatch.",
+        "Family 4: compare genuinely diverse and exactly duplicate frequencies using one shared pose compensation; test absolute-information monotonicity and the correctly qualified duplicate-block result; compare four equal-budget trajectories without assuming their ordering is universal.",
+        "Family 5: verify full trajectory/eigenvalue derivatives in positive-gap regions, test the robust first-order surrogate using both the analytic adverse direction and random boundary samples, quantify frozen-nuisance error, and deliberately expose near-crossing/rank-event breakdown.",
+        "For every family write a hypothesis/claim-status table, exact executed checks, metrics, pass/fail interpretation, artifacts, and a cannot-establish section. A counterexample or corrected condition is an acceptable result.",
+        "Synthesize only results supported by executed artifacts. Keep finite-dimensional proofs, conditional full-wave derivations, numerical observations, and open continuum/transversality/rank-event conjectures visibly separate.",
+        "Prepare a full English LaTeX/PDF manuscript draft with AI-use disclosure, verified citations, reproducibility appendix, limitations, and explicit negative results."
+      ]
+    },
+    "Risk Factors and Limitations": [
+      "The local tangent/Fisher theory does not address cycle skipping, phase wrapping, wrong data association, posterior multimodality, or basin of attraction; practical claims must be scoped accordingly.",
+      "Complex measurements with real physical parameters require whitening followed by realification; using a complex pose projector would enlarge the nuisance space and invalidate the interpretation.",
+      "Current-space G_S/SOM modes are not map-Jacobian or K_eff modes; any conflation is a fatal semantic error.",
+      "SOM may be presented as a current-space computational substrate, but not as the same subspace as the pose-confounding map-tangent spectrum unless an explicit A=G_S T_chi pullback/composition result is proved and implemented.",
+      "Exact SE(2) gauge requires a symmetry-compatible background/domain; bounded grids, anchors, known background, and scene symmetry can break or degenerate generators.",
+      "At Born empty background, first-order B vanishes; pose effects then form a bilinear operator-uncertainty problem and cannot be declared harmless.",
+      "Finite-prior retention is weighted shrinkage, not ordinary squared-sine principal angles. Duplicate-block rho invariance holds only with no prior or matching prior scaling, not with a fixed finite prior.",
+      "Finite-dimensional numerical identities do not prove stable transversality or closed-range properties of the continuum inverse problem; discretization refinement is diagnostic only.",
+      "Trajectory derivative claims require smoothness, locally constant rank, and spectral gaps; rank events and repeated eigenvalues need cluster/projector treatment.",
+      "The independent ScholarQA evidence bundle is partial because of Semantic Scholar rate limits. Final citations must be verified and novelty claims bounded to retrieved records.",
+      "All five experiment families are required attempts, but CPU limits may force an explicitly documented partial result; passing them is bounded model evidence, not production or real-world acceptance."
+    ]
+  },
+  "report": {
+    "status": "completed",
+    "summary": "All five planned experiment families, plus the required parent-correction supplements, were implemented, executed, and audited on Apple Silicon CPU. The finite-dimensional algebraic spine of the pose-confounded spectral-geometry hypothesis was validated to near machine precision after corrections: the forward/self-cell quadrature was fixed, map and pose Jacobians match centered differences with O(h^2), rank/retention/principal-angle identities hold, prior-limit behavior is reproduced, empty-background Born gauge cancellation is exact, and distinct frequencies move shared pose-compensation directions whereas exact duplicates do not. One proposed physical generalization failed cleanly: the hypothesized trajectory ordering was not observed (retained mass arc90 9.039 > straight 8.354 > circle360 8.140 > arc180 7.999) and is recorded as a metric/standoff-sensitive counterexample, not hidden. A 17-page manuscript draft and consolidated synthesis were compiled, with the finite-dimensional scope explicitly separated from continuum/online/global claims.",
+    "key_results": [
+      "Family 1: corrected equal-area self-cell quadrature max error 3.13e-16; map Jacobian FD relative errors 2.25e-9/1.74e-8/1.77e-9 at h=1e-3; pose FD errors 8.38e-7/4.28e-6/4.09e-6; observed O(h^2) slopes about 2.0; forward-model residual 9.34e-16; grid refinement N=16 to 40 recorded.",
+      "Family 2: rank identity residual 0; retention spectrum equals 1 - sigma_i^2(Q_B^T Q_A) to 2.89e-15/1.55e-15; loss rank <= rank(B)=18; PSD/interlacing violations <=7e-21; parent-corrected SVD-filter prior sweep gives d0=5.70e-9/3.67e-9 at alpha=1e-14; duplicate no-prior/scaled-prior invariance and fixed-prior non-invariance reproduced.",
+      "Family 3/3b: empty-background B=0 and K_SLAM=K_IS exactly 0.0; bilinear-to-linear ratio 2.81; pixel gauge residuals 6.6e-5/1.6e-5/4.7e-5; augmented smooth basis reaches the pixel floor; symmetric-scene rotation is a pose-only stabilizer; corner anchor lifts generator retention 11.9x.",
+      "Family 4/4b/parent controls: stacking PSD monotonicity (min eigenvalue >=1e-13), duplicate invariance, and shared-pose-compensation separation confirmed; confounded directions move 0.121/0.224/0.477 under distinct frequencies vs <=2.9e-16 for duplicates; block-normalized control still moves 0.106/0.194/0.382.",
+      "Family 4 counterexample: the hypothesized trajectory ordering failed. Retained mass was arc90 9.039 > straight 8.354 > circle360 8.140 > arc180 7.999, recorded as a metric/standoff-sensitive counterexample rather than a universal ordering result.",
+      "Family 5: full vs frozen nuisance derivative relative error 6.25e-7 vs 4.44e-2 at epsilon=1e-3; gapped eigenvalue first-order prediction shows O(epsilon^2) with slope about 2.0; robust worst-case surrogate slope 2.000; sampled Lipschitz bound is explicitly empirical-only (0 Weyl violations); rank/near-crossing breakdown scans recorded with caveats.",
+      "Preserved negative results: Family 2 pixel-basis eigenprojector gate 8.47e-7 vs 1e-8 tolerance (identity certified by stable factorized residuals 3.77e-16/2.70e-16); Family 3 raw p=24 smooth-basis gauge gate residuals 0.57-0.78 and O(1)-contrast full-wave bilinear gate 0.218; Family 3 anchor rho_min masks do not universally lift retention; Family 4 trajectory-order counterexample."
+    ],
+    "files_of_interest": [
+      "manuscript/main.pdf",
+      "manuscript/main.tex",
+      "notes/synthesis.md",
+      "notes/manuscript_sources.md",
+      "notes/manuscript_overclaim_audit.txt",
+      "notes/family1_self_cell_correction_report.md",
+      "notes/family2_report.md",
+      "notes/family2_parent_correction.md",
+      "notes/family3_report.md",
+      "notes/family3_parent_correction.md",
+      "notes/family3b_report.md",
+      "notes/family4_report.md",
+      "notes/family4b_normalized_control.md",
+      "notes/family4_parent_controls.md",
+      "notes/family5_report.md",
+      "results/family1_pilot_results.json",
+      "results/family1_grid_refinement.json",
+      "results/self_cell_quadrature_validation.json",
+      "results/family2_results.json",
+      "results/family2_parent_correction.json",
+      "results/family3_gauge_born.json",
+      "results/family3_parent_correction.json",
+      "results/family3b_refinements.json",
+      "results/family4_results.json",
+      "results/family4b_normalized_control.json",
+      "results/family4_parent_controls.json",
+      "results/family5_sensitivity.json",
+      "figures/family1_fd_convergence.png",
+      "figures/family1_grid_refinement.png",
+      "figures/self_cell_quadrature_validation.png",
+      "figures/family2_retention_spectra.png",
+      "figures/family3b_gauge_pixel_refinement.png",
+      "figures/family4_trajectories.png",
+      "figures/family4b_normalized_shared_z.png",
+      "figures/family5_derivative_formula.png",
+      "figures/family5_eigenvalue_prediction.png",
+      "figures/family5_robust_surrogate.png",
+      "src/helmholtz.py"
+    ],
+    "working_assets": [
+      "src/helmholtz.py: corrected 2D scalar Helmholtz contrast-source forward solver with equal-area self-cell integral and analytic map/pose Jacobians.",
+      "src/family1_pilot.py, src/family1_grid_refinement.py, src/validate_self_cell.py: forward/Jacobian validation and self-cell quadrature checks.",
+      "src/family2_algebraic_spine.py, src/family2_parent_correction.py: rank/retention/principal-angle/prior-limit algebraic tests.",
+      "src/family3_gauge_born.py, src/family3_parent_correction.py, src/family3b_refinements.py: gauge generators, Born empty-background, bilinear controls, anchor/symmetry tests.",
+      "src/family4_frequency_trajectory.py, src/family4_parent_controls.py, src/family4b_normalized_control.py: frequency-stacking, duplicate-block, shared-compensation, and trajectory comparisons.",
+      "src/family5_sensitivity.py: full/frozen nuisance derivative, eigenvalue first-order prediction, robust surrogate, and rank-event scans.",
+      "src/test_family1_corrections.py: regression tests for the parent-corrected self-cell quadrature.",
+      "notes/family*_report.md and notes/family*_parent_correction.md: executed-check interpretation and claim-status documentation.",
+      "notes/synthesis.md: consolidated findings and explicit finite-dimensional/continuum/online scoping.",
+      "manuscript/main.tex: source for the compiled 17-page manuscript draft.",
+      "logs/environment_self_cell_corrected.md: environment and runtime record.",
+      "context/PARENT_CORRECTIONS.md, context/PARENT_FAMILY2_REVIEW.md, context/PARENT_FAMILY3_CORRECTIONS.md, context/PARENT_FAMILY4_AUDIT.md, context/PARENT_ROUND_AUDIT.md: parent corrections and audit constraints.",
+      "archive/INVALIDATED_self_cell_2026-09-03T092339Z/: preserved original invalidated self-cell archive."
+    ],
+    "completed_steps": [
+      "Built unified 2D scalar Helmholtz contrast-source forward solver with corrected equal-area self-cell integral and analytic map/pose Jacobian builders.",
+      "Family 1: verified centered map/pose derivatives across h, observed O(h^2), state residual, Born/full-wave approximate checks, non-resonant conditioning, and N=16->40 grid refinement.",
+      "Family 2: verified kernel/rank identities, retention spectrum = 1 - sigma_i^2(Q_B^T Q_A), loss-rank/interlacing bounds, prior ordering/limits, duplicate prior behavior, and generalized retention directions.",
+      "Family 2 parent correction: added SVD-filter prior-limit sweep, giving d0=5.70e-9/3.67e-9 at alpha=1e-14.",
+      "Family 3: implemented smooth-basis SE(2) gauge generators, anchor/symmetry controls, Born empty-background B=0 and bilinear scaling checks; exposed initial representation/contrast mismatches.",
+      "Family 3 parent correction/3b: re-ran correctly conditioned tests; augmented smooth basis reached pixel floor; anchor retention lift measured.",
+      "Family 4: tested genuine vs duplicate frequencies with shared pose compensation, PSD monotonicity, equal-budget trajectory comparisons, and parent controls; trajectory-order counterexample recorded.",
+      "Family 4b: added block-normalized control to separate block scaling from genuine frequency diversity.",
+      "Family 5: verified full trajectory/eigenvalue derivatives in positive-gap regions, robust first-order surrogate against analytic adverse direction and random boundary samples, frozen-nuisance error, and near-crossing/rank-event breakdown.",
+      "Preserved all failure records and negative results rather than tuning them away.",
+      "Compiled manuscript/main.pdf via Tectonic and audited finite-dimensional scoping and AI-use disclosure."
+    ],
+    "dead_ends": [
+      "Original Family 1 self-cell quadrature omitted the -1/k_b^2 lower-endpoint term; this was parent-corrected, and the invalidated archive was preserved rather than deleted.",
+      "Family 3 raw p=24 smooth-basis gauge gates failed because representation residuals 0.57-0.78 dominated; corrected conditions and augmented smooth basis were supplied in Family 3b.",
+      "Family 3 O(1)-contrast full-wave bilinear gate failed with value 0.218; kept as a preserved negative result because the bilinear construction is not valid in that contrast regime.",
+      "Family 2 pixel-basis eigenprojector gate did not meet its tight 1e-8 threshold (8.47e-7), though identity was certified by stable factorized residuals; recorded as a limitation.",
+      "Family 3 anchor rho_min masks did not universally lift retention; the claimed anchor benefit is conditional, not universal.",
+      "Family 4 hypothesized trajectory ordering failed: retained mass arc90 9.039 > straight 8.354 > circle360 8.140 > arc180 7.999. This is stored as a metric/standoff-sensitive counterexample, not a theorem.",
+      "A certified uniform operator-Lipschitz constant for the robust bound was not derived; the current Lipschitz check is explicitly labeled empirical-only."
+    ],
+    "next_steps": [
+      "Add a true colored-noise / per-frequency SNR whitening model; current controls are energy/row-normalized diagnostics only.",
+      "Attempt a same-standoff, per-pose-energy-normalized trajectory control to isolate angular-coverage effects from standoff and signal strength.",
+      "Derive or import a certified uniform operator-Lipschitz constant for the robust first-order bound instead of the current empirical-only L.",
+      "Investigate continuum/stable-transversality and rank-event behavior beyond the finite grid.",
+      "Keep the SOM current-space vs map-tangent distinction explicit in any online or practical extension."
+    ]
+  },
+  "verdict": {
+    "decision": "lock",
+    "unresolved_issues": [],
+    "reasoning": "The completed study is substantially beyond a pilot: it implements and audits all five planned experiment families plus parent-correction controls in a unified CPU-only simulator. The finite-dimensional algebraic core is validated near machine precision after fixing the self-cell quadrature: map and pose Jacobians match centered differences with O(h^2), rank/retention/principal-angle identities hold, prior-limit behavior is reproduced, distinct frequencies move shared pose-compensation directions while exact duplicates do not, and empty-background Born gauge cancellation is exact. Ablations and controls are extensive, including smooth/pixel bases, Born vs full-wave regimes, grid refinement from N=16 to 40, full vs frozen nuisance derivatives, and explicit counterexamples. The one failed trajectory-ordering generalization is retained as a metric/standoff-sensitive negative result, not hidden, which is a valid scoped finding. The report also separates finite-dimensional proofs from continuum, online SLAM, or global novelty claims. This is enough substantiated empirical content for a full-length paper with a rich reproducibility appendix; no blocking unresolved issues remain."
+  }
+}

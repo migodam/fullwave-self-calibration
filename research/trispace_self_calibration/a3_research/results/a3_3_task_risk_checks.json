@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "random_cases": [
+    {
+      "case": 0,
+      "risk_identity_error": 2.220446049250313e-16,
+      "variance_shortcut_error": 0.020720745664938534
+    },
+    {
+      "case": 1,
+      "risk_identity_error": 1.1102230246251565e-16,
+      "variance_shortcut_error": 0.03551596852222061
+    },
+    {
+      "case": 2,
+      "risk_identity_error": 4.440892098500626e-16,
+      "variance_shortcut_error": 0.03305238210842942
+    },
+    {
+      "case": 3,
+      "risk_identity_error": 4.440892098500626e-16,
+      "variance_shortcut_error": 0.0032101469294011364
+    },
+    {
+      "case": 4,
+      "risk_identity_error": 4.440892098500626e-16,
+      "variance_shortcut_error": 0.08924105403759808
+    },
+    {
+      "case": 5,
+      "risk_identity_error": 0.0,
+      "variance_shortcut_error": 0.06376147972545865
+    },
+    {
+      "case": 6,
+      "risk_identity_error": 2.220446049250313e-16,
+      "variance_shortcut_error": 0.009701706495202078
+    },
+    {
+      "case": 7,
+      "risk_identity_error": 8.881784197001252e-16,
+      "variance_shortcut_error": 0.04503518824656161
+    },
+    {
+      "case": 8,
+      "risk_identity_error": 0.0,
+      "variance_shortcut_error": 0.030195972420116513
+    },
+    {
+      "case": 9,
+      "risk_identity_error": 2.220446049250313e-16,
+      "variance_shortcut_error": 0.02514424496433032
+    },
+    {
+      "case": 10,
+      "risk_identity_error": 0.0,
+      "variance_shortcut_error": 0.022464201806432937
+    },
+    {
+      "case": 11,
+      "risk_identity_error": 4.440892098500626e-16,
+      "variance_shortcut_error": 0.018028091139602687
+    }
+  ],
+  "safe_suppression_error": 4.926767373938939e-16,
+  "raw_orthogonality_counterexample_information": 0.09090909090909094,
+  "actual_white_noise_variance": 1.9999999999999982,
+  "two_world_bound": 1.25,
+  "scope": "Fixed linear real-whitened identifiable models; no data-dependent certificate."
+}

@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "n": 8,
+  "jacobian_column_errors": [
+    1.2445772929745762e-10,
+    5.016644231093694e-12,
+    8.342388853351543e-12,
+    5.763384072930722e-12,
+    5.27828727703132e-09,
+    8.636089408173557e-12,
+    7.956096026739118e-12,
+    9.727083372386866e-12,
+    6.8533807107741196e-12,
+    1.5805512530245845e-11,
+    1.5551475245879992e-11,
+    1.457482337032702e-11,
+    1.473047379839002e-11
+  ],
+  "electronics_jacobian_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.1295030389374226e-09,
+    1.0513884587927116e-11,
+    1.0513884587927116e-11,
+    1.0513884587927116e-11,
+    1.0513884587927116e-11,
+    1.788344838861999e-11,
+    1.788344838861999e-11,
+    1.788344838861999e-11,
+    1.788344838861999e-11
+  ],
+  "real_residual_directional_errors": [
+    5.703766190679567e-10,
+    5.685213974293299e-10
+  ],
+  "original_model_field_error": 0.0,
+  "original_model_jacobian_error": 0.0,
+  "global_KS_unchanged": true,
+  "sharing": [
+    {
+      "seed": 8101,
+      "low_observation_sha256": "c23c785becd0814bb086c6a68d632931f6cb10e01b1abc4f564bbebdb503c846",
+      "reference_sha256": "ca1fe2ca300cf880de76de664ade48fb148f0fc61cd0314f7889ec45b1d60f5e",
+      "extra_standardized_noise_sha256": "9107553e3570b0c055dad45fd01f889dbca97a2d78f54851f7f95dbbcbc9daab",
+      "sigma": 0.0002280401722273383,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    },
+    {
+      "seed": 8102,
+      "low_observation_sha256": "6492b294832d84d06caea941ccf3ba2b3eec2854ac6c3807dfa64ab01d712bd7",
+      "reference_sha256": "d8c1be83d28cf1e55c64ea36e4607a7a55182d386467c6233bb2ff790eaee4d9",
+      "extra_standardized_noise_sha256": "1514df0f184b58ea35ea0ed2078725cf527be24de17810b42982f5c2e78ebc55",
+      "sigma": 0.0002280401722273383,
+      "low_exactly_shared": true,
+      "reference_exactly_shared": true,
+      "repeat_is_new_measurement": true
+    }
+  ],
+  "checkpoint_recovery": {
+    "passed": true,
+    "interrupted_metadata_preserved": true,
+    "frozen_evaluation_resumed_without_refit": true,
+    "completed_failures_not_retried": true
+  },
+  "repeated_physics_reused": true,
+  "seconds": 1.314811207994353,
+  "scope": "Small N8 derivative/assembly controls with synthetic means; no benchmark fits",
+  "implementation_sha256": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19"
+}

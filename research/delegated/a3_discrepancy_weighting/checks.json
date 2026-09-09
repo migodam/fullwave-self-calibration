@@ -1,0 +1,248 @@
+{
+  "passed": true,
+  "whitening": {
+    "warm_raw": {
+      "whitening_identity_error": 0.0,
+      "trace_inflation": 0.0
+    },
+    "isotropic": {
+      "whitening_identity_error": 2.220446049250313e-16,
+      "trace_inflation": 56.171078241395676
+    },
+    "rank1": {
+      "whitening_identity_error": 1.602537113466309e-15,
+      "trace_inflation": 56.171078241395634
+    },
+    "rank2": {
+      "whitening_identity_error": 1.3401118917380005e-15,
+      "trace_inflation": 56.171078241395634
+    }
+  },
+  "equal_trace_relative_spread": 7.589771369955234e-16,
+  "high_real_imag_ordering": true,
+  "unchanged": [
+    {
+      "method": "warm_raw",
+      "use_reference": false,
+      "low_and_reference_bit_identical": true
+    },
+    {
+      "method": "isotropic",
+      "use_reference": false,
+      "low_and_reference_bit_identical": true
+    },
+    {
+      "method": "rank1",
+      "use_reference": false,
+      "low_and_reference_bit_identical": true
+    },
+    {
+      "method": "rank2",
+      "use_reference": false,
+      "low_and_reference_bit_identical": true
+    },
+    {
+      "method": "warm_raw",
+      "use_reference": true,
+      "low_and_reference_bit_identical": true
+    },
+    {
+      "method": "isotropic",
+      "use_reference": true,
+      "low_and_reference_bit_identical": true
+    },
+    {
+      "method": "rank1",
+      "use_reference": true,
+      "low_and_reference_bit_identical": true
+    },
+    {
+      "method": "rank2",
+      "use_reference": true,
+      "low_and_reference_bit_identical": true
+    }
+  ],
+  "fixed_weight_full_residual_column_errors": [
+    {
+      "method": "warm_raw",
+      "use_reference": false,
+      "column_errors": [
+        1.2562654449157395e-10,
+        5.02330556918409e-12,
+        8.392147858098719e-12,
+        5.902302368518263e-12,
+        5.288508175537663e-09,
+        9.27026737470135e-12,
+        9.365351133349634e-12,
+        1.1017436737000213e-11,
+        6.889265782233396e-12,
+        1.540703115423297e-11,
+        1.4971962898421707e-11,
+        1.574580900296697e-11,
+        1.4123283750350134e-11
+      ]
+    },
+    {
+      "method": "isotropic",
+      "use_reference": false,
+      "column_errors": [
+        1.2464320567603006e-10,
+        5.073696680004487e-12,
+        8.44981870847488e-12,
+        5.9437649167048354e-12,
+        5.267624900339485e-09,
+        9.955624827509618e-12,
+        9.598230089364863e-12,
+        1.1711117598041428e-11,
+        7.686854538342458e-12,
+        1.5096303068609814e-11,
+        1.5385404161143754e-11,
+        1.6041030680376278e-11,
+        1.5210692289671613e-11
+      ]
+    },
+    {
+      "method": "rank1",
+      "use_reference": false,
+      "column_errors": [
+        1.262467241325514e-10,
+        4.9446269919509066e-12,
+        8.476612207644564e-12,
+        6.102764684449129e-12,
+        5.288388979102601e-09,
+        1.2122442362791568e-11,
+        1.2992988944452037e-11,
+        1.426403034937297e-11,
+        1.188397386448147e-11,
+        1.6149121014474814e-11,
+        2.0253518554357143e-11,
+        1.814817554586958e-11,
+        1.660093929036685e-11
+      ]
+    },
+    {
+      "method": "rank2",
+      "use_reference": false,
+      "column_errors": [
+        1.2829518206074236e-10,
+        5.1799883622881354e-12,
+        8.449994553049106e-12,
+        6.007862940930333e-12,
+        5.284085562975721e-09,
+        1.4298130400773315e-11,
+        1.3135066262253385e-11,
+        1.4864402563273187e-11,
+        9.498726476197095e-12,
+        1.795615747203437e-11,
+        1.913335017217088e-11,
+        1.5648368937732455e-11,
+        1.6003258237031797e-11
+      ]
+    },
+    {
+      "method": "warm_raw",
+      "use_reference": true,
+      "column_errors": [
+        1.2562654449157395e-10,
+        5.02330556918409e-12,
+        8.392147858098719e-12,
+        5.902302368518263e-12,
+        5.282562419352993e-09,
+        9.302829280038706e-12,
+        9.385858586710293e-12,
+        1.1011208925748694e-11,
+        6.9564907852872725e-12,
+        1.5452202022492896e-11,
+        1.504054398898729e-11,
+        1.5778465306391006e-11,
+        1.4187000905466023e-11
+      ]
+    },
+    {
+      "method": "isotropic",
+      "use_reference": true,
+      "column_errors": [
+        1.2464320567603006e-10,
+        5.073696680004487e-12,
+        8.44981870847488e-12,
+        5.9437649167048354e-12,
+        5.260611849148685e-09,
+        9.978358735021974e-12,
+        9.615672695986204e-12,
+        1.169464419722428e-11,
+        7.743275053197088e-12,
+        1.5154416916167055e-11,
+        1.5451966548615172e-11,
+        1.607420239914945e-11,
+        1.526038722052355e-11
+      ]
+    },
+    {
+      "method": "rank1",
+      "use_reference": true,
+      "column_errors": [
+        1.262467241325514e-10,
+        4.9446269919509066e-12,
+        8.476612207644564e-12,
+        6.102764684449129e-12,
+        5.282436729957786e-09,
+        1.2107752323026867e-11,
+        1.2943644056514449e-11,
+        1.4223402967515387e-11,
+        1.1860291962325723e-11,
+        1.6180855356118662e-11,
+        2.0210174720421805e-11,
+        1.8148979839974252e-11,
+        1.6618999200061057e-11
+      ]
+    },
+    {
+      "method": "rank2",
+      "use_reference": true,
+      "column_errors": [
+        1.2829518206074236e-10,
+        5.1799883622881354e-12,
+        8.449994553049106e-12,
+        6.007862940930333e-12,
+        5.277915990563627e-09,
+        1.425385832591198e-11,
+        1.3083281773163086e-11,
+        1.4818094742391913e-11,
+        9.512303227336907e-12,
+        1.7957768784270592e-11,
+        1.9111087729990522e-11,
+        1.5682781707946037e-11,
+        1.603206605161349e-11
+      ]
+    }
+  ],
+  "checkpoint_recovery": {
+    "passed": true,
+    "interrupted_metadata_preserved": true,
+    "frozen_evaluation_resumed_without_refit": true,
+    "completed_failures_not_retried": true
+  },
+  "frozen_inputs_unchanged": true,
+  "input_checks": {
+    "scenes": [
+      8101,
+      8102
+    ],
+    "all_12_previous_endpoints_available": true
+  },
+  "seconds": 4.285291749984026,
+  "provenance": {
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_discrepancy_weighting/discrepancy_weighting.py": "6245fb6d1a5de2e72fb999693efd8dc640a7ff265ccf1aaeb29c9f211b93742e",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/DISCREPANCY_WEIGHTING_PROTOCOL.md": "88d135c9631d78901c942bae828c84a7af1cc723f1533787a7192918dd7afc0f",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_matched_frequency/matched_frequency.py": "e5b0d62b14c9ce34fd169d87caa97bc7b0051501a68953cb53410fea1c9d7e19",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_matched_frequency/fits.json": "dc030850a35135b7f68a5a593ca3eddced13f14822adc0f2b8a056238b29a7fc",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_matched_frequency/data_8101.npz": "c8ea77288c8cba744e75d7c8c7f366b415e9cbec7f4b73c24ee0c0cee32abd67",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_matched_frequency/data_8102.npz": "7a675dbfff06d47dd3abb79abf90ac5430e1527466f642553cd9e68b7ec2a787",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/nonspherical3d.py": "bc48a9723f560b4f40c1cf510140e75012c55c75737135e66918b63e8bbe9318",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/nonspherical_calibration.py": "cfc5c2c70321833aac27d987a4b7419cda371ed6c19b71f35059718b8c54e911",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/maxwell3d.py": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_maxwell_refine/tangent_fft.py": "98981b8b427c1ec6f2fa1ad76c8484f4eff2b4d88b0b36c2036dbcb40ebe4fdb",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/delegated/a3_maxwell_fft/maxwell_fft.py": "715eb52e61f62da0e823a1f3af9a218dfff93462aa4470175f3701acf88d1853"
+  },
+  "scope": "N8 fixed-weight residual Jacobian and synthetic covariance checks only; no N16/N32 modes or continuation fits"
+}

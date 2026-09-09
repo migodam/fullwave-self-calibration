@@ -1,0 +1,869 @@
+{
+  "schema": "family4_parent_controls",
+  "generated_utc": "2026-09-03T16:55:34.071941+00:00",
+  "command": ".venv/bin/python src/family4_parent_controls.py",
+  "working_directory": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/experiments/idea_loops/loop_2026-09-03_16-25-02/experiment_pose_confounding_spectral_geometry",
+  "raw_family4_hypothesis_holds": false,
+  "frequency_snr_matched": {
+    "nominal_signal_norm_by_frequency": {
+      "1.0": 0.01593313618784114,
+      "1.4": 0.014659455764670551,
+      "1.8": 0.0073194826752918385
+    },
+    "frequency_row_scale": {
+      "1.0": 1.0,
+      "1.4": 1.0868845640395581,
+      "1.8": 2.176811790487073
+    },
+    "metric": "one scalar row scaling per frequency to match nominal ||F_f||_2",
+    "min_eig_KSLAM_F2_minus_F1": 1.7478535939900033e-13,
+    "rows": [
+      {
+        "direction": 0,
+        "euclidean_norm_u": 5492.14134097135,
+        "max_abs_component_u": 2568.385044848624,
+        "rho_single": 5.510027267004533e-11,
+        "rho_two_frequency_snr_matched": 0.11703547561789049,
+        "shared_z_residual_two_frequency_snr_matched": 0.34210448055804576
+      },
+      {
+        "direction": 1,
+        "euclidean_norm_u": 6503.953722047447,
+        "max_abs_component_u": 3877.5077501431842,
+        "rho_single": 1.414336994207909e-10,
+        "rho_two_frequency_snr_matched": 0.21565280151778715,
+        "shared_z_residual_two_frequency_snr_matched": 0.46438432522834683
+      },
+      {
+        "direction": 2,
+        "euclidean_norm_u": 32711.22193777588,
+        "max_abs_component_u": 19455.58347677537,
+        "rho_single": 1.0956067390479222e-09,
+        "rho_two_frequency_snr_matched": 0.4460418199008372,
+        "shared_z_residual_two_frequency_snr_matched": 0.6678636237293039
+      }
+    ],
+    "direction_conditioning_note": "The K_IS-unit directions can have very large Euclidean coefficient norms when A is ill-conditioned.  Their local physical amplitude must therefore be scaled accordingly; the reported rho values are Fisher-direction diagnostics, not unit-contrast perturbations."
+  },
+  "trajectory_controls": {
+    "equal_continuous_length": {
+      "rows": [
+        {
+          "trajectory": "straight",
+          "path_geometry": {
+            "open_polyline_length": 5.026548245743669,
+            "closure_segment_length": 5.026548245743669,
+            "counted_path_length": 5.026548245743669,
+            "closed": false,
+            "min_target_range": 1.6770992435356615,
+            "max_target_range": 2.9793534225897385
+          },
+          "identity_noise": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 8.353516864083609,
+            "confusable_mass": 15.646483135916393,
+            "rho_min": 2.97806224125452e-12,
+            "theta_min_deg": 9.887568779190853e-05,
+            "log_volume": -204.06014488003174,
+            "count_rho_lt_1e-6": 6,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.8320824096146816,
+              0.6630863865248822,
+              0.48515367934984255,
+              0.26705692341219056,
+              0.0975213837201101,
+              0.005285247120706549,
+              0.0024202993245835414,
+              0.0008500057801591465,
+              4.7039921017622e-05,
+              9.133791785354006e-06,
+              3.0736449984081204e-06,
+              1.244873291783577e-06,
+              3.220013677918132e-08,
+              3.880561427749285e-09,
+              8.605620660517843e-10,
+              4.888733862173922e-11,
+              1.223399159755445e-11,
+              2.97806224125452e-12
+            ]
+          },
+          "snr_matched": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 8.292532703607183,
+            "confusable_mass": 15.707467296392817,
+            "rho_min": 2.419398015263141e-12,
+            "theta_min_deg": 8.91202287234119e-05,
+            "log_volume": -205.05526946472696,
+            "count_rho_lt_1e-6": 6,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.8620423632839438,
+              0.6001116668214732,
+              0.5656116908350559,
+              0.16211142355649333,
+              0.08967214187056927,
+              0.008215923687986182,
+              0.003452905690390917,
+              0.0012529738623943132,
+              4.988555927865068e-05,
+              7.020655567679945e-06,
+              3.3094085545304353e-06,
+              1.3684877376851645e-06,
+              2.5769720912727223e-08,
+              3.4278013760769e-09,
+              6.470721736206997e-10,
+              3.2550628858984965e-11,
+              8.173461907290402e-12,
+              2.419398015263141e-12
+            ]
+          },
+          "snr_match_metadata": {
+            "nominal_signal_norms": [
+              0.0025055882529510017,
+              0.005412716412881535,
+              0.004661842457413785,
+              0.005376430042729203,
+              0.005827146227928422,
+              0.004292731550449568
+            ],
+            "target_median_norm": 0.0050191362500714935,
+            "row_scales_by_pose": [
+              2.0031767965706715,
+              0.9272860181861045,
+              1.076642185127792,
+              0.933544417054046,
+              0.8613369312779062,
+              1.169217359875637
+            ],
+            "metric": "Pose-block row scaling corresponding to noise standard deviation proportional to each nominal signal norm; this is an SNR-matched sensitivity metric, not raw identity noise."
+          }
+        },
+        {
+          "trajectory": "arc90",
+          "path_geometry": {
+            "open_polyline_length": 5.005902881287389,
+            "closure_segment_length": 4.525483399593904,
+            "counted_path_length": 5.005902881287389,
+            "closed": false,
+            "min_target_range": 3.2,
+            "max_target_range": 3.2
+          },
+          "identity_noise": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 9.038781002049165,
+            "confusable_mass": 14.961218997950835,
+            "rho_min": 1.9984014443252818e-13,
+            "theta_min_deg": 2.5613209387548028e-05,
+            "log_volume": -220.43781647935242,
+            "count_rho_lt_1e-6": 7,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.999024035758833,
+              0.8805753319817663,
+              0.6841209753504425,
+              0.4578864950823075,
+              0.013024625972050119,
+              0.002036240790060928,
+              0.0013033169093245034,
+              0.0005738984426825189,
+              0.00017176722894463037,
+              5.765261869561389e-05,
+              5.683181841797946e-06,
+              9.736340537136456e-07,
+              4.873729420040718e-09,
+              1.9521828598101365e-10,
+              2.4516610963587482e-11,
+              4.181766044553115e-12,
+              3.1530333899354446e-13,
+              1.9984014443252818e-13
+            ]
+          },
+          "snr_matched": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 9.067834158053003,
+            "confusable_mass": 14.932165841946999,
+            "rho_min": 2.788880237858393e-13,
+            "theta_min_deg": 3.025781511322985e-05,
+            "log_volume": -218.4838584263677,
+            "count_rho_lt_1e-6": 7,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.9992949890166605,
+              0.8707302357455204,
+              0.7074984763242601,
+              0.45202530819442077,
+              0.032789251029030186,
+              0.0029545048765443616,
+              0.0015719057889436172,
+              0.0007205552885997113,
+              0.00018583134593908035,
+              5.6677880982847206e-05,
+              5.790882810940978e-06,
+              6.271504371380132e-07,
+              4.157179489538976e-09,
+              3.4758462774675536e-10,
+              2.0295543023962637e-11,
+              3.070210752298408e-12,
+              4.4297898682543746e-13,
+              2.788880237858393e-13
+            ]
+          },
+          "snr_match_metadata": {
+            "nominal_signal_norms": [
+              0.0037299333109454234,
+              0.0018330316709948397,
+              0.0014298260918279384,
+              0.00315672658628462,
+              0.0039103313051308585,
+              0.003977899118465972
+            ],
+            "target_median_norm": 0.003443329948615022,
+            "row_scales_by_pose": [
+              0.9231612636372427,
+              1.8784890643740084,
+              2.408215914015775,
+              1.0907913164148073,
+              0.8805724323401778,
+              0.8656152019116311
+            ],
+            "metric": "Pose-block row scaling corresponding to noise standard deviation proportional to each nominal signal norm; this is an SNR-matched sensitivity metric, not raw identity noise."
+          }
+        },
+        {
+          "trajectory": "arc180",
+          "path_geometry": {
+            "open_polyline_length": 4.944271909999159,
+            "closure_segment_length": 3.2,
+            "counted_path_length": 4.944271909999159,
+            "closed": false,
+            "min_target_range": 1.6,
+            "max_target_range": 1.6
+          },
+          "identity_noise": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 7.999301890051244,
+            "confusable_mass": 16.000698109948754,
+            "rho_min": 3.1058933203098604e-11,
+            "theta_min_deg": 0.00031931248510508727,
+            "log_volume": -175.83025023909164,
+            "count_rho_lt_1e-6": 6,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.7567432393483372,
+              0.6907585564217066,
+              0.2522731785483924,
+              0.22342474061370687,
+              0.05456869961204125,
+              0.014630968029535896,
+              0.004267260984144761,
+              0.0018289320291038358,
+              0.0003397078506455209,
+              0.0002808881612275105,
+              0.00014288936456474666,
+              4.257168752996865e-05,
+              1.8965009307425618e-07,
+              5.9046149081254384e-08,
+              7.023180703669141e-09,
+              1.5415670961971273e-09,
+              1.0825917939882856e-10,
+              3.1058933203098604e-11
+            ]
+          },
+          "snr_matched": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 8.178562429954846,
+            "confusable_mass": 15.821437570045154,
+            "rho_min": 5.971423355788374e-11,
+            "theta_min_deg": 0.0004427530520627505,
+            "log_volume": -178.9968836138099,
+            "count_rho_lt_1e-6": 6,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.9590289383279406,
+              0.746346454159226,
+              0.3466641341386679,
+              0.07787723063526575,
+              0.021375084060042737,
+              0.016056920624039295,
+              0.008891324626224772,
+              0.0018828884309514127,
+              0.00026598662492527403,
+              0.00013126375665672985,
+              3.4068372326667706e-05,
+              7.680550938582442e-06,
+              3.723881980555177e-07,
+              7.5065761273585e-08,
+              7.09246039676259e-09,
+              8.653313621209691e-10,
+              1.7617529657343312e-10,
+              5.971423355788374e-11
+            ]
+          },
+          "snr_match_metadata": {
+            "nominal_signal_norms": [
+              0.001348684242038482,
+              0.007618640307534267,
+              0.002094770810334544,
+              0.007489486621607571,
+              0.007807642143534435,
+              0.0022176561046451876
+            ],
+            "target_median_norm": 0.004853571363126379,
+            "row_scales_by_pose": [
+              3.598745511989078,
+              0.6370652986893947,
+              2.316993982912738,
+              0.6480512761880854,
+              0.6216436760162806,
+              2.1886041541607386
+            ],
+            "metric": "Pose-block row scaling corresponding to noise standard deviation proportional to each nominal signal norm; this is an SNR-matched sensitivity metric, not raw identity noise."
+          }
+        },
+        {
+          "trajectory": "circle360",
+          "path_geometry": {
+            "open_polyline_length": 4.000000000000001,
+            "closure_segment_length": 0.7999999999999999,
+            "counted_path_length": 4.800000000000001,
+            "closed": true,
+            "min_target_range": 0.8,
+            "max_target_range": 0.8
+          },
+          "identity_noise": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 8.139512745562971,
+            "confusable_mass": 15.860487254437027,
+            "rho_min": 1.254252836035974e-07,
+            "theta_min_deg": 0.02029154835210467,
+            "log_volume": -133.45324396038646,
+            "count_rho_lt_1e-6": 3,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.8636603256454197,
+              0.45343682801946583,
+              0.40582514142011017,
+              0.3073325039205549,
+              0.07309250218305763,
+              0.02924429392368655,
+              0.002685844292676598,
+              0.002250135758257721,
+              0.0009629627910678895,
+              0.0005195704402921608,
+              0.00029771170828518656,
+              0.00015553113773469907,
+              3.862756188000027e-05,
+              8.203213105906215e-06,
+              1.7553965133698668e-06,
+              4.336466182808252e-07,
+              2.4907896212233993e-07,
+              1.254252836035974e-07
+            ]
+          },
+          "snr_matched": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 8.140479325218141,
+            "confusable_mass": 15.859520674781859,
+            "rho_min": 1.3470130244552792e-07,
+            "theta_min_deg": 0.021028511857233485,
+            "log_volume": -134.04179019365958,
+            "count_rho_lt_1e-6": 3,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.8741720578696643,
+              0.5093084989772771,
+              0.3735789632223685,
+              0.26633590388553896,
+              0.0760154256129606,
+              0.03312257745660363,
+              0.003597544455762325,
+              0.00223974711860786,
+              0.001275298323060725,
+              0.00037011034719192093,
+              0.0002560249852985308,
+              0.00016898760490080544,
+              3.1261064373677705e-05,
+              4.85495253421675e-06,
+              1.1875634506886001e-06,
+              4.21434121156139e-07,
+              3.25643123688657e-07,
+              1.3470130244552792e-07
+            ]
+          },
+          "snr_match_metadata": {
+            "nominal_signal_norms": [
+              0.01054581224518022,
+              0.015834036746510346,
+              0.014430293576729066,
+              0.009436819476245244,
+              0.014379035811330118,
+              0.013352215236801947
+            ],
+            "target_median_norm": 0.013865625524066033,
+            "row_scales_by_pose": [
+              1.3147992019678785,
+              0.8756848140523528,
+              0.9608692609294075,
+              1.4693113033442216,
+              0.9642945261420424,
+              1.0384513189878037
+            ],
+            "metric": "Pose-block row scaling corresponding to noise standard deviation proportional to each nominal signal norm; this is an SNR-matched sensitivity metric, not raw identity noise."
+          }
+        }
+      ],
+      "orders_identity_noise": {
+        "retained_mass": [
+          "arc90",
+          "straight",
+          "circle360",
+          "arc180"
+        ],
+        "rho_min": [
+          "circle360",
+          "arc180",
+          "straight",
+          "arc90"
+        ],
+        "log_volume": [
+          "circle360",
+          "arc180",
+          "straight",
+          "arc90"
+        ]
+      },
+      "orders_snr_matched": {
+        "retained_mass": [
+          "arc90",
+          "straight",
+          "arc180",
+          "circle360"
+        ],
+        "rho_min": [
+          "circle360",
+          "arc180",
+          "straight",
+          "arc90"
+        ],
+        "log_volume": [
+          "circle360",
+          "arc180",
+          "straight",
+          "arc90"
+        ]
+      }
+    },
+    "same_radius_curved_paths": {
+      "radius": 1.6,
+      "rows": [
+        {
+          "trajectory": "arc90",
+          "path_geometry": {
+            "open_polyline_length": 2.5029514406436943,
+            "closure_segment_length": 2.262741699796952,
+            "counted_path_length": 2.5029514406436943,
+            "closed": false,
+            "min_target_range": 1.6,
+            "max_target_range": 1.6
+          },
+          "identity_noise": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 9.407161866651286,
+            "confusable_mass": 14.592838133348714,
+            "rho_min": 5.5101034845961294e-11,
+            "theta_min_deg": 0.0004253069798220701,
+            "log_volume": -167.74606968251334,
+            "count_rho_lt_1e-6": 5,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.9950839731644409,
+              0.953905088383675,
+              0.8427153091343875,
+              0.5584595616357091,
+              0.028503461059864454,
+              0.009916715345695604,
+              0.007836233334486353,
+              0.0058500269438733765,
+              0.0035235945771916466,
+              0.0012649078900570654,
+              9.252791021652218e-05,
+              7.4923729739273526e-06,
+              2.9125687892594954e-06,
+              5.53119557933357e-08,
+              5.725827367797365e-09,
+              1.0956069385059664e-09,
+              1.4143419768686272e-10,
+              5.5101034845961294e-11
+            ]
+          },
+          "snr_matched": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 9.33366245738583,
+            "confusable_mass": 14.666337542614173,
+            "rho_min": 7.051781381051114e-11,
+            "theta_min_deg": 0.00048114065195891753,
+            "log_volume": -166.29968812475727,
+            "count_rho_lt_1e-6": 5,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.9962975609620421,
+              0.9619840092939895,
+              0.769681110814229,
+              0.5010513635269251,
+              0.0669766063434899,
+              0.013001875795506823,
+              0.012189614392891679,
+              0.006211186110396283,
+              0.004638851838786429,
+              0.0015567360551131948,
+              6.244377313469052e-05,
+              8.406042144359915e-06,
+              2.621624194620864e-06,
+              6.434859212145483e-08,
+              5.443255179926609e-09,
+              8.301148657352542e-10,
+              1.2050582753886374e-10,
+              7.051781381051114e-11
+            ]
+          },
+          "snr_match_metadata": {
+            "nominal_signal_norms": [
+              0.0074649324441697605,
+              0.003887128427794103,
+              0.003025194507436269,
+              0.0064763309338920355,
+              0.008051402562617807,
+              0.008192075290893724
+            ],
+            "target_median_norm": 0.006970631689030898,
+            "row_scales_by_pose": [
+              0.9337836264647084,
+              1.7932599394424034,
+              2.304192894670508,
+              1.076324196552724,
+              0.8657661363741933,
+              0.8508993681710204
+            ],
+            "metric": "Pose-block row scaling corresponding to noise standard deviation proportional to each nominal signal norm; this is an SNR-matched sensitivity metric, not raw identity noise."
+          }
+        },
+        {
+          "trajectory": "arc180",
+          "path_geometry": {
+            "open_polyline_length": 4.944271909999159,
+            "closure_segment_length": 3.2,
+            "counted_path_length": 4.944271909999159,
+            "closed": false,
+            "min_target_range": 1.6,
+            "max_target_range": 1.6
+          },
+          "identity_noise": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 7.999301890051244,
+            "confusable_mass": 16.000698109948754,
+            "rho_min": 3.1058933203098604e-11,
+            "theta_min_deg": 0.00031931248510508727,
+            "log_volume": -175.83025023909164,
+            "count_rho_lt_1e-6": 6,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.7567432393483372,
+              0.6907585564217066,
+              0.2522731785483924,
+              0.22342474061370687,
+              0.05456869961204125,
+              0.014630968029535896,
+              0.004267260984144761,
+              0.0018289320291038358,
+              0.0003397078506455209,
+              0.0002808881612275105,
+              0.00014288936456474666,
+              4.257168752996865e-05,
+              1.8965009307425618e-07,
+              5.9046149081254384e-08,
+              7.023180703669141e-09,
+              1.5415670961971273e-09,
+              1.0825917939882856e-10,
+              3.1058933203098604e-11
+            ]
+          },
+          "snr_matched": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 8.178562429954846,
+            "confusable_mass": 15.821437570045154,
+            "rho_min": 5.971423355788374e-11,
+            "theta_min_deg": 0.0004427530520627505,
+            "log_volume": -178.9968836138099,
+            "count_rho_lt_1e-6": 6,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.9590289383279406,
+              0.746346454159226,
+              0.3466641341386679,
+              0.07787723063526575,
+              0.021375084060042737,
+              0.016056920624039295,
+              0.008891324626224772,
+              0.0018828884309514127,
+              0.00026598662492527403,
+              0.00013126375665672985,
+              3.4068372326667706e-05,
+              7.680550938582442e-06,
+              3.723881980555177e-07,
+              7.5065761273585e-08,
+              7.09246039676259e-09,
+              8.653313621209691e-10,
+              1.7617529657343312e-10,
+              5.971423355788374e-11
+            ]
+          },
+          "snr_match_metadata": {
+            "nominal_signal_norms": [
+              0.001348684242038482,
+              0.007618640307534267,
+              0.002094770810334544,
+              0.007489486621607571,
+              0.007807642143534435,
+              0.0022176561046451876
+            ],
+            "target_median_norm": 0.004853571363126379,
+            "row_scales_by_pose": [
+              3.598745511989078,
+              0.6370652986893947,
+              2.316993982912738,
+              0.6480512761880854,
+              0.6216436760162806,
+              2.1886041541607386
+            ],
+            "metric": "Pose-block row scaling corresponding to noise standard deviation proportional to each nominal signal norm; this is an SNR-matched sensitivity metric, not raw identity noise."
+          }
+        },
+        {
+          "trajectory": "circle360",
+          "path_geometry": {
+            "open_polyline_length": 8.0,
+            "closure_segment_length": 1.6000000000000012,
+            "counted_path_length": 9.600000000000001,
+            "closed": true,
+            "min_target_range": 1.6,
+            "max_target_range": 1.6
+          },
+          "identity_noise": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 7.703632790656144,
+            "confusable_mass": 16.296367209343856,
+            "rho_min": 2.8091529102880486e-11,
+            "theta_min_deg": 0.0003036758965092417,
+            "log_volume": -199.57084918799887,
+            "count_rho_lt_1e-6": 6,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.7264977116107421,
+              0.6664560150513197,
+              0.1306435250019633,
+              0.10299967788562003,
+              0.055559657638407645,
+              0.020616939536527323,
+              0.0005741909687865254,
+              0.00015125568342633233,
+              6.096722849435743e-05,
+              5.282241346749039e-05,
+              1.1023947170341053e-05,
+              8.993461442674544e-06,
+              7.1818526681255435e-09,
+              1.6423225002171193e-09,
+              1.0196088418013005e-09,
+              2.164168844132064e-10,
+              1.4048384677778358e-10,
+              2.8091529102880486e-11
+            ]
+          },
+          "snr_matched": {
+            "rank_A": 24,
+            "rank_B": 18,
+            "retained_mass": 7.636390281307333,
+            "confusable_mass": 16.36360971869267,
+            "rho_min": 3.539213366821059e-11,
+            "theta_min_deg": 0.0003408599729314207,
+            "log_volume": -198.93241860558317,
+            "count_rho_lt_1e-6": 6,
+            "rho_desc": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.7095176909169196,
+              0.6176744395247635,
+              0.12659509866789298,
+              0.10989285210985655,
+              0.05070048082888545,
+              0.021240447853006827,
+              0.00042677284606018606,
+              0.00017469452060236978,
+              8.46298752682495e-05,
+              5.8489387230298284e-05,
+              1.5288015278835942e-05,
+              9.387747825106985e-06,
+              6.0116125411013854e-09,
+              1.7371379890107619e-09,
+              8.042444488154388e-10,
+              2.92024626702414e-10,
+              1.3333201209775325e-10,
+              3.539213366821059e-11
+            ]
+          },
+          "snr_match_metadata": {
+            "nominal_signal_norms": [
+              0.0049379487622073625,
+              0.007337691250636791,
+              0.007303634490746819,
+              0.004680695616681367,
+              0.007055170606577373,
+              0.006983059005626025
+            ],
+            "target_median_norm": 0.007019114806101699,
+            "row_scales_by_pose": [
+              1.4214636773517297,
+              0.9565835582810268,
+              0.9610440959216147,
+              1.499587963183618,
+              0.9948894502363897,
+              1.0051633246184266
+            ],
+            "metric": "Pose-block row scaling corresponding to noise standard deviation proportional to each nominal signal norm; this is an SNR-matched sensitivity metric, not raw identity noise."
+          }
+        }
+      ],
+      "orders_identity_noise": {
+        "retained_mass": [
+          "arc90",
+          "arc180",
+          "circle360"
+        ],
+        "rho_min": [
+          "arc90",
+          "arc180",
+          "circle360"
+        ],
+        "log_volume": [
+          "arc90",
+          "arc180",
+          "circle360"
+        ]
+      },
+      "orders_snr_matched": {
+        "retained_mass": [
+          "arc90",
+          "arc180",
+          "circle360"
+        ],
+        "rho_min": [
+          "arc90",
+          "arc180",
+          "circle360"
+        ],
+        "log_volume": [
+          "arc90",
+          "arc180",
+          "circle360"
+        ]
+      }
+    },
+    "interpretation": "These controls show whether rankings persist after changing the metric or holding curved-path standoff fixed.  They still do not prove a universal trajectory ordering."
+  },
+  "runtime_seconds": 0.3316030830028467,
+  "platform": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "numpy": "2.5.2"
+  },
+  "source_sha256": {
+    "src/helmholtz.py": "ee3b4ac45ad296dba533a8ccefd107a6cc53e4357b7a768d07f7db90f3ee6585",
+    "src/family4_frequency_trajectory.py": "ee7cac8b6233bcb0dbbb215df02452746dabf50774760910be5b16a0c0a40242",
+    "src/family4_parent_controls.py": "cf21bab983084658e745b4c94b512eca6d8e2ecd00d51948d097a93cf02c0a75",
+    "results/family4_results.json": "c05c77a1402dab3b291c2e2ee3eda3ad9e2ef886fe05e4a7961d4dadd56c8b97"
+  },
+  "cannot_establish": "SNR matching is a declared alternative noise metric, not evidence of the real sensor noise model.  Same-radius and equal-length finite scenarios do not prove universal or causal trajectory laws."
+}

@@ -1,0 +1,378 @@
+[
+  {
+    "seed": 6101,
+    "method": "unified",
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "spacing": 0.01,
+    "per_frequency": [
+      {
+        "k": 3.0,
+        "sensor": {
+          "field_relative_error": 0.0107621847752715,
+          "weighted_phase_rmse_rad": 0.006200218204040298
+        },
+        "structural": {
+          "field_relative_error": 0.057277829275721344,
+          "weighted_phase_rmse_rad": 0.0009661237477635241
+        }
+      },
+      {
+        "k": 6.0,
+        "sensor": {
+          "field_relative_error": 0.007271990305227433,
+          "weighted_phase_rmse_rad": 0.006122803258548333
+        },
+        "structural": {
+          "field_relative_error": 0.06355455157051945,
+          "weighted_phase_rmse_rad": 0.00560305807002809
+        }
+      },
+      {
+        "k": 9.0,
+        "sensor": {
+          "field_relative_error": 0.006365819672663208,
+          "weighted_phase_rmse_rad": 0.004388256044908757
+        },
+        "structural": {
+          "field_relative_error": 0.07114568174116402,
+          "weighted_phase_rmse_rad": 0.020379959342941116
+        }
+      }
+    ],
+    "seconds": 7.19191120902542,
+    "scope": "frozen DEVELOPMENT estimates; actual inverse predictions, no refit; not a matched-noise causal experiment"
+  },
+  {
+    "seed": 6101,
+    "method": "unified_reference",
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "spacing": 0.01,
+    "per_frequency": [
+      {
+        "k": 3.0,
+        "sensor": {
+          "field_relative_error": 0.003930152612008127,
+          "weighted_phase_rmse_rad": 0.0027761313872542667
+        },
+        "structural": {
+          "field_relative_error": 0.009146842043959172,
+          "weighted_phase_rmse_rad": 0.0004608254794611959
+        }
+      },
+      {
+        "k": 6.0,
+        "sensor": {
+          "field_relative_error": 0.00476645294922808,
+          "weighted_phase_rmse_rad": 0.002906281346766906
+        },
+        "structural": {
+          "field_relative_error": 0.010660575969298371,
+          "weighted_phase_rmse_rad": 0.0014584843095452574
+        }
+      },
+      {
+        "k": 9.0,
+        "sensor": {
+          "field_relative_error": 0.009354167431058404,
+          "weighted_phase_rmse_rad": 0.004241531417646014
+        },
+        "structural": {
+          "field_relative_error": 0.014877836752817616,
+          "weighted_phase_rmse_rad": 0.004767024539325314
+        }
+      }
+    ],
+    "seconds": 6.575296332943253,
+    "scope": "frozen DEVELOPMENT estimates; actual inverse predictions, no refit; not a matched-noise causal experiment"
+  },
+  {
+    "seed": 6102,
+    "method": "unified",
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "spacing": 0.01,
+    "per_frequency": [
+      {
+        "k": 3.0,
+        "sensor": {
+          "field_relative_error": 0.013020510120747179,
+          "weighted_phase_rmse_rad": 0.008470857854051196
+        },
+        "structural": {
+          "field_relative_error": 0.062214374026465416,
+          "weighted_phase_rmse_rad": 0.0012899455265173378
+        }
+      },
+      {
+        "k": 6.0,
+        "sensor": {
+          "field_relative_error": 0.0076030308961133435,
+          "weighted_phase_rmse_rad": 0.0062563157633215944
+        },
+        "structural": {
+          "field_relative_error": 0.06922964343314167,
+          "weighted_phase_rmse_rad": 0.005931685572794156
+        }
+      },
+      {
+        "k": 9.0,
+        "sensor": {
+          "field_relative_error": 0.00612080990555622,
+          "weighted_phase_rmse_rad": 0.004347586362325904
+        },
+        "structural": {
+          "field_relative_error": 0.07792906175881541,
+          "weighted_phase_rmse_rad": 0.022345628715546056
+        }
+      }
+    ],
+    "seconds": 7.186621875036508,
+    "scope": "frozen DEVELOPMENT estimates; actual inverse predictions, no refit; not a matched-noise causal experiment"
+  },
+  {
+    "seed": 6102,
+    "method": "unified_reference",
+    "frequencies": [
+      3.0,
+      6.0,
+      9.0
+    ],
+    "spacing": 0.01,
+    "per_frequency": [
+      {
+        "k": 3.0,
+        "sensor": {
+          "field_relative_error": 0.0043872133009571984,
+          "weighted_phase_rmse_rad": 0.0037882675612768003
+        },
+        "structural": {
+          "field_relative_error": 0.009978730464238297,
+          "weighted_phase_rmse_rad": 0.00046201809780357104
+        }
+      },
+      {
+        "k": 6.0,
+        "sensor": {
+          "field_relative_error": 0.004556195466636301,
+          "weighted_phase_rmse_rad": 0.002821228577619117
+        },
+        "structural": {
+          "field_relative_error": 0.011616844024878347,
+          "weighted_phase_rmse_rad": 0.001528361524328586
+        }
+      },
+      {
+        "k": 9.0,
+        "sensor": {
+          "field_relative_error": 0.009924039348009662,
+          "weighted_phase_rmse_rad": 0.003528489637851624
+        },
+        "structural": {
+          "field_relative_error": 0.01644322885433015,
+          "weighted_phase_rmse_rad": 0.00506515726441685
+        }
+      }
+    ],
+    "seconds": 7.002980916004162,
+    "scope": "frozen DEVELOPMENT estimates; actual inverse predictions, no refit; not a matched-noise causal experiment"
+  },
+  {
+    "seed": 6101,
+    "method": "unified",
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "spacing": 0.01,
+    "per_frequency": [
+      {
+        "k": 3.0,
+        "sensor": {
+          "field_relative_error": 0.016448876397552825,
+          "weighted_phase_rmse_rad": 0.008015953916603783
+        },
+        "structural": {
+          "field_relative_error": 0.03304045498862764,
+          "weighted_phase_rmse_rad": 0.0011700655625992483
+        }
+      },
+      {
+        "k": 9.0,
+        "sensor": {
+          "field_relative_error": 0.022327684670935787,
+          "weighted_phase_rmse_rad": 0.007241608337116965
+        },
+        "structural": {
+          "field_relative_error": 0.041862992787563696,
+          "weighted_phase_rmse_rad": 0.012738173768134544
+        }
+      },
+      {
+        "k": 18.0,
+        "sensor": {
+          "field_relative_error": 0.023056836979067023,
+          "weighted_phase_rmse_rad": 0.016960997035831385
+        },
+        "structural": {
+          "field_relative_error": 0.03878352151726082,
+          "weighted_phase_rmse_rad": 0.03135954428761416
+        }
+      }
+    ],
+    "seconds": 9.505646499979775,
+    "scope": "frozen DEVELOPMENT estimates; actual inverse predictions, no refit; not a matched-noise causal experiment"
+  },
+  {
+    "seed": 6101,
+    "method": "unified_reference",
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "spacing": 0.01,
+    "per_frequency": [
+      {
+        "k": 3.0,
+        "sensor": {
+          "field_relative_error": 0.01648057411174858,
+          "weighted_phase_rmse_rad": 0.006263871462057745
+        },
+        "structural": {
+          "field_relative_error": 0.031443765161667,
+          "weighted_phase_rmse_rad": 0.0013509856321196369
+        }
+      },
+      {
+        "k": 9.0,
+        "sensor": {
+          "field_relative_error": 0.02240496327599976,
+          "weighted_phase_rmse_rad": 0.006435904479173106
+        },
+        "structural": {
+          "field_relative_error": 0.03993428598007629,
+          "weighted_phase_rmse_rad": 0.012150326840855355
+        }
+      },
+      {
+        "k": 18.0,
+        "sensor": {
+          "field_relative_error": 0.023193001072180364,
+          "weighted_phase_rmse_rad": 0.016746505821259205
+        },
+        "structural": {
+          "field_relative_error": 0.03601008246292791,
+          "weighted_phase_rmse_rad": 0.028338812241031193
+        }
+      }
+    ],
+    "seconds": 9.51821279199794,
+    "scope": "frozen DEVELOPMENT estimates; actual inverse predictions, no refit; not a matched-noise causal experiment"
+  },
+  {
+    "seed": 6102,
+    "method": "unified",
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "spacing": 0.01,
+    "per_frequency": [
+      {
+        "k": 3.0,
+        "sensor": {
+          "field_relative_error": 0.017123068171045423,
+          "weighted_phase_rmse_rad": 0.008364271125574634
+        },
+        "structural": {
+          "field_relative_error": 0.03257095751678391,
+          "weighted_phase_rmse_rad": 0.0008550409884580029
+        }
+      },
+      {
+        "k": 9.0,
+        "sensor": {
+          "field_relative_error": 0.02382331348138966,
+          "weighted_phase_rmse_rad": 0.0072231877377265845
+        },
+        "structural": {
+          "field_relative_error": 0.041899962554029856,
+          "weighted_phase_rmse_rad": 0.012448809685491261
+        }
+      },
+      {
+        "k": 18.0,
+        "sensor": {
+          "field_relative_error": 0.026605118567623535,
+          "weighted_phase_rmse_rad": 0.019526425234872104
+        },
+        "structural": {
+          "field_relative_error": 0.03817415116343892,
+          "weighted_phase_rmse_rad": 0.030384639457203613
+        }
+      }
+    ],
+    "seconds": 10.011465875024442,
+    "scope": "frozen DEVELOPMENT estimates; actual inverse predictions, no refit; not a matched-noise causal experiment"
+  },
+  {
+    "seed": 6102,
+    "method": "unified_reference",
+    "frequencies": [
+      3.0,
+      9.0,
+      18.0
+    ],
+    "spacing": 0.01,
+    "per_frequency": [
+      {
+        "k": 3.0,
+        "sensor": {
+          "field_relative_error": 0.01757795718013278,
+          "weighted_phase_rmse_rad": 0.00831281163413617
+        },
+        "structural": {
+          "field_relative_error": 0.031475777210308746,
+          "weighted_phase_rmse_rad": 0.0009015088656978132
+        }
+      },
+      {
+        "k": 9.0,
+        "sensor": {
+          "field_relative_error": 0.02413663495763066,
+          "weighted_phase_rmse_rad": 0.00748390927749264
+        },
+        "structural": {
+          "field_relative_error": 0.040595159773085594,
+          "weighted_phase_rmse_rad": 0.012037476597891703
+        }
+      },
+      {
+        "k": 18.0,
+        "sensor": {
+          "field_relative_error": 0.02640903660583468,
+          "weighted_phase_rmse_rad": 0.019281116816328804
+        },
+        "structural": {
+          "field_relative_error": 0.03638828867702757,
+          "weighted_phase_rmse_rad": 0.028313993952016312
+        }
+      }
+    ],
+    "seconds": 10.210698583046906,
+    "scope": "frozen DEVELOPMENT estimates; actual inverse predictions, no refit; not a matched-noise causal experiment"
+  }
+]

@@ -1,0 +1,3 @@
+# Family 3 parent correction
+
+The original failed gates remain preserved.  The compact-support pixel scene reduces translation-x gauge residual from 6.447e-02 at N=16 to 3.101e-03 at N=40; this is only a finite-grid diagnostic.  The radial scene's rotation has zero map tangent and an absolute pose residual 1.884e-06 (1.277e-05 of the translation scale), so it is treated as a pose-only stabilizer rather than a map-retention direction.  The corrected Born joint signal has slope 2.000 (expected 2), its coefficient error has slope 2.000, and the full-wave weak-contrast discrepancy has slope 1.002.  A first-pose prior lifts the tested map-gauge directional retentions; arbitrary support masks have no asserted ordering.

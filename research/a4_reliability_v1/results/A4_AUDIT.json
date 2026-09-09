@@ -1,0 +1,33 @@
+{
+  "frozen_sources_match": {
+    "src/dda.py": true,
+    "src/controls.py": true,
+    "src/experiments.py": true,
+    "src/coverage.py": true,
+    "src/risk.py": true,
+    "src/modal.py": true,
+    "tests/test_core.py": true,
+    "docs/FROZEN_PROTOCOL.md": true
+  },
+  "raw_npz": {
+    "frozen_branch_data.npz": {
+      "arrays": 456,
+      "all_finite": true,
+      "sha256": "420db7455c439950e4d713ca54524b7167ce9be227bb2ccb61484f77078a22ea"
+    },
+    "frozen_calibration_data.npz": {
+      "arrays": 56,
+      "all_finite": true,
+      "sha256": "792e1b396e3ca84421383eb7d5ae25ab1ae9d41825cc4caf86dcca68d8d99949"
+    }
+  },
+  "record_counts": {
+    "calibration": 72,
+    "branch": 144,
+    "dda_receiver_cases": 96,
+    "spectral": 41,
+    "diversity": 54
+  },
+  "known_withdrawal": "frozen_reference.json material_visible_norm_without_reference has a row-index diagnostic bug; use separately preregistered reference_v2_fresh.json. Original fits are retained.",
+  "certification": "No interval arithmetic, continuum certificate, A3 rerun or hardware result is claimed."
+}
