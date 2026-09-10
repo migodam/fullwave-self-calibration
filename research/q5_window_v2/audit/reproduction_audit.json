@@ -1,0 +1,54 @@
+{
+  "status": "fresh_directory_reproduction_passed",
+  "same_stream_not_new_statistical_evidence": true,
+  "comparisons": {
+    "readout_certificate.json": {
+      "equal_bytes": true,
+      "sha256": "b350041e62d9b0b762659edcdb49b9cfa20ffe420299cbbd2a96c72edcb9b861"
+    },
+    "geometry_window_certificate.json": {
+      "equal_bytes": true,
+      "sha256": "2d99aadaeb12af50fc565499ef4ae1e96b1f26a35f6ad3bf7f193787ffbdaa59"
+    },
+    "geometry_readout_budget.json": {
+      "equal_bytes": true,
+      "sha256": "efa2cefeb4dc0f970775e192156f685f52a7593fa37a0df9fdcd2325b15cf28c"
+    },
+    "recovery_v2/raw_observations.json": {
+      "equal_bytes": true,
+      "sha256": "06d19759921809ce55dd748a945f8a16b1abb4db0d42fe5cf29f54f3aaba1010"
+    },
+    "modal_certificate.json": {
+      "equal_rows_ignoring_runtime": true,
+      "source_sha_equal": true
+    },
+    "modal_size_100ppm.json": {
+      "equal_rows_ignoring_runtime": true,
+      "source_sha_equal": true
+    }
+  },
+  "success_counts": {
+    "no_reference": {
+      "original": 2,
+      "reproduced": 2
+    },
+    "noisy_reference_GLS": {
+      "original": 7,
+      "reproduced": 7
+    },
+    "fixed_EM": {
+      "original": 2,
+      "reproduced": 2
+    },
+    "random_EM": {
+      "original": 2,
+      "reproduced": 2
+    }
+  },
+  "regression_tests": 18,
+  "test_status": "OK",
+  "recovery_wall_seconds": 40.27722444300002,
+  "recovery_data_generation_seconds": 0.8443300789999739,
+  "peak_recovery_process_rss_kib_linux": 497688,
+  "scope": "RSS is the recovery Python process, not instrument hardware or a whole deployment measurement"
+}

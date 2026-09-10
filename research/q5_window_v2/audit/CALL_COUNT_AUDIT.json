@@ -1,0 +1,27 @@
+{
+  "status": "reporting_semantics_correction_no_change_to_optimizer_or_data",
+  "legacy_key": "forward_evaluations",
+  "actual_meaning": "calls to the residual callback including the final evaluation; extra-EM methods call model.forward twice inside each callback",
+  "rows": {
+    "no_reference": {
+      "residual_callback_evaluations": 1480,
+      "model_forward_API_calls": 1480,
+      "linear_system_solves": "not instrumented; coefficient cache reused"
+    },
+    "noisy_reference_GLS": {
+      "residual_callback_evaluations": 1412,
+      "model_forward_API_calls": 1412,
+      "linear_system_solves": "not instrumented; coefficient cache reused"
+    },
+    "fixed_EM": {
+      "residual_callback_evaluations": 1568,
+      "model_forward_API_calls": 3136,
+      "linear_system_solves": "not instrumented; coefficient cache reused"
+    },
+    "random_EM": {
+      "residual_callback_evaluations": 1520,
+      "model_forward_API_calls": 3040,
+      "linear_system_solves": "not instrumented; coefficient cache reused"
+    }
+  }
+}
