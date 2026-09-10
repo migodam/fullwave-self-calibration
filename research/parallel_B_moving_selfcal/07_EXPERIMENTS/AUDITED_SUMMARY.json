@@ -1,0 +1,63 @@
+{
+  "scope": "B1 development diagnostics; not hardware, continuum certification, or final-test probabilities",
+  "baseline": "418ef53a7d7d2f79d6228d023baf8b101e3b3e2e",
+  "seeds": {"S":2026091121,"I":2026091122,"X":2026091123},
+  "independent_worlds":36,
+  "main_method_fits":324,
+  "raw_complex_samples_per_method":192,
+  "material_success_rule":"both absolute real-permittivity errors <= 0.1",
+  "main_counts_S_I_X": {
+    "offline_pose_indexed":[4,7,2],
+    "periodic_GLS":[12,12,12],
+    "everyframe_reference_GLS":[12,12,8],
+    "ordinary_joint":[12,11,2],
+    "profile_dynamic":[12,11,2],
+    "continuation":[12,11,2],
+    "loopback_GLS":[12,3,4],
+    "copolar_GLS":[12,3,4],
+    "phaseless":[12,7,5]
+  },
+  "posthoc_two_stage_counts_S_I_X":{
+    "periodic_then_image":[11,12,6],
+    "everyframe_then_image":[12,12,8]
+  },
+  "causal_terminal_counts_S_I_X":{
+    "target_only":[12,11,2],
+    "loopback":[12,3,4]
+  },
+  "all_independent_coherent_main_fits_flagged_model_mismatch":true,
+  "phaseless_selected_optimizer_converged_S_I_X":[9,7,6],
+  "all_coherent_main_initializations_reported_optimizer_convergence":true,
+  "optimizer_convergence_is_not_physical_or_global_correctness":true,
+  "oracle_I_material_count":3,
+  "weak_model_I_counts_target_only_loopback":{
+    "Born":[0,1],"CM_interacting":[1,2],"CM_isolated":[2,3]
+  },
+  "X_median_material_errors":{
+    "profile_dynamic":[0.223723445,0.306288177],
+    "periodic_GLS":[0.024512592,0.029008193]
+  },
+  "X_median_effective_pose_RMSE_mm":{
+    "profile_dynamic":1.843212,"periodic_GLS":1.930007
+  },
+  "profile_vs_direct_max_material_difference":0.0000055861,
+  "profile_vs_direct_max_relative_objective_difference":2.374e-11,
+  "source_hash_audit":{"main_fit_files":324,"mismatches":0},
+  "source_sha256":{
+    "model.py":"738251fa5462ea79a6671a71f4dcfeeb40068e7f3d0c9c18ad466a330e7af17a",
+    "experiment.py":"29bb327aceb89136d258a77021326b094d022b4ef24bc642848a0d6b7eb4745f",
+    "vsw.py":"8e960c2052fa126427ec203eeefabc955e6ea554369dda7af3cf5fbbf6dfe509",
+    "dda.py":"bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b",
+    "safe_run.py":"31116790395aa30140ed7f90821ebda81b47c314fa9851f1ac4add719163a45c"
+  },
+  "unit_tests":{"count":17,"failures":0,"errors":0},
+  "clean_smoke_replay":{
+    "worlds":"S0 and I0 only",
+    "methods":["profile_dynamic","periodic_GLS"],
+    "all_raw_arrays_exactly_equal":true,
+    "four_fit_material_error_differences":0,
+    "second_full_36_world_run_claimed":false
+  },
+  "upload_status":"Main experiment.py upload safety-blocked; PR is partial, complete raw data and runnable code delivered in Moving_Array_B1_Research.zip",
+  "verdict":"NO -- known-scatterer/reference calibration remains the better solution in this tested regime"
+}
