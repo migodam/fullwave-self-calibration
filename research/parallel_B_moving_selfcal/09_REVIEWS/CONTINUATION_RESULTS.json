@@ -1,0 +1,55 @@
+{
+  "scope": "Fresh limited numerical audit; NOT original 36-world recovery replay",
+  "base_commit": "685532825a15930b06656bee52649c8ab5a18edf",
+  "seed": 2026091199,
+  "checks": {
+    "source_hashes": {
+      "value": {
+        "model.py": "738251fa5462ea79a6671a71f4dcfeeb40068e7f3d0c9c18ad466a330e7af17a",
+        "vsw.py": "8e960c2052fa126427ec203eeefabc955e6ea554369dda7af3cf5fbbf6dfe509",
+        "dda.py": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b"
+      },
+      "passed": true
+    },
+    "direct_cross_max_abs": {
+      "value": 0.0,
+      "passed": true
+    },
+    "finite_pair_domain_and_disjoint_material_targets": {
+      "value": {
+        "s": [2.0, 2.7],
+        "partner": [2.24, 3.0240000000000005],
+        "gain_partner": 0.8928571428571428,
+        "material_changes": [0.2400000000000002, 0.3240000000000003]
+      },
+      "passed": true
+    },
+    "delay_alias_relative_error": {"value": 9.011588977960692e-16, "passed": true},
+    "brownian_bridge_midpoint_variance": {"value": 3.0, "passed": true},
+    "conditional_interaction_identity_error": {"value": 1.1295700899707568e-16, "passed": true},
+    "conditional_interaction_noise_bound": {
+      "value": {"actual": 4.059789252533399e-05, "upper": 6.562512020419628e-05},
+      "passed": true
+    },
+    "annulus_profile_vs_dense_grid": {
+      "value": {"profile": 59.182585737263786, "grid": 59.18260170216159},
+      "passed": true
+    },
+    "born_cross_scale_residual": {"value": 9.515341953942014e-17, "passed": true},
+    "nonzero_copolar_path_breaks_that_scale_pair": {"value": 0.10837688912600779, "passed": true},
+    "cross_interpolation_relative_error": {"value": 7.174511068310632e-16, "passed": true},
+    "fullwave_fixed_geometry_scale_pair_residual": {"value": 0.00902290627580433, "passed": true},
+    "nominal_copolar_cross_rms_ratio": {"value": 57.07359233812062, "passed": true},
+    "cross_order4_vs6_relative_difference": {"value": 1.505869613223235e-06, "passed": true},
+    "DDA_VSW_cross_disagreement_DIAGNOSTIC": {"value": 0.04392766096570309, "passed": true}
+  },
+  "failures": [],
+  "missing_originals": ["experiment.py", "Moving_Array_B1_Research.zip", "raw S/I/X observations and optimizer starts"],
+  "elapsed_seconds": 3.562271632999966,
+  "all_checks_passed": true,
+  "n_checks": 15,
+  "fresh_recovery_runs": 0,
+  "original_recovery_counts_recomputed_from_raw": false,
+  "audit_script_sha256": "3298e7a0190d05fe841111e6609f99f67e688939c80be4ace0dc261f61e07bd5",
+  "interpretation": "For diagnostic-only quantities, passed means computation completed; it does not certify small model error or finite material identifiability. JSON whitespace is compacted relative to the local file."
+}
