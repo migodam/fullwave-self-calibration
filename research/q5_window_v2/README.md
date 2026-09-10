@@ -1,28 +1,48 @@
-# Q5：有限校准窗口与独立恢复审计 V2
+# Q5 V2：有限误差信息窗口、参考精度与独立恢复审计
 
-**科学状态：受限类 M/M2 的有限误差条件与区间计算已完成；完整类 C 尚未满足 TAP 投稿门槛。** 本提交没有新的自适应采集算法优越性结论。A5、Q5 V1 及失败选择器保持原样。
+## 阅读顺序与科学状态
 
-## 阅读顺序与版本冲突
+1. [FINAL_AUDIT_ZH.md](FINAL_AUDIT_ZH.md)：最终重放、版本对账、已完成与未闭合门槛。
+2. [MANUSCRIPT_ZH.md](MANUSCRIPT_ZH.md)：中文论文段落、模型、定理、证明、预算、Information Window Splitting及天线设计含义。
+3. [PRIOR_WORK_ZH.md](PRIOR_WORK_ZH.md)：最近邻全文公式比较与未取得全文的项目。
+4. [RESULTS_SUMMARY.json](RESULTS_SUMMARY.json)：绑定源码与观测的结果摘要。
 
-以本 README、`MANUSCRIPT_ZH.md`、`PRIOR_WORK_ZH.md`、`RESULTS_SUMMARY.json` 和绑定的源码/原始数组为本次执行依据。分支已有 `REPORT_ZH.md` 另版文字报告，其中的2/12→7/12、已知真实增益+位移 oracle、模态凹性等说法，不对应本次已核验的源码及数组；本次不采用、不合并，也不把它们宣称为独立复现。该报告及较早的多个 registration 文件保留，防止覆盖失败历史。
+本轮M/M2的受限有限误差条件和区间计算已完成，类C没有达到TAP强正结论门槛。没有新的自适应采集优势声明，不恢复已撤回选择器，不修改A5/V1。
 
-本次可核验结果是：无参考3/12、带噪参考GLS5/12、固定/随机附加EM各3/12；次级丢弃参考相位6/12、只给定真实位移仍5/12。相同seed并不足以保证不同实现的随机数组相同。这些结果始终只作开发诊断，不作未触碰最终集或确认性统计声明。正式后续试验必须另注册独立版本及数据流。
+`REPORT_ZH.md`是保留的另一版历史报告；其中2/12→7/12、oracle增益加位移和模态凹性等结论没有与当前源码/数组对齐，不并入本轮证据。当前主计数为无参考3/12、带噪参考GLS5/12、固定/随机EM各3/12；次要消融为丢弃参考相位6/12、已知真位移5/12。所有计数都是开发诊断，不是最终测试或总体成功率。
 
-已有协议主文件为 PROTOCOL.md、EXECUTION_SPEC.md、M2_SPEC.md；本次代码与参数明确绑定 SHA-256。`run_v2.py`：`d9a9930cdfd1016f4ef1255796ee49d3c4c64387021f9c84e4cbcd91d4b368bb`；`multipole.py`：`88d7c62451d79ef03b02b1b6dd1edd208ecf6c888d085ff7b94318fb789750c7`。
+## 协议、实现与证据
 
-## 交付与证据
+实施范围见PROTOCOL.md、EXECUTION_SPEC.md、M2_SPEC.md。其他注册文件保留历史，不据其拼接不同数组。
 
-`modal_interval.py`：5500盒名义材料覆盖、精确尺寸参数与外向有理端点；`finite_window.py`：5100盒有限差分覆盖、550盒尺寸/小损耗复条带、有限参考精度条件及集合中点估计；`radial_window.py`：理想电偶极径向窗口的精确有理二分；`multipole.py`：独立的经典向量 Maxwell 多球求解器；`run_v2.py`：12场景、4主基线、2次级消融；`checks.py` 与 `audit_tests.py`：物理一致性和证据完整性检查。
+- `modal_interval.py`：5500盒名义材料覆盖，精确有理尺寸，外向有理端点和级数尾界。
+- `finite_window.py`：5100盒有限增量、550盒尺寸/小损耗复条带、参考条件和集合中点估计。
+- `radial_window.py`：理想电偶极材料任务距离窗口的精确有理二分。
+- `multipole.py`：经典向量Maxwell多球展开，不依赖Treams，不作为算法创新。
+- `run_v2.py`：12例独立DDA数据，4主基线和2次要消融；原始复观测、所有初值和失败均保存。
+- `checks.py`、`audit_tests.py`：物理一致性与证据检查。
 
-完整证据包包含原始复观测、所有初值结果、全部区间trace、未完成前缀及恢复记录。Git 中保存可读源码、报告与紧凑结果；**约15MB的完整trace与详细数组随本次交付ZIP提供，不假称已经全部写入Git**。也可在新目录运行以下命令生成全套。`MANIFEST.json` 是交付文件清单；JSON里的显示小数不是认证端点，真正边界使用完整证书中的有理数字符串。
+实际环境：Python3.13.5、NumPy2.3.5、SciPy1.17.0、mpmath1.3.0，单BLAS线程。最终重放5项物理检查和5项证据检查全部通过；100个M2例子是数学误差盒测试，不是电磁恢复场景。
+
+## 重放包
+
+对话交付的`Q5_V2_REPLAY_EVIDENCE.zip`为重新执行后生成的证据包，29个文件，压缩后2,667,910字节。源码、结果和日志约10.79MB，不包含付费书籍或字体。它不是此前运行目录的磁盘备份；原始观测和两份完整覆盖trace与已有记录逐字节匹配。完整清单见包内MANIFEST.json。
+
+ZIP SHA256：`0fd1672cb6220cec517b35f8f9b3b09133d36585b134fea88fca522b3b0c759d`。
+
+`run_v2.py` SHA256：`d9a9930cdfd1016f4ef1255796ee49d3c4c64387021f9c84e4cbcd91d4b368bb`。
+
+`multipole.py` SHA256：`88d7c62451d79ef03b02b1b6dd1edd208ecf6c888d085ff7b94318fb789750c7`。
+
+Git中提交可读源码、论文段落和紧凑摘要；完整trace与原始数组在上述交付包内，也可用脚本重新生成。不要将JSON显示用浮点数当作证明端点，证明端点采用trace中的精确有理字符串。
 
 ## 运行
 
-从仓库根目录运行，建议 Python 3.13；本次环境 NumPy2.3.5、SciPy1.17.0、mpmath1.3.0。不需要Treams。无网络环境请预装依赖；本次pip安装Treams/python-flint因DNS失败，按协议使用SciPy备选实现。不要用 `python -O` 禁用断言。
+从仓库根目录、使用一个尚无输出的新结果目录运行：
 
 ```bash
-python -m pip install numpy==2.3.5 scipy==1.17.0 mpmath==1.3.0
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+mkdir -p research/q5_window_v2/results
 python research/q5_window_v2/checks.py
 python research/q5_window_v2/modal_interval.py
 python research/q5_window_v2/finite_window.py
@@ -31,14 +51,10 @@ python research/q5_window_v2/run_v2.py
 python research/q5_window_v2/audit_tests.py
 ```
 
-modal_interval、finite_window、run_v2 默认拒绝覆盖已有实验输出。完整ZIP已有输出，可直接运行audit_tests；重做时对这三个脚本分别使用 `--out /新的对应目录`。audit_tests 默认审计交付位置，不会自动指向替代目录。finite_window 被外部时间限制终止时可用同一个目录加 `--resume` 恢复；恢复前应保存旧前缀哈希和源版本，不从未覆盖前缀宣布成功。
+交付包已含结果，重新计算前应先把results目录改名保留；直接审计包内证据只需运行audit_tests.py。modal_interval.py、finite_window.py和run_v2.py拒绝覆盖既有主输出，也可用--out指定新目录；audit_tests.py默认审计上述标准目录。
 
-检查结果：物理一致性5组通过；证据/边界审计5组通过；M2有界误差100个数学样例通过。100样例不是100个独立电磁恢复实验。边界残差、阶数差和网格差都是数值诊断，不是 Maxwell 连续误差上界。
+有限覆盖可能需要数分钟。本次两次触及200秒工具时限后，以相同源码/精度使用`finite_window.py --resume`完成，最后续跑22.62秒不是总耗时。中断摘要见重放包REPLAY_RECORD.json，不能把续跑时间解释为完整计算成本。
 
-## 计算与失败记录
+## 不能据此宣布的结论
 
-V2独立恢复运行约21.89秒、单BLAS线程、峰值约640.10MiB，DDA网格312/526/1016单元。区间名义完整覆盖约22.79秒。M2初次执行因200秒工具时限中止，后续使用保存前缀恢复；其JSON中seconds约10.69仅是恢复段，不能报告为全部证明用时。较早名义区间执行的2761行未完成前缀也保留为aborted，不是覆盖证书。具体时间依赖硬件，不构成方法速度优势。
-
-## 不能跨越的结论边界
-
-16次独立重复方案给出了非空的条件性模态误差预算；0.2%模态泄漏、0.1%相对通道增益、0.03%尺寸、参考系统偏差0.0005仍是待实测验收要求。逐样本逆函数用数值brentq，未把估计端点外向舍入。类C的可靠模型误差上界、覆盖有限分离、真实模态读出/漂移验证与最近邻全文原创性审计仍未闭合。本轮没有把失败证书变成普遍不可能性，也没有把PR完成当成论文完成。
+16次独立重复时，0.2%相对模态泄漏、0.1%相对通道误差、0.03%尺寸误差等可形成非空条件预算；这些是待验收规格，不是已经达到的硬件指标。逐样本Brent反演端点未外向舍入。类C连续前向误差、全域有限分离、真实读出/漂移验证及最终原创性审计仍未闭合。保持Draft PR，不标为TAP-ready。
