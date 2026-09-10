@@ -1,0 +1,27 @@
+{
+ "status":"V2 DEVELOPMENT DIAGNOSTICS; NOT final-test, hardware, or class-C finite recovery certification",
+ "baseline_commit":"418ef53a7d7d2f79d6228d023baf8b101e3b3e2e",
+ "seed":2026091107,
+ "methods":{
+  "no_reference":{"successes":2,"n":12,"median_material_errors":[0.23000874970634366,0.4549028855381223],"median_max_material_error":0.5336688679342099,"median_sensor_relative_residual":0.011995951503536568,"success_scene_ids":[0,7]},
+  "noisy_reference_GLS":{"successes":7,"n":12,"median_material_errors":[0.05429247353378175,0.06029773316700382],"median_max_material_error":0.06201787432908512,"median_sensor_relative_residual":0.012741512000050411,"success_scene_ids":[0,1,3,4,5,7,9]},
+  "fixed_EM":{"successes":2,"n":12,"median_material_errors":[0.22466743363604347,0.44490664985286354],"median_max_material_error":0.5240253817156841,"median_sensor_relative_residual":0.011997969542840103,"success_scene_ids":[0,7]},
+  "random_EM":{"successes":2,"n":12,"median_material_errors":[0.22986319368456165,0.45518219484677935],"median_max_material_error":0.5338396280957554,"median_sensor_relative_residual":0.01199769633504079,"success_scene_ids":[0,7]}
+ },
+ "posthoc_oracle_counts":{"true_gain":7,"true_shift":2,"true_gain_and_shift":7},
+ "oracle_success_scene_ids":{"true_gain":[0,1,4,6,7,9,11],"true_shift":[0,7],"true_gain_and_shift":[0,1,4,6,7,9,11]},
+ "source_hash_checks":{
+  "research/q5_window_v2/src/recovery.py":{"recorded_sha256":"60be347b4898565c5a7f9c1142a3dd856330c444d9b7bc1349158d2696c5051e","matches_now":true},
+  "research/q5_window_v2/src/sphere_solver.py":{"recorded_sha256":"6ed9dc80d088b01ee713ffec5c86f9e6dbf1a87c6b48a2c22bd55c8435d898da","matches_now":true},
+  "research/q5_window_v2/IMPLEMENTATION_FREEZE.md":{"recorded_sha256":"3567e60c0390fb260060bd03ee43b2693cc4f57a6e9f63e09fadd2013b9841b2","matches_now":true},
+  "research/trispace_self_calibration/a3_research/maxwell3d.py":{"recorded_sha256":"bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b","matches_now":true}
+ },
+ "raw_evidence_files":{
+  "observations_v2.npz":"0d99caf8ebd669d862cb12fbe7ad0bcbb095c9f91956ad2c744fe5020af359dc",
+  "recovery_v2.json":"e91527e305e0c7b5a7e94f8186e77254ba544a457df83750009be8f66ed58780",
+  "recovery_interrupted.json":"86baf24826561f164c8434e33a08e070fe1967a9b421d30d17aaf65441c767c4",
+  "attribution_diagnostic.json":"d57e2d816be62dddfa964adcb82be5283824e1fcff024dac2a23257d824a3719"
+ },
+ "archive_note":"Full raw arrays, every optimizer start, interrupted checkpoints and per-array hashes are in the delivered Q5_V2_RESEARCH_AND_EVIDENCE.zip. This repository snapshot is deliberately compact. Its summary is not a replacement for raw evidence.",
+ "local_tests":"11 passed; latest pre-submission rerun 0.66 s; no GitHub CI run claimed"
+}

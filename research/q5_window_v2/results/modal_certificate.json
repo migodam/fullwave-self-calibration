@@ -1,0 +1,43 @@
+{
+  "arithmetic": "fractions.Fraction; exact rational interval kernel",
+  "series_terms": 16,
+  "trig_terms": 20,
+  "endpoint_minimum_claim": false,
+  "midpoint_lipschitz_used": false,
+  "results": [
+    {
+      "x": "1/5",
+      "domain": [
+        "3/2",
+        "4"
+      ],
+      "boxes": 2500,
+      "step": "1/1000",
+      "slope_lower": "0.0004549905509324",
+      "amplitude_upper": "0.0026882355258206",
+      "q_lower": "0.0007590268211484",
+      "denominator_lower": "28.9772689793720159",
+      "first_left": "3/2",
+      "last_right": "4",
+      "coverage": "exact rational consecutive closed boxes"
+    },
+    {
+      "x": "3/20",
+      "domain": [
+        "2",
+        "5"
+      ],
+      "boxes": 3000,
+      "step": "1/1000",
+      "slope_lower": "0.0001399328571476",
+      "amplitude_upper": "0.0012933206367973",
+      "q_lower": "0.0005623410254602",
+      "denominator_lower": "58.8621522280886391",
+      "first_left": "2",
+      "last_right": "5",
+      "coverage": "exact rational consecutive closed boxes"
+    }
+  ],
+  "seconds": 8.425708553000007,
+  "source_sha256": "c2b4af9b2b5bcae01fe8715353874ea80911886281de569387d8512cfef6c53a"
+}

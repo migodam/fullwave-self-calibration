@@ -1,0 +1,13 @@
+{
+  "single_sphere_interface_max_relative": 4.573407682794317e-16,
+  "passivity_min_absorption_channel": -1.0842021724855044e-19,
+  "plane_wave_truncation_relative_L3_L5_L7": [0.004220741125331426, 2.0988027352682334e-05, 4.9967973897448695e-08],
+  "cluster_convergence_diagnostic": [
+    {"theta": [1.5, 2, -2], "quadrature_18_24": 1.7853832268740464e-15, "L3_L5": 2.1752584191968676e-06, "L4_L5": 2.5352380095915767e-08},
+    {"theta": [4, 5, 2], "quadrature_18_24": 1.871685332500145e-15, "L3_L5": 2.5594572177381455e-06, "L4_L5": 1.0029548286050153e-07},
+    {"theta": [2, 3, 0], "quadrature_18_24": 1.880324718564585e-15, "L3_L5": 2.301224869250523e-06, "L4_L5": 5.166784986891164e-08},
+    {"theta": [3, 4, -1], "quadrature_18_24": 1.8425216826076037e-15, "L3_L5": 2.4607410419035615e-06, "L4_L5": 7.886125582671904e-08}
+  ],
+  "rational_q_vs_scipy_max_absolute": 4.7704895589362195e-18,
+  "status": "passed floating diagnostics and exact arithmetic unit checks; not a C continuum certificate"
+}
