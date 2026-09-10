@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-09",
+  "date": "2026-09-10",
   "a4_archive_sha256": "f5e64bfd8f21d1bbb482521deb39543e49c58e476cd3cdbf6cdce1f003dceebe",
   "records": [
     {
@@ -45,6 +45,12 @@
       "origin": "workspace"
     },
     {
+      "path": "Theory/Questions/A4_2.md",
+      "bytes": 56949,
+      "sha256": "377ba296264aeaba4ae13a1606e353cf411a25f941518a3a95f8f3b568a2e024",
+      "origin": "workspace"
+    },
+    {
       "path": "Theory/Questions/A4_EXPERIMENT_REPORT.md",
       "bytes": 11298,
       "sha256": "d85ee70c8312116d6268bcc9f37f2861c6a9e529846ecea9eb8bd28da929919a",
@@ -63,9 +69,45 @@
       "origin": "workspace"
     },
     {
+      "path": "Theory/Questions/A5_CAUSAL_CHAIN_LEDGER.md",
+      "bytes": 7873,
+      "sha256": "5884b2011e28570becdec65efc488a54f6b3602aff1b61664723cd366661c8cf",
+      "origin": "workspace"
+    },
+    {
+      "path": "Theory/Questions/A5_EXPERIMENT_REPORT.md",
+      "bytes": 13564,
+      "sha256": "fc8f0bb3a6deca23bae3957a0045a8b8839be1d2307cd88a10d1c731ce5e3974",
+      "origin": "workspace"
+    },
+    {
+      "path": "Theory/Questions/A5_REPRODUCIBILITY.md",
+      "bytes": 7680,
+      "sha256": "fd8f97c2373529a3cd60380511b6fe1ebe27cbcb27366f0e5c00793434c0d6d0",
+      "origin": "workspace"
+    },
+    {
+      "path": "Theory/Questions/A5_RESEARCH_REPORT_ZH.md",
+      "bytes": 8659,
+      "sha256": "62a49e3fb172e576bb3845ea04b6d99af2226674d0fb593558c153115e84b256",
+      "origin": "workspace"
+    },
+    {
+      "path": "Theory/Questions/A5_THEORY.md",
+      "bytes": 19015,
+      "sha256": "5b135f2ea486d5ffbfcd92bdc1a57c103aaecd0eeba3775da49f70052d746e49",
+      "origin": "workspace"
+    },
+    {
       "path": "Theory/Questions/PAPER_DRAFT_A4.md",
       "bytes": 17096,
       "sha256": "bf2a816399b377a9747d44da2f74a0b120c80d40a35ab99fc580235bb35ab294",
+      "origin": "workspace"
+    },
+    {
+      "path": "Theory/Questions/PAPER_DRAFT_A5.md",
+      "bytes": 34492,
+      "sha256": "e986a6bd11efd0c10dd73e57606cb750cb9a2ee85e0bc208a84bb75a0ee526ce",
       "origin": "workspace"
     },
     {
@@ -87,9 +129,21 @@
       "origin": "workspace"
     },
     {
+      "path": "Theory/Questions/Q5.md",
+      "bytes": 36845,
+      "sha256": "8cd538b4ab52522d5652be44496285c861168112d3f83a01cfbc4f13a6c74bc3",
+      "origin": "workspace"
+    },
+    {
       "path": "Theory/Questions/fullwave_is_slam_spectral_observability_theory_rep.md",
       "bytes": 161243,
       "sha256": "ffc1cad9d0e39012d4944c471b15126a221c7a73bb4a6e15d108ec9ce116df7a",
+      "origin": "workspace"
+    },
+    {
+      "path": "Theory/Questions/modal_boundary.json",
+      "bytes": 36910,
+      "sha256": "036491f83909d680ac1e58d17a8c921b7de2e6c888b2c055953e4efac0ea00d6",
       "origin": "workspace"
     },
     {
@@ -111,6 +165,30 @@
       "origin": "workspace"
     },
     {
+      "path": "communication/A4_COMPLETE_RESEARCH_REPORT_ZH.md",
+      "bytes": 16467,
+      "sha256": "8bb13d316111b87a85fd122d30d1b7dca378df3d90b3ba918cfe8c341c7af349",
+      "origin": "workspace"
+    },
+    {
+      "path": "communication/A4_GPT_PRO_UPLOAD_GUIDE.md",
+      "bytes": 1851,
+      "sha256": "9ba7737ce04350cbedd127762744d9e9ab7e13b6e094162f56ccf197c95985d4",
+      "origin": "workspace"
+    },
+    {
+      "path": "communication/A5_ROUND1_REPORT_ZH.md",
+      "bytes": 3994,
+      "sha256": "cd49219b152c019495ca83a6a2f5c29005b7525137a59f2edf4f6a7ed7f84c6c",
+      "origin": "workspace"
+    },
+    {
+      "path": "communication/Q5_REMAINING_V1_RESEARCH_REPORT_ZH.md",
+      "bytes": 1855,
+      "sha256": "c848a72ae05e9f87b088f168e9de5cc9adbfaf4cc0ed82def567aad2caee50bd",
+      "origin": "workspace"
+    },
+    {
       "path": "research/FINAL_SCIENTIFIC_REVIEW.md",
       "bytes": 15575,
       "sha256": "9a2fe289c970b06493e574d2ea2f8fdca482169f66151b60413cce586854058a",
@@ -120,6 +198,90 @@
       "path": "research/GPT_PRO_HARD_PROBLEMS_ZH.md",
       "bytes": 19717,
       "sha256": "58d1b692ccf6567d9d6533221081d1c452cbf1b3339412d615cab768c46c0c67",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/A4_CLOSURE_ADDENDUM_EN.md",
+      "bytes": 3906,
+      "sha256": "9be5e3bd90f41b7d1e31348196d80329ffc51db45688dda8bae64569f28030bb",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/PLAN_AND_PROTOCOL.md",
+      "bytes": 3886,
+      "sha256": "7896b79a665108c75471cc5e1558e3c88bb8a53072f59f2b3b4ce96344a87989",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/README.md",
+      "bytes": 1469,
+      "sha256": "ed803b1cae7649b79b22e2d68e8e9bd36ae3df8b4aae057b6ad1d6338caf5ea9",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/ROUND2_PROTOCOL.md",
+      "bytes": 1829,
+      "sha256": "7fd271685edf4dab698e8c8e837d8b837fc0691a9067be9f11cc53357fa64800",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/THEORY_INTEGRATION.md",
+      "bytes": 6879,
+      "sha256": "311ab953287d1d6582045956fb4fa4680e4099d95be151c5bb9d6d61880424cb",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/audit_a4_closure.py",
+      "bytes": 2708,
+      "sha256": "634908b355601e42427c8b31dd35b3ee4b6701d94afa5a1fdc204b977516ff34",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/audit_round1.py",
+      "bytes": 2017,
+      "sha256": "a0304f300d0878e4ce7322a3ebcaee4eed54560458ecf5b801558d5e848a3f9c",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/interaction_ablation.py",
+      "bytes": 3664,
+      "sha256": "c53999a06965a8531d6001ee33347c61619e8d23b6bd557435747073d9c2e54e",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/results/a4_closure_audit.json",
+      "bytes": 2706,
+      "sha256": "e32b8b6d3b016c5c8984dc016adbfdd196ae77a29dfd92333540682940008f9a",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/results/a4_closure_literature.json",
+      "bytes": 2004,
+      "sha256": "b8e7de693197199c3beea6c8411216e15641962460bd6e51cda566e6427f4215",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/results/interaction_ablation.json",
+      "bytes": 5712,
+      "sha256": "e8291e4bf7b5e43e820211aae793ea2ed8cdc5edd2d8f4320e512bdc8ed6f173",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/results/round1_audit.json",
+      "bytes": 964,
+      "sha256": "c4e21ebbe8fc29c3aa1a8dba8a41501b5e65eb5fb3c252810acb128594bc8222",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/results/scale_gauge.json",
+      "bytes": 21375,
+      "sha256": "f32830d2e7b7589f82827cef2b66ab7e84b9b4631055e2e254348c5417636545",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/a5_material_observability/scale_gauge_experiment.py",
+      "bytes": 4624,
+      "sha256": "937b98704247660fac3cb131b91af69f4aa55c343627df8e7dd13f2d1e7b5b07",
       "origin": "workspace"
     },
     {
@@ -1968,6 +2130,510 @@
       "path": "research/literature/TARGETED_PRIOR_ART_ADDENDUM.md",
       "bytes": 7446,
       "sha256": "235da5c89c057ec75a7bdae77a665e39d2e13b46939d9cc00c43e5971c0e06bb",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/EXECUTION_CHECKPOINT.md",
+      "bytes": 1524,
+      "sha256": "5e366d5b751160ab9fcf995414ac7cb3d1239514ace129ce56e2603a807ee478",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/PAPER_DRAFT_Q5.md",
+      "bytes": 4405,
+      "sha256": "4b97f5324b40c6cd14fe47921b8af15e9a0571624fe99b7c1e3b441d4928d0bd",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_ALGORITHM.md",
+      "bytes": 1532,
+      "sha256": "e4962783bd95334f1e4dc514169b7b62fdb6384117030ca1b8c5eeddd0b2c8f2",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_CAUSAL_CHAIN_LEDGER.md",
+      "bytes": 1234,
+      "sha256": "56a6f6f2f81f1ad6dd1b2d98d4a657f8e6f242e1fa467512aa8c689f5744de07",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_EXECUTIVE_VERDICT_ZH.md",
+      "bytes": 2609,
+      "sha256": "1a44e884e1a508eab09a1228aa4461d3be7d8ddb127f334db8b0101d7c2a9a47",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_EXPERIMENT_REPORT.md",
+      "bytes": 2547,
+      "sha256": "b8f28fcf7aa2cafc7ab2f5e6cdd284b7b614e201969946f4fbdf589887b6e8fd",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_LITERATURE_LEDGER.md",
+      "bytes": 1275,
+      "sha256": "827f2caa3b6272da5c76b8ba943cb4b73276d0422c03dde167c15b126ed9305f",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_REMAINING_QUESTIONS.md",
+      "bytes": 2083,
+      "sha256": "5e82533029f84330f7404ebca97668df862ab657f4c602cefb71aa6cdadbaafc",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_REPRODUCIBILITY.md",
+      "bytes": 2162,
+      "sha256": "42b8513d891ef91c25f3e26a684bc662fa04ba4cc7049e71668663cb6e7f3541",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_REVIEW_AND_REPAIR.md",
+      "bytes": 1714,
+      "sha256": "c5d7b083ca546f8a31fb821828e58f1436e48b501e9d14bbf731d06180145773",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/Q5_THEORY_FINAL.md",
+      "bytes": 3938,
+      "sha256": "f33cda6297d1a0c840133ecf5ba0e19a53ebe117959bedf76f1ac0a3b7d50fee",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/README.md",
+      "bytes": 1692,
+      "sha256": "95cc26814083143ad80c4987d32e0025593693bdab3d9453e07df1d2b23e0dd2",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/docs/CYCLE2_PROTOCOL.md",
+      "bytes": 2214,
+      "sha256": "6c5b0ba81bf993165fc53cfeacfcda784bffb3deb1e29f890e273b04165d145f",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/docs/DEVELOPMENT_PROTOCOL.md",
+      "bytes": 1920,
+      "sha256": "08d63c2a028b6dfff496f911b9dfa30eab6131c013ab41e346d21f9b286b0dea",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/docs/REFERENCE_ERROR_BUDGET.md",
+      "bytes": 2323,
+      "sha256": "82742ead2d3d5f0ed73e02e82425c9d37d460675d7e92a244c7d9ae89e06d045",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/docs/WORKER_TASK.md",
+      "bytes": 1778,
+      "sha256": "8272fb3c2cc14923f74e91a6d9eae8b5976a85e77199d85f5ce90cb344d54164",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/literature/discovery.json",
+      "bytes": 12919,
+      "sha256": "bfd12a436c4e77e12a1333f74ae3fca5a1ab2a612e288b621a4a062ec7c04186",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/literature/verify_tsitsas.json",
+      "bytes": 1091,
+      "sha256": "5800fd179986ac71be89f2bae1bb5a57559834218cc4dcfb3563be511d85af72",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/flatten_modal_boundary.py",
+      "bytes": 2333,
+      "sha256": "18d894fb8c678022877265fe072049067111fa736d4e285caea78c3545bedf44",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/mie_reactance.py",
+      "bytes": 15651,
+      "sha256": "6bdea5e475d5b4176396b59ebc5d4da94b190885dec381bc12075920b463b62e",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/qprime_variants_lib.py",
+      "bytes": 5452,
+      "sha256": "7c072089d1a61410c4158491efd20f77fe9d372abdbd641232ac5b1f3859e97c",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_finite_risk_checks.py",
+      "bytes": 20637,
+      "sha256": "b959cf3bc69d53f516fa4098a171f10ce892dacd651cc12fbf6657fdf5727f6c",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_fixed_loss_born.py",
+      "bytes": 26763,
+      "sha256": "fc1a5f95a171b0db0c6c6ecf1eea0320dae18e7836d43e20bf044a007b2fd316",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_interval_monotonicity.py",
+      "bytes": 22710,
+      "sha256": "df796869e7a451eeaa2651f45e549ac7024ecbac3839b5871558e2f6e6679af6",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_mie_checks.py",
+      "bytes": 17937,
+      "sha256": "dcb0cfcfc6e1f2e45f28ded9dd11cf490a2341cb24df069b4ffc6ebd4a2b5dea",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_mie_sign_convention.py",
+      "bytes": 15889,
+      "sha256": "48a8c37df65f2471436850db30e2e635ecbce16abd6fb12f3a8f0ee10026121b",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_qprime_variant_sweep.py",
+      "bytes": 21007,
+      "sha256": "08273487dd6212462a81bc6689f7336806082f0b979c6e5a41e1c050927cb287",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_ref_gls_equivalence.py",
+      "bytes": 29804,
+      "sha256": "802dfda8856fcb39f350eb52fd5419749971f6f6d4442a4537e219005e8c4085",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/split_a5_sections.py",
+      "bytes": 2691,
+      "sha256": "529a045e18be53a971db6c4147e90a8c2835226d6f6f41a11807dfc95f50e673",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/A5_THEORY.md",
+      "bytes": 19015,
+      "sha256": "5b135f2ea486d5ffbfcd92bdc1a57c103aaecd0eeba3775da49f70052d746e49",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/SOURCE_HASHES.json",
+      "bytes": 2359,
+      "sha256": "e1f40529015ac17c1a4a7a28f65fa3c64137b415b19b475affb58e8f877ca9f1",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/WORKER_TASK.md",
+      "bytes": 1778,
+      "sha256": "8272fb3c2cc14923f74e91a6d9eae8b5976a85e77199d85f5ce90cb344d54164",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_00_preamble.md",
+      "bytes": 335,
+      "sha256": "30f1891902fb9f7a9a857999c59c9f1d54c4c7657cd33e4fab4c9820f5962842",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_01.md",
+      "bytes": 1387,
+      "sha256": "41bfa621061b1d13696b3ab42dd70b47cddd24e78a837296f2a7bcf9157e0c37",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_02.md",
+      "bytes": 797,
+      "sha256": "5006f81e2eaa85fcdc7cad950096479556a2866beef6335e340102b2f496b27f",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_03.md",
+      "bytes": 2700,
+      "sha256": "8caf7a09e4b4d3bdbeb51a99ede62cd1f716906e4ec202e1eab76ab58c9bee7a",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_04.md",
+      "bytes": 2064,
+      "sha256": "458f26b66fb09038f4c9e2fe8300826293afe28a9744d1937670c2466557ebc7",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_05.md",
+      "bytes": 2157,
+      "sha256": "c36effe3b722b37b846f5ffd61ba3256e889d510f8285f6eb11d60c30540412d",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_06.md",
+      "bytes": 1131,
+      "sha256": "ed574cfb1c166065897072e1928f303ab253405ea530c818756347bc804c2f7c",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_07.md",
+      "bytes": 3323,
+      "sha256": "592cddfcab4298881325430902b4a69b1377ef0b49c6f9ea7297f7653edd7a94",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_08.md",
+      "bytes": 947,
+      "sha256": "5c0942c8a5d2781146eb511515d674d7303418a3318e6adb9d687d90e7ca37cd",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_09.md",
+      "bytes": 1485,
+      "sha256": "36bd576291d0319cd6c2b96ab3bd9ab75d05f6f121b5a8207c2aab99c9214f46",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_10.md",
+      "bytes": 984,
+      "sha256": "c1101fab1b76d309783ac32c3026c5685c93a15d5b776146ec043192a7f26a48",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_11.md",
+      "bytes": 949,
+      "sha256": "b8cbc633993cdf5ef7854090db6e527960fafa3e3cda67185a889af54c0a6a7e",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/derive/A5_sec_12.md",
+      "bytes": 757,
+      "sha256": "09652a927ff9397cc3d3772ac36b48f581f62780fd305d750a7e6851c720f072",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/modal_boundary.json",
+      "bytes": 36910,
+      "sha256": "036491f83909d680ac1e58d17a8c921b7de2e6c888b2c055953e4efac0ea00d6",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/modal_boundary_pretty.json",
+      "bytes": 36911,
+      "sha256": "570b7aceaa726cc90cf1f98435b019e44feaac97ae0ce851682dcde471c94f2e",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/DERIVATIONS.md",
+      "bytes": 4308,
+      "sha256": "ca0a6864bdf825fe2f7336573702c4cd51681318d6630989f83fcac448135eea",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/EXTRACTION_REPORT.md",
+      "bytes": 3471,
+      "sha256": "56da1f39e7399201036de18eb7c77b9c550d7418488180f51db68618f1100561",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/FINDINGS_increment2.md",
+      "bytes": 7154,
+      "sha256": "85b866407f4a215cbeafc87597ff0f09c1584d9b7b6fd049bb26f173fc7d1fbb",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/FINDINGS_increment3.md",
+      "bytes": 7814,
+      "sha256": "727ddc04955d7270b3794ac54325969078bf9ed57f5520f02dc26b36de338d05",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/finite_risk_20260910T095123Z.json",
+      "bytes": 10456,
+      "sha256": "36bfa108da8ecb5da494a7a311e08f6a9a952651c57c5444d9106cb0f6c6897b",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/finite_risk_20260910T095240Z.json",
+      "bytes": 12254,
+      "sha256": "ee225e508b7cb2ee7c682a8d50402a1007dfca6a25aef7dab706fc4936569b12",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/finite_risk_20260910T095306Z.json",
+      "bytes": 12472,
+      "sha256": "df8c8f33e893b386d70e676ce9763b1efa82a8419d4078bf06653eab15be72f0",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/fixed_loss_born_20260910T095919Z.json",
+      "bytes": 9629,
+      "sha256": "07249791ce77c963c5e6e6cf4b1b9ffc5a23010f9fec3104bc49fb8f82a8f229",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/fixed_loss_born_20260910T095944Z.json",
+      "bytes": 13174,
+      "sha256": "adc5d4d6c8f2f2deaff674ff8c939eaf0e22734fb65d6a9ff00bb47daa48fe78",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/fixed_loss_born_20260910T100011Z.json",
+      "bytes": 13173,
+      "sha256": "fa5745fd9882070c48c3c229306a4e2a0ffb7a4b0a4358d03be0165d9df5e0ac",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/fixed_loss_born_20260910T100048Z.json",
+      "bytes": 13174,
+      "sha256": "3ce356ffbf3b8842ad91945fbb84d70c9fd1e2e86be416fdc7ed48d1a7372927",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/fixed_loss_born_20260910T100122Z.json",
+      "bytes": 39176,
+      "sha256": "2175d82e4b8ead4f28207eaf10768d1f1348502026a1d309b7fcb709bb3ee0e0",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/fixed_loss_born_20260910T100202Z.json",
+      "bytes": 39914,
+      "sha256": "d7302fe064a94190373d0be25d91ca713c7bca0ed5a44864a914f6071044eeb6",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/interval_20260910T093408Z.json",
+      "bytes": 18916,
+      "sha256": "e5aea5741726fa5b432199e4cec962f5d99ca5875b248924d81681445d2b3c66",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/mie_checks_20260910T092800Z.json",
+      "bytes": 70141,
+      "sha256": "4547fe61a920d8bfc5bb3c09b41d1342f6cf5d056629ddb100b7378859961ebf",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/mie_checks_20260910T092812Z.json",
+      "bytes": 81772,
+      "sha256": "9ab3e8fab6984410fc07b32e959ad82ad291b157c856b8c89d9610667a92e0a0",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/mie_checks_20260910T092815Z.json",
+      "bytes": 81773,
+      "sha256": "cb25b176217d569b93e1d6b3805899e6cf66f20be1754425e45a8805a76cb683",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/mie_sign_convention_20260910T100743Z.json",
+      "bytes": 3797,
+      "sha256": "7e1bef6791ca8ce62c1aeb5056cbe81ec8183c7e2f6d0a37563f9e68c81f8d7e",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/mie_sign_convention_20260910T100913Z.json",
+      "bytes": 5478,
+      "sha256": "57dae6842b43100cec307468ed51e27b5cd03099b93ad8e2be9f8734a3a1f087",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/qprime_variants_20260910T094847Z.json",
+      "bytes": 22362,
+      "sha256": "a551a1c4adc1421612a26c06bcf3df1cc9c3935ef1b56c0c1a5cc2d4a80d5cbf",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/ref_gls_20260910T100317Z.json",
+      "bytes": 14086,
+      "sha256": "412d7b825e926825393943a58c43703952fed690b4d60d1dac1917edfe8e7dbd",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/ref_gls_20260910T100615Z.json",
+      "bytes": 15553,
+      "sha256": "7e5b0f87927773d03886e71fbbc1aea24795a98b948d03c4a3578d7568f43bb9",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/ref_gls_20260910T100641Z.json",
+      "bytes": 15873,
+      "sha256": "ab21c14d8f71b013ee0bf4c0c3ca80a84242e6a7de93b4cefb10f09dea116fdf",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/results/development_audit.json",
+      "bytes": 16104,
+      "sha256": "b498f366e173aa747cbf56044369a872c6a95003bf135673c42077fcde87a36f",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/results/development_cycle1.json",
+      "bytes": 90715,
+      "sha256": "193a1b6632cb0a4f77f94635f40fbf2c15c0a66be6f77833ba5cf29e0645c313",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/results/development_cycle2.json",
+      "bytes": 230230,
+      "sha256": "d6716dfc2d59e31cf4c983156a5ebec8c7f2c3cb53d050a9d6c1255a2a4ce064",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/results/parent_boundary.json",
+      "bytes": 737,
+      "sha256": "57a185e4b4d22397f30b712bff9c69b181f0274fcfe9e5b5cceff96a28715e2e",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/results/parent_checks.json",
+      "bytes": 405,
+      "sha256": "5fdf5b61b9d7f1185a55394a01d54d320f175d7b786659256f0f048c34d72896",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/results/provider_preflight.json",
+      "bytes": 211,
+      "sha256": "f7fd76dad2aace551ddb0a94f13f1fe10036c2fd3e7820714595bf324e35b010",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/results/provider_smoke.json",
+      "bytes": 450,
+      "sha256": "1c3af7b1e8b679ce738516baa8addda578d220b18b1adf5958a5af52125fb49d",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/src/audit_development.py",
+      "bytes": 3937,
+      "sha256": "59ad89ef05b08c156e052867a7a499195270926829e3dee7c350a8f7b59a6703",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/src/parent_boundary.py",
+      "bytes": 1942,
+      "sha256": "43f8f4a918f9ce43c09c2a2c1e3e6a88cbdbffe20af0b28cb6df27413900a4b9",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/src/parent_checks.py",
+      "bytes": 1948,
+      "sha256": "6591f4d5004b9dbddb3ca38c24a7c7e2c5536622b82d319e8052251bf074869b",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/src/provider_preflight.py",
+      "bytes": 1790,
+      "sha256": "99ace0399a7aec48233df4162dc3c79132f277835b1aaaa12bea643ae8dc552a",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/src/recovery_cycle1.py",
+      "bytes": 5476,
+      "sha256": "432a9231ea9f8e085de4e173933eea15137517e4d189fa4664ff5a0f11b7fd4e",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/src/run_native_checks.py",
+      "bytes": 5326,
+      "sha256": "1eafb8a0006a2f3c99db77fdea4b62b7f361a79e2e2bdac43956f12463ec3e91",
+      "origin": "workspace"
+    },
+    {
+      "path": "research/q5_remaining_v1/src/scalar_cycle2.py",
+      "bytes": 5773,
+      "sha256": "7da37ddc60833a443b16248390eb414864cdaba7a65a1faa6ee205ef1800504f",
       "origin": "workspace"
     },
     {
@@ -6496,9 +7162,10 @@
     }
   ],
   "exclusion_counts": {
-    "private/cache/third-party/raw-data directory": 16928,
-    "not an authored-document/code/result allowlisted type": 1046,
-    "raw retrieval or transport material": 18
+    "private/cache/third-party/raw-data directory": 17401,
+    "not an authored-document/code/result allowlisted type": 1053,
+    "raw retrieval or transport material": 18,
+    "live pipeline control state; scientific snapshots only": 21
   },
   "scope": "Archive integrity only; not scientific replication."
 }

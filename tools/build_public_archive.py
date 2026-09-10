@@ -29,6 +29,9 @@ ASSIGNMENT = re.compile(r'''(?ix)(?:api[_-]?key|access[_-]?token|password|client
 
 def reason(path, size):
     parts = path.parts
+    if str(path).startswith('research/q5_remaining_v1/pipeline/'):
+        if not any(p in parts for p in ('code', 'inputs', 'results')):
+            return 'live pipeline control state; scientific snapshots only'
     if any(p.startswith('.') or p in BLOCK_DIR or p.startswith('.venv') for p in parts):
         return 'private/cache/third-party/raw-data directory'
     name = path.name.lower()
@@ -86,6 +89,12 @@ def main():
                 excluded[why] += 1
                 continue
             data = path.read_bytes()
+            if rel.suffix == '.json':
+                try:
+                    json.loads(data)
+                except (ValueError, UnicodeError):
+                    excluded['incomplete or invalid JSON snapshot'] += 1
+                    continue
             if sensitive(data, rel):
                 flagged.append(str(rel)); continue
             selected.append((rel, data, 'workspace'))
@@ -121,7 +130,7 @@ def main():
         dest.write_bytes(data)
         records.append(dict(path=str(rel), bytes=len(data), sha256=hashlib.sha256(data).hexdigest(), origin=origin))
     (DEST/'PUBLIC_MANIFEST.json').write_text(json.dumps(dict(
-        date='2026-09-09', a4_archive_sha256=archive_hash, records=records,
+        date='2026-09-10', a4_archive_sha256=archive_hash, records=records,
         exclusion_counts=dict(excluded), scope='Archive integrity only; not scientific replication.'), indent=2)+'\n')
     lines = ['# Complete public file index', '',
              'Paths, source hashes and archive origin: [PUBLIC_MANIFEST.json](PUBLIC_MANIFEST.json).', '',

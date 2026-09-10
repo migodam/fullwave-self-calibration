@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "kind": "scholarqa-evidence-bundle",
+  "created_at": "2026-09-10T09:22:27+00:00",
+  "question": "Which electromagnetic material identifiability results use electric magnetic modal ratios under unknown gain, and what error guarantees exist?",
+  "search_queries": [
+    "dielectric permittivity electric magnetic dipole ratio inverse scattering calibration",
+    "inverse scattering material calibration model error reference"
+  ],
+  "filters": {},
+  "query_runs": [
+    {
+      "query": "dielectric permittivity electric magnetic dipole ratio inverse scattering calibration",
+      "snippet_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      },
+      "paper_search": {
+        "total": 5,
+        "offset": 0,
+        "data": [
+          {
+            "paperId": "01a0729139da0a5479fd824b31be5365d4a0b3ab",
+            "externalIds": {
+              "ArXiv": "2601.08242",
+              "CorpusId": 284705008
+            },
+            "url": "https://www.semanticscholar.org/paper/01a0729139da0a5479fd824b31be5365d4a0b3ab",
+            "title": "Electromagnetic Scattering by a Cluster of Hybrid Dielectric-Plasmonic Dimers",
+            "venue": "",
+            "year": 2026,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2601.08242, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Mathematics",
+              "Physics"
+            ],
+            "publicationTypes": null,
+            "publicationDate": "2026-01-13",
+            "authors": [
+              {
+                "authorId": "2276427539",
+                "name": "Xinlin Cao"
+              },
+              {
+                "authorId": "1557363497",
+                "name": "Ahcene Ghandriche"
+              },
+              {
+                "authorId": "28985471",
+                "name": "M. Sini"
+              }
+            ],
+            "abstract": "We consider time-harmonic electromagnetic scattering by a cluster of hybrid dielectric-plasmonic dimers in $\\mathbb{R}^3$. Each dimer consists of a high-contrast dielectric nanoparticle and a moderately contrasting plasmonic nanoparticle separated by a subwavelength distance. The cluster is assumed to contain many such dimers whose size $a$ is small compared to the wavelength, with intra-dimer and inter-dimer distances scaling like $a^{t_1}$ and $a^{t_2}$, and the frequency is tuned near suitable electric and magnetic resonances of the associated Newtonian and magnetization operators on the reference shapes. Under these geometric, contrast and spectral assumptions, we derive a Foldy--Lax type approximation for the Maxwell system. We show that the scattered field and its far field admit asymptotic expansions in terms of four moments attached to each dimer, which solve an explicit finite-dimensional linear system. We prove invertibility of this system under quantitative smallness conditions on the contrast and the dimer density, and we obtain error estimates uniform in the number of dimers. By extracting the dominant components, we further show that each hybrid dimer behaves, at leading order, as a co-located electric and magnetic dipole driven by the local fields, and we identify the corresponding $6\\times 6$ polarizability matrix. This provides a discrete model for clusters of hybrid dimers that is suitable for fast forward simulations, inverse schemes, and as input for effective-medium descriptions. In particular, it suggests parameter regimes where clusters of hybrid dimers can generate (double) negative effective permittivity and permeability and bi-anisotropic constitutive laws and eventually hyperbolic media."
+          },
+          {
+            "paperId": "6e32477ce0e198569b0d98a41500e94ba727122b",
+            "externalIds": {
+              "CorpusId": 14407246
+            },
+            "url": "https://www.semanticscholar.org/paper/6e32477ce0e198569b0d98a41500e94ba727122b",
+            "title": "Inverse Electromagnetic Design of Optical Antennas for Heat-Assisted Magnetic Recording",
+            "venue": "",
+            "year": 2012,
+            "citationCount": 6,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null,
+              "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at http://digitalassets.lib.berkeley.edu/techreports/ucb/text/EECS-2012-248.pdf, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": null,
+            "publicationTypes": null,
+            "publicationDate": null,
+            "authors": [
+              {
+                "authorId": "4465763",
+                "name": "Samarth Bhargava"
+              }
+            ],
+            "abstract": null
+          },
+          {
+            "paperId": "728cdb0829a470dfc7b104a73456d11b024c77ce",
+            "externalIds": {
+              "MAG": "1995543251",
+              "DOI": "10.1109/ICEAA.2011.6046512",
+              "CorpusId": 14341670
+            },
+            "url": "https://www.semanticscholar.org/paper/728cdb0829a470dfc7b104a73456d11b024c77ce",
+            "title": "Inverse medium problems for spherical scatterers in the low-frequency region",
+            "venue": "International Conference on Electromagnetics in Advanced Applications",
+            "year": 2011,
+            "citationCount": 1,
+            "openAccessPdf": {
+              "url": "",
+              "status": "CLOSED",
+              "license": null,
+              "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ICEAA.2011.6046512?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ICEAA.2011.6046512, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Physics"
+            ],
+            "publicationTypes": [
+              "Conference"
+            ],
+            "publicationDate": "2011-09-01",
+            "authors": [
+              {
+                "authorId": "2193527",
+                "name": "N. Tsitsas"
+              }
+            ],
+            "abstract": null
+          },
+          {
+            "paperId": "fba570ca7ad95144f48ff669dc58f140498c57ac",
+            "externalIds": {
+              "MAG": "2594124260",
+              "DOI": "10.1557/MRS.2017.42",
+              "CorpusId": 136279751
+            },
+            "url": "https://www.semanticscholar.org/paper/fba570ca7ad95144f48ff669dc58f140498c57ac",
+            "title": "White Paper: Nanoscale impedance and permittivity properties at microwave frequencies using SMM",
+            "venue": "",
+            "year": 2017,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AAF689D6040BA09D58BF924D6DA1EF46/S0883769417000422a.pdf/div-class-title-white-paper-nanoscale-impedance-and-permittivity-properties-at-microwave-frequencies-using-smm-div.pdf",
+              "status": "BRONZE",
+              "license": null,
+              "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1557/MRS.2017.42?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1557/MRS.2017.42, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Materials Science"
+            ],
+            "publicationTypes": [
+              "Review"
+            ],
+            "publicationDate": "2017-03-01",
+            "authors": [
+              {
+                "authorId": "3306375",
+                "name": "F. Kienberger"
+              },
+              {
+                "authorId": "9259735",
+                "name": "G. Gramse"
+              }
+            ],
+            "abstract": null
+          },
+          {
+            "paperId": "67624221be8907163fe52a539f7ec6460416d4da",
+            "externalIds": {
+              "MAG": "2014963181",
+              "DOI": "10.1541/IEEJFMS.130.462",
+              "CorpusId": 109669655
+            },
+            "url": "https://www.semanticscholar.org/paper/67624221be8907163fe52a539f7ec6460416d4da",
+            "title": "A Novel Measurement Method of Electric Field by using Spherical Dielectric Scatterer",
+            "venue": "",
+            "year": 2010,
+            "citationCount": 7,
+            "openAccessPdf": {
+              "url": "https://doi.org/10.1541/ieejfms.130.462",
+              "status": "BRONZE",
+              "license": null,
+              "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1541/IEEJFMS.130.462?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1541/IEEJFMS.130.462, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Physics"
+            ],
+            "publicationTypes": null,
+            "publicationDate": "2010-05-01",
+            "authors": [
+              {
+                "authorId": "1867809",
+                "name": "T. Komakine"
+              },
+              {
+                "authorId": "2792280",
+                "name": "T. Kurosawa"
+              },
+              {
+                "authorId": "94017290",
+                "name": "H. Inoue"
+              }
+            ],
+            "abstract": null
+          }
+        ]
+      }
+    },
+    {
+      "query": "inverse scattering material calibration model error reference",
+      "snippet_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      },
+      "paper_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      }
+    }
+  ],
+  "candidate_paper_ids": [
+    "01a0729139da0a5479fd824b31be5365d4a0b3ab",
+    "6e32477ce0e198569b0d98a41500e94ba727122b",
+    "728cdb0829a470dfc7b104a73456d11b024c77ce",
+    "fba570ca7ad95144f48ff669dc58f140498c57ac",
+    "67624221be8907163fe52a539f7ec6460416d4da"
+  ],
+  "operation_errors": [
+    {
+      "query": "dielectric permittivity electric magnetic dipole ratio inverse scattering calibration",
+      "operation": "search_semantic_scholar_snippets",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "inverse scattering material calibration model error reference",
+      "operation": "search_semantic_scholar_snippets",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "inverse scattering material calibration model error reference",
+      "operation": "search_semantic_scholar_papers",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    }
+  ],
+  "evidence_policy": {
+    "snippet_search": "Candidate passage evidence; inspect its source before assigning full-text Tier A or abstract Tier B.",
+    "paper_search": "An abstract may support Tier B; metadata alone is Tier C and does not establish a finding.",
+    "final_citations": "Select papers by relevance and evidence, then run scholarqa-cli verify before citation."
+  }
+}

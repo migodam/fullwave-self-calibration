@@ -2,6 +2,19 @@
 
 This is a longitudinal research archive, not a single settled paper.
 
+## Current reading order: Q5 supersedes the historical A4 order below
+
+Begin with [Q5 complete entry](Q5_CHATGPT_START_HERE.md), then the
+[current verdict](research/q5_remaining_v1/Q5_EXECUTIVE_VERDICT_ZH.md),
+[theory](research/q5_remaining_v1/Q5_THEORY_FINAL.md),
+[corrected experiments](research/q5_remaining_v1/Q5_EXPERIMENT_REPORT.md), and
+[remaining questions](research/q5_remaining_v1/Q5_REMAINING_QUESTIONS.md).
+The full user specification remains [Q5](Theory/Questions/Q5.md).
+Read [supplied A5 theory](Theory/Questions/A5_THEORY.md) as an input, not as
+independently established evidence. The original A5 code package was unavailable;
+the Q5 code is an independent reconstruction. Filenames containing FINAL or
+DONE do not override explicit unresolved evidence labels.
+
 ## Suggested task
 
 > Read the navigation and publication scope, then A4's verdict, manuscript,

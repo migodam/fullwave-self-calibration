@@ -1,0 +1,52 @@
+{
+  "generated_utc": "2026-09-10T09:19:54+00:00",
+  "generated_local": "2026-09-10T17:19:54+08:00",
+  "algorithm": "sha256",
+  "hash_tool": "python hashlib (cross-checked against shasum -a 256)",
+  "working_directory": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction",
+  "inputs": [
+    {
+      "name": "A5_THEORY.md",
+      "source_path": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/Theory/Questions/A5_THEORY.md",
+      "copy_path": "inputs/A5_THEORY.md",
+      "source_sha256": "5b135f2ea486d5ffbfcd92bdc1a57c103aaecd0eeba3775da49f70052d746e49",
+      "copy_sha256": "5b135f2ea486d5ffbfcd92bdc1a57c103aaecd0eeba3775da49f70052d746e49",
+      "hashes_match": true,
+      "source_bytes": 19015,
+      "copy_bytes": 19015,
+      "originals_modified": false
+    },
+    {
+      "name": "modal_boundary.json",
+      "source_path": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/Theory/Questions/modal_boundary.json",
+      "copy_path": "inputs/modal_boundary.json",
+      "source_sha256": "036491f83909d680ac1e58d17a8c921b7de2e6c888b2c055953e4efac0ea00d6",
+      "copy_sha256": "036491f83909d680ac1e58d17a8c921b7de2e6c888b2c055953e4efac0ea00d6",
+      "hashes_match": true,
+      "source_bytes": 36910,
+      "copy_bytes": 36910,
+      "originals_modified": false
+    },
+    {
+      "name": "WORKER_TASK.md",
+      "source_path": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/q5_remaining_v1/docs/WORKER_TASK.md",
+      "copy_path": "inputs/WORKER_TASK.md",
+      "source_sha256": "8272fb3c2cc14923f74e91a6d9eae8b5976a85e77199d85f5ce90cb344d54164",
+      "copy_sha256": "8272fb3c2cc14923f74e91a6d9eae8b5976a85e77199d85f5ce90cb344d54164",
+      "hashes_match": true,
+      "source_bytes": 1778,
+      "copy_bytes": 1778,
+      "originals_modified": false
+    }
+  ],
+  "derived_artifacts": [
+    {
+      "name": "inputs/modal_boundary_pretty.json",
+      "produced_by": "json.load + json.dumps(indent=2, sort_keys=False) via the designated interpreter",
+      "sha256": "570b7aceaa726cc90cf1f98435b019e44feaac97ae0ce851682dcde471c94f2e",
+      "bytes": 36911,
+      "note": "byte-identical stdout capture plus trailing newline; semantic content equals inputs/modal_boundary.json"
+    }
+  ],
+  "all_source_copy_hashes_match": true
+}

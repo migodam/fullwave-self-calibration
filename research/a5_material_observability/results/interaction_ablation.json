@@ -1,0 +1,139 @@
+{
+  "complete": true,
+  "source_hashes": {
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/a5_material_observability/interaction_ablation.py": "c53999a06965a8531d6001ee33347c61619e8d23b6bd557435747073d9c2e54e",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/a5_material_observability/ROUND2_PROTOCOL.md": "7fd271685edf4dab698e8c8e837d8b837fc0691a9067be9f11cc53357fa64800",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/maxwell3d.py": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b",
+    "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/a5_material_observability/scale_gauge_experiment.py": "937b98704247660fac3cb131b91af69f4aa55c343627df8e7dd13f2d1e7b5b07"
+  },
+  "rows": [
+    {
+      "scale": 0.01,
+      "methods": {
+        "interacting": {
+          "relative_sensitivity": 0.001242856003887226,
+          "absolute_sensitivity": 6.896959545921582e-07,
+          "finite_pair_residual": 0.00031036970302117557,
+          "derivative_step_change": 4.915962166684576e-07,
+          "relative_born_mismatch": 0.004744891921546854
+        },
+        "isolated_sum": {
+          "relative_sensitivity": 0.0012600703253253455,
+          "absolute_sensitivity": 6.992430910979504e-07,
+          "finite_pair_residual": 0.0003146687264600984,
+          "derivative_step_change": 4.847805621336001e-07,
+          "relative_born_mismatch": 0.004750068846586724
+        }
+      },
+      "relative_interaction_field_change": 0.00029922946783670354
+    },
+    {
+      "scale": 0.03,
+      "methods": {
+        "interacting": {
+          "relative_sensitivity": 0.003663243375959543,
+          "absolute_sensitivity": 6.054464228699507e-06,
+          "finite_pair_residual": 0.0009127975426591861,
+          "derivative_step_change": 8.190170865553268e-08,
+          "relative_born_mismatch": 0.012466694390256374
+        },
+        "isolated_sum": {
+          "relative_sensitivity": 0.003714019240073823,
+          "absolute_sensitivity": 6.1382400255087955e-06,
+          "finite_pair_residual": 0.000925451353276275,
+          "derivative_step_change": 8.049210873195709e-08,
+          "relative_born_mismatch": 0.01248239769897171
+        }
+      },
+      "relative_interaction_field_change": 0.0008898185098102796
+    },
+    {
+      "scale": 0.1,
+      "methods": {
+        "interacting": {
+          "relative_sensitivity": 0.011491048118913052,
+          "absolute_sensitivity": 6.175764026829166e-05,
+          "finite_pair_residual": 0.0028423430040412237,
+          "derivative_step_change": 1.1176933709629499e-08,
+          "relative_born_mismatch": 0.039305962270747404
+        },
+        "isolated_sum": {
+          "relative_sensitivity": 0.01165062763844085,
+          "absolute_sensitivity": 6.26106323085822e-05,
+          "finite_pair_residual": 0.002881824177497574,
+          "derivative_step_change": 1.0916137047724586e-08,
+          "relative_born_mismatch": 0.039356182656179794
+        }
+      },
+      "relative_interaction_field_change": 0.002877615950688958
+    },
+    {
+      "scale": 0.3,
+      "methods": {
+        "interacting": {
+          "relative_sensitivity": 0.029240421395021452,
+          "absolute_sensitivity": 0.00044125767984224995,
+          "finite_pair_residual": 0.0070991479325424045,
+          "derivative_step_change": 6.333488340099757e-09,
+          "relative_born_mismatch": 0.114060780330444
+        },
+        "isolated_sum": {
+          "relative_sensitivity": 0.02964674733207684,
+          "absolute_sensitivity": 0.00044730290817328864,
+          "finite_pair_residual": 0.007197740941216212,
+          "derivative_step_change": 6.293408548112654e-09,
+          "relative_born_mismatch": 0.1141924657242677
+        }
+      },
+      "relative_interaction_field_change": 0.007952260219907949
+    },
+    {
+      "scale": 1.0,
+      "methods": {
+        "interacting": {
+          "relative_sensitivity": 0.05976994186182736,
+          "absolute_sensitivity": 0.0024790183213297123,
+          "finite_pair_residual": 0.013877317521645702,
+          "derivative_step_change": 2.4147284245086166e-09,
+          "relative_born_mismatch": 0.3595219936172065
+        },
+        "isolated_sum": {
+          "relative_sensitivity": 0.06057618690362828,
+          "absolute_sensitivity": 0.002511334608735724,
+          "finite_pair_residual": 0.014062861475294109,
+          "derivative_step_change": 2.4444077762739466e-09,
+          "relative_born_mismatch": 0.3598284728329038
+        }
+      },
+      "relative_interaction_field_change": 0.020725902272809172
+    },
+    {
+      "scale": 2.0,
+      "methods": {
+        "interacting": {
+          "relative_sensitivity": 0.07120530374840528,
+          "absolute_sensitivity": 0.004777855411819782,
+          "finite_pair_residual": 0.01612704798860562,
+          "derivative_step_change": 2.1458034151027844e-09,
+          "relative_born_mismatch": 0.6852246036027527
+        },
+        "isolated_sum": {
+          "relative_sensitivity": 0.07206360056610238,
+          "absolute_sensitivity": 0.00483212838503694,
+          "finite_pair_residual": 0.016312245026557624,
+          "derivative_step_change": 2.085998034951345e-09,
+          "relative_born_mismatch": 0.6857657769967853
+        }
+      },
+      "relative_interaction_field_change": 0.03151116805267114
+    }
+  ],
+  "born_quadrature_change": 0.0018788412092187077,
+  "born_gain_hidden_residue": 1.3954398274614932e-16,
+  "wall_seconds": 4.986682457965799,
+  "checks": {
+    "born_scaling": true,
+    "derivative_steps": true
+  },
+  "scope": "Deterministic mechanism ablation, not recovery, solver certification or novelty."
+}

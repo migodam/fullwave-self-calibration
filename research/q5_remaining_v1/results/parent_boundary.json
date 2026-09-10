@@ -1,0 +1,27 @@
+{
+  "world0": [
+    2.0,
+    3.0
+  ],
+  "world1": [
+    2.359740580371099,
+    3.9893194150178264
+  ],
+  "gains": [
+    1.0,
+    0.8
+  ],
+  "complex_whitened_distance": 0.20123662403751882,
+  "equal_prior_binary_error": 0.44342318925625723,
+  "conditional_reference_material_bound": [
+    0.049816852108164174,
+    0.09399452445839189
+  ],
+  "conditional_remaining_model_error_budget": [
+    1.6075587497656133e-05,
+    5.78480566713741e-07
+  ],
+  "status": "scalar numerical reconstruction passed; interval and readout feasibility unresolved",
+  "scope": "Separately measured lossless electric modes, known geometry; not simultaneous lossy imaging",
+  "source_hash": "43f8f4a918f9ce43c09c2a2c1e3e6a88cbdbffe20af0b28cb6df27413900a4b9"
+}

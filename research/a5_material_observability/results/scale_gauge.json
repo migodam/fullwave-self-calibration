@@ -1,0 +1,582 @@
+{
+  "complete": true,
+  "source_hashes": {
+    "research/a5_material_observability/scale_gauge_experiment.py": "937b98704247660fac3cb131b91af69f4aa55c343627df8e7dd13f2d1e7b5b07",
+    "research/a5_material_observability/PLAN_AND_PROTOCOL.md": "7896b79a665108c75471cc5e1558e3c88bb8a53072f59f2b3b4ce96344a87989",
+    "research/trispace_self_calibration/a3_research/maxwell3d.py": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b",
+    "public_release/research/a4_reliability_v1/src/modal.py": "e6b5cfc553fe33970c89be72af7b80acd9c770152d323977e6c4083d0dd896a0"
+  },
+  "modal_counterexamples": [
+    {
+      "k": 4.0,
+      "radius": 0.12,
+      "gain_compensated_relative_error": 1.5441337871156126e-16,
+      "compensating_gain": [
+        0.49689421867274214,
+        0.008242704657512872
+      ]
+    },
+    {
+      "k": 4.0,
+      "radius": 0.4,
+      "gain_compensated_relative_error": 6.62508040163803e-17,
+      "compensating_gain": [
+        0.4968942186727421,
+        0.008242704657512874
+      ]
+    },
+    {
+      "k": 4.0,
+      "radius": 1.0,
+      "gain_compensated_relative_error": 1.187704752898589e-16,
+      "compensating_gain": [
+        0.4968942186727421,
+        0.008242704657512881
+      ]
+    },
+    {
+      "k": 12.0,
+      "radius": 0.12,
+      "gain_compensated_relative_error": 1.2839173637173868e-16,
+      "compensating_gain": [
+        0.47282142468214317,
+        -0.005198660372074325
+      ]
+    },
+    {
+      "k": 12.0,
+      "radius": 0.4,
+      "gain_compensated_relative_error": 1.2198145691378385e-16,
+      "compensating_gain": [
+        0.47282142468214317,
+        -0.005198660372074313
+      ]
+    },
+    {
+      "k": 12.0,
+      "radius": 1.0,
+      "gain_compensated_relative_error": 1.2435441276096577e-16,
+      "compensating_gain": [
+        0.4728214246821432,
+        -0.005198660372074316
+      ]
+    },
+    {
+      "k": 24.0,
+      "radius": 0.12,
+      "gain_compensated_relative_error": 1.3272118262775533e-16,
+      "compensating_gain": [
+        0.429544710940656,
+        -0.10245717795500532
+      ]
+    },
+    {
+      "k": 24.0,
+      "radius": 0.4,
+      "gain_compensated_relative_error": 3.95782365876279e-17,
+      "compensating_gain": [
+        0.42954471094065605,
+        -0.10245717795500534
+      ]
+    },
+    {
+      "k": 24.0,
+      "radius": 1.0,
+      "gain_compensated_relative_error": 9.100890310659532e-17,
+      "compensating_gain": [
+        0.4295447109406561,
+        -0.10245717795500535
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "scale": 0.01,
+      "radius": 0.2,
+      "field_norm": 0.0017578695246719801,
+      "lmax_relative_change": 1.0051550961747985e-05,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 2.232308344241331e-06,
+          "relative_log_scale_sensitivity": 0.0012698942173526113,
+          "finite_pair_relative_residual": 0.00031712181547501484,
+          "lmax3_relative_sensitivity": 0.0012698972710210267
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 2.107795696252221e-06,
+          "relative_log_scale_sensitivity": 0.0011990626532111576,
+          "finite_pair_relative_residual": 0.0002994301029833743,
+          "lmax3_relative_sensitivity": 0.0011990664775675308
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 2.5951410202615906e-16
+    },
+    {
+      "scale": 0.01,
+      "radius": 0.6,
+      "field_norm": 0.0005549282881001713,
+      "lmax_relative_change": 2.098278806591837e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 6.896959545921582e-07,
+          "relative_log_scale_sensitivity": 0.001242856003887226,
+          "finite_pair_relative_residual": 0.00031036970302117557,
+          "lmax3_relative_sensitivity": 0.0012428588296900325
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 6.41547215913674e-07,
+          "relative_log_scale_sensitivity": 0.0011560903087316876,
+          "finite_pair_relative_residual": 0.0002886974962601984,
+          "lmax3_relative_sensitivity": 0.001156093940592986
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 1.0353373237880177e-16
+    },
+    {
+      "scale": 0.01,
+      "radius": 2.0,
+      "field_norm": 0.00016578082756080778,
+      "lmax_relative_change": 1.9807233965868847e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 2.053882008564932e-07,
+          "relative_log_scale_sensitivity": 0.001238914076364817,
+          "finite_pair_relative_residual": 0.0003093850412363381,
+          "lmax3_relative_sensitivity": 0.001238916565334553
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 1.9071494151394039e-07,
+          "relative_log_scale_sensitivity": 0.0011504040866486015,
+          "finite_pair_relative_residual": 0.00028727732657959893,
+          "lmax3_relative_sensitivity": 0.0011504074314468466
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 1.4709454847205315e-16
+    },
+    {
+      "scale": 0.03,
+      "radius": 0.2,
+      "field_norm": 0.005235528732015282,
+      "lmax_relative_change": 1.0070625031856128e-05,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 1.959629952978755e-05,
+          "relative_log_scale_sensitivity": 0.003742945657036717,
+          "finite_pair_relative_residual": 0.000932657917040516,
+          "lmax3_relative_sensitivity": 0.003742955034906859
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 1.850061737346984e-05,
+          "relative_log_scale_sensitivity": 0.003533667432734822,
+          "finite_pair_relative_residual": 0.0008804797759270059,
+          "lmax3_relative_sensitivity": 0.003533679092234548
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 1.2631185515365286e-16
+    },
+    {
+      "scale": 0.03,
+      "radius": 0.6,
+      "field_norm": 0.0016527605750774374,
+      "lmax_relative_change": 2.099455179245567e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 6.054464228699507e-06,
+          "relative_log_scale_sensitivity": 0.003663243375959543,
+          "finite_pair_relative_residual": 0.0009127975426591861,
+          "lmax3_relative_sensitivity": 0.003663251970050838
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 5.630640011534521e-06,
+          "relative_log_scale_sensitivity": 0.003406809247776682,
+          "finite_pair_relative_residual": 0.0008488570361020001,
+          "lmax3_relative_sensitivity": 0.0034068202291156575
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 8.783225411664203e-17
+    },
+    {
+      "scale": 0.03,
+      "radius": 2.0,
+      "field_norm": 0.0004937531117539093,
+      "lmax_relative_change": 1.9818460974254757e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 1.802976010780548e-06,
+          "relative_log_scale_sensitivity": 0.0036515739705943696,
+          "finite_pair_relative_residual": 0.00090988745534137,
+          "lmax3_relative_sensitivity": 0.003651581572238468
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 1.6738273811119554e-06,
+          "relative_log_scale_sensitivity": 0.003390008774154734,
+          "finite_pair_relative_residual": 0.0008446690861688724,
+          "lmax3_relative_sensitivity": 0.0033900189118429456
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 3.0476947552989435e-16
+    },
+    {
+      "scale": 0.1,
+      "radius": 0.2,
+      "field_norm": 0.017024920717416812,
+      "lmax_relative_change": 1.013511495983848e-05,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.0001998917545099437,
+          "relative_log_scale_sensitivity": 0.011741126894379643,
+          "finite_pair_relative_residual": 0.0029042021800437696,
+          "lmax3_relative_sensitivity": 0.011741160202620221
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.00018861831900782316,
+          "relative_log_scale_sensitivity": 0.011078954324578033,
+          "finite_pair_relative_residual": 0.0027400826564192558,
+          "lmax3_relative_sensitivity": 0.011078994857876289
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 2.733326032712589e-16
+    },
+    {
+      "scale": 0.1,
+      "radius": 0.6,
+      "field_norm": 0.005374413163116523,
+      "lmax_relative_change": 2.1054908270632974e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 6.175764026829166e-05,
+          "relative_log_scale_sensitivity": 0.011491048118913052,
+          "finite_pair_relative_residual": 0.0028423430040412237,
+          "lmax3_relative_sensitivity": 0.011491077807199466
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 5.7392490416450405e-05,
+          "relative_log_scale_sensitivity": 0.010678838540051796,
+          "finite_pair_relative_residual": 0.00264098403381088,
+          "lmax3_relative_sensitivity": 0.010678875793983505
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 1.1751503162970377e-16
+    },
+    {
+      "scale": 0.1,
+      "radius": 2.0,
+      "field_norm": 0.0016056064223385351,
+      "lmax_relative_change": 1.9873749696780985e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 1.8390478245466156e-05,
+          "relative_log_scale_sensitivity": 0.011453914228046482,
+          "finite_pair_relative_residual": 0.002833135753807605,
+          "lmax3_relative_sensitivity": 0.011453940814721193
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 1.7060705166366247e-05,
+          "relative_log_scale_sensitivity": 0.010625708099446723,
+          "finite_pair_relative_residual": 0.0026278256447755674,
+          "lmax3_relative_sensitivity": 0.010625742736644354
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 8.436144838385458e-17
+    },
+    {
+      "scale": 0.3,
+      "radius": 0.2,
+      "field_norm": 0.0478052750157191,
+      "lmax_relative_change": 1.0298838015136615e-05,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.0014282638412491957,
+          "relative_log_scale_sensitivity": 0.029876699606467296,
+          "finite_pair_relative_residual": 0.007253603512698791,
+          "lmax3_relative_sensitivity": 0.029876808216370454
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.0013456199513625345,
+          "relative_log_scale_sensitivity": 0.028147938714296158,
+          "finite_pair_relative_residual": 0.006831303576133719,
+          "lmax3_relative_sensitivity": 0.028148065613887264
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 1.558174200506509e-16
+    },
+    {
+      "scale": 0.3,
+      "radius": 0.6,
+      "field_norm": 0.01509067444278965,
+      "lmax_relative_change": 2.1346990786709106e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.00044125767984224995,
+          "relative_log_scale_sensitivity": 0.029240421395021452,
+          "finite_pair_relative_residual": 0.0070991479325424045,
+          "lmax3_relative_sensitivity": 0.0292405135859952
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.0004091709504344713,
+          "relative_log_scale_sensitivity": 0.02711415927668984,
+          "finite_pair_relative_residual": 0.006579383565195428,
+          "lmax3_relative_sensitivity": 0.027114270506697895
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 1.0794851703881517e-16
+    },
+    {
+      "scale": 0.3,
+      "radius": 2.0,
+      "field_norm": 0.004508546002390273,
+      "lmax_relative_change": 2.013165182423903e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.00013139092751965218,
+          "relative_log_scale_sensitivity": 0.029142638768683584,
+          "finite_pair_relative_residual": 0.007075279674653641,
+          "lmax3_relative_sensitivity": 0.029142723165842085
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.00012162330299766687,
+          "relative_log_scale_sensitivity": 0.026976169907812063,
+          "finite_pair_relative_residual": 0.006545773626148786,
+          "lmax3_relative_sensitivity": 0.026976274676332276
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 2.2181153264948196e-16
+    },
+    {
+      "scale": 1.0,
+      "radius": 0.2,
+      "field_norm": 0.1314071492802963,
+      "lmax_relative_change": 1.0663982914801796e-05,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.008023702921238924,
+          "relative_log_scale_sensitivity": 0.06105986595998723,
+          "finite_pair_relative_residual": 0.014175884235571685,
+          "lmax3_relative_sensitivity": 0.061060187661196696
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.007515003243252431,
+          "relative_log_scale_sensitivity": 0.05718869395167117,
+          "finite_pair_relative_residual": 0.013261393724229848,
+          "lmax3_relative_sensitivity": 0.05718904675595884
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 9.551773099933275e-17
+    },
+    {
+      "scale": 1.0,
+      "radius": 0.6,
+      "field_norm": 0.04147600355811892,
+      "lmax_relative_change": 2.2915631009101727e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.0024790183213297123,
+          "relative_log_scale_sensitivity": 0.05976994186182736,
+          "finite_pair_relative_residual": 0.013877317521645702,
+          "lmax3_relative_sensitivity": 0.05977019531793589
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.002279965743400351,
+          "relative_log_scale_sensitivity": 0.05497071915826009,
+          "finite_pair_relative_residual": 0.012741727542669294,
+          "lmax3_relative_sensitivity": 0.05497100229288959
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 1.8744424113008175e-16
+    },
+    {
+      "scale": 1.0,
+      "radius": 2.0,
+      "field_norm": 0.012392768788595132,
+      "lmax_relative_change": 2.1520590019251217e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.0007380628695068493,
+          "relative_log_scale_sensitivity": 0.05955592992149396,
+          "finite_pair_relative_residual": 0.013827344356327632,
+          "lmax3_relative_sensitivity": 0.05955616842751652
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.0006775801734600112,
+          "relative_log_scale_sensitivity": 0.05467544703033413,
+          "finite_pair_relative_residual": 0.012672851203074586,
+          "lmax3_relative_sensitivity": 0.054675718206788584
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 1.3195603669423006e-16
+    },
+    {
+      "scale": 2.0,
+      "radius": 0.2,
+      "field_norm": 0.2126157823285577,
+      "lmax_relative_change": 1.0862903997685447e-05,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.015448333197598165,
+          "relative_log_scale_sensitivity": 0.07265845003794531,
+          "finite_pair_relative_residual": 0.016446690898812594,
+          "lmax3_relative_sensitivity": 0.07265888331469558
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.014360858793431144,
+          "relative_log_scale_sensitivity": 0.06754371023708455,
+          "finite_pair_relative_residual": 0.015271598163216927,
+          "lmax3_relative_sensitivity": 0.06754416549997058
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 2.6289685374602583e-16
+    },
+    {
+      "scale": 2.0,
+      "radius": 0.6,
+      "field_norm": 0.0670997125256528,
+      "lmax_relative_change": 2.513671435182835e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.004777855411819782,
+          "relative_log_scale_sensitivity": 0.07120530374840528,
+          "finite_pair_relative_residual": 0.01612704798860562,
+          "lmax3_relative_sensitivity": 0.07120562095497458
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.004348971632518476,
+          "relative_log_scale_sensitivity": 0.06481356579368096,
+          "finite_pair_relative_residual": 0.01465597698195553,
+          "lmax3_relative_sensitivity": 0.06481389684253096
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 3.1645752766452633e-16
+    },
+    {
+      "scale": 2.0,
+      "radius": 2.0,
+      "field_norm": 0.020050360689208405,
+      "lmax_relative_change": 2.356675017430326e-06,
+      "gains": {
+        "shared": {
+          "absolute_log_scale_sensitivity": 0.001422577352706937,
+          "relative_log_scale_sensitivity": 0.07095021255515882,
+          "finite_pair_relative_residual": 0.016070339117965893,
+          "lmax3_relative_sensitivity": 0.07095051419813359
+        },
+        "per_illumination": {
+          "absolute_log_scale_sensitivity": 0.001292525566115095,
+          "relative_log_scale_sensitivity": 0.06446395584348584,
+          "finite_pair_relative_residual": 0.014578188518186479,
+          "lmax3_relative_sensitivity": 0.06446427469304081
+        },
+        "entry": {
+          "absolute_log_scale_sensitivity": 0.0,
+          "relative_log_scale_sensitivity": 0.0,
+          "finite_pair_relative_residual": 0.0,
+          "lmax3_relative_sensitivity": 0.0
+        }
+      },
+      "linear_scaling_control": 2.270887355918461e-16
+    }
+  ],
+  "wall_seconds": 7.9231762499548495,
+  "scope": "Deterministic local/finite-pair diagnostics, not recovery, global stability or novelty proof."
+}

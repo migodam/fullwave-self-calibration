@@ -1,7 +1,17 @@
 # Research navigation: history, evidence and subject map
 
-9 September 2026. Stage names denote provenance, not increasing validity.
+10 September 2026. Stage names denote provenance, not increasing validity.
 Read corrections before relying on historical positive claims.
+
+## Latest: A4 closure, supplied A5, independent Q5 reconstruction
+
+- [Q5 web ChatGPT entry](Q5_CHATGPT_START_HERE.md).
+- [A4 closure and material mechanism work](research/a5_material_observability/README.md), including scale/gain and interaction ablations.
+- [A5 supplied theory](Theory/Questions/A5_THEORY.md), [A5 paper](Theory/Questions/PAPER_DRAFT_A5.md).
+- [Q5 reconstruction](research/q5_remaining_v1/README.md), [current verdict](research/q5_remaining_v1/Q5_EXECUTIVE_VERDICT_ZH.md).
+- [Chinese report](communication/Q5_REMAINING_V1_RESEARCH_REPORT_ZH.md).
+
+Earlier SOM and SLAM material below provides provenance; neither is restored as a current Q5 core claim.
 
 ## A1: original SOM–SLAM question
 

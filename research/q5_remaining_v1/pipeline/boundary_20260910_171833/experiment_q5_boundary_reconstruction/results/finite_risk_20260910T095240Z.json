@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "task": "PART B finite-risk constant checks",
+    "generated_utc": "2026-09-10T09:52:40.937899+00:00",
+    "command_line": "code/run_finite_risk_checks.py",
+    "interpreter": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/.venv3d/bin/python",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cwd": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction",
+    "file_sha256": {
+      "code/mie_reactance.py": "c5c7c000a0f31da4702fe0a034a5a55028bc7bd7329a71ceb464287b617bbca5",
+      "code/run_finite_risk_checks.py": "89de7d2d2fc6ccb768f6f1e3e1263e36765b8a7d64dd806c7080827490f49c18",
+      "inputs/modal_boundary.json": "036491f83909d680ac1e58d17a8c921b7de2e6c888b2c055953e4efac0ea00d6"
+    },
+    "rng_seed": 20260910,
+    "mpmath_dps_for_exact_steps": 50,
+    "my_amplitude_derivative_lower": [
+      0.00042929719577,
+      0.00012943650641
+    ]
+  },
+  "step1_scale": {
+    "q_world1": [
+      "0.00133320525073695556289623681084",
+      "0.000902399677835408501377427095166"
+    ],
+    "q_world2": [
+      "0.00166650656342119351228317084261",
+      "0.00112799959729425997275796831311"
+    ],
+    "c": [
+      "1.24999999999999929392932959828",
+      "1.24999999999999927530579673465"
+    ],
+    "c_minus_1p25": [
+      "-7.06070670401723122671215509898e-16",
+      "-7.24694203265354564756046203027e-16"
+    ],
+    "gain2_equals_gain1_over_c_rel": [
+      5.648565363213788e-16,
+      5.79755362612284e-16
+    ]
+  },
+  "step2_identity": {
+    "ch1": {
+      "c": "1.24999999999999929392932959828",
+      "delta_mu_direct_re": "-0.000000444356048971307448001935513962",
+      "delta_mu_direct_im": "-0.00000000133294305207154694470461935621",
+      "abs_direct": "0.000000444358048193763503852207333723",
+      "abs_closed": "0.000000444358048193762499858014738568",
+      "abs_disc": "7.53068654409729287759772652252e-19",
+      "rel_disc": 1.6947339143981291e-12,
+      "abs_rel_formula": "0.00033330084985564633537607032639",
+      "bound_c_minus_1_times_q": "0.000333301312684237949386934031771",
+      "t_from_q_vs_neg_a1_xi_minus_abs": "8.67364322923966e-19",
+      "q_mie_xi_minus_vs_q_abs": "0.002666403392452992",
+      "q_mie_xi_minus_vs_q_rel": "1.9999946677220815",
+      "a1_xi_plus_vs_neg_conj_t_abs": "8.67364322923966e-19",
+      "q_mie_xi_plus_vs_q_rel": "0.0026664010227751404",
+      "note_xi_plus_equals_q_over_1plus2iq": "q/(1+2iq); relative offset ~2q"
+    },
+    "ch2": {
+      "c": "1.24999999999999927530579673465",
+      "delta_mu_direct_re": "-0.000000203580662598980242842153858683",
+      "delta_mu_direct_im": "-4.13350451046657966347962397866e-10",
+      "abs_direct": "0.000000203581082232203524455910913622",
+      "abs_closed": "0.000000203581082232203052347013639261",
+      "abs_disc": "5.23170719607992278669322636297e-19",
+      "rel_disc": 2.5698395640281863e-12,
+      "abs_rel_formula": "0.000225599775934227477113375543741",
+      "bound_c_minus_1_times_q": "0.000225599919458851471380541217947",
+      "t_from_q_vs_neg_a1_xi_minus_abs": "1.0842042404350637e-19",
+      "q_mie_xi_minus_vs_q_abs": "0.0018047971511363154",
+      "q_mie_xi_minus_vs_q_rel": "1.9999975570309303",
+      "a1_xi_plus_vs_neg_conj_t_abs": "1.0842042404350637e-19",
+      "q_mie_xi_plus_vs_q_rel": "0.001804796416290883",
+      "note_xi_plus_equals_q_over_1plus2iq": "q/(1+2iq); relative offset ~2q"
+    }
+  },
+  "step3_sigma_factor": {
+    "ch1": {
+      "abs_g1_t1": "0.00133320406589487064451127240676",
+      "sigma_supplied": "0.0000026664081317897358",
+      "implied_factor": "0.00199999999999999588283392975615",
+      "rel_diff_vs_0p002": 2.058583035121927e-15
+    },
+    "ch2": {
+      "abs_g1_t1": "0.000902399310412243511061262432039",
+      "sigma_supplied": "0.0000018047986208244827",
+      "implied_factor": "0.00199999999999999521041020865851",
+      "rel_diff_vs_0p002": 2.394794895670743e-15
+    }
+  },
+  "step4_distance": {
+    "D2": "0.0404961788540176115166053771668",
+    "D": "0.20123662403751860674028632908",
+    "D_supplied": "0.20123662403751783",
+    "D_abs_diff": "7.7674028632908049164976776529e-16",
+    "D_rel_diff": 3.859835604200296e-15,
+    "p_star": "0.443423189256257311544638208851",
+    "p_star_supplied": "0.4434231892562575",
+    "p_star_abs_diff": "-1.88455361791148542109605056916e-16",
+    "p_star_rel_diff": 4.250011419277371e-16
+  },
+  "step5_monte_carlo_theorem4": {
+    "N_per_world": 4000000,
+    "tau_D2": "0.040496178854017684",
+    "emp_mean_error": 0.44360825,
+    "emp_error_world0": 0.44389175,
+    "emp_error_world1": 0.44332475,
+    "emp_err_counts": [
+      1775567,
+      1773299
+    ],
+    "binomial_ci95_halfwidth": 0.0003442716221959579,
+    "ci95": [
+      0.443263978377804,
+      0.44395252162219595
+    ],
+    "theoretical_Phi_minus_D_over_sqrt2": 0.4434231892562573,
+    "theoretical_in_ci": true,
+    "empirical_whitened_distance_from_sample_means": 0.20071239618522405,
+    "D_rel_diff_from_sample_means": 0.002605032035305956
+  },
+  "step6_section7_bounds": {
+    "b_i": [
+      "0.00000700801619590482837324484015622",
+      "0.0000047434816201955899159017430695"
+    ],
+    "b_a": "0.00329052673149189479322162703537",
+    "a_min": "0.75",
+    "H_i_from_supplied_q_upper": [
+      "0.0027198118011157357",
+      "0.0013096911596704335"
+    ],
+    "m_i_supplied": [
+      "0.0004326194599396315",
+      "0.00013086616723688468"
+    ],
+    "m_i_mine": [
+      "0.00042929719577",
+      "0.00012943650641"
+    ],
+    "bounds_with_supplied_m": [
+      "0.0493981482498104528250991631491",
+      "0.0926437515789665731027375391691"
+    ],
+    "bounds_supplied": [
+      "0.04939804578095942",
+      "0.0926437137553974"
+    ],
+    "bounds_with_supplied_m_rel_diff_vs_supplied": [
+      2.074350298940812e-06,
+      4.082691381842316e-07
+    ],
+    "bounds_with_my_m": [
+      "0.0497804328293361381323312995902",
+      "0.0936670265897161793604032916374"
+    ],
+    "bounds_growth_factor_my_over_supplied_m": [
+      1.0077388443306101,
+      1.0110452674174943
+    ],
+    "bounds_with_my_m_rel_growth_pct": [
+      0.773884433061015,
+      1.1045267417494415
+    ],
+    "bounds_with_my_m_below_0p10": [
+      true,
+      true
+    ],
+    "per_channel_failure_prob": "exp(-b_i^2/sigma_i^2) = 1e-3 each",
+    "reference_failure_prob": "2*(1-Phi(3.2905267315)) = 1e-3",
+    "union_bound_failure_prob": "0.00299999999999989085641978067868",
+    "implied_coverage_lower": "0.997000000000000109143580219321",
+    "supplied_coverage_lower": "0.997"
+  },
+  "step7_monte_carlo_estimator": {
+    "N_per_world": 2000000,
+    "seed": 20260911,
+    "channels": {
+      "ch1": {
+        "x": 0.2,
+        "material_interval": [
+          1.5,
+          4.0
+        ],
+        "clip_range_h": [
+          0.0007592485294952488,
+          0.0026877666324877443
+        ],
+        "bound": 0.04978043282933614,
+        "b_i": 7.008016195904829e-06,
+        "b_a": 0.0032905267314918946,
+        "sigma_i": 2.6664081317897358e-06,
+        "worlds": {
+          "world0": {
+            "gain": 1.0,
+            "eps": 2.0,
+            "t": [
+              -1.7774330813186146e-06,
+              0.0013332028810538387
+            ],
+            "good_fraction": 0.9980015,
+            "good_fraction_ci95": [
+              0.9979396045468514,
+              0.9980633954531486
+            ],
+            "per_channel_theory_0p998001_in_ci": true,
+            "joint_theory_0p997_below_good_fraction": true,
+            "theoretical_good_lower_per_channel": 0.998001,
+            "supplied_joint_good_lower": 0.997,
+            "max_err_on_good_event": 0.010232550948966468,
+            "bound": 0.04978043282933614,
+            "bound_satisfied_on_good_event": true,
+            "violations_count": 0,
+            "max_violation": 0.0,
+            "unconditional_max_err": 0.010880928092106501
+          },
+          "world1": {
+            "gain": 0.8,
+            "eps": 2.359740580371098,
+            "t": [
+              -2.2217891302899222e-06,
+              0.0013332015481107868
+            ],
+            "good_fraction": 0.997967,
+            "good_fraction_ci95": [
+              0.9979045736629086,
+              0.9980294263370915
+            ],
+            "per_channel_theory_0p998001_in_ci": true,
+            "joint_theory_0p997_below_good_fraction": true,
+            "theoretical_good_lower_per_channel": 0.998001,
+            "supplied_joint_good_lower": 0.997,
+            "max_err_on_good_event": 0.0169312300580704,
+            "bound": 0.04978043282933614,
+            "bound_satisfied_on_good_event": true,
+            "violations_count": 0,
+            "max_violation": 0.0,
+            "unconditional_max_err": 0.01875053187780784
+          }
+        }
+      },
+      "ch2": {
+        "x": 0.15,
+        "material_interval": [
+          2.0,
+          5.0
+        ],
+        "clip_range_h": [
+          0.0005624828184482221,
+          0.0012931316893648214
+        ],
+        "bound": 0.09366702658971618,
+        "b_i": 4.74348162019559e-06,
+        "b_a": 0.0032905267314918946,
+        "sigma_i": 1.8047986208244827e-06,
+        "worlds": {
+          "world0": {
+            "gain": 1.0,
+            "eps": 3.0,
+            "t": [
+              -8.143245154324927e-07,
+              0.0009023989429892282
+            ],
+            "good_fraction": 0.997997,
+            "good_fraction_ci95": [
+              0.9979350350410868,
+              0.9980589649589132
+            ],
+            "per_channel_theory_0p998001_in_ci": true,
+            "joint_theory_0p997_below_good_fraction": true,
+            "theoretical_good_lower_per_channel": 0.998001,
+            "supplied_joint_good_lower": 0.997,
+            "max_err_on_good_event": 0.026713909475601927,
+            "bound": 0.09366702658971618,
+            "bound_satisfied_on_good_event": true,
+            "violations_count": 0,
+            "max_violation": 0.0,
+            "unconditional_max_err": 0.028789920990059947
+          },
+          "world1": {
+            "gain": 0.8,
+            "eps": 3.989319415017825,
+            "t": [
+              -1.017905178031473e-06,
+              0.0009023985296387772
+            ],
+            "good_fraction": 0.9980675,
+            "good_fraction_ci95": [
+              0.9980066331562807,
+              0.9981283668437193
+            ],
+            "per_channel_theory_0p998001_in_ci": false,
+            "joint_theory_0p997_below_good_fraction": true,
+            "theoretical_good_lower_per_channel": 0.998001,
+            "supplied_joint_good_lower": 0.997,
+            "max_err_on_good_event": 0.0517359978624623,
+            "bound": 0.09366702658971618,
+            "bound_satisfied_on_good_event": true,
+            "violations_count": 0,
+            "max_violation": 0.0,
+            "unconditional_max_err": 0.05473991109756282
+          }
+        }
+      }
+    }
+  },
+  "summary": {
+    "c_i": [
+      1.2499999999999993,
+      1.2499999999999993
+    ],
+    "c_i_minus_1.25": [
+      -7.060706704017231e-16,
+      -7.246942032653546e-16
+    ],
+    "abs_delta_mu": [
+      4.443580481937635e-07,
+      2.0358108223220353e-07
+    ],
+    "delta_mu_closed_form_rel_disc": [
+      1.6947339143981291e-12,
+      2.5698395640281863e-12
+    ],
+    "sigma_implied_factor": [
+      0.0019999999999999957,
+      0.0019999999999999953
+    ],
+    "D": 0.2012366240375186,
+    "D_supplied": 0.20123662403751783,
+    "D_rel_diff": 3.859835604200296e-15,
+    "p_star": 0.4434231892562573,
+    "p_star_supplied": 0.4434231892562575,
+    "p_star_rel_diff": 4.250011419277371e-16,
+    "mc_mean_error": 0.44360825,
+    "mc_ci95": [
+      0.443263978377804,
+      0.44395252162219595
+    ],
+    "bounds_with_supplied_m": [
+      0.04939814824981045,
+      0.09264375157896658
+    ],
+    "bounds_with_my_m": [
+      0.04978043282933614,
+      0.09366702658971618
+    ],
+    "bounds_supplied": [
+      0.04939804578095942,
+      0.0926437137553974
+    ],
+    "good_fractions": [
+      [
+        0.9980015,
+        0.997967
+      ],
+      [
+        0.997997,
+        0.9980675
+      ]
+    ],
+    "violations_total": 0,
+    "wall_seconds": 5.633086919784546
+  }
+}

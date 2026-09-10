@@ -1,0 +1,527 @@
+{
+  "passed": true,
+  "summary": {
+    "same_model/no_reference": {
+      "n": 12,
+      "success": 11,
+      "material_median_errors": [
+        0.022896349717210773,
+        0.027126014165943957
+      ],
+      "geometry_median_mm": 0.04105767262904303,
+      "wrong_heuristic_pass": 1,
+      "heuristic_pass": 12,
+      "structural_median_fixed_world": 0.007353198236798704
+    },
+    "same_model/joint_reference": {
+      "n": 12,
+      "success": 12,
+      "material_median_errors": [
+        0.008276593410281974,
+        0.011014812872221169
+      ],
+      "geometry_median_mm": 0.036438804020017534,
+      "wrong_heuristic_pass": 0,
+      "heuristic_pass": 12,
+      "structural_median_fixed_world": 0.0036669925013896507
+    },
+    "independent_DDA/no_reference": {
+      "n": 12,
+      "success": 1,
+      "material_median_errors": [
+        0.3793787595964797,
+        0.4779618490224027
+      ],
+      "geometry_median_mm": 0.04399242266210816,
+      "wrong_heuristic_pass": 2,
+      "heuristic_pass": 3,
+      "structural_median_fixed_world": 0.14991649950127953
+    },
+    "independent_DDA/joint_reference": {
+      "n": 12,
+      "success": 6,
+      "material_median_errors": [
+        0.09292000290941038,
+        0.10514957394853353
+      ],
+      "geometry_median_mm": 0.02111401384503825,
+      "wrong_heuristic_pass": 0,
+      "heuristic_pass": 2,
+      "structural_median_fixed_world": 0.03904980580118034
+    },
+    "cycle2/selected_EM": {
+      "n": 12,
+      "success": 1,
+      "material_median_errors": [
+        0.3873250856938295,
+        0.45925240156238556
+      ],
+      "wrong_heuristic_pass": 1
+    },
+    "cycle2/random_EM": {
+      "n": 12,
+      "success": 1,
+      "material_median_errors": [
+        0.37911182217238193,
+        0.4795110060432708
+      ],
+      "wrong_heuristic_pass": 0
+    },
+    "cycle2/fixed_EM": {
+      "n": 12,
+      "success": 1,
+      "material_median_errors": [
+        0.38141610450436225,
+        0.4694520726401554
+      ],
+      "wrong_heuristic_pass": 2
+    },
+    "cycle2/policy": {
+      "n": 12,
+      "success": 3,
+      "reference_choices": 5
+    }
+  },
+  "cycle1_corrected": [
+    {
+      "scene": 0,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 273.7409243307802,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.011710671126516874
+        },
+        "joint_reference": {
+          "whitened_rss": 274.1459249589848,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.005598604069460212
+        }
+      }
+    },
+    {
+      "scene": 1,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 273.0514413714537,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.0009291901359196143
+        },
+        "joint_reference": {
+          "whitened_rss": 273.6259874724291,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.005148407898175812
+        }
+      }
+    },
+    {
+      "scene": 2,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 292.2859836561776,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.006135814997289311
+        },
+        "joint_reference": {
+          "whitened_rss": 292.8666756612492,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.0027725141514444353
+        }
+      }
+    },
+    {
+      "scene": 3,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 278.93222931254445,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.004776719802524528
+        },
+        "joint_reference": {
+          "whitened_rss": 282.558733894451,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.000935345570076904
+        }
+      }
+    },
+    {
+      "scene": 4,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 257.93663292958405,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.002299061882094665
+        },
+        "joint_reference": {
+          "whitened_rss": 258.07122157078044,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.0008500865751711994
+        }
+      }
+    },
+    {
+      "scene": 5,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 271.7625858643797,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.03382311751616763
+        },
+        "joint_reference": {
+          "whitened_rss": 273.42395308513215,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.011404817529831926
+        }
+      }
+    },
+    {
+      "scene": 6,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 260.551094076485,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.008570581476308098
+        },
+        "joint_reference": {
+          "whitened_rss": 263.49550442891325,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.007030452360153753
+        }
+      }
+    },
+    {
+      "scene": 7,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 333.029464848419,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": true,
+          "structural_field_error_fixed_world": 0.0463487947117696
+        },
+        "joint_reference": {
+          "whitened_rss": 335.96375930004933,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.0010990471315096375
+        }
+      }
+    },
+    {
+      "scene": 8,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 257.1064769768999,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.0010512838302651258
+        },
+        "joint_reference": {
+          "whitened_rss": 257.1766276594272,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.0028271418953257853
+        }
+      }
+    },
+    {
+      "scene": 9,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 253.93665786412387,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.014746684415687317
+        },
+        "joint_reference": {
+          "whitened_rss": 260.03254095833324,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.004425049796574873
+        }
+      }
+    },
+    {
+      "scene": 10,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 290.991913811093,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.004682183466620289
+        },
+        "joint_reference": {
+          "whitened_rss": 291.7209981686675,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.003089648783906886
+        }
+      }
+    },
+    {
+      "scene": 11,
+      "data_class": "same_model",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 324.9154138827697,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.009538126392536558
+        },
+        "joint_reference": {
+          "whitened_rss": 326.085905494916,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.0042443362188724154
+        }
+      }
+    },
+    {
+      "scene": 12,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 461.0912305094727,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.08318983067037146
+        },
+        "joint_reference": {
+          "whitened_rss": 582.8156947284558,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.031137599709884764
+        }
+      }
+    },
+    {
+      "scene": 13,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 635.036156630104,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.10008165067811124
+        },
+        "joint_reference": {
+          "whitened_rss": 788.4367586824586,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.08170248258087875
+        }
+      }
+    },
+    {
+      "scene": 14,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 330.01854632456036,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": true,
+          "structural_field_error_fixed_world": 0.06957637341295869
+        },
+        "joint_reference": {
+          "whitened_rss": 341.2785922950658,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.005848070780676996
+        }
+      }
+    },
+    {
+      "scene": 15,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 578.8327514494388,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.19564001377139414
+        },
+        "joint_reference": {
+          "whitened_rss": 814.8477951796806,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.07957894377498555
+        }
+      }
+    },
+    {
+      "scene": 16,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 406.808358224012,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.17060809582072395
+        },
+        "joint_reference": {
+          "whitened_rss": 536.4854020182931,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.04457245917338383
+        }
+      }
+    },
+    {
+      "scene": 17,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 442.88351067801096,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.14497937304848335
+        },
+        "joint_reference": {
+          "whitened_rss": 572.9632654328377,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.03366559333759756
+        }
+      }
+    },
+    {
+      "scene": 18,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 522.8809264380291,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.22177082326368228
+        },
+        "joint_reference": {
+          "whitened_rss": 923.9204674942548,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.0829651991630688
+        }
+      }
+    },
+    {
+      "scene": 19,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 307.4130858639682,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.029196040168631202
+        },
+        "joint_reference": {
+          "whitened_rss": 307.9713874194699,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.01550687510067282
+        }
+      }
+    },
+    {
+      "scene": 20,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 484.35642635587334,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.16828220771101915
+        },
+        "joint_reference": {
+          "whitened_rss": 635.0151097000314,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.043946522163992426
+        }
+      }
+    },
+    {
+      "scene": 21,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 334.97448274295175,
+          "heuristic_residual_pass": true,
+          "wrong_heuristic_pass": true,
+          "structural_field_error_fixed_world": 0.12317423965399586
+        },
+        "joint_reference": {
+          "whitened_rss": 369.0316855862807,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.014915881863364384
+        }
+      }
+    },
+    {
+      "scene": 22,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 391.554574329877,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.1703809353197368
+        },
+        "joint_reference": {
+          "whitened_rss": 524.6043723683656,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.054095840943575606
+        }
+      }
+    },
+    {
+      "scene": 23,
+      "data_class": "independent_DDA",
+      "methods": {
+        "no_reference": {
+          "whitened_rss": 427.8645793230994,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.1548536259540757
+        },
+        "joint_reference": {
+          "whitened_rss": 537.8456969174856,
+          "heuristic_residual_pass": false,
+          "wrong_heuristic_pass": false,
+          "structural_field_error_fixed_world": 0.03415308943836824
+        }
+      }
+    }
+  ],
+  "cycle1_seconds": 94.24483533296734,
+  "cycle2_seconds": 87.67135562503245,
+  "corrections": [
+    "Cycle1 residual flags withdrawn: use 2*rss for chi-square.",
+    "Cycle1 structural error superseded: fixed physical points, not pose-shifted surface."
+  ],
+  "scientific_acceptance": "unresolved",
+  "final_test_generated": false
+}

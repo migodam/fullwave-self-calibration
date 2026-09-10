@@ -1,0 +1,3110 @@
+{
+  "complete": true,
+  "source_hashes": {
+    "research/q5_remaining_v1/src/recovery_cycle1.py": "432a9231ea9f8e085de4e173933eea15137517e4d189fa4664ff5a0f11b7fd4e",
+    "research/q5_remaining_v1/docs/DEVELOPMENT_PROTOCOL.md": "08d63c2a028b6dfff496f911b9dfa30eab6131c013ab41e346d21f9b286b0dea",
+    "research/trispace_self_calibration/a3_research/maxwell3d.py": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b"
+  },
+  "seed": 2026091101,
+  "rows": [
+    {
+      "scene": 0,
+      "data_class": "same_model",
+      "truth": [
+        3.1588512288136155,
+        3.5998858709115753,
+        -0.626840306037558
+      ],
+      "gain": [
+        0.44013188573268275,
+        -0.8977065707301515
+      ],
+      "sigma": 5.524896133243481e-05,
+      "data_generation_seconds": 0.1099844160489738,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.1204782208815347,
+                3.5508998828097433,
+                -0.6437579307744352
+              ],
+              "rss": 136.87046216540216,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.1204782928052976,
+                3.5508999685631935,
+                -0.6437582561682355
+              ],
+              "rss": 136.8704621653901,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.1204784956544547,
+                3.55090028042261,
+                -0.6437577350431589
+              ],
+              "rss": 136.87046216539767,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.1204782928052976,
+            3.5508999685631935,
+            -0.6437582561682355
+          ],
+          "gain": [
+            0.4454495405207202,
+            -0.9074493528190855
+          ],
+          "material_errors": [
+            0.038372936008317815,
+            0.04898590234838185
+          ],
+          "geometry_error_mm": 0.016917950130677428,
+          "gain_relative_error": 0.011101774523593658,
+          "task_success": true,
+          "sensor_prediction_error": 0.0009635151498775272,
+          "structural_field_error": 0.011747567891191307,
+          "rss": 136.8704621653901,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.5912114169914275
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.140337305190197,
+                3.5770687290058065,
+                -0.6434474495453107
+              ],
+              "rss": 137.07296247950526,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.140337297217041,
+                3.577068732796526,
+                -0.6434468202038681
+              ],
+              "rss": 137.07296247950148,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.1403372823617572,
+                3.5770687010361595,
+                -0.64344702913851
+              ],
+              "rss": 137.0729624794924,
+              "nfev": 6,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.1403372823617572,
+            3.5770687010361595,
+            -0.64344702913851
+          ],
+          "gain": [
+            0.4424444486571851,
+            -0.9019920144503928
+          ],
+          "material_errors": [
+            0.01851394645185822,
+            0.02281716987541582
+          ],
+          "geometry_error_mm": 0.016606723100952014,
+          "gain_relative_error": 0.004870587888362024,
+          "task_success": true,
+          "sensor_prediction_error": 0.0008354480758131826,
+          "structural_field_error": 0.0056377000150353495,
+          "rss": 137.0729624794924,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.527212749933824
+        }
+      }
+    },
+    {
+      "scene": 1,
+      "data_class": "same_model",
+      "truth": [
+        3.5916443187815266,
+        3.0044151361880473,
+        -1.62628014068408
+      ],
+      "gain": [
+        1.174178851129249,
+        -0.15396807466092502
+      ],
+      "sigma": 7.040542709756118e-05,
+      "data_generation_seconds": 0.10276404093019664,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.59582797540157,
+                3.005040608056956,
+                -1.6938972802502117
+              ],
+              "rss": 136.52572068572684,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.595827948213979,
+                3.005040588439228,
+                -1.6938973395757049
+              ],
+              "rss": 136.52572068573184,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.5958281001311154,
+                3.005040706262078,
+                -1.6938967889278609
+              ],
+              "rss": 136.52572068575162,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.59582797540157,
+            3.005040608056956,
+            -1.6938972802502117
+          ],
+          "gain": [
+            1.174376550424173,
+            -0.15315838695468886
+          ],
+          "material_errors": [
+            0.004183656620043497,
+            0.0006254718689087113
+          ],
+          "geometry_error_mm": 0.0676171395661318,
+          "gain_relative_error": 0.000703810695323402,
+          "task_success": true,
+          "sensor_prediction_error": 0.001301249335969593,
+          "structural_field_error": 0.0011366741616800583,
+          "rss": 136.52572068572684,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8975570000475273
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.613709754290413,
+                3.017451723628112,
+                -1.6942766959257571
+              ],
+              "rss": 136.81299373621454,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.6137097767420796,
+                3.017451718227043,
+                -1.6942776972203042
+              ],
+              "rss": 136.81299373627832,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.6137097524606188,
+                3.0174517295877346,
+                -1.6942763912695298
+              ],
+              "rss": 136.81299373624972,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.613709754290413,
+            3.017451723628112,
+            -1.6942766959257571
+          ],
+          "gain": [
+            1.1693839417478624,
+            -0.152761045133464
+          ],
+          "material_errors": [
+            0.02206543550888629,
+            0.01303658744006464
+          ],
+          "geometry_error_mm": 0.06799655524167725,
+          "gain_relative_error": 0.004175284396384985,
+          "task_success": true,
+          "sensor_prediction_error": 0.0013422375285397586,
+          "structural_field_error": 0.005059929282787187,
+          "rss": 136.81299373621454,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.931540249963291
+        }
+      }
+    },
+    {
+      "scene": 2,
+      "data_class": "same_model",
+      "truth": [
+        2.2974587030430498,
+        3.627108525743995,
+        -1.1846567129582666
+      ],
+      "gain": [
+        0.312400841281945,
+        -0.7963955381243275
+      ],
+      "sigma": 3.587712505674286e-05,
+      "data_generation_seconds": 0.10387945908587426,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.286464257698661,
+                3.6036660753834124,
+                -1.183984707890423
+              ],
+              "rss": 146.14299182810825,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.286464432256005,
+                3.6036665335750713,
+                -1.1839850739514517
+              ],
+              "rss": 146.1429918280888,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.286464672250141,
+                3.6036671634905333,
+                -1.1839851802292323
+              ],
+              "rss": 146.1429918281034,
+              "nfev": 11,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.286464432256005,
+            3.6036665335750713,
+            -1.1839850739514517
+          ],
+          "gain": [
+            0.3149072979958088,
+            -0.8015979450490616
+          ],
+          "material_errors": [
+            0.010994270787044957,
+            0.02344199216892351
+          ],
+          "geometry_error_mm": 0.0006716390068148836,
+          "gain_relative_error": 0.006750293191232031,
+          "task_success": true,
+          "sensor_prediction_error": 0.0008592443919468832,
+          "structural_field_error": 0.0061323742116685745,
+          "rss": 146.1429918280888,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.9853128750110045
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.2922129875990027,
+                3.6187901339426594,
+                -1.1848537743625889
+              ],
+              "rss": 146.43333783062468,
+              "nfev": 7,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.29221299406857,
+                3.6187901456563965,
+                -1.1848539840441836
+              ],
+              "rss": 146.43333783064844,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.2922129809450476,
+                3.6187901150065334,
+                -1.184853774923962
+              ],
+              "rss": 146.4333378306246,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.2922129809450476,
+            3.6187901150065334,
+            -1.184853774923962
+          ],
+          "gain": [
+            0.3137989594417633,
+            -0.7988893649853986
+          ],
+          "material_errors": [
+            0.005245722098002226,
+            0.008318410737461424
+          ],
+          "geometry_error_mm": 0.0001970619656954664,
+          "gain_relative_error": 0.0033420021747487885,
+          "task_success": true,
+          "sensor_prediction_error": 0.0008528086706884007,
+          "structural_field_error": 0.002770666899370344,
+          "rss": 146.4333378306246,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.715001874952577
+        }
+      }
+    },
+    {
+      "scene": 3,
+      "data_class": "same_model",
+      "truth": [
+        3.531452017364143,
+        4.078990615786002,
+        0.7366700176132879
+      ],
+      "gain": [
+        -0.7786778091147332,
+        0.1542404562817697
+      ],
+      "sigma": 4.854042325360983e-05,
+      "data_generation_seconds": 0.10974179196637124,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.551175270045466,
+                4.103214897051987,
+                0.8399319551460024
+              ],
+              "rss": 139.46611465627223,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.5511752867288213,
+                4.1032148915367745,
+                0.8399311490832112
+              ],
+              "rss": 139.46611465637443,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.5511753460529367,
+                4.103214998258347,
+                0.839931903830062
+              ],
+              "rss": 139.46611465627518,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.551175270045466,
+            4.103214897051987,
+            0.8399319551460024
+          ],
+          "gain": [
+            -0.7741059673493993,
+            0.15346138612814464
+          ],
+          "material_errors": [
+            0.019723252681323356,
+            0.02422428126598497
+          ],
+          "geometry_error_mm": 0.10326193753271451,
+          "gain_relative_error": 0.005842411396573983,
+          "task_success": true,
+          "sensor_prediction_error": 0.0016061885321504888,
+          "structural_field_error": 0.005203463088197343,
+          "rss": 139.46611465627223,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.902997542056255
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.535467039005488,
+                4.082335707899986,
+                0.8423101373715087
+              ],
+              "rss": 141.2793669472255,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.5354670507968575,
+                4.082335770056151,
+                0.8423114630520264
+              ],
+              "rss": 141.2793669475667,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.5354670438565834,
+                4.082335715897538,
+                0.8423101950606586
+              ],
+              "rss": 141.27936694722672,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.535467039005488,
+            4.082335707899986,
+            0.8423101373715087
+          ],
+          "gain": [
+            -0.777113432668695,
+            0.15393735128652042
+          ],
+          "material_errors": [
+            0.00401502164134504,
+            0.0033450921139843715
+          ],
+          "geometry_error_mm": 0.10564011975822085,
+          "gain_relative_error": 0.002007377459492069,
+          "task_success": true,
+          "sensor_prediction_error": 0.0015657344726013813,
+          "structural_field_error": 0.0018497365050138307,
+          "rss": 141.2793669472255,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.7936636669328436
+        }
+      }
+    },
+    {
+      "scene": 4,
+      "data_class": "same_model",
+      "truth": [
+        2.593167128439438,
+        4.454028533474942,
+        0.44174137584511186
+      ],
+      "gain": [
+        -0.18301859538915446,
+        -0.732679627808656
+      ],
+      "sigma": 3.687399243284345e-05,
+      "data_generation_seconds": 0.10503949993290007,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.5870512794110083,
+                4.450662252808721,
+                0.5032195866111683
+              ],
+              "rss": 128.96831646479203,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.5870512062806412,
+                4.450662036514412,
+                0.5032199050839103
+              ],
+              "rss": 128.96831646482667,
+              "nfev": 13,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.587051592999283,
+                4.450663214563214,
+                0.5032194959179065
+              ],
+              "rss": 128.96831646481178,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.5870512794110083,
+            4.450662252808721,
+            0.5032195866111683
+          ],
+          "gain": [
+            -0.18432641496984326,
+            -0.7337868240587836
+          ],
+          "material_errors": [
+            0.006115849028429654,
+            0.003366280666220689
+          ],
+          "geometry_error_mm": 0.06147821076605642,
+          "gain_relative_error": 0.0022690335518247506,
+          "task_success": true,
+          "sensor_prediction_error": 0.0014308851365999436,
+          "structural_field_error": 0.002266004618353009,
+          "rss": 128.96831646479203,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.4962707080412656
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.59150114492774,
+                4.464305090125568,
+                0.5042059819990421
+              ],
+              "rss": 129.0356107853985,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.5915011467099385,
+                4.4643051221662535,
+                0.5042066985363923
+              ],
+              "rss": 129.03561078539022,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.591501119393438,
+                4.464305010528,
+                0.5042059066050729
+              ],
+              "rss": 129.03561078540883,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.5915011467099385,
+            4.4643051221662535,
+            0.5042066985363923
+          ],
+          "gain": [
+            -0.18402075996131734,
+            -0.732275927346356
+          ],
+          "material_errors": [
+            0.0016659817294994994,
+            0.010276588691311872
+          ],
+          "geometry_error_mm": 0.06246532269128047,
+          "gain_relative_error": 0.0014306560024113584,
+          "task_success": true,
+          "sensor_prediction_error": 0.0014419263713798072,
+          "structural_field_error": 0.0009793907076846688,
+          "rss": 129.03561078539022,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.3147804170148447
+        }
+      }
+    },
+    {
+      "scene": 5,
+      "data_class": "same_model",
+      "truth": [
+        2.432542428948294,
+        2.182467013688427,
+        1.603649342427742
+      ],
+      "gain": [
+        0.8441960363162822,
+        0.21533987963116955
+      ],
+      "sigma": 3.469009935371349e-05,
+      "data_generation_seconds": 0.10558412503451109,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.499644989642243,
+                2.2289348418097386,
+                1.6119366825650396
+              ],
+              "rss": 135.88129293284962,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.499643416294628,
+                2.2289335808915136,
+                1.6119357636181288
+              ],
+              "rss": 135.88129293218984,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.4996441413494117,
+                2.2289341655321717,
+                1.6119364713639894
+              ],
+              "rss": 135.88129293228,
+              "nfev": 11,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.499643416294628,
+            2.2289335808915136,
+            1.6119357636181288
+          ],
+          "gain": [
+            0.8158228048267233,
+            0.20846691188892652
+          ],
+          "material_errors": [
+            0.06710098734633396,
+            0.046466567203086395
+          ],
+          "geometry_error_mm": 0.008286421190386806,
+          "gain_relative_error": 0.03350879469597584,
+          "task_success": true,
+          "sensor_prediction_error": 0.0020026662572254833,
+          "structural_field_error": 0.033852603861177714,
+          "rss": 135.88129293218984,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.1696948329918087
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.455557845563544,
+                2.1942201371542116,
+                1.6074646255077645
+              ],
+              "rss": 136.7119765425999,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.455557752181489,
+                2.1942200507415577,
+                1.6074636233913397
+              ],
+              "rss": 136.71197654256608,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.455557945548037,
+                2.1942202084032187,
+                1.6074638491412823
+              ],
+              "rss": 136.711976542617,
+              "nfev": 10,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.455557752181489,
+            2.1942200507415577,
+            1.6074636233913397
+          ],
+          "gain": [
+            0.8338394947018908,
+            0.21353954163880215
+          ],
+          "material_errors": [
+            0.023015323233194884,
+            0.011753037053130466
+          ],
+          "geometry_error_mm": 0.003814280963597705,
+          "gain_relative_error": 0.012065565739466398,
+          "task_success": true,
+          "sensor_prediction_error": 0.0017482883064579822,
+          "structural_field_error": 0.011422339718159487,
+          "rss": 136.71197654256608,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.9309322501067072
+        }
+      }
+    },
+    {
+      "scene": 6,
+      "data_class": "same_model",
+      "truth": [
+        3.019924420888088,
+        3.3048013413028037,
+        1.793279719725415
+      ],
+      "gain": [
+        0.5366673677266611,
+        -0.8367004198841884
+      ],
+      "sigma": 5.226895818846678e-05,
+      "data_generation_seconds": 0.1034630830399692,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.0459937531169112,
+                3.3348289506889244,
+                1.8992280104187038
+              ],
+              "rss": 130.2755470382502,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.045993784208178,
+                3.3348289789623564,
+                1.8992276528573493
+              ],
+              "rss": 130.27554703824683,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.045993867641186,
+                3.3348290883687066,
+                1.899227883290778
+              ],
+              "rss": 130.2755470382425,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.045993867641186,
+            3.3348290883687066,
+            1.899227883290778
+          ],
+          "gain": [
+            0.5326305662061551,
+            -0.8295729988059759
+          ],
+          "material_errors": [
+            0.02606944675309819,
+            0.030027747065902943
+          ],
+          "geometry_error_mm": 0.10594816356536318,
+          "gain_relative_error": 0.008240471263114533,
+          "task_success": true,
+          "sensor_prediction_error": 0.0016378090657928404,
+          "structural_field_error": 0.00894256686181823,
+          "rss": 130.2755470382425,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8796415410470217
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.9991049610108966,
+                3.277785240347353,
+                1.8991589496756283
+              ],
+              "rss": 131.74775221445663,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.9991049712536957,
+                3.2777852483293803,
+                1.899158803742284
+              ],
+              "rss": 131.74775221445768,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.9991049648247965,
+                3.2777852451193237,
+                1.8991589130969615
+              ],
+              "rss": 131.74775221445674,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.9991049610108966,
+            3.277785240347353,
+            1.8991589496756283
+          ],
+          "gain": [
+            0.5415609679024156,
+            -0.8422673880523084
+          ],
+          "material_errors": [
+            0.02081945987719136,
+            0.027016100955450817
+          ],
+          "geometry_error_mm": 0.10587922995021337,
+          "gain_relative_error": 0.007456624870080349,
+          "task_success": true,
+          "sensor_prediction_error": 0.001609444920640932,
+          "structural_field_error": 0.006934152355547211,
+          "rss": 131.74775221445663,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8606222909875214
+        }
+      }
+    },
+    {
+      "scene": 7,
+      "data_class": "same_model",
+      "truth": [
+        1.6801907721187836,
+        2.853890402673085,
+        -1.4735771220606364
+      ],
+      "gain": [
+        0.2944888154285084,
+        0.7787975116740935
+      ],
+      "sigma": 2.298849517651466e-05,
+      "data_generation_seconds": 0.10531829099636525,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                1.717596956485936,
+                2.9852331146169306,
+                -1.4343044775485645
+              ],
+              "rss": 166.5147324244292,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.7175963831637326,
+                2.985231024004073,
+                -1.434303562836489
+              ],
+              "rss": 166.5147324242095,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.7175969116741885,
+                2.98523297337491,
+                -1.4343029472534914
+              ],
+              "rss": 166.51473242426718,
+              "nfev": 12,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            1.7175963831637326,
+            2.985231024004073,
+            -1.434303562836489
+          ],
+          "gain": [
+            0.28192945912351336,
+            0.7452610882999191
+          ],
+          "material_errors": [
+            0.037405611044948994,
+            0.13134062133098823
+          ],
+          "geometry_error_mm": 0.039273559224147325,
+          "gain_relative_error": 0.04301025220533873,
+          "task_success": false,
+          "sensor_prediction_error": 0.0018236455451660115,
+          "structural_field_error": 0.046371824407353254,
+          "rss": 166.5147324242095,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.0463800419820473
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                1.6813460594108833,
+                2.85455053791502,
+                -1.443457403776611
+              ],
+              "rss": 167.9818796500508,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.681346011367584,
+                2.854550365621303,
+                -1.443457384510403
+              ],
+              "rss": 167.98187965004192,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.68134605383243,
+                2.8545505142853886,
+                -1.4434576714422194
+              ],
+              "rss": 167.98187965002467,
+              "nfev": 12,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            1.68134605383243,
+            2.8545505142853886,
+            -1.4434576714422194
+          ],
+          "gain": [
+            0.2949559604716946,
+            0.7789733312995955
+          ],
+          "material_errors": [
+            0.0011552817136464277,
+            0.0006601116123037265
+          ],
+          "geometry_error_mm": 0.030119450618417032,
+          "gain_relative_error": 0.0005994796517845894,
+          "task_success": true,
+          "sensor_prediction_error": 0.00154763774990606,
+          "structural_field_error": 0.0012322815588070631,
+          "rss": 167.98187965002467,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8410905830096453
+        }
+      }
+    },
+    {
+      "scene": 8,
+      "data_class": "same_model",
+      "truth": [
+        2.3653200123257005,
+        2.8228255711745787,
+        -1.7007274732460762
+      ],
+      "gain": [
+        1.015464225118975,
+        0.6464886716893464
+      ],
+      "sigma": 4.9069120109209065e-05,
+      "data_generation_seconds": 0.10278729198034853,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.3651855373458632,
+                2.830387482874629,
+                -1.743569259280015
+              ],
+              "rss": 128.55323848844995,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.3651856100385715,
+                2.8303875910769745,
+                -1.7435693483047507
+              ],
+              "rss": 128.55323848845774,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.36518561848162,
+                2.83038760354454,
+                -1.7435694220602287
+              ],
+              "rss": 128.55323848846118,
+              "nfev": 11,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.3651855373458632,
+            2.830387482874629,
+            -1.743569259280015
+          ],
+          "gain": [
+            1.0148013804342988,
+            0.64679748840083
+          ],
+          "material_errors": [
+            0.00013447497983731793,
+            0.007561911700050494
+          ],
+          "geometry_error_mm": 0.042841786033938734,
+          "gain_relative_error": 0.0006074578655867819,
+          "task_success": true,
+          "sensor_prediction_error": 0.0011817131714025341,
+          "structural_field_error": 0.0012913899357146943,
+          "rss": 128.55323848844995,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.7618925410788506
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.35943212974045,
+                2.8217915331566945,
+                -1.7434856306676942
+              ],
+              "rss": 128.5883138297136,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.359432118818077,
+                2.8217915204605193,
+                -1.7434853243017523
+              ],
+              "rss": 128.5883138297167,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.359432128153656,
+                2.821791531437706,
+                -1.743485275655313
+              ],
+              "rss": 128.5883138297197,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.35943212974045,
+            2.8217915331566945,
+            -1.7434856306676942
+          ],
+          "gain": [
+            1.01799271722155,
+            0.6489145705314109
+          ],
+          "material_errors": [
+            0.005887882585250637,
+            0.0010340380178841535
+          ],
+          "geometry_error_mm": 0.04275815742161804,
+          "gain_relative_error": 0.0029108304773169673,
+          "task_success": true,
+          "sensor_prediction_error": 0.0011775866955556233,
+          "structural_field_error": 0.0029962469643506446,
+          "rss": 128.5883138297136,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.5779510829597712
+        }
+      }
+    },
+    {
+      "scene": 9,
+      "data_class": "same_model",
+      "truth": [
+        2.8789478006523392,
+        3.8482002695282733,
+        0.3085819933244278
+      ],
+      "gain": [
+        -0.1261969610764362,
+        -1.2191813922292354
+      ],
+      "sigma": 6.354648531255623e-05,
+      "data_generation_seconds": 0.10169841698370874,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.9181246811689783,
+                3.930882173315349,
+                0.2989768452067572
+              ],
+              "rss": 126.96832893208772,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.918124635613552,
+                3.9308820929119412,
+                0.2989770174964558
+              ],
+              "rss": 126.96832893209887,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.918125177004984,
+                3.930883097644017,
+                0.2989769396241266
+              ],
+              "rss": 126.96832893206194,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.918125177004984,
+            3.930883097644017,
+            0.2989769396241266
+          ],
+          "gain": [
+            -0.12393001170572947,
+            -1.201118583179486
+          ],
+          "material_errors": [
+            0.03917737635264462,
+            0.08268282811574368
+          ],
+          "geometry_error_mm": 0.009605053700301236,
+          "gain_relative_error": 0.014852393319064981,
+          "task_success": true,
+          "sensor_prediction_error": 0.001433592820445873,
+          "structural_field_error": 0.014729176649520353,
+          "rss": 126.96832893206194,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.6843087089946494
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.8896131048876526,
+                3.8786263915217556,
+                0.3034021481726312
+              ],
+              "rss": 130.01627047916662,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.889613076967578,
+                3.8786263506618286,
+                0.30340250644547084
+              ],
+              "rss": 130.0162704791735,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.8896131259479962,
+                3.8786264269067785,
+                0.3034019862405091
+              ],
+              "rss": 130.01627047918043,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.8896131048876526,
+            3.8786263915217556,
+            0.3034021481726312
+          ],
+          "gain": [
+            -0.12484703035910706,
+            -1.2135719371685159
+          ],
+          "material_errors": [
+            0.010665304235313311,
+            0.03042612199348227
+          ],
+          "geometry_error_mm": 0.0051798451517965916,
+          "gain_relative_error": 0.004707206874423945,
+          "task_success": true,
+          "sensor_prediction_error": 0.0011843367544361408,
+          "structural_field_error": 0.004417762692097596,
+          "rss": 130.01627047916662,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.64756099996157
+        }
+      }
+    },
+    {
+      "scene": 10,
+      "data_class": "same_model",
+      "truth": [
+        2.372286752628712,
+        2.678530055715873,
+        -1.6636849278309143
+      ],
+      "gain": [
+        -1.0548792370216078,
+        0.6607507235839891
+      ],
+      "sigma": 5.03137602498312e-05,
+      "data_generation_seconds": 0.10248379199765623,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.36394059985111,
+                2.6660118473929626,
+                -1.6692638009034653
+              ],
+              "rss": 145.49595690555427,
+              "nfev": 7,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.363940599667317,
+                2.6660118477886936,
+                -1.669263763253173
+              ],
+              "rss": 145.4959569055565,
+              "nfev": 6,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.3639406012807695,
+                2.6660118387433362,
+                -1.6692643566956833
+              ],
+              "rss": 145.4959569055465,
+              "nfev": 19,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.3639406012807695,
+            2.6660118387433362,
+            -1.6692643566956833
+          ],
+          "gain": [
+            -1.059194533121206,
+            0.6637822994070799
+          ],
+          "material_errors": [
+            0.008346151347942588,
+            0.012518216972536855
+          ],
+          "geometry_error_mm": 0.0055794288647690315,
+          "gain_relative_error": 0.004236834633502406,
+          "task_success": true,
+          "sensor_prediction_error": 0.0006415482560921571,
+          "structural_field_error": 0.004693889051474432,
+          "rss": 145.4959569055465,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8781868329970166
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.3668618404305204,
+                2.6698022178671272,
+                -1.670897523990507
+              ],
+              "rss": 145.86049908433472,
+              "nfev": 7,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.3668618464937805,
+                2.66980223273398,
+                -1.6708970285254388
+              ],
+              "rss": 145.86049908436533,
+              "nfev": 7,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.3668618477087846,
+                2.6698022280409526,
+                -1.6708974878888514
+              ],
+              "rss": 145.86049908433375,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.3668618477087846,
+            2.6698022280409526,
+            -1.6708974878888514
+          ],
+          "gain": [
+            -1.0575100737673153,
+            0.6626976931459247
+          ],
+          "material_errors": [
+            0.005424904919927531,
+            0.00872782767492053
+          ],
+          "geometry_error_mm": 0.007212560057937134,
+          "gain_relative_error": 0.0026294124672631724,
+          "task_success": true,
+          "sensor_prediction_error": 0.0006119542141729394,
+          "structural_field_error": 0.003104283612716931,
+          "rss": 145.86049908433375,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.4397089160047472
+        }
+      }
+    },
+    {
+      "scene": 11,
+      "data_class": "same_model",
+      "truth": [
+        3.7754357309205093,
+        3.4466807679823472,
+        1.6219722799659344
+      ],
+      "gain": [
+        -0.42152103717070194,
+        -0.881973223487135
+      ],
+      "sigma": 6.130589451021604e-05,
+      "data_generation_seconds": 0.10127170896157622,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.7309908811906243,
+                3.4140356875877798,
+                1.5369443803050669
+              ],
+              "rss": 162.45770694145284,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.730990455137413,
+                3.414035351111982,
+                1.5369445803551205
+              ],
+              "rss": 162.45770694138486,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.730990520978574,
+                3.414035423703487,
+                1.5369451959155387
+              ],
+              "rss": 162.45770694142237,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.730990455137413,
+            3.414035351111982,
+            1.5369445803551205
+          ],
+          "gain": [
+            -0.42438054291203703,
+            -0.8904187678774125
+          ],
+          "material_errors": [
+            0.04444527578309643,
+            0.032645416870365374
+          ],
+          "geometry_error_mm": 0.08502769961081391,
+          "gain_relative_error": 0.009121499280608422,
+          "task_success": true,
+          "sensor_prediction_error": 0.001282320946135653,
+          "structural_field_error": 0.009827048743975511,
+          "rss": 162.45770694138486,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8455188749358058
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.755205613359576,
+                3.434526673959578,
+                1.5388977392342662
+              ],
+              "rss": 163.04295274755822,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.755205642822239,
+                3.4345266789154274,
+                1.5388970545482965
+              ],
+              "rss": 163.042952747458,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.7552056558056153,
+                3.4345266796006917,
+                1.5388967269392502
+              ],
+              "rss": 163.04295274745908,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.755205642822239,
+            3.4345266789154274,
+            1.5388970545482965
+          ],
+          "gain": [
+            -0.4224477652634804,
+            -0.8855131241555491
+          ],
+          "material_errors": [
+            0.020230088098270205,
+            0.012154089066919838
+          ],
+          "geometry_error_mm": 0.0830752254176379,
+          "gain_relative_error": 0.0037433249809187734,
+          "task_success": true,
+          "sensor_prediction_error": 0.0011426670298062328,
+          "structural_field_error": 0.004608388452354446,
+          "rss": 163.042952747458,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8362110829912126
+        }
+      }
+    },
+    {
+      "scene": 12,
+      "data_class": "independent_DDA",
+      "truth": [
+        3.1165761855774616,
+        4.3163529307561905,
+        0.9142480816658773
+      ],
+      "gain": [
+        1.0885092138805224,
+        -0.36350213608049325
+      ],
+      "sigma": 6.511014693714152e-05,
+      "data_generation_seconds": 0.029732749913819134,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.882748946528046,
+                3.9241787173612472,
+                0.9874806453307474
+              ],
+              "rss": 230.54561525473636,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.882748942042336,
+                3.9241787446692142,
+                0.9874819794470052
+              ],
+              "rss": 230.54561525499452,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.88274894963921,
+                3.9241786896485498,
+                0.987479861226064
+              ],
+              "rss": 230.5456152548038,
+              "nfev": 17,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.882748946528046,
+            3.9241787173612472,
+            0.9874806453307474
+          ],
+          "gain": [
+            1.18733297169742,
+            -0.3908201815671418
+          ],
+          "material_errors": [
+            0.2338272390494156,
+            0.3921742133949433
+          ],
+          "geometry_error_mm": 0.07323256366487008,
+          "gain_relative_error": 0.08934300644133868,
+          "task_success": false,
+          "sensor_prediction_error": 0.009015019559803345,
+          "structural_field_error": 0.0830679982364927,
+          "rss": 230.54561525473636,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.7849138750461861
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.0462442751427123,
+                4.240122879604618,
+                0.9968926478604462
+              ],
+              "rss": 291.4078473925988,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.0462370319710637,
+                4.240108597865741,
+                0.9968917206673638
+              ],
+              "rss": 291.4078473842289,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.046241521323258,
+                4.240117406016313,
+                0.9968908983498903
+              ],
+              "rss": 291.4078473642279,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.046241521323258,
+            4.240117406016313,
+            0.9968908983498903
+          ],
+          "gain": [
+            1.120752913101392,
+            -0.3723046315349261
+          ],
+          "material_errors": [
+            0.07033466425420354,
+            0.07623552473987782
+          ],
+          "geometry_error_mm": 0.08264281668401297,
+          "gain_relative_error": 0.029124817746474307,
+          "task_success": true,
+          "sensor_prediction_error": 0.010627441938540745,
+          "structural_field_error": 0.030997840067295824,
+          "rss": 291.4078473642279,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.6398622919805348
+        }
+      }
+    },
+    {
+      "scene": 13,
+      "data_class": "independent_DDA",
+      "truth": [
+        3.6704726810897683,
+        2.131107530275398,
+        -1.5476784418650689
+      ],
+      "gain": [
+        0.38537874083807677,
+        0.7064502041416479
+      ],
+      "sigma": 4.721493321251766e-05,
+      "data_generation_seconds": 0.03208024997729808,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.304037568579435,
+                2.0000000000000004,
+                -1.4960526741726416
+              ],
+              "rss": 317.518078315052,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.304037600190397,
+                2.0000000000000004,
+                -1.4960516770730783
+              ],
+              "rss": 317.51807831514975,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.3040375883456963,
+                2.0000000000000004,
+                -1.4960532043993635
+              ],
+              "rss": 317.5180783150961,
+              "nfev": 12,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.304037568579435,
+            2.0000000000000004,
+            -1.4960526741726416
+          ],
+          "gain": [
+            0.422782718036496,
+            0.7863123558631164
+          ],
+          "material_errors": [
+            0.3664351125103331,
+            0.13110753027539745
+          ],
+          "geometry_error_mm": 0.051625767692427216,
+          "gain_relative_error": 0.10958648843244831,
+          "task_success": false,
+          "sensor_prediction_error": 0.010705942099344765,
+          "structural_field_error": 0.09992836690493397,
+          "rss": 317.518078315052,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.3074027920374647
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.382172879786123,
+                2.00877275788532,
+                -1.5270946953994395
+              ],
+              "rss": 394.2183793412293,
+              "nfev": 13,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.3821765660786176,
+                2.008773896251384,
+                -1.5270946382426904
+              ],
+              "rss": 394.21837936297834,
+              "nfev": 13,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.382179454197627,
+                2.008774794881219,
+                -1.527094520440063
+              ],
+              "rss": 394.2183793993029,
+              "nfev": 13,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.382172879786123,
+            2.00877275788532,
+            -1.5270946953994395
+          ],
+          "gain": [
+            0.41462420746484324,
+            0.7698470729905851
+          ],
+          "material_errors": [
+            0.2882998013036455,
+            0.12233477239007806
+          ],
+          "geometry_error_mm": 0.020583746465629327,
+          "gain_relative_error": 0.0867588225877075,
+          "task_success": false,
+          "sensor_prediction_error": 0.011339551479616173,
+          "structural_field_error": 0.08163182109196558,
+          "rss": 394.2183793412293,
+          "heuristic_residual_pass": false,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.5153902909951285
+        }
+      }
+    },
+    {
+      "scene": 14,
+      "data_class": "independent_DDA",
+      "truth": [
+        1.6474130209364821,
+        3.108310534490989,
+        0.04906257334446673
+      ],
+      "gain": [
+        -0.7377281189764572,
+        0.826896858143096
+      ],
+      "sigma": 3.100517350074875e-05,
+      "data_generation_seconds": 0.020772958057932556,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                1.5934969534718122,
+                2.9090510476566482,
+                0.006288560256650555
+              ],
+              "rss": 165.00927316506377,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.5934962154908356,
+                2.9090478293919824,
+                0.006286529307374528
+              ],
+              "rss": 165.00927317045293,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.593497533217317,
+                2.909053555379942,
+                0.006288686484165754
+              ],
+              "rss": 165.00927316228018,
+              "nfev": 19,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            1.593497533217317,
+            2.909053555379942,
+            0.006288686484165754
+          ],
+          "gain": [
+            -0.7926763988688919,
+            0.8906260637461568
+          ],
+          "material_errors": [
+            0.05391548771916521,
+            0.199256979111047
+          ],
+          "geometry_error_mm": 0.04277388686030098,
+          "gain_relative_error": 0.07593455865590996,
+          "task_success": false,
+          "sensor_prediction_error": 0.004775464240945756,
+          "structural_field_error": 0.06959237422625494,
+          "rss": 165.00927316228018,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.4392258749576285
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                1.6465817564016139,
+                3.1458472000553814,
+                0.03090921382709302
+              ],
+              "rss": 170.6392961475329,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.6465817350448289,
+                3.1458470798187332,
+                0.030908111654948084
+              ],
+              "rss": 170.63929614757728,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.6465817508248077,
+                3.145847177929866,
+                0.030909439391764396
+              ],
+              "rss": 170.63929614755756,
+              "nfev": 12,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            1.6465817564016139,
+            3.1458472000553814,
+            0.03090921382709302
+          ],
+          "gain": [
+            -0.7362256484139397,
+            0.8261335412112946
+          ],
+          "material_errors": [
+            0.000831264534868259,
+            0.03753666556439228
+          ],
+          "geometry_error_mm": 0.01815335951737371,
+          "gain_relative_error": 0.0015207757144009332,
+          "task_success": true,
+          "sensor_prediction_error": 0.005120052228328446,
+          "structural_field_error": 0.005855998571981272,
+          "rss": 170.6392961475329,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8915495000546798
+        }
+      }
+    },
+    {
+      "scene": 15,
+      "data_class": "independent_DDA",
+      "truth": [
+        3.6617623360909266,
+        4.726491419037288,
+        1.508178437090569
+      ],
+      "gain": [
+        0.31131842730535414,
+        -0.8143112208952216
+      ],
+      "sigma": 5.645063929610287e-05,
+      "data_generation_seconds": 0.01909945800434798,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.9385175237869614,
+                3.6017250825818863,
+                1.526771316792354
+              ],
+              "rss": 289.41637572518727,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.9385176375298245,
+                3.601725263388749,
+                1.5267715991805964
+              ],
+              "rss": 289.41637572509234,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.9385182019819145,
+                3.6017261250339545,
+                1.526771446921291
+              ],
+              "rss": 289.4163757247194,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.9385182019819145,
+            3.6017261250339545,
+            1.526771446921291
+          ],
+          "gain": [
+            0.3997014915768095,
+            -1.0061435761313862
+          ],
+          "material_errors": [
+            0.7232441341090121,
+            1.1247652940033332
+          ],
+          "geometry_error_mm": 0.018593009830721874,
+          "gain_relative_error": 0.24227521179912304,
+          "task_success": false,
+          "sensor_prediction_error": 0.009085153639705513,
+          "structural_field_error": 0.19562617652544925,
+          "rss": 289.4163757247194,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8517242500092834
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.380308950464941,
+                4.302487976223064,
+                1.541590115586251
+              ],
+              "rss": 407.4238975940995,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.3803096046819294,
+                4.302489101672163,
+                1.541591653967383
+              ],
+              "rss": 407.4238975898403,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.3803176495638314,
+                4.302502164434458,
+                1.541590820722445
+              ],
+              "rss": 407.42389761736126,
+              "nfev": 7,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.3803096046819294,
+            4.302489101672163,
+            1.541591653967383
+          ],
+          "gain": [
+            0.34285123904944453,
+            -0.8806739984213294
+          ],
+          "material_errors": [
+            0.2814527314089972,
+            0.42400231736512506
+          ],
+          "geometry_error_mm": 0.03341321687681398,
+          "gain_relative_error": 0.08427852248875028,
+          "task_success": false,
+          "sensor_prediction_error": 0.01172973146953584,
+          "structural_field_error": 0.07953363492708003,
+          "rss": 407.4238975898403,
+          "heuristic_residual_pass": false,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8938706250628456
+        }
+      }
+    },
+    {
+      "scene": 16,
+      "data_class": "independent_DDA",
+      "truth": [
+        2.9462232520736813,
+        4.381060314802059,
+        0.6709999254635335
+      ],
+      "gain": [
+        -0.9406708852551375,
+        0.2442788623950961
+      ],
+      "sigma": 5.2885787090660036e-05,
+      "data_generation_seconds": 0.02113720797933638,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.5057405685916763,
+                3.5105205979866714,
+                0.7694341668468477
+              ],
+              "rss": 203.40417911922944,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.5057395934489866,
+                3.5105186225063365,
+                0.7694352071501782
+              ],
+              "rss": 203.40417912339467,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.5057435336264997,
+                3.510526694193327,
+                0.7694352142377433
+              ],
+              "rss": 203.404179112006,
+              "nfev": 10,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.5057435336264997,
+            3.510526694193327,
+            0.7694352142377433
+          ],
+          "gain": [
+            -1.1363867410721888,
+            0.28679530336156245
+          ],
+          "material_errors": [
+            0.4404797184471816,
+            0.870533620608732
+          ],
+          "geometry_error_mm": 0.09843528877420982,
+          "gain_relative_error": 0.20607734517454343,
+          "task_success": false,
+          "sensor_prediction_error": 0.007677924138748654,
+          "structural_field_error": 0.17046641064991447,
+          "rss": 203.404179112006,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.721116374945268
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.8378353630554005,
+                4.225588689447677,
+                0.7903314141117744
+              ],
+              "rss": 268.2427010091466,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.8378353818503856,
+                4.225588798088329,
+                0.790333288638302
+              ],
+              "rss": 268.2427010091641,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.837836318746115,
+                4.225590909000253,
+                0.7903328591733102
+              ],
+              "rss": 268.24270100944614,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.8378353630554005,
+            4.225588689447677,
+            0.7903314141117744
+          ],
+          "gain": [
+            -0.9839088409615093,
+            0.254052834808747
+          ],
+          "material_errors": [
+            0.10838788901828078,
+            0.15547162535438197
+          ],
+          "geometry_error_mm": 0.11933148864824095,
+          "gain_relative_error": 0.04561190197868042,
+          "task_success": false,
+          "sensor_prediction_error": 0.009511629199099826,
+          "structural_field_error": 0.04437707907218725,
+          "rss": 268.2427010091466,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8804345830576494
+        }
+      }
+    },
+    {
+      "scene": 17,
+      "data_class": "independent_DDA",
+      "truth": [
+        3.021183295224387,
+        3.658448144335515,
+        0.1363680164716028
+      ],
+      "gain": [
+        -1.023501581497546,
+        0.311094278799189
+      ],
+      "sigma": 5.7604068551309465e-05,
+      "data_generation_seconds": 0.022659291978925467,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.6288608909633697,
+                3.1063179921011743,
+                0.10062342712841241
+              ],
+              "rss": 221.44175533924272,
+              "nfev": 6,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.6288608868882677,
+                3.1063180179393224,
+                0.10062518760977229
+              ],
+              "rss": 221.44175533904013,
+              "nfev": 7,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.6288608885417606,
+                3.10631801105682,
+                0.10062474929242639
+              ],
+              "rss": 221.44175533900548,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.6288608885417606,
+            3.10631801105682,
+            0.10062474929242639
+          ],
+          "gain": [
+            -1.1986214968561957,
+            0.3546921302682269
+          ],
+          "material_errors": [
+            0.3923224066826263,
+            0.5521301332786952
+          ],
+          "geometry_error_mm": 0.035743267179176405,
+          "gain_relative_error": 0.1687008654109851,
+          "task_success": false,
+          "sensor_prediction_error": 0.007205514587584819,
+          "structural_field_error": 0.1450458990097861,
+          "rss": 221.44175533900548,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.3798248339444399
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.9437317584251463,
+                3.5704846114264623,
+                0.11666391623896759
+              ],
+              "rss": 286.48163271837564,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.9437318081654054,
+                3.5704846849412784,
+                0.11666367233760665
+              ],
+              "rss": 286.48163271863837,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.943731178423847,
+                3.570483768828526,
+                0.11666446483083812
+              ],
+              "rss": 286.48163271641886,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.943731178423847,
+            3.570483768828526,
+            0.11666446483083812
+          ],
+          "gain": [
+            -1.0574097631307229,
+            0.3185084735653321
+          ],
+          "material_errors": [
+            0.07745211680053998,
+            0.08796437550698899
+          ],
+          "geometry_error_mm": 0.019703551640764677,
+          "gain_relative_error": 0.03244659731617053,
+          "task_success": true,
+          "sensor_prediction_error": 0.009440557514759145,
+          "structural_field_error": 0.03371162896260594,
+          "rss": 286.48163271641886,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.7147372910985723
+        }
+      }
+    },
+    {
+      "scene": 18,
+      "data_class": "independent_DDA",
+      "truth": [
+        3.997744126222809,
+        3.7888354672058835,
+        -0.03520181748858153
+      ],
+      "gain": [
+        -0.14255308590453,
+        0.9477474455557372
+      ],
+      "sigma": 6.411033585547827e-05,
+      "data_generation_seconds": 0.02096466696821153,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.0598720607662147,
+                2.909160098532477,
+                -0.08041344976605296
+              ],
+              "rss": 261.44046321924657,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.0598718744091102,
+                2.909159929890949,
+                -0.08041345374324756
+              ],
+              "rss": 261.44046321938475,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.059873247930267,
+                2.9091611686277785,
+                -0.08041277595249688
+              ],
+              "rss": 261.44046321901453,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.059873247930267,
+            2.9091611686277785,
+            -0.08041277595249688
+          ],
+          "gain": [
+            -0.20082896948541662,
+            1.2141578285354193
+          ],
+          "material_errors": [
+            0.937870878292542,
+            0.879674298578105
+          ],
+          "geometry_error_mm": 0.045210958463915346,
+          "gain_relative_error": 0.2845443454594443,
+          "task_success": false,
+          "sensor_prediction_error": 0.009055891215681481,
+          "structural_field_error": 0.22185492729509668,
+          "rss": 261.44046321901453,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.9136342910351232
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.666366461669396,
+                3.460266454899339,
+                -0.05238240537524041
+              ],
+              "rss": 461.9602338876436,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.6663508848449653,
+                3.46025283178781,
+                -0.052382514672721356
+              ],
+              "rss": 461.96023375001306,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.6663576480879145,
+                3.4602587059296295,
+                -0.05238389585439773
+              ],
+              "rss": 461.9602337471274,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.6663576480879145,
+            3.4602587059296295,
+            -0.05238389585439773
+          ],
+          "gain": [
+            -0.16101357855538898,
+            1.0303667769888047
+          ],
+          "material_errors": [
+            0.3313864781348945,
+            0.328576761276254
+          ],
+          "geometry_error_mm": 0.0171820783658162,
+          "gain_relative_error": 0.08833042895203387,
+          "task_success": false,
+          "sensor_prediction_error": 0.012943260680310223,
+          "structural_field_error": 0.08300331827494489,
+          "rss": 461.9602337471274,
+          "heuristic_residual_pass": false,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.0590883750701323
+        }
+      }
+    },
+    {
+      "scene": 19,
+      "data_class": "independent_DDA",
+      "truth": [
+        1.5360154279614657,
+        3.0031172003160234,
+        -1.0674178450395
+      ],
+      "gain": [
+        0.8338530954853037,
+        -0.2458034963668821
+      ],
+      "sigma": 2.199549923303945e-05,
+      "data_generation_seconds": 0.022643417003564537,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                1.5147519107341476,
+                2.944291179178628,
+                -0.9189653362435977
+              ],
+              "rss": 153.7065429319841,
+              "nfev": 15,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.5147519359945998,
+                2.944291321970567,
+                -0.9189646623303765
+              ],
+              "rss": 153.70654293213937,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.5147519700193268,
+                2.9442914808794147,
+                -0.918965819079471
+              ],
+              "rss": 153.70654293205803,
+              "nfev": 17,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            1.5147519107341476,
+            2.944291179178628,
+            -0.9189653362435977
+          ],
+          "gain": [
+            0.8577934666842042,
+            -0.2545385228474661
+          ],
+          "material_errors": [
+            0.02126351722731812,
+            0.05882602113739521
+          ],
+          "geometry_error_mm": 0.14845250879590233,
+          "gain_relative_error": 0.02931478922697476,
+          "task_success": true,
+          "sensor_prediction_error": 0.004352227232001939,
+          "structural_field_error": 0.029213335191298314,
+          "rss": 153.7065429319841,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.8481746250763535
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                1.5231464304910365,
+                2.9883069323249147,
+                -0.9120828063445953
+              ],
+              "rss": 153.98569370973806,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.5231464353779371,
+                2.988306957116935,
+                -0.9120828323648668
+              ],
+              "rss": 153.98569370973496,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.5231464340568543,
+                2.9883069601654078,
+                -0.9120821623446195
+              ],
+              "rss": 153.98569370978635,
+              "nfev": 14,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            1.5231464353779371,
+            2.988306957116935,
+            -0.9120828323648668
+          ],
+          "gain": [
+            0.845583404527552,
+            -0.2507346356652756
+          ],
+          "material_errors": [
+            0.012868992583528582,
+            0.014810243199088191
+          ],
+          "geometry_error_mm": 0.15533501267463323,
+          "gain_relative_error": 0.0146373290298087,
+          "task_success": true,
+          "sensor_prediction_error": 0.0044354493571097334,
+          "structural_field_error": 0.015541333408192142,
+          "rss": 153.98569370973496,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.6394275829661638
+        }
+      }
+    },
+    {
+      "scene": 20,
+      "data_class": "independent_DDA",
+      "truth": [
+        3.090521425983838,
+        4.566497814700513,
+        -1.1700515249540202
+      ],
+      "gain": [
+        0.36527239051309573,
+        0.9634628724944594
+      ],
+      "sigma": 5.862330626060113e-05,
+      "data_generation_seconds": 0.020437334082089365,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.6168996339283033,
+                3.6585867213865826,
+                -1.2033271518997792
+              ],
+              "rss": 242.17821318045992,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.6168999618800437,
+                3.6585873280824597,
+                -1.2033295811946934
+              ],
+              "rss": 242.17821317952655,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.6169007616495445,
+                3.6585889686151143,
+                -1.2033289390756383
+              ],
+              "rss": 242.17821317793667,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.6169007616495445,
+            3.6585889686151143,
+            -1.2033289390756383
+          ],
+          "gain": [
+            0.42951136312063687,
+            1.1613798755022622
+          ],
+          "material_errors": [
+            0.4736206643342933,
+            0.907908846085399
+          ],
+          "geometry_error_mm": 0.03327741412161811,
+          "gain_relative_error": 0.20194591795837555,
+          "task_success": false,
+          "sensor_prediction_error": 0.0079708300705012,
+          "structural_field_error": 0.16831203179947668,
+          "rss": 242.17821317793667,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8235914580291137
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.9762279312618234,
+                4.423755737056188,
+                -1.1843622856080516
+              ],
+              "rss": 317.50755486482365,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.9762282122357813,
+                4.423756376927474,
+                -1.1843622023491933
+              ],
+              "rss": 317.5075548681132,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.9762257916916566,
+                4.42375086456783,
+                -1.1843623336671656
+              ],
+              "rss": 317.5075548500157,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.9762257916916566,
+            4.42375086456783,
+            -1.1843623336671656
+          ],
+          "gain": [
+            0.379106050546506,
+            1.0066516485334505
+          ],
+          "material_errors": [
+            0.11429563429218126,
+            0.14274695013268346
+          ],
+          "geometry_error_mm": 0.014310808713145384,
+          "gain_relative_error": 0.044013046473224536,
+          "task_success": false,
+          "sensor_prediction_error": 0.010297253910062995,
+          "structural_field_error": 0.04394903302709374,
+          "rss": 317.5075548500157,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.9293451249832287
+        }
+      }
+    },
+    {
+      "scene": 21,
+      "data_class": "independent_DDA",
+      "truth": [
+        2.3132429760119155,
+        2.975344621204619,
+        -1.1390024709315685
+      ],
+      "gain": [
+        0.2484373125634659,
+        -0.8311619572094785
+      ],
+      "sigma": 3.503434139098602e-05,
+      "data_generation_seconds": 0.02238462504465133,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.108775363106128,
+                2.6431229225194204,
+                -1.1197188492288983
+              ],
+              "rss": 167.48724137591913,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.108773409850949,
+                2.6431196380048925,
+                -1.1197188194259375
+              ],
+              "rss": 167.48724137202248,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.1087717838893276,
+                2.6431168868721464,
+                -1.1197199660103947
+              ],
+              "rss": 167.48724137147587,
+              "nfev": 12,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.1087717838893276,
+            2.6431168868721464,
+            -1.1197199660103947
+          ],
+          "gain": [
+            0.2859240479862618,
+            -0.9479008076185339
+          ],
+          "material_errors": [
+            0.2044711921225879,
+            0.33222773433247266
+          ],
+          "geometry_error_mm": 0.019282504921173782,
+          "gain_relative_error": 0.14133765227989586,
+          "task_success": false,
+          "sensor_prediction_error": 0.0051507977908590375,
+          "structural_field_error": 0.12313509472438869,
+          "rss": 167.48724137147587,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.8230752919334918
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.2907100896678876,
+                2.9567376481212415,
+                -1.1047351641742709
+              ],
+              "rss": 184.51584279314034,
+              "nfev": 7,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.2907101038149453,
+                2.956737658405568,
+                -1.1047361822913624
+              ],
+              "rss": 184.51584279330189,
+              "nfev": 9,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.2907094532746743,
+                2.956736529848477,
+                -1.1047350518284853
+              ],
+              "rss": 184.51584279339266,
+              "nfev": 9,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.2907100896678876,
+            2.9567376481212415,
+            -1.1047351641742709
+          ],
+          "gain": [
+            0.2525519214102679,
+            -0.842971892234966
+          ],
+          "material_errors": [
+            0.022532886344027947,
+            0.018606973083377554
+          ],
+          "geometry_error_mm": 0.03426730675729761,
+          "gain_relative_error": 0.014416394783311325,
+          "task_success": true,
+          "sensor_prediction_error": 0.0059978638468428215,
+          "structural_field_error": 0.014841604718015043,
+          "rss": 184.51584279314034,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.5301858329912648
+        }
+      }
+    },
+    {
+      "scene": 22,
+      "data_class": "independent_DDA",
+      "truth": [
+        3.2647040413615493,
+        2.7999063269732023,
+        -0.7549625759242997
+      ],
+      "gain": [
+        0.16346947518804533,
+        -0.8206236398638236
+      ],
+      "sigma": 4.611268879624323e-05,
+      "data_generation_seconds": 0.01663170801475644,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                2.741062435395263,
+                2.396112762207092,
+                -0.759177245084691
+              ],
+              "rss": 195.7772871649385,
+              "nfev": 8,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.741065875223487,
+                2.3961153503513564,
+                -0.7591763378475931
+              ],
+              "rss": 195.77728716719412,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                2.7410662691041656,
+                2.3961156430498156,
+                -0.7591766599035732
+              ],
+              "rss": 195.77728716803588,
+              "nfev": 10,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            2.741062435395263,
+            2.396112762207092,
+            -0.759177245084691
+          ],
+          "gain": [
+            0.20534889783207483,
+            -0.9867019540854578
+          ],
+          "material_errors": [
+            0.5236416059662865,
+            0.40379356476611017
+          ],
+          "geometry_error_mm": 0.00421466916039126,
+          "gain_relative_error": 0.20469419393010013,
+          "task_success": false,
+          "sensor_prediction_error": 0.007254350791117043,
+          "structural_field_error": 0.1703789380782653,
+          "rss": 195.7772871649385,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.78052795806434
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                3.112407479267512,
+                2.6741849603892383,
+                -0.7333182946998525
+              ],
+              "rss": 262.3021861841828,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.1124073969095196,
+                2.6741848841959377,
+                -0.7333192984965105
+              ],
+              "rss": 262.3021861842992,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                3.11241113145734,
+                2.6741875825918,
+                -0.7333199278617546
+              ],
+              "rss": 262.30218618691987,
+              "nfev": 8,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            3.112407479267512,
+            2.6741849603892383,
+            -0.7333182946998525
+          ],
+          "gain": [
+            0.17527618691314154,
+            -0.8653991660297498
+          ],
+          "material_errors": [
+            0.1522965620940373,
+            0.12572136658396404
+          ],
+          "geometry_error_mm": 0.02164428122444717,
+          "gain_relative_error": 0.05534051477056102,
+          "task_success": false,
+          "sensor_prediction_error": 0.009956062459248977,
+          "structural_field_error": 0.0540334251058679,
+          "rss": 262.3021861841828,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 1.9270647499943152
+        }
+      }
+    },
+    {
+      "scene": 23,
+      "data_class": "independent_DDA",
+      "truth": [
+        1.713890387962412,
+        4.6011850402815595,
+        1.8950735720801415
+      ],
+      "gain": [
+        -0.5982976331016264,
+        0.8589498540556366
+      ],
+      "sigma": 3.582490524066777e-05,
+      "data_generation_seconds": 0.02011987497098744,
+      "methods": {
+        "no_reference": {
+          "starts": [
+            {
+              "theta": [
+                1.5831391692545438,
+                3.7439919417098477,
+                1.8164290013037623
+              ],
+              "rss": 213.9322896615497,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.5831409385550987,
+                3.7440050301165377,
+                1.8164319587541014
+              ],
+              "rss": 213.93228971312044,
+              "nfev": 11,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.5831397299052496,
+                3.743996105501609,
+                1.8164305252407338
+              ],
+              "rss": 213.93228967489014,
+              "nfev": 16,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            1.5831391692545438,
+            3.7439919417098477,
+            1.8164290013037623
+          ],
+          "gain": [
+            -0.7081612654680413,
+            1.0146230613325071
+          ],
+          "material_errors": [
+            0.13075121870786832,
+            0.8571930985717118
+          ],
+          "geometry_error_mm": 0.07864457077637921,
+          "gain_relative_error": 0.18202100782821337,
+          "task_success": false,
+          "sensor_prediction_error": 0.007409349828827674,
+          "structural_field_error": 0.1548810563378773,
+          "rss": 213.9322896615497,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.5246332499664277
+        },
+        "joint_reference": {
+          "starts": [
+            {
+              "theta": [
+                1.6801229790802696,
+                4.532575000097845,
+                1.9154679437054811
+              ],
+              "rss": 268.9228484587428,
+              "nfev": 10,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.6801233450013966,
+                4.532578387985655,
+                1.9154685705454442
+              ],
+              "rss": 268.9228484619717,
+              "nfev": 12,
+              "optimizer_success": true
+            },
+            {
+              "theta": [
+                1.6801228405977828,
+                4.532573724712126,
+                1.9154679395446828
+              ],
+              "rss": 268.92284845941424,
+              "nfev": 13,
+              "optimizer_success": true
+            }
+          ],
+          "theta": [
+            1.6801229790802696,
+            4.532575000097845,
+            1.9154679437054811
+          ],
+          "gain": [
+            -0.6177876527490104,
+            0.8872710324181488
+          ],
+          "material_errors": [
+            0.03376740888214247,
+            0.06861004018371464
+          ],
+          "geometry_error_mm": 0.020394371625339636,
+          "gain_relative_error": 0.03284300161580658,
+          "task_success": true,
+          "sensor_prediction_error": 0.008979085675211353,
+          "structural_field_error": 0.0341752254980042,
+          "rss": 268.9228484587428,
+          "heuristic_residual_pass": true,
+          "scientific_acceptance": "unresolved",
+          "total_seconds": 2.309738124953583
+        }
+      }
+    }
+  ],
+  "wall_seconds": 94.24483533296734,
+  "dda_cells": 312,
+  "scope": "Development; independent discretization not continuum truth; all certification unresolved."
+}

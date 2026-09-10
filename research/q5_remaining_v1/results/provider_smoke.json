@@ -1,0 +1,19 @@
+{
+  "requested_model": "deepseek-flash",
+  "returned_model": "deepseek-flash",
+  "status": "completed",
+  "ready": true,
+  "official_mapping": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "usage": {
+    "input_tokens": 36,
+    "input_tokens_details": {
+      "cache_write_tokens": null,
+      "cached_tokens": 0
+    },
+    "output_tokens": 17,
+    "output_tokens_details": {
+      "reasoning_tokens": 14
+    },
+    "total_tokens": 53
+  }
+}

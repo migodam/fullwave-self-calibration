@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "checks": {
+    "scale_gauge.json_complete": true,
+    "scale_gauge.json_hashes": true,
+    "interaction_ablation.json_complete": true,
+    "interaction_ablation.json_hashes": true,
+    "six_scales": true,
+    "numerical_checks": true,
+    "isolated_visible_all": true,
+    "reported_direction_all": true,
+    "A4_COMPLETE_RESEARCH_REPORT_ZH.md_nonempty": true,
+    "A4_COMPLETE_RESEARCH_REPORT_ZH.md_display_delimiters": true,
+    "Q5.md_nonempty": true,
+    "Q5.md_display_delimiters": true,
+    "A4_CLOSURE_ADDENDUM_EN.md_nonempty": true,
+    "A4_CLOSURE_ADDENDUM_EN.md_display_delimiters": true,
+    "a4_regression": true,
+    "a4_package": true
+  },
+  "handoff_hashes": {
+    "communication/A4_COMPLETE_RESEARCH_REPORT_ZH.md": "8bb13d316111b87a85fd122d30d1b7dca378df3d90b3ba918cfe8c341c7af349",
+    "Theory/Questions/Q5.md": "32e421f434927797b3713bb0a769427e2f50db1c2e944ef943d24946bb7c0c39",
+    "research/a5_material_observability/A4_CLOSURE_ADDENDUM_EN.md": "9be5e3bd90f41b7d1e31348196d80329ffc51db45688dda8bae64569f28030bb"
+  },
+  "runs": [
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "returncode": 0,
+      "output": ".....................                                                    [100%]\n21 passed in 0.39s\n",
+      "wall_seconds": 0.7101017499808222
+    },
+    {
+      "args": [
+        "audit_package.py"
+      ],
+      "returncode": 0,
+      "output": "{\n  \"all_passed\": true,\n  \"checks\": {\n    \"hash:src/dda.py\": true,\n    \"hash:src/controls.py\": true,\n    \"hash:src/experiments.py\": true,\n    \"hash:src/coverage.py\": true,\n    \"hash:src/risk.py\": true,\n    \"hash:src/modal.py\": true,\n    \"hash:tests/test_core.py\": true,\n    \"hash:docs/FROZEN_PROTOCOL.md\": true,\n    \"counts\": true,\n    \"branch_scene_units\": true,\n    \"calibration_scene_units\": true,\n    \"branch_flags\": true,\n    \"cell_acceptance_never_hides_unresolved\": true,\n    \"acquisition_counts\": true,\n    \"loss_matches_raw_parameters\": true,\n    \"charged_cost_sum\": true,\n    \"negative_controller_result\": true,\n    \"raw_hash:frozen_branch_data.npz\": true,\n    \"finite:frozen_branch_data.npz\": true,\n    \"raw_hash:frozen_calibration_data.npz\": true,\n    \"finite:frozen_calibration_data.npz\": true,\n    \"fresh_reference_sample\": true,\n    \"known_bug_preserved_and_disclosed\": true\n  },\n  \"scope\": \"file integrity and stored finite-model invariants, not physical certification\"\n}\n",
+      "wall_seconds": 0.09745083295274526
+    }
+  ],
+  "scope": "Artifact/evidence/regression checks, not rendered math acceptance or TAP readiness."
+}

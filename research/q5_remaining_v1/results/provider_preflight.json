@@ -1,0 +1,10 @@
+{
+  "allowed_model": "deepseek-v4.1-flash",
+  "pro_forbidden": true,
+  "model_call_made": false,
+  "available_model_ids": [
+    "deepseek-flash",
+    "deepseek-v4-pro"
+  ],
+  "status": "exact_model_not_listed"
+}

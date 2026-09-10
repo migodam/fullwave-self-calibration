@@ -1,0 +1,471 @@
+{
+  "meta": {
+    "task": "A5 sections 7-8 interval monotonicity / conservative constants",
+    "generated_utc": "2026-09-10T09:34:23.595433+00:00",
+    "command_line": "code/run_interval_monotonicity.py",
+    "interpreter": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/.venv3d/bin/python",
+    "versions": {
+      "python": "3.13.13",
+      "mpmath": "1.3.0",
+      "mpmath_file": "/Users/migodam/.cache/uv/archive-v0/VjSSQm31390egyfy/mpmath/__init__.py"
+    },
+    "iv_dps": 35,
+    "interpreter_default_iv_dps_note": "mpmath.iv default dps is 15; dps=35 is set explicitly",
+    "cwd": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction",
+    "file_sha256": {
+      "inputs/modal_boundary.json": "036491f83909d680ac1e58d17a8c921b7de2e6c888b2c055953e4efac0ea00d6",
+      "inputs/derive/A5_sec_07.md": "592cddfcab4298881325430902b4a69b1377ef0b49c6f9ea7297f7653edd7a94",
+      "inputs/derive/A5_sec_08.md": "5c0942c8a5d2781146eb511515d674d7303418a3318e6adb9d687d90e7ca37cd",
+      "inputs/derive/MODAL_BOUNDARY_KEYS.txt": "d1d2d447d60696fc965bf227787f7ec6f21828c3663fdafaa13f20f9885f0fc9",
+      "inputs/SOURCE_HASHES.json": "e1f40529015ac17c1a4a7a28f65fa3c64137b415b19b475affb58e8f877ca9f1",
+      "logs/uv_cache_VjSSQm31390egyfy.sha256": "ae32b72a847050e7ce2950bbf472508021b315cbd23cfa545580b34f5bd1fe84",
+      "code/mie_reactance.py": "c5c7c000a0f31da4702fe0a034a5a55028bc7bd7329a71ceb464287b617bbca5",
+      "code/run_interval_monotonicity.py": "df796869e7a451eeaa2651f45e549ac7024ecbac3839b5871558e2f6e6679af6"
+    },
+    "mpmath_import_note": "mpmath 1.3.0 is imported from an existing uv cache archive via PYTHONPATH; no pip/system install was performed",
+    "interval_verification_status": "DONE"
+  },
+  "material_intervals": [
+    {
+      "x": 0.2,
+      "eps_domain": [
+        1.5,
+        4.0
+      ],
+      "interval_count": 2500
+    },
+    {
+      "x": 0.15,
+      "eps_domain": [
+        2.0,
+        5.0
+      ],
+      "interval_count": 3000
+    }
+  ],
+  "endpoint_construction": {
+    "construction_A": "endpoint_k = iv.mpf(3)/iv.mpf(2) + k*(iv.mpf(1)/iv.mpf(1000))",
+    "construction_B": "iv.mpf(1501)/iv.mpf(1000)",
+    "construction_B_as_Fraction_or_mpq": "iv.mpf(Fraction(1501,1000)) -> NotImplementedError: ",
+    "A_interval": [
+      "1.501",
+      "1.501"
+    ],
+    "B_interval": [
+      "1.501",
+      "1.501"
+    ],
+    "A_width": "1.50463276905252801019998276764e-36",
+    "B_width": "1.50463276905252801019998276764e-36",
+    "reference_60dps_1501_over_1000": "1.501",
+    "A_encloses_60dps": true,
+    "B_encloses_60dps": true,
+    "family_probe": [
+      {
+        "domain": [
+          1.5,
+          4.0
+        ],
+        "n": 2500,
+        "sampled_endpoints": 65,
+        "all_enclosed": true,
+        "max_endpoint_interval_halfwidth": "4.51389830715758403059994830293e-36"
+      },
+      {
+        "domain": [
+          2.0,
+          5.0
+        ],
+        "n": 3000,
+        "sampled_endpoints": 66,
+        "all_enclosed": true,
+        "max_endpoint_interval_halfwidth": "6.01853107621011204079993107058e-36"
+      }
+    ],
+    "choice": "Construction A (left + k*step from exact integer literals) is used for every box endpoint; construction B is its k=1 special case written as one rational division. Both are provably enclosing (verified against a 60-dps rational evaluation). mpmath.iv 1.3.0 has no Fraction/mpq constructor, so the literal iv.mpf(mpq(...)) form of the task is realised as iv.mpf(p)/iv.mpf(q)."
+  },
+  "main_run": [
+    {
+      "n_boxes": 2500,
+      "min_qprime_lower": "0.000429301959288595278031435025733",
+      "min_absDen_lower": "28.1443711642335875822791564597",
+      "min_q_lower": "0.000627254306194357103696258497481",
+      "max_q_upper": "0.00271981180111573648091806056666",
+      "min_hprime_lower": "0.000429297195770476277629454404911",
+      "boxes_with_nonpositive_qprime_lower": 0,
+      "boxes_with_nonpositive_absDen_lower": 0,
+      "argmin_qprime_lower_eps": [
+        "3.999",
+        "4.0"
+      ],
+      "argmin_absDen_lower_eps": [
+        "1.5",
+        "1.501"
+      ],
+      "wall_seconds": 0.6829020977020264,
+      "x": 0.2,
+      "eps_domain": [
+        1.5,
+        4.0
+      ],
+      "n": 2500
+    },
+    {
+      "n_boxes": 3000,
+      "min_qprime_lower": "0.000129436839444102321823981529064",
+      "min_absDen_lower": "57.1391614265104234933275083348",
+      "min_q_lower": "0.000496327683121281645949469436647",
+      "max_q_upper": "0.00130969115967043357119482851105",
+      "min_hprime_lower": "0.000129436506412060598934769238321",
+      "boxes_with_nonpositive_qprime_lower": 0,
+      "boxes_with_nonpositive_absDen_lower": 0,
+      "argmin_qprime_lower_eps": [
+        "4.999",
+        "5.0"
+      ],
+      "argmin_absDen_lower_eps": [
+        "2.0",
+        "2.001"
+      ],
+      "wall_seconds": 0.8653831481933594,
+      "x": 0.15,
+      "eps_domain": [
+        2.0,
+        5.0
+      ],
+      "n": 3000
+    }
+  ],
+  "comparison_with_supplied": [
+    {
+      "check": "monotonicity_checks[0]",
+      "x": 0.2,
+      "key": "qprime_lower",
+      "supplied": 0.0004326242603218757,
+      "computed": 0.00042930195928859527,
+      "difference": -3.322301033280436e-06,
+      "relative_difference": -0.007679414535857557,
+      "computed_conservative_vs_supplied": true,
+      "high_precision_computed": "0.000429301959288595278031435025733"
+    },
+    {
+      "check": "monotonicity_checks[0]",
+      "x": 0.2,
+      "key": "denominator_lower",
+      "supplied": 28.14437116423359,
+      "computed": 28.144371164233586,
+      "difference": -3.552713678800501e-15,
+      "relative_difference": -1.2623176613430106e-16,
+      "computed_conservative_vs_supplied": true,
+      "high_precision_computed": "28.1443711642335875822791564597"
+    },
+    {
+      "check": "monotonicity_checks[0]",
+      "x": 0.2,
+      "key": "q_lower",
+      "supplied": 0.0006272543061943569,
+      "computed": 0.000627254306194357,
+      "difference": 1.0842021724855044e-19,
+      "relative_difference": 1.7284890064183325e-16,
+      "computed_conservative_vs_supplied": false,
+      "high_precision_computed": "0.000627254306194357103696258497481"
+    },
+    {
+      "check": "monotonicity_checks[0]",
+      "x": 0.2,
+      "key": "q_upper",
+      "supplied": 0.0027198118011157357,
+      "computed": 0.002719811801115736,
+      "difference": 4.336808689942018e-19,
+      "relative_difference": 1.5945252859638851e-16,
+      "computed_conservative_vs_supplied": false,
+      "high_precision_computed": "0.00271981180111573648091806056666"
+    },
+    {
+      "check": "monotonicity_checks[0]",
+      "x": 0.2,
+      "key": "amplitude_derivative_lower",
+      "supplied": 0.0004326194599396315,
+      "computed": 0.00042929719577047625,
+      "difference": -3.3222641691552394e-06,
+      "relative_difference": -0.0076794145358575275,
+      "computed_conservative_vs_supplied": true,
+      "high_precision_computed": "0.000429297195770476277629454404911"
+    },
+    {
+      "check": "monotonicity_checks[1]",
+      "x": 0.15,
+      "key": "qprime_lower",
+      "supplied": 0.00013086650394735435,
+      "computed": 0.0001294368394441023,
+      "difference": -1.4296645032520411e-06,
+      "relative_difference": -0.010924602248312326,
+      "computed_conservative_vs_supplied": true,
+      "high_precision_computed": "0.000129436839444102321823981529064"
+    },
+    {
+      "check": "monotonicity_checks[1]",
+      "x": 0.15,
+      "key": "denominator_lower",
+      "supplied": 57.13916142651041,
+      "computed": 57.13916142651042,
+      "difference": 7.105427357601002e-15,
+      "relative_difference": 1.2435302129415487e-16,
+      "computed_conservative_vs_supplied": false,
+      "high_precision_computed": "57.1391614265104234933275083348"
+    },
+    {
+      "check": "monotonicity_checks[1]",
+      "x": 0.15,
+      "key": "q_lower",
+      "supplied": 0.0004963276831212816,
+      "computed": 0.0004963276831212816,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "computed_conservative_vs_supplied": true,
+      "high_precision_computed": "0.000496327683121281645949469436647"
+    },
+    {
+      "check": "monotonicity_checks[1]",
+      "x": 0.15,
+      "key": "q_upper",
+      "supplied": 0.0013096911596704335,
+      "computed": 0.0013096911596704335,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "computed_conservative_vs_supplied": true,
+      "high_precision_computed": "0.00130969115967043357119482851105"
+    },
+    {
+      "check": "monotonicity_checks[1]",
+      "x": 0.15,
+      "key": "amplitude_derivative_lower",
+      "supplied": 0.00013086616723688468,
+      "computed": 0.00012943650641206059,
+      "difference": -1.4296608248240905e-06,
+      "relative_difference": -0.01092460224831235,
+      "computed_conservative_vs_supplied": true,
+      "high_precision_computed": "0.000129436506412060598934769238321"
+    }
+  ],
+  "refinement_study": {
+    "monotonicity_checks[0]": {
+      "x": 0.2,
+      "eps_domain": [
+        1.5,
+        4.0
+      ],
+      "true_inf_qprime_dense_double_scan": 0.00045515446853559735,
+      "true_inf_qprime_note": "400001-point double-precision scan; independent of the interval run",
+      "rows": [
+        {
+          "n": 100,
+          "step": 0.025,
+          "min_qprime_lower": "-0.0826449926926892434232689167073",
+          "min_qprime_lower_float": -0.08264499269268924,
+          "min_absDen_lower_float": 8.437768674569567,
+          "min_q_lower_float": -0.006996248399002786,
+          "max_q_upper_float": 0.012471513050211158,
+          "min_hprime_lower_float": -0.08264499269268924,
+          "boxes_with_nonpositive_qprime_lower": 100,
+          "qprime_strictly_positive_on_every_box": false,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": -181.575703208164,
+          "wall_seconds": 0.02726602554321289
+        },
+        {
+          "n": 500,
+          "step": 0.005,
+          "min_qprime_lower": "0.000105662182309734149743857070351",
+          "min_qprime_lower_float": 0.00010566218230973414,
+          "min_absDen_lower_float": 24.821744972090944,
+          "min_q_lower_float": 0.00016765359507022292,
+          "max_q_upper_float": 0.0028510232140048592,
+          "min_hprime_lower_float": 0.00010566179695331302,
+          "boxes_with_nonpositive_qprime_lower": 0,
+          "qprime_strictly_positive_on_every_box": true,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": 0.23214576504035875,
+          "wall_seconds": 0.13753414154052734
+        },
+        {
+          "n": 2500,
+          "step": 0.001,
+          "min_qprime_lower": "0.000429301959288595278031435025733",
+          "min_qprime_lower_float": 0.00042930195928859527,
+          "min_absDen_lower_float": 28.144371164233586,
+          "min_q_lower_float": 0.000627254306194357,
+          "max_q_upper_float": 0.002719811801115736,
+          "min_hprime_lower_float": 0.00042929719577047625,
+          "boxes_with_nonpositive_qprime_lower": 0,
+          "qprime_strictly_positive_on_every_box": true,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": 0.9432005812660056,
+          "wall_seconds": 0.6856920719146729
+        },
+        {
+          "n": 5000,
+          "step": 0.0005,
+          "min_qprime_lower": "0.000442175122693970179451133469596",
+          "min_qprime_lower_float": 0.00044217512269397016,
+          "min_absDen_lower_float": 28.560790662711316,
+          "min_q_lower_float": 0.0006922851173567824,
+          "max_q_upper_float": 0.0027037564945291965,
+          "min_hprime_lower_float": 0.00044217027408961974,
+          "boxes_with_nonpositive_qprime_lower": 0,
+          "qprime_strictly_positive_on_every_box": true,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": 0.9714836462368773,
+          "wall_seconds": 1.3517632484436035
+        },
+        {
+          "n": 10000,
+          "step": 0.00025,
+          "min_qprime_lower": "0.000448651461296612298561544647132",
+          "min_qprime_lower_float": 0.0004486514612966123,
+          "min_absDen_lower_float": 28.769091627482805,
+          "min_q_lower_float": 0.0007255200296935051,
+          "max_q_upper_float": 0.002695757055914534,
+          "min_hprime_lower_float": 0.00044864657074437773,
+          "boxes_with_nonpositive_qprime_lower": 0,
+          "qprime_strictly_positive_on_every_box": true,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": 0.9857125268704762,
+          "wall_seconds": 2.747694253921509
+        }
+      ]
+    },
+    "monotonicity_checks[1]": {
+      "x": 0.15,
+      "eps_domain": [
+        2.0,
+        5.0
+      ],
+      "true_inf_qprime_dense_double_scan": 0.00013998112707778125,
+      "true_inf_qprime_note": "400001-point double-precision scan; independent of the interval run",
+      "rows": [
+        {
+          "n": 100,
+          "step": 0.03,
+          "min_qprime_lower": "-0.207145201823107014898596579104",
+          "min_qprime_lower_float": -0.207145201823107,
+          "min_absDen_lower_float": 7.8269162207195375,
+          "min_q_lower_float": -0.007212693579858733,
+          "max_q_upper_float": 0.01594553760567863,
+          "min_hprime_lower_float": -0.207145201823107,
+          "boxes_with_nonpositive_qprime_lower": 100,
+          "qprime_strictly_positive_on_every_box": false,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": -1479.8080723268192,
+          "wall_seconds": 0.02711009979248047
+        },
+        {
+          "n": 500,
+          "step": 0.006,
+          "min_qprime_lower": "-0.00016936647836911203109562347341",
+          "min_qprime_lower_float": -0.000169366478369112,
+          "min_absDen_lower_float": 48.546241068670376,
+          "min_q_lower_float": 0.0002160699579312085,
+          "max_q_upper_float": 0.0013951769317773644,
+          "min_hprime_lower_float": -0.00016936646650849,
+          "boxes_with_nonpositive_qprime_lower": 66,
+          "qprime_strictly_positive_on_every_box": false,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": -1.2099236654595775,
+          "wall_seconds": 0.13431787490844727
+        },
+        {
+          "n": 2500,
+          "step": 0.0012,
+          "min_qprime_lower": "0.000127351983335061194563114487651",
+          "min_qprime_lower_float": 0.00012735198333506119,
+          "min_absDen_lower_float": 56.79470791584737,
+          "min_q_lower_float": 0.0004835566115519284,
+          "max_q_upper_float": 0.0013130238497916225,
+          "min_hprime_lower_float": 0.00012735165399749979,
+          "boxes_with_nonpositive_qprime_lower": 0,
+          "qprime_strictly_positive_on_every_box": true,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": 0.9097796681140978,
+          "wall_seconds": 0.6853659152984619
+        },
+        {
+          "n": 5000,
+          "step": 0.0006,
+          "min_qprime_lower": "0.000133630449728244629573016886959",
+          "min_qprime_lower_float": 0.00013363044972824461,
+          "min_absDen_lower_float": 57.82825310812945,
+          "min_q_lower_float": 0.0005223217178720787,
+          "max_q_upper_float": 0.0013030468571296654,
+          "min_hprime_lower_float": 0.00013363010938601983,
+          "boxes_with_nonpositive_qprime_lower": 0,
+          "qprime_strictly_positive_on_every_box": true,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": 0.9546319030135552,
+          "wall_seconds": 1.3586499691009521
+        },
+        {
+          "n": 10000,
+          "step": 0.0003,
+          "min_qprime_lower": "0.000136796703638610096551527733822",
+          "min_qprime_lower_float": 0.0001367967036386101,
+          "min_absDen_lower_float": 58.345233518205355,
+          "min_q_lower_float": 0.0005422231622957916,
+          "max_q_upper_float": 0.0012980819872354117,
+          "min_hprime_lower_float": 0.00013679635788221327,
+          "boxes_with_nonpositive_qprime_lower": 0,
+          "qprime_strictly_positive_on_every_box": true,
+          "absDen_strictly_positive_on_every_box": true,
+          "ratio_to_true_inf_qprime": 0.9772510515835343,
+          "wall_seconds": 2.7928388118743896
+        }
+      ]
+    }
+  },
+  "m_i_reproduction": [
+    {
+      "check": "monotonicity_checks[0]",
+      "qprime_lower_computed": "0.000429301959288595278031435025733",
+      "H_i_computed": "0.00271981180111573648091806056666",
+      "m_i_computed": "0.000429297195770476277629454404911",
+      "m_i_computed_float": 0.00042929719577047625,
+      "m_i_computed_hp50": "0.0004292971957704762776294544",
+      "m_i_computed_hp50_using_q_lower_in_denominator": "0.00042930170592674673723148399899463292",
+      "m_i_from_supplied_constants": 0.0004326194599396315,
+      "amplitude_derivative_lower_supplied": 0.0004326194599396315,
+      "A5_section7_stated_m_i": 0.00043261945994,
+      "rel_diff_vs_section7_stated": -0.007679414536702821,
+      "supplied_matches_amplitude_derivative_lower": 0.0
+    },
+    {
+      "check": "monotonicity_checks[1]",
+      "qprime_lower_computed": "0.000129436839444102321823981529064",
+      "H_i_computed": "0.00130969115967043357119482851105",
+      "m_i_computed": "0.000129436506412060598934769238321",
+      "m_i_computed_float": 0.00012943650641206059,
+      "m_i_computed_hp50": "0.0001294365064120605989347692",
+      "m_i_computed_hp50_using_q_lower_in_denominator": "0.00012943679161568353265412759759260982",
+      "m_i_from_supplied_constants": 0.00013086616723688468,
+      "amplitude_derivative_lower_supplied": 0.00013086616723688468,
+      "A5_section7_stated_m_i": 0.00013086616724,
+      "rel_diff_vs_section7_stated": -0.01092460227185767,
+      "supplied_matches_amplitude_derivative_lower": 0.0
+    }
+  ],
+  "variant_sensitivity": {
+    "monotonicity_checks[0]": {
+      "V1": "0.000429301959288594277475742110357",
+      "V1_float": 0.00042930195928859424,
+      "V2": "0.000428281991854946790927340978946",
+      "V2_float": 0.0004282819918549468
+    },
+    "monotonicity_checks[1]": {
+      "V1": "0.00012943683944410172602116096502",
+      "V1_float": 0.0001294368394441017,
+      "V2": "0.000129076216158577808967919694404",
+      "V2_float": 0.0001290762161585778
+    },
+    "note": "V1 and V2 are algebraically identical analytic derivatives of q; they differ only in how the interval expression is grouped, so they give different (both valid) enclosures. The supplied qprime_lower lies above both, i.e. the source implementation used a marginally tighter grouping of the same analytic derivative."
+  },
+  "wall_seconds": 14.793988227844238
+}

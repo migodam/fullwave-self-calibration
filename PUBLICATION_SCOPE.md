@@ -1,5 +1,23 @@
 # Public archive scope and release checks
 
+## Q5 update — 10 September 2026
+
+User-authorized publication includes A4 closure, supplied A5 Markdown/JSON,
+Q5 parent theory, independent numerical code, registered development protocols,
+corrected results, Chinese report and English working draft. Prior A1–A4 files
+remain available. Valid worker code/input/result files are frozen as provisional
+snapshots; live control state, raw logs/transcripts and malformed JSON are not
+scientific evidence and are excluded. Pipeline activity after this snapshot is
+not automatically published. Local checkpoint session IDs are historical only.
+
+Credential-pattern and source-hash checks are packaging checks, not scientific
+acceptance. No original missing A5 implementation is fabricated. No private API
+profile, key, model reasoning transcript or virtual environment is included.
+The source-preserving manifest covers research payloads; navigation and generated
+ChatGPT bundle are release tooling, with bundle integrity checked separately.
+
+The historical publication-pass notes below describe the earlier A4 upload.
+
 Date: 9 September 2026. User-authorized public expansion of the existing repository.
 
 ## Included

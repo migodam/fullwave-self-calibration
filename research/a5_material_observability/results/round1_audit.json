@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "mechanism_cases": 18,
+  "modal_counterexamples": 9,
+  "runs": [
+    {
+      "name": "a4_regression",
+      "returncode": 0,
+      "seconds": 1.2245996670098975
+    },
+    {
+      "name": "a4_package",
+      "returncode": 0,
+      "seconds": 0.11125812504906207
+    }
+  ],
+  "source_hashes": {
+    "research/a5_material_observability/scale_gauge_experiment.py": "937b98704247660fac3cb131b91af69f4aa55c343627df8e7dd13f2d1e7b5b07",
+    "research/a5_material_observability/PLAN_AND_PROTOCOL.md": "7896b79a665108c75471cc5e1558e3c88bb8a53072f59f2b3b4ce96344a87989",
+    "research/trispace_self_calibration/a3_research/maxwell3d.py": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b",
+    "public_release/research/a4_reliability_v1/src/modal.py": "e6b5cfc553fe33970c89be72af7b80acd9c770152d323977e6c4083d0dd896a0"
+  },
+  "scope": "Regression, stored-data and mechanism checks; not final material recovery or scientific novelty."
+}

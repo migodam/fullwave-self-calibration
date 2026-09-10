@@ -5,6 +5,18 @@ command. Original source is byte-preserved. Do not run every historical script
 indiscriminately: some generate output, call separately configured providers,
 or require omitted third-party solvers / measured datasets.
 
+## Q5: current independent development code
+
+[Reproduction scope](research/q5_remaining_v1/Q5_REPRODUCIBILITY.md) and
+[complete code/parameter map](Q5_CHATGPT_START_HERE.md) are the current entry.
+Tested numerical package versions: NumPy 2.5.3, SciPy 1.16.3, Treams 0.4.7,
+Python 3.13.13. These record the local environment, not a clean-install test.
+The code imports the included A3 `maxwell3d.py`; no paid model is needed for
+the numerical scripts. `run_native_checks.py` is a separate optional provider
+entrypoint requiring a private profile and the installed external pipeline.
+Private profiles, credentials, virtual environments and mpmath cache are not
+published. Never run provider entrypoints merely to inspect this archive.
+
 ## A4: self-contained numerical source package
 
 - [Requirements](research/a4_reliability_v1/requirements.txt) and

@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "mie_points": 10,
+  "max_treams_eigenmode_error": 8.734959248982708e-19,
+  "mie_convention": "a=N/(N+iD), T=-a, q=i*a/(1-a)=-i*T/(1+T)",
+  "profile_objective_check": true,
+  "proper_complex_whitening_check": true,
+  "scope": "Unit checks only; no continuum or finite-domain material certificate",
+  "source_sha256": "6591f4d5004b9dbddb3ca38c24a7c7e2c5536622b82d319e8052251bf074869b"
+}

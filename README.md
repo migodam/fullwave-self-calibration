@@ -1,4 +1,17 @@
-# Full-Wave Self-Calibration · A1–A4 research archive
+# Full-Wave Self-Calibration · A1–A5 / Q5 research archive
+
+## Latest public snapshot: Q5, 10 September 2026
+
+**[Start here: Q5 ChatGPT reading package](Q5_CHATGPT_START_HERE.md)** — theory,
+English working manuscript, Chinese report, next research prompt, source code,
+registered experiment parameters and immutable numerical results.
+
+Q5 is scientifically incomplete. Two development cycles are complete; the
+candidate-selection advantage is withdrawn. Independent-model recovery was
+1/12 without reference and 6/12 with reference; the new policy reached 3/12.
+No final 128-scene test was generated. Supplied A5, parent reconstructions and
+provisional worker calculations are kept distinct. The older A1–A4 entries
+below remain available as history, not the latest verdict.
 
 Coherent electromagnetic inverse scattering, TriSpace SOM, map–pose coupling,
 unknown arrays, geometry/electronic calibration, and model discrepancy.

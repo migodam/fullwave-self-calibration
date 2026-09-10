@@ -1,0 +1,115 @@
+{
+ "PART_E_sign_convention": {
+  "eps": 2.0,
+  "x": 0.2,
+  "reactance_reference": {
+   "q_closed": 0.0013332052507369593,
+   "q_mpmath_dps50": {
+    "re": 0.0013332052507369558,
+    "im": 0.0
+   },
+   "q_scipy": 0.0013332052507369569,
+   "q_closed_vs_scipy_rel": 1.789105449554457e-15,
+   "q_closed_vs_mpmath_rel": 2.6023351993519437e-15
+  },
+  "textbook_a1_outgoing_h1": {
+   "definition": "a1 = [m psi1(mx) psi1'(x) - psi1(x) psi1'(mx)] / [m psi1(mx) xi1'(x) - xi1(x) psi1'(mx)] with xi1 = psi1 + i*chi1, chi1 = -z*y1(z); time factor e^{-i omega t}, outgoing h^(1)",
+   "a1_scipy_route": {
+    "re": 1.7774330813186167e-06,
+    "im": 0.0013332028810538396
+   },
+   "a1_mpmath_route": {
+    "re": 1.7774330813186146e-06,
+    "im": -0.0013332028810538387
+   },
+   "a1_hankel1_route": {
+    "re": -7.855193774408397e-13,
+    "im": -8.898742262930405e-07
+   },
+   "route_agreement_rel_scipy_vs_mpmath": 1.9999982225661295,
+   "route_agreement_rel_scipy_vs_hankel": 1499.1938185341353,
+   "Re_a1_plus_abs_a1_sq": 3.5548661626372334e-06,
+   "Re_a1_minus_abs_a1_sq": -2.117582368135751e-22
+  },
+  "conjugated_branch_a1_xi_minus": {
+   "a1": {
+    "re": 1.7774330813186167e-06,
+    "im": -0.0013332028810538396
+   },
+   "equals_conj_of_outgoing_branch": true,
+   "a1_mpmath_route": {
+    "re": 1.7774330813186146e-06,
+    "im": 0.0013332028810538387
+   }
+  },
+  "theory_t": {
+   "t = i q/(1 - i q)": {
+    "re": -1.7774330813186243e-06,
+    "im": 0.0013332028810538424
+   },
+   "Re_t_plus_abs_t_sq": 2.117582368135751e-22,
+   "t_vs_minus_conj_a1_outgoing_rel": 2.1144069602685773e-15,
+   "t_vs_minus_a1_conj_branch_rel": 2.1144069602685773e-15
+  },
+  "conversions_applied_to_textbook_a1_h1": {
+   "A: -i*a1/(1+a1)": {
+    "value": {
+     "re": 0.001333195772055032,
+     "im": -3.554847207128158e-06
+    },
+    "rel_err_vs_q": 0.002666401022775141,
+    "abs_err_vs_q": 3.5548598441342163e-06
+   },
+   "B: +i*a1/(1-a1)": {
+    "value": {
+     "re": -0.0013332052507369564,
+     "im": -2.499273690954004e-22
+    },
+    "rel_err_vs_q": 1.9999999999999978,
+    "abs_err_vs_q": 0.0026664105014739155
+   },
+   "A_on_conjugated_branch": {
+    "value": {
+     "re": -0.001333195772055032,
+     "im": -3.554847207128158e-06
+    },
+    "rel_err_vs_q": 1.9999946677220786
+   },
+   "B_on_conjugated_branch": {
+    "value": {
+     "re": 0.0013332052507369564,
+     "im": -2.499273690954004e-22
+    },
+    "rel_err_vs_q": 2.1143973577837547e-15
+   }
+  },
+  "code_q_mie_default": {
+   "q_mie(xi_sign=+1)": {
+    "re": 0.001333195772055032,
+    "im": -3.554847207128158e-06
+   },
+   "q_mie(xi_sign=-1)": {
+    "re": -0.001333195772055032,
+    "im": -3.554847207128158e-06
+   },
+   "q_mie_default_rel_err_vs_q": 0.002666401022775141
+  },
+  "decision": {
+   "matches_q_within_1e-12": {
+    "A: -i*a1/(1+a1) on h^(1)": false,
+    "B: +i*a1/(1-a1) on h^(1)": false,
+    "B: +i*a1/(1-a1) on h^(2) (conjugated branch)": true
+   },
+   "statement": "With the outgoing Hankel function h^(1) (xi1 = psi1 + i*chi1) and time factor e^{-i omega t}, the textbook electric-dipole coefficient satisfies Re(a1) = |a1|^2 > 0 and is related to A5's t by t = -conj(a1).  The A5 Section-8 reactance is therefore recovered exactly by q = +i*conj(a1)/(1 - conj(a1)) -- i.e. by the '+i*a1/(1-a1)' form evaluated on the CONJUGATED (xi1 = psi1 - i*chi1) branch.  On the outgoing branch itself neither candidate reproduces q: '-i*a1/(1+a1)' misses by ~2.7e-3 relative and '+i*a1/(1-a1)' returns -q (sign flip only)."
+  }
+ },
+ "meta": {
+  "script": "code/run_mie_sign_convention.py",
+  "interpreter": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/.venv3d/bin/python",
+  "numpy_version": "2.5.3",
+  "wall_seconds": 0.012,
+  "timestamp_utc": "2026-09-10T10:07:43Z",
+  "eps": 2.0,
+  "x": 0.2
+ }
+}
