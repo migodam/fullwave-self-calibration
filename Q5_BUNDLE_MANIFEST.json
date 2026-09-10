@@ -1,7 +1,7 @@
 {
-  "sha256": "b8698bc7d55a8f0d635de67e09ea377a67c96c5c2cb2043354bd7154e96c3173",
-  "bytes": 528476,
-  "files": 114,
+  "sha256": "bf5e1a402ace7bebbcb4ad560d049c7821a56b8326131dcfe2ae3798eb8cec56",
+  "bytes": 624894,
+  "files": 127,
   "records": [
     {
       "path": "CODE_AND_REPRODUCIBILITY.md",
@@ -10,13 +10,13 @@
     },
     {
       "path": "PUBLICATION_SCOPE.md",
-      "sha256": "586730bbb077d222bdeafc8564ab1dba0ac87a561c21006afc05bcce3ea71a3c",
-      "bytes": 3892
+      "sha256": "0533c3414c7455ddad2ebe2ba3e655934896923f01a27679eb96705ef72dfff0",
+      "bytes": 4375
     },
     {
       "path": "Q5_CHATGPT_START_HERE.md",
-      "sha256": "b7dad17a3af7dbebd4b87a2d2754617f178e82eafb52903c4c0babeec47d658f",
-      "bytes": 4504
+      "sha256": "37f9f79cdb41b0132a8da8d06936e1a4254f7c67ed701e8f3145faae404638df",
+      "bytes": 5780
     },
     {
       "path": "Theory/Questions/A4_2.md",
@@ -75,8 +75,8 @@
     },
     {
       "path": "communication/Q5_REMAINING_V1_RESEARCH_REPORT_ZH.md",
-      "sha256": "c848a72ae05e9f87b088f168e9de5cc9adbfaf4cc0ed82def567aad2caee50bd",
-      "bytes": 1855
+      "sha256": "72fad4045640c1403a2b755f5fb1b6a15840955459895e15e6e904129640177d",
+      "bytes": 4183
     },
     {
       "path": "research/a5_material_observability/A4_CLOSURE_ADDENDUM_EN.md",
@@ -150,63 +150,63 @@
     },
     {
       "path": "research/q5_remaining_v1/EXECUTION_CHECKPOINT.md",
-      "sha256": "5e366d5b751160ab9fcf995414ac7cb3d1239514ace129ce56e2603a807ee478",
-      "bytes": 1524
+      "sha256": "da703b5aa8ab19d0c97aed5edc9d7a1605e8ba874e114a009811be2138bd8efa",
+      "bytes": 1547
     },
     {
       "path": "research/q5_remaining_v1/PAPER_DRAFT_Q5.md",
-      "sha256": "4b97f5324b40c6cd14fe47921b8af15e9a0571624fe99b7c1e3b441d4928d0bd",
-      "bytes": 4405
+      "sha256": "dbf5e2a13fb74f25209161d428eac5bfedb50411338621e3f7490fae3f1c8d19",
+      "bytes": 5890
     },
     {
       "path": "research/q5_remaining_v1/Q5_ALGORITHM.md",
-      "sha256": "e4962783bd95334f1e4dc514169b7b62fdb6384117030ca1b8c5eeddd0b2c8f2",
-      "bytes": 1532
+      "sha256": "c647fe02d7fb3213a8d28572ea9ae7d3430585737f1db5bdf5d58faa36448dfa",
+      "bytes": 1916
     },
     {
       "path": "research/q5_remaining_v1/Q5_CAUSAL_CHAIN_LEDGER.md",
-      "sha256": "56a6f6f2f81f1ad6dd1b2d98d4a657f8e6f242e1fa467512aa8c689f5744de07",
-      "bytes": 1234
+      "sha256": "07c5c8ed3d84776d6060b327d8560c107692185c6e18981ef0047047b59d2599",
+      "bytes": 1667
     },
     {
       "path": "research/q5_remaining_v1/Q5_EXECUTIVE_VERDICT_ZH.md",
-      "sha256": "1a44e884e1a508eab09a1228aa4461d3be7d8ddb127f334db8b0101d7c2a9a47",
-      "bytes": 2609
+      "sha256": "90816241fa66e193d40b553630432a6bf4de71c817d6d7801cc52ada4490bb68",
+      "bytes": 3519
     },
     {
       "path": "research/q5_remaining_v1/Q5_EXPERIMENT_REPORT.md",
-      "sha256": "b8f28fcf7aa2cafc7ab2f5e6cdd284b7b614e201969946f4fbdf589887b6e8fd",
-      "bytes": 2547
+      "sha256": "d71b4fe0e5fc87152bcf0107440cda1fa434962ee62646925319cfabd8f9bf7d",
+      "bytes": 3426
     },
     {
       "path": "research/q5_remaining_v1/Q5_LITERATURE_LEDGER.md",
-      "sha256": "827f2caa3b6272da5c76b8ba943cb4b73276d0422c03dde167c15b126ed9305f",
-      "bytes": 1275
+      "sha256": "2d0e0bfa4add5ac69a8c5186eab07da4b5ac8b3b831157338cd8680246d39dcf",
+      "bytes": 1502
     },
     {
       "path": "research/q5_remaining_v1/Q5_REMAINING_QUESTIONS.md",
-      "sha256": "5e82533029f84330f7404ebca97668df862ab657f4c602cefb71aa6cdadbaafc",
-      "bytes": 2083
+      "sha256": "a0bbc3ab621d2e2c0b95b227a48055c0a4b6b9f922380ad258cd4b5593a46188",
+      "bytes": 5475
     },
     {
       "path": "research/q5_remaining_v1/Q5_REPRODUCIBILITY.md",
-      "sha256": "42b8513d891ef91c25f3e26a684bc662fa04ba4cc7049e71668663cb6e7f3541",
-      "bytes": 2162
+      "sha256": "4b699123ff98c9981536e850ee6fb565d96ba7a6b0dda710813ba3fe28534f3b",
+      "bytes": 2911
     },
     {
       "path": "research/q5_remaining_v1/Q5_REVIEW_AND_REPAIR.md",
-      "sha256": "c5d7b083ca546f8a31fb821828e58f1436e48b501e9d14bbf731d06180145773",
-      "bytes": 1714
+      "sha256": "97dc2446db347e5af353cbf2e7ffd13d3d91d30a10ab00c51d829ab2798d0dd5",
+      "bytes": 2845
     },
     {
       "path": "research/q5_remaining_v1/Q5_THEORY_FINAL.md",
-      "sha256": "f33cda6297d1a0c840133ecf5ba0e19a53ebe117959bedf76f1ac0a3b7d50fee",
-      "bytes": 3938
+      "sha256": "c3ce8bf718bac46c200fd84128cc670173eb8cab0c1d1f40096c9ea49660c666",
+      "bytes": 7151
     },
     {
       "path": "research/q5_remaining_v1/README.md",
-      "sha256": "95cc26814083143ad80c4987d32e0025593693bdab3d9453e07df1d2b23e0dd2",
-      "bytes": 1692
+      "sha256": "64af2511db06d24d31d57034c388426eb707a8086da8f44791d83091c7a2f4f6",
+      "bytes": 2050
     },
     {
       "path": "research/q5_remaining_v1/docs/CYCLE2_PROTOCOL.md",
@@ -245,13 +245,28 @@
     },
     {
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/mie_reactance.py",
-      "sha256": "6bdea5e475d5b4176396b59ebc5d4da94b190885dec381bc12075920b463b62e",
-      "bytes": 15651
+      "sha256": "cb4c59efe95512a4faf1c9ff283a9c1e9217d977d8019389f6007b3b775ca8e4",
+      "bytes": 20524
     },
     {
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/qprime_variants_lib.py",
       "sha256": "7c072089d1a61410c4158491efd20f77fe9d372abdbd641232ac5b1f3859e97c",
       "bytes": 5452
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_counterexample.py",
+      "sha256": "d0a04c56b340289cdaea7c596ba177006c3c0174053d1090c9da02b574d3f1ea",
+      "bytes": 13959
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_coverage_audit.py",
+      "sha256": "e661800be6ec51f192718be479d20e5c0861c050fa97000d0af38809a81a5057",
+      "bytes": 29191
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_final_summary.py",
+      "sha256": "88b9316508f07fc8d38907ff0c38d96582a3efdf33a188ada8e63620e783ba96",
+      "bytes": 30790
     },
     {
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_finite_risk_checks.py",
@@ -274,6 +289,11 @@
       "bytes": 17937
     },
     {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_mie_fix_check.py",
+      "sha256": "918156fd4554bacfd07f3ea3633f945e4159ab162c09970dd6c49d5ea66ec653",
+      "bytes": 7468
+    },
+    {
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/run_mie_sign_convention.py",
       "sha256": "48a8c37df65f2471436850db30e2e635ecbce16abd6fb12f3a8f0ee10026121b",
       "bytes": 15889
@@ -292,6 +312,11 @@
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/split_a5_sections.py",
       "sha256": "529a045e18be53a971db6c4147e90a8c2835226d6f6f41a11807dfc95f50e673",
       "bytes": 2691
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/code/validate_final_summary.py",
+      "sha256": "61cf91a7d6de37791697d77fabf61f0cb08bee8c7d2683c07b42a384a207787f",
+      "bytes": 3303
     },
     {
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/inputs/A5_THEORY.md",
@@ -394,6 +419,16 @@
       "bytes": 3471
     },
     {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/FINAL_REPORT.md",
+      "sha256": "2efc89f4eed3a26f0c2e6e6d9b32d825b163fbdc5cf3d1f68a8b7315c17e0a92",
+      "bytes": 11805
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/FINAL_SUMMARY.json",
+      "sha256": "0fd7f97012e2e09f21c1a829646ddde3b4f62f8ea96e5e02feb5cb838280f654",
+      "bytes": 48254
+    },
+    {
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/FINDINGS_increment2.md",
       "sha256": "85b866407f4a215cbeafc87597ff0f09c1584d9b7b6fd049bb26f173fc7d1fbb",
       "bytes": 7154
@@ -402,6 +437,21 @@
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/FINDINGS_increment3.md",
       "sha256": "727ddc04955d7270b3794ac54325969078bf9ed57f5520f02dc26b36de338d05",
       "bytes": 7814
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/counterexample_20260910T101904Z.json",
+      "sha256": "9fc757931e1664ecbb257ff427f6d1335b783da2decda480b50ece7504e91abc",
+      "bytes": 14977
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/counterexample_20260910T102008Z.json",
+      "sha256": "525a633f6f2d950514fa336f87c0b4cdd182a0af83813f05468f038968f721fc",
+      "bytes": 14977
+    },
+    {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/coverage_audit_20260910T101523Z.json",
+      "sha256": "615dcc5932c01938855ac29f634818f04771a262b89805bca082e4992a7751cc",
+      "bytes": 30791
     },
     {
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/finite_risk_20260910T095123Z.json",
@@ -469,6 +519,11 @@
       "bytes": 81773
     },
     {
+      "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/mie_checks_20260910T101602Z.json",
+      "sha256": "e1a0ed41b49e13035a6d07eb247f91a7d326863bec601c3a98bee2ad5100b9aa",
+      "bytes": 81774
+    },
+    {
       "path": "research/q5_remaining_v1/pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/mie_sign_convention_20260910T100743Z.json",
       "sha256": "7e1bef6791ca8ce62c1aeb5056cbe81ec8183c7e2f6d0a37563f9e68c81f8d7e",
       "bytes": 3797
@@ -514,6 +569,11 @@
       "bytes": 230230
     },
     {
+      "path": "research/q5_remaining_v1/results/integration_audit.json",
+      "sha256": "d3c77d61ad2438e8e2f42419173fb8714a694e1cccc16a1256fd8135c2ac99d3",
+      "bytes": 2132
+    },
+    {
       "path": "research/q5_remaining_v1/results/parent_boundary.json",
       "sha256": "57a185e4b4d22397f30b712bff9c69b181f0274fcfe9e5b5cceff96a28715e2e",
       "bytes": 737
@@ -537,6 +597,11 @@
       "path": "research/q5_remaining_v1/src/audit_development.py",
       "sha256": "59ad89ef05b08c156e052867a7a499195270926829e3dee7c350a8f7b59a6703",
       "bytes": 3937
+    },
+    {
+      "path": "research/q5_remaining_v1/src/integration_checks.py",
+      "sha256": "846f08b8ef6f99013d3ef35d3ddc5de2c9202adcb9347c3518c827098434cad2",
+      "bytes": 2110
     },
     {
       "path": "research/q5_remaining_v1/src/parent_boundary.py",

@@ -1,8 +1,8 @@
-# Live execution checkpoint
+# Integrated execution checkpoint — native run ended
 
-Parent development cycles 1 and 2 and corrected evaluation are complete. Parent Mie/Treams unit checks and scalar binary-risk reconstruction passed. All ten requested document entry points exist as explicitly incomplete working artifacts. No formal test set or publication was generated.
+Parent development cycles 1 and 2, corrected evaluation, Mie/Treams checks, scalar risk reconstruction and final integration checks are complete. Existing Q5 documents incorporate the completed worker results. No formal test set was generated. The public archive and original ChatGPT bundle are updated in place.
 
-At this checkpoint the native Agentic-AI-Scientist invocation is still running, terminal session 28074, pipeline directory pipeline/boundary_20260910_171833/. Its first coding process exited after the configured 900-second interval and another coding invocation was observed; native completion/evaluation has not been confirmed. Do not launch a duplicate. Read its final reports before deciding whether another bounded task is justified.
+Native Agentic-AI-Scientist exited 0. One development round reached the 18-turn cap; evaluator decision abandon; native writeup was not executed. The worker final report and summary are available under pipeline/boundary_20260910_171833/experiment_q5_boundary_reconstruction/results/. No job from this invocation remains to be awaited. This is bounded verification completion, not scientific paper acceptance.
 
 Parent review flags: the standard outgoing Mie a coefficient differs from T=-a; use results/parent_checks.json as the convention check. Worker interval results include a partial JSON from a failed write (interval_20260910T093248Z.json), which must not be used as a completed result. A later interval_20260910T093408Z.json exists; interval precision, exact size-parameter endpoints, exported rounding and differing lower constants need audit. Do not promote worker DONE labels into scientific acceptance.
 

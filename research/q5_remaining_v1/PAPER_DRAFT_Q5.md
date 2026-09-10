@@ -1,5 +1,20 @@
 # Material Attribution under Calibration Uncertainty: Independent-Model Diagnostics and Conditional Reference Requirements
 
+## Integrated completion note
+
+The automatic verification has ended without native writeup. Its bounded checks are incorporated below; the candidate-selection claim remains withdrawn. The 53-entry ledger includes input consistency checks, not 53 independent theorems. Corrected worker formulas in Appendix A override the raw report.
+
+### Fixed-loss Born scope
+
+For u=q ell with ell=(0.03,0.05), materials (1.9,2.5) and (2.2,3.0) yield identical fixed-geometry Born data under gains 1 and (30+i)/(40+i). The latter modulus is 0.750182, within the allowed annulus. The q'=45 example instead needs common gain rescaling. Constitutive anchoring is therefore conditional, not a universal removal of ambiguity.
+
+### Verification incorporated into the reference argument
+
+Independent computation reproduces the supplied binary error 0.443423189256. Completed worker calculations yield weaker amplitude-derivative bounds than supplied, without thereby refuting them. No unverified endpoint-infimum or physical-readout claim is promoted into a theorem. Scalar reference-GLS equivalence, gain constraints and complete residual derivatives are implementation requirements, not a novel method. Two raw written derivative errors are corrected in Appendix A (Q5_THEORY_FINAL.md).
+
+The native evaluator's abandon decision concerns treating this bounded verification as a paper contribution; it does not erase the valid checks. The remaining finite-domain, physical and novelty gates are unchanged.
+
+
 Working manuscript — scientifically incomplete; not submission-ready.
 
 ## Abstract

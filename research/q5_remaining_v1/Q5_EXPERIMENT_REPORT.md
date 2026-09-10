@@ -1,5 +1,14 @@
 # Independent development experiments
 
+## Completed native verification integrated with recovery evidence
+
+The automatic run has ended; it did not generate another recovery campaign. Its 53-entry ledger labels 41 matches (including input checks), two weaker bounds, seven unmatched constants and three incomparable records. Parent verification matched 31 local artifact hashes. The approximately 44.34% scalar risk is independently corroborated.
+
+The repaired fixed-loss Born pair is (1.9,2.5) versus (2.2,3.0), with partner gain modulus 0.750182155685. The old q'=45, g=1 pair violates the annulus. Scalar reference GLS agrees numerically; annulus constraints and complete residual derivatives matter. Parent formula corrections and interval limitations appear in Q5_THEORY_FINAL.md. No new 128-scene test, hardware result or continuum certificate was produced. Counts below are unchanged.
+
+## Development recovery
+
+
 Two known spheres at (-0.06,0,0) and (0.055,0.02,0) m, radii 0.035 and 0.025 m; k=18; losses (0.03,0.05); four illuminations/polarizations; 12 three-component receivers at radius 0.6 m. Material domain [1.5,4]×[2,5], receiver x translation ±2 mm, gain modulus [0.75,1.25]. Complex noise standard deviation is 1% of field RMS. Complex reference standard deviation is 0.01.
 
 Treams lmax=3 is inverted. Same-principle sanity data use lmax=4. Independent data use DipoleVIE spacing 0.011 m and fill quadrature 4. The latter is neither continuum truth nor a certified discretization bound. Independent solver convergence remains open.

@@ -1,0 +1,671 @@
+{
+ "meta": {
+  "part": "H",
+  "seed": 20260910,
+  "script": "code/run_counterexample.py",
+  "interpreter": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/.venv3d/bin/python",
+  "numpy_version": "2.5.3",
+  "mpmath_version": "1.3.0",
+  "ell": [
+   0.03,
+   0.05
+  ],
+  "material_domain": [
+   [
+    1.5,
+    4.0
+   ],
+   [
+    2.0,
+    5.0
+   ]
+  ],
+  "gain_allowed_modulus": [
+   0.75,
+   1.25
+  ],
+  "timestamp_utc": "2026-09-10T10:20:08Z",
+  "wall_seconds": 0.014,
+  "json_path": "results/counterexample_20260910T102008Z.json"
+ },
+ "H0_theory_instance_raw": {
+  "q": 30.0,
+  "q_prime": 45.0,
+  "lambda_shared_rescale": 1.0,
+  "c": {
+   "re": 1.499445061043285,
+   "im": -0.01664816870144284
+  },
+  "g": {
+   "re": 1.0,
+   "im": 0.0
+  },
+  "g_prime": {
+   "re": 0.6668311944718659,
+   "im": 0.007403751233958541
+  },
+  "abs_g": 1.0,
+  "abs_g_prime": 0.6668722947109962,
+  "abs_g_prime_mp60": "0.6668722947109960539256915040461951687518",
+  "abs_g_prime_float_vs_mp60_rel": 1.934657023181496e-16,
+  "u": [
+   0.8999999999999999,
+   1.5
+  ],
+  "u_prime": [
+   1.3499999999999999,
+   2.25
+  ],
+  "eps_world1": [
+   1.9,
+   2.5
+  ],
+  "eps_world2": [
+   2.3499999999999996,
+   3.25
+  ],
+  "material_domain": [
+   [
+    1.5,
+    4.0
+   ],
+   [
+    2.0,
+    5.0
+   ]
+  ],
+  "material_margins": {
+   "world1": {
+    "eps_1": {
+     "value": 1.9,
+     "domain": [
+      1.5,
+      4.0
+     ],
+     "dist_to_lower": 0.3999999999999999,
+     "dist_to_upper": 2.1,
+     "inside": true,
+     "min_margin": 0.3999999999999999
+    },
+    "eps_2": {
+     "value": 2.5,
+     "domain": [
+      2.0,
+      5.0
+     ],
+     "dist_to_lower": 0.5,
+     "dist_to_upper": 2.5,
+     "inside": true,
+     "min_margin": 0.5
+    },
+    "min_margin_over_all": 0.3999999999999999
+   },
+   "world2": {
+    "eps_1": {
+     "value": 2.3499999999999996,
+     "domain": [
+      1.5,
+      4.0
+     ],
+     "dist_to_lower": 0.8499999999999996,
+     "dist_to_upper": 1.6500000000000004,
+     "inside": true,
+     "min_margin": 0.8499999999999996
+    },
+    "eps_2": {
+     "value": 3.25,
+     "domain": [
+      2.0,
+      5.0
+     ],
+     "dist_to_lower": 1.25,
+     "dist_to_upper": 1.75,
+     "inside": true,
+     "min_margin": 1.25
+    },
+    "min_margin_over_all": 0.8499999999999996
+   }
+  },
+  "gain_allowed_modulus": [
+   0.75,
+   1.25
+  ],
+  "g_in_annulus": true,
+  "g_prime_in_annulus": false,
+  "both_gains_in_annulus": false,
+  "n_random_B": 9,
+  "m_rows": 9,
+  "cond_B": null,
+  "B_ranks": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "all_B_full_column_rank": true,
+  "rel_residual_per_B": [
+   2.38474006093202e-16,
+   2.3398699562753005e-16,
+   2.0828406593901904e-16,
+   2.1345893243501324e-16,
+   2.254960641412789e-16,
+   2.5244525246881836e-16,
+   2.0642416640763317e-16,
+   2.814828987347276e-16,
+   2.9459970118632586e-16,
+   2.8381498904566414e-16
+  ],
+  "max_rel_residual": 2.9459970118632586e-16,
+  "rel_residual_B_identity": 2.8381498904566414e-16,
+  "w_space_rel_residual": 2.8381498904566414e-16,
+  "delta_mu_zero_to_1e15": true,
+  "quoted_g_prime_theory": {
+   "re": 0.666831,
+   "im": 0.007404
+  },
+  "g_prime_abs_diff_vs_quoted": 3.1575916459696034e-07,
+  "g_prime_rel_diff_vs_quoted": 4.7349283793746934e-07,
+  "abs_g_prime_equals_sqrt_901_over_1601": {
+   "closed_form": "sqrt(30^2+1)/sqrt(45^2+1) = sqrt(901/1601)",
+   "value_mp60": "0.6668722947109960539256915040461951687518",
+   "value_float": 0.7501821556850758,
+   "rel_diff": 0.12492625894765053
+  },
+  "theory_rel_residual_quoted": 1.74e-16,
+  "ADMISSIBLE_UNDER_DECLARED_GAIN_DOMAIN": false
+ },
+ "H1_admissible_lambda_interval": {
+  "constraint_gain_world1_lambda_range": [
+   "0.75",
+   "1.25"
+  ],
+  "constraint_gain_world2_lambda_range": [
+   "1.1246531096707641553164131414",
+   "1.87442184945127359219402190233"
+  ],
+  "lambda_min": "1.1246531096707641553164131414",
+  "lambda_max": "1.25",
+  "lambda_min_float": 1.1246531096707642,
+  "lambda_max_float": 1.25,
+  "lambda_min_equals_0p75_over_abs_gp": {
+   "0.75/abs_gp": "1.124653109670764155316413141396441241863",
+   "abs_gp": "0.6668722947109960539256915040461951687518",
+   "identity_holds_exactly": true,
+   "rel_diff": "0.000000000000000000000000000000"
+  },
+  "lambda_equals_1p2_check": {
+   "abs_g": 1.2,
+   "abs_g_prime": 0.8002467536531954,
+   "abs_g_prime_expected": 0.8002472,
+   "abs_g_prime_abs_diff_vs_expected": 4.463468046278507e-07,
+   "max_rel_residual": 3.752771129402897e-16,
+   "rel_residual_B_identity": 2.3651249087138687e-16,
+   "both_gains_in_annulus": true
+  },
+  "lambda_at_min": {
+   "lambda": 1.1246531096707642,
+   "abs_g": 1.1246531096707642,
+   "abs_g_prime": 0.7500000000000001,
+   "both_gains_in_annulus": true
+  },
+  "lambda_at_max": {
+   "lambda": 1.25,
+   "abs_g": 1.25,
+   "abs_g_prime": 0.8335903683887452,
+   "both_gains_in_annulus": true
+  },
+  "note": "positive real shared rescale; a negative lambda with |lambda| in the same interval has the same moduli (only the common data phase flips), so the admissible *modulus* interval is [lambda_min, lambda_max]."
+ },
+ "H2_no_rescale_counterexamples": {
+  "annulus_geometric_mean": 0.9682458365518543,
+  "instances": [
+   {
+    "q": 30.0,
+    "q_prime": 40.0,
+    "lambda_shared_rescale": 1.0,
+    "c": {
+     "re": 1.3329633740288567,
+     "im": -0.011098779134295226
+    },
+    "g": {
+     "re": 1.0,
+     "im": 0.0
+    },
+    "g_prime": {
+     "re": 0.7501561524047471,
+     "im": 0.006246096189881325
+    },
+    "abs_g": 1.0,
+    "abs_g_prime": 0.7501821556850758,
+    "abs_g_prime_mp60": "0.7501821556850758016652724211508110479443",
+    "abs_g_prime_float_vs_mp60_rel": 5.984894294082662e-17,
+    "u": [
+     0.8999999999999999,
+     1.5
+    ],
+    "u_prime": [
+     1.2,
+     2.0
+    ],
+    "eps_world1": [
+     1.9,
+     2.5
+    ],
+    "eps_world2": [
+     2.2,
+     3.0
+    ],
+    "material_domain": [
+     [
+      1.5,
+      4.0
+     ],
+     [
+      2.0,
+      5.0
+     ]
+    ],
+    "material_margins": {
+     "world1": {
+      "eps_1": {
+       "value": 1.9,
+       "domain": [
+        1.5,
+        4.0
+       ],
+       "dist_to_lower": 0.3999999999999999,
+       "dist_to_upper": 2.1,
+       "inside": true,
+       "min_margin": 0.3999999999999999
+      },
+      "eps_2": {
+       "value": 2.5,
+       "domain": [
+        2.0,
+        5.0
+       ],
+       "dist_to_lower": 0.5,
+       "dist_to_upper": 2.5,
+       "inside": true,
+       "min_margin": 0.5
+      },
+      "min_margin_over_all": 0.3999999999999999
+     },
+     "world2": {
+      "eps_1": {
+       "value": 2.2,
+       "domain": [
+        1.5,
+        4.0
+       ],
+       "dist_to_lower": 0.7000000000000002,
+       "dist_to_upper": 1.7999999999999998,
+       "inside": true,
+       "min_margin": 0.7000000000000002
+      },
+      "eps_2": {
+       "value": 3.0,
+       "domain": [
+        2.0,
+        5.0
+       ],
+       "dist_to_lower": 1.0,
+       "dist_to_upper": 2.0,
+       "inside": true,
+       "min_margin": 1.0
+      },
+      "min_margin_over_all": 0.7000000000000002
+     }
+    },
+    "gain_allowed_modulus": [
+     0.75,
+     1.25
+    ],
+    "g_in_annulus": true,
+    "g_prime_in_annulus": true,
+    "both_gains_in_annulus": true,
+    "n_random_B": 9,
+    "m_rows": 9,
+    "cond_B": null,
+    "B_ranks": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "all_B_full_column_rank": true,
+    "rel_residual_per_B": [
+     1.3566144938040037e-16,
+     1.6406130555606752e-16,
+     1.4178236127547617e-16,
+     1.5293047033559828e-16,
+     1.406115283853586e-16,
+     9.559143266509214e-17,
+     1.6888744482643742e-16,
+     1.0664398944709687e-16,
+     1.2211811442610795e-16,
+     1.4185210517859758e-16
+    ],
+    "max_rel_residual": 1.6888744482643742e-16,
+    "rel_residual_B_identity": 1.4185210517859758e-16,
+    "w_space_rel_residual": 1.4185210517859758e-16,
+    "delta_mu_zero_to_1e15": true,
+    "note": "|g'|=sqrt(901/1601)=0.750182, just inside the lower edge",
+    "closed_form_abs_g_prime": "sqrt(30^2+1)/sqrt(40^2+1)",
+    "log_distance_to_annulus_geometric_mean": 0.2551699671254028
+   },
+   {
+    "q": 30.0,
+    "q_prime": 38.0,
+    "lambda_shared_rescale": 1.0,
+    "c": {
+     "re": 1.2663706992230854,
+     "im": -0.008879023307436182
+    },
+    "g": {
+     "re": 1.0,
+     "im": 0.0
+    },
+    "g_prime": {
+     "re": 0.7896193771626298,
+     "im": 0.005536332179930796
+    },
+    "abs_g": 1.0,
+    "abs_g_prime": 0.7896387856258745,
+    "abs_g_prime_mp60": "0.7896387856258745617220551099575318250406",
+    "abs_g_prime_float_vs_mp60_rel": 4.1965797469891934e-17,
+    "u": [
+     0.8999999999999999,
+     1.5
+    ],
+    "u_prime": [
+     1.14,
+     1.9000000000000001
+    ],
+    "eps_world1": [
+     1.9,
+     2.5
+    ],
+    "eps_world2": [
+     2.1399999999999997,
+     2.9000000000000004
+    ],
+    "material_domain": [
+     [
+      1.5,
+      4.0
+     ],
+     [
+      2.0,
+      5.0
+     ]
+    ],
+    "material_margins": {
+     "world1": {
+      "eps_1": {
+       "value": 1.9,
+       "domain": [
+        1.5,
+        4.0
+       ],
+       "dist_to_lower": 0.3999999999999999,
+       "dist_to_upper": 2.1,
+       "inside": true,
+       "min_margin": 0.3999999999999999
+      },
+      "eps_2": {
+       "value": 2.5,
+       "domain": [
+        2.0,
+        5.0
+       ],
+       "dist_to_lower": 0.5,
+       "dist_to_upper": 2.5,
+       "inside": true,
+       "min_margin": 0.5
+      },
+      "min_margin_over_all": 0.3999999999999999
+     },
+     "world2": {
+      "eps_1": {
+       "value": 2.1399999999999997,
+       "domain": [
+        1.5,
+        4.0
+       ],
+       "dist_to_lower": 0.6399999999999997,
+       "dist_to_upper": 1.8600000000000003,
+       "inside": true,
+       "min_margin": 0.6399999999999997
+      },
+      "eps_2": {
+       "value": 2.9000000000000004,
+       "domain": [
+        2.0,
+        5.0
+       ],
+       "dist_to_lower": 0.9000000000000004,
+       "dist_to_upper": 2.0999999999999996,
+       "inside": true,
+       "min_margin": 0.9000000000000004
+      },
+      "min_margin_over_all": 0.6399999999999997
+     }
+    },
+    "gain_allowed_modulus": [
+     0.75,
+     1.25
+    ],
+    "g_in_annulus": true,
+    "g_prime_in_annulus": true,
+    "both_gains_in_annulus": true,
+    "n_random_B": 9,
+    "m_rows": 9,
+    "cond_B": null,
+    "B_ranks": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "all_B_full_column_rank": true,
+    "rel_residual_per_B": [
+     9.64640388165964e-17,
+     1.689277977530971e-16,
+     1.492613986435008e-16,
+     1.077467602131536e-16,
+     1.3979393313264964e-16,
+     9.387421292933872e-17,
+     1.2704635290137835e-16,
+     9.840231117255479e-17,
+     9.587154275511467e-17,
+     0.0
+    ],
+    "max_rel_residual": 1.689277977530971e-16,
+    "rel_residual_B_identity": 0.0,
+    "w_space_rel_residual": 0.0,
+    "delta_mu_zero_to_1e15": true,
+    "note": "|g'|=sqrt(901/1445)=0.789630",
+    "closed_form_abs_g_prime": "sqrt(30^2+1)/sqrt(38^2+1)",
+    "log_distance_to_annulus_geometric_mean": 0.2039104109003118
+   },
+   {
+    "q": 30.0,
+    "q_prime": 31.0,
+    "lambda_shared_rescale": 1.0,
+    "c": {
+     "re": 1.0332963374028856,
+     "im": -0.0011098779134295221
+    },
+    "g": {
+     "re": 1.0,
+     "im": 0.0
+    },
+    "g_prime": {
+     "re": 0.9677754677754677,
+     "im": 0.0010395010395010391
+    },
+    "abs_g": 1.0,
+    "abs_g_prime": 0.9677760260465417,
+    "abs_g_prime_mp60": "0.9677760260465417162722856627349780259956",
+    "abs_g_prime_float_vs_mp60_rel": 4.6940709730377203e-17,
+    "u": [
+     0.8999999999999999,
+     1.5
+    ],
+    "u_prime": [
+     0.9299999999999999,
+     1.55
+    ],
+    "eps_world1": [
+     1.9,
+     2.5
+    ],
+    "eps_world2": [
+     1.93,
+     2.55
+    ],
+    "material_domain": [
+     [
+      1.5,
+      4.0
+     ],
+     [
+      2.0,
+      5.0
+     ]
+    ],
+    "material_margins": {
+     "world1": {
+      "eps_1": {
+       "value": 1.9,
+       "domain": [
+        1.5,
+        4.0
+       ],
+       "dist_to_lower": 0.3999999999999999,
+       "dist_to_upper": 2.1,
+       "inside": true,
+       "min_margin": 0.3999999999999999
+      },
+      "eps_2": {
+       "value": 2.5,
+       "domain": [
+        2.0,
+        5.0
+       ],
+       "dist_to_lower": 0.5,
+       "dist_to_upper": 2.5,
+       "inside": true,
+       "min_margin": 0.5
+      },
+      "min_margin_over_all": 0.3999999999999999
+     },
+     "world2": {
+      "eps_1": {
+       "value": 1.93,
+       "domain": [
+        1.5,
+        4.0
+       ],
+       "dist_to_lower": 0.42999999999999994,
+       "dist_to_upper": 2.0700000000000003,
+       "inside": true,
+       "min_margin": 0.42999999999999994
+      },
+      "eps_2": {
+       "value": 2.55,
+       "domain": [
+        2.0,
+        5.0
+       ],
+       "dist_to_lower": 0.5499999999999998,
+       "dist_to_upper": 2.45,
+       "inside": true,
+       "min_margin": 0.5499999999999998
+      },
+      "min_margin_over_all": 0.42999999999999994
+     }
+    },
+    "gain_allowed_modulus": [
+     0.75,
+     1.25
+    ],
+    "g_in_annulus": true,
+    "g_prime_in_annulus": true,
+    "both_gains_in_annulus": true,
+    "n_random_B": 9,
+    "m_rows": 9,
+    "cond_B": null,
+    "B_ranks": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "all_B_full_column_rank": true,
+    "rel_residual_per_B": [
+     1.1914145588626278e-16,
+     1.2192526116821032e-16,
+     8.929073069395063e-17,
+     5.0619394916637785e-17,
+     5.345827269336233e-17,
+     1.603341273760657e-16,
+     1.078767976856407e-16,
+     1.0527919917365089e-16,
+     8.402205567650746e-17,
+     0.0
+    ],
+    "max_rel_residual": 1.603341273760657e-16,
+    "rel_residual_B_identity": 0.0,
+    "w_space_rel_residual": 0.0,
+    "delta_mu_zero_to_1e15": true,
+    "note": "mid-annulus in log terms (geometric mean sqrt(0.75*1.25)=0.968246)",
+    "closed_form_abs_g_prime": "sqrt(30^2+1)/sqrt(31^2+1)",
+    "log_distance_to_annulus_geometric_mean": 0.00048533595989878886
+   }
+  ],
+  "all_admissible": true,
+  "all_eps_inside_material_domain": true,
+  "all_delta_mu_zero_to_1e15": true
+ },
+ "H4_verdicts": {
+  "theory_numbers_that_reproduce": {
+   "ell = (0.03, 0.05)": "exact input",
+   "eps_world1 = (1.9, 2.5)  [q=30]": "exact: 1 + 30*ell",
+   "eps_world2 = (2.35, 3.25) [q'=45]": "exact: 1 + 45*ell",
+   "gain g' = 0.666831 + 0.007404i": "reproduced to rel 4.735e-07",
+   "data residual quoted 1.74e-16": "reproduced in magnitude: measured max 2.946e-16 over 9 random complex B (m=9) + B=I"
+  },
+  "inadmissible_number": {
+   "value": "|g'| = 0.666872 (g = 1, q = 30, q' = 45)",
+   "constraint_violated": "A5 sec.7 / inputs/modal_boundary.json gain_allowed_modulus [0.75, 1.25] for BOTH worlds (here |g'| = 0.666872 < 0.75)",
+   "repair": "shared positive rescale g -> lam g, g' -> lam g' with lam in [1.124653109671, 1.250000000000]"
+  },
+  "material_domain": "I_1 = [1.5, 4], I_2 = [2, 5] per A5 sec.7; all eps values above are strictly interior (see material_margins)."
+ }
+}

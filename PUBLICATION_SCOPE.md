@@ -2,6 +2,13 @@
 
 ## Q5 update — 10 September 2026
 
+Post-completion integration: the finished worker report, constant ledger and code
+are now exported together with parent formula corrections and the updated Chinese
+report. One development round ended at the 18-turn cap; evaluator abandon; no
+native writeup. These facts replace earlier live-job status, not the scientific
+incomplete verdict. Superseded artifacts remain historical; use the parent review
+for exclusions from scientific conclusions. Raw logs remain private/excluded.
+
 User-authorized publication includes A4 closure, supplied A5 Markdown/JSON,
 Q5 parent theory, independent numerical code, registered development protocols,
 corrected results, Chinese report and English working draft. Prior A1–A4 files

@@ -1,0 +1,1383 @@
+{
+ "part": "I",
+ "generated_utc": "2026-09-10T10:21:50Z",
+ "hypothesis": "Every numeric constant supplied with the round is either (i) reproduced by an independent computation to <= 1e-9 relative, (ii) identified as a provenance/array field with no independent numeric target, or (iii) explicitly reported as not reproduced with the reason; and the A5 sec.3 parallel u/ell counterexample is admissible under the round's declared gain annulus and material intervals.",
+ "overall_verdict": "PARTIAL (bounded Class M known-geometry modal check only). 53 supplied constants were compared: 41 REPRODUCED, 2 REPRODUCED_WEAKER, 7 NOT_REPRODUCED, 3 INCOMPARABLE. The A5 sec.3 raw instance (q=30, q'=45, g=1) is INADMISSIBLE (|g'| = 0.666872295 < 0.75) but is repairable by a shared rescale lambda in [1.1246531096707641553164131414, 1.25]; three further no-rescale counterexamples are admissible and reproduce the data to <= 1.7e-16. The q_mie() wrong-arrangement default was replaced by the branch-correct arrangement, with the three-way cross-implementation grid unchanged (max relative change 0).",
+ "counts": {
+  "leaves_in_inputs_modal_boundary_json": 866,
+  "leaves_by_category": {
+   "i": 37,
+   "ii": 3,
+   "iii": 16,
+   "iv": 810,
+   "?": 0
+  },
+  "constants_compared": 53,
+  "REPRODUCED": 41,
+  "REPRODUCED_WEAKER": 2,
+  "NOT_REPRODUCED": 7,
+  "INCOMPARABLE": 3,
+  "not_reproduced_names": [
+   "monotonicity_checks[0].qprime_upper",
+   "monotonicity_checks[0].qprime_lower",
+   "monotonicity_checks[0].amplitude_derivative_lower",
+   "monotonicity_checks[1].qprime_upper",
+   "monotonicity_checks[1].qprime_lower",
+   "monotonicity_checks[1].amplitude_derivative_lower",
+   "exact_reactance_identity_error"
+  ],
+  "reproduced_weaker_names": [
+   "uniform_eps_error_bounds[0]",
+   "uniform_eps_error_bounds[1]"
+  ],
+  "incomparable_names": [
+   "reference_checks[0].all_errors (200x2 = 400 leaves)",
+   "reference_checks[1].all_errors (200x2 = 400 leaves)",
+   "wall_seconds"
+  ]
+ },
+ "constant_table": [
+  {
+   "name": "world1_eps[0]",
+   "supplied": 2.0,
+   "computed": 2.0,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "declared input; interval endpoint definition of material interval I_i"
+  },
+  {
+   "name": "world2_eps[0]",
+   "supplied": 2.359740580371098,
+   "computed": 2.359740580371099,
+   "rel_diff": 4.683584867399922e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 1.1052045273215583e-15,
+   "method": "Solve q(eps2,x)=c*q(eps1,x), c=q2_supplied/q1_supplied, dps=50 Newton"
+  },
+  {
+   "name": "world1_eps[1]",
+   "supplied": 3.0,
+   "computed": 3.0,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "declared input; interval endpoint definition of material interval I_i"
+  },
+  {
+   "name": "world2_eps[1]",
+   "supplied": 3.989319415017825,
+   "computed": 3.9893194150178286,
+   "rel_diff": 8.595733340046789e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 3.429112589976467e-15,
+   "method": "Solve q(eps2,x)=c*q(eps1,x), c=q2_supplied/q1_supplied, dps=50 Newton"
+  },
+  {
+   "name": "world1_q[0] (x=0.2)",
+   "supplied": 0.0013332052507369528,
+   "computed": 0.0013332052507369556,
+   "rel_diff": 2.0723712536262527e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 2.7628962368108416e-18,
+   "method": "A5 s8 reactance q from mie_reactance.mp_q (same arrangement as code/mie_reactance), dps=50"
+  },
+  {
+   "name": "world2_q[0] (x=0.2)",
+   "supplied": 0.001666506563421191,
+   "computed": 0.0016665065634211935,
+   "rel_diff": 1.507514717304873e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 2.5122831708426124e-18,
+   "method": "A5 s8 reactance q from mie_reactance.mp_q, dps=50"
+  },
+  {
+   "name": "world1_q[1] (x=0.15)",
+   "supplied": 0.0009023996778354064,
+   "computed": 0.0009023996778354085,
+   "rel_diff": 2.328654895063524e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 2.101377427095166e-18,
+   "method": "A5 s8 reactance q from mie_reactance.mp_q (same arrangement as code/mie_reactance), dps=50"
+  },
+  {
+   "name": "world2_q[1] (x=0.15)",
+   "supplied": 0.001127999597294258,
+   "computed": 0.00112799959729426,
+   "rel_diff": 1.7488995324512389e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 1.9727579683131135e-18,
+   "method": "A5 s8 reactance q from mie_reactance.mp_q, dps=50"
+  },
+  {
+   "name": "gain1",
+   "supplied": 1.0,
+   "computed": 1.0,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "declared reference gain; |g|=1 lies inside gain_allowed_modulus"
+  },
+  {
+   "name": "gain2 = gain1/c (c=q2/q1)",
+   "supplied": 0.8,
+   "computed": 0.8,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "s5 two-world compensation g' = g/c with c = q2/q1 = 1.25 (dps=50)"
+  },
+  {
+   "name": "gain_allowed_modulus[0]",
+   "supplied": 0.75,
+   "computed": 0.75,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "declared gain annulus; containment checked for |gain1|=1 and |gain2|=0.8"
+  },
+  {
+   "name": "gain_allowed_modulus[1]",
+   "supplied": 1.25,
+   "computed": 1.25,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "declared gain annulus (upper); equals the s5 scale c=1.25"
+  },
+  {
+   "name": "reference_scalar_real_standard_deviation",
+   "supplied": 0.001,
+   "computed": 0.001,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "declared real-reference std (used in s7 union bound)"
+  },
+  {
+   "name": "reference_error_bound = sigma_a*Phi^{-1}(0.9995)",
+   "supplied": 0.0032905267314919254,
+   "computed": 0.0032905267314918946,
+   "rel_diff": 9.301482975367747e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 3.060677837296463e-17,
+   "method": "sigma_a * inverse normal CDF at 0.9995 = 0.001*3.2905267314918948, mpmath dps=50"
+  },
+  {
+   "name": "simultaneous_coverage_probability_lower",
+   "supplied": 0.997,
+   "computed": 0.997,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "1 - (2*exp(-(sqrt(log 1000))^2) + 2*(1-Phi(3.2905...))) = 1-0.003"
+  },
+  {
+   "name": "complex_noise_sigma[0]",
+   "supplied": 2.6664081317897358e-06,
+   "computed": 2.6664081317897413e-06,
+   "rel_diff": 2.0585830351219313e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 5.4890225448135134e-21,
+   "method": "0.002*|g1*t1(eps1_i,x_i)| with t=iq/(1-iq) computed from the dps=50 reactance"
+  },
+  {
+   "name": "complex_noise_sigma[1]",
+   "supplied": 1.8047986208244827e-06,
+   "computed": 1.804798620824487e-06,
+   "rel_diff": 2.3947948956707486e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 4.322122524864078e-21,
+   "method": "0.002*|g1*t1(eps1_i,x_i)| with t=iq/(1-iq) computed from the dps=50 reactance"
+  },
+  {
+   "name": "complex_whitened_distance",
+   "supplied": 0.20123662403751783,
+   "computed": 0.2012366240375182,
+   "rel_diff": 1.854223043835883e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 3.7313758555410347e-16,
+   "method": "whitened two-channel mean gap D = sqrt(sum |d_mu_i|^2 / sigma_i^2), dps=50"
+  },
+  {
+   "name": "no_reference_equal_prior_optimal_error",
+   "supplied": 0.4434231892562575,
+   "computed": 0.4434231892562574,
+   "rel_diff": 1.7082550896801382e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 7.57479919929201e-17,
+   "method": "p_* = erfc(D/2)/2 (proper-complex binary risk, s6), dps=50"
+  },
+  {
+   "name": "modal_error_bounds[0]",
+   "supplied": 7.008016195904829e-06,
+   "computed": 7.008016195904843e-06,
+   "rel_diff": 1.969149000964016e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 1.3799828090905636e-20,
+   "method": "b_i = sigma_i*sqrt(log 1000) (per-channel noise envelope, s7), dps=50"
+  },
+  {
+   "name": "modal_error_bounds[1]",
+   "supplied": 4.74348162019559e-06,
+   "computed": 4.743481620195601e-06,
+   "rel_diff": 2.3770656698269186e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 1.1275567314821908e-20,
+   "method": "b_i = sigma_i*sqrt(log 1000) (per-channel noise envelope, s7), dps=50"
+  },
+  {
+   "name": "monotonicity_checks[0].q_lower",
+   "supplied": 0.0006272543061943569,
+   "computed": 0.0006272543061943569,
+   "rel_diff": 1.3594392785797217e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 8.527141414988804e-20,
+   "method": "iv.dps=35 interval sweep, min over boxes of the q lower endpoint (left-endpoint box)"
+  },
+  {
+   "name": "monotonicity_checks[0].q_upper",
+   "supplied": 0.0027198118011157357,
+   "computed": 0.0027198118011157357,
+   "rel_diff": 1.210245934997699e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 3.2916411762590895e-19,
+   "method": "iv.dps=35 interval sweep, max over boxes of the q upper endpoint"
+  },
+  {
+   "name": "monotonicity_checks[0].denominator_lower",
+   "supplied": 28.14437116423359,
+   "computed": 28.14437116423359,
+   "rel_diff": 2.2570382764310972e-17,
+   "verdict": "REPRODUCED",
+   "abs_diff": 6.352292298375885e-16,
+   "method": "iv.dps=35 interval sweep, min over boxes of |Den| lower endpoint"
+  },
+  {
+   "name": "monotonicity_checks[0].qprime_upper",
+   "supplied": 0.0015950178180630663,
+   "computed": 0.0016357776927580132,
+   "rel_diff": 0.025554494898649107,
+   "verdict": "NOT_REPRODUCED",
+   "abs_diff": 4.075987469494706e-05,
+   "method": "iv.dps=35 interval sweep, max over boxes of the q' upper endpoint"
+  },
+  {
+   "name": "monotonicity_checks[0].qprime_lower",
+   "supplied": 0.0004326242603218757,
+   "computed": 0.00042930195928859516,
+   "rel_diff": 0.007679414535857699,
+   "verdict": "NOT_REPRODUCED",
+   "abs_diff": 3.3223010332804973e-06,
+   "method": "iv.dps=35 interval sweep, min over boxes of the q' lower endpoint"
+  },
+  {
+   "name": "monotonicity_checks[0].amplitude_derivative_lower",
+   "supplied": 0.0004326194599396315,
+   "computed": 0.0004292971957704762,
+   "rel_diff": 0.007679414535857663,
+   "verdict": "NOT_REPRODUCED",
+   "abs_diff": 3.322264169155298e-06,
+   "method": "iv.dps=35 interval sweep, min over boxes of the h' lower endpoint"
+  },
+  {
+   "name": "monotonicity_checks[1].q_lower",
+   "supplied": 0.0004963276831212816,
+   "computed": 0.0004963276831212816,
+   "rel_diff": 2.131583219567684e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 1.0579637607482307e-19,
+   "method": "iv.dps=35 interval sweep, min over boxes of the q lower endpoint (left-endpoint box)"
+  },
+  {
+   "name": "monotonicity_checks[1].q_upper",
+   "supplied": 0.0013096911596704335,
+   "computed": 0.0013096911596704335,
+   "rel_diff": 1.6487366496820606e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 2.1593358147132431e-19,
+   "method": "iv.dps=35 interval sweep, max over boxes of the q upper endpoint"
+  },
+  {
+   "name": "monotonicity_checks[1].denominator_lower",
+   "supplied": 57.13916142651041,
+   "computed": 57.13916142651041,
+   "rel_diff": 1.6386111204159471e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 9.362886532472189e-15,
+   "method": "iv.dps=35 interval sweep, min over boxes of |Den| lower endpoint"
+  },
+  {
+   "name": "monotonicity_checks[1].qprime_upper",
+   "supplied": 0.0005299672528545683,
+   "computed": 0.0005457373048272504,
+   "rel_diff": 0.02975665361914296,
+   "verdict": "NOT_REPRODUCED",
+   "abs_diff": 1.5770051972682143e-05,
+   "method": "iv.dps=35 interval sweep, max over boxes of the q' upper endpoint"
+  },
+  {
+   "name": "monotonicity_checks[1].qprime_lower",
+   "supplied": 0.00013086650394735435,
+   "computed": 0.00012943683944410234,
+   "rel_diff": 0.010924602248312109,
+   "verdict": "NOT_REPRODUCED",
+   "abs_diff": 1.429664503252013e-06,
+   "method": "iv.dps=35 interval sweep, min over boxes of the q' lower endpoint"
+  },
+  {
+   "name": "monotonicity_checks[1].amplitude_derivative_lower",
+   "supplied": 0.00013086616723688468,
+   "computed": 0.0001294365064120606,
+   "rel_diff": 0.010924602248312163,
+   "verdict": "NOT_REPRODUCED",
+   "abs_diff": 1.4296608248240657e-06,
+   "method": "iv.dps=35 interval sweep, min over boxes of the h' lower endpoint"
+  },
+  {
+   "name": "uniform_eps_error_bounds[0]",
+   "supplied": 0.04939804578095942,
+   "computed": 0.049398148249810495,
+   "rel_diff": 2.0743502998448694e-06,
+   "verdict": "REPRODUCED_WEAKER",
+   "abs_diff": 1.0246885107748377e-07,
+   "method": "s7 bound (b_i + H_i b_a)/((a_min-b_a) m_i) with the SUPPLIED m_i, H_i, b_a"
+  },
+  {
+   "name": "uniform_eps_error_bounds[1]",
+   "supplied": 0.0926437137553974,
+   "computed": 0.09264375157896669,
+   "rel_diff": 4.0826913943902013e-07,
+   "verdict": "REPRODUCED_WEAKER",
+   "abs_diff": 3.782356928935101e-08,
+   "method": "s7 bound (b_i + H_i b_a)/((a_min-b_a) m_i) with the SUPPLIED m_i, H_i, b_a"
+  },
+  {
+   "name": "relative_data_difference",
+   "supplied": 0.0003036059493932306,
+   "computed": 0.0003036059493932311,
+   "rel_diff": 1.6884991018879943e-15,
+   "verdict": "REPRODUCED",
+   "abs_diff": 5.126383728783217e-19,
+   "method": "candidate (b) Euclidean norm over the two channels: ||d_mu||_2/||mu||_2, dps=50; winner test (b) ||d_mu||_2/||mu||_2"
+  },
+  {
+   "name": "exact_reactance_identity_error",
+   "supplied": 8.879228496839643e-20,
+   "computed": 2.1683963912132093e-19,
+   "rel_diff": 1.4421,
+   "verdict": "NOT_REPRODUCED",
+   "abs_diff": 1.280473541529245e-19,
+   "method": "NOT IDENTIFIED: none of identities (a)-(d) at dps=15,20,25,30,35,50 or float64 lands within 20% over the four world points; nearest is identity (a) in float64 at the two world-2 points, 2.17e-19 = 2.44x the target"
+  },
+  {
+   "name": "finite_material_distance",
+   "supplied": 1.0526947278755348,
+   "computed": 1.0526947278755345,
+   "rel_diff": 1.7258246206569414e-16,
+   "verdict": "REPRODUCED",
+   "abs_diff": 1.816766479403357e-16,
+   "method": "Euclidean distance ||eps2 - eps1||_2 over the two material channels, dps=50"
+  },
+  {
+   "name": "reference_checks[0].world_eps[0]",
+   "supplied": 2.0,
+   "computed": 2.0,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "reference-check world eps equals world1_eps (k=0) / world2_eps (k=1)"
+  },
+  {
+   "name": "reference_checks[0].world_eps[1]",
+   "supplied": 3.0,
+   "computed": 3.0,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "reference-check world eps equals world1_eps (k=0) / world2_eps (k=1)"
+  },
+  {
+   "name": "reference_checks[0].gain_modulus",
+   "supplied": 1.0,
+   "computed": 1.0,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "reference-check gain modulus equals |gain1| (k=0) / |gain2| (k=1)"
+  },
+  {
+   "name": "reference_checks[0].max_eps_abs_errors[0]",
+   "supplied": 0.007942544376486893,
+   "computed": 0.007942544376486893,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "internal consistency: max over the stored all_errors column"
+  },
+  {
+   "name": "reference_checks[0].max_eps_abs_errors[1]",
+   "supplied": 0.018926375343644164,
+   "computed": 0.018926375343644164,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "internal consistency: max over the stored all_errors column"
+  },
+  {
+   "name": "reference_checks[0].empirical_success_eps_point1",
+   "supplied": 200.0,
+   "computed": 200.0,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "internal consistency: count of stored draws with both channels' |err| <= 0.10"
+  },
+  {
+   "name": "reference_checks[0].all_errors (200x2 = 400 leaves)",
+   "supplied": null,
+   "computed": null,
+   "rel_diff": null,
+   "verdict": "INCOMPARABLE",
+   "abs_diff": null,
+   "method": "realized noise draws of a seeded Monte-Carlo run; no seed is stored, so the realization cannot be reproduced"
+  },
+  {
+   "name": "reference_checks[1].world_eps[0]",
+   "supplied": 2.359740580371098,
+   "computed": 2.359740580371098,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "reference-check world eps equals world1_eps (k=0) / world2_eps (k=1)"
+  },
+  {
+   "name": "reference_checks[1].world_eps[1]",
+   "supplied": 3.989319415017825,
+   "computed": 3.989319415017825,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "reference-check world eps equals world1_eps (k=0) / world2_eps (k=1)"
+  },
+  {
+   "name": "reference_checks[1].gain_modulus",
+   "supplied": 0.8,
+   "computed": 0.8,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "reference-check gain modulus equals |gain1| (k=0) / |gain2| (k=1)"
+  },
+  {
+   "name": "reference_checks[1].max_eps_abs_errors[0]",
+   "supplied": 0.01131555760848002,
+   "computed": 0.01131555760848002,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "internal consistency: max over the stored all_errors column"
+  },
+  {
+   "name": "reference_checks[1].max_eps_abs_errors[1]",
+   "supplied": 0.026800872842226653,
+   "computed": 0.026800872842226653,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "internal consistency: max over the stored all_errors column"
+  },
+  {
+   "name": "reference_checks[1].empirical_success_eps_point1",
+   "supplied": 200.0,
+   "computed": 200.0,
+   "rel_diff": 0.0,
+   "verdict": "REPRODUCED",
+   "abs_diff": 0.0,
+   "method": "internal consistency: count of stored draws with both channels' |err| <= 0.10"
+  },
+  {
+   "name": "reference_checks[1].all_errors (200x2 = 400 leaves)",
+   "supplied": null,
+   "computed": null,
+   "rel_diff": null,
+   "verdict": "INCOMPARABLE",
+   "abs_diff": null,
+   "method": "realized noise draws of a seeded Monte-Carlo run; no seed is stored, so the realization cannot be reproduced"
+  },
+  {
+   "name": "wall_seconds",
+   "supplied": null,
+   "computed": null,
+   "rel_diff": null,
+   "verdict": "INCOMPARABLE",
+   "abs_diff": null,
+   "method": "wall-clock time of the producer's run"
+  }
+ ],
+ "part_F_coverage_audit": {
+  "source_json": "results/coverage_audit_20260910T101523Z.json",
+  "leaf_enumeration_counts": {
+   "i": 37,
+   "ii": 3,
+   "iii": 16,
+   "iv": 810,
+   "?": 0
+  },
+  "relative_data_difference": {
+   "supplied": 0.0003036059493932306,
+   "winner": "(b) ||d_mu||_2/||mu||_2",
+   "winner_value": "0.0003036059493932311126383729",
+   "candidates": {
+    "(a) channel 0: |d_mu_i|/|g1 t1_i|": "0.0003333008498556463909468921",
+    "(a) channel 1: |d_mu_i|/|g1 t1_i|": "0.0002255997759342274519931445",
+    "(b) ||d_mu||_2/||mu||_2": "0.0003036059493932311126383729",
+    "(c) whitened ||W d||/||W mu||, W=diag(1/sigma_i)": "0.0002845915629600338198967233",
+    "(d) (b)/sqrt(2) (rms)": "0.0002146818256245334934994436",
+    "(e) max over channels of (a)": "0.0003333008498556463909468921"
+   }
+  },
+  "exact_reactance_identity_error": {
+   "identified": false,
+   "target": "8.879228496839643e-20",
+   "matches_within_20pct": [],
+   "near_misses": {
+    "float64 identity (a) at world2 points": "2.168409e-19 (2.44x)",
+    "dps=17 identity r10 over a 36-point grid": "7.970560477e-20 (0.90x) [dps not in the required set]"
+   }
+  }
+ },
+ "part_G_mie_fix": {
+  "pre_fix_json": "results/mie_checks_20260910T092815Z.json",
+  "post_fix_json": "results/mie_checks_20260910T101602Z.json",
+  "differing_leaves_across_all_sections": 3,
+  "differing_leaves_in_numerical_sections": 0,
+  "differing_meta_leaves": [
+   "/meta/file_sha256/code/code/mie_reactance.py",
+   "/meta/generated_utc",
+   "/meta/wall_seconds"
+  ],
+  "differing_leaves_by_section": {
+   "A_closed_forms": [],
+   "B_derivative_fd": [],
+   "C_q_routes": [],
+   "D_optical_and_rayleigh": [],
+   "E_qprime_hprime_fd": [],
+   "F_supplied_constants": []
+  },
+  "three_way_agreement_pre_vs_post": {
+   "C_q_routes/max_abs_a_minus_b": {
+    "pre_fix": 3.608224830031759e-16,
+    "post_fix": 3.608224830031759e-16,
+    "rel_change": 0.0
+   },
+   "C_q_routes/max_rel_a_minus_b": {
+    "pre_fix": 5.35052664588574e-12,
+    "post_fix": 5.35052664588574e-12,
+    "rel_change": 0.0
+   },
+   "C_q_routes/max_rel_a_minus_c_consistent_pairing": {
+    "pre_fix": 5.349692819206501e-12,
+    "post_fix": 5.349692819206501e-12,
+    "rel_change": 0.0
+   },
+   "C_q_routes/max_rel_a_minus_c_prompt_literal": {
+    "pre_fix": 0.264396498304548,
+    "post_fix": 0.264396498304548,
+    "rel_change": 0.0
+   },
+   "C_q_routes/max_rel_a_minus_b_x_ge_0p15": {
+    "pre_fix": 2.0046302643011086e-14,
+    "post_fix": 2.0046302643011086e-14,
+    "rel_change": 0.0
+   },
+   "C_q_routes/max_rel_a_minus_c_x_ge_0p15": {
+    "pre_fix": 1.9660796822952785e-14,
+    "post_fix": 1.9660796822952785e-14,
+    "rel_change": 0.0
+   }
+  },
+  "three_way_grid_unchanged": true,
+  "convention": "outgoing branch h1^(1)(z) = psi1 - i*chi1 = z*h1^(1)(z) (xi_sign=-1) is the h^(1) branch tied to e^{-i omega t}; on it Im(a1) < 0 (Re a1 = +|a1|^2 for lossless eps) and the exact conversion to the A5 sec.8 reactance is q = +i*a1/(1-a1). The module default xi_sign=+1 is the conjugated ingoing h1^(2) branch, Im(a1) > 0, Re a1 = -|a1|^2, with q = -i*a1/(1-a1).",
+  "legacy_wrong_arrangement": "-1j*a1/(1+a1) (prompt literal) differs from q by rel 2.67e-3 on xi_sign=+1; retained only as q_mie_legacy_prompt_literal() and the named form raises ValueError."
+ },
+ "part_H_counterexample": {
+  "source_json": "results/counterexample_20260910T102008Z.json",
+  "raw_theory_instance": {
+   "q": 30.0,
+   "q_prime": 45.0,
+   "abs_g": 1.0,
+   "abs_g_prime": 0.6668722947109962,
+   "gain_allowed_modulus": [
+    0.75,
+    1.25
+   ],
+   "both_gains_in_annulus": false,
+   "max_rel_data_residual": 2.9459970118632586e-16,
+   "eps_world1": [
+    1.9,
+    2.5
+   ],
+   "eps_world2": [
+    2.3499999999999996,
+    3.25
+   ]
+  },
+  "admissible_lambda_interval": {
+   "lambda_min": "1.1246531096707641553164131414",
+   "lambda_max": "1.25",
+   "lambda_min_float": 1.1246531096707642,
+   "world1_constraint": [
+    "0.75",
+    "1.25"
+   ],
+   "world2_constraint": [
+    "1.1246531096707641553164131414",
+    "1.87442184945127359219402190233"
+   ],
+   "lambda_1p2_check": {
+    "abs_g": 1.2,
+    "abs_g_prime": 0.8002467536531954,
+    "abs_g_prime_expected": 0.8002472,
+    "abs_g_prime_abs_diff_vs_expected": 4.463468046278507e-07,
+    "max_rel_residual": 3.752771129402897e-16,
+    "rel_residual_B_identity": 2.3651249087138687e-16,
+    "both_gains_in_annulus": true
+   }
+  },
+  "no_rescale_counterexamples": [
+   {
+    "q": 30.0,
+    "q_prime": 40.0,
+    "abs_g": 1.0,
+    "abs_g_prime": 0.7501821556850758,
+    "both_gains_in_annulus": true,
+    "eps_world1": [
+     1.9,
+     2.5
+    ],
+    "eps_world2": [
+     2.2,
+     3.0
+    ],
+    "eps_min_margin": 0.3999999999999999,
+    "max_rel_data_residual": 1.6888744482643742e-16,
+    "residual_B_identity": 1.4185210517859758e-16,
+    "note": "|g'|=sqrt(901/1601)=0.750182, just inside the lower edge"
+   },
+   {
+    "q": 30.0,
+    "q_prime": 38.0,
+    "abs_g": 1.0,
+    "abs_g_prime": 0.7896387856258745,
+    "both_gains_in_annulus": true,
+    "eps_world1": [
+     1.9,
+     2.5
+    ],
+    "eps_world2": [
+     2.1399999999999997,
+     2.9000000000000004
+    ],
+    "eps_min_margin": 0.3999999999999999,
+    "max_rel_data_residual": 1.689277977530971e-16,
+    "residual_B_identity": 0.0,
+    "note": "|g'|=sqrt(901/1445)=0.789630"
+   },
+   {
+    "q": 30.0,
+    "q_prime": 31.0,
+    "abs_g": 1.0,
+    "abs_g_prime": 0.9677760260465417,
+    "both_gains_in_annulus": true,
+    "eps_world1": [
+     1.9,
+     2.5
+    ],
+    "eps_world2": [
+     1.93,
+     2.55
+    ],
+    "eps_min_margin": 0.3999999999999999,
+    "max_rel_data_residual": 1.603341273760657e-16,
+    "residual_B_identity": 0.0,
+    "note": "mid-annulus in log terms (geometric mean sqrt(0.75*1.25)=0.968246)"
+   }
+  ],
+  "all_admissible": true,
+  "all_eps_inside_material_domain": true,
+  "all_delta_mu_zero_to_1e15": true,
+  "verdicts": {
+   "theory_numbers_that_reproduce": {
+    "ell = (0.03, 0.05)": "exact input",
+    "eps_world1 = (1.9, 2.5)  [q=30]": "exact: 1 + 30*ell",
+    "eps_world2 = (2.35, 3.25) [q'=45]": "exact: 1 + 45*ell",
+    "gain g' = 0.666831 + 0.007404i": "reproduced to rel 4.735e-07",
+    "data residual quoted 1.74e-16": "reproduced in magnitude: measured max 2.946e-16 over 9 random complex B (m=9) + B=I"
+   },
+   "inadmissible_number": {
+    "value": "|g'| = 0.666872 (g = 1, q = 30, q' = 45)",
+    "constraint_violated": "A5 sec.7 / inputs/modal_boundary.json gain_allowed_modulus [0.75, 1.25] for BOTH worlds (here |g'| = 0.666872 < 0.75)",
+    "repair": "shared positive rescale g -> lam g, g' -> lam g' with lam in [1.124653109671, 1.250000000000]"
+   },
+   "material_domain": "I_1 = [1.5, 4], I_2 = [2, 5] per A5 sec.7; all eps values above are strictly interior (see material_margins)."
+  }
+ },
+ "other_parts_numbers": {
+  "A_qprime_variants": {
+   "supplied_qprime_lower": [
+    0.0004326242603218757,
+    0.00013086650394735435
+   ],
+   "V1_min_lower": [
+    0.00042930195928859527,
+    0.0001294368394441023
+   ],
+   "variant_range_I1": 2.861026076997537e-05,
+   "variant_range_I2": 1.1265504732825462e-05,
+   "variants_matching_supplied_I1": [],
+   "variants_matching_supplied_I2": [],
+   "dense_argmin_eps": [
+    4.0,
+    5.0
+   ],
+   "dense_min_qprime": [
+    0.00045515446853560017,
+    0.00013998112707778293
+   ],
+   "qpp_strictly_negative": [
+    true,
+    true
+   ],
+   "wall_seconds": 20.496062994003296
+  },
+  "B_finite_risk": {
+   "c_i": [
+    1.2499999999999993,
+    1.2499999999999993
+   ],
+   "c_i_minus_1.25": [
+    -7.060706704017231e-16,
+    -7.246942032653546e-16
+   ],
+   "abs_delta_mu": [
+    4.443580481937635e-07,
+    2.0358108223220353e-07
+   ],
+   "delta_mu_closed_form_rel_disc": [
+    1.6947339143981291e-12,
+    2.5698395640281863e-12
+   ],
+   "sigma_implied_factor": [
+    0.0019999999999999957,
+    0.0019999999999999953
+   ],
+   "D": 0.2012366240375186,
+   "D_supplied": 0.20123662403751783,
+   "D_rel_diff": 3.859835604200296e-15,
+   "p_star": 0.4434231892562573,
+   "p_star_supplied": 0.4434231892562575,
+   "p_star_rel_diff": 4.250011419277371e-16,
+   "mc_mean_error": 0.44360825,
+   "mc_ci95": [
+    0.443263978377804,
+    0.44395252162219595
+   ],
+   "bounds_with_supplied_m": [
+    0.04939814824981045,
+    0.09264375157896658
+   ],
+   "bounds_with_my_m": [
+    0.04978043282933614,
+    0.09366702658971618
+   ],
+   "bounds_supplied": [
+    0.04939804578095942,
+    0.0926437137553974
+   ],
+   "good_fractions": [
+    [
+     0.9980015,
+     0.997967
+    ],
+    [
+     0.997997,
+     0.9980675
+    ]
+   ],
+   "violations_total": 0,
+   "wall_seconds": 5.627771854400635
+  },
+  "C_fixed_loss_born": {
+   "det_identity_max_rel_err": {
+    "m6_well_conditioned": 1.5578084711019884e-13,
+    "m12_well_conditioned": 1.790529957826061e-13,
+    "m6_ill_conditioned_1e4": 8.326873772026869e-10,
+    "m12_ill_conditioned_1e4": 1.8796422485440713e-10
+   },
+   "C4": 1.998770817882391e-16,
+   "C5_slopes": {
+    "B_identity": -1.005203429670285,
+    "B_random_m6": -0.9978103250512462,
+    "B_illcond_m6_1e4": -0.9985517466452563
+   },
+   "C6_lambda_min_H_max_abs_err": 3.1691398908340745e-16,
+   "C6_ratio_B_identity": [
+    0.9999999999886006,
+    1.0000000000064433
+   ],
+   "C6_extra_geometry_nuisance_ratio": 0.9907454035285767
+  },
+  "D_ref_gls": {
+   "logdet_max_abs_theta_diff": 0.02235605588153132,
+   "abs_g_star": 2.643869297973349,
+   "L_unconstrained": 287.7383578479615,
+   "L_constrained": 1234.6989302940228,
+   "max_rel_err_full_derivative": 1.5269192494888912e-31,
+   "max_rel_err_naive_drop_term": 0.9871090483008569
+  },
+  "E_sign_convention": {
+   "eps": 2.0,
+   "x": 0.2,
+   "reactance_reference": {
+    "q_closed": 0.0013332052507369593,
+    "q_mpmath_dps50": {
+     "re": 0.0013332052507369558,
+     "im": 0.0
+    },
+    "q_scipy": 0.0013332052507369569,
+    "q_closed_vs_scipy_rel": 1.789105449554457e-15,
+    "q_closed_vs_mpmath_rel": 2.6023351993519437e-15
+   },
+   "branch_identification": {
+    "z_times_h1_outgoing_closed_form": {
+     "re": 0.013280076134064445,
+     "im": -5.099002220001269
+    },
+    "psi1_plus_i_chi1(x)": {
+     "re": 0.013280076134064463,
+     "im": 5.099002220001268
+    },
+    "psi1_minus_i_chi1(x)": {
+     "re": 0.013280076134064463,
+     "im": -5.099002220001268
+    },
+    "rel_closed_h1_vs_code_xi_sign_plus1": 1.9999932168953392,
+    "rel_closed_h1_vs_code_xi_sign_minus1": 1.742193391824957e-16,
+    "closed_h1_vs_hankel1_route": 0.0,
+    "deriv_closed_vs_recurrence": 0.0,
+    "conclusion": "z*h1^(1)(z) == psi1 - i*chi1 == code mie_a1(xi_sign=-1).  The code's DEFAULT xi_sign=+1 is the psi1 + i*chi1 = z*h1^(2) (ingoing) branch."
+   },
+   "textbook_a1_outgoing_h1": {
+    "definition": "xi1^(1)(z) = z*h1^(1)(z) = psi1 - i*chi1 = -e^{iz}(z+i)/z, chi1 = -z*y1(z), h1^(1) = j1 + i*y1, time factor e^{-i omega t}; code mie_a1(..., xi_sign=-1)",
+    "a1_scipy_route": {
+     "re": 1.7774330813186167e-06,
+     "im": -0.0013332028810538396
+    },
+    "a1_mpmath_route": {
+     "re": 1.7774330813186146e-06,
+     "im": -0.0013332028810538387
+    },
+    "a1_closed_form_h1_route": {
+     "re": 1.7774330813186146e-06,
+     "im": -0.0013332028810538387
+    },
+    "a1_hankel1_route": {
+     "re": 1.7774330813186148e-06,
+     "im": -0.0013332028810538387
+    },
+    "route_agreement_rel_scipy_vs_mpmath": 6.505863169129891e-16,
+    "route_agreement_rel_scipy_vs_closed_form": 6.505863169129891e-16,
+    "route_agreement_rel_scipy_vs_hankel1": 6.505859485244006e-16,
+    "Re_a1_plus_abs_a1_sq": 3.5548661626372334e-06,
+    "Re_a1_minus_abs_a1_sq": -2.117582368135751e-22,
+    "equals_code_xi_sign_minus1": true,
+    "rel_vs_conj_of_code_xi_plus1": 0.0
+   },
+   "theory_t": {
+    "t = i q/(1 - i q)": {
+     "re": -1.7774330813186243e-06,
+     "im": 0.0013332028810538424
+    },
+    "Re_t_plus_abs_t_sq": 2.117582368135751e-22,
+    "t_vs_minus_textbook_a1_rel": 2.1144069602685773e-15,
+    "t_vs_minus_conj_xi_plus1_a1_rel": 2.1144069602685773e-15
+   },
+   "conversions": {
+    "a1_at_xi_sign_plus1(=z*h1^(2))": {
+     "a1": {
+      "re": 1.7774330813186167e-06,
+      "im": 0.0013332028810538396
+     },
+     "A: -i*a1/(1+a1)": {
+      "value": {
+       "re": 0.001333195772055032,
+       "im": -3.554847207128158e-06
+      },
+      "rel_err_vs_q": 0.002666401022775141
+     },
+     "B: +i*a1/(1-a1)": {
+      "value": {
+       "re": -0.0013332052507369564,
+       "im": -2.499273690954004e-22
+      },
+      "rel_err_vs_q": 1.9999999999999978
+     },
+     "C: -i*a1/(1-a1)": {
+      "value": {
+       "re": 0.0013332052507369564,
+       "im": 2.499273690954004e-22
+      },
+      "rel_err_vs_q": 2.1143973577837547e-15
+     },
+     "Re_a1_plus_abs_a1_sq": 3.5548661626372334e-06
+    },
+    "a1_at_xi_sign_minus1(=z*h1^(1), textbook)": {
+     "a1": {
+      "re": 1.7774330813186167e-06,
+      "im": -0.0013332028810538396
+     },
+     "A: -i*a1/(1+a1)": {
+      "value": {
+       "re": -0.001333195772055032,
+       "im": -3.554847207128158e-06
+      },
+      "rel_err_vs_q": 1.9999946677220786
+     },
+     "B: +i*a1/(1-a1)": {
+      "value": {
+       "re": 0.0013332052507369564,
+       "im": -2.499273690954004e-22
+      },
+      "rel_err_vs_q": 2.1143973577837547e-15
+     },
+     "C: -i*a1/(1-a1)": {
+      "value": {
+       "re": -0.0013332052507369564,
+       "im": 2.499273690954004e-22
+      },
+      "rel_err_vs_q": 1.9999999999999978
+     },
+     "Re_a1_plus_abs_a1_sq": 3.5548661626372334e-06
+    }
+   },
+   "code_q_mie_default": {
+    "q_mie(xi_sign=+1)": {
+     "re": 0.001333195772055032,
+     "im": -3.554847207128158e-06
+    },
+    "q_mie(xi_sign=-1)": {
+     "re": -0.001333195772055032,
+     "im": -3.554847207128158e-06
+    },
+    "q_mie_default_rel_err_vs_q": 0.002666401022775141,
+    "q_mie_xi_minus1_rel_err_vs_q": 1.9999946677220786,
+    "why_default_is_close_but_wrong": "-i*a1/(1+a1) is the alternating geometric series -i*a1*(1 - a1 + a1^2 - ...) whereas the correct +i*a1/(1-a1) = i*a1*(1 + a1 + a1^2 + ...); they differ at O(|a1|^2) = 1.777e-06"
+   },
+   "decision": {
+    "matches_q_within_1e-12": {
+     "A: -i*a1/(1+a1) on textbook h^(1) a1": false,
+     "B: +i*a1/(1-a1) on textbook h^(1) a1": true,
+     "B on code default xi_sign=+1 branch": false,
+     "C: -i*a1/(1-a1) on code default xi_sign=+1 branch": true
+    },
+    "statement": "With the outgoing Hankel function h1^(1) (xi1 = psi1 - i*chi1 = z*h1^(1)) and time factor e^{-i omega t}, the textbook electric-dipole coefficient satisfies Re(a1) = |a1|^2 > 0 and equals A5's -t exactly, so the Section-8 reactance is recovered by q = +i*a1/(1-a1) -- candidate B.  Candidate -i*a1/(1+a1) is the wrong series (it misses by O(|a1|^2) = 2.7e-3 relative). The code's q_mie default uses xi_sign=+1 (the z*h1^(2) ingoing branch) together with -i*a1/(1+a1), so it does not return q (rel 2.7e-3); on that conjugated branch the correct conversion is -i*a1/(1-a1) = +i*conj(a1)/(1-conj(a1))."
+   }
+  },
+  "interval": {
+   "m_i_reproduction": [
+    {
+     "check": "monotonicity_checks[0]",
+     "qprime_lower_computed": "0.000429301959288595278031435025733",
+     "H_i_computed": "0.00271981180111573648091806056666",
+     "m_i_computed": "0.000429297195770476277629454404911",
+     "m_i_computed_float": 0.00042929719577047625,
+     "m_i_computed_hp50": "0.0004292971957704762776294544",
+     "m_i_computed_hp50_using_q_lower_in_denominator": "0.00042930170592674673723148399899463292",
+     "m_i_from_supplied_constants": 0.0004326194599396315,
+     "amplitude_derivative_lower_supplied": 0.0004326194599396315,
+     "A5_section7_stated_m_i": 0.00043261945994,
+     "rel_diff_vs_section7_stated": -0.007679414536702821,
+     "supplied_matches_amplitude_derivative_lower": 0.0
+    },
+    {
+     "check": "monotonicity_checks[1]",
+     "qprime_lower_computed": "0.000129436839444102321823981529064",
+     "H_i_computed": "0.00130969115967043357119482851105",
+     "m_i_computed": "0.000129436506412060598934769238321",
+     "m_i_computed_float": 0.00012943650641206059,
+     "m_i_computed_hp50": "0.0001294365064120605989347692",
+     "m_i_computed_hp50_using_q_lower_in_denominator": "0.00012943679161568353265412759759260982",
+     "m_i_from_supplied_constants": 0.00013086616723688468,
+     "amplitude_derivative_lower_supplied": 0.00013086616723688468,
+     "A5_section7_stated_m_i": 0.00013086616724,
+     "rel_diff_vs_section7_stated": -0.01092460227185767,
+     "supplied_matches_amplitude_derivative_lower": 0.0
+    }
+   ],
+   "comparison_with_supplied": [
+    {
+     "check": "monotonicity_checks[0]",
+     "x": 0.2,
+     "key": "qprime_lower",
+     "supplied": 0.0004326242603218757,
+     "computed": 0.00042930195928859527,
+     "difference": -3.322301033280436e-06,
+     "relative_difference": -0.007679414535857557,
+     "computed_conservative_vs_supplied": true,
+     "high_precision_computed": "0.000429301959288595278031435025733"
+    },
+    {
+     "check": "monotonicity_checks[0]",
+     "x": 0.2,
+     "key": "denominator_lower",
+     "supplied": 28.14437116423359,
+     "computed": 28.144371164233586,
+     "difference": -3.552713678800501e-15,
+     "relative_difference": -1.2623176613430106e-16,
+     "computed_conservative_vs_supplied": true,
+     "high_precision_computed": "28.1443711642335875822791564597"
+    },
+    {
+     "check": "monotonicity_checks[0]",
+     "x": 0.2,
+     "key": "q_lower",
+     "supplied": 0.0006272543061943569,
+     "computed": 0.000627254306194357,
+     "difference": 1.0842021724855044e-19,
+     "relative_difference": 1.7284890064183325e-16,
+     "computed_conservative_vs_supplied": false,
+     "high_precision_computed": "0.000627254306194357103696258497481"
+    },
+    {
+     "check": "monotonicity_checks[0]",
+     "x": 0.2,
+     "key": "q_upper",
+     "supplied": 0.0027198118011157357,
+     "computed": 0.002719811801115736,
+     "difference": 4.336808689942018e-19,
+     "relative_difference": 1.5945252859638851e-16,
+     "computed_conservative_vs_supplied": false,
+     "high_precision_computed": "0.00271981180111573648091806056666"
+    },
+    {
+     "check": "monotonicity_checks[0]",
+     "x": 0.2,
+     "key": "amplitude_derivative_lower",
+     "supplied": 0.0004326194599396315,
+     "computed": 0.00042929719577047625,
+     "difference": -3.3222641691552394e-06,
+     "relative_difference": -0.0076794145358575275,
+     "computed_conservative_vs_supplied": true,
+     "high_precision_computed": "0.000429297195770476277629454404911"
+    },
+    {
+     "check": "monotonicity_checks[1]",
+     "x": 0.15,
+     "key": "qprime_lower",
+     "supplied": 0.00013086650394735435,
+     "computed": 0.0001294368394441023,
+     "difference": -1.4296645032520411e-06,
+     "relative_difference": -0.010924602248312326,
+     "computed_conservative_vs_supplied": true,
+     "high_precision_computed": "0.000129436839444102321823981529064"
+    },
+    {
+     "check": "monotonicity_checks[1]",
+     "x": 0.15,
+     "key": "denominator_lower",
+     "supplied": 57.13916142651041,
+     "computed": 57.13916142651042,
+     "difference": 7.105427357601002e-15,
+     "relative_difference": 1.2435302129415487e-16,
+     "computed_conservative_vs_supplied": false,
+     "high_precision_computed": "57.1391614265104234933275083348"
+    },
+    {
+     "check": "monotonicity_checks[1]",
+     "x": 0.15,
+     "key": "q_lower",
+     "supplied": 0.0004963276831212816,
+     "computed": 0.0004963276831212816,
+     "difference": 0.0,
+     "relative_difference": 0.0,
+     "computed_conservative_vs_supplied": true,
+     "high_precision_computed": "0.000496327683121281645949469436647"
+    },
+    {
+     "check": "monotonicity_checks[1]",
+     "x": 0.15,
+     "key": "q_upper",
+     "supplied": 0.0013096911596704335,
+     "computed": 0.0013096911596704335,
+     "difference": 0.0,
+     "relative_difference": 0.0,
+     "computed_conservative_vs_supplied": true,
+     "high_precision_computed": "0.00130969115967043357119482851105"
+    },
+    {
+     "check": "monotonicity_checks[1]",
+     "x": 0.15,
+     "key": "amplitude_derivative_lower",
+     "supplied": 0.00013086616723688468,
+     "computed": 0.00012943650641206059,
+     "difference": -1.4296608248240905e-06,
+     "relative_difference": -0.01092460224831235,
+     "computed_conservative_vs_supplied": true,
+     "high_precision_computed": "0.000129436506412060598934769238321"
+    }
+   ]
+  }
+ },
+ "artifacts": [
+  {
+   "path": "results/coverage_audit_20260910T101523Z.json",
+   "sha256": "615dcc5932c01938855ac29f634818f04771a262b89805bca082e4992a7751cc",
+   "bytes": 30791
+  },
+  {
+   "path": "results/counterexample_20260910T102008Z.json",
+   "sha256": "525a633f6f2d950514fa336f87c0b4cdd182a0af83813f05468f038968f721fc",
+   "bytes": 14977
+  },
+  {
+   "path": "results/mie_checks_20260910T101602Z.json",
+   "sha256": "e1a0ed41b49e13035a6d07eb247f91a7d326863bec601c3a98bee2ad5100b9aa",
+   "bytes": 81774
+  },
+  {
+   "path": "results/mie_checks_20260910T092815Z.json",
+   "sha256": "cb25b176217d569b93e1d6b3805899e6cf66f20be1754425e45a8805a76cb683",
+   "bytes": 81773
+  },
+  {
+   "path": "results/fixed_loss_born_20260910T100202Z.json",
+   "sha256": "d7302fe064a94190373d0be25d91ca713c7bca0ed5a44864a914f6071044eeb6",
+   "bytes": 39914
+  },
+  {
+   "path": "results/ref_gls_20260910T100641Z.json",
+   "sha256": "ab21c14d8f71b013ee0bf4c0c3ca80a84242e6a7de93b4cefb10f09dea116fdf",
+   "bytes": 15873
+  },
+  {
+   "path": "results/mie_sign_convention_20260910T100913Z.json",
+   "sha256": "57dae6842b43100cec307468ed51e27b5cd03099b93ad8e2be9f8734a3a1f087",
+   "bytes": 5478
+  },
+  {
+   "path": "results/qprime_variants_20260910T094847Z.json",
+   "sha256": "a551a1c4adc1421612a26c06bcf3df1cc9c3935ef1b56c0c1a5cc2d4a80d5cbf",
+   "bytes": 22362
+  },
+  {
+   "path": "results/finite_risk_20260910T095306Z.json",
+   "sha256": "df8c8f33e893b386d70e676ce9763b1efa82a8419d4078bf06653eab15be72f0",
+   "bytes": 12472
+  },
+  {
+   "path": "results/interval_20260910T093408Z.json",
+   "sha256": "e5aea5741726fa5b432199e4cec962f5d99ca5875b248924d81681445d2b3c66",
+   "bytes": 18916
+  },
+  {
+   "path": "results/FINDINGS_increment2.md",
+   "sha256": "85b866407f4a215cbeafc87597ff0f09c1584d9b7b6fd049bb26f173fc7d1fbb",
+   "bytes": 7154
+  },
+  {
+   "path": "results/FINDINGS_increment3.md",
+   "sha256": "727ddc04955d7270b3794ac54325969078bf9ed57f5520f02dc26b36de338d05",
+   "bytes": 7814
+  },
+  {
+   "path": "results/DERIVATIONS.md",
+   "sha256": "ca0a6864bdf825fe2f7336573702c4cd51681318d6630989f83fcac448135eea",
+   "bytes": 4308
+  },
+  {
+   "path": "results/EXTRACTION_REPORT.md",
+   "sha256": "56da1f39e7399201036de18eb7c77b9c550d7418488180f51db68618f1100561",
+   "bytes": 3471
+  },
+  {
+   "path": "logs/coverage_audit.log",
+   "sha256": "740dc1256ec02f316b8ce0e85392ae0d98b518550fcb06ff2113f04679d8bc56",
+   "bytes": 11967
+  },
+  {
+   "path": "logs/mie_fix.log",
+   "sha256": "fafc22a0b831e0000b7ff5e94bfc1d0be7dec9acd41cc73a1d182261ecbf7de7",
+   "bytes": 3633
+  },
+  {
+   "path": "logs/fixed_loss_born.log",
+   "sha256": "d3ce5be1a8c3421352d015d092ac02db555bb9428f770c106ced95045b7e199e",
+   "bytes": 19877
+  },
+  {
+   "path": "logs/mie_checks.log",
+   "sha256": "792878501d36a5550bf93a7fe25ec40f0f6a0b09d9bfc0af7fa938dc4ad97b85",
+   "bytes": 6950
+  },
+  {
+   "path": "logs/mie_checks_prevrun_20260910T092815Z.log",
+   "sha256": "d4ab25359017ec3086db8c91482518e12effea9b90efb2bced2e4e055b9fbc79",
+   "bytes": 6950
+  },
+  {
+   "path": "logs/qprime_variants.log",
+   "sha256": "c18dc75cbf9e069a8b0372bd9ff87b786339358e34162efee898a64e78954583",
+   "bytes": 4933
+  },
+  {
+   "path": "logs/finite_risk.log",
+   "sha256": "0048c87034031dfd0a136813fe849eabaa6895df8f345e08ad294c7714d08931",
+   "bytes": 9110
+  },
+  {
+   "path": "logs/interval.log",
+   "sha256": "1451bc65b0e85a707a02903bfce2f9d828a5e9b6df68996a6c6fc421a74d5db7",
+   "bytes": 9769
+  },
+  {
+   "path": "logs/ref_gls.log",
+   "sha256": "4324fbd14b1a565e04f83d1a932f84308534bf709bba16dd0bc44f9142c2c114",
+   "bytes": 3983
+  },
+  {
+   "path": "logs/mie_sign_convention.log",
+   "sha256": "1ecf57c2a00109d06cc091376273bab89749e8e1877db91036d1ed0729b61ae0",
+   "bytes": 3369
+  },
+  {
+   "path": "logs/uv_cache_VjSSQm31390egyfy.sha256",
+   "sha256": "ae32b72a847050e7ce2950bbf472508021b315cbd23cfa545580b34f5bd1fe84",
+   "bytes": 22198
+  },
+  {
+   "path": "inputs/SOURCE_HASHES.json",
+   "sha256": "e1f40529015ac17c1a4a7a28f65fa3c64137b415b19b475affb58e8f877ca9f1",
+   "bytes": 2359
+  },
+  {
+   "path": "code/mie_reactance.py",
+   "sha256": "cb4c59efe95512a4faf1c9ff283a9c1e9217d977d8019389f6007b3b775ca8e4",
+   "bytes": 20524
+  },
+  {
+   "path": "code/run_coverage_audit.py",
+   "sha256": "e661800be6ec51f192718be479d20e5c0861c050fa97000d0af38809a81a5057",
+   "bytes": 29191
+  },
+  {
+   "path": "code/run_mie_fix_check.py",
+   "sha256": "918156fd4554bacfd07f3ea3633f945e4159ab162c09970dd6c49d5ea66ec653",
+   "bytes": 7468
+  },
+  {
+   "path": "code/run_counterexample.py",
+   "sha256": "d0a04c56b340289cdaea7c596ba177006c3c0174053d1090c9da02b574d3f1ea",
+   "bytes": 13959
+  },
+  {
+   "path": "code/run_final_summary.py",
+   "sha256": "88b9316508f07fc8d38907ff0c38d96582a3efdf33a188ada8e63620e783ba96",
+   "bytes": 30790
+  }
+ ],
+ "environment": {
+  "interpreter": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/.venv3d/bin/python",
+  "python_version": "3.13.13",
+  "numpy_version": "2.5.3",
+  "scipy_version": "1.16.3",
+  "mpmath_version": "1.3.0",
+  "threads": 1,
+  "mpmath_provenance": {
+   "pythonpath_dir": "/Users/migodam/.cache/uv/archive-v0/VjSSQm31390egyfy",
+   "sha256_list_path": "logs/uv_cache_VjSSQm31390egyfy.sha256",
+   "sha256_list_sha256": "ae32b72a847050e7ce2950bbf472508021b315cbd23cfa545580b34f5bd1fe84",
+   "note": "mpmath 1.3.0 imported only via PYTHONPATH=/Users/migodam/.cache/uv/archive-v0/VjSSQm31390egyfy; the sha256 list is the frozen archive manifest captured at run start."
+  }
+ },
+ "declared_limits": [
+  "this is the restricted Class M known-geometry modal check only",
+  "not joint two-sphere recovery",
+  "not Class C",
+  "no hardware",
+  "no novelty claim",
+  "interval verification is machine-assisted and not independently re-implemented by a second party"
+ ],
+ "failures_and_caveats": [
+  {
+   "id": "qprime_lower_amplitude_derivative_lower_not_bit_reproduced",
+   "detail": "supplied qprime_lower / amplitude_derivative_lower differ from every one of the 7 interval arrangements tried (V1..V7); the supplied value lies inside the V4/V6 envelope, so both are conservative lower bounds on the same true infimum at the right interval endpoint.",
+   "rel_diff_qprime_lower_I1": 0.007679414535857699,
+   "rel_diff_qprime_lower_I2": 0.010924602248312109,
+   "rel_diff_amplitude_lower_I1": 0.007679414535857663,
+   "rel_diff_amplitude_lower_I2": 0.010924602248312163,
+   "qprime_upper_rel_diff_I1": 0.025554494898649107,
+   "qprime_upper_rel_diff_I2": 0.02975665361914296,
+   "tightest_variant": "V4 fully expanded: +2.423% (I1), +3.755% (I2) vs supplied"
+  },
+  {
+   "id": "section3_gain_instance_inadmissible",
+   "detail": "A5 sec.3 quotes q=30, q'=45 with g=1; the implied partner gain has |g'| = 0.6668722947 < 0.75, outside gain_allowed_modulus [0.75,1.25], so that exact instance is NOT admissible under the declared gain domain. It is repaired by a shared positive rescale lambda in [1.1246531096707642, 1.25].",
+   "abs_g_prime": 0.6668722947109962,
+   "gain_allowed_modulus": [
+    0.75,
+    1.25
+   ]
+  },
+  {
+   "id": "logdet_vs_gls_distinction",
+   "detail": "adding log det(sigma^2 I + sigma_r^2 f f^*) to the concentrated GLS objective is a different (marginal) model, not the same profiling target; it moves theta-hat by up to 2.236e-02.",
+   "max_abs_theta_diff": 0.02235605588153132,
+   "median_abs_theta_diff": 0.0009764593677074052
+  },
+  {
+   "id": "annulus_constrained_breakdown",
+   "detail": "the unconstrained reference GLS gain |g*| = 2.643869 lies outside the declared annulus; the constrained optimum sits on the boundary and the objective jumps from 287.7384 to 1234.6989.",
+   "abs_g_star": 2.643869297973349,
+   "L_unconstrained": 287.7383578479615,
+   "L_constrained": 1234.6989302940228
+  },
+  {
+   "id": "geometry_nuisance_breaks_sigma_min_Avis_bound",
+   "detail": "the quoted sigma_min(A_vis) >= |g| sigma_min(B) sqrt(lambda_min(H)) bound carries no geometry/position nuisance term; one labelled extra nuisance direction drops the measured ratio to 0.990745, i.e. the bound can fail.",
+   "ratio_with_extra": 0.9907454035285767
+  },
+  {
+   "id": "ill_conditioned_LS_solver_artifact",
+   "detail": "with cond(B)=1e4 the naive unweighted nonlinear least-squares re-fit loses precision (only a few of 20 starts reach the global optimum) while the explicit inverse stays exact; this is a scaling/solver artifact of the check, not a failure of the sec.3 map.",
+   "cond_B": 10000.0
+  },
+  {
+   "id": "exact_reactance_identity_error_unidentified",
+   "detail": "no (identity, precision) pair among (a)-(d) at float64 / dps=15,20,25,30,35,50 landed within 20% of 8.879228496839643e-20 over the four world points; the nearest is identity (a) in float64 at the two world-2 points (2.168409e-19, 2.44x). A dps=17 probe on a guessed 36-point grid reaches 0.90x but dps=17 is outside the required set and the grid is a guess, so the constant stays NOT_REPRODUCED.",
+   "target": "8.879228496839643e-20",
+   "near_misses": {
+    "float64 identity (a) at world2 points": "2.168409e-19 (2.44x)",
+    "dps=17 identity r10 over a 36-point grid": "7.970560477e-20 (0.90x) [dps not in the required set]"
+   }
+  },
+  {
+   "id": "superseded_and_quarantined_artifacts",
+   "detail": "results/interval_20260910T093248Z.json is truncated JSON and was quarantined as PARTIAL_interval_20260910T093248Z.json.bad; Part D ref_gls T100317Z (Woodbury numerator bug) and Part E mie_sign_convention T100743Z (wrong chi1 sign) are superseded and must not be cited; counterexample T101904Z and T102008Z are two identical seeded runs."
+  },
+  {
+   "id": "part_B_q_mie_offset_diagnostics_are_pre_fix",
+   "detail": "the frozen Part B JSON (finite_risk T095306Z) records two *diagnostic* leaves q_mie_xi_minus_vs_q_rel (1.9999947 / 1.9999976) and q_mie_xi_plus_vs_q_rel (2.6664e-3 / 1.8048e-3) produced by the OLD wrong-arrangement q_mie(); after the Part G fix the same diagnostics read ~5.3e-12. No scientific number in Part B (scale c, delta_mu identity, sigma factor, D, p_*, error bounds) depends on them, and a re-run was deliberately NOT issued so the frozen artifact stays the pre-fix record.",
+   "pre_fix_values": {
+    "q_mie_xi_minus_vs_q_rel": [
+     1.9999946677220815,
+     1.9999975570309303
+    ],
+    "q_mie_xi_plus_vs_q_rel": [
+     0.0026664010227751404,
+     0.001804796416290883
+    ]
+   }
+  }
+ ]
+}

@@ -3,6 +3,7 @@
 > Working A1–A5 / Q5 research on coherent inverse scattering, material attribution and calibration. Q5 scientifically incomplete; historical SOM/SLAM claims require later audits.
 
 ## Current Q5 entry
+- Native verification is finished and merged into the existing documents and ZIP; read parent corrections before raw worker reports. Scientific paper acceptance remains incomplete.
 - [Q5 complete reading package](https://raw.githubusercontent.com/migodam/fullwave-self-calibration/main/Q5_CHATGPT_START_HERE.md)
 - [Q5 theory](https://raw.githubusercontent.com/migodam/fullwave-self-calibration/main/research/q5_remaining_v1/Q5_THEORY_FINAL.md)
 - [Q5 remaining prompt](https://raw.githubusercontent.com/migodam/fullwave-self-calibration/main/research/q5_remaining_v1/Q5_REMAINING_QUESTIONS.md)

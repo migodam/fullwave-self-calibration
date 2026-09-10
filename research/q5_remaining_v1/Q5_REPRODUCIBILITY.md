@@ -1,5 +1,12 @@
 # Reproducibility and execution boundary
 
+## Final native run status and audit
+
+The native process exited 0 after one development round and the 18-turn cap; evaluator decision: abandon. Native writeup was not executed. Worker results/FINAL_REPORT.md and FINAL_SUMMARY.json now exist; use the corrected parent theory/review to interpret them.
+
+src/integration_checks.py checks artifact hashes, a repaired Born counterexample and derivative identities; results/integration_audit.json records the result. The worker validator also reported OVERALL PASS locally for structure, counts and hashes. It references excluded raw logs, so its full success is not claimed for the public clone. PUBLIC_MANIFEST.json instead verifies exported payloads. The correct scientific status remains incomplete.
+
+
 Run from the Inv_SLAM project root with research/trispace_self_calibration/a3_research/.venv3d/bin/python and one BLAS thread. Required installed packages include NumPy, SciPy and Treams. The development scripts depend on the unchanged A3 maxwell3d.py. This is a workspace reproduction, not yet a self-contained release package.
 
 Order: src/recovery_cycle1.py, src/scalar_cycle2.py, src/audit_development.py, src/parent_checks.py. Output files are intentionally protected against overwrite; use a separate copy/output directory for reruns and preserve the published source/protocol hashes. Cycle-one raw observations are regenerated from its fixed stream; cycle two stores its independent observations explicitly. The corrected audit, not obsolete cycle-one heuristic flags, governs reporting.

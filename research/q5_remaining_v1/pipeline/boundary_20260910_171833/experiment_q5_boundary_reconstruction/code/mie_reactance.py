@@ -38,6 +38,16 @@ branch; note that the DEFAULT xi_sign = +1 is the h^(2) branch, not the outgoing
 
 No installation is required: mpmath is importable only through the uv cache archive on
 PYTHONPATH (pure-Python read of an existing cached wheel, not a pip/system install).
+
+FINAL CONVENTION (Part G of increment 3, verified in logs/mie_fix.log): the textbook
+outgoing Riccati-Hankel branch is xi1 = psi1 - i*chi1 = z*h1^(1)(z) (xi_sign = -1),
+which is the branch of h1^(1) tied to the time factor e^{-i omega t}; on it Im(a1) < 0
+(Re a1 = +|a1|^2 > 0 for lossless eps) and the exact conversion to the A5 Section 8
+reactance is q = +i*a1/(1-a1), equivalently q = -i*t/(1+t) with t = -a1 = i*q/(1-i*q).
+The code's `mie_a1(..., xi_sign=+1)` default is the conjugated ingoing h1^(2) branch,
+where Im(a1) > 0 (Re a1 = -|a1|^2) and the exact conversion is q = -i*a1/(1-a1);
+`q_mie` now selects the correct arrangement automatically for whichever branch is
+requested and raises rather than returning the historical wrong-arrangement value.
 """
 
 from __future__ import annotations
@@ -178,7 +188,22 @@ def q_scipy(eps, x):
 
 
 # --------------------------------------------------------------------------------------
-# (c) Mie route: standard electric-dipole a1, then q = -i a1/(1+a1)
+# (c) Mie route: standard electric-dipole a1, then a branch-aware a1 -> q conversion.
+#
+#     B R A N C H   T A B L E   (verified numerically against q_closed, see mie_fix.log)
+#     ------------------------------------------------------------------------------
+#     xi_sign = -1 : xi1 = psi1 - i*chi1 = z*h1^(1)(z)   OUTGOING for e^{-i omega t}
+#                    a1 = textbook Mie coefficient (Re a1 = +|a1|^2 for lossless eps)
+#                    a1 = -t with A5 t = i q/(1-i q)
+#                    q  =  +i*a1/(1-a1)         <-- correct on this branch
+#     xi_sign = +1 : xi1 = psi1 + i*chi1 = z*h1^(2)(z)   INGOING for e^{-i omega t}
+#                    a1 = conj(textbook a1)     (Re a1 = -|a1|^2)
+#                    q  =  -i*a1/(1-a1)         <-- correct on this branch
+#
+#     The arrangement " -i*a1/(1+a1) " is WRONG on both branches: it is the
+#     alternating geometric series, differs from the correct value at O(|a1|^2)
+#     (~2.7e-3 relative at eps=2, x=0.2).  `q_mie` raises if it is requested and
+#     `q_mie_legacy_prompt_literal` reproduces the historical value on purpose.
 # --------------------------------------------------------------------------------------
 
 def psi1(z):
@@ -231,20 +256,86 @@ def mie_a1(eps, x, xi_sign=+1):
     return num / den
 
 
-def q_mie(eps, x, xi_sign=+1):
-    """Route (c) q = -i*a1/(1+a1).  NOT equal to the A5 Section 8 reactance q.
+_Q_MIE_CORRECT_FORM = {+1: "minus_i_over_1minus", -1: "i_over_1minus"}
+_Q_MIE_WRONG_FORMS = ("minus_i_over_1plus",)
 
-    For the textbook outgoing-h1^(1) coefficient (xi_sign = -1) the correct
-    conversion is +i*a1/(1-a1); the -i*a1/(1+a1) form here is the alternating
-    (wrong-sign) geometric series and differs from it at O(|a1|^2), ~2.7e-3
-    relative at eps=2, x=0.2.  Kept unchanged for reproducibility; use q_closed /
-    mp_q / iv_quantities, or q_from_a1_conversion(xi_sign=-1, form='i_over_1minus').
+
+def q_mie(eps, x, xi_sign=+1, form="auto", check=True, rtol=1e-9):
+    """Route (c): branch-aware a1 -> q conversion, verified against the reactance q.
+
+    Branch table (both rows verified against `q_closed` to <= 1e-14 in
+    logs/mie_fix.log):
+        xi_sign = +1  (z*h1^(2), INGOING for e^{-i omega t})  ->  q = -i*a1/(1-a1)
+        xi_sign = -1  (z*h1^(1), OUTGOING for e^{-i omega t}) ->  q = +i*a1/(1-a1)
+
+    Parameters
+    ----------
+    xi_sign : int
+        +1 (default) selects z*h1^(2); -1 selects z*h1^(1).
+    form : str
+        "auto"                  -> the correct arrangement for `xi_sign`.
+        "i_over_1minus"         -> +i*a1/(1-a1)
+        "minus_i_over_1minus"   -> -i*a1/(1-a1)
+        "minus_i_over_1plus"    -> NOT a legal choice: this is the historical /
+                                   prompt-literal arrangement, the wrong-sign
+                                   alternating series, wrong by O(|a1|^2).
+                                   Requesting it raises ValueError.  The value is
+                                   still available, explicitly flagged, via
+                                   `q_mie_legacy_prompt_literal`.
+    check : bool
+        If True (default) the returned value is compared with `q_closed` at the
+        same (eps, x) and ValueError is raised when the relative mismatch
+        exceeds `rtol`.  This makes a silent wrong-arrangement return impossible.
+    rtol : float
+        Relative tolerance for the internal cross-check (default 1e-9).  The
+        actual agreement with q_closed is <= 5.4e-12 over the mie_checks grid
+        (worst point eps=2, x=0.02, where route (c) loses digits), so 1e-9 admits
+        every legitimate point while still rejecting the wrong arrangement by a
+        factor of >1e6.
+
+    Returns
+    -------
+    complex q (float64), equal to the A5 Section 8 reactance q up to float64
+    round-off.
+    """
+    if form == "auto":
+        form = _Q_MIE_CORRECT_FORM[xi_sign]
+    if form in _Q_MIE_WRONG_FORMS:
+        raise ValueError(
+            "q_mie(form=%r) is the wrong-arrangement (alternating-series) form: it differs "
+            "from the A5 Section 8 reactance q at O(|a1|^2).  Use form='auto' (default), or "
+            "q_mie_legacy_prompt_literal() if the historical value is genuinely wanted." % (form,)
+        )
+    if form not in ("i_over_1minus", "minus_i_over_1minus"):
+        raise ValueError("unknown form %r" % (form,))
+    a1 = mie_a1(eps, x, xi_sign=xi_sign)
+    q = (1j * a1 / (1.0 - a1)) if form == "i_over_1minus" else (-1j * a1 / (1.0 - a1))
+    if check:
+        ref = complex(q_closed(eps, x))
+        got = complex(q)
+        rel = abs(got - ref) / abs(ref)
+        if not (rel <= rtol):
+            raise ValueError(
+                "q_mie internal check FAILED: xi_sign=%+d form=%s gives %r, reactance q is %r, "
+                "rel=%.3e > rtol=%.3e" % (xi_sign, form, got, ref, rel, rtol)
+            )
+    return q
+
+
+def q_mie_legacy_prompt_literal(eps, x, xi_sign=+1):
+    """Historical (wrong) arrangement -i*a1/(1+a1), kept ONLY for record reproduction.
+
+    This is the arrangement that the pre-fix `q_mie` default returned.  It does not
+    solve for the A5 Section 8 reactance q on either branch; it is the alternating
+    geometric series, wrong by O(|a1|^2) (~2.7e-3 relative at eps=2, x=0.2).  Any
+    value obtained here must be reported as such.
     """
     a1 = mie_a1(eps, x, xi_sign=xi_sign)
     return -1j * a1 / (1.0 + a1)
 
 
 def q_mie_both_signs(eps, x):
+    """Correctly converted q on both branches (h^(2) first, then h^(1))."""
     return q_mie(eps, x, +1), q_mie(eps, x, -1)
 
 

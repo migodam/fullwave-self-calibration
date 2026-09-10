@@ -1,0 +1,799 @@
+{
+  "part": "F",
+  "interval_sweep_detail": {
+    "monotonicity_checks[0]": {
+      "n_boxes": 2500,
+      "min_qprime_lower": "[0.0004293019592885952025557843189148050695672, 0.0004293019592885952025557843189148050695672]",
+      "max_qprime_upper": "[0.001635777692758013359174314364313289450916, 0.001635777692758013359174314364313289450916]",
+      "min_absDen_lower": "[28.14437116423359063522922983758852618813, 28.14437116423359063522922983758852618813]",
+      "min_q_lower": "[0.0006272543061943569852714141498880450908649, 0.0006272543061943569852714141498880450908649]",
+      "max_q_upper": "[0.002719811801115736029164117625908934528655, 0.002719811801115736029164117625908934528655]",
+      "min_hprime_lower": "[0.0004292971957704762021562235753036822756563, 0.0004292971957704762021562235753036822756563]",
+      "point_qprime_at_eps_lo": "0.001307451354355639179400418",
+      "point_qprime_at_eps_hi": "0.0004551544685356000905091957"
+    },
+    "monotonicity_checks[1]": {
+      "n_boxes": 3000,
+      "min_qprime_lower": "[0.0001294368394441023371216730404553782625402, 0.0001294368394441023371216730404553782625402]",
+      "max_qprime_upper": "[0.0005457373048272504411968926691270959198275, 0.0005457373048272504411968926691270959198275]",
+      "min_absDen_lower": "[57.13916142651041936288653247218926214738, 57.13916142651041936288653247218926214738]",
+      "min_q_lower": "[0.0004963276831212817057963760748230624449561, 0.0004963276831212817057963760748230624449561]",
+      "max_q_upper": "[0.001309691159670433715933581471324303036327, 0.001309691159670433715933581471324303036327]",
+      "min_hprime_lower": "[0.000129436506412060614232347780792626162928, 0.000129436506412060614232347780792626162928]",
+      "point_qprime_at_eps_lo": "0.0004237525770970522238982437",
+      "point_qprime_at_eps_hi": "0.0001399811270777829458319554"
+    }
+  },
+  "meta": {
+    "stamp_utc": "20260910T101523Z",
+    "wall_seconds": 1.426191806793213,
+    "interpreter": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/research/trispace_self_calibration/a3_research/.venv3d/bin/python",
+    "python": "3.13.13",
+    "numpy": "2.5.3",
+    "mpmath_version": "1.3.0",
+    "mpmath_provenance": "/Users/migodam/.cache/uv/archive-v0/VjSSQm31390egyfy",
+    "input_sha256": "036491f83909d680ac1e58d17a8c921b7de2e6c888b2c055953e4efac0ea00d6",
+    "code_sha256": "6bdea5e475d5b4176396b59ebc5d4da94b190885dec381bc12075920b463b62e"
+  },
+  "leaf_enumeration": {
+    "total_leaves": 866,
+    "counts_by_category": {
+      "i": 37,
+      "ii": 3,
+      "iii": 16,
+      "iv": 810,
+      "?": 0
+    },
+    "category_definitions": {
+      "i": "numerical constant already compared against an independent computation",
+      "ii": "numerical constant NOT yet compared before this run",
+      "iii": "provenance / metadata / declared configuration",
+      "iv": "arrays of per-world / per-channel / per-draw data"
+    },
+    "leaf_examples_by_category": {
+      "i": [
+        "/monotonicity_checks[0]/q_lower",
+        "/monotonicity_checks[0]/q_upper",
+        "/monotonicity_checks[0]/qprime_lower",
+        "/monotonicity_checks[0]/qprime_upper",
+        "/monotonicity_checks[0]/denominator_lower",
+        "/monotonicity_checks[0]/amplitude_derivative_lower"
+      ],
+      "ii": [
+        "/finite_material_distance",
+        "/exact_reactance_identity_error",
+        "/relative_data_difference"
+      ],
+      "iii": [
+        "/scope",
+        "/source_sha256",
+        "/interval_backend",
+        "/monotonicity_checks[0]/x",
+        "/monotonicity_checks[0]/eps_domain[0]",
+        "/monotonicity_checks[0]/eps_domain[1]"
+      ],
+      "iv": [
+        "/reference_checks[0]/world_eps[0]",
+        "/reference_checks[0]/world_eps[1]",
+        "/reference_checks[0]/max_eps_abs_errors[0]",
+        "/reference_checks[0]/max_eps_abs_errors[1]",
+        "/reference_checks[0]/empirical_success_eps_point1",
+        "/reference_checks[0]/all_errors[0][0]"
+      ]
+    },
+    "category_i_paths": [
+      "/monotonicity_checks[0]/q_lower",
+      "/monotonicity_checks[0]/q_upper",
+      "/monotonicity_checks[0]/qprime_lower",
+      "/monotonicity_checks[0]/qprime_upper",
+      "/monotonicity_checks[0]/denominator_lower",
+      "/monotonicity_checks[0]/amplitude_derivative_lower",
+      "/monotonicity_checks[1]/q_lower",
+      "/monotonicity_checks[1]/q_upper",
+      "/monotonicity_checks[1]/qprime_lower",
+      "/monotonicity_checks[1]/qprime_upper",
+      "/monotonicity_checks[1]/denominator_lower",
+      "/monotonicity_checks[1]/amplitude_derivative_lower",
+      "/world1_eps[0]",
+      "/world1_eps[1]",
+      "/world2_eps[0]",
+      "/world2_eps[1]",
+      "/world1_q[0]",
+      "/world1_q[1]",
+      "/world2_q[0]",
+      "/world2_q[1]",
+      "/gain1",
+      "/gain2",
+      "/gain_allowed_modulus[0]",
+      "/gain_allowed_modulus[1]",
+      "/complex_noise_sigma[0]",
+      "/complex_noise_sigma[1]",
+      "/complex_whitened_distance",
+      "/no_reference_equal_prior_optimal_error",
+      "/reference_scalar_real_standard_deviation",
+      "/reference_error_bound",
+      "/modal_error_bounds[0]",
+      "/modal_error_bounds[1]",
+      "/uniform_eps_error_bounds[0]",
+      "/uniform_eps_error_bounds[1]",
+      "/simultaneous_coverage_probability_lower",
+      "/reference_checks[0]/gain_modulus",
+      "/reference_checks[1]/gain_modulus"
+    ],
+    "category_ii_paths": [
+      "/finite_material_distance",
+      "/exact_reactance_identity_error",
+      "/relative_data_difference"
+    ],
+    "category_iii_paths": [
+      "/scope",
+      "/source_sha256",
+      "/interval_backend",
+      "/monotonicity_checks[0]/x",
+      "/monotonicity_checks[0]/eps_domain[0]",
+      "/monotonicity_checks[0]/eps_domain[1]",
+      "/monotonicity_checks[0]/interval_count",
+      "/monotonicity_checks[0]/positive",
+      "/monotonicity_checks[1]/x",
+      "/monotonicity_checks[1]/eps_domain[0]",
+      "/monotonicity_checks[1]/eps_domain[1]",
+      "/monotonicity_checks[1]/interval_count",
+      "/monotonicity_checks[1]/positive",
+      "/reference_checks[0]/draws",
+      "/reference_checks[1]/draws",
+      "/wall_seconds"
+    ],
+    "category_iv_path_count": 810
+  },
+  "constant_table": [
+    {
+      "name": "world1_eps[0]",
+      "supplied": 2.0,
+      "computed": 2.0,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "declared input; interval endpoint definition of material interval I_i",
+      "note": ""
+    },
+    {
+      "name": "world2_eps[0]",
+      "supplied": 2.359740580371098,
+      "computed": 2.359740580371099,
+      "abs_diff": 1.1052045273215583e-15,
+      "rel_diff": 4.683584867399922e-16,
+      "verdict": "REPRODUCED",
+      "method": "Solve q(eps2,x)=c*q(eps1,x), c=q2_supplied/q1_supplied, dps=50 Newton",
+      "note": ""
+    },
+    {
+      "name": "world1_eps[1]",
+      "supplied": 3.0,
+      "computed": 3.0,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "declared input; interval endpoint definition of material interval I_i",
+      "note": ""
+    },
+    {
+      "name": "world2_eps[1]",
+      "supplied": 3.989319415017825,
+      "computed": 3.9893194150178286,
+      "abs_diff": 3.429112589976467e-15,
+      "rel_diff": 8.595733340046789e-16,
+      "verdict": "REPRODUCED",
+      "method": "Solve q(eps2,x)=c*q(eps1,x), c=q2_supplied/q1_supplied, dps=50 Newton",
+      "note": ""
+    },
+    {
+      "name": "world1_q[0] (x=0.2)",
+      "supplied": 0.0013332052507369528,
+      "computed": 0.0013332052507369556,
+      "abs_diff": 2.7628962368108416e-18,
+      "rel_diff": 2.0723712536262527e-15,
+      "verdict": "REPRODUCED",
+      "method": "A5 s8 reactance q from mie_reactance.mp_q (same arrangement as code/mie_reactance), dps=50",
+      "note": ""
+    },
+    {
+      "name": "world2_q[0] (x=0.2)",
+      "supplied": 0.001666506563421191,
+      "computed": 0.0016665065634211935,
+      "abs_diff": 2.5122831708426124e-18,
+      "rel_diff": 1.507514717304873e-15,
+      "verdict": "REPRODUCED",
+      "method": "A5 s8 reactance q from mie_reactance.mp_q, dps=50",
+      "note": ""
+    },
+    {
+      "name": "world1_q[1] (x=0.15)",
+      "supplied": 0.0009023996778354064,
+      "computed": 0.0009023996778354085,
+      "abs_diff": 2.101377427095166e-18,
+      "rel_diff": 2.328654895063524e-15,
+      "verdict": "REPRODUCED",
+      "method": "A5 s8 reactance q from mie_reactance.mp_q (same arrangement as code/mie_reactance), dps=50",
+      "note": ""
+    },
+    {
+      "name": "world2_q[1] (x=0.15)",
+      "supplied": 0.001127999597294258,
+      "computed": 0.00112799959729426,
+      "abs_diff": 1.9727579683131135e-18,
+      "rel_diff": 1.7488995324512389e-15,
+      "verdict": "REPRODUCED",
+      "method": "A5 s8 reactance q from mie_reactance.mp_q, dps=50",
+      "note": ""
+    },
+    {
+      "name": "gain1",
+      "supplied": 1.0,
+      "computed": 1.0,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "declared reference gain; |g|=1 lies inside gain_allowed_modulus",
+      "note": ""
+    },
+    {
+      "name": "gain2 = gain1/c (c=q2/q1)",
+      "supplied": 0.8,
+      "computed": 0.8,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "s5 two-world compensation g' = g/c with c = q2/q1 = 1.25 (dps=50)",
+      "note": ""
+    },
+    {
+      "name": "gain_allowed_modulus[0]",
+      "supplied": 0.75,
+      "computed": 0.75,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "declared gain annulus; containment checked for |gain1|=1 and |gain2|=0.8",
+      "note": "declared domain constant, not an independently derivable number"
+    },
+    {
+      "name": "gain_allowed_modulus[1]",
+      "supplied": 1.25,
+      "computed": 1.25,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "declared gain annulus (upper); equals the s5 scale c=1.25",
+      "note": "declared domain constant"
+    },
+    {
+      "name": "reference_scalar_real_standard_deviation",
+      "supplied": 0.001,
+      "computed": 0.001,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "declared real-reference std (used in s7 union bound)",
+      "note": "declared input; the derived companion 0.0032905... is checked below"
+    },
+    {
+      "name": "reference_error_bound = sigma_a*Phi^{-1}(0.9995)",
+      "supplied": 0.0032905267314919254,
+      "computed": 0.0032905267314918946,
+      "abs_diff": 3.060677837296463e-17,
+      "rel_diff": 9.301482975367747e-15,
+      "verdict": "REPRODUCED",
+      "method": "sigma_a * inverse normal CDF at 0.9995 = 0.001*3.2905267314918948, mpmath dps=50",
+      "note": ""
+    },
+    {
+      "name": "simultaneous_coverage_probability_lower",
+      "supplied": 0.997,
+      "computed": 0.997,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "1 - (2*exp(-(sqrt(log 1000))^2) + 2*(1-Phi(3.2905...))) = 1-0.003",
+      "note": ""
+    },
+    {
+      "name": "complex_noise_sigma[0]",
+      "supplied": 2.6664081317897358e-06,
+      "computed": 2.6664081317897413e-06,
+      "abs_diff": 5.4890225448135134e-21,
+      "rel_diff": 2.0585830351219313e-15,
+      "verdict": "REPRODUCED",
+      "method": "0.002*|g1*t1(eps1_i,x_i)| with t=iq/(1-iq) computed from the dps=50 reactance",
+      "note": ""
+    },
+    {
+      "name": "complex_noise_sigma[1]",
+      "supplied": 1.8047986208244827e-06,
+      "computed": 1.804798620824487e-06,
+      "abs_diff": 4.322122524864078e-21,
+      "rel_diff": 2.3947948956707486e-15,
+      "verdict": "REPRODUCED",
+      "method": "0.002*|g1*t1(eps1_i,x_i)| with t=iq/(1-iq) computed from the dps=50 reactance",
+      "note": ""
+    },
+    {
+      "name": "complex_whitened_distance",
+      "supplied": 0.20123662403751783,
+      "computed": 0.2012366240375182,
+      "abs_diff": 3.7313758555410347e-16,
+      "rel_diff": 1.854223043835883e-15,
+      "verdict": "REPRODUCED",
+      "method": "whitened two-channel mean gap D = sqrt(sum |d_mu_i|^2 / sigma_i^2), dps=50",
+      "note": ""
+    },
+    {
+      "name": "no_reference_equal_prior_optimal_error",
+      "supplied": 0.4434231892562575,
+      "computed": 0.4434231892562574,
+      "abs_diff": 7.57479919929201e-17,
+      "rel_diff": 1.7082550896801382e-16,
+      "verdict": "REPRODUCED",
+      "method": "p_* = erfc(D/2)/2 (proper-complex binary risk, s6), dps=50",
+      "note": ""
+    },
+    {
+      "name": "modal_error_bounds[0]",
+      "supplied": 7.008016195904829e-06,
+      "computed": 7.008016195904843e-06,
+      "abs_diff": 1.3799828090905636e-20,
+      "rel_diff": 1.969149000964016e-15,
+      "verdict": "REPRODUCED",
+      "method": "b_i = sigma_i*sqrt(log 1000) (per-channel noise envelope, s7), dps=50",
+      "note": ""
+    },
+    {
+      "name": "modal_error_bounds[1]",
+      "supplied": 4.74348162019559e-06,
+      "computed": 4.743481620195601e-06,
+      "abs_diff": 1.1275567314821908e-20,
+      "rel_diff": 2.3770656698269186e-15,
+      "verdict": "REPRODUCED",
+      "method": "b_i = sigma_i*sqrt(log 1000) (per-channel noise envelope, s7), dps=50",
+      "note": ""
+    },
+    {
+      "name": "monotonicity_checks[0].q_lower",
+      "supplied": 0.0006272543061943569,
+      "computed": 0.0006272543061943569,
+      "abs_diff": 8.527141414988804e-20,
+      "rel_diff": 1.3594392785797217e-16,
+      "verdict": "REPRODUCED",
+      "method": "iv.dps=35 interval sweep, min over boxes of the q lower endpoint (left-endpoint box)",
+      "note": "reproduces only because both codes share the same loose q/Den enclosure"
+    },
+    {
+      "name": "monotonicity_checks[0].q_upper",
+      "supplied": 0.0027198118011157357,
+      "computed": 0.0027198118011157357,
+      "abs_diff": 3.2916411762590895e-19,
+      "rel_diff": 1.210245934997699e-16,
+      "verdict": "REPRODUCED",
+      "method": "iv.dps=35 interval sweep, max over boxes of the q upper endpoint",
+      "note": ""
+    },
+    {
+      "name": "monotonicity_checks[0].denominator_lower",
+      "supplied": 28.14437116423359,
+      "computed": 28.14437116423359,
+      "abs_diff": 6.352292298375885e-16,
+      "rel_diff": 2.2570382764310972e-17,
+      "verdict": "REPRODUCED",
+      "method": "iv.dps=35 interval sweep, min over boxes of |Den| lower endpoint",
+      "note": ""
+    },
+    {
+      "name": "monotonicity_checks[0].qprime_upper",
+      "supplied": 0.0015950178180630663,
+      "computed": 0.0016357776927580132,
+      "abs_diff": 4.075987469494706e-05,
+      "rel_diff": 0.025554494898649107,
+      "verdict": "NOT_REPRODUCED",
+      "method": "iv.dps=35 interval sweep, max over boxes of the q' upper endpoint",
+      "note": "supplied value is tighter than this implementation's enclosure: it lies between the pointwise maximum at eps_lo and this interval upper bound, so it is a valid but differently-grouped enclosure, not bit-reproducible here"
+    },
+    {
+      "name": "monotonicity_checks[0].qprime_lower",
+      "supplied": 0.0004326242603218757,
+      "computed": 0.00042930195928859516,
+      "abs_diff": 3.3223010332804973e-06,
+      "rel_diff": 0.007679414535857699,
+      "verdict": "NOT_REPRODUCED",
+      "method": "iv.dps=35 interval sweep, min over boxes of the q' lower endpoint",
+      "note": "known-not-bit-reproducible: the producer's q' enclosure is tighter than any variant tried in increment 2 (V1..V7)"
+    },
+    {
+      "name": "monotonicity_checks[0].amplitude_derivative_lower",
+      "supplied": 0.0004326194599396315,
+      "computed": 0.0004292971957704762,
+      "abs_diff": 3.322264169155298e-06,
+      "rel_diff": 0.007679414535857663,
+      "verdict": "NOT_REPRODUCED",
+      "method": "iv.dps=35 interval sweep, min over boxes of the h' lower endpoint",
+      "note": "NOT reproduced independently (also equals supplied qprime_lower/(1+supplied q_upper^2)^1.5 to rel 3.6848387762608170341808119961960726859572247630364e-17"
+    },
+    {
+      "name": "monotonicity_checks[1].q_lower",
+      "supplied": 0.0004963276831212816,
+      "computed": 0.0004963276831212816,
+      "abs_diff": 1.0579637607482307e-19,
+      "rel_diff": 2.131583219567684e-16,
+      "verdict": "REPRODUCED",
+      "method": "iv.dps=35 interval sweep, min over boxes of the q lower endpoint (left-endpoint box)",
+      "note": "reproduces only because both codes share the same loose q/Den enclosure"
+    },
+    {
+      "name": "monotonicity_checks[1].q_upper",
+      "supplied": 0.0013096911596704335,
+      "computed": 0.0013096911596704335,
+      "abs_diff": 2.1593358147132431e-19,
+      "rel_diff": 1.6487366496820606e-16,
+      "verdict": "REPRODUCED",
+      "method": "iv.dps=35 interval sweep, max over boxes of the q upper endpoint",
+      "note": ""
+    },
+    {
+      "name": "monotonicity_checks[1].denominator_lower",
+      "supplied": 57.13916142651041,
+      "computed": 57.13916142651041,
+      "abs_diff": 9.362886532472189e-15,
+      "rel_diff": 1.6386111204159471e-16,
+      "verdict": "REPRODUCED",
+      "method": "iv.dps=35 interval sweep, min over boxes of |Den| lower endpoint",
+      "note": ""
+    },
+    {
+      "name": "monotonicity_checks[1].qprime_upper",
+      "supplied": 0.0005299672528545683,
+      "computed": 0.0005457373048272504,
+      "abs_diff": 1.5770051972682143e-05,
+      "rel_diff": 0.02975665361914296,
+      "verdict": "NOT_REPRODUCED",
+      "method": "iv.dps=35 interval sweep, max over boxes of the q' upper endpoint",
+      "note": "supplied value is tighter than this implementation's enclosure: it lies between the pointwise maximum at eps_lo and this interval upper bound, so it is a valid but differently-grouped enclosure, not bit-reproducible here"
+    },
+    {
+      "name": "monotonicity_checks[1].qprime_lower",
+      "supplied": 0.00013086650394735435,
+      "computed": 0.00012943683944410234,
+      "abs_diff": 1.429664503252013e-06,
+      "rel_diff": 0.010924602248312109,
+      "verdict": "NOT_REPRODUCED",
+      "method": "iv.dps=35 interval sweep, min over boxes of the q' lower endpoint",
+      "note": "known-not-bit-reproducible: the producer's q' enclosure is tighter than any variant tried in increment 2 (V1..V7)"
+    },
+    {
+      "name": "monotonicity_checks[1].amplitude_derivative_lower",
+      "supplied": 0.00013086616723688468,
+      "computed": 0.0001294365064120606,
+      "abs_diff": 1.4296608248240657e-06,
+      "rel_diff": 0.010924602248312163,
+      "verdict": "NOT_REPRODUCED",
+      "method": "iv.dps=35 interval sweep, min over boxes of the h' lower endpoint",
+      "note": "NOT reproduced independently (also equals supplied qprime_lower/(1+supplied q_upper^2)^1.5 to rel 5.3125072454293449995564760453171222655030241734086e-17"
+    },
+    {
+      "name": "uniform_eps_error_bounds[0]",
+      "supplied": 0.04939804578095942,
+      "computed": 0.049398148249810495,
+      "abs_diff": 1.0246885107748377e-07,
+      "rel_diff": 2.0743502998448694e-06,
+      "verdict": "REPRODUCED_WEAKER",
+      "method": "s7 bound (b_i + H_i b_a)/((a_min-b_a) m_i) with the SUPPLIED m_i, H_i, b_a",
+      "note": ""
+    },
+    {
+      "name": "uniform_eps_error_bounds[1]",
+      "supplied": 0.0926437137553974,
+      "computed": 0.09264375157896669,
+      "abs_diff": 3.782356928935101e-08,
+      "rel_diff": 4.0826913943902013e-07,
+      "verdict": "REPRODUCED_WEAKER",
+      "method": "s7 bound (b_i + H_i b_a)/((a_min-b_a) m_i) with the SUPPLIED m_i, H_i, b_a",
+      "note": ""
+    },
+    {
+      "name": "relative_data_difference",
+      "supplied": 0.0003036059493932306,
+      "computed": 0.0003036059493932311,
+      "abs_diff": 5.126383728783217e-19,
+      "rel_diff": 1.6884991018879943e-15,
+      "verdict": "REPRODUCED",
+      "method": "candidate (b) Euclidean norm over the two channels: ||d_mu||_2/||mu||_2, dps=50; winner test (b) ||d_mu||_2/||mu||_2",
+      "note": "candidates: (a) channel 0: |d_mu_i|/|g1 t1_i|=0.00033330084985564639; (a) channel 1: |d_mu_i|/|g1 t1_i|=0.00022559977593422745; (b) ||d_mu||_2/||mu||_2=0.00030360594939323111; (c) whitened ||W d||/||W mu||, W=diag(1/sigma_i)=0.00028459156296003382; (d) (b)/sqrt(2) (rms)=0.00021468182562453349; (e) max over channels of (a)=0.00033330084985564639"
+    },
+    {
+      "name": "exact_reactance_identity_error",
+      "supplied": 8.879228496839643e-20,
+      "computed": 2.1683963912132093e-19,
+      "abs_diff": 1.280473541529245e-19,
+      "rel_diff": 1.4421,
+      "verdict": "NOT_REPRODUCED",
+      "method": "NOT IDENTIFIED: none of identities (a)-(d) at dps=15,20,25,30,35,50 or float64 lands within 20% over the four world points; nearest is identity (a) in float64 at the two world-2 points, 2.17e-19 = 2.44x the target",
+      "note": "extra probe: at dps=17 the residual |(1-iq)t - iq| over a 36-point (eps,x) grid gives 7.97e-20 (0.90x) and |Re t+|t|^2| gives 1.084e-19 (1.22x); dps=17 is outside the required precision set and the 36-point grid is a guess, so this is not conclusive"
+    },
+    {
+      "name": "finite_material_distance",
+      "supplied": 1.0526947278755348,
+      "computed": 1.0526947278755345,
+      "abs_diff": 1.816766479403357e-16,
+      "rel_diff": 1.7258246206569414e-16,
+      "verdict": "REPRODUCED",
+      "method": "Euclidean distance ||eps2 - eps1||_2 over the two material channels, dps=50",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[0].world_eps[0]",
+      "supplied": 2.0,
+      "computed": 2.0,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "reference-check world eps equals world1_eps (k=0) / world2_eps (k=1)",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[0].world_eps[1]",
+      "supplied": 3.0,
+      "computed": 3.0,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "reference-check world eps equals world1_eps (k=0) / world2_eps (k=1)",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[0].gain_modulus",
+      "supplied": 1.0,
+      "computed": 1.0,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "reference-check gain modulus equals |gain1| (k=0) / |gain2| (k=1)",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[0].max_eps_abs_errors[0]",
+      "supplied": 0.007942544376486893,
+      "computed": 0.007942544376486893,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "internal consistency: max over the stored all_errors column",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[0].max_eps_abs_errors[1]",
+      "supplied": 0.018926375343644164,
+      "computed": 0.018926375343644164,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "internal consistency: max over the stored all_errors column",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[0].empirical_success_eps_point1",
+      "supplied": 200.0,
+      "computed": 200.0,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "internal consistency: count of stored draws with both channels' |err| <= 0.10",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[0].all_errors (200x2 = 400 leaves)",
+      "supplied": null,
+      "computed": null,
+      "abs_diff": null,
+      "rel_diff": null,
+      "verdict": "INCOMPARABLE",
+      "method": "realized noise draws of a seeded Monte-Carlo run; no seed is stored, so the realization cannot be reproduced",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[1].world_eps[0]",
+      "supplied": 2.359740580371098,
+      "computed": 2.359740580371098,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "reference-check world eps equals world1_eps (k=0) / world2_eps (k=1)",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[1].world_eps[1]",
+      "supplied": 3.989319415017825,
+      "computed": 3.989319415017825,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "reference-check world eps equals world1_eps (k=0) / world2_eps (k=1)",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[1].gain_modulus",
+      "supplied": 0.8,
+      "computed": 0.8,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "reference-check gain modulus equals |gain1| (k=0) / |gain2| (k=1)",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[1].max_eps_abs_errors[0]",
+      "supplied": 0.01131555760848002,
+      "computed": 0.01131555760848002,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "internal consistency: max over the stored all_errors column",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[1].max_eps_abs_errors[1]",
+      "supplied": 0.026800872842226653,
+      "computed": 0.026800872842226653,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "internal consistency: max over the stored all_errors column",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[1].empirical_success_eps_point1",
+      "supplied": 200.0,
+      "computed": 200.0,
+      "abs_diff": 0.0,
+      "rel_diff": 0.0,
+      "verdict": "REPRODUCED",
+      "method": "internal consistency: count of stored draws with both channels' |err| <= 0.10",
+      "note": ""
+    },
+    {
+      "name": "reference_checks[1].all_errors (200x2 = 400 leaves)",
+      "supplied": null,
+      "computed": null,
+      "abs_diff": null,
+      "rel_diff": null,
+      "verdict": "INCOMPARABLE",
+      "method": "realized noise draws of a seeded Monte-Carlo run; no seed is stored, so the realization cannot be reproduced",
+      "note": ""
+    },
+    {
+      "name": "wall_seconds",
+      "supplied": null,
+      "computed": null,
+      "abs_diff": null,
+      "rel_diff": null,
+      "verdict": "INCOMPARABLE",
+      "method": "wall-clock time of the producer's run",
+      "note": ""
+    }
+  ],
+  "relative_data_difference_candidates": {
+    "(a) channel 0: |d_mu_i|/|g1 t1_i|": "0.0003333008498556463909468921",
+    "(a) channel 1: |d_mu_i|/|g1 t1_i|": "0.0002255997759342274519931445",
+    "(b) ||d_mu||_2/||mu||_2": "0.0003036059493932311126383729",
+    "(c) whitened ||W d||/||W mu||, W=diag(1/sigma_i)": "0.0002845915629600338198967233",
+    "(d) (b)/sqrt(2) (rms)": "0.0002146818256245334934994436",
+    "(e) max over channels of (a)": "0.0003333008498556463909468921"
+  },
+  "relative_data_difference_winner": "(b) ||d_mu||_2/||mu||_2",
+  "exact_reactance_identity_error_scan": {
+    "target": "8.879228496839643e-20",
+    "identities": [
+      "(a) |q - (-i t/(1+t))|, t = iq/(1-iq)",
+      "(c) |Re t + |t|^2|",
+      "(d) |q*(1+Re t) - Im t|",
+      "(b) |q - i a1/(1-a1)|, h^(1) branch"
+    ],
+    "table": {
+      "(a) |q - (-i t/(1+t))|, t = iq/(1-iq)": {
+        "dps=15|world4": "2.01137940919e-22",
+        "dps=15|grid36": "5.60656816877e-17",
+        "dps=20|world4": "1.99738839778e-27",
+        "dps=20|grid36": "1.57095309076e-22",
+        "dps=25|world4": "2.37058760881e-32",
+        "dps=25|grid36": "1.61768389891e-27",
+        "dps=30|world4": "1.92593180244e-34",
+        "dps=30|grid36": "5.44684882904e-32",
+        "dps=35|world4": "1.46936969225e-39",
+        "dps=35|grid36": "4.23283106547e-37",
+        "dps=50|world4": "4.73555179732e-57",
+        "dps=50|grid36": "3.40265873263e-52",
+        "float64|world4": "2.168408765919e-19",
+        "float64|grid36": "5.730227482155e-17"
+      },
+      "(c) |Re t + |t|^2|": {
+        "dps=15|world4": "4.23516473627e-22",
+        "dps=15|grid36": "8.67361737988e-19",
+        "dps=20|world4": "3.23117426779e-27",
+        "dps=20|grid36": "1.05879118407e-22",
+        "dps=25|world4": "2.46519032882e-32",
+        "dps=25|grid36": "3.23117426779e-27",
+        "dps=30|world4": "3.76158192263e-37",
+        "dps=30|grid36": "2.46519032882e-32",
+        "dps=35|world4": "1.43492962747e-42",
+        "dps=35|grid36": "1.88079096132e-37",
+        "dps=50|world4": "5.09789411562e-57",
+        "dps=50|grid36": "4.17619485952e-53",
+        "float64|world4": "4.235164736272e-22",
+        "float64|grid36": "1.387778780781e-17"
+      },
+      "(d) |q*(1+Re t) - Im t|": {
+        "dps=15|world4": "0.0",
+        "dps=15|grid36": "5.55111512313e-17",
+        "dps=20|world4": "0.0",
+        "dps=20|grid36": "5.29395592034e-23",
+        "dps=25|world4": "0.0",
+        "dps=25|grid36": "1.61558713389e-27",
+        "dps=30|world4": "1.92592994439e-34",
+        "dps=30|grid36": "4.93038065763e-32",
+        "dps=35|world4": "1.46936793853e-39",
+        "dps=35|grid36": "3.76158192263e-37",
+        "dps=50|world4": "0.0",
+        "dps=50|grid36": "3.34095588762e-52",
+        "float64|world4": "2.168404344971e-19",
+        "float64|grid36": "5.551115123126e-17"
+      },
+      "(b) |q - i a1/(1-a1)|, h^(1) branch": {
+        "dps=15|world4": "9.54097912517e-18",
+        "dps=15|grid36": "6.11386635856e-16",
+        "dps=20|world4": "1.49339023083e-18",
+        "dps=20|grid36": "6.99251523491e-16",
+        "dps=25|world4": "1.49346433695e-18",
+        "dps=25|grid36": "6.99252037086e-16",
+        "dps=30|world4": "1.4934643358e-18",
+        "dps=30|grid36": "6.9925203707e-16",
+        "dps=35|world4": "1.4934643358e-18",
+        "dps=35|grid36": "6.9925203707e-16",
+        "dps=50|world4": "1.4934643358e-18",
+        "dps=50|grid36": "6.9925203707e-16",
+        "float64|world4": "9.540979125171e-18",
+        "float64|grid36": "7.222915188709e-16"
+      }
+    },
+    "born_det_residuals": {
+      "q=30,g=1": "0.0",
+      "q'=45,g'=1": "0.0"
+    },
+    "matches_within_20pct_at_required_precisions": [],
+    "identified": false,
+    "near_misses": {
+      "float64 identity (a) at world2 points": "2.168409e-19 (2.44x)",
+      "dps=17 identity r10 over a 36-point grid": "7.970560477e-20 (0.90x) [dps not in the required set]"
+    }
+  },
+  "counts": {
+    "constants_compared": 53,
+    "REPRODUCED": 41,
+    "REPRODUCED_WEAKER": 2,
+    "NOT_REPRODUCED": 7,
+    "INCOMPARABLE": 3,
+    "not_reproduced_names": [
+      "monotonicity_checks[0].qprime_upper",
+      "monotonicity_checks[0].qprime_lower",
+      "monotonicity_checks[0].amplitude_derivative_lower",
+      "monotonicity_checks[1].qprime_upper",
+      "monotonicity_checks[1].qprime_lower",
+      "monotonicity_checks[1].amplitude_derivative_lower",
+      "exact_reactance_identity_error"
+    ],
+    "reproduced_weaker_names": [
+      "uniform_eps_error_bounds[0]",
+      "uniform_eps_error_bounds[1]"
+    ],
+    "incomparable_names": [
+      "reference_checks[0].all_errors (200x2 = 400 leaves)",
+      "reference_checks[1].all_errors (200x2 = 400 leaves)",
+      "wall_seconds"
+    ]
+  }
+}

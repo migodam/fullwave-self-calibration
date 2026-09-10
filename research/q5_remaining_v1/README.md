@@ -1,4 +1,4 @@
-# Q5 remaining research — active reconstruction
+# Q5 remaining research — integrated reconstruction and completed native verification
 
 User-approved plan, 2026-09-10. Historical A5 source is unavailable: rebuild
 independently, never label supplied numerical reports as locally reproduced.
@@ -25,4 +25,4 @@ Development24/tuning12/test128 (96 in-class +32 violations); three starts are
 not independent samples. eps errors≤.1, geometry≤.5mm, gain relative error≤.05;
 structural-field error≤.05 reported separately. All failures retained.
 
-Research status: INCOMPLETE. No claim of TAP/SOTA/native pipeline completion.
+The native loop has ended and its final results are integrated into the existing theory, algorithm, experiment report, manuscript and Chinese report. See Q5_THEORY_FINAL.md for parent corrections to raw worker formulas and Q5_REMAINING_QUESTIONS.md for the revised GPT handoff. Research status: INCOMPLETE. Bounded verification is complete; no TAP/SOTA or native paper-stage completion is claimed.

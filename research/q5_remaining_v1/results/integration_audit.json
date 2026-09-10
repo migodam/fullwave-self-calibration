@@ -1,0 +1,74 @@
+{
+  "artifact_hashes_pass": true,
+  "artifacts_checked": 31,
+  "worker_constant_categories": {
+    "leaves_in_inputs_modal_boundary_json": 866,
+    "leaves_by_category": {
+      "i": 37,
+      "ii": 3,
+      "iii": 16,
+      "iv": 810,
+      "?": 0
+    },
+    "constants_compared": 53,
+    "REPRODUCED": 41,
+    "REPRODUCED_WEAKER": 2,
+    "NOT_REPRODUCED": 7,
+    "INCOMPARABLE": 3,
+    "not_reproduced_names": [
+      "monotonicity_checks[0].qprime_upper",
+      "monotonicity_checks[0].qprime_lower",
+      "monotonicity_checks[0].amplitude_derivative_lower",
+      "monotonicity_checks[1].qprime_upper",
+      "monotonicity_checks[1].qprime_lower",
+      "monotonicity_checks[1].amplitude_derivative_lower",
+      "exact_reactance_identity_error"
+    ],
+    "reproduced_weaker_names": [
+      "uniform_eps_error_bounds[0]",
+      "uniform_eps_error_bounds[1]"
+    ],
+    "incomparable_names": [
+      "reference_checks[0].all_errors (200x2 = 400 leaves)",
+      "reference_checks[1].all_errors (200x2 = 400 leaves)",
+      "wall_seconds"
+    ]
+  },
+  "admissible_born_pair": {
+    "epsilon0": [
+      1.9,
+      2.5
+    ],
+    "epsilon1": [
+      2.2,
+      3.0
+    ],
+    "gain1_modulus": 0.7501821556850758
+  },
+  "derivative_checks": [
+    {
+      "z": 0.2,
+      "wrong_first_identity_error": 115.90817000431589,
+      "wrong_second_identity_error": 2.9640856254487478,
+      "correct_second_vs_worker_code_error": 5.897504706808832e-13
+    },
+    {
+      "z": 0.4,
+      "wrong_first_identity_error": 11.190363938690789,
+      "wrong_second_identity_error": 1.2699403346494447,
+      "correct_second_vs_worker_code_error": 6.661338147750939e-15
+    },
+    {
+      "z": 0.7,
+      "wrong_first_identity_error": 0.5519796399520285,
+      "wrong_second_identity_error": 0.5306683082473189,
+      "correct_second_vs_worker_code_error": 3.9968028886505635e-15
+    }
+  ],
+  "pipeline_exit_code": 0,
+  "native_development_rounds": 1,
+  "native_turn_cap": 18,
+  "native_evaluator_decision": "abandon",
+  "native_writeup_executed": false,
+  "scientific_status": "incomplete; bounded verification integrated, not paper acceptance"
+}

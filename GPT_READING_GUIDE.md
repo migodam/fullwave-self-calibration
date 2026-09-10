@@ -4,6 +4,11 @@ This is a longitudinal research archive, not a single settled paper.
 
 ## Current reading order: Q5 supersedes the historical A4 order below
 
+This is the integrated post-automatic-run snapshot. Parent theory/review correct
+the raw final worker derivations. The remaining prompt no longer asks merely to
+repeat the completed scalar checks: it targets physical readout, finite separation
+and novelty gaps. Use the existing Q5 bundle, now regenerated with final artifacts.
+
 Begin with [Q5 complete entry](Q5_CHATGPT_START_HERE.md), then the
 [current verdict](research/q5_remaining_v1/Q5_EXECUTIVE_VERDICT_ZH.md),
 [theory](research/q5_remaining_v1/Q5_THEORY_FINAL.md),

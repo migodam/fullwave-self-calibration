@@ -1,5 +1,32 @@
 # Q5 theory audit — not a completed final theorem package
 
+## Completed automatic verification: integrated parent verdict
+
+The native process ended with exit 0, one development round, an 18-turn cap and evaluator decision `abandon`; no native writeup ran. A bounded verification is not a stand-alone paper, but its valid checks remain useful. The worker labels 53 entries as 41 matching, two weaker bounds, seven unmatched and three incomparable. Matching entries include declared inputs: these are not 41 independent proofs. Parent verification matched 31 artifact hashes.
+
+### Admissible fixed-loss Born ambiguity
+
+Write u=epsilon-1 and ell=(0.03,0.05). If u=q ell, the coefficients are g(q+i)ell. Choose q=30, q'=40, g=1 and g'=(30+i)/(40+i). Materials (1.9,2.5) and (2.2,3.0), with |g'|=0.750182155685, satisfy the declared domain and give identical Born data for any fixed B. The parent's independent check confirms this identity. The original q'=45, g=1 has |g'|≈0.666872 and violates the annulus; multiplying both gains by 1.2 repairs it. Fixed loss therefore anchors scale only away from the parallel ambiguity. This is not a universal full-wave or unknown-geometry counterexample.
+
+### What the completed checks do and do not establish
+
+Mie conversion and binary risk agree with the parent's independent calculations. Worker V1 amplitude derivative lower estimates (4.2929719577e-4, 1.2943650641e-4) are weaker than the supplied values by 0.768% and 1.092%; different interval enclosures do not refute the original bound. The tiny floating-point identity residual was not reproduced; its precise magnitude is not a physical invariant. Original random arrays and runtime are not independently reproducible from the available context.
+
+The scalar noisy-reference GLS objective agrees at approximately 1.34e-16 relative. Adding a log-determinant changes that objective. Enforce the gain annulus and retain the residual-dependent derivative term. These are correctness checks, not a novel optimizer or advantage over equivalent GLS.
+
+An abstract additional nuisance column reduced a worker visibility-bound ratio below one. Unless it is shown to arise from admissible Maxwell geometry, this is only an algebraic scope warning, not a physical geometry counterexample.
+
+### Parent corrections overriding raw worker derivations
+
+In worker results/DERIVATIONS.md, epsilon means relative permittivity, not contrast, and finite-precision arithmetic is not exact evaluation. For j=j_1 and D_j=j'+j/z, the correct identities are
+
+$$D_j'=-j'/z-j+j/z^2,\qquad D_j''=-j''/z-j'+2j'/z^2-2j/z^3.$$
+
+The raw document's alternative D_j'=-D_y+2D_j/z and its second-derivative coefficient -2j'/z are wrong. The worker's directly differentiated code uses a different, correct expression for D_j'' at the parent's checked points; textual mistakes alone do not invalidate that implementation.
+
+A midpoint Lipschitz enclosure needs L times the full halfwidth, not an unexplained factor 0.5. Endpoint-infimum and strict continuum claims are not promoted from the raw report. Exact size parameters, outward rounding and enclosure coverage remain proof obligations. The integration audit is results/integration_audit.json. These corrections take precedence over all raw worker summaries.
+
+
 The fixed-loss Born anchor, restricted lossless modal boundary, and simultaneous lossy two-sphere inverse problem are distinct classes. No theorem is transferred between them without its assumptions.
 
 ## Verified implementation identity

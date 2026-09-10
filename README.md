@@ -2,6 +2,10 @@
 
 ## Latest public snapshot: Q5, 10 September 2026
 
+The automatic verification has now ended and is integrated into the existing
+Q5 manuscript, theory, Chinese report and GPT prompt. The same reading entry and
+ZIP below replace the earlier pre-completion snapshot; no second packet is needed.
+
 **[Start here: Q5 ChatGPT reading package](Q5_CHATGPT_START_HERE.md)** — theory,
 English working manuscript, Chinese report, next research prompt, source code,
 registered experiment parameters and immutable numerical results.
