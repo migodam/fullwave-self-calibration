@@ -1,0 +1,4 @@
+# Versions used in A2; Python 3.13.13 on macOS arm64.
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.1

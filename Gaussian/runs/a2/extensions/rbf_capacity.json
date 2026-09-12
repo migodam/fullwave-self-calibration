@@ -1,0 +1,3593 @@
+{
+  "scope": "Post-hoc exact finite LP diagnostic: whether fixed Gaussian logits can concentrate on each binary pattern, not a Bayesian optimality test",
+  "feature_rank": 4,
+  "separable_count": 118,
+  "total": 256,
+  "states": [
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": false,
+      "solver_status": 2
+    },
+    {
+      "state": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    },
+    {
+      "state": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "separable": true,
+      "solver_status": 0
+    }
+  ],
+  "source_sha256": "47de0907814b876a54145820211acf37d8c0608e1533a960c8206666617b7b1d"
+}

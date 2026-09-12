@@ -1,0 +1,56 @@
+{
+  "scope": "Finite complex matrices and Fourier moments only; no Maxwell validation claim",
+  "peak_fd_relative": 1.5406498882952202e-10,
+  "normalized_fd_relative": 2.0453992192736573e-10,
+  "incorrect_peak_trace_relative": 0.39061095158351705,
+  "split": [
+    {
+      "delta": 0.12,
+      "mass_ratio": 1.0000000000000002,
+      "covariance_error": 0.0,
+      "fourier_relative": 4.1567427437883e-06
+    },
+    {
+      "delta": 0.06,
+      "mass_ratio": 1.0,
+      "covariance_error": 0.0,
+      "fourier_relative": 2.594300101410596e-07
+    },
+    {
+      "delta": 0.03,
+      "mass_ratio": 1.0,
+      "covariance_error": 0.0,
+      "fourier_relative": 1.6208655972960173e-08
+    }
+  ],
+  "born_mean_difference": 0.0,
+  "born_covariance_difference": 1.833030277982336,
+  "born_pseudocovariance_norm": 4.354595273960601,
+  "second_order": [
+    {
+      "delta": 0.2,
+      "error": 1.6516798453363155e-05,
+      "bound": 0.0006085239641397522,
+      "q": 0.04202598207910653,
+      "different_joint_mean": 0.0024861605281285585
+    },
+    {
+      "delta": 0.1,
+      "error": 1.0332498466125642e-06,
+      "bound": 7.443282464329164e-05,
+      "q": 0.021012991039553265,
+      "different_joint_mean": 0.0006225164076474282
+    },
+    {
+      "delta": 0.05,
+      "error": 6.459296964591704e-08,
+      "bound": 9.205311610950286e-06,
+      "q": 0.010506495519776633,
+      "different_joint_mean": 0.00015569018777629397
+    }
+  ],
+  "static_likelihood": 0.09000000000000001,
+  "resampled_likelihood": 0.25,
+  "misaligned_product_norm": 0.0,
+  "source_sha256": "c759c91bb1228cb089d93b1cb0219df0f1151687ce206d4080852904682f343f"
+}

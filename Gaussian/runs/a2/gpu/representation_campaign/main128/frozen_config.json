@@ -1,0 +1,73 @@
+{
+  "config": {
+    "case_universe": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "lr": 0.03,
+    "noise": "noiseless development comparison",
+    "source_hashes": {
+      "representation_campaign.py": "d83eb02dd68d920a606e46d2ecb07c6955a880f02495d43004c11c75493657e7",
+      "torch_vie.py": "fcc1fe342826213fc5c6ce00ae65b8e1914b95dc93fb647d2fc8bfb9d52cc59c",
+      "physics.py": "62c7c9e2d9e7387725192f79d1ea69c2a7a43b0c154b68947d920614a2e30faf"
+    },
+    "steps": 120,
+    "inverse_n": 128,
+    "truth_n": 192,
+    "frequencies_hz": [
+      1250000000.0,
+      2000000000.0,
+      2750000000.0
+    ],
+    "geometry": "12 Tx, 64 half-aperture Rx; even Rx train and odd Rx held",
+    "loss_factor": [
+      1,
+      0.15
+    ],
+    "methods": [
+      "gaussian_K16",
+      "gaussian_K64",
+      "gaussian_K144",
+      "voxel"
+    ],
+    "seed_rule": "20260915 + case",
+    "scope": "ordinary positive Gaussian representation versus voxel; no SOM contribution. Optimizer, regularizer and step count remain a declared development setting, not a fairness proof."
+  },
+  "config_hash": "34aff2c1c886ba588aa841e3a123e98b6563160f9c911b497654d61430888a2c",
+  "source_hashes": {
+    "code\\a2\\gpu\\representation_campaign.py": "d83eb02dd68d920a606e46d2ecb07c6955a880f02495d43004c11c75493657e7",
+    "code\\a2\\gpu\\torch_vie.py": "fcc1fe342826213fc5c6ce00ae65b8e1914b95dc93fb647d2fc8bfb9d52cc59c",
+    "code\\a2\\physics.py": "62c7c9e2d9e7387725192f79d1ea69c2a7a43b0c154b68947d920614a2e30faf"
+  },
+  "torch": "2.6.0+cu124",
+  "cuda": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "platform": "Windows-10-10.0.26200-SP0"
+}

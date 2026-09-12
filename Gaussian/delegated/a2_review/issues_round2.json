@@ -1,0 +1,190 @@
+{
+  "review": "Gaussian A2 isolated TAP review 2 (Sol)",
+  "date": "2026-09-11",
+  "verdict": "major_revision_repairs_verified_but_advantage_rejected",
+  "independent_internal_review_only": true,
+  "root_owns_final_scientific_judgment": true,
+  "grades": {
+    "correctness": 3,
+    "originality": 2,
+    "experiments": 2,
+    "practical_value": 2,
+    "expression": 3,
+    "average_used_for_verdict": false
+  },
+  "round1_resolution": [
+    {
+      "id": "EM-GL-01",
+      "status": "resolved_within_declared_scope",
+      "evidence": "Trusted FFTGreen reconstruction now compares the full kernel plus forward and adjoint FFT buffers; changed-kernel and changed-buffer regressions are rejected."
+    },
+    {
+      "id": "EM-SCOPE-02",
+      "status": "resolved_within_declared_scope",
+      "evidence": "Time sign, passive contrast, scalar uniform-cell discretization, mass-white Euclidean inner product, and self-term conventions are explicit and serialized."
+    },
+    {
+      "id": "INFO-FISHER-01",
+      "status": "resolved",
+      "evidence": "The statement is restricted to proper complex Gaussian/realified Gaussian noise and correctly records I_F=2 A_code^T A_code when complex-RMS normalization is followed by direct real/imag stacking."
+    },
+    {
+      "id": "NUM-GAP-01",
+      "status": "theory_scope_resolved_algorithm_certificate_untested",
+      "evidence": "The fixed unconstrained quadratic identity and gradient-deficit heuristic are now scoped correctly; no end-to-end trust-region KKT/model-gap certificate has been executed."
+    },
+    {
+      "id": "NUM-ADV-02",
+      "status": "unresolved_and_current_evidence_rejects_advantage",
+      "evidence": "Dense/dual GN beats every matrix-free randomized-preconditioned method in all completed v1/v2 timing records."
+    },
+    {
+      "id": "NUM-CERT-03",
+      "status": "unresolved",
+      "evidence": "Coverage remains 36/36, but no operational stopping/rank/structure decision benefit is measured and bounds remain 3.645-19.443 times corrected error."
+    },
+    {
+      "id": "INFO-SOM-02",
+      "status": "prohibitive_boundary_correctly_maintained",
+      "evidence": "The theory explicitly states that internal B is deterministic model information and does not add observed-data Fisher information."
+    },
+    {
+      "id": "NOV-PRIOR-01",
+      "status": "unresolved",
+      "evidence": "No claim-by-claim closure against TSOM, certified ROM, and standard randomized range/deflation is present; the missing Source Pro attachment is an archival gap rather than a mathematical contradiction."
+    }
+  ],
+  "hard_gates": [
+    {
+      "gate": "no_unresolved_fatal_counterexample_for_declared_finite_dimensional_math",
+      "status": "passed"
+    },
+    {
+      "gate": "trusted_kernel_certificate_contract",
+      "status": "passed_for_ideal_discrete_non_interval_scope"
+    },
+    {
+      "gate": "nearest_neighbor_difference",
+      "status": "not_passed"
+    },
+    {
+      "gate": "frozen_complete_cost_advantage",
+      "status": "not_passed"
+    },
+    {
+      "gate": "full_wave_and_measured_support_for_algorithm_claim",
+      "status": "untested"
+    },
+    {
+      "gate": "fully_reproducible_data_code_figures",
+      "status": "not_passed"
+    }
+  ],
+  "advantage_rejection_evidence": {
+    "matrix_free_correctness": {
+      "adjoint_relative": 1.677139606968273e-12,
+      "finite_difference_relative": 1.0342851368873614e-10,
+      "GN_step_relative": 1.5405322030240726e-09
+    },
+    "timings_seconds": [
+      {
+        "benchmark": "v1",
+        "parameters": 49,
+        "dense_GN": 2.2446666250471026,
+        "plain_cg": 25.998077666037716,
+        "best_randomized_preconditioned": 16.97862333303783,
+        "best_rank": 12
+      },
+      {
+        "benchmark": "v1",
+        "parameters": 196,
+        "dense_GN": 9.3883848330006,
+        "plain_cg": 40.018354999949224,
+        "best_randomized_preconditioned": 27.30078058305662,
+        "best_rank": 12
+      },
+      {
+        "benchmark": "v2",
+        "parameters": 784,
+        "dense_dual_GN": 2.047380125033669,
+        "plain_cg": 39.66904212499503,
+        "best_randomized_preconditioned": 10.115262499195524,
+        "best_rank": 64,
+        "best_rank_iterations": "7-8",
+        "dense_adjoint_rhs": 1536,
+        "best_total_tangent_plus_adjoint_rhs": 1616
+      },
+      {
+        "benchmark": "v2",
+        "parameters": 3136,
+        "dense_dual_GN": 4.672332416987047,
+        "plain_cg": 50.00443583307788,
+        "best_randomized_preconditioned": 14.964104375103489,
+        "best_rank": 64,
+        "best_rank_iterations": 13,
+        "dense_adjoint_rhs": 1536,
+        "best_total_tangent_plus_adjoint_rhs": 1952
+      }
+    ],
+    "interpretation": "Randomized spectral preconditioning can reduce CG iterations and cap failures, but the strong dense/dual baseline wins wall time and operator-equivalent work in the completed regime. Standard randomized range/deflation carries no novelty claim."
+  },
+  "new_issues": [
+    {
+      "id": "PROV-MEASURED-01",
+      "severity": "high",
+      "fatal_gate": true,
+      "claim": "The measured record is internally consistent and its executed code lineage is reproducible.",
+      "reason": "The top-level scope says profiled gains handle source normalization only, while the corrected interpretation says they are extra scattered-data nuisance parameters and do not establish normalization. The exact primary-run source hash was not captured; the recorded postrun hash covers measured.py but not fixed_gain_refits.py.",
+      "required_revision": "Correct the stale scope, label the primary execution lineage as incomplete, and for future runs freeze the runner, all imported module hashes, environment and log before execution. Do not backfill a current hash as historical provenance."
+    },
+    {
+      "id": "PROV-PORT-N24-01",
+      "severity": "high",
+      "fatal_gate": true,
+      "claim": "The N24 regression is independently reconstructible.",
+      "reason": "ports_n24_regression.json has no generator, frequency, component parameters, rank/enrichment, tolerances, environment or source hashes, and no repository entry reconstructs the record.",
+      "counterexample_or_evidence": "The implementation repair is supported by identity errors 2.411e-9 to 7.789e-9, but the compressed scattered relative error is 0.681169 and must remain as a negative result.",
+      "required_revision": "Archive a deterministic runner and complete configuration/dependency manifest, rerun without changing the method, and retain the poor port error."
+    },
+    {
+      "id": "PROTOCOL-IMAGING-01",
+      "severity": "high",
+      "fatal_gate": false,
+      "claim": "The planned 30-case campaign can support varied-shape or blind-recovery claims.",
+      "reason": "It contains three fixed morphology templates times ten translations/noise/initializations, uses truth-informed starts, fixes two Gaussians, uses one random-complement realization per iteration, and the adaptive rule is an uncertified gradient-capture heuristic. Sharp-family parameter error uses a Gaussian proxy rather than a true parameter vector.",
+      "required_revision": "Label it a three-template local-recovery diagnostic, freeze an explicit case/dependency manifest, suppress meaningless sharp parameter-truth error, and preregister multiple random-control seeds. Do not treat completion as Frozen900, diverse-real, certified-adaptive or new3D evidence."
+    },
+    {
+      "id": "PROV-MATRIX-FREE-01",
+      "severity": "medium",
+      "fatal_gate": false,
+      "claim": "All matrix-free records have complete numerical provenance.",
+      "reason": "The v1/v2 runner hashes match current files, but checks.json has no runner hash and records do not freeze matrix_free_tangent.py, physics.py and environment versions together.",
+      "required_revision": "Add a non-retroactive dependency/environment manifest to future executions; preserve current records as internally checkable but incompletely archived."
+    }
+  ],
+  "exact_negative_results": [
+    "Dense/dual GN is 4.94x faster than best rank-64 randomized-preconditioned CG at p=784 and 3.20x faster at p=3136.",
+    "Rank-12 randomized-preconditioned CG is slower than plain CG at both v2 parameter sizes.",
+    "The N24 nine-dimensional port network has scattered relative error 0.6811690465450078 despite the repaired exact local-T identity.",
+    "On the one-cylinder gain-profiled diagnostic, the known-shape disk objective 0.0580279 is below the 1/2/4-Gaussian objectives 0.0849816/0.0803087/0.0785129 and has lower held error at every frequency.",
+    "The 2- and 4-Gaussian selected measured fits reach the 45-iteration cap; all ten starts for each have unsuccessful optimizer status.",
+    "The 36 reconstructed certificate cases cover tested errors but do not demonstrate a practical decision saving."
+  ],
+  "pro_level_bottlenecks": [
+    "Derive and validate the dense-primal/dense-dual versus matrix-free break-even regime using p, real data dimension, illuminations, repeated residuals/inversions, RHS costs and memory; further rank tuning does not answer the current dual-baseline loss.",
+    "Create an end-to-end certified adaptive rule connecting normal residual, trust-region KKT/actual-predicted reduction, and state/output certificates, with preregistered false accept/reject and work metrics.",
+    "Close the real-problem and novelty definition under calibrated nuisance, blind/model-order variation, diverse targets and mature TSOM/certified-ROM/boundary-regularized controls; test only the narrowed combined cost-and-structure-control claim."
+  ],
+  "unexecuted_gates": [
+    "Frozen900",
+    "diverse-real",
+    "end-to-end certified-adaptive SOM",
+    "new3D"
+  ],
+  "limitations": [
+    "No child agent, setting change, installation, paid API, heavy experiment or source edit was used.",
+    "No incomplete imaging result or partial checkpoint was reviewed or inferred.",
+    "Missing Source Pro attachment bytes were treated as an archival/rerun limitation, not a mathematical contradiction."
+  ]
+}

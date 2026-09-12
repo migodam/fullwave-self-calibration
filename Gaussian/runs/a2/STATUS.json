@@ -1,0 +1,21 @@
+{
+  "stage": "A2 development and evidence delivery completed",
+  "paper_ready": false,
+  "imaging_cases": 30,
+  "imaging_fits": 150,
+  "quick_recheck_groups": 5,
+  "quick_recheck_passed": true,
+  "pro_full_response_bodies_saved": 2,
+  "pro_original_attachment_bytes_obtained": false,
+  "independent_reviews": "two Sol rounds; final late artifacts root-reviewed",
+  "conditional_signal": "Close Gaussian template adaptive median image error 1.26% vs LM 3.80%; 6/10 paired wins, slower.",
+  "unpassed_gates": [
+    "nearest-neighbor novelty",
+    "frozen diverse blind recovery",
+    "mature TSOM/CSI/TV/certified-ROM baseline matrix",
+    "net end-to-end advantage",
+    "3D inverse and diverse measured evidence",
+    "complete historical measured source lineage"
+  ],
+  "decision": "Retain conditional Gaussian research question; do not claim current TAP-ready method; escalate three core bottlenecks to Pro."
+}

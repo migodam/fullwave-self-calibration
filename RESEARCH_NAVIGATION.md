@@ -10,6 +10,7 @@ Read corrections before relying on historical positive claims.
 - [A5 supplied theory](Theory/Questions/A5_THEORY.md), [A5 paper](Theory/Questions/PAPER_DRAFT_A5.md).
 - [Q5 reconstruction](research/q5_remaining_v1/README.md), [current verdict](research/q5_remaining_v1/Q5_EXECUTIVE_VERDICT_ZH.md).
 - [Chinese report](communication/Q5_REMAINING_V1_RESEARCH_REPORT_ZH.md).
+- [Gaussian A1 + A1_2 + A2 workspace](Gaussian/deliverables/START_HERE.md), kept as a separate representation line.
 
 Earlier SOM and SLAM material below provides provenance; neither is restored as a current Q5 core claim.
 

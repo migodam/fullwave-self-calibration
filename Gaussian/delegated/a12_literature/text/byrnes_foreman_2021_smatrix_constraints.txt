@@ -1,0 +1,1024 @@
+                                 PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+
+
+          Symmetry constraints for vector scattering and transfer matrices containing evanescent
+                    components: Energy conservation, reciprocity, and time reversal
+                                                                                                 *
+                                                  Niall Byrnes and Matthew R. Foreman
+        Blackett Laboratory, Department of Physics, Imperial College London, Prince Consort Road, London SW7 2AZ, United Kingdom
+
+                               (Received 30 November 2020; accepted 29 January 2021; published 10 February 2021)
+
+                   In this paper we study the scattering and transfer matrices for electric fields defined with respect to an angular
+                spectrum of plane waves. For these matrices, we derive the constraints that are enforced by conservation of
+                energy, reciprocity, and time reversal symmetry. Notably, we examine the general case of vector fields in
+                three dimensions and allow for evanescent field components. Moreover, we consider fields described by both
+                continuous and discrete angular spectra, the latter being more relevant to practical applications, such as optical
+                scattering experiments. We compare our results to better-known constraints, such as the unitarity of the scattering
+                matrix for far-field modes, and show that previous results follow from our framework as special cases. Finally, we
+                demonstrate our results numerically with a simple example of wave propagation at a planar glass-air interface,
+                including the effects of total internal reflection. Our formalism makes minimal assumptions about the nature of
+                the scattering medium and is thus applicable to a wide range of scattering problems.
+
+                DOI: 10.1103/PhysRevResearch.3.013129
+
+
+
+                        I. INTRODUCTION                                      [15–21]. Scattering matrices have also been employed in
+                                                                             theoretical studies of random laser modes [22], information
+    Scattering and transfer matrices are important mathemati-
+                                                                             transfer through random media [23], coherent backscattering
+cal tools that have been applied in a variety of fields, including
+                                                                             [24], and Anderson localization [25].
+the transport of electrons in wires [1,2], telecommunications
+                                                                                 Alternatively, the transfer matrix describes coupling be-
+[3], acoustics [4,5], and photonic crystals [6,7]. Within both
+                                                                             tween modes on either side of a scattering medium, provided
+formalisms, a scattering object or medium is viewed as a
+                                                                             that the geometry of the system permits a meaningful iden-
+“black box” and the scattering and transfer matrices describe
+                                                                             tification of two opposite sides. Examples of such systems
+the coupling between different modes in the surrounding
+                                                                             include optical waveguides [26–28] and stratified media con-
+regions.
+                                                                             sisting of a series of contiguous slabs [29,30], such as
+    In optics, the scattering matrix, which describes the reflec-
+                                                                             superlattices [31,32] and multilayer thin films [33,34]. The
+tion and transmission of electromagnetic modes by a system,
+                                                                             most important property of the transfer matrix is that for a
+is particularly powerful in the study of disordered media for
+                                                                             layered system the overall transfer matrix can be computed
+which the underlying scattering potential is practically un-
+                                                                             by taking the correctly ordered matrix product of the transfer
+knowable, but for which the reflected and transmitted fields
+                                                                             matrices of each separate layer [35]. The corresponding com-
+are experimentally measurable [8]. In many modern scattering
+                                                                             position law for scattering matrices is more mathematically
+experiments, the degrees of freedom of an electromagnetic
+                                                                             complex, but can be advantageous in certain circumstances,
+field are explored through wave-front shaping using spatial
+                                                                             such as in mitigating numerical divergences in large systems
+light modulators, which has facilitated experimental measure-
+                                                                             with exponentially growing waves [36]. This property makes
+ments of scattering matrices of complex media for both scalar
+                                                                             transfer matrices particularly well suited to numerical simula-
+and vectorial light [9–11]. Knowledge of these matrices and
+                                                                             tions [37–39] and theoretical studies, such as in photonic band
+their statistical properties has revealed the existence of highly
+                                                                             structures [40] and mesoscopic scattering [41,42].
+transmitting “open eigenchannels,” even for optically thick
+                                                                                 Traditionally, scattering and transfer matrices are defined
+systems [12–14], and has greatly enhanced the prospect of
+                                                                             only for modes that propagate to the far field. The exact values
+imaging through multiple scattering media, such as biological
+                                                                             of the elements of these matrices depend strongly on the
+tissue, through careful wave-front control and the exploitation
+                                                                             type of system being considered and may vary significantly
+of scattered field correlations, such as the memory effect
+                                                                             from one example to another. Nevertheless, under rather gen-
+                                                                             eral conditions, both matrices can be shown to obey certain
+                                                                             mathematical constraints valid for large classes of scattering
+ *
+     Corresponding author: matthew.foreman@imperial.ac.uk                    media. For example, it has long been known that a system
+                                                                             that conserves energy, i.e., does not absorb or generate light,
+Published by the American Physical Society under the terms of the            regardless of its microscopic configuration, must possess a
+Creative Commons Attribution 4.0 International license. Further              scattering matrix that is unitary [43]. More recently, tech-
+distribution of this work must maintain attribution to the author(s)         niques such as scanning near-field optical microscopy have
+and the published article’s title, journal citation, and DOI.                enabled studies in which the scattering of evanescent fields
+
+2643-1564/2021/3(1)/013129(13)                                 013129-1                               Published by the American Physical Society
+NIALL BYRNES AND MATTHEW R. FOREMAN                                                  PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+play a critical role, such as in single molecule near-field
+imaging [44], scattering from plasmonic nanoantennas [45],
+particle tracking [46], and near-field speckle imaging [47].
+Such studies have motivated the introduction of an extended
+version of the scattering matrix that is capable of describing
+scattering to and from evanescent field components. In a no-
+table paper by Carminati et al., the mathematical constraints
+obeyed by the extended scattering matrix were explored for
+scalar waves under the conditions of conservation of energy,
+reciprocity, and time reversal symmetry [48]. The correspond-
+ing scattering matrix constraints due to reciprocity for vector
+evanescent waves has also been considered separately [49].
+    Matrix constraints such as those mentioned place limits
+on the set of all physically possible scattering and transfer             FIG. 1. Geometry of the scattering problem. The integrating sur-
+matrices, and hence can serve as useful guides in determining          face ∂V used in deriving the energy conservation and reciprocity
+whether a given experimental or simulated matrix satisfies             constraints is also depicted. Dashed lines denote the planar sections
+the corresponding physical law. In addition, these constraints         of ∂V and dotted-dashed curves denote the spherical section of
+may also be useful in designing matrix-based models and                radius R.
+simulations for scattering in complex media. Furthermore,
+random matrix theory, in which the set of constraints satis-
+fied by a matrix is generally the only assumption made, has            to previously reported results and show that the latter follow
+proven to be very fruitful at uncovering universal properties of       as special cases. We end Sec. III by giving a simple numerical
+random scattering media [23,43,50]. We therefore believe that          example of wave propagation at a glass-air planar interface,
+an accurate knowledge of the constraints satisfied by both the         including the effects of total internal reflection. Finally, in
+scattering and transfer matrices is important for future studies       Sec. IV, we summarize and conclude our work.
+of scattering problems.
+    Compared to the scattering matrix, theoretical analysis of
+the transfer matrix seems to have received less attention in           II. THE SCATTERING AND TRANSFER MATRICES FOR A
+the optics literature. Moreover, while previous works have                      CONTINUOUS ANGULAR SPECTRUM
+explored matrix constraints pertinent to a continuous decom-
+position of an electric field containing an infinite set of modes,                              A. Preliminaries
+such as in a continuous angular spectrum decomposition                     We consider the scattering problem depicted in Fig. 1.
+[51,52], the corresponding constraints satisfied by the scat-          A dielectric scattering medium is situated within the region
+tering and transfer matrices defined with respect to a finite set      −l ⩽ z ⩽ l. We denote by R− and R+ the regions −L < z <
+of modes are equally important, particularly for experiments           −l and l < z < L surrounding the scattering medium, which
+and simulations in which only a finite description is physically       are assumed to be dielectric with constant permittivity 1 .
+possible. The purpose of this paper is therefore to present            All sources are contained in the regions z < −L and z > L,
+a self-contained derivation of the set of constraints imposed          and may produce both propagating and evanescent incident
+upon the scattering and transfer matrices by conservation              fields. We assume that the scattering medium is linear and
+of energy, reciprocity, and time reversal symmetry. Notably,           all fields are monochromatic with angular frequency ω. The
+our treatment takes full account of the vector nature of light         scattering medium can be described by a spatially inhomoge-
+and allows for evanescent components. A treatment of vector            neous, complex-valued permittivity function (r, ω), where
+fields is essential in optics, as scattering typically gives rise to   r = (x, y, z)T is the position vector and the superscript T is
+polarization mixing and depolarization, neither of which can           used to denote the transpose of a vector or matrix. We also
+be described within a scalar wave formalism. We describe ar-           assume that both the scattering and background media are
+bitrary fields using a vector angular spectrum decomposition,          nonmagnetic and have magnetic permeabilities equal to the
+first over a continuous range encompassing all possible wave           vacuum permeability μ0 . We denote by E(r) and H(r) the
+vectors and then for a discrete angular spectrum containing            complex phasor representations of the real electric and mag-
+a finite set of modes. The angular spectrum decomposition is           netic fields with a suppressed time factor of exp(−iωt ).
+particularly useful as it is able to conveniently discriminate             The frequency-domain Maxwell equations for the entire
+between propagating and evanescent modes. This work builds             region −L < z < L are given by [53]
+upon previous results and, for the sake of literary continuity,
+we adopt similar notation and follow a similar format to that
+of Ref. [48].                                                                                    ∇ · E(r) = 0,                          (1)
+    In Sec. II, we define the scattering and transfer matrices for
+a continuous angular spectrum of an electric field and derive                                    ∇ · H(r) = 0,                          (2)
+the constraints imposed by the aforementioned conditions. In
+Sec. III, we introduce the scattering and transfer matrices for                            ∇ × E(r) = iωμ0 H(r),                        (3)
+a discrete angular spectrum and derive the associated con-
+straints from the continuous case. We then compare our results                          ∇ × H(r) = −iω(r, ω)E(r).                      (4)
+
+                                                                 013129-2
+SYMMETRY CONSTRAINTS FOR VECTOR SCATTERING …                                          PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+From Eqs. (3) and (4), the vector wave equation for the electric       block matrix in the form
+field can be shown to be                                                                                                      
+                                                                                                     r(κ, κ )     t (κ, κ )
+                                                                                      S(κ, κ ) =                               ,   (11)
+                 ∇ × ∇ × E(r) − k 2 E(r) = 0,                   (5)                                   t(κ, κ )    r (κ, κ )
+
+where k 2 = ω2 μ0 (r, ω). In the regions R− and R+ , we may           where r, r , t, and t are 3 × 3 matrix generalizations of
+write the electric field as a sum of plane-wave components             transmission and reflection coefficients.
+using the well-known angular spectrum representation [54]                  An alternative description of the scattering problem is
+                                                                      possible using the transfer matrix M, which relates the am-
+              E± (r) = a± (κ)ei(κ·ρ+kz z) dκ                           plitudes of plane waves on the left- and right-hand side
+                                                                      of the medium. Letting L(κ) = [a− (κ), b− (κ)]T and R(κ) =
+                                                                       [a+ (κ), b+ (κ)]T , the continuous transfer matrix is defined to
+                         + b± (κ)ei(κ·ρ−kz z) dκ,         (6)
+                                                                       be the matrix that satisfies
+                                                                                                  
+where the plus or minus sign is chosen according to the                                 R(κ) = M(κ, κ )L(κ )dκ .                (12)
+region under consideration and dκ = dkx dky . In Eq. (6) we
+have introduced the transverse position vector ρ = (x, y)T and         As with the scattering matrix, it is useful to write the transfer
+transverse wave vector κ = (kx , ky )T . For each plane wave, the      matrix as a 2 × 2 block matrix in the form
+z component of the associated wave vector kz = kz (κ) is given                                                        
+by                                                                                                 α(κ, κ ) β(κ, κ )
+                                                                                     M(κ, κ ) =                         .          (13)
+                                                                                                γ (κ, κ ) δ(κ, κ )
+                        k 2 − |κ|2      if |κ|2 ⩽ k 2 ,
+            kz (κ) =  2                                      (7)      Unlike the scattering matrix, however, the submatrices α, β,
+                      i |κ| − k   2     if |κ|2 > k 2 .
+                                                                       γ, and δ, do not have such an obvious physical interpretation.
+The vector a± (κ) denotes the amplitude of the right-traveling
+plane wave with wave vector k = (kx , ky , kz )T . Similarly, the                            B. Conservation of energy
+vector b± (κ) denotes the amplitude of the left-traveling plane
+wave with wave vector k    = (kx , ky , −kz )T . In Eq. (6) and all      We now consider the constraints placed upon the continu-
+integrals that follow, the domain of integration is assumed to         ous scattering and transfer matrices by energy conservation. In
+be from −∞ to ∞ for all integration variables unless specified         order to enforce conservation of energy, we consider the time-
+otherwise. The corresponding angular spectrum representa-              averaged Poynting vector associated with the fields, which is
+tion for the magnetic field can be obtained by taking the curl of      given by S(r) = 21 Re[E(r) × H∗ (r)]. The average net rate
+Eq. (6) and using Eq. (3). It is also necessary that the electric      W at which electromagnetic energy flows out of any closed
+field satisfies the divergence condition in Eq. (1). By taking         surface A is given by [54]
+the divergence of Eq. (6) and using Eq. (1), we find that                                          
+                                                                                             W = S · n̂ dA,                     (14)
+                         a± (κ) · k = 0,                        (8)                                     A
+
+                                                                       where n̂ is the outward unit normal vector to the surface. If
+                         b± (κ) · 
+                                  k = 0,                        (9)    energy is not absorbed within the volume enclosed by the
+for all κ.                                                             surface, then conservation of energy demands that W = 0
+    In R− and R+ , k 2 is a constant since k 2 = n2 k02 =              and the integral in Eq. (14) must vanish. We shall henceforth
+n (2π /λ0 )2 , where λ0 is the wavelength in vacuum, n =
+  2                                                                    assume that this is the case.
+√                                                                         Consider now the surface ∂V shown in Fig. 1 bounding
+   1 /0 is the refractive index, and 0 is the vacuum per-
+mittivity. Clearly when |κ|2 ⩽ k 2 , kz is real and the plane          the volume V . The surface consists of several parts: two
+waves are homogeneous, or propagating. When |κ|2 > k 2 ,               planar sections at z = z− and z = z+ , and a spherical section
+kz is imaginary and the plane waves are inhomogeneous,                 of radius R in between the two planar sections. In the limit
+or evanescent. For convenience, we define the sets  p and             R → ∞, the two planar sections expand to infinite planes
+e , where  p = {κ : |κ|2 ⩽ k 2 } is the set of all transverse        and the energy flow through the spherical section becomes
+wave vectors corresponding to propagating plane waves and              negligible. The total energy flow through the planes can be
+e = {κ : |κ|2 > k 2 } is the set of all transverse wave vectors       written as
+                                                                                                           
+corresponding to evanescent plane waves.
+                                                                         W+ +W− =             S · ẑ dρ −    S · ẑ dρ = 0, (15)
+    For linear scattering, we may relate the amplitudes of                                   z=z+                 z=z−
+plane waves traveling towards and away from the scattering
+medium using the scattering matrix S. Specifically, if we de-          where dρ = dxdy. The vector S can be expressed in terms of
+fine the column vectors I(κ) = [a− (κ), b+ (κ)]T and O(κ) =            the angular spectra of the electric and magnetic fields defined
+[b− (κ), a+ (κ)]T , then the continuous scattering matrix is de-       previously. Doing so and evaluating the integrals in Eq. (15)
+fined to be the matrix that satisfies                                  yields
+                                                                              
+                                                                                      
+                   O(κ) = S(κ, κ )I(κ )dκ .              (10)                    kz |a− |2 − |a+ |2 − (|b− |2 − |b+ |2 ) dκ
+                                                                                 p
+                                                     
+                                                                                         
+For a given κ and κ , the scattering matrix S(κ, κ ) is a 6 × 6
+                                                                                  + 2i        kz Im[a− · b−∗ − a+ · b+∗ ]dκ = 0,    (16)
+matrix of complex entries, but it is useful to write it as a 2 × 2                       e
+
+
+                                                                 013129-3
+NIALL BYRNES AND MATTHEW R. FOREMAN                                                              PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+where the dependence of each term on κ has been temporarily                         principle. Roughly speaking, reciprocity describes a relation
+omitted for brevity.                                                                between scattering matrices that are related by an exchange
+   To derive relations pertaining to the scattering matrix, we                      of input and output modes. For a more detailed review, see
+notice that Eq. (16) can be recast in the form                                      Ref. [55].
+                                                                                      Consider again the volume V shown in Fig. 1 and its
+         kz [|I(κ)|2 − |O(κ)|2 ]dκ                                                  bounding surface ∂V . Let E1 and E2 be two arbitrary fields
+         p                                                                         that satisfy Maxwell’s equations. Applying the vector analog
+                  
+                                                                                    of Green’s second identity to these two fields gives [56]
+          +                kz [I(κ) · O∗ (κ) − I∗ (κ) · O(κ)]dκ = 0.        (17)            
+                      e
+                                                                                                (E1 · ∇ × ∇ × E2 − E2 · ∇ × ∇ × E1 )dV
+Introducing the scattering matrix into Eq. (17) using Eq. (10)                                V
+                                                                                                  
+and simplifying the resultant expressions, we ultimately arrive
+at                                                                                              =     (E2 × ∇ × E1 − E1 × ∇ × E2 ) · n̂ dA. (22)
+                                                                                                   ∂V
+   
+      kz S† (κ, κ )S(κ, κ )dκ                                                    Since both fields satisfy Eq. (5) in V , it can be shown that the
+   p                                                                               integral on the left-hand side of Eq. (22) vanishes. Further-
+       ⎧                                                                            more, by writing the electric fields in the far field as sums of
+       ⎪
+       ⎪k  δ(κ − κ )I                             if κ ∈  p , κ ∈  p ,
+       ⎨ z †   6                                                               incoming and outgoing spherical waves (see, e.g., Ref. [53]),
+        kz S (κ , κ )                                 if κ ∈  p , κ ∈ e ,
+     =                                                                              it can be shown that the integral on the right-hand side of
+       ⎪
+       ⎪−k  S(κ , κ )                             if κ ∈ e , κ ∈  p ,      Eq. (22) over the spherical section of ∂V vanishes in the
+       ⎩k  Sz† (κ , κ ) − k  S(κ , κ )       if κ ∈ e , κ ∈ e ,
+         z                      z                                                   limit R → ∞. Therefore, we conclude that the integral on the
+                                                                           (18)     right-hand side of Eq. (22) over the infinite planes z = z− and
+where δ is the Dirac delta function, the superscript † denotes                      z = z+ is equal to zero. Expressing E1 and E2 using angular
+the conjugate transpose, and we use In to denote the n × n                          spectrum representations, we arrive at the equation Iz− = Iz+ ,
+identity matrix. These so-called extended unitarity relations                       where
+                                                                                                 
+are hence an expression of conservation of energy and gen-                                 Iz± = kz [a1± (κ) · b±              ±         ±
+                                                                                                                 2 (−κ) + a1 (−κ) · b2 (κ)
+eralize the better known unitarity condition on the scattering
+matrix so as to include evanescent wave components [48].                                          − a2± (κ) · b±         ±         ±
+                                                                                                               1 (−κ) − a2 (−κ) · b1 (κ)]dκ.          (23)
+   The transfer matrix can also be shown to obey a similar set
+of equations to Eq. (18). Returning to Eq. (16), we note that                       Written in terms of the vectors I and O, the equation Iz− = Iz+
+the integrands can be written in the alternate form                                 becomes
+                                                                                       
+       kz [L† (κ)z3 L(κ) − R† (κ)z3 R(κ)]dκ                                              kz [I1 (κ) · O2 (−κ) − I2 (κ) · O1 (−κ)]dκ = 0.     (24)
+    p
+                                                                                   By now introducing the scattering matrix into Eq. (24) using
+     −             ikz [L† (κ)y3 L(κ) − R† (κ)y3 R(κ)]dκ = 0,             (19)    Eq. (10), we are able to derive the reciprocity relation for the
+              e                                                                    scattering matrix
+where we have introduced the generalized Pauli matrices                                         kz (κ )S(κ , κ ) = kz (κ )ST (−κ , −κ ),     (25)
+                                            
+             In    On                On −In                                         which is valid for all pairs of transverse wave vectors κ and
+     n =
+       z
+                        , n = i
+                              y
+                                                ,       (20)
+            On −In                   In    On                                       κ . Reciprocity relations for the constituent transmission and
+                                                                                    reflection matrices can be obtained by considering the block
+where On denotes the n × n zero matrix. Similarly to before,
+                                                                                    form of the scattering matrix as in Eq. (11). Comparing blocks
+we introduce the transfer matrix into Eq. (19) using Eq. (12),
+                                                                                    on either side of Eq. (25), we obtain
+which yields
+                                                                                               kz (κ )r(κ , κ ) = kz (κ )rT (−κ , −κ ),     (26)
+       kz M† (κ, κ )z3 M(κ, κ )dκ
+     p
+                                                                                              kz (κ )r (κ , κ ) = kz (κ )rT (−κ , −κ ),   (27)
+         −             ikz M† (κ, κ )y3 M(κ, κ )dκ                                          kz (κ )t(κ , κ ) = kz (κ )tT (−κ , −κ ),    (28)
+                  e
+               ⎧
+               ⎨kz δ(κ − κ )z3             if κ ∈  p , κ ∈  p ,           which are consistent with those previously reported [49].
+              = −ikz δ(κ − κ )3            if κ ∈ e , κ ∈ e ,                Alternatively, writing Eq. (23) in terms of the vectors L and
+                                    y
+                                                                            (21)
+               ⎩O                               otherwise.                          R, we find
+                    6
+                                                                                      
+                                                                                           
+Equation (21) therefore represents the constraint imposed                                kz L1T (κ)y3 L2 (−κ) − R1T (κ)y3 R2 (−κ) dκ = 0, (29)
+upon the transfer matrix by energy conservation.
+                                                                                    which, after introducing the transfer matrix using Eq. (12),
+                                     C. Reciprocity                                 gives
+                                                                                       
+   In this section, we consider the constraints imposed upon                              kz MT (κ, κ )y3 M(−κ, κ )dκ = kz δ(κ + κ )y3 . (30)
+the scattering and transfer matrices due to the reciprocity
+
+                                                                              013129-4
+SYMMETRY CONSTRAINTS FOR VECTOR SCATTERING …                                          PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+Equation (30) is thus the reciprocity relation for the transfer             III. THE SCATTERING AND TRANSFER MATRICES
+matrix.                                                                           FOR A DISCRETE ANGULAR SPECTRUM
+                                                                          The scattering and transfer matrices we have considered
+                    D. Time reversal symmetry                          so far are, in principle, defined for all pairs of conceivable
+    Let us now consider time reversal symmetry, which de-              transverse wave vectors κ and κ , which form a continuous
+scribes an invariance under the transformation t → −t. Let             spectrum and are infinite in number. In both experiments
+E1 be an arbitrary, real electric field and let E2 be its time re-     and numerical simulations, however, fields cannot be resolved
+versed counterpart, i.e., E2 (r, t ) = E1 (r, −t ). It can be shown    with infinite precision and must be described using some finite
+that the Fourier transforms of the fields satisfy E2 (r, ω) =          set of modes [58]. Beyond merely being a practical limitation,
+E1∗ (r, ω) [57]. Making use of this property and comparing the         the number of independent modes a system can support in
+angular spectrums of the two fields, we find                           reality must be finite due to the wave nature of light and is
+                                                                       often constrained by the geometry of the scattering system.
+                       a2± (κ) = b±∗
+                                  1 (−κ),                      (31)    This is particularly relevant for waveguides, such as optical
+                                                                       fibers, where the number of modes is finite and is determined
+                       b±        ±∗
+                        2 (κ) = a1 (−κ),                       (32)    by the fiber’s radius and refractive indices [59]. Even for
+                                                                       waves in free space, however, diffraction places a lower limit
+for κ ∈  p , and                                                      on the resolution to which a field can be discretely sampled
+                                                                       [60]. Sampling beyond this limit would result in a set of modes
+                       a2± (κ) = a1±∗ (−κ),                    (33)
+                                                                       that would not be independent and would therefore not yield
+                       b±         ±∗
+                        2 (κ) = b1 (−κ),                       (34)    additional information.
+                                                                          In this section, we shall consider a pixelwise discretization
+for κ ∈ e . In terms of the scattering matrix, a system is
+                                                                       of the continuous spectrum of transverse wave vectors. This
+time reversal invariant if both E1 and E2 satisfy Eq. (10) for
+                                                                       will allow us to define scattering and transfer matrices that
+the same scattering matrix S. Combining this property with
+                                                                       describe coupling between plane waves in a discrete angular
+Eqs. (31)–(34), we ultimately find
+                                                                       spectrum. We shall then derive the constraints that must be
+  
+                                                                       satisfied by these matrices.
+     S(κ , κ)S∗ (−κ, κ )dκ
+   p
+      ⎧ 
+      ⎪ δ(κ + κ )I6                      if κ ∈  p , κ ∈  p ,                                A. Definitions
+      ⎨
+        −S(κ , −κ )                     if κ ∈  p , κ ∈ e ,       Let us consider a finite set of plane waves indexed by their
+    =    ∗       
+      ⎩S (−κ , κ )
+      ⎪                                    if κ ∈ e , κ ∈  p ,    transverse wave vectors. We first define two sets, Kp and Ke ,
+        −S(κ , −κ ) + S∗ (−κ , κ )      if κ ∈ e , κ ∈ e ,     of transverse wave vectors for propagating and evanescent
+                                                                (35)   waves, respectively. We form Kp by choosing Np transverse
+                                                                       wave vectors κip corresponding to propagating waves together
+which is therefore an expression of time reversal symmetry             with their additive inverses −κip and possibly the zero vector.
+for the scattering matrix.                                             As we shall demonstrate, it is necessary to include modes in
+   If we instead require that both fields satisfy Eq. (12) for the     inverse pairs to fully explore the effects of reciprocity and time
+same transfer matrix, we find                                          reversal symmetry. Similarly, we construct Ke by taking Ne
+               ⎧ x ∗                                                   transverse wave vectors κei corresponding to evanescent waves
+               ⎪  M (−κ , −κ )x3 if κ ∈  p , κ ∈  p ,
+               ⎨ 3x ∗                                                  and their additive inverses −κei . Thus, we have
+                 3 M (−κ , −κ )      if κ ∈  p , κ ∈ e ,
+M(κ , κ ) =     ∗                                                                                                                   
+               ⎩M∗ (−κ , −κ )3
+               ⎪                 x
+                                         if κ ∈ e , κ ∈  p ,
+                                                                           Kp = −κNp p , . . . , −κ2p , −κ1p , 0, κ1p , κ2p , . . . , κNp p , (38)
+                 M (−κ , −κ )            if κ ∈ e , κ ∈ e ,
+                                                                                    e                                                  
+                                                               (36)          Ke = −κNe , . . . , −κe2 , −κe1 , κe1 , κe2 , . . . , κeNe ,     (39)
+where                                                                  which, with the inclusion of the zero vector in Kp , contain
+                                                                     2Np + 1 and 2Ne elements, respectively. The set of all wave
+                             On       In
+                       n =
+                        x
+                                          .                    (37)    vectors K is then the union of these sets, i.e., K = Kp ∪ Ke . A
+                              In      On
+                                                                       sample of several modes is shown in Fig. 2. Note that while
+Equation (36) is therefore the time reversal symmetry con-             in Fig. 2 we have, for simplicity, distributed the modes at
+straint for the transfer matrix.                                       points on a rectangular lattice in k space, the choice of other
+   To conclude this section, we note briefly that for the              geometries, such as a hexagonal lattice, may have practical ad-
+scattering matrix the time reversal symmetry equations also            vantages [61]. Note also that although k space is unbounded,
+follow from the conservation of energy and reciprocity equa-           there is a practical upper limit to the size of |κei |. This is
+tions, i.e., Eqs. (18) and (25) imply Eq. (35). Similarly, for         because when |κei | is sufficiently large, its corresponding
+the transfer matrix, the reciprocity relation can be derived           wave amplitude, even at positions very close to the scattering
+from conservation of energy and time reversal symmetry, i.e.,          medium, will have decayed to the point of being practically
+Eqs. (21) and (36) imply Eq. (30). We therefore conclude               unmeasurable.
+that, in accordance with Ref. [48], for a system that conserves           As a result of Eqs. (8) and (9), the amplitude associated
+energy, reciprocity and time reversal symmetry are equivalent.         with each plane wave has only two degrees of freedom.
+
+                                                                 013129-5
+NIALL BYRNES AND MATTHEW R. FOREMAN                                                  PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+                                                                           It is now possible to reduce the matrices r, r , t, t , α, β,
+                                                                       γ, and δ in Eqs. (11) and (13) to 2 × 2 matrices that couple
+                                                                       the θ and φ components of a± (κ) and b± (κ). As an example,
+                                                                       consider r(κi , κ j ), where κi and κ j are any two vectors taken
+                                                                       from K. This matrix describes the reflection at the left-hand
+                                                                       side of the medium of an incident wave with wave vector
+                                                                       (κ j , kz j )T and amplitude a− (κ j ) to a final wave with wave
+                                                                       vector (κi , −kzi )T and amplitude b− (κi ), where kz j = kz (κ j ).
+                                                                       We define the 2 × 2 reduced reflection matrix for the pair of
+                                                                       modes κi and κ j as the matrix r(i, j) , where
+                                                                                                                           
+                                                                                                        r(i, j)θθ r(i, j)θφ
+                                                                                            r(i, j) =                                 (47)
+                                                                                                       r(i, j)φθ r(i, j)φφ
+                                                                       and
+                                                                                  r(i, j)mn = emT (κi , −kzi )r(κi , κ j )en (κ j , kz j ),   (48)
+                                                                       where m and n may be chosen to be either θ or φ. Note that
+                                                                                            ekT (κi , −kzi )r(κi , κ j ) = 0T                 (49)
+                                                                                                                −
+                                                                       for all κi and κ j , but, since a (κ j ) has no k component,
+                                                                       r(κi , κ j )ek (κ j , kz j ) is undefined. We therefore assign
+                                                                                             r(κi , κ j )ek (κ j , kz j ) = 0,                (50)
+   FIG. 2. Transverse wave-vector modes distributed on a rectan-
+gular lattice in k space. The circle |κ|2 = k 2 defines the boundary   which justifies the construction of the reduced reflection ma-
+between propagating and evanescent modes. A selection of modes         trix as only the four components in Eq. (47) are unconstrained.
+and their additive inverses have been highlighted in red.              The other submatrices of S and M can be treated similarly and
+                                                                       a brief summary is given in the Appendix.
+Therefore, in order to remove extraneous information and                   We can now construct the discrete scattering matrix for
+simplify the ensuing mathematics, it is useful to introduce the        our finite set of modes by considering a discretized version
+vectors                                                                of Eq. (10). To achieve this, we partition k space into a series
+                                            ⎛ ⎞
+                                    k     1 ⎝kx ⎠                      of regions, each of which is centered on a mode in the set K.
+                     ek (κ, kz ) = =          ky ,         (40)        We denote the area of these regions by κ, which, for conve-
+                                    k     k k                          nience, we assume is the same for each region. If, for example,
+                                               z
+                                               ⎛      ⎞                a rectangular partitioning is used, then κ = kx ky , where
+                              (ẑ × ek )     1 ⎝ −k y
+              eφ (κ, kz ) =              =        kx ⎠,    (41)           kx and ky are the distances in k space between adjacent
+                              |ẑ × ek |    |κ| 0                      modes. We assume that the choice of modes and k-space
+                                              ⎛          ⎞             partitioning are such that the scattering and transfer matrices
+                                                  kx kz
+                         (eφ × ek )       1 ⎝                          are approximately constant over each region.
+         eθ (κ, kz ) =                =           ky kz ⎠. (42)
+                         |eφ × ek |      k|κ| −k 2 − k 2                   Let κi ∈ K be any transverse wave vector. We may replace
+                                                  x      y             the integral in Eq. (10) with a sum and write
+Note that when κ ∈  p , kz is real and the vectors ek , eφ ,               ⎛ −         ⎞                            ⎛ −        ⎞
+                                                                              bθ (κi )                              aθ (κ j )
+and eθ are the standard unit basis vectors in spherical polar               ⎜b−         ⎟  r(i, j) t(i,
+                                                                                φ (κ i )⎟
+                                                                                                                    ⎜ −
+                                                                                                                 j) ⎜aφ (κ j )⎟
+                                                                                                                                ⎟
+coordinates. When κ ∈ e , ek and eθ become complex vectors                 ⎜ +           =                                       κ, (51)
+                                                                            ⎝aθ (κi )⎠               t(i, j) r(i, j) ⎝b+
+                                                                                                              
+                                                                                                                       θ (κ j ⎠
+                                                                                                                              )
+and the latter may be interpreted using a complex polar angle.                  +           κ j ∈K                     +
+                                                                              aφ (κi )                                bφ (κ j )
+The vectors eφ and eθ are also classically referred to as s
+and p modes in polarization theory [54], but we have chosen            where κ j in the sum ranges over all modes in K. By now
+to reserve the letter p in this work for “propagating.” By             letting κi vary over the set K, we obtain a system of equations,
+definition, it follows that                                            each of which have the same form as Eq. (51), which can be
+                                                                       combined into a single matrix equation. To facilitate this, we
+                eφ (κ, kz ) · k = eθ (κ, kz ) · k = 0,         (43)
+                                                                       first introduce the notation
+                                                                                                                        
+             eφ (κ, −kz ) · 
+                            k = eθ (κ, −kz ) · 
+                                               k = 0,          (44)       uq± = uθ± −κqNq , uφ± −κqNq , . . . , uθ± κqNq , uφ± κqNq , (52)
+where k is defined as in Eq. (9). This means we may express           where u denotes either a or b and q is either p or e. Regardless
+a± (κ) and b± (κ) in Eq. (6) in terms of their θ and φ compo-          of the choice of q, we order the transverse wave vectors within
+nents. Explicitly, we have                                             u from left to right in the same way as they are presented in
+                                                                       Eqs. (38) and (39). Using the notation in Eq. (52), we define
+          a± (κ) = aθ± (κ)eθ (κ, kz ) + aφ± (κ)eφ (κ, kz ),    (45)    the four vectors
+      b± (κ) = b±                    ±
+                θ (κ)eθ (κ, −kz ) + bφ (κ)eφ (κ, −kz ).        (46)                          ci = (a−    +     −    + T
+                                                                                                    p , b p , ae , be ) ,                     (53)
+
+                                                                 013129-6
+SYMMETRY CONSTRAINTS FOR VECTOR SCATTERING …                                         PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+
+                   co = (b−p , a+    −    + T
+                                p , be , ae ) ,              (54)    original energy flow. The corresponding normalized discrete
+                                                                     scattering and transfer matrices are given by
+                    cl = (a−    −     −    − T
+                           p , b p , ae , be ) ,             (55)
+                                                                                                S̄ = η 2 Sη− 2 κ,
+                                                                                                         1        1
+                                                                                                                                             (64)
+                   cr = (a+    +     +    + T
+                          p , b p , ae , be ) ,              (56)
+                                                                                              M̄ = η 2 Mη− 2 κ,
+                                                                                                         1            1
+                                                                                                                                             (65)
+with which we define the discrete scattering matrix S as the
+                                                                     where
+matrix satisfying
+                                                                                                 1                           
+                                                                                                    ±     ±1       ±1    ±1
+                                                                                     η± 2 = diag η p 2 , η p 2 , ηe 2 , ηe 2 ,
+                                                                                        1
+                            co = Sci .                       (57)                                                                            (66)
+                                                                           ±1
+                                                                                               ± 1               ± 1 
+Given our ordering of the modes, we may partition the matrix              η p 2 = diag kz − κNp p  2 I2 , . . . , kz κNp p  2 I2 ,       (67)
+S in the block form
+                          ⎛                     ⎞                           ±1
+                                                                                               ± 1               ± 1 
+                         r pp tpp r pe tpe                            ηe 2 = diag kz − κeNe  2 I2 , . . . , kz κeNe  2 I2 .          (68)
+            S pp S pe     ⎜ t pp rpp t pe rpe ⎟
+      S=                =⎜⎝ rep tep
+                                  
+                                                ⎟
+                                               ⎠,     (58)          In the case that κ is different for different k-space regions,
+            Sep See                   ree tee
+                                                                   we can instead incorporate its different values into the matri-
+                            tep rep   tee ree
+                                                                     ces η± 2 .
+                                                                            1
+
+where                                                                   To end this section, we note that it is possible to convert
+                                         
+                                                 
+                                rqq     tqq                        between the discrete scattering and transfer matrices. It can
+                      Sqq =                                (59)    be shown from Eqs. (57) and (60) that
+                                 tqq    rqq 
+
+
+and q and q are either p or e. For each submatrix, the right                         r = −δ−1 γ,            α = t − r (t )−1 r,           (69)
+subscript denotes the type of incident mode (i.e., propagating
+or evanescent) and the left subscript denotes the type of out-                            r = βδ−1 ,          β = r (t )−1 ,              (70)
+going mode. For example, r pe describes the reflection at the
+left-hand side of the system of incoming evanescent modes                             t = α − βδ−1 γ,            γ = −(t )−1 r,             (71)
+to outgoing propagating modes. It is formed by concatenating
+2 × 2 reduced reflection matrices of the form in Eq. (47). All                              t = δ−1 ,         δ = (t )−1 ,                 (72)
+other submatrices of S can be understood in an analogous
+                                                                     where, for example,
+manner.
+                                                                                                                      
+    Similarly, we define the discrete transfer matrix M to be                                         r pp        r pe
+the matrix that satisfies                                                                       r=                      ,                    (73)
+                                                                                                       rep        ree
+                            cr = Mcl .                       (60)    and the other matrices are defined analogously. These equa-
+This matrix can also be partitioned in an analogous way to the       tions also hold for the normalized scattering and transfer
+discrete scattering matrix. Explicitly,                              matrices.
+                            ⎛                       ⎞
+                            α pp β pp α pe β pe
+                                                                                           B. Conservation of energy
+           M pp M pe        ⎜γ pp δ pp γ pe δ pe ⎟
+   M=                    =⎜                         ⎟
+                            ⎝ αep βep αee βee ⎠. (61)                   We now aim to derive the constraints imposed upon S̄
+           Mep Mee
+                              γ ep δep γ ee δee                      and M̄ by energy conservation. We begin by discretizing the
+                                                                     conservation of energy equation for the continuous scatter-
+In order to simplify the equations in the following section,         ing matrix, namely Eq. (18). As before, we assume that the
+it is useful to normalize the scattering and transfer matrices.      continuous scattering matrix is constant over each k-space
+We use a bar to indicate the normalized version of a matrix          region. The Dirac delta function δ(κ − κ ), whose integral
+and define the normalized continuous scattering and transfer         is by definition unity, can be replaced by the normalized
+matrices by                                                          Kronecker delta δi j / κ. Furthermore, by using the normal-
+                            √                                        ized scattering matrix, it is possible to remove all kz terms
+                             |kz (κ)|
+                S̄(κ, κ ) = √            S(κ, κ ) κ,      (62)      from the equation. Note that a factor of i is introduced when-
+                              |kz (κ )|                             ever a kz factor corresponds to an evanescent wave. Replacing
+                            √
+                               |kz (κ)|                              the integral with a sum and rewriting κ, κ , and κ as κl , κi ,
+               M̄(κ, κ ) = √            M(κ, κ ) κ.      (63)      and κ j , respectively, we obtain
+                              |kz (κ )|
+                                                                        
+Physically, this normalization is equivalent to redefining the               S̄† (κl , κi )S̄(κl , κ j )
+angular spectrum of Eq. (6) so that each plane wave delivers          κl ∈Kp
+an equal energy flux per unit cross-sectional area perpen-                   ⎧
+                                                                             ⎪
+                                                                             ⎪ δ I                                    if κi ∈ Kp , κ j ∈ Kp ,
+dicular to the z direction. √    Explicitly, this means making the           ⎨ i j† 6
+                 ik·r
+                      →   ik·r
+                               /  |kz | for each plane wave. The               iS̄ (κ j , κi )                        if κi ∈ Kp , κ j ∈ Ke ,
+replacement
+√               e        e                                                 =                                                                  (74)
+  |kz | factors in Eqs. (62) and (63) then rescale the amplitudes            ⎪
+                                                                             ⎪ −i  S̄(κi , κ j )                      if κi ∈ Ke , κ j ∈ Kp ,
+                                                                             ⎩iS̄† (κ , κ ) − iS̄(κ , κ )             if κi ∈ Ke , κ j ∈ Ke .
+of each plane wave by the appropriate amount to preserve the                          j     i      i   j
+
+
+                                                               013129-7
+NIALL BYRNES AND MATTHEW R. FOREMAN                                                                            PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+   We can consider each of the four cases in Eq. (74) sep-                                   combinations of eθ and eφ . We also make use of the fact
+arately. In each case, we may form four matrix equations                                     that, since ek (κ, ±kz ), eθ (κ, ±kz ), and eφ (κ, ±kz ) form an
+by considering different submatrix blocks individually. Since                                orthonormal basis of C 3 , we have [62]
+there are a lot of equations and the algebra involved is rather
+lengthy and repetitive, we shall only present a single example
+here. Suppose κi , κ j ∈ Kp and we consider the first case of                                                         ek ekT + eθ eθT + eφ eφT = I3 .            (76)
+Eq. (74). Equating the top-left blocks of the matrices on either
+side, we obtain                                                                              This means that multiplying any matrix by the combination of
+                                                                                            vectors on the left-hand side of Eq. (76) will leave the matrix
+       [r̄† (κl , κi )r̄(κl , κ j ) + t̄† (κl , κi )t̄(κl , κ j )] = δi j I3 . (75)
+                                                                                             unchanged. Inserting this combination of vectors in between
+  κl ∈Kp
+                                                                                             the matrix products in Eq. (75), premultiplying the equation
+We may further extract four equations from Eq. (75) by                                       by eθT (κi , kzi ) and postmultiplying the equation by eθ (κ j , kz j )
+premultiplying and postmultiplying both sides by different                                   yields
+
+                                                    
+                         eθT (κi , kzi )r̄† (κl , κi ) eθ (κl , −kzl )eθT (κl , −kzl ) + eφ (κl , −kzl )eφT (κl , −kzl ) r(κl , κ j )eθ (κ j , kz j )
+                      κl ∈Kp
+                                                       
+                         +eθT (κi , kzi )t̄† (κl , κi ) eθ (κl , kzl )eθT (κl , kzl ) + eφ (κl , kzl )eφT (κl , kzl ) t̄(κl , κ j )eθ (κ j , kz j ) = δi j .     (77)
+
+
+Note that all terms involving either ek or ekT vanish, as pre-                                   We note that our results here are consistent with those
+viously discussed. The left-hand side of Eq. (77) consists of                                in Ref. [63], in which energy conservation is examined in
+eight bilinear forms, each of which can be simplified sepa-                                  detail in the context of a generalized optical theorem. A
+rately. For example, the first part of the first term in the sum                             simple example of some of the peculiarities of evanescent
+in Eq. (77) can be shown to be                                                               waves can be seen by considering Eq. (82). Suppose that
+                                                              ∗
+                                                                                             the field incident upon the scattering medium consists of a
+             eθT (κi , kzi )r̄† (κl , κi )eθ (κl , −kzl ) = r̄(l,i)θθ ,          (78)        single evanescent component that decays towards the medium
+where we use the fact that eθ = eθ∗ for propagating waves.                                   and is polarized parallel to one of the basis states (e.g., eφ ).
+Simplifying all terms in Eq. (77) in a similar way gives                                     Examining the on-diagonal elements of the matrices on either
+                                                                                             side of Eq. (82) then reveals that the total energy radiated away
+          
+                  ∗                      ∗                                                   from the medium by propagating waves is intimately tied to
+                r̄(l,i)θθ r̄(l, j)θθ + r̄(l,i)φθ r̄(l, j)φθ
+             κl ∈Kp
+                                                                                             the reflected evanescent wave whose transverse wave vector
+                                                                                             is equal to that of the incident wave, but which decays away
+                          ∗                      ∗
+                      + t¯(l,i)θθ t¯(l, j)θθ + t¯(l,i)φθ t¯(l, j)φθ = δi j .     (79)        from the medium (in particular, the imaginary part of its scat-
+                                                                                             tering amplitude). If, due to scattering, there are any outgoing
+Repeating this process for all combinations of eθ and eφ
+                                                                                             propagating waves, then this reflected evanescent wave must
+and all subblocks in Eq. (74) yields a large system of equa-
+                                                                                             also be present. Conversely, if this reflected evanescent wave
+tions that can be shown to be equivalent to the single matrix
+                                                                                             is not present, then there cannot be any outgoing propagating
+equation
+                                                                                             waves, neither in reflection nor transmission.
+                                S̄†pp S̄ pp = I4Np +2 ,                          (80)            To derive the conservation of energy constraint for the
+                                                                                             discrete transfer matrix, we begin by discretizing Eq. (21) to
+which is the classic result that a scattering matrix for a system                            obtain
+that conserves energy and only considers propagating modes                                                                           
+is unitary.                                                                                         M̄† (κl , κi )z3 M̄(κl , κ j ) +   M̄† (κl , κi )y3 M̄(κl , κ j )
+    The other three cases for κi and κ j can be treated similarly.                             κl ∈Kp                                      κl ∈Ke
+After a lot of algebra, we obtain the equations                                                     ⎧
+                                                                                                    ⎨δi j z3        if κi ∈ Kp , κ j ∈ Kp ,
+                                                                                                            y
+                                  S̄†pp S̄ pe = iS̄†ep ,                         (81)              = δi j 3         if κi ∈ Ke , κ j ∈ Ke ,                     (84)
+                                                                                                    ⎩O               otherwise.
+                                                                                                         6
+                             S̄†pe S̄ pe = i(S̄†ee − S̄ee ).                     (82)
+                                                                                             Performing similar steps to those demonstrated for the scatter-
+By introducing the matrices I p = diag(I4Np +2 , O4Ne ) and Ie =                             ing matrix, we find, again after a lot of algebra, the equations
+diag(O4Np +2 , I4Ne ), we can combine Eqs. (80)–(82) into the
+single equation                                                                                           M̄†pp z4Np +2 M̄ pp + M̄ep
+                                                                                                                                   †
+                                                                                                                                      y4Ne M̄ep = z4Np +2 ,    (85)
+                       S̄ I p S̄ = I p + i(S̄ Ie − Ie S̄),
+                         †                       †
+                                                                                 (83)                         M̄†pp z4Np +2 M̄ pe + M̄ep
+                                                                                                                                       †
+                                                                                                                                          y4Ne M̄ee = O,        (86)
+which is the most general form of the conservation of en-                                                   M̄†pe z4Np +2 M̄ pe + M̄ee
+                                                                                                                                     †
+                                                                                                                                        y4Ne M̄ee = y4Ne ,     (87)
+ergy constraint for the scattering matrix, incorporating both
+vector properties of the electric field as well as evanescent                                where the zero matrix in Eq. (86) is of size (4Np + 2) ×
+components.                                                                                  4Ne . Equations (85)–(87) can be combined into the single
+
+                                                                                    013129-8
+SYMMETRY CONSTRAINTS FOR VECTOR SCATTERING …                                                     PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+equation                                                                          is the matrix containing 2Np + 1 copies of the 2 × 2 identity
+                                                                                  matrix on its antidiagonal and zeros elsewhere. The effect
+                               M̄†       M̄ =     ,                       (88)    of multiplying a matrix on either side by σ p is to reflect the
+where       = diag(z4Np +2 , y4Ne ). Equation (88) therefore rep-               positions of all 2 × 2 submatrices horizontally and vertically
+resents conservation of energy for the discrete transfer matrix.                  about the central rows and columns of the matrix, but to leave
+                                                                                  the submatrices themselves unchanged. This is necessary so
+                                                                                  that Eq. (94) correctly equates submatrices of r pp that are
+               C. Reciprocity/time reversal symmetry
+                                                                                  related by an inversion of transverse wave vectors. Similarly,
+    As noted previously, when conservation of energy holds,                       by considering the other submatrices of S̄, we find
+reciprocity and time reversal symmetry are equivalent. In this
+section we shall therefore henceforth refer to both conditions                                                t̄ pp = σ p t̄R
+                                                                                                                            pp σ p ,                 (96)
+as “reciprocity.” We begin by deriving the reciprocity con-
+straint for the discrete scattering matrix. Note that for the                                                 r̄pp = σ p r̄R
+                                                                                                                            pp σ p ,                 (97)
+continuous scattering matrix the reciprocity relation Eq. (25)
+is considerably simpler than the time reversal symmetry rela-                     which can be combined into the single equation
+tion Eq. (35), particularly as it does not involve an integral.
+                                                                                                            S̄ pp = σ pp S̄Rpp σ pp ,                (98)
+We therefore begin our derivation with Eq. (25).
+    In terms of the normalized scattering matrix, the reci-                       where σ pp = diag(σ p , σ p ). If we similarly introduce σ e as the
+procity constraint of Eq. (25) has two different cases:                           matrix containing 2Ne copies of I2 on its antidiagonal and
+S̄(κi , κ j ) = S̄T (−κ j , −κi ) if either κi , κ j ∈ Kp or κi , κ j ∈ Ke ,      zeros elsewhere, and σ ee = diag(σ e , σ e ), we can further derive
+and S̄(κi , κ j ) = iS̄T (−κ j , −κi ) otherwise. Let us consider first
+the case where κi , κ j ∈ Kp . As in the previous section, we                                               S̄ pe = σ pp iS̄Rep σ ee ,               (99)
+again consider each submatrix of S̄ separately. Comparing
+top-left blocks, we have                                                                                     S̄ee = σ ee S̄Ree σ ee .               (100)
+                        r̄(κi , κ j ) = r̄(−κ j , −κi ).                  (89)    Finally, Eqs. (98)–(100) can be combined into the single
+If we premultiply Eq. (89) by eθT (κi , −kzi ) and postmultiply by                equation
+eθ (κ j , kz j ), the left-hand side becomes r(i, j)θθ and the right-
+                                                                                                                S̄ = ω∗ S̄R ω,                      (101)
+hand side, after a bit of manipulation, becomes r(− j,−i)θθ ,
+where here the subscript − j refers to the mode with transverse                   where ω = diag(σ pp , iσ ee ). Equation (101) is the reciprocity
+wave vector −κ j . Repeating this for all four combinations of                    constraint for the scattering matrix, which generalizes the
+eθ and eφ , we obtain the relations                                               well-known equation S = ST .
+                                                                                     To derive the reciprocity constraint for the transfer matrix,
+           r̄(i, j)θθ = r̄(− j,−i)θθ ,    r̄(i, j)θφ = −r̄(− j,−i)φθ ,    (90)
+                                                                                  we begin with the time reversal invariance constraint Eq. (36),
+                                                                                  which is notably simpler than the reciprocity constraint in
+           r̄(i, j)φθ = −r̄(− j,−i)θφ ,     r̄(i, j)φφ = r̄(− j,−i)φφ .   (91)
+                                                                                  Eq. (30), and perform analogous steps to those used in the
+Equations (90) and (91) are equivalent to the single matrix                       derivation for the scattering matrix. We eventually arrive at
+relation                                                                          the equations
+                              r̄(i, j) = r̄(−
+                                           R
+                                              j,−i) ,                     (92)            M̄ pp = σ pp M̄†R   
+                                                                                                                        M̄ pe = σ pp M̄†R
+                                                                                                          pp σ pp ,                     pe σ ee ,   (102)
+where we have introduced the reciprocal operator R, which we                                            †R 
+define such that if [A]mn is the (m, n) element of the matrix A,                          M̄ep = σ ee M̄ep σ pp ,      M̄ee = σ ee M̄†R
+                                                                                                                                     pp σ ee ,      (103)
+then
+                                                                                  where
+                       [AR ]mn = [A]nm (−1)m+n .                          (93)                                                             
+                                                                                                                                   O     σp
+                                                                                                   σ pp = x4Np +2 σ pp =                   .      (104)
+This particular symmetry of the reflection matrix is a well-                                                                       σp    O
+known result in scattering theory for polarized light and is
+sometimes referred to as the backscattering theorem [64]. The                     Equations (102) and (103) can be combined into the single
+operator R has also been discussed previously in the context                      equation
+of reciprocal Jones matrices [65].
+                                                                                                              M̄ = ω M̄†R ω ,                     (105)
+     By now carefully considering the structure of the matrix
+r̄ pp , it follows from Eq. (92) that                                             where ω = diag(σ pp , σ ee ). Equation (105) is hence the reci-
+                              r̄ pp = σ p r̄Rpp σ p ,                     (94)    procity constraint for the discrete transfer matrix.
+                                                                                     Equations (83), (88), (101), and (105) constitute the main
+where                                                                             results of our work and must be satisfied for any system that
+                              ⎛                            ⎞                      conserves energy and is reciprocal/time reversal invariant.
+                               O                      I2
+                                                                                  We note that all four of these equations are algebraic and
+                         σp = ⎝            ...             ⎠              (95)
+                                                                                  are therefore much simpler to work with than the integral
+                                    I2                O                           constraints for the continuous scattering and transfer matrices.
+
+                                                                            013129-9
+NIALL BYRNES AND MATTHEW R. FOREMAN                                                   PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+                D. Comparison with previous results                    were to enforce this constraint within our formalism, all trans-
+   Here, we briefly compare our results with those that already        verse wave vectors in the sets defined in Eqs. (38) and (39)
+exist in the literature. In particular, we show that the more          containing a minus sign would become extraneous and could
+commonly presented equations follow from our results as                be removed. Moreover, the use of the matrix σ p to correctly
+special cases. From Refs. [8,41,43,66] and others we see that,         associate submatrices of S̄ and M̄ that describe scattering
+for a system that conserves energy and and is reciprocal/time          between modes with inverse transverse wave vectors would no
+reversal invariant, the matrices S̄ and M̄ obey the equations          longer be necessary and σ p would be replaced by the identity
+                                                                       matrix of the appropriate size. Making this change, combined
+                             S̄S̄† = I,                       (106)    with the previous change regarding the reciprocal operator,
+                                                                       transforms Eq. (98) into Eq. (107). Finally, we see that un-
+                             S̄ = S̄T ,                       (107)    der these changes we also have σ pp → x , M̄†R → M̄∗ , and
+                                                                       hence Eq. (102) becomes identical to Eq. (109), completing
+                          M̄† z M̄ = z ,                    (108)    the comparison.
+
+                          x M̄x = M̄∗ ,                     (109)                E. Numerical example: Glass-air interface
+where I,  , and  are of the appropriate size.
+            x         z
+                                                                            In this section we demonstrate the validity of our results
+    There are three important differences between the matrices         with a numerical example. We consider a planar glass-air
+in Eqs. (106)–(109) and those of our results. First, the scat-         boundary with glass on the left and air on the right. We
+tering and transfer matrices in Eqs. (106)–(109) are defined           choose ng = 1.5 and na = 1.0 to be the refractive indices of
+only for propagating modes in the far field. Therefore, for the        the glass and air, respectively. In the glass, we consider three
+scattering matrix, it is sufficient to only consider S̄ pp . As pre-   right-traveling modes with wave vectors k1 , k2 and k3 whose
+viously noted, Eq. (80) is identical to the unitarity condition        z components are kz1 /k0 = 1.41, kz2 /k0 = 0.90, and kz3 /k0 =
+of Eq. (106). For the transfer matrix, since in the far field we       0.73i, where each numerical value is given to two decimal
+have M̄ep = O, we see that Eq. (85) reduces to the same form           places. In the air, we consider the set of refracted wave vectors
+as of Eq. (108).                                                       k1 , k2 , and k3 , whose z components kz1      
+                                                                                                                           /k0 = 0.87, kz2 
+                                                                                                                                             /k0 =
+                                                                                       
+    The second important difference is that Eqs. (106)–(109)           0.66i, and kz3 /k0 = 1.33i follow from those of k1 , k2 , and k3
+are defined only for scalar waves. A scalar wave formalism             by Snell’s law. We identify the “scattering medium” in this
+is appropriate when there is no change in polarization state           example with the planar boundary and note that our choice
+induced by the scattering medium. For this to be the case              of wave vectors incorporates different types of scattering. For
+within our formalism, it is necessary for each 2 × 2 submatrix         example, the mode with wave vector k1 is partially transmitted
+within S̄ and M̄ to have zero off-diagonal elements. Mathe-            and reflected, but the mode with wave vector k2 is totally inter-
+matically, this means that [S̄]mn = [M̄]mn = 0 when m + n is           nally reflected. We describe left-traveling modes in the glass
+an odd number. By now inspecting Eq. (93) we see that, if this         medium using the reflected wave vectors              k1 , 
+                                                                                                                                  k2 , and 
+                                                                                                                                           k3 and,
+is the case, then the reciprocal operator is identical to a regular    similarly, we describe left-traveling modes in the air using the
+matrix transpose and in all of our previous equations we may           wave vectors      k1 , 
+                                                                                                k2 , and 
+                                                                                                          k3 . For each wave-vector mode, we
+make the notational transformation R → T.                              consider both s and p polarizations (we shall use s and p to
+    The final difference is that Eqs. (106)–(109) are defined          refer to polarization states in this section alone) with the usual
+in a quasi-one-dimensional geometry for which each mode                definitions for a planar interface and write k1s to refer to an
+has a wave vector with a unique z component. Consequently,             s-polarized wave with wave vector k1 and similarly for k1p .
+there are no two modes whose wave vectors have the same                     We calculate the scattering matrix elementwise using the
+z components, but different transverse components. More                standard Fresnel equations (see, e.g., Ref. [54]). We then
+specifically, this means that there is no distinction between          normalize each element of the scattering matrix according to
+the two modes with wave vectors (κ, kz )T and (−κ, kz )T . If we       Eq. (62), which gives
+
+
+
+
+                                                                                                                                           (110)
+
+
+
+
+                                                                 013129-10
+SYMMETRY CONSTRAINTS FOR VECTOR SCATTERING …                                        PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+where we have indicated the incident and outgoing modes above and to the right of the matrix, respectively. We have
+included horizontal and vertical lines within the matrix as a visual aid to map out the block structure of S̄ as in Eq. (58).
+We verify numerically that S̄ satisfies the conservation of energy constraint given by Eq. (83) with I p = diag(I6 , O6 ) and
+Ie = diag(O6 , I6 ).
+   In this particular example, the scattering matrix includes evanescent components, but contains no polarization mixing and
+does not consider pairs of inverse transverse wave-vector modes. As per the discussion in the previous section, the reciprocity
+constraint for the scattering matrix can therefore be simplified. Specifically, in Eq. (101) we may make the transformations
+R → T and σ pp , σ ee → I6 , which yields the modified equation
+                                                             S̄ = ω∗ S̄T ω,                                                         (111)
+where, in this instance, ω = diag(I6 , iI6 ). Equation (111) is also satisfied by our scattering matrix S̄.
+  We calculate the transfer matrix from the scattering matrix using Eqs. (69)–(72). This gives
+
+
+
+
+                                                                                                                                    (112)
+
+
+
+
+where, as before, the horizontal and vertical lines show the          formalism considers the general case of vectorial light and
+block structure of M̄ as in Eq. (61). Since there is an uneven        allows for fields containing evanescent components. We have
+number of propagating and evanescent modes on either side of          extended previously known results, such as in Eqs. (106)–
+the boundary, M̄ has an irregular block structure and, notably,       (109), and have introduced a more general set of constraints
+the matrices M̄ pp and M̄ee are no longer square. It is therefore     for the discrete scattering and transfer matrices, which are
+necessary to modify the sizes of the submatrices of          and      given in Eqs. (83), (88), (101), and (105). We have discussed
+ω in Eqs. (88) and (105) to account for this asymmetry.              the differences between our results and Eqs. (106)–(109) and
+Furthermore, in addition to the transformations made for the          have demonstrated that the latter can be regarded as special
+scattering matrix reciprocity equation, we also replace σ pp →       cases of the former. In particular, Eqs. (106)–(109) follow
+x . Ultimately, we find that M̄ must satisfy                         from our results when one is able to neglect evanescent
+                                                                      field components, polarization mixing, and a distinction be-
+                        M̄†  1 M̄ = 2,                     (113)      tween inverse transverse wave-vector modes. We have given
+                            ∗                                       a demonstration of the validity of our results in the simple
+                        ω1 M̄ ω2 = M̄,                     (114)
+                                                                      example of the scattering of polarized light at a planar glass-
+where                                                                 air interface, including the effect of total internal reflection. In
+               z                     z                            our formalism, we have made minimal assumptions regarding
+               2 O                    4 O
+         1 =           ,         2 =           ,           (115)      the nature of the scattering medium and our results should
+                O y4                   O y2
+                  x                    x                          therefore be valid for a wide range of systems.
+                  2 O                   4 O
+           ω1 =          ,       ω2 =          .         (116)          Given the popularity of matrix methods in scattering stud-
+                  O I8                    O I4                        ies and the increasing ease with which it is possible to
+Despite these modifications, we note that Eqs. (113) and (114)        experimentally determine scattering and transfer matrices, we
+still have the same basic form as Eqs. (88) and (105). Numer-         believe that our results will serve as useful guides for future
+ical calculations confirm that Eqs. (113) and (114) are indeed        experimental research. We also believe that our results will
+satisfied.                                                            help define the limits for physically realizable scattering and
+                                                                      transfer matrices in matrix-based numerical simulations and
+                                                                      theoretical studies of optical scattering. Our results should be
+                      IV. CONCLUSION                                  particularly important when one is interested in a description
+   In this paper we have derived the general set of constraints       of a scattering problem that incorporates any combination of
+for the scattering and transfer matrices imposed by conserva-         evanescent modes, vectorial light, and reciprocity/time rever-
+tion of energy, reciprocity, and time reversal symmetry. Our          sal symmetry in a system of more than one dimension.
+
+                                                              013129-11
+NIALL BYRNES AND MATTHEW R. FOREMAN                                                            PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+                                                                                                                   
+                                                                                            j)mn = em (κ i , −kzi )t (κ i , κ j )en (κ j , −kz j ),
+                        ACKNOWLEDGMENT                                                              T
+                                                                                       t(i,                                                              (A4)
+   This work was funded by the Royal Society.
+                                                                                            α(i, j)mn = emT (κi , kzi )α(κi , κ j )en (κ j , kz j ),     (A5)
+
+              APPENDIX: REDUCED MATRICES
+                                                                                           β(i, j)mn = emT (κi , kzi )β(κi , κ j )en (κ j , −kz j ),     (A6)
+
+    To complement Eq. (48) in the main text, we present here                               γ(i, j)mn = emT (κi , −kzi )γ (κi , κ j )en (κ j , kz j ),    (A7)
+a list of equations for the θ and φ components of the reduced
+versions of each of the matrices r, r , t, t , α, β, γ, and δ. In                    δ(i, j)mn = emT (κi , −kzi )δ(κi , κ j )en (κ j , −kz j ).        (A8)
+each equation, the subscripts m and n represent either k, θ , or
+φ. We have                                                                      As discussed in the main text, if A(κi , κ j ) refers to any of the
+                                                                                above eight matrices, then
+
+           r(i, j)mn = emT (κi , −kzi )r(κi , κ j )en (κ j , kz j ),     (A1)                        ekT (κi , ±kzi )A(κi , κ j ) = 0T ,                 (A9)
+
+                                                                                                   A(κi , κ j )ek (κ j , ±kz j ) = 0,                 (A10)
+                j)mn = em (κ i , kzi )r (κ i , κ j )en (κ j , −kz j ),
+                        T
+           r(i,                                                          (A2)
+                                                                                where the plus or minus sign is chosen according to the choice
+             t(i, j)mn = emT (κi , kzi )t(κi , κ j )en (κ j , kz j ),    (A3)   of A.
+
+
+
+
+ [1] P. W. Anderson, D. J. Thouless, E. Abrahams, and D. S. Fisher,             [14] M. Kim, Y. Choi, C. Yoon, W. Choi, J. Kim, Q.-H. Park, and
+     New method for a scaling theory of localization, Phys. Rev. B                   W. Choi, Maximal energy transport through disordered media
+     22, 3519 (1980).                                                                with the implementation of transmission eigenchannels, Nat.
+ [2] D. S. Fisher and P. A. Lee, Relation between conductivity and                   Photonics 6, 581 (2012).
+     transmission matrix, Phys. Rev. B 23, 6851 (1981).                         [15] S. Popoff, G. Lerosey, M. Fink, A. C. Boccara, and S. Gigan,
+ [3] A. Tulino, S. Verdú, and S. Verdu, Random Matrix Theory                         Image transmission through an opaque material, Nat. Commun.
+     and Wireless Communications (now Publishers, Hanover, MA,                       1, 81 (2010).
+     2004).                                                                     [16] Y. Choi, M. Kim, C. Yoon, T. D. Yang, K. J. Lee, and W.
+ [4] A. Aubry and A. Derode, Random Matrix Theory Applied to                         Choi, Synthetic aperture microscopy for high resolution imag-
+     Acoustic Backscattering and Imaging in Complex Media, Phys.                     ing through a turbid medium, Opt. Lett. 36, 4263 (2011).
+     Rev. Lett. 102, 084301 (2009).                                             [17] S. Kang, P. Kang, S. Jeong, Y. Kwon, T. D. Yang, J. H. Hong, M.
+ [5] C. To and A. Doige, A transient testing technique for the de-                   Kim, K.-D. Song, J. H. Park, J. H. Lee, M. J. Kim, K. H. Kim,
+     termination of matrix parameters of acoustic systems, I: Theory                 and W. Choi, High-resolution adaptive optical imaging within
+     and principles, J. Sound Vib. 62, 207 (1979).                                   thick scattering media using closed-loop accumulation of single
+ [6] S. F. Mingaleev and K. Busch, Scattering matrix approach to                     scattering, Nat. Commun. 8, 2157 (2017).
+     large-scale photonic crystal circuits, Opt. Lett. 28, 619 (2003).          [18] J. Bertolotti, E. G. van Putten, C. Blum, A. Lagendijk, W. L.
+ [7] P. Bell, J. Pendry, L. Moreno, and A. Ward, A program for cal-                  Vos, and A. P. Mosk, Non-invasive imaging through opaque
+     culating photonic band structures and transmission coefficients                 scattering layers, Nature (London) 491, 232 (2012).
+     of complex structures, Comput. Phys. Commun. 85, 306 (1995).               [19] O. Katz, P. Heidmann, M. Fink, and S. Gigan, Non-invasive
+ [8] S. Rotter and S. Gigan, Light fields in complex media: Meso-                    single-shot imaging through scattering layers and around cor-
+     scopic scattering meets wave control, Rev. Mod. Phys. 89,                       ners via speckle correlations, Nat. Photonics 8, 784 (2014).
+     015005 (2017).                                                             [20] H. Yilmaz, C. W. Hsu, A. Goetschy, S. Bittner, S. Rotter, A.
+ [9] S. M. Popoff, G. Lerosey, R. Carminati, M. Fink, A. C. Boccara,                 Yamilov, and H. Cao, Angular Memory Effect of Transmission
+     and S. Gigan, Measuring the Transmission Matrix in Optics:                      Eigenchannels, Phys. Rev. Lett. 123, 203901 (2019).
+     An Approach to the Study and Control of Light Propagation in               [21] C. W. Hsu, S. F. Liew, A. Goetschy, H. Cao, and A. Douglas
+     Disordered Media, Phys. Rev. Lett. 104, 100601 (2010).                          Stone, Correlation-enhanced control of wave focusing in disor-
+[10] H. Yu, J.-H. Park, and Y. Park, Measuring large optical reflec-                 dered media, Nat. Phys. 13, 497 (2017).
+     tion matrices of turbid media, Opt. Commun 352, 33 (2015).                 [22] J. Andreasen, A. A. Asatryan, L. C. Botten, M. A. Byrne, H.
+[11] S. Tripathi, R. Paxman, T. Bifano, and K. C. Toussaint, Vec-                    Cao, L. Ge, L. Labonté, P. Sebbah, A. D. Stone, H. E. Türeci,
+     tor transmission matrix for the polarization behavior of light                  and C. Vanneste, Modes of random lasers, Adv. Opt. Photon. 3,
+     propagation in highly scattering media, Opt. Express 20, 16067                  88 (2011).
+     (2012).                                                                    [23] N. Byrnes and M. R. Foreman, Universal bounds for imaging in
+[12] I. M. Vellekoop and A. P. Mosk, Universal Optimal Transmis-                     scattering media, New J. Phys. 22, 083023 (2020).
+     sion of Light Through Disordered Materials, Phys. Rev. Lett.               [24] A. Sheikhan, P. Maass, and M. R. R. Tabar, Coherent backscat-
+     101, 120601 (2008).                                                             tering of electromagnetic waves in random media, Europhys.
+[13] W. Choi, A. P. Mosk, Q.-H. Park, and W. Choi, Transmission                      Lett. 98, 14005 (2012).
+     eigenchannels in a disordered medium, Phys. Rev. B 83, 134207              [25] A. Ossipov, Scattering Approach to Anderson Localization,
+     (2011).                                                                         Phys. Rev. Lett. 121, 076601 (2018).
+
+
+                                                                          013129-12
+SYMMETRY CONSTRAINTS FOR VECTOR SCATTERING …                                           PHYSICAL REVIEW RESEARCH 3, 013129 (2021)
+
+[26] L. Torner, F. Canal, and J. Hernandez-Marco, Leaky modes in         [46] J. Berk, C. Paterson, and M. R. Foreman, Tracking single
+     multilayer uniaxial optical waveguides, Appl. Opt. 29, 2805              particles using surface plasmon leakage radiation speckle,
+     (1990).                                                                  J. Lightwave Technol. (2020), doi: 10.1109/JLT.2020.3035820.
+[27] J. Carpenter, B. J. Eggleton, and J. Schröder, Complete             [47] N. Caselli, F. Intonti, F. La China, F. Biccari, F. Riboli, A.
+     spatiotemporal characterization and optical transfer matrix in-          Gerardino, L. Li, E. H. Linfield, F. Pagliano, A. Fiore, and
+     version of a 420 mode fiber, Opt. Lett. 41, 5580 (2016).                 M. Gurioli, Near-field speckle imaging of light localization in
+[28] J. Capmany and M. A. Muriel, A new transfer matrix formalism             disordered photonic systems, Appl. Phys. Lett. 110, 081102
+     for the analysis of fiber ring resonators: Compound coupled              (2017).
+     structures for FDMA demultiplexing, J. Light. Technol. 8, 1904      [48] R. Carminati, J. J. Sáenz, J.-J. Greffet, and M. Nieto-Vesperinas,
+     (1990).                                                                  Reciprocity, unitarity, and time-reversal symmetry of the S ma-
+[29] P. Yeh, Optical Waves in Layered Media (Wiley, Hoboken, NJ,              trix of fields containing evanescent components, Phys. Rev. A
+     2004).                                                                   62, 012712 (2000).
+[30] D. J. Griffiths and C. A. Steinke, Waves in locally periodic        [49] R. Carminati, M. Nieto-Vesperinas, and J.-J. Greffet, Reci-
+     media, Am. J. Phys. 69, 137 (2001).                                      procity of evanescent electromagnetic waves, J. Opt. Soc. Am.
+[31] D. W. L. Sprung, P. Jagiello, J. D. Sigetich, and J. Martorell,          A 15, 706 (1998).
+     Continuum bound states as surface states of a finite periodic       [50] M. Mehta, Random Matrices (Elsevier, Amsterdam, 2004).
+     system, Phys. Rev. B 67, 085318 (2003).                             [51] M. Nieto-Vesperinas and E. Wolf, Generalized Stokes relations
+[32] P. Pereyra, Resonant Tunneling and Band Mixing in Multichan-             for scattering from dielectric objects of arbitrary shape, J. Opt.
+     nel Superlattices, Phys. Rev. Lett. 80, 2677 (1998).                     Soc. Am. A 3, 2038 (1986).
+[33] C. C. Katsidis and D. I. Siapkas, General transfer-matrix           [52] M. Vesperinas, Scattering and Diffraction in Physical Optics
+     method for optical multilayer systems with coherent, partially           (World Scientific, Singapore, 2006).
+     coherent, and incoherent interference, Appl. Opt. 41, 3978          [53] M. I. Mishchenko, L. D. Travis, and A. A. Lacis, Multiple Scat-
+     (2002).                                                                  tering of Light by Particles: Radiative Transfer and Coherent
+[34] R. Azzam, R. Azzam, N. Bashara, and N. Bashara, Ellipsometry             Backscattering (Cambridge University Press, Cambridge, UK,
+     and Polarized Light (North-Holland, Amsterdam, 1977).                    2006).
+[35] C. Barnes and J. B. Pendry, Multiple scattering of waves in ran-    [54] M. Born and E. Wolf, Principles of Optics: Electromagnetic
+     dom media: A transfer matrix approach, Proc. R. Soc. London,             Theory of Propagation, Interference and Diffraction of Light
+     Ser. A 435, 185 (1991).                                                  (Cambridge University Press, Cambridge, UK, 1999).
+[36] D. Y. K. Ko and J. R. Sambles, Scattering matrix method for         [55] R. J. Potton, Reciprocity in optics, Rep. Prog. Phys. 67, 717
+     propagation of radiation in stratified media: Attenuated total           (2004).
+     reflection studies of liquid crystals, J. Opt. Soc. Am. A 5, 1863   [56] J. A. Stratton and L. J. Chu, Diffraction theory of electromag-
+     (1988).                                                                  netic waves, Phys. Rev. 56, 99 (1939).
+[37] Q. Liu, Q. Li, Y. Sun, Q. Chai, B. Zhang, C. Liu, TaoSun, W.        [57] G. Leuchs and M. Sondermann, Time-reversal symmetry in
+     Liu, J. Sun, Z. Ren, and P. K. Chu, Transfer matrix method for           optics, Phys. Scr. 85, 058101 (2012).
+     simulation of the fiber Bragg grating in polarization maintaining   [58] D. A. B. Miller, Waves, modes, communications, and optics:
+     fiber, Opt. Commun. 452, 185 (2019).                                     A tutorial, Adv. Opt. Photonics 11, 679 (2019).
+[38] B. Hosten and M. Castaings, Transfer matrix of multilayered         [59] S. K. Selvaraja and P. Sethi, Review on optical waveguides,
+     absorbing and anisotropic media. measurements and simu-                  in Emerging Waveguide Technology, edited by K. Y. You
+     lations of ultrasonic wave propagation through composite                 (IntechOpen, Rijeka, 2018), Chap. 6.
+     materials, J. Acoust. Soc. Am. 94, 1488 (1993).                     [60] B. Judkewitz, R. Horstmeyer, I. M. Vellekoop, I. N.
+[39] V. Privman, Finite Size Scaling and Numerical Simulation of              Papadopoulos, and C. Yang, Translation correlations in
+     Statistical Systems (World Scientific, Singapore, 1990).                 anisotropically scattering media, Nat. Phys. 11, 684 (2015).
+[40] J. Pendry, Photonic band structures, J. Mod. Opt 41, 209 (1994).    [61] P. Pai, J. Bosch, and A. P. Mosk, Optical transmission ma-
+[41] P. Mello, P. Pereyra, and N. Kumar, Macroscopic approach                 trix measurement sampled on a dense hexagonal lattice, OSA
+     to multichannel disordered conductors, Ann. Phys. 181, 290               Continuum 3, 637 (2020).
+     (1988).                                                             [62] I. Lindell, Multiforms, Dyadics, and Electromagnetic Media
+[42] P. A. Mello and A. D. Stone, Maximum-entropy model for                   (Wiley, Hoboken, NJ, 2015).
+     quantum-mechanical interference effects in metallic conduc-         [63] Y. V. Gulyaev, Y. N. Barabanenkov, M. Y. Barabanenkov, and
+     tors, Phys. Rev. B 44, 3559 (1991).                                      S. A. Nikitov, Optical theorem for electromagnetic field scat-
+[43] C. W. J. Beenakker, Random-matrix theory of quantum trans-               tering by dielectric structures and energy emission from the
+     port, Rev. Mod. Phys. 69, 731 (1997).                                    evanescent wave, Phys. Rev. E 72, 026602 (2005).
+[44] E. Betzig and R. J. Chichester, Single molecules observed           [64] H. van de Hulst, Light Scattering by Small Particles (Dover,
+     by near-field scanning optical microscopy, Science 262, 1422             New York, 2012).
+     (1993).                                                             [65] R. Bhandari, Transpose symmetry of the Jones matrix and topo-
+[45] T. Neuman, P. Alonso-González, A. Garcia-Etxarri, M. Schnell,            logical phases, Opt. Lett. 33, 854 (2008).
+     R. Hillenbrand, and J. Aizpurua, Mapping the near fields of         [66] P. Pereyra, Symmetries, parametrization, and group structure of
+     plasmonic nanoantennas by scattering-type scanning near-field            transfer matrices in quantum scattering theory, J. Math. Phys.
+     optical microscopy, Laser Photonics Rev. 9, 637 (2015).                  36, 1166 (1995).
+
+
+
+
+                                                                  013129-13
+

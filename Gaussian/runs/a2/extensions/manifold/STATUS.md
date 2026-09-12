@@ -1,0 +1,1 @@
+Only bounded chart checks remain here. Invalid angle-wrapper pilot results and configuration were moved to delegated/a2_extensions/manifold/invalid_pilot and must not count as scientific evidence. Actual SPD development is manifold_v2; revised matched-complement protocol is manifold_v3.

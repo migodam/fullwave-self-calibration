@@ -1,0 +1,91 @@
+{
+  "scope": "Mesh sensitivity diagnostic; not a continuous-model error certificate or frozen confirmation test",
+  "posthoc": true,
+  "setup_seconds": 31.77242780000006,
+  "total_seconds": 98.85292870000012,
+  "groups": {
+    "0": {
+      "gaussian_K16": {
+        "held_clean_original_N128": 0.1481191799044609,
+        "held_clean_N256": 0.14810804277658463,
+        "material_relative_N256": 0.4128034680922127
+      },
+      "gaussian_K64": {
+        "held_clean_original_N128": 0.05367932133376598,
+        "held_clean_N256": 0.053667549043893814,
+        "material_relative_N256": 0.24365993006488948
+      },
+      "gaussian_K144": {
+        "held_clean_original_N128": 0.0224776110611856,
+        "held_clean_N256": 0.02246970431879163,
+        "material_relative_N256": 0.17905956913543536
+      },
+      "voxel": {
+        "held_clean_original_N128": 0.05253288894891739,
+        "held_clean_N256": 0.05270362719893455,
+        "material_relative_N256": 0.20844254988353614
+      }
+    },
+    "1": {
+      "gaussian_K16": {
+        "held_clean_original_N128": 0.18181131035089493,
+        "held_clean_N256": 0.1817812889814377,
+        "material_relative_N256": 0.5338115900754928
+      },
+      "gaussian_K64": {
+        "held_clean_original_N128": 0.07855202704668045,
+        "held_clean_N256": 0.07853310368955135,
+        "material_relative_N256": 0.4535909086465836
+      },
+      "gaussian_K144": {
+        "held_clean_original_N128": 0.06287742778658867,
+        "held_clean_N256": 0.06286503449082374,
+        "material_relative_N256": 0.44263305366039274
+      },
+      "voxel": {
+        "held_clean_original_N128": 0.0912882998585701,
+        "held_clean_N256": 0.09169160425662995,
+        "material_relative_N256": 0.4329653769731522
+      }
+    },
+    "2": {
+      "gaussian_K16": {
+        "held_clean_original_N128": 0.16856736391782762,
+        "held_clean_N256": 0.16855608820915222,
+        "material_relative_N256": 0.5422798573970795
+      },
+      "gaussian_K64": {
+        "held_clean_original_N128": 0.07228306233882904,
+        "held_clean_N256": 0.07227580919861794,
+        "material_relative_N256": 0.3638583332300186
+      },
+      "gaussian_K144": {
+        "held_clean_original_N128": 0.05803671069443226,
+        "held_clean_N256": 0.058038392663002016,
+        "material_relative_N256": 0.29968178570270537
+      },
+      "voxel": {
+        "held_clean_original_N128": 0.12443565651774406,
+        "held_clean_N256": 0.12472735345363617,
+        "material_relative_N256": 0.4558197259902954
+      }
+    }
+  },
+  "parameter_diagnostic": {
+    "gaussian_K16": {
+      "active_subgrid_components": 0,
+      "models_with_active_subgrid": 0,
+      "min_sigma_m": 0.006220350794049642
+    },
+    "gaussian_K64": {
+      "active_subgrid_components": 3,
+      "models_with_active_subgrid": 3,
+      "min_sigma_m": 0.0022172669368213747
+    },
+    "gaussian_K144": {
+      "active_subgrid_components": 133,
+      "models_with_active_subgrid": 23,
+      "min_sigma_m": 0.002116696441132191
+    }
+  }
+}

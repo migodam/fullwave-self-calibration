@@ -1,0 +1,715 @@
+                                                    A General Framework for Knowledge Integration in Machine
+                                                  Learning for Electromagnetic Scattering Using Quasinormal Modes
+
+                                                        Viktor A. Lilja, Albin J. Svärdsby, Timo Gahlmann, and Philippe Tassin
+                                                  Department of Physics, Chalmers University of Technology, SE-41296 Göteborg, Sweden
+                                                                                 (Dated: April 14, 2026)
+
+
+
+
+arXiv:2509.06130v2 [physics.optics] 13 Apr 2026
+
+
+
+
+                                                                                          1
+     ABSTRACT
+
+
+     Neural networks have been demonstrated to be able to accelerate the modeling and inverse
+design of optical and electromagnetic devices by serving as fast surrogates for electromagnetic
+solvers. Nevertheless, such neural networks can be unreliable and normally require extreme
+amounts of data to train. Here it is shown that these limitations can be alleviated by
+constraining neural-network models using prior knowledge about the governing physics. We
+propose a universal physics-informed neural network framework for electromagnetic scattering
+based on the quasinormal mode expansion of the scattering matrix. The neural networks learn
+the resonant structure underlying the scattering spectrum, are guaranteed to obey energy
+conservation and causality, and are shown to have significantly improved data efficiency for
+photonic-crystal slabs and all-dielectric free-form metasurfaces. Furthermore, the framework
+allows additional problem-specific constraints, such as losslessness, symmetries, and number
+of modes, to be imposed manually when they are available. The method can be applied to a
+wide range of optical and electromagnetic devices owing to the generality of the quasinormal
+mode formalism.
+
+
+
+I.    INTRODUCTION
+
+
+     Machine learning [1, 2] is a powerful tool for inverse design in electromagnetism, mechanics,
+materials science, quantum many-body systems, and other paradigms of physics [3–14]. The
+goal of inverse design is to find a device design that exhibits some predefined properties [15–
+19]. For linear electromagnetic devices, the properties are often quantities that describe
+the relation between incoming and outgoing amplitudes of electromagnetic modes, such as
+transmittance, reflectance, or absorption [6–8, 14, 18–41]. These quantities can be derived
+from the frequency-dependent scattering matrix S(ω), which encodes the complete scattering
+response of a general linear N -port device by relating the amplitudes s− = (s−            −
+                                                                              1 , . . . , sN ) of
+
+the incoming modes to the amplitudes s+ = (s+            +
+                                            1 , . . . , sN ) of the outgoing modes through
+
+s− = S(ω)s+ . The forward problem of finding S(ω) for a given design can be easily solved
+with full-wave electrodynamics solvers. The inverse problem of finding a design with a desired
+S(ω) is, on the other hand, significantly more challenging and fundamentally ill-posed, since
+a given S(ω) can have zero or several corresponding designs. Traditional inverse-design
+
+                                               2
+methods use optimization algorithms to search through the design space, often requiring
+hundreds to thousands of sequential full-wave simulations to converge. Another approach is
+to first replace the simulator with a neural network (NN) trained to predict S(ω) given a
+design parametrization, summarized schematically as
+
+                                               NN
+                                        Design −−→ S(ω).
+
+Once trained, this forward model can typically predict S(ω) orders of magnitude faster than
+an electrodynamics solver and its gradient can easily be calculated using backpropagation.
+This allows for efficient exploration of the design space through iterative optimization [19, 42]
+or the training of inverse models [22, 30, 32–34, 38, 43]. The downside of this approach is that
+the performance of the final design becomes dependent on the accuracy of the NN. Although
+it may be possible to improve accuracy by increasing the number of trainable parameters
+and the number of training samples, computational resources are often a limiting factor [13].
+Furthermore, the black box nature of NNs makes them unreliable and very limited insights
+can be gained from their predictions [44].
+   These issues can be alleviated by utilizing prior knowledge about the governing physics [44,
+45], a strategy often referred to as physics-informed machine learning. One physics-informed
+method, which has recently gathered attention in electromagnetic scattering problems [14,
+20, 25, 29], is to include a physics layer as a final step in the forward model. The augmented
+forward model can be schematically summarized as
+
+                                   NN    Physics     Physics model
+                          Design −−→                 −−−−−−−−→ S(ω),                          (1)
+                                        parameters
+
+where the physics model is a known computable expression for S(ω) with the physics
+parameters as arguments. Now, any constraints imposed on the physics model will also be
+satisfied by the full forward model. Furthermore, the task of the NN has become to predict
+the physics parameters rather than S(ω) directly, which may be easier to learn. Indeed,
+previous works have demonstrated that using a physics layer reduces prediction error for
+a given NN size [14, 25, 29], improves generalization [20, 25, 29], and reduces the required
+amount of training data [20, 29]. Another benefit is that the physics parameters become
+accessible as a learned latent description [20, 29] that can be used as a design target in the
+inverse problem [14]. The forward model also becomes less of a black box in the sense that
+
+                                              3
+the predicted spectra can be explained in terms of the physics parameters. Implementing
+the physics model in a numerical framework that supports automatic differentiation enables
+the full forward model to be trained directly on simulated S(ω). This is in contrast to the
+methods proposed in References [28, 42, 46–48], where the physics parameters are extracted
+from S(ω) before training.
+      Various physics models that exploit the resonant structure of the scattering matrix have
+been proposed in the literature [14, 25, 29], but are either tailored to specific device geome-
+tries [14, 29], making their range of applicability limited, or rely on spectral decompositions
+without a formal theoretical basis [25], making the physics parameters hard to interpret. How-
+ever, the general and exact relation between resonances and scattering parameters is, in fact,
+known and is formalized by the theory of quasinormal modes (QNMs) [49, 50]. We propose a
+physics-informed NN architecture based on the QNM expansion of the scattering matrix. We
+will refer to this architecture as the QNM-Net. Owing to the generality of the QNM formalism,
+the QNM-Net is universal in the sense that it can be applied to linear electromagnetic devices
+with an arbitrary number of resonances and scattering ports. Furthermore, by implementing
+the QNM-Net as a modular framework rather than a fixed architecture, we are able to use
+the rich physics of the QNM formalism to manually tailor the model implementation to the
+unique physics of each problem. This makes our method simultaneously more general than
+previous methods while also allowing for stronger problem-specific constraints to be imposed.
+
+
+II.     QUASINORMAL-MODE-BASED NEURAL NETWORK
+
+
+      QNMs are a generalization of normal modes to lossy systems. They are defined as
+eigenmodes of the source-free Maxwell’s equations
+
+                                     ∇ × Ẽm = iω̃m µH̃m ,
+                                                                                            (2)
+                                     ∇ × H̃m = −iω̃m εẼm ,
+with outgoing radiation boundary conditions, where ω̃m is the QNM eigenfrequency, m
+enumerates the QNMs, and ε and µ material parameters describing a linear and local
+material response. Due to the open boundary and material absorption, the eigenproblem is
+non-Hermitian and ω̃m = ωm + iγm complex-valued. The imaginary part γm corresponds to
+a decay in time and can be decomposed as γm = γr,m + γnr,m , where γr,m is due to radiative
+losses and γnr,m is due to nonradiative losses [51, 52].
+
+                                              4
+   A connection can be made between S(ω) and the QNMs by expanding the scattered
+electromagnetic field as a sum of the QNM fields Ẽm and H̃m [49, 50, 53]. This so-called
+quasinormal mode expansion of the scattering matrix makes it clear that the QNM frequencies
+ω̃m correspond to resonances in the scattering spectrum, as illustrated in Figure 1. Many
+different versions of the expansion can be found in the literature [49, 50, 53, 54]. In this
+work, we use the form
+
+                     S(ω) = eiωτ [C(ω) + D(iω − iΩ̃)−1 M −1 D† C(ω)]eiωτ ,                    (3)
+
+which is approximate but specifically formulated to respect energy conservation even when
+a finite number of QNMs are included in the expansion [54], making it suitable for our
+application. In this expression, for an N -port device with P modes, C(ω) is an N × N matrix
+representing a slowly varying background, D is an N × P matrix with columns dm , Ω̃ is a
+diagonal matrix of QNM frequencies ω̃m , and M is a P × P matrix with elements
+                                                    d†m dp
+                                     Mmp =                 ∗
+                                                               ,
+                                               iω̃r,p − iω̃r,m
+where ω̃r,m = ωm + iγr,m . The N complex-valued elements of dm should be interpreted as
+the amplitudes of the m:th QNM on the ports. Finally, τ is a diagonal N × N matrix of real
+numbers τn that determine the phase accumulated between the scatterer and the ports. We
+refer to Reference [54] for a more in-depth description, derivation, and error analysis.
+
+
+
+
+                        Loss
+
+
+                                   Frequency
+
+
+
+Figure 1. Relation between the S matrix and QNMs of a fictitious 2-port scattering device. Right:
+The scattering matrix S relates the amplitudes s±
+                                                n of incoming (+) and outgoing (−) waves. Top
+
+left: Resonances are observed when plotting elements of S as a function of frequency. Bottom left:
+Each resonance corresponds to a complex pole of S(ω). The poles are eigenfrequencies ω̃m of QNMs.
+
+
+
+   Our proposed physics-informed NN architecture incorporates the QNM expansion as a
+physics model according to the principle shown in the schematic in Equation (1). The physics
+
+                                               5
+parameters are in our case C(ω) and τ , as well as ω̃m and dm for each mode m. We use a
+modular architecture composed of multiple submodels as illustrated in Figure 2 to facilitate
+adaptation to a wide range of systems. The first submodel maps the design description
+to an abstract feature vector φ. The subsequent submodels use φ to predict the physics
+parameters evaluated at frequency ω. Finally, S(ω) is computed from the physics parameters
+using the QNM expansion (3). The internal structure of the submodels is left unspecified
+and can be tailored to the specific physics of each system.
+                          Trainable
+                                             Background
+                          Fixed expression     model
+
+
+                                                               QNM-
+                        Design    Feature
+                                              Mode             Expansion
+                                 extractor
+                                              models           Eq. (3)
+
+
+                                             Embedding
+                                               model
+
+
+
+Figure 2. Overview of the QNM-Net architecture. White boxes are submodels with trainable
+parameters, the gray box is an analytical physics model with no trainable parameters. Arrows
+indicate the relations between inputs and outputs of each submodel.
+
+
+
+
+III.    RESULTS AND DISCUSSION
+
+
+   A.    Photonic crystal slab
+
+
+   We demonstrate the QNM-Net on two example systems. The first example is a photonic
+crystal (PhC) slab, consisting of a sheet of lossless dielectric with a repeating pattern of
+holes. We study transmission and reflection at normal incidence. The design is described by
+five parameters (h, r1 , r2 , r3 , r4 ) as illustrated in Figure 3(a). Four-fold rotational symmetry
+is enforced to ensure polarization independence, resulting in a S matrix of size 2 × 2. The
+scattering spectrum in the frequency range of interest is dominated by a single Fano resonance
+on an otherwise smooth background, as exemplified in Figure 3(b).
+   Having defined the system, we now choose the implementation of the QNM-Net submodels
+based on our prior knowledge about its physics. Consulting the diagram in Figure 2, the
+background model should take φ and ω as inputs and return the corresponding background
+
+                                                6
+                           (a)                     (b)
+                                                           solid: simulation   dashed: QNM-Net
+
+
+
+                                             S11
+
+
+
+
+                                            S21                       Frequency (THz)
+                           (c)       ×103            (d)      ×10−4
+                             1.5                                                    Reference
+                                                                                       34k
+                             1.0                                                       220k
+                                                                                       2.3M
+                             0.5
+                                                                                    QNM-Net
+                                 0                                                    14k
+
+
+
+
+Figure 3. Applying the QNM-Net to PhC slabs. (a) Illustration of the PhC parametrization and
+geometry. (b) Simulated and QNM-Net-predicted S parameters for a sample from the validation set.
+(c) Histogram of test losses for the QNM-Net when using 20 % of the dataset. (d) Validation loss
+as a function of dataset size for the QNM-Net and standard NNs. Markers show cross-validation
+average, vertical bars show lowest and highest values. Numbers in the legend refer to the number
+of trainable parameters.
+
+
+matrix C(ω). Because the PhC is reciprocal, lossless, and mirror symmetric, C satisfies
+C T = C, C † C = I, and C11 = C22 [54], so we set
+                                                      
+                                        i sin α cos α
+                                C=                     eiα .                                   (4)
+                                         cos α i sin α
+
+To allow for a design-dependent slow variation with frequency, we let α = α(ω) be a linear
+function of ω with values at 170 THz and 210 THz predicted from φ using a single-layer NN.
+Next, the mode models should predict the QNM frequencies ω̃m and port amplitudes dm
+from φ, with each mode model corresponding to one mode in the QNM expansion. Since the
+scattering spectrum of the PhC is well approximated by a single resonance, we only use one
+mode model in this case. Furthermore, because the PhC is reflection symmetric, the QNMs
+are either even or odd, corresponding to dm = (1, 1) or dm = (1, −1), respectively [49, 54].
+The observed Fano mode is even, so we set d1 = (1, 1). The material of the PhC being lossless
+implies γnr,1 = 0. We let the remaining unknown and design-dependent mode parameters ω1
+and γr,1 be predicted from φ using a single-layer NN, with causality enforced by applying
+
+                                                         7
+a strictly positive activation function to γr,1 [54]. The embedding model should predict τn
+from φ. We use a single-layer NN to predict τ1 from φ and set τ2 = τ1 to respect reflection
+symmetry. Finally, we use a fully-connected feed-forward NN in the feature extractor to
+provide the bulk of the trainable weights of the network. A linear skip connection was added
+to improve training robustness and convergence speed [14]. A detailed schematic of all the
+submodels is provided in the Supporting Information.
+   To train the QNM-Net, we generated a dataset of 10 000 random PhC designs and
+their corresponding scattering spectra S(ω) at 200 equally spaced frequency points using
+frequency-domain finite-element method simulations. The QNM-Net was trained to minimize
+the S-parameter mean-squared-error (S-MSE), defined as
+                                   1 X predicted
+                      S-MSE =               |S   (ωk ) − Sijtrue (ωk )|2 ,
+                                 NS Nω i,j,k ij
+
+where NS is the number of elements Sij in the scattering matrix and Nω is the number of
+sampled frequencies ωk . Gradients were automatically backpropagated through the entire
+model, including the QNM-expansion, using automatic differentiation. Models were trained
+on 80 % of the dataset, while the remaining 20 % was used for validation. The validation error
+was averaged over five dataset splits. More details about the neural-network implementation
+and training procedures are provided in the Supporting Information.
+   The trained QNM-Net is able to reproduce the simulated scattering accurately, as ex-
+emplified by the sample shown in Figure 3(b). The sample has an S-MSE of 2.1 × 10−4 ,
+which is close to the mean of the loss histogram shown in Figure 3(c). The histogram was
+evaluated on a test set separate from both the validation and training sets to avoid bias.
+For reference, we compare the QNM-Net to three standard fully-connected feed-forward
+NNs with varying numbers of trainable parameters, similar to architectures used in forward
+models in the literature [19, 22, 23, 27, 38]. Figure 3(d) shows the validation loss for all
+models at different dataset sizes. The parameter count of all models are listed in the legend
+of the figure. The QNM-Net requires only 2 % of the dataset, corresponding to 160 training
+samples, to achieve an S-MSE less than 10−3 . The reference models require approximately
+one order of magnitude more data and trainable parameters to achieve a similar loss. This
+shows that the QNM-Net can reduce the need for training data significantly by learning the
+physics of the system in terms of its QNMs.
+   Another benefit of physics-informed models operating according to the principle shown
+
+                                             8
+in the schematic in Equation (1) is that their predictions are explainable in terms of the
+network-predicted physics parameters [29], which for the QNM-Net are C(ω), ω̃m , dm , and τn .
+Based on the theoretical foundations of the QNM expansion, we know that ω̃m correspond
+exactly to eigenfrequencies of Maxwell’s equations (2). Thus, the accuracy of the learned
+physics can be verified by comparing the network-predicted ω̃m to eigenfrequencies calculated
+using full-wave eigenmode simulations. Figure 4 shows the network-predicted ω̃1 and the
+closest simulated eigenfrequency for 100 new randomly generated designs for the PhC slab
+example. The two methods agree to high precision, indicating that the network training has
+converged to a representation of the spectra that matches the correct underlying physics for
+this system. It should be noted that, although finding the correct QNM parameters should
+lead to vanishing S-MSE and thus correspond to minima in the NN loss landscape, there is
+no guarantee that these minima are unique or that the training procedure will always find
+them. Thus, validating the trained model with a reference eigenmode solver as shown here is
+necessary if the accuracy of the learned physics is of importance.
+                                                                                  Frequency
+                                          QNM-Net                                R 2 = 0.99985
+
+                                                                       QNM-Net
+                                          Simulation
+                                      4
+
+
+
+
+                      Damping (THz)
+                                      3
+                                                                                  Simulation
+                                      2                                            Damping
+                                                                                 R 2 = 0.99943
+
+                                                                       QNM-Net
+                                      1
+
+                                      0
+                                             180       190       200              Simulation
+                                               Frequency (THz)
+
+Figure 4. Comparison between ω̃1 learned by the QNM-Net and calculated by full-wave eigenmode
+simulations for the PhC geometry. Left: QNM frequency and damping for 100 randomly generated
+designs. Each dot/cross corresponds to a separate design. Right: Parity plots for frequency and
+damping with corresponding coefficient of determination.
+
+
+   Since the QNM-Net is able to accurately predict the QNM parameters of the PhC, these can
+now be used as design targets for inverse design. To demonstrate this, we inverse design five
+PhC slabs with linearly increasing eigenfrequency and loss rate. Starting from an initial design
+with all design parameters set to zero, the difference between model-predicted and desired
+
+                                                             9
+value of ω̃1 was minimized using the Adam optimizer [55] with gradients backpropagated
+through the network using automatic differentiation. The optimization converged to the
+desired eigenfrequency after a few hundred steps in less than one second. The final designs
+were simulated using the full-wave solver as verification. The predicted and simulated results
+shown in Figure 5 match closely, demonstrating that a QNM-Net trained solely on spectral
+data can be used for fast and accurate inverse design of eigenfrequencies.
+
+
+
+
+                                 Pred.    Sim.
+
+                                 Optimizer path
+                                 Predicted
+                                 Simulated
+
+
+
+
+Figure 5. Inverse design of PhC slabs. The PhC geometries in the top row were optimized for
+linearly spaced complex eigenfrequencies. The thickness of the PhC slab is displayed above each
+design. QNM-Net predictions (blue) and full-wave simulations (black) of the PhC reflectivity spectra
+and eigenmodes are shown in the middle and lower panels.
+
+
+
+
+   B.   Free-form dielectric metasurface
+
+
+   To investigate if the QNM-Net approach is also beneficial for more complex geometries
+when less is known about the physics, we apply the QNM-Net to free-form all-dielectric
+metasurfaces. We use a dataset introduced in Reference [56] containing roughly 80 000 meta-
+atoms and their corresponding scattering spectra (more details are available in the Supporting
+Information). The geometry is described by a 100 × 100 binary bitmap representing the
+etching mask for the metasurface unit cell, as illustrated in Figure 6(a). As far as we
+know, no previous works have applied NNs with resonance-based physics models to free-
+
+                                                  10
+form designs. This system has a vastly larger design space, lower frequency resolution, a
+polarization-dependent scattering response, multiple overlapping resonances, nonradiative
+loss, and lacks mirror symmetry due to the presence of a substrate. Furthermore, only two
+columns of the S matrix, corresponding to light incident from the top, are available in the
+dataset.
+
+                        (a)   1        2   (b)                               A1
+                                                 dots: simulation   lines: QNM-Net
+                                  Si
+
+
+
+
+                                   SiO2
+
+                              3        4
+                                                         Frequency (THz)
+                        (c)                      (d)
+                                                                         Reference
+                          4
+                                                                            455k
+                                                                            4.3M
+                                                                            64M
+                          2
+
+                                                                         QNM-Net
+                                                                           493k
+                          0
+
+
+
+
+Figure 6.   QNM-Net applied to free-form metasurface. (a) Illustration of a metasurface unit
+cell and the corresponding bitmap. Numbered arrows indicate the locations and polarizations of
+the ports. (b) Simulated and QNM-Net-predicted spectrum. A1 = 1 − Σn |Sn1 |2 is the absorbed
+power fraction for incidence on port 1. (c) Histogram of QNM-Net test losses for dataset size 80 %.
+(d) Validation loss as a function of dataset size for the QNM-Net and reference models. Numbers in
+the legend refer to the number of trainable parameters.
+
+
+   We again adapt the QNM-Net submodel implementation to our prior knowledge about
+the system. Because the design parameterization now has an inherent spatial structure, we
+use a version of the convolutional DenseNet architecture [57] which we previously found to
+perform well on this dataset [34] as the feature extractor. In this case, there is no clearly
+distinguishable background. We therefore set C = −I, which is commonly used in QNM
+expansions [49, 54] and let the QNM-Net fit the background using many broad resonances.
+The spectra have a varying number of modes within the sampled frequency range. We chose
+to include 20 mode models in the QNM-Net, which we deemed to be more than sufficient
+
+                                                   11
+based on manual inspection of a few simulated spectra. If a smaller number of modes are
+necessary to explain a given spectrum, the QNM-Net can learn to place the superfluous
+modes outside the sampled range, so that they do not contribute to the predicted spectrum.
+For each mode, the QNM frequency and damping rates, as well as the real and imaginary
+parts of dm , are predicted from φ by small NNs. Each mode model has separate trainable
+weights. Fixed port delays τn are used to account for the distance between the metasurface
+boundary and the ports.
+   Subsequently, we compare the QNM-Net to reference models consisting of DenseNets
+followed by branched feed-forward NNs, similar to the architecture used in our previous
+work [34]. The same DenseNet architecture was used for all models, but the width of the
+fully-connected layers was varied to change the number of trainable parameters. Figure 6(b)
+shows a simulated spectrum and the corresponding QNM-Net prediction for a sample from
+the validation set. The S-MSE of the prediction is 2.4 × 10−3 , which is typical compared
+to the histogram shown in Figure 6(c). We observe that the QNM-Net reproduces most
+resonances, but fails to predict a few weaker resonances. We believe this is due to the
+design space being so large that even tens of thousands of training samples are not enough
+to accurately learn all features of the spectra. Nevertheless, Figure 6(d) shows that the
+QNM-Net requires only around one third of the data to achieve a loss as low as that of the
+best reference models, demonstrating that the method is useful for spectrum prediction also
+for this system even if all predicted resonances are not accurate.
+   To further investigate the accuracy of the learned QNMs, we conduct an eigenmode study
+for three metasurface designs from the validation set with varying number of resonances in
+the sampled frequency range. The QNM-Net-predicted eigenfrequencies together with all
+eigenfrequencies returned by an eigenmode solver with outgoing radiation boundary conditions
+are shown in Figure 7. Most modes predicted by the QNM-Net inside the sampled frequency
+range correspond to true eigenmodes found by the simulator. Modes outside this range and
+high-damping modes close to the edges are generally not accurate, which is expected since
+there is very little information available in the data to learn these modes. Interestingly, designs
+that connect the edges of the unit cell (the leftmost and rightmost designs in Figure 7 exhibit
+several low-damping modes with no clear corresponding features in the scattering spectra and
+no corresponding modes predicted by the QNM-Net. We interpret these as modes that are
+very weakly coupled to the incoming radiation and therefore do not contribute significantly
+
+                                               12
+to the scattering spectrum. This illustrates that the QNM-Net automatically identifies the
+modes that are the most important for the scattering response, whereas eigenmode solvers
+return very large numbers of modes that would otherwise be cumbersome to filter manually.
+
+                              A1    dots: simulation   lines: QNM-Net
+
+
+
+
+            QNM-Net
+            Simulation
+
+
+
+
+Figure 7.     Eigenmode study for the metasurface example. Each column shows the QNM-Net-
+predicted and simulated spectrum (top row) and eigenfrequencies (bottom row) of a different design
+(top-right inset) from the validation set. Shaded regions in the bottom row correspond to frequencies
+outside the training range.
+
+
+
+
+IV.   CONCLUSION AND FURTHER RESEARCH
+
+
+   In conclusion, we have demonstrated a modular physics-informed NN architecture for
+electromagnetic scattering based on the QNM expansion of the scattering matrix. We
+have shown that this architecture requires significantly less trainable parameters and is
+substantially more data efficient than conventional NNs for prediction of scattering spectra.
+Compared to previous physics-informed NNs for electromagnetic scattering [14, 25, 29], we
+expect the QNM-Net to perform similarly in terms of accuracy and data efficiency while
+having the benefit of being applicable to a wider range of systems and a more well-founded
+theoretical basis in the formalism of quasinormal modes. In particular, the QNM frequencies
+learned by the model correspond directly to the eigenmodes of the scatterer, which was
+verified by comparing the learned physics to eigenmode simulations. We believe that the
+method will be useful for modeling a wide range of electromagnetic systems where the
+
+                                                 13
+scattering spectrum is accurately described by a set of resonances.
+   The method presented here opens the door to further developments in machine learning
+for electromagnetic scattering, which previously was limited to overly simplified systems or
+required an amount of training data that was difficult to obtain in practice. The significantly
+improved data efficiency can make it practically feasible to train models on experimental
+data for simple designs. In the Supporting Information, we add simulated noise to the
+training data to demonstrate that the QNM-Net is more robust to noise than standard NNs,
+which indicates that the QNM-Net may have additional advantages in this scenario. The
+QNM-Net can also be combined with methods such as those presented in References [58, 59]
+to account for fabrication-induced performance degradation in inverse design. Furthermore,
+investigating the learned parameters can provide insights into the underlying physics for
+automated knowledge discovery. For example, if the reflection symmetry of the PhC mode
+had not been included as a prior constraint, it could have been discovered by looking at the
+model predictions for d1 .
+   In future studies, it would be interesting to investigate the effect of individual constraints
+to determine which inductive biases are most important for data efficiency. Another possible
+development is to use transfer learning of the QNM-Net submodels for further improvements
+to data efficiency. For example, the feature extractor could be pretrained as the encoder
+network of an autoencoder. The rigorous connection between the QNM expansion and
+electromagnetic eigenmodes also makes it possible to train the QNM-Net on eigenmode
+simulations. This approach could be particularly useful for sharp resonances that are not
+easily resolved in the frequency domain.
+
+   Acknowledgements
+   We acknowledge partial financial support from Chalmers’ area of advance Nano (Excellence
+Grant), from the Swedish Research Council under Grant No. 2020-05284, and from the Knut
+och Alice Wallenberg Stiftelse under Grant No. 2022.0090. Training data generation and NN
+training were performed on resources provided by the Swedish National Infrastructure for
+Computing (NAISS), at the Chalmers/C3SE and KTH/PDC sites, partially funded by the
+Swedish Research Council under Grant No. 2022-06725. The work was performed in part
+within the framework of the Excellence Center META-PIX.
+
+   Data Availability
+
+                                              14
+   The photonic crystal dataset and code for implementing the QNM-Net are publicly avail-
+able in the GitHub repository github.com/ViktorLilja/qnm-net. The freeform metasurface
+dataset and code used to generate the results and figures are available from the authors upon
+request.
+
+
+
+
+ [1] I. N. Da Silva, D. Hernane Spatti, R. Andrade Flauzino, et al., Artificial Neural Networks: A
+    Practical Course, Springer, Cham (2017).
+ [2] B. Mehlig, Machine Learning with Neural Networks: An Introduction for Scientists and
+    Engineers, Cambridge University Press, Cambridge (2021).
+ [3] P. R. Wiecha, A. Lecestre, N. Mallet, et al., “Pushing the limits of optical information storage
+    using deep learning,” Nature Nanotechnology 14, 237–244 (2019).
+ [4] R. Iten, T. Metger, H. Wilming, et al., “Discovering physical concepts with neural networks,”
+    Phys. Rev. Lett. 124, 010508 (2020).
+ [5] V. Peano, F. Sapper, and F. Marquardt, “Rapid exploration of topological band structures
+    using deep learning,” Phys. Rev. X 11, 021052 (2021).
+ [6] P. R. Wiecha, A. Arbouet, C. Girard, et al., “Deep learning in nano-photonics: Inverse design
+    and beyond,” Photonics Res. 9, B182 (2021).
+ [7] O. Khatib, S. Ren, J. Malof, et al., “Deep Learning the Electromagnetic Properties of Meta-
+    materials—A Comprehensive Review,” Adv. Funct. Mater. 31, 2101748 (2021).
+ [8] J. Jiang, M. Chen, and J. A. Fan, “Deep neural networks for the evaluation and design of
+    photonic devices,” Nat. Rev. Mater. 6, 679–700 (2021).
+ [9] M. Zandehshahvar, Y. Kiarashi, M. Chen, et al., “Inverse design of photonic nanostructures
+    using dimensionality reduction: Reducing the computational complexity,” Opt. Lett. 46,
+    2634–2637 (2021).
+[10] M. Zandehshahvar, Y. Kiarashinejad, M. Zhu, et al., “Manifold learning for knowledge discovery
+    and intelligent inverse design of photonic nanostructures: Breaking the geometric complexity,”
+    ACS Photonics 9, 714–721 (2022).
+[11] N. Mohseni, T. Fösel, L. Guo, et al., “Deep learning of quantum many-body dynamics via
+    random driving,” Quantum 6, 714 (2022).
+
+                                               15
+[12] J. Lee, D. Park, M. Lee, et al., “Machine learning-based inverse design methods considering
+    data characteristics and design space size in materials design and manufacturing: a review,”
+    Mater. Horiz. 10, 5436–5456 (2023).
+[13] M. Sanchez, C. Everly, and P. A. Postigo, “Advances in machine learning optimization for
+    classical and quantum photonics,” J. Opt. Soc. Am. B 41, A177–A190 (2024).
+[14] Y. Xu, J.-Q. Yang, K. Fan, et al., “Physics-Informed Inverse Design of Programmable Meta-
+    surfaces,” Adv. Sci. 11, 2406878 (2024).
+[15] L. Su, D. Vercruysse, J. Skarda, et al., “Nanophotonic inverse design with SPINS: Software
+    architecture and practical considerations,” Appl. Phys. Rev. 7, 011407 (2020).
+[16] O. Tsilipakos, G. Perrakis, M. Farsari, et al., “Polymeric optical metasurfaces by two-photon
+    lithography: Practical designs for beam steering,” in Metamaterials 2024, 1–3 (2024).
+[17] R. S. Hegde, “Photonics inverse design: pairing deep neural networks with evolutionary
+    algorithms,” IEEE J. Sel. Top. Quantum Electron. 26, 1–8 (2019).
+[18] S. So, T. Badloe, J. Noh, et al., “Deep learning enabled inverse design in nanophotonics,”
+    Nanophotonics 9, 1041–1057 (2020).
+[19] Y. Deng, S. Ren, K. Fan, et al., “Neural-adjoint method for the inverse design of all-dielectric
+    metasurfaces,” Opt. Express 29, 7526–7534 (2021).
+[20] Y. Yan, F. Li, J. Shen, et al., “Highly intelligent forward design of metamaterials empowered
+    by circuit-physics-driven deep learning,” Laser Photonics Rev. , 2400724 (2024).
+[21] C. C. Nadell, B. Huang, J. M. Malof, et al., “Deep learning for accelerated all-dielectric
+    metasurface design,” Opt. Express 27, 27523–27535 (2019).
+[22] S. Sarkar, A. Ji, Z. Jermain, et al., “Physics-Informed Machine Learning for Inverse Design of
+    Optical Metamaterials,” Adv. Photonics Res. 4, 2300158 (2023).
+[23] L. Xu, M. Rahmani, Y. Ma, et al., “Enhanced light–matter interactions in dielectric nanos-
+    tructures via machine-learning approach,” Adv. Photonics 2, 026003 (2020).
+[24] Y. Jing, H. Chu, B. Huang, et al., “A deep neural network for general scattering matrix,”
+    Nanophotonics 12, 2583–2591 (2023).
+[25] A.-P. Blanchard-Dionne and O. J. F. Martin, “Teaching optics to a machine learning network,”
+    Opt. Lett. 45, 2922–2925 (2020).
+[26] T. Zhang, C. Y. Kee, Y. S. Ang, et al., “Symmetry Enhanced Network Architecture Search for
+    Complex Metasurface Design,” IEEE Access 10, 73533–73547 (2022).
+
+
+                                               16
+[27] S. So, J. Mun, and J. Rho, “Simultaneous Inverse Design of Materials and Structures via Deep
+     Learning: Demonstration of Dipole Resonance Engineering Using Core–Shell Nanoparticles,”
+    ACS Appl. Mater. Interfaces 11, 24264–24268 (2019).
+[28] X. Ma, Y. Ma, P. Cunha, et al., “Strategical Deep Learning for Photonic Bound States in the
+     Continuum,” Laser Photonics Rev. 16, 2100658 (2022).
+[29] O. Khatib, S. Ren, J. Malof, et al., “Learning the Physics of All-Dielectric Metamaterials with
+     Deep Lorentz Neural Networks,” Adv. Opt. Mater. 10, 2200097 (2022).
+[30] W. Ma, F. Cheng, Y. Xu, et al., “Probabilistic Representation and Inverse Design of Meta-
+     materials Based on a Deep Generative Model with Semi-Supervised Learning Strategy,” Adv.
+    Mater. 31, 1901111 (2019).
+[31] J. Guimbao, L. Sanchis, L. Weituschat, et al., “Numerical optimization of a nanophotonic
+     cavity by machine learning for near-unity photon indistinguishability at room temperature,”
+    ACS Photonics 9, 1926–1935 (2022).
+[32] Z. Liu, D. Zhu, S. P. Rodrigues, et al., “Generative Model for the Inverse Design of Metasurfaces,”
+    Nano Lett. 18, 6570–6576 (2018).
+[33] J. Xu, P. Xu, Z. Yang, et al., “Freeform metasurface design with a conditional generative
+     adversarial network,” Appl. Phys. A 130, 530 (2024).
+[34] T. Gahlmann and P. Tassin, “Deep neural networks for the prediction of the optical properties
+     and the free-form inverse design of metamaterials,” Phys. Rev. B 106, 085408 (2022).
+[35] C. Yeung, B. Pham, R. Tsai, et al., “DeepAdjoint: An All-in-One Photonic Inverse Design
+     Framework Integrating Data-Driven Machine Learning with Optimization Algorithms,” ACS
+    Photonics 10, 884–891 (2023).
+[36] M. H. Tahersima, K. Kojima, T. Koike-Akino, et al., “Deep Neural Network Inverse Design of
+     Integrated Photonic Power Splitters,” Sci. Rep. 9, 1368 (2019).
+[37] Y. Qian, B. Ni, Z. Feng, et al., “Deep Learning for the Design of Random Coding Metasurfaces,”
+    Plasmonics 18, 1941–1948 (2023).
+[38] D. Liu, Y. Tan, E. Khoram, et al., “Training Deep Neural Networks for the Inverse Design of
+     Nanophotonic Structures,” ACS Photonics 5, 1365–1369 (2018).
+[39] A. V. Kildishev, O. Yesilyurt, V. Mkhitaryan, et al., “Inverse-designed superchiral dielectric
+     metasurfaces,” in Metamaterials, Metadevices, and Metasystems 2024, PC1310916 (2024).
+[40] G. You, C. Qian, S. Tan, et al., “Driving deep-learning-based metasurface design with Kramers-
+
+
+                                                 17
+     Kronig relations,” Phys. Rev. Appl. 22, L041002 (2024).
+[41] Y. Gao, W. Chen, F. Li, et al., “Meta-Attention Deep Learning for Smart Development of
+     Metasurface Sensors,” Adv. Sci. 11, 2405750 (2024).
+[42] J. L. Su, J. W. You, L. Chen, et al., “MetaPhyNet: Intelligent design of large-scale metasurfaces
+     based on physics-driven neural network,” J. Phys. Photonics 6, 035010 (2024).
+[43] Z. A. Kudyshev, A. V. Kildishev, V. M. Shalaev, et al., “Machine learning–assisted global
+     optimization of photonic devices,” Nanophotonics 10, 371–383 (2021).
+[44] S. W. Kim, I. Kim, J. Lee, et al., “Knowledge Integration into deep learning in dynamical
+     systems: An overview and taxonomy,” J. Mech. Sci. Technol. 35, 1331–1342 (2021).
+[45] G. E. Karniadakis, I. G. Kevrekidis, L. Lu, et al., “Physics-informed machine learning,” Nat.
+    Rev. Phys. 3, 422–440 (2021).
+[46] J. Zhang, J. W. You, F. Feng, et al., “Physics-Driven Machine-Learning Approach Incorpo-
+     rating Temporal Coupled Mode Theory for Intelligent Design of Metasurfaces,” IEEE Trans.
+    Microwave Theory Tech. 71, 2875–2887 (2023).
+[47] X. Ding, V. Devabhaktuni, B. Chattaraj, et al., “Neural-network approaches to electromagnetic-
+     based modeling of passive components and their applications to high-frequency and high-speed
+     nonlinear circuit optimization,” IEEE Trans. Microwave Theory Tech. 52, 436–449 (2004).
+[48] S. Liu, F. Feng, X. Huang, et al., “Novel Neuro-Coupling Matrix Technique for Parametric
+     Modeling of Microwave Filters,” IEEE Microwave Wireless Technol. Lett. 34, 871–874 (2024).
+[49] F. Alpeggiani, N. Parappurath, E. Verhagen, et al., “Quasinormal-Mode Expansion of the
+     Scattering Matrix,” Phys. Rev. X 7, 021035 (2017).
+[50] H. Zhang and O. D. Miller, “Quasinormal Coupled Mode Theory,” (2020).
+[51] P. Lalanne, W. Yan, K. Vynck, et al., “Light Interaction with Photonic and Plasmonic
+     Resonances,” Laser Photonics Rev. 12, 1700113 (2018).
+[52] P. T. Kristensen, K. Herrmann, F. Intravaia, et al., “Modeling electromagnetic resonators
+     using quasinormal modes,” Adv. Opt. Photonics 12, 612–708 (2020).
+[53] T. Weiss and E. A. Muljarov, “How to calculate the pole expansion of the optical scattering
+     matrix from the resonant states,” Phys. Rev. B 98, 085433 (2018).
+[54] M. Benzaouia, J. D. Joannopoulos, S. G. Johnson, et al., “Quasi-normal mode theory of the
+     scattering matrix, enforcing fundamental constraints for truncated expansions,” Phys. Rev.
+    Res. 3, 033228 (2021).
+
+
+                                                18
+[55] D. P. Kingma and J. Ba, “Adam: A Method for Stochastic Optimization,” arXiv , 1412.6980
+    (2017).
+[56] T. Gahlmann and P. Tassin, “Evaluation of machine learning techniques for conditional
+    generative adversarial networks in inverse design,” arXiv , 2502.11934 (2025).
+[57] G. Huang, Z. Liu, L. Van Der Maaten, et al., “Densely connected convolutional networks,”
+    in 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2261–2269
+    (2017).
+[58] S. Raza, M. Hammood, N. A. F. Jaeger, et al., “Fabrication-aware inverse design with shape
+    optimization for photonic integrated circuits,” Opt. Lett. 50(1), 117–120 (2025).
+[59] R. P. Jenkins, S. D. Campbell, and D. H. Werner, “Establishing exhaustive metasurface
+    robustness against fabrication uncertainties through deep learning,” Nanophotonics 10(18),
+    4497–4509 (2021).
+
+
+
+
+                                              19
+

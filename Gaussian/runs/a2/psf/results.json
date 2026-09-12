@@ -1,0 +1,44 @@
+{
+  "scope": "Algorithm-specific local response GRGdagger; fixed known material and projected pixel impulse, no global recovery guarantee",
+  "noise_convention": "complex RMS sigma; real Fisher is 2 A.T A",
+  "n": 32,
+  "side_m": 0.4,
+  "frequencies": [
+    1500000000.0,
+    2750000000.0
+  ],
+  "sigma": 0.00011326196240819273,
+  "damping": 819.1713983517534,
+  "input_pixel": 398,
+  "parameter_rank": 12,
+  "fold": {
+    "first_rank": 6,
+    "second_rank": 2,
+    "relative_singular_cutoff": 1e-08,
+    "absolute_data_tolerance": 1e-10,
+    "absolute_internal_tolerance": 1e-12,
+    "data_singular_values": [
+      509.3288480237639,
+      473.96727638586856,
+      443.34495404116245,
+      333.3298396940035,
+      317.82687828117105,
+      193.89389089884676,
+      134.1906374525951,
+      123.4019268802681,
+      84.581110765099,
+      75.44931073116076,
+      68.32315950905233,
+      43.84915127059119
+    ],
+    "internal_weak_singular_values": [
+      2.9855284571586108e-05,
+      2.947682110940198e-05,
+      1.9283306939251246e-05,
+      1.785300882850482e-05,
+      1.6796890620650566e-05,
+      1.0706758473382652e-05
+    ],
+    "twofold_internal_energy_fraction": 0.618149094065214
+  }
+}

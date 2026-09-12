@@ -1,0 +1,430 @@
+{
+  "source_sha256": "cca43b51a635be7bdb32dc61b1a66600d2f4e77e197e0cf4ebc6a495de5ebff7",
+  "scope": "Fixed Gaussian centers/scales and four shared-state residuals. Standard randomized data-range preconditioning; no nonlinear recovery, no parameter birth/death, no novel theorem. A CG iteration cap is reported as a cap, never convergence.",
+  "results": [
+    {
+      "parameters": 784,
+      "state_cells": 4096,
+      "frequencies": 2,
+      "illuminations_per_frequency": 4,
+      "receivers_per_frequency": 12,
+      "residuals": 4,
+      "common_state_setup_seconds": 0.22711029194761068,
+      "damping": 17.42038947728189,
+      "damping_probe_seconds": 0.1939246659167111,
+      "damping_probe_cost": {
+        "tangent_rhs": 32,
+        "adjoint_rhs": 0,
+        "Jv_calls": 4,
+        "Jstar_calls": 0
+      },
+      "dense_GN": {
+        "wall_seconds": 2.047380125033669,
+        "assembly_seconds": 2.045907250023447,
+        "solve_seconds": 0.0014728750102221966,
+        "assembly_route": "adjoint_rows",
+        "solution_route": "dual_woodbury",
+        "cost": {
+          "tangent_rhs": 0,
+          "adjoint_rhs": 1536,
+          "Jv_calls": 0,
+          "Jstar_calls": 192
+        },
+        "jacobian_bytes": 1204224
+      },
+      "methods": {
+        "plain_cg": {
+          "wall_seconds_including_range": 39.66904212499503,
+          "cost": {
+            "tangent_rhs": 3200,
+            "adjoint_rhs": 3232,
+            "Jv_calls": 400,
+            "Jstar_calls": 404
+          },
+          "range_setup_seconds": 0.0,
+          "range_setup_cost": null,
+          "rows": [
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.032051897927768636,
+              "explicit_J_normal_residual": 0.002365791907617865
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.029354972830303534,
+              "explicit_J_normal_residual": 0.004882272183812125
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.035812517226295526,
+              "explicit_J_normal_residual": 0.00535664292189365
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.030477786165253814,
+              "explicit_J_normal_residual": 0.006719126601061795
+            }
+          ]
+        },
+        "data_som_rank_12": {
+          "wall_seconds_including_range": 41.00257058406714,
+          "cost": {
+            "tangent_rhs": 3288,
+            "adjoint_rhs": 3320,
+            "Jv_calls": 411,
+            "Jstar_calls": 415
+          },
+          "range_setup_seconds": 1.582393042044714,
+          "range_setup_cost": {
+            "tangent_rhs": 128,
+            "adjoint_rhs": 128,
+            "Jv_calls": 16,
+            "Jstar_calls": 16
+          },
+          "rows": [
+            {
+              "info": 0,
+              "iterations": 95,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00014664254200810436,
+              "explicit_J_normal_residual": 9.467811090083126e-06
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.00017837237788411866,
+              "explicit_J_normal_residual": 6.373722041105092e-05
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.0001568495610659638,
+              "explicit_J_normal_residual": 3.314548825083498e-05
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.00012085981769069603,
+              "explicit_J_normal_residual": 2.9875345199496755e-05
+            }
+          ]
+        },
+        "data_som_rank_32": {
+          "wall_seconds_including_range": 20.809301208006218,
+          "cost": {
+            "tangent_rhs": 1632,
+            "adjoint_rhs": 1664,
+            "Jv_calls": 204,
+            "Jstar_calls": 208
+          },
+          "range_setup_seconds": 3.671353542013094,
+          "range_setup_cost": {
+            "tangent_rhs": 288,
+            "adjoint_rhs": 288,
+            "Jv_calls": 36,
+            "Jstar_calls": 36
+          },
+          "rows": [
+            {
+              "info": 0,
+              "iterations": 39,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.0001646300592473376,
+              "explicit_J_normal_residual": 9.065510442353457e-06
+            },
+            {
+              "info": 0,
+              "iterations": 45,
+              "iteration_cap_reached": false,
+              "relative_step_error": 3.7617769960164077e-05,
+              "explicit_J_normal_residual": 3.6767037506528766e-06
+            },
+            {
+              "info": 0,
+              "iterations": 42,
+              "iteration_cap_reached": false,
+              "relative_step_error": 7.828378040832689e-05,
+              "explicit_J_normal_residual": 9.408926031358874e-06
+            },
+            {
+              "info": 0,
+              "iterations": 42,
+              "iteration_cap_reached": false,
+              "relative_step_error": 8.898128834289225e-05,
+              "explicit_J_normal_residual": 8.617909235786954e-06
+            }
+          ]
+        },
+        "data_som_rank_64": {
+          "wall_seconds_including_range": 10.115262499195524,
+          "cost": {
+            "tangent_rhs": 792,
+            "adjoint_rhs": 824,
+            "Jv_calls": 99,
+            "Jstar_calls": 103
+          },
+          "range_setup_seconds": 6.840079083107412,
+          "range_setup_cost": {
+            "tangent_rhs": 544,
+            "adjoint_rhs": 544,
+            "Jv_calls": 68,
+            "Jstar_calls": 68
+          },
+          "rows": [
+            {
+              "info": 0,
+              "iterations": 7,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00025871889688077864,
+              "explicit_J_normal_residual": 7.765876440774391e-06
+            },
+            {
+              "info": 0,
+              "iterations": 8,
+              "iteration_cap_reached": false,
+              "relative_step_error": 3.574858411044787e-05,
+              "explicit_J_normal_residual": 2.57206568293099e-06
+            },
+            {
+              "info": 0,
+              "iterations": 8,
+              "iteration_cap_reached": false,
+              "relative_step_error": 3.301975173886085e-05,
+              "explicit_J_normal_residual": 2.0055692609264006e-06
+            },
+            {
+              "info": 0,
+              "iterations": 8,
+              "iteration_cap_reached": false,
+              "relative_step_error": 4.053502024338652e-05,
+              "explicit_J_normal_residual": 2.3651292311042057e-06
+            }
+          ]
+        }
+      }
+    },
+    {
+      "parameters": 3136,
+      "state_cells": 4096,
+      "frequencies": 2,
+      "illuminations_per_frequency": 4,
+      "receivers_per_frequency": 12,
+      "residuals": 4,
+      "common_state_setup_seconds": 0.5516470419242978,
+      "damping": 9.91284487041502,
+      "damping_probe_seconds": 0.22687220806255937,
+      "damping_probe_cost": {
+        "tangent_rhs": 32,
+        "adjoint_rhs": 0,
+        "Jv_calls": 4,
+        "Jstar_calls": 0
+      },
+      "dense_GN": {
+        "wall_seconds": 4.672332416987047,
+        "assembly_seconds": 4.671679500024766,
+        "solve_seconds": 0.0006529169622808695,
+        "assembly_route": "adjoint_rows",
+        "solution_route": "dual_woodbury",
+        "cost": {
+          "tangent_rhs": 0,
+          "adjoint_rhs": 1536,
+          "Jv_calls": 0,
+          "Jstar_calls": 192
+        },
+        "jacobian_bytes": 4816896
+      },
+      "methods": {
+        "plain_cg": {
+          "wall_seconds_including_range": 50.00443583307788,
+          "cost": {
+            "tangent_rhs": 3200,
+            "adjoint_rhs": 3232,
+            "Jv_calls": 400,
+            "Jstar_calls": 404
+          },
+          "range_setup_seconds": 0.0,
+          "range_setup_cost": null,
+          "rows": [
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.2813167212151947,
+              "explicit_J_normal_residual": 0.054488041685160735
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.3248157128286905,
+              "explicit_J_normal_residual": 0.12421875545122403
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.36545915920642197,
+              "explicit_J_normal_residual": 0.021906130757348295
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.37098679712484134,
+              "explicit_J_normal_residual": 0.05906826616835586
+            }
+          ]
+        },
+        "data_som_rank_12": {
+          "wall_seconds_including_range": 51.88006983301602,
+          "cost": {
+            "tangent_rhs": 3328,
+            "adjoint_rhs": 3360,
+            "Jv_calls": 416,
+            "Jstar_calls": 420
+          },
+          "range_setup_seconds": 1.9985411659581587,
+          "range_setup_cost": {
+            "tangent_rhs": 128,
+            "adjoint_rhs": 128,
+            "Jv_calls": 16,
+            "Jstar_calls": 16
+          },
+          "rows": [
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.049659216457589576,
+              "explicit_J_normal_residual": 0.028489104785666013
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.04844564719535296,
+              "explicit_J_normal_residual": 0.025092114501105208
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.05035087748178944,
+              "explicit_J_normal_residual": 0.0325498669999348
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "iteration_cap_reached": true,
+              "relative_step_error": 0.06678625387957438,
+              "explicit_J_normal_residual": 0.036993357851385356
+            }
+          ]
+        },
+        "data_som_rank_32": {
+          "wall_seconds_including_range": 45.49049866606947,
+          "cost": {
+            "tangent_rhs": 2936,
+            "adjoint_rhs": 2968,
+            "Jv_calls": 367,
+            "Jstar_calls": 371
+          },
+          "range_setup_seconds": 4.454140083049424,
+          "range_setup_cost": {
+            "tangent_rhs": 288,
+            "adjoint_rhs": 288,
+            "Jv_calls": 36,
+            "Jstar_calls": 36
+          },
+          "rows": [
+            {
+              "info": 0,
+              "iterations": 82,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00017201263525073066,
+              "explicit_J_normal_residual": 8.264481966225089e-06
+            },
+            {
+              "info": 0,
+              "iterations": 83,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00012641294331293475,
+              "explicit_J_normal_residual": 7.461165958379141e-06
+            },
+            {
+              "info": 0,
+              "iterations": 82,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00013885437466032254,
+              "explicit_J_normal_residual": 8.64270777722907e-06
+            },
+            {
+              "info": 0,
+              "iterations": 84,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00013340099904392673,
+              "explicit_J_normal_residual": 9.434405210105248e-06
+            }
+          ]
+        },
+        "data_som_rank_64": {
+          "wall_seconds_including_range": 14.964104375103489,
+          "cost": {
+            "tangent_rhs": 960,
+            "adjoint_rhs": 992,
+            "Jv_calls": 120,
+            "Jstar_calls": 124
+          },
+          "range_setup_seconds": 8.37836850003805,
+          "range_setup_cost": {
+            "tangent_rhs": 544,
+            "adjoint_rhs": 544,
+            "Jv_calls": 68,
+            "Jstar_calls": 68
+          },
+          "rows": [
+            {
+              "info": 0,
+              "iterations": 13,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00021308885394497984,
+              "explicit_J_normal_residual": 8.781056093153183e-06
+            },
+            {
+              "info": 0,
+              "iterations": 13,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00015317007941938315,
+              "explicit_J_normal_residual": 4.9948595161517836e-06
+            },
+            {
+              "info": 0,
+              "iterations": 13,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.0001332979298960113,
+              "explicit_J_normal_residual": 5.304585427611593e-06
+            },
+            {
+              "info": 0,
+              "iterations": 13,
+              "iteration_cap_reached": false,
+              "relative_step_error": 0.00019132432056387922,
+              "explicit_J_normal_residual": 8.072848876937203e-06
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

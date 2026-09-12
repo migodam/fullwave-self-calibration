@@ -1,0 +1,15 @@
+[
+  {
+    "observed_utc": "2026-09-11T14:46:47.448256+00:00",
+    "host": "XINAN",
+    "remote_project": "D:/home/research/SSH_workspace/Gaussian_A2",
+    "process_id": 31320,
+    "exit_code": 0,
+    "process": {
+      "Id": 31320,
+      "CPU": 770.171875,
+      "PeakWorkingSet64": 1528586240,
+      "StartTime": "/Date(1789137202447)/"
+    }
+  }
+]

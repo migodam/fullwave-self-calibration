@@ -1,0 +1,1 @@
+{"python": "3.10.9 (tags/v3.10.9:1dd9be6, Dec  6 2022, 20:01:21) [MSC v.1934 64 bit (AMD64)]", "platform": "Windows-10-10.0.26200-SP0", "numpy": "2.2.6", "scipy": "1.15.3", "torch": "2.6.0+cu124", "cuda_runtime": "12.4", "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"}

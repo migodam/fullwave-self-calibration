@@ -1,0 +1,107 @@
+{
+  "completion_observed_utc": "2026-09-11T15:41:45.843317+00:00",
+  "complete_case_methods": 120,
+  "cases": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "steps_per_case_method": 120,
+  "resumed_ssh_exit_code": 0,
+  "interrupted_ssh_exit_code": 255,
+  "two_execution_phases": true,
+  "resumed_cases": [
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "configuration_hash": "34aff2c1c886ba588aa841e3a123e98b6563160f9c911b497654d61430888a2c",
+  "environment_metadata_unchanged_after_restart": true,
+  "verified": [
+    "All 120 parameter counts, source/config hashes, 120-step trajectories and RHS counts",
+    "All 120 image arrays finite and material relative L2 recomputed",
+    "All 30 original data NPZ present",
+    "90 final Gaussian parameter checkpoints read successfully on remote CPU"
+  ],
+  "interruption_record": "interruption_receipt.json",
+  "cost_accounting": {
+    "completed_optimization_seconds_including_checkpoint_io_sum": 2632.1658187000003,
+    "recorded_data_generation_seconds_sum": 653.2978467000007,
+    "recorded_inverse_setup_seconds_sum": 18.16986880000036,
+    "peak_cuda_allocated_bytes_across_invocations": 329631232,
+    "not_fully_metered": [
+      "interrupted incomplete K144 work",
+      "original case18 data generation and inverse setup before interruption",
+      "plotting, final field evaluation, inter-stage Python overhead, sync and downtime"
+    ],
+    "interpretation": "Recorded costs are component totals, not complete uninterrupted end-to-end runtime. Cost ratios omit mixed pre/post-interruption case18; method order is fixed and checkpoint I/O remains included."
+  },
+  "source_hashes": {
+    "code\\a2\\gpu\\representation_campaign.py": "d83eb02dd68d920a606e46d2ecb07c6955a880f02495d43004c11c75493657e7",
+    "code\\a2\\gpu\\torch_vie.py": "fcc1fe342826213fc5c6ce00ae65b8e1914b95dc93fb647d2fc8bfb9d52cc59c",
+    "code\\a2\\physics.py": "62c7c9e2d9e7387725192f79d1ea69c2a7a43b0c154b68947d920614a2e30faf"
+  },
+  "environment": {
+    "python": "3.10.9 (tags/v3.10.9:1dd9be6, Dec  6 2022, 20:01:21) [MSC v.1934 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "torch": "2.6.0+cu124",
+    "cuda_runtime": "12.4",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+  },
+  "limitations": [
+    "Same VIE software with different grids/quadratures; not independent software",
+    "Noiseless development comparison, not confirmation or TAP acceptance",
+    "Incomplete lost-work and full wall-time accounting across OS restart"
+  ],
+  "logs_sha256": {
+    "main128_interrupted.log": "1e32be543c18436229a5db9ad74f43576dfe360569ea24dedc1c91cd2fc19f43",
+    "main128_resume.log": "176383e0770aa530499a28641f6d12347ef90d6b6fc81b53fafd0f5c504abe7d"
+  },
+  "posthoc_refinement": {
+    "complete_fixed_solution_reassessments": 120,
+    "ssh_exit_code": 0,
+    "state_grid": 256,
+    "forward_rhs": 4320,
+    "adjoint_rhs": 0,
+    "total_seconds": 98.85292870000012,
+    "scope": "post-hoc, no reoptimization; same VIE software"
+  }
+}

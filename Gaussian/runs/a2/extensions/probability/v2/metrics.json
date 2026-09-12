@@ -1,0 +1,93 @@
+{
+  "aggregate": {
+    "exact": {
+      "high": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.05535728893040086,
+        "held_field_relative_to_noisy_y": 0.05574549090488277,
+        "kl_to_exact": 0.0,
+        "brier": 0.0,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": null
+      },
+      "medium": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.26024554770406644,
+        "held_field_relative_to_noisy_y": 0.2571171071756617,
+        "kl_to_exact": 3.1734979636299927e-302,
+        "brier": 0.0,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": null
+      },
+      "low": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.5117097864663084,
+        "held_field_relative_to_noisy_y": 0.5194233090900962,
+        "kl_to_exact": -2.366582715663024e-30,
+        "brier": 2.9828802978670485e-31,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": null
+      }
+    },
+    "product_vi": {
+      "high": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.05535728889554743,
+        "held_field_relative_to_noisy_y": 0.05574549090819066,
+        "kl_to_exact": 5.531673471507578e-05,
+        "brier": 7.759653223086753e-18,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": 0.00542715007904917
+      },
+      "medium": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.2602455478098936,
+        "held_field_relative_to_noisy_y": 0.2571171071612459,
+        "kl_to_exact": 2.011721973199788e-05,
+        "brier": 1.9381081458742878e-17,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": 0.004973637498915195
+      },
+      "low": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.5117097844717426,
+        "held_field_relative_to_noisy_y": 0.5194233141916303,
+        "kl_to_exact": 4.8349055198573564e-05,
+        "brier": 1.4602526839215748e-14,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": 0.004312804283108563
+      }
+    },
+    "gaussian_rbf_logit_vi": {
+      "high": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.1835889330652892,
+        "held_field_relative_to_noisy_y": 0.1850557793823505,
+        "kl_to_exact": 2925.6039589191037,
+        "brier": 0.06249999840797236,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": 0.006941170780919492
+      },
+      "medium": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.38274773839616694,
+        "held_field_relative_to_noisy_y": 0.38102443410620424,
+        "kl_to_exact": 341.0644229447122,
+        "brier": 0.08749999974732986,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": 0.004912600084207952
+      },
+      "low": {
+        "n": 10,
+        "fit_field_relative_to_noisy_y": 0.5710447242015998,
+        "held_field_relative_to_noisy_y": 0.5830221617195808,
+        "kl_to_exact": 29.894125210727758,
+        "brier": 0.0625000000000215,
+        "optimizer_failure_count": 0,
+        "optimizer_mean_seconds": 0.003542399895377457
+      }
+    }
+  },
+  "max_elbo_kl_identity_error": 1.8189894035458565e-12,
+  "timing_note": "N32 construction is inherited from the pilot; N64 forward cost and end-to-end v2 wall time are recorded in results.json."
+}

@@ -1,0 +1,803 @@
+{
+  "acquisition": {
+    "frequencies_GHz": [
+      2,
+      4,
+      6
+    ],
+    "source_views_zero_based": [
+      0,
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27,
+      30,
+      33
+    ],
+    "train_receivers": "even global receiver indices; odd held out",
+    "geometry": "fixed source radius 0.720 m, receiver radius 0.760 m, 36/72 published angular locations; no geometry calibration"
+  },
+  "data_sha256": "476cc9d1cfc98797545ab4adf69302dc5aeb45848a24cf8d7b3d222940cc79eb",
+  "models": {
+    "1_gaussian": {
+      "parameters": [
+        1.8226618220178863,
+        0.0012375908290421123,
+        0.02556410958402369,
+        -4.492531384077533,
+        -4.510405125804313,
+        -1.1822588407224566
+      ],
+      "objective": 0.08498156992968092,
+      "success": false,
+      "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 45,
+      "evaluations": 53,
+      "wall_seconds": 14.1723678749986,
+      "gmres_iterations": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "metrics": [
+        {
+          "frequency_GHz": 2,
+          "gain": [
+            1.103863207022444,
+            0.39858137501763935
+          ],
+          "train_scattered_relative": 0.10449255193730281,
+          "held_receiver_scattered_relative": 0.10216088476728835
+        },
+        {
+          "frequency_GHz": 4,
+          "gain": [
+            1.0680956847480123,
+            0.4179304469413629
+          ],
+          "train_scattered_relative": 0.16012589204414118,
+          "held_receiver_scattered_relative": 0.1555917696393625
+        },
+        {
+          "frequency_GHz": 6,
+          "gain": [
+            0.8760398796466734,
+            0.4438383875023241
+          ],
+          "train_scattered_relative": 0.22005130132852893,
+          "held_receiver_scattered_relative": 0.21788165389211298
+        }
+      ],
+      "paired_start_objectives": [
+        0.08503652534016676,
+        0.0850065341945755,
+        0.08502733488277431,
+        0.08509159574364314,
+        0.0849831228511499,
+        0.08502497767810441,
+        0.0860779862072355,
+        0.08503155977833657,
+        0.0850132185449013,
+        0.08498156992968092
+      ],
+      "successful_starts": 7
+    },
+    "2_gaussian": {
+      "parameters": [
+        0.7450109424865292,
+        0.0047594437156780935,
+        0.01628400033293117,
+        -4.555662655511879,
+        -5.115995809754082,
+        0.23373626791191046,
+        1.4637128585814572,
+        0.00016140165319793734,
+        0.028767860960708488,
+        -4.507000900038601,
+        -4.583053623785691,
+        0.23563225431523055
+      ],
+      "objective": 0.08030870668167521,
+      "success": false,
+      "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 45,
+      "evaluations": 56,
+      "wall_seconds": 17.47377675003372,
+      "gmres_iterations": [
+        6,
+        5,
+        6,
+        6,
+        5,
+        6,
+        6,
+        5,
+        6,
+        6,
+        5,
+        6,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        11,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "metrics": [
+        {
+          "frequency_GHz": 2,
+          "gain": [
+            1.1476538913776326,
+            0.44611545845247325
+          ],
+          "train_scattered_relative": 0.10454322464047001,
+          "held_receiver_scattered_relative": 0.10221741306679132
+        },
+        {
+          "frequency_GHz": 4,
+          "gain": [
+            1.0944693622992838,
+            0.47518590087018336
+          ],
+          "train_scattered_relative": 0.1573217049330209,
+          "held_receiver_scattered_relative": 0.15303686653984583
+        },
+        {
+          "frequency_GHz": 6,
+          "gain": [
+            0.8788078571247744,
+            0.5039602085914476
+          ],
+          "train_scattered_relative": 0.2112564839724806,
+          "held_receiver_scattered_relative": 0.209463795322893
+        }
+      ],
+      "paired_start_objectives": [
+        0.09454059999257723,
+        0.08226718398729,
+        0.09105237226931465,
+        0.10584486850489042,
+        0.08396355712852369,
+        0.0824931950845807,
+        0.09353204695170142,
+        0.08030870668167521,
+        0.09100021263981922,
+        0.08435782398454558
+      ],
+      "successful_starts": 0
+    },
+    "4_gaussian": {
+      "parameters": [
+        0.7051255543720615,
+        8.952376659408899e-05,
+        0.03645623966410114,
+        -4.453798098590758,
+        -5.003336898729911,
+        0.17613371389892024,
+        0.7232047683509449,
+        -0.00122802769979307,
+        0.029193799438093096,
+        -4.427871443239896,
+        -5.115995809754082,
+        0.19242904060254223,
+        0.6464737083028155,
+        0.0013541578420632168,
+        0.01776811989785187,
+        -4.486394219485736,
+        -5.10777899970162,
+        0.1950487213046987,
+        0.598355881718109,
+        0.005439126409594253,
+        0.016256142896657524,
+        -4.522404341219701,
+        -5.003609805075837,
+        0.2060451360630422
+      ],
+      "objective": 0.07851286034192503,
+      "success": false,
+      "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 45,
+      "evaluations": 53,
+      "wall_seconds": 13.46079716598615,
+      "gmres_iterations": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "metrics": [
+        {
+          "frequency_GHz": 2,
+          "gain": [
+            1.230449477538575,
+            0.5455131429976112
+          ],
+          "train_scattered_relative": 0.10834556978276065,
+          "held_receiver_scattered_relative": 0.10586492785602318
+        },
+        {
+          "frequency_GHz": 4,
+          "gain": [
+            1.1412382868803823,
+            0.5859390338655397
+          ],
+          "train_scattered_relative": 0.15502778577517115,
+          "held_receiver_scattered_relative": 0.1516278816313737
+        },
+        {
+          "frequency_GHz": 6,
+          "gain": [
+            0.8789826440429755,
+            0.6128739157274818
+          ],
+          "train_scattered_relative": 0.20673771665572208,
+          "held_receiver_scattered_relative": 0.2056135536751405
+        }
+      ],
+      "paired_start_objectives": [
+        1.1752704784956964,
+        0.136756773581293,
+        0.07851286034192503,
+        0.08912498722518136,
+        0.08490341798693779,
+        1.4613851438715564,
+        0.08570301046815494,
+        0.09561217933497583,
+        0.0853829540902866,
+        0.10116459402297028
+      ],
+      "successful_starts": 0
+    }
+  },
+  "scope": "One published 2-D TM cylinder gain-profiled diagnostic. Per-frequency gain is an extra scattered-training nuisance after incident estimation; no source normalization, hardware calibration, material recovery, 3-D, or diverse-target claim.",
+  "known_shape_disk_oracle": {
+    "parameters": [
+      1.6489445208606044,
+      0.0012328484360846935,
+      0.025582443520928193,
+      -4.0851485793126
+    ],
+    "objective": 0.058027897137058936,
+    "success": true,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 29,
+    "evaluations": 41,
+    "wall_seconds": 12.977277833037078,
+    "gmres_iterations": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "metrics": [
+      {
+        "frequency_GHz": 2,
+        "gain": [
+          1.0090244961489625,
+          0.2466332343878331
+        ],
+        "train_scattered_relative": 0.09267167778172967,
+        "held_receiver_scattered_relative": 0.09102704981803263
+      },
+      {
+        "frequency_GHz": 4,
+        "gain": [
+          0.9933559432326742,
+          0.26771305198139483
+        ],
+        "train_scattered_relative": 0.14094504728391893,
+        "held_receiver_scattered_relative": 0.13776205702356675
+      },
+      {
+        "frequency_GHz": 6,
+        "gain": [
+          0.8904267229579629,
+          0.3206866829109245
+        ],
+        "train_scattered_relative": 0.17197194806221178,
+        "held_receiver_scattered_relative": 0.17242084207746128
+      }
+    ],
+    "warning": "Known-shape softened disk diagnostic only; not a fair general inverse baseline."
+  },
+  "gain_profiled_diagnostic": true,
+  "gain_profile_interpretation": "Complex gain is profiled independently at each frequency from the scattered training data. It is an additional nuisance parameter after incident/source coefficients were estimated; it does not establish source normalization or remove material-amplitude ambiguity.",
+  "fixed_gain_one_refits_from_selected_profiled_states": {
+    "1_gaussian": {
+      "parameters": [
+        3.356342168506855,
+        0.001243087186440387,
+        0.02558454062407593,
+        -4.652424382452852,
+        -4.669467204657064,
+        -1.1833807298420036
+      ],
+      "objective": 0.1742179752443178,
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 33,
+      "evaluations": 39,
+      "wall_seconds": 13.366249457933009,
+      "gmres_iterations": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        13,
+        13,
+        13,
+        13,
+        13,
+        12,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "metrics": [
+        {
+          "frequency_GHz": 2,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.20721152394948467,
+          "held_receiver_scattered_relative": 0.2065668933167142
+        },
+        {
+          "frequency_GHz": 4,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.1995027726187032,
+          "held_receiver_scattered_relative": 0.19375736496611481
+        },
+        {
+          "frequency_GHz": 6,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.3024566139205754,
+          "held_receiver_scattered_relative": 0.2987433345191048
+        }
+      ]
+    },
+    "2_gaussian": {
+      "parameters": [
+        1.2269175981713656,
+        0.0012808826599649398,
+        0.024451807183760617,
+        -4.4768019595785065,
+        -4.771915916935751,
+        0.22818727199126296,
+        2.114195076886212,
+        0.0011755068780346933,
+        0.026332969918539388,
+        -4.769566294409686,
+        -4.580632636910248,
+        0.23662934718163392
+      ],
+      "objective": 0.17724323644808135,
+      "success": false,
+      "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 45,
+      "evaluations": 49,
+      "wall_seconds": 16.824931291048415,
+      "gmres_iterations": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "metrics": [
+        {
+          "frequency_GHz": 2,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.2092060708053366,
+          "held_receiver_scattered_relative": 0.20877254032827047
+        },
+        {
+          "frequency_GHz": 4,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.202887885086612,
+          "held_receiver_scattered_relative": 0.19714524103181746
+        },
+        {
+          "frequency_GHz": 6,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.303829824854894,
+          "held_receiver_scattered_relative": 0.3004376242316863
+        }
+      ]
+    },
+    "4_gaussian": {
+      "parameters": [
+        1.0568015854549762,
+        0.003665414259242721,
+        0.02156124796764619,
+        -4.709692205197238,
+        -4.752850033400926,
+        0.17678027142940936,
+        1.0732520932702072,
+        -0.0022299380846470206,
+        0.031136074782970282,
+        -4.686309725021586,
+        -4.9074620612908015,
+        0.17866295517091038,
+        0.9987838393707175,
+        0.0005333739083144924,
+        0.019526049364900534,
+        -4.644223774744305,
+        -4.912800515944799,
+        0.20219107693331126,
+        0.9711181525402428,
+        0.0023839810601654606,
+        0.03001105505964884,
+        -4.672944973722771,
+        -4.787107312818154,
+        0.2001827488174402
+      ],
+      "objective": 0.17128342201236618,
+      "success": false,
+      "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 45,
+      "evaluations": 54,
+      "wall_seconds": 19.310317749972455,
+      "gmres_iterations": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "metrics": [
+        {
+          "frequency_GHz": 2,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.208281769687926,
+          "held_receiver_scattered_relative": 0.20775830240723692
+        },
+        {
+          "frequency_GHz": 4,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.20049952239246835,
+          "held_receiver_scattered_relative": 0.19509879476648032
+        },
+        {
+          "frequency_GHz": 6,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.29614534936146475,
+          "held_receiver_scattered_relative": 0.2927150176818843
+        }
+      ]
+    },
+    "known_shape_disk_oracle": {
+      "parameters": [
+        2.568127912921321,
+        0.001237338055112228,
+        0.025604898225319226,
+        -4.221760235119342
+      ],
+      "objective": 0.1301181216034204,
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 25,
+      "evaluations": 31,
+      "wall_seconds": 11.049872957984917,
+      "gmres_iterations": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        12,
+        13,
+        13,
+        12,
+        13,
+        13,
+        12,
+        13,
+        13,
+        12,
+        13,
+        13
+      ],
+      "metrics": [
+        {
+          "frequency_GHz": 2,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.19708376774831718,
+          "held_receiver_scattered_relative": 0.1944307264904727
+        },
+        {
+          "frequency_GHz": 4,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.18975678818392794,
+          "held_receiver_scattered_relative": 0.1857577195550964
+        },
+        {
+          "frequency_GHz": 6,
+          "gain": [
+            1.0,
+            0.0
+          ],
+          "train_scattered_relative": 0.23509247421316512,
+          "held_receiver_scattered_relative": 0.23231041103201777
+        }
+      ]
+    }
+  },
+  "paired_start_reporting_limit": "The completed run retained the ten training objectives per model and best-fit metrics only. It did not persist every paired held-out error, time, or parameter vector, so it is not a paired statistical comparison.",
+  "gaussian_boundary_proxy_against_known_shape_disk": {
+    "1": {
+      "relative_to_disk": 0.36737104300153556,
+      "boundary_band_rmse": 0.43205862234772857,
+      "nonboundary_rmse": 0.11231432356203577
+    },
+    "2": {
+      "relative_to_disk": 0.3771899713810874,
+      "boundary_band_rmse": 0.43376280146738483,
+      "nonboundary_rmse": 0.11701497151033384
+    },
+    "4": {
+      "relative_to_disk": 0.4271453395079387,
+      "boundary_band_rmse": 0.4543743820291487,
+      "nonboundary_rmse": 0.13838832527337425
+    }
+  },
+  "gaussian_boundary_proxy_interpretation": "Image disagreement with a fitted known-shape softened disk proxy. It is neither a true Gaussian approximation floor nor a bound.",
+  "executed_primary_source_hash": null,
+  "postrun_fixed_gain_source_sha256": "2cbd743c31abde4e032e621ae095638aa7019b71cf8a0972f8011ea7df6a17d4",
+  "postrun_metadata_repair": true
+}

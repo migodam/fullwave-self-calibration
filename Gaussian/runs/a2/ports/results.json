@@ -1,0 +1,68 @@
+{
+  "scope": "Finite-grid scalar VIE numerical checks. Gaussian tails remain nonzero; response ports are not automatically power-S parameters.",
+  "blas_thread_limit": {
+    "OPENBLAS_NUM_THREADS": "2",
+    "OMP_NUM_THREADS": "2",
+    "VECLIB_MAXIMUM_THREADS": "2"
+  },
+  "n16_dense": {
+    "forward_current_relative_error": 1.7666963125783265e-11,
+    "forward_field_relative_error": 3.6238846975249855e-12,
+    "adjoint_inner_product_relative_error": 4.92196973506476e-16,
+    "tangent_fd_relative_error": 3.0231794558438463e-09,
+    "gmres_iterations": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ]
+  },
+  "n16_response_ports": {
+    "network_dimension": 6,
+    "field_relative_error_vs_full": 0.2508668028970329,
+    "current_relative_error_vs_full": 0.9073672089668262
+  },
+  "parameterization": {
+    "pack_roundtrip_max": 0.0,
+    "scales_positive": true
+  },
+  "tail_audit": {
+    "max_grid_edge_amplitude": [
+      0.01589681406724536,
+      0.019116389390003232
+    ],
+    "tail_statement": "Gaussian terms are nonzero beyond the finite grid; this only audits sampled boundary tails."
+  },
+  "scalability_timing": [
+    {
+      "n": 64,
+      "unknowns": 4096,
+      "wall_seconds": 0.06855904194526374,
+      "rss_peak_mb": 83.21875,
+      "gmres_iterations": [
+        10,
+        9,
+        10,
+        9
+      ],
+      "operator_storage": "FFT kernel and work arrays; no dense D"
+    },
+    {
+      "n": 128,
+      "unknowns": 16384,
+      "wall_seconds": 0.29718808305915445,
+      "rss_peak_mb": 151.671875,
+      "gmres_iterations": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "operator_storage": "FFT kernel and work arrays; no dense D"
+    }
+  ]
+}

@@ -1,0 +1,1416 @@
+                                                                                                                                                                                        1
+
+
+
+
+                                                           A Physics-Informed Hierarchical Neural Network for
+                                                              Microwave Scattering Analysis of 3D PEC Targets
+                                                             Rui Zhu , Student Member, IEEE, Yuexing Peng , Senior Member, IEEE,
+                                                  George C. Alexandropoulos , Senior Member, IEEE, and Wenbo Wang , Senior Member, IEEE
+
+
+
+                                            Abstract—Accurate modeling of scattering from three-                        governed by the electric field integral equation (EFIE) obtained
+                                         dimensional (3D) perfectly electrically conducting (PEC) targets               by enforcing the vanishing of the tangential total electric field
+                                         at microwave frequencies constitutes a fundamental objective                   on the target surface, together with the Sommerfeld radiation
+                                         in computational electromagnetics, particularly for radar cross
+                                         section (RCS) prediction and microwave scattering analysis.                    condition at infinity [4]. Accurate and efficient numerical
+
+
+
+
+arXiv:2508.03774v5 [cs.LG] 26 May 2026
+                                         Classical solvers, such as the method of moments and the                       solution of the EFIE therefore lies at the core of CEM for
+                                         Multilevel Fast Multipole Algorithm (MLFMA), although provide                  microwave-frequency scattering problems.
+                                         high physical fidelity, they become costly under scenarios of                     Classical CEM solvers, including the Method of Mo-
+                                         repeated queries involving many incidence configurations or                    ments (MoM) [4], the Finite Element Method (FEM) [5],
+                                         frequencies, whereas purely data-driven surrogates often lack
+                                         accuracy on geometrically complex targets. This paper proposes                 and the Finite-Difference Time-Domain (FDTD) method [3],
+                                         a U-shaped physics-informed artificial neural network (U-PINet)                have been extensively validated across a wide range of tar-
+                                         for 3D microwave scattering analysis. Inspired by the near-                    get geometries and frequency regimes. Among these, MoM
+                                         far field decomposition of MLFMA, U-PINet combines a near-                     discretizes the EFIE with Rao–Wilton–Glisson (RWG) ba-
+                                         field graph encoder, parameterized by learnable univariate basis               sis functions [6] and yields a dense linear system whose
+                                         functions, with a hierarchical multi-scale fusion module organized
+                                         on an octree partition. The proposed network is trained against                impedance matrix storage scales as O(N 2 ) and whose direct
+                                         a discretized residual of the electric-field integral equation at              factorization scales as O(N 3 ), where N denotes the number
+                                         surface collocation points, without requiring reference current                of unknowns. To mitigate this computational burden, the
+                                         labels. Experiments on canonical and geometrically complex 3D                  Multilevel Fast Multipole Algorithm (MLFMA) [7] introduces
+                                         PEC targets, conducted under multiple frequency and polariza-                  a hierarchical octree partition that decomposes the impedance
+                                         tion configurations and assessed through bistatic RCS reconstruc-
+                                         tion, showcase that U-PINet outperforms representative physics-                matrix into near-field and far-field contributions, reducing the
+                                         informed baselines, and yields substantial runtime savings over                per-iteration matrix–vector product complexity to O(N log N )
+                                         the classical MLFMA solver under repeated-query scenarios.                     and enabling the tractable solution of electrically large mi-
+                                            Index Terms—Computational electromagnetics, microwave                       crowave scattering problems. Subsequent algorithmic devel-
+                                         scattering, radar cross section, multilevel fast multipole algo-               opments, including kernel compression [8], [9], fast matrix–
+                                         rithm, physics-informed neural network, graph neural network.                  vector multiplication [10], and GPU-accelerated implementa-
+                                                                                                                        tions [11], [12], have further extended the scalability of MoM-
+                                                                                                                        based solvers to problems involving billions of unknowns.
+                                                                   I. I NTRODUCTION                                        In recent years, deep learning has emerged as a data-driven
+                                                                                                                        complement to classical CEM solvers, offering substantial
+                                         E     LECTROMAGNETIC (EM) scattering modeling of
+                                               three-dimensional (3D) targets at microwave and
+                                         millimeter-wave frequencies is a canonical problem in com-
+                                                                                                                        inference speedup once trained on sufficient scattering data.
+                                                                                                                        Owing to their nonlinear approximation capability, artifical
+                                         putational EM (CEM), underpinning a broad range of mi-                         neural networks can map geometric representations of scat-
+                                         crowave engineering tasks such as radar cross section (RCS)                    tering targets directly to EM responses, thereby bypassing
+                                         prediction [1], microwave imaging and target characteriza-                     the explicit assembly and inversion of the impedance ma-
+                                         tion [2], the EM compatibility (EMC) analysis of microwave                     trix. Representative frameworks include supervised descent
+                                         subsystems [3], and the design and performance evaluation                      methods that infer scattering characteristics from image-based
+                                         of microwave sensing and radar front-ends. For a perfectly                     target descriptions [13], multi-task learning architectures that
+                                         electrically conducting (PEC) target, the scattered field is fully             improve cross-configuration generalization through shared la-
+                                         determined by the induced surface current density, which is                    tent representations [14], and models incorporating radiation-
+                                                                                                                        direction maps as extended input modalities [15]. At the
+                                           This work was supported in part by the National Natural Science Foundation   architecture level, fully convolutional networks have been
+                                         of China under Grant 62371066 and in part by the Science and Technology
+                                         Innovation Program of Xiongan New Area under Grant 2025XAGG0052.               used to predict near-field potential distributions in volumetric
+                                         (Corresponding author: Yuexing Peng)                                           EM models [16], while physics-augmented U-Net structures
+                                           R. Zhu, Y. Peng, and W. Wang are with the Key Laboratory of Uni-             impose Maxwell-consistent constraints through auxiliary loss
+                                         versal Wireless Communication, Ministry of Education, School of Infor-
+                                         mation and Communication Engineering, Beijing University of Posts and          terms [17]. Despite these advances, purely data-driven ap-
+                                         Telecommunications, Beijing 100876, China (e-mail: {rayyyy, yxpeng, wb-        proaches tend to underperform on geometrically complex
+                                         wang}@bupt.edu.cn).                                                            targets and under excitation conditions that are not well
+                                           G. C. Alexandropoulos is with the Department of Informatics and Telecom-
+                                         munications, National and Kapodistrian University of Athens, Athens 16122,     covered by the training distribution [18], which limits their
+                                         Greece (e-mail: alexandg@di.uoa.gr).                                           applicability in physically sensitive microwave tasks such as
+                                                                                                                                     2
+
+
+
+multi-aspect RCS computation and wideband EM analysis.              arbitrary observation directions. The validation experiments
+   To address the limited generalization of purely data-driven      for U-PINet are conducted on canonical and geometrically
+models, physics-informed and physics-informed CEM meth-             complex 3D PEC targets at microwave frequencies in the
+ods have been explored, incorporating EM operators, Green’s-        range of 0.5–2 GHz. The main contributions of this work are
+function kernels, and boundary-condition residuals into the         summarized as follows.
+learning process [19]. For EM scattering problems, existing            • We propose U-PINet, a physics-informed learning frame-
+physics-informed methods can be broadly grouped into two                  work for 3D microwave scattering in which the near–
+directions: one line of work focuses on the modeling of                   far decomposition of MLFMA, originally introduced
+local interactions arising from integral-equation discretization,         as a numerical acceleration mechanism, is reused as
+while another targets the acceleration of long-range radiation            a structural prior for neural network modeling. Under
+evaluation in MLFMA-type hierarchical solvers.                            this prior, the induced surface current is represented as
+   At the near-field level, several studies couple neural mod-            the sum of a short-range impedance-coupling component
+ules with MoM-based operators to accelerate the solution                  and a long-range radiation-coupling component, learned
+of the integral equation while retaining physical fidelity.               jointly within a unified architecture and constrained by a
+Representative efforts include iterative unrolling schemes that           discretized EFIE residual at surface collocation points.
+alternate between current and material-parameter refinement            • For the near-field component, we formulate the local
+under EFIE constraints [20], physics-regularized generative               action of the MoM near-field block as a graph-supported
+models for inverse scattering [21], and neural-operator ap-               learnable operator on the discretized PEC surface, where
+proximations of the integral kernel for rapid two-dimensional             the graph connectivity is inherited from its local inter-
+field estimation [22]. More recently, graph-based architectures           action pattern. Each pairwise mesh-element interaction is
+have been adopted to exploit the mesh topology inherent in                modeled as a function of the relative position, the surface-
+MoM discretizations: graph convolutional networks have been               normal variation, and the neighboring current state, and
+applied to learn EFIE-structured field interactions [23], and             is parameterized by learnable univariate basis functions.
+graph neural network modules have been embedded within 3D                 This approach yields a geometry-adaptive realization of
+MoM iterative solvers to perform data-driven residual updates             the discretized near-field operator.
+on mesh-based graphs [24]. In a related direction, [25] replaces       • For the far-field component, we design a hierarchical
+the fixed message-passing kernels of conventional graph neural            learning module for nonlocal radiation coupling, which is
+networks with learnable univariate basis functions that embed             organized on the same octree partition as MLFMA. Long-
+a Green’s-function prior, yielding a learnable yet physically             range interactions are captured through coarsening, cross-
+grounded representation of pairwise impedance interactions.               scale information exchange, and coarse-to-fine recovery,
+   At the far-field level, complementary efforts have targeted            in which the fixed analytic translation kernels of MLFMA
+the multilevel translation operators that dominate the cost of            are replaced by learnable cross-scale coupling, while the
+MLFMA. Radial basis function networks have been employed                  multi-resolution organization that makes such coupling
+to approximate the translation kernel between well-separated              tractable is retained.
+clusters [26], and hybrid architectures combining embed-               • The resulting end-to-end differentiable surrogate is eval-
+ding layers with self-attention have been proposed to jointly             uated on seven canonical and geometrically complex 3D
+learn dependencies across hierarchical octree levels [27]. The            PEC targets at microwave frequencies, covering multi-
+physics-informed framework in [28] further accelerates the                frequency and multi-polarization current reconstruction,
+translation step through a coarse-to-fine strategy, reducing the          bistatic RCS prediction, and near-far ablation studies. It
+computational cost for electrically large targets. These results          is demonstrated that the proposed U-PINet framework
+suggest that physics-guided learning offers a viable means of             attains lower current-level and RCS-level errors than rep-
+accelerating the evaluation of long-range radiation effects that          resentative physics-informed baselines, with more visible
+dominate far-field scattering signatures.                                 gains on electrically larger and multi-scale geometries.
+   In this paper, we propose a U-shaped physics-informed               The remainder of this paper is organized as follows. Sec-
+neural network, termed U-PINet, for end-to-end 3D microwave         tion II presents the 3D PEC scattering formulation and the
+scattering modeling. The proposed framework is motivated            MoM/MLFMA background. Section III introduces the func-
+by repeated-query scattering analysis scenarios at microwave        tional design of U-PINet, while Section IV details its network
+frequencies, such as multi-aspect, multi-frequency, and multi-      realization. Section V describes the experimental setup, and
+polarization RCS evaluation, in which conventional MLFMA            Section VI reports the validation results, including accuracy,
+solvers must be invoked under a large number of incidence           ablation, solver-oriented, and runtime analyses. Finally, Sec-
+and observation configurations. Following the near–far field        tion VII includes the concluding remarks of the paper.
+decomposition inherent in MLFMA, U-PINet integrates dedi-
+cated near-field and far-field learning modules within a unified
+                                                                       II. P ROBLEM F ORMULATION AND S TATE OF THE A RT
+architecture, and uses the EFIE boundary-condition residual
+as a training objective. Once trained, the proposed network         A. Electromagnetic Scattering Modeling Formulation
+predicts the induced surface current on a 3D PEC target in            Consider a PEC target with closed surface D embedded in
+a single forward pass, from which the scattered field and           a homogeneous background medium, as illustrated in Fig. 1.
+the bistatic RCS are evaluated via the radiation integral for       A 3D Cartesian coordinate system is adopted with the target
+                                                                                                                                                   3
+
+
+
+                                                Scattered Field                       The corresponding bistatic RCS along the direction (θ, φ)
+                                                                          s        is defined as follows [1]:
+    Incident Field
+                             z                                                                                       ∥E sca (r, θ, φ)∥2
+                                             ( ,  )                                          σ(θ, φ) = lim 4πr2                       ,       (3)
+                                                                                                          r→∞            ∥E inc ∥2
+                                                                                   where r = ∥s∥ is the distance from the target to the obser-
+      (inc , inc )                                                               vation point, ∥ · ∥ denotes the Euclidean norm of a complex-
+                         ·                                                         valued electric-field vector, defined through ∥E∥2 = E·E ∗ , in
+                         p                                                         which “·” denotes the standard vector inner product between
+                                 o                            x                    two complex 3-vectors (with no Hermitian conjugation ab-
+                                                                                   sorbed into the operator itself), and (·)∗P denotes elementwise
+                                                                                   complex conjugation, so that E · E ∗ = i Ei Ei∗ = i |Ei |2
+                                                                                                                                           P
+                             y                                                     is real and non-negative.
+Fig. 1. Geometry for microwave scattering and RCS evaluation. A PEC target            Although σ(θ, φ) provides a compact scalar descriptor at
+with surface D (point p belongs in this surface) is illuminated by an incident     a specific observation direction, the reconstructed current J
+plane wave E inc from direction (θinc , φinc ), and the scattered field E sca is   carries the full physical information of the scattering response
+observed at a far-field point s along the direction (θ, φ).
+                                                                                   and fully determines the scattered field via (2). The proposed
+                                                                                   framework therefore targets the high-fidelity reconstruction
+                                                                                   of J , from which both monostatic and bistatic RCS can
+centered at the origin o, and a time-harmonic ejωt convention
+                                                                                   be evaluated as downstream validation metrics through the
+is assumed throughout this paper. The target is illuminated by
+                                                                                   previous expressions (2) and (3).
+an incident plane wave E inc (p) propagating along the direc-
+tion (θinc , φinc ), which induces a tangential surface current
+density J (p) on D. The induced current acts as the secondary                      B. The MLFMA Framework
+radiation source for the scattered field E sca in the exterior                        As established in Section II-A, the central task in EM scat-
+region, so the central physical task in EM scattering analysis                     tering analysis is to determine the induced surface current den-
+is the reconstruction of J .                                                       sity J from the EFIE in (1). The standard numerical approach
+   Expressing the scattered field in terms of J through the                        discretizes (1) through the Method of Moments with RWG
+dyadic Green’s function of the background medium and im-                           basis functions {fn }N n=1 defined on the edges of a triangular
+posing the Sommerfeld radiation condition at infinity leads to                     surface mesh [6]. Under the Galerkin scheme,
+                                                                                                                             PN the unknown
+the EFIE:                                                                          surface current is expanded as J (p) = n=1 In fn (p), and
+                      Z                                                          the integral equation is tested with the same set of functions,
+             inc                 ′       ′    ′                                    yielding the dense linear system:
+n̂(p) × E (p) +           G(p, p ) · J (p ) dS = 0, p ∈ D,
+                             D
+                                                               (1)                                            ZI = V ,                          (4)
+where “×” denotes the vector cross product, used here to
+extract the tangential component of the bracketed field on D;                      where Z ∈ CN ×N is the impedance matrix, I ∈ CN collects
+“·” denotes the contraction of the dyadic kernel G with the                        the expansion coefficients, and V ∈ CN contains the tested
+vector current J , yielding the vector electric field radiated by                  incident field. Each entry of Z is given by the Galerkin inner
+J . The scattered-field integral is understood as the limit taken                  product, as follows:
+from the exterior side of D, and G(p, p′ ) denotes the dyadic
+                                                                                                   Z           Z
+kernel relating a surface current at p′ to the resulting electric                        Zmn =        fm (p) ·   G(p, p′ ) · fn (p′ ) dS ′ dS, (5)
+                                                                                                   D            D
+field at p...
+                                                                                   where the inner integral evaluates the field radiated by fn
+   Once J is reconstructed, the scattered field at an exterior
+                                                                                   through G, and the outer integral tests this field against fm .
+observation point s parameterized by the spherical angles
+                                                                                   The kernel G(p, p′ ) is taken in its mixed-potential form,
+(θ, φ) is obtained from the radiation integral
+                                                                                   so that (5) aggregates both the vector- and scalar-potential
+                          Z                                                        contributions of the EFIE operator, with the surface diver-
+              E sca (s) =    G(s, p) · J (p) dS(p),            (2)                 gence transferred onto the RWG basis and testing functions
+                                 D
+                                                                                   and near-singular and self-term integrals handled by stan-
+in which G(s, p) denotes the same dyadic Green’s function                          dard singularity-extraction techniques. Direct evaluation of the
+as in (1), now evaluated between a surface source point                            matrix–vector product ZI requires O(N 2 ) operations, which
+p ∈ D and an exterior observation point s lying outside                            becomes prohibitive for electrically large targets.
+D.In the asymptotic limit ∥s∥ → ∞ of large observation                                To mitigate this cost, the MLFMA [7] decomposes the
+distance, G(s, p) admits the standard radiation-zone form that                     impedance matrix into near-field and far-field contributions,
+retains the outgoing spherical-wave factor and the directional                                           Z = Znear + Zfar ,                     (6)
+pattern along (θ, φ), so that (2) can be evaluated for arbitrary
+observation directions without having to re-solve the EFIE                         and treats the two parts with distinct computational strategies,
+in (1).                                                                            as illustrated in Fig. 2. The overall algorithm proceeds in three
+                                                                                                                                                                  4
+
+
+
+
+                               MLFMA (Conventional Method)
+
+                                                   Scattering Calculation                                     Iterative Solvers                  EM Scattering
+                                                                                                                                                 Reconstruction
+                                            Near Field                    Far Field
+                                                                          Translation                                     I​nitial solution
+
+                                                                                                           Residual
+                                                                                                            Matrix
+
+                                                                                                          Numerical
+           Input                                                                                          Calculation       Addition
+                                                                              Disaggregation
+   Incident                                                                   Aggregation                               Optimized Solution
+
+    Wave
+
+                                U-PINet (Our Method)
+                                                                                                           Physics Constraint                    EM Scattering
+                                                    Scattering Calculation
+                                                                                                              Evaluation                         Reconstruction
+                                        Local Interactions   Multi-scale Global Processing
+          Object                          (Near Field)                (Far Field)
+                                                                     Global Translation
+                                                                         Global                          Enforce
+                                                                       Translation                                                 Physics
+                                                                                                         Physics
+                                                                                                                                Residual Error
+                                                                                                          Laws
+
+
+
+
+                                                                                                Physics-Informed Learning
+
+
+Fig. 2. Microwave scattering evaluation pipelines for the standard MLFMA algorithm [7] (top) and the proposed U-PINet framework (bottom). U-PINet
+retains the near–far separation of length scales of MLFMA, but replaces the iterative linear system solver with a single forward pass: a near-field graph branch
+and a multi-scale far-field branch jointly predict the surface current, which is regularized through an EFIE-based physics-residual loss (see Sections III and IV
+for more details).
+
+
+
+stages: exact evaluation of the near-field block, hierarchical                            gence, the coefficient vector I is substituted P  back into the
+evaluation of the far-field block, and residual-based iterative                           basis-function expansion to reconstruct J (p) = n In fn (p),
+solution of the resulting linear system.                                                  from which the scattered field and the bistatic RCS are
+   For each pair of basis functions (m, n) whose supports                                 obtained via (2) and (3), respectively. Algorithm 1 summarizes
+are geometrically close, the impedance entry Zmn in (5) is                                the resulting near–far computational pattern, which serves
+evaluated exactly and stored in the sparse block Znear , so that                          as the reference structure for the physics-informed learning
+the product Znear I accounts for all local self- and mutual-                              architecture developed in Section III.
+coupling contributions. The accuracy of this block is governed
+by the basis functions {fn }, which jointly determine the
+                                                                                               III. T HE U-PIN ET N EURAL N ETWORK F RAMEWORK
+spatial resolution of the current representation and the fidelity
+of the local impedance interactions.                                                         The design of the proposed U-PINet is based on a simple
+   The remaining long-range interactions are organized on                                 physical principle: EM scattering of microwave-frequency
+an L-level octree [29], where mesh elements are recursively                               plane waves from a 3D PEC target, represented by a dis-
+grouped into well-separated source and observation clusters.                              cretized surface mesh, contains interaction patterns at different
+At each level l, the radiation pattern β (l) is sampled on a                              spatial scales, and these patterns should not be represented by
+                      (l)
+set of directions {k̂q } on the unit sphere, and the translation                          a single uniform neural mapping. Local impedance coupling
+operator Tl (k̂) acts diagonally in k̂, so that the multipole trans-                      is mainly determined by nearby mesh elements and their ge-
+lation step amounts to a pointwise multiplication followed by a                           ometric relationship, whereas long-range radiation coupling is
+summation over the interaction list. Well-separated interactions                          mediated by distant surface regions and has an inherent multi-
+are then handled by a level-dependent translation operator Tl ,                           scale structure. U-PINet capitalizes upon this scale-separated
+which maps the aggregated patterns β (l) of groups in the                                 interaction structure as the main organizing principle for its
+                                              (l)
+interaction list I to incoming fields αtrans . The translated                             architecture. From this perspective, the role of MLFMA in this
+incoming fields are subsequently disaggregated from coarse                                work is not to provide an operator that is directly reproduced
+to fine levels. At the finest level, the accumulated field α(L)                           by the network, instead, this algorithm is deployed to provide
+yields the far-field contribution Zfar I, recovering the full                             a physically meaningful computational organization: local
+matrix–vector product as ZI = Znear I +Zfar I with an overall                             interactions are treated in a neighborhood form, while nonlocal
+per-iteration cost of O(N log N ).                                                        interactions are represented through a hierarchical grouping
+   The product ZI is then embedded in a Krylov subspace                                   of the surface unknowns. We reinterpret this organization
+solver such as GMRES [30] or BiCGStab [31], which itera-                                  as a neural network modeling principle for surface-current
+tively updates I by reducing the residual r = V − ZI until                                prediction. The resulting architecture is, therefore, designed
+a prescribed convergence tolerance is reached. Upon conver-                               to match the physical structure of the underlying scattering
+                                                                                                                                    5
+
+
+
+Algorithm 1 The State-of-the-Art MLFMA Procedure                    Algorithm 2 The Proposed U-PINet Procedure
+Require: RWG basis functions {fn }N      n=1 ; number of oc-        Require: Surface points P = {pi } with normals {n̂i }; near-
+    tree levels L; translation operators {Tl }; tested incident         field radius rnf ; number of hierarchical levels L; number
+    field V ; observation angles (θ, φ).                                of message-passing iterations Titer ; batch of training in-
+Ensure: Induced surface current J and bistatic RCS σ(θ, φ).             cident fields {E inc,(m) }N
+                                                                                                  m=1 ; query incident field E
+                                                                                                    s                           inc
+                                                                                                                                    ;
+    Step 1: Octree Partition and Neighbor Lists                         observation angles (θ, φ).
+ 1: Partition the mesh hierarchically into L octree levels, from    Ensure: Trained parameters Θ∗ , predicted surface cur-
+    level 1 (root) to level L (leaves).                                 rent Jpred , and bistatic RCS σ(θ, φ).
+ 2: For each octree group, build the near-neighbor list N and           Step 1: Near-Field Graph Construction
+    the interaction list I.                                          1: for each pi ∈ P do
+    Step 2: Near-Field Block Assembly                                2:     N (i) ← { j : ∥pi − pj ∥ ≤ rnf }                via (8)
+ 3: for each near-field pair (m, n) ∈ N do                           3:     wij ← K ∥pi − pj ∥, n̂i − n̂j                    via (9)
+ 4:     Evaluate Zmn exactly via (5) using fm and fn .               4: end for
+ 5: end for                                                               Step 2: Iterative Near-Field Message Passing
+ 6: Assemble   the sparse near-field block Znear and com-            5: Initialize J (0) (pi ) ← 0 for all pi ∈ P.
+    pute Znear I.                                                    6: for t = 0 to Titer − 1 do
+    Step 3: Far-Field Aggregation                                    7:     for each pi ∈ P do
+                                                                                                           (t)
+ 7: Initialize the leaf-level radiation patterns: β (L) ← F(I).      8:          Form edge descriptors {ξij }j∈N (i)       via (10)
+                                                                                                                 (t)       (t) (t)
+                                                                                                                                   
+ 8: for l = L down to 2 do                                          9:          Compute edge messages mij ← Φ ξij
+        β (l−1) ← child Interp β (l) · ejk·d
+                    P
+ 9:                                                                     via (11)
+10: end for                                                         10:          Aggregate and update with edge-attention weights:
+                                                                                                                     (t)
+                                                                        J (t+1) (pi ) ← J (t) (pi ) + j∈N (i) ρij mij , where ρij is
+                                                                                                     P
+    Step 4: Multipole Translation
+11: for l = 2 to L do                                                   the softmax edge weight in (24).                   via (12)
+          (l)
+        αtrans, i ←
+                     P           (l)                                11:     end for
+12:                   m∈I(i) Tl βm       for every observation
+    group i at level l.                                             12: end for
+13: end for                                                         13: Jnear ← J (Titer )
+
+    Step 5: Far-Field Disaggregation                                      Step 3: Hierarchical Feature Pooling
+14: Initialize α(1) ← 0.                                            14: S (L) ← Jnear
+15: for l = 2 to L do                                               15: for k = L down to 2 do 
+16:
+                                           (l)
+        α(l) ← Anterp α(l−1) · e−jk·d + αtrans
+                                                                   16:     S (k−1) ← Γk S (k)                              via (13)
+17: end for                                                         17: end for
+                                               R (L)
+18: Project onto testing functions: Zfar I ←    α (k̂) ·                  Step 4: Cross-Scale Feature Exchange
+    f (k̂) dk̂.                                                     18: S̃ (1) ← S (1)
+    Step 6: Iterative Linear System Solution                        19: for k = 2 to L do                       
+19: Combine the two contributions: ZI ← Znear I + Zfar I.           20:      S̃ (k) ← Ak S (k) , Uk (S̃ (k−1) )             via (14)
+20: Compute the residual r ← V − ZI.                                21: end for
+21: Update I via GMRES or BiCGStab to reduce ∥r∥ to a                     Step 5: Coarse-to-Fine Feature Fusion
+                                                                           (1)
+    prescribed tolerance.                                           22: Jfar ← S̃ (1)
+    Step 7: Current Recovery                                        23: for k = 2 to L do
+                             PNand RCS Evaluation                   24:
+                                                                             (k)         (k−1)
+                                                                            Jfar ← Ψk Jfar , S̃ (k)
+                                                                                                    
+                                                                                                                            via (15)
+22: Reconstruct  J (p) =       n=1 In fn (p) from the con-
+    verged I.                                                       25: end for
+                                                                                   (L)
+23: Evaluate E sca via (2) and obtain σ(θ, φ) from (3).             26: Jfar ← Jfar
+                                                                          Step 6: Physics-Informed Training Update
+                                                                    27: Assemble Jpred ← Jnear + Jfar                   via (7)
+                                                                    28: Compute Lphys over the training batch and update Θ by
+                                                                          gradient-based optimization                       via (17)
+process, instead of using a generic neural network to learn all
+                                                                          Step 7: Inference and RCS Evaluation
+interactions in the same latent space.
+                                                                    29: With Θ∗ , predict Jpred for a query incident field by one
+   As shown in Fig. 2, the aforedescribed U-PINet principle               forward pass through Steps 1–5.
+leads to a two-branch architecture. A near-field graph branch       30: Evaluate E sca (s) and compute σ(θ, φ)        via (2) and (3)
+operates on a local neighborhood induced by the surface mesh,
+and produces a short-range estimate Jnear of the induced cur-
+rent (Section III-A).In addition, a hierarchical far-field branch   form the predicted surface current, as follows:
+operates on a multi-resolution representation of the surface,
+                                                                                          Jpred = Jnear + Jfar .                  (7)
+and produces a complementary long-range contribution Jfar
+(Section III-B). The two contributions are then summed to           This current is regularized during training through an EFIE-
+                                                                                                                                     6
+
+
+
+                                                                                             (t)
+                                                                    P
+based residual loss that promotes consistency with the PEC            j∈N (i) Zij Ij , with Φ    playing the role of a learnable local
+boundary condition in (1) (Section III-C). After training, Jpred    impedance operator on the surface graph. In the network
+                                                                                                  (t)
+is substituted into the radiation integral in (2) to evaluate the   realization, the messages {mij } are further combined through
+scattered field, and the bistatic RCS σ(θ, φ) is obtained from      edge-dependent attention weights derived from the physics-
+expression (3) for arbitrary observation directions.                guided edge kernel K(·) in (9), yielding the softmax-weighted
+   The correspondence between the classical MLFMA pipeline          update specified in (24). The specific network realization of
+in Algorithm 1 and the proposed learning procedure in Algo-         K(·) and Φ(t) , including the basis-function parameterization
+rithm 2 is therefore conceptual rather than operator-equivalent.    motivated by the Kolmogorov–Arnold representation theo-
+U-PINet keeps the near–far separation of interaction scales         rem [32], [33], is presented in Section IV-A.
+and the hierarchical organization of the surface unknowns,             After Titer message-passing iterations, the near-field branch
+while the actual computations are realized by trainable graph       produces the short-range component Jnear = J (Titer ) , which
+and attention-based modules. The network-level realization of       is forwarded to the far-field branch described next.
+these modules is presented in Section IV.
+                                                                    B. Far-Field Interaction Learning
+A. Near-Field Interaction Learning                                     The far-field branch implements the nonlocal part of the
+   The near-field branch implements the local part of the           same operator-decomposition principle. Unlike the near-field
+operator-decomposition principle described above. In the dis-       component, long-range radiation coupling is not well repre-
+cretized EFIE, the near-field block represents impedance inter-     sented by purely local message passing, since distant surface
+actions between geometrically close basis or testing functions.     regions can contribute coherently to the induced current and
+These interactions are local, geometry-sensitive, and naturally     the scattered field. Following the multilevel organization of
+supported on the surface mesh. We therefore model this com-         MLFMA, we model this component through a hierarchical
+ponent as a learnable graph operator defined on the discretized     operator defined on an octree partition of the surface points.
+surface point set P = {pi }, with G = (P, E) denoting the           Let S (k) denote the feature representation at octree level k,
+resulting graph.                                                    with k = L corresponding to the finest level and k = 1 to the
+   Following the observation that short-range impedance cou-        coarsest. The branch consists of three functional operators that
+pling in (5) decays rapidly with distance, the neighborhood of      act on this multi-level representation: i) a pooling operator Γk ;
+node pi is restricted to a local radius:                            ii) a cross-scale coupling operator Ak , and iii) a coarse-to-fine
+                                                                   fusion operator Ψk .
+               N (i) = j : pi − pj ≤ rnf ,                   (8)       1) Hierarchical Pooling: Starting from S (L) = Jnear ,
+where rnf is chosen proportional to the local electrical size,      coarser-level features are obtained by a learnable pooling
+which provides a physically interpretable criterion for selecting   operator
+near neighbors. On each edge (i, j) ∈ E, an edge feature is                       S (k−1) = Γk S (k) , k = L, . . . , 2,
+                                                                                                     
+                                                                                                                                  (13)
+computed as follows:
+                                                                  which produces a compact summary of the source features
+              wij = K pi − pj , n̂i − n̂j ,                   (9)   within each parent cell.
+                                                                       2) Cross-scale feature exchange: Long-range interactions
+where K(·) is a learnable function whose two arguments,             are modeled by a cross-scale coupling operator that lets the
+inter-point distance and surface-normal mismatch, are the           fine-scale features at level k attend to a coarser context lifted
+same geometric quantities that govern the magnitude of the          from the previous level:
+impedance entries in (5).
+                                                                         S̃ (k) = Ak S (k) , Uk (S̃ (k−1) ) , k = 2, . . . , L,
+                                                                                                           
+   The induced current at each node is then refined through                                                                      (14)
+iterative message passing on K. At iteration t, a composite
+                                                                    where Uk (·) is an unpooling operator that lifts the coarse-level
+edge descriptor:
+                   h                              i                 representation to level k. The operator Ak is data-dependent:
+             (t)
+            ξij = ∆pij , ∆n̂ij , wij , J (t) (pj ) ,    (10)        it selectively weights the coarser-scale context for each fine-
+                                                                    scale element, which is the mechanism through which the
+with ∆pij = pi −pj and ∆n̂ij = n̂i −n̂j , encodes the relative      branch captures long-range coupling between distant parts of
+geometry between neighbors pi , pj together with the current        the surface.
+state at pj . Then, a learnable message kernel Φ(t) maps each          3) Coarse-to-Fine Fusion: The far-field current at level k
+edge descriptor to an edge message, as follows:                     is obtained by fusing the cross-scale output S̃ (k) with the
+                          (t)        (t)                           upsampled far-field current from the coarser level:
+                        mij = Φ(t) ξij ,                  (11)
+                                                                                (k)         (k−1)
+                                                                              Jfar = Ψk Jfar , S̃ (k) , k = 2, . . . , L.
+                                                                                                       
+                                                                                                                                 (15)
+and the node update takes the additive message-passing form:
+                                                                                                                                  (L)
+                                         X   (t)                    At the finest level, the far-field branch outputs Jfar = Jfar ,
+           J (t+1) (pi ) = J (t) (pi ) +   mij .        (12)
+                                                                    which is combined with Jnear into the predicted current Jpred
+                                       j∈N (i)
+                                                                    in expression (7).
+The summation in the latter recursion parallels the alge-              The three operators in (13)–(15) share the same coarse-to-
+braic structure of the MoM near-field action [Znear I]i =           fine, multi-resolution organization as MLFMA, in the sense
+                                                                                                                                                                           7
+
+
+
+
+                                                  Near-Field Graph Encoder Module
+       Point Cloud
+                                    Graph Construction                   Iterative Message-Passing Update
+                                                                       (Learnable Univariate Basis Functions)
+                                                                              Step 1            Step t          Step Titer
+                                                                   J(0)       Message           Message          Message
+                                                                             Learnable    ··   Learnable   ··   Learnable    Jnear                    Predicted Surface
+                                                                              Kernel            Kernel           Kernel
+                                                                                                                                                          Current J pred
+                                                  rnf                        Aggregate
+                                                                             & Update
+                                                                                               Aggregate        Aggregate
+                                                                                               & Update         & Update
+
+                                                                                                                                      J far
+ Incident
+                                             S(L)            Observation (Q)                Cross-Scale                              Disaggregation
+  Wave
+                                                                                             Attention                                  Kernels
+
+                                                    S(L1)                                  Cross-Scale
+                                                                                             Attention
+                                       Pooling
+                                                                                            Cross-Scale
+                                                                       (1)
+                                                                                             Attention                        Unpooling
+                                                                   S
+
+
+                                                                             Hierarchical Far-Field Fusion Module
+
+Fig. 3. Architecture of the proposed U-PINet. The near-field graph encoder builds a local graph on the surface mesh and applies iterative message passing with
+learnable univariate basis functions to produce Jnear . The hierarchical far-field fusion module operates on an octree partition with pooling, cross-scale attention,
+and unpooling/disaggregation to produce Jfar . The two contributions are summed into the predicted surface current Jpred used in the physics-residual loss.
+
+
+
+that distant interactions are mediated through coarser-scale                              kernel with the surface area element ∆sj , whereas the self
+representations rather than evaluated pairwise. The operators                             and near-singular terms are handled by standard singularity-
+themselves, however, are standard neural network components                               extraction techniques following MoM practice [34].
+and are not intended as numerical approximations of the                                      The inner summation therefore represents the scattered field
+multipole aggregation, translation, or disaggregation operators                                               (m)
+                                                                                          produced by Jpred at pk , and L(m) measures the extent
+of MLFMA. The network-level realization of Γk , Ak , and Ψk                               to which the tangential total field departs from the PEC
+is presented in Section IV-B.                                                             boundary condition over the collocation set. The summation
+                                                                                          over j = 1, . . . , K in (16) runs over the full surface point set
+C. Physics-Informed Residual Enforcement                                                  P, and should not be confused with the local neighborhood
+                                                                                          summation in the near-field message passing of (12): the
+   U-PINet is trained directly against the discretized EFIE
+                                                                                          former evaluates the discretized EFIE operator for residual
+residual, without using reference current labels generated by
+                                                                                          computation, whereas the latter realizes the short-range learn-
+a numerical solver. For each incident field E inc,(m) in the
+                                                                                          able interaction in the near-field branch.
+training set, the network produces a predicted surface current
+  (m)                        (m)         (m)
+Jpred through (7), with Jnear and Jfar produced by the                                       The overall physics-informed loss is obtained by averaging
+near- and far-field branches of Sections III-A and III-B. The                             the per-excitation residual over a batch of Ns incident fields,
+corresponding scattered field at each collocation point pk ∈ P
+is evaluated by acting the discretized EFIE operator on all                                                                      Ns
+                                                                                                                              1 X
+source points pj ∈ P, and the resulting per-excitation residual                                                     Lphys =          L(m) ,                          (17)
+                                                                                                                              Ns m=1
+reads as follows:
+                K
+           1 X                                                                            and is used as the sole training objective for U-PINet. The
+L(m) =         ∥n̂(pk )
+           K                                                                              connection to the classical solver is conceptual: a conven-
+               k=1
+
+                                            K
+                                                                                  2       tional MLFMA solver iteratively reduces the discrete residual
+                                                                                          r = V − ZI of a fixed linear system for a single scattering
+                                                                             
+                              (m)                             (m)
+                                            X
+                     ×       Einc (pk ) +         G(pk , pj )Jpred (pj )              ,
+                                            j=1
+                                                                                          instance, whereas U-PINet minimizes Lphys over the network
+                                                                                  2       parameters across a training set of incident fields, so that after
+                                                                               (16)
+                                                                                          training a single forward pass produces a current distribution
+where K = |P|, and n̂(pk ) is the outward unit normal at                                  that approximately satisfies the discretized EFIE on previously
+pk . With a slight abuse of notation, the kernel G(pk , pj ) in                           unseen but related configurations. Once Jpred has been ob-
+the inner sum denotes the quadrature-weighted discrete EFIE                               tained, it is substituted into the radiation integral (2) to evaluate
+operator from the source point pj to the observation point pk :                           the scattered field at exterior observation points, from which
+for regular interactions it reduces to the product of the dyadic                          the bistatic RCS σ(θ, φ) is computed via (3).
+                                                                                                                                                                   8
+
+
+
+                                                            Concatenation             with Ni = |N (i)| and bandwidth h > 0. The normalized
+                                                                             Edge
+
+                                                                  
+                                                                            Weights   inverse density dj = D(pj )/ maxℓ D(pℓ ), where D(pi ) =
+                 FFN                       FFN
+                                                                                      1/fb(pi ), is mapped through a two-layer feed-forward net-
+                                                                                      work Fd to a density-attention coefficient
+                                  Normal Vector Attention
+    Geometric                                                                                                                  
+     Inputs                                                                                                        exp Fd (dj )
+                              Normal        FFN                 Softmax                              βij = P                          .    (19)
+                               Diff
+                                                                                                              j ′ ∈N (i) exp Fd (dj )
+                                                                                                                                   ′
+
+
+
+
+                                 Density Attention
+                                                                                      In parallel, the surface-normal difference ∆n̂ij is mapped
+                                                                                      through a second feed-forward network Fn to a normal-
+                      KDE                FFN                  Softmax                 attention coefficient
+                   Estimation                                                                                                     
+                                                                                                                  exp Fn (∆n̂ij )
+                                                                                                    γij = P                            .    (20)
+                    (a) Physics-Guided Edge Attention                                                        j ′ ∈N (i) exp Fn (∆n̂ij )
+                                                                                                                                     ′
+
+                                   Residual Update
+                                                                                      The density coefficient βij reflects the local sampling regu-
+                                                                                      larity, while the normal coefficient γij reflects the geometric
+                              Edge Descriptor ij
+                                                     (t )
+                                                                                      anisotropy across the edge; both quantities are known to
+                                                                                      correlate with the magnitude of pairwise impedance entries
+                       Learnable Univariate Basis Layers
+                             (ct ,r 1)(), r  1, , R  1,                       in MoM. The two coefficients are concatenated and projected
+                                                                                      through a multilayer perceptron to obtain the scalar edge
+                                Edge Message m ij
+                                                       (t )                           weight
+                                                                                                          wij = MLP(βij ⊕ γij ),                (21)
+                                                     exp( w )
+                              Softmax ij              ij
+
+
+                             Aggregation        exp( wij )
+                                            j  ( i )
+                                                                                      which enters the edge descriptor (10) and modulates the
+                                                                                      contribution of neighbor j in the subsequent message-passing
+                   (b) Graph message-passing block                                    step.
+                                                                                         2) Iterative Message-Passing Update with Learnable Uni-
+Fig. 4. Internal structure of the near-field graph encoder module. (a) Physics-       variate Basis Functions: The message kernel Φ(t) is realized
+guided edge attention combining a kernel-density-based branch (producing
+βij ) and a surface-normal-based branch (producing γij ) into the scalar edge         through a basis-function block parameterized by learnable uni-
+weight wij , realizing K(·) in (9). (b) Graph message-passing block in which          variate nonlinearities. Motivated by the Kolmogorov–Arnold
+                        (t)
+the edge descriptor ξij is processed by learnable univariate basis layers             representation theorem [32], which expresses any continuous
+                                   (t)
+to generate the edge message mij , followed by softmax aggregation with               multivariate function as a finite superposition of univariate
+weights ρij and a residual node update, realizing Φ(t) in (11).                       functions, we adopt the learnable basis-function parameteri-
+                                                                                      zation
+  IV. T HE U-PIN ET N EURAL N ETWORK A RCHITECTURE                                                                   Q
+                                                                                                         (t)                      (t) ⊤ (t)
+                                                                                                                     X
+                                                                                                  Φ(t) ξij                 a(t)               (t)
+                                                                                                                                                  
+   This section presents the explicit network operations that                                                    =          q ϕq (uq ) ξij + bq     ,           (22)
+                                                                                                                     q=1
+realize the functional operators K(·), Φ(t) , Γk , Ak , and Ψk
+introduced in Section III. As shown in Fig. 3, the network                            where {ϕq }Q           are univariate nonlinearities and
+                                                                                                      q=1
+takes the surface point cloud, the surface normals, and the                              (t)  (t) (t)
+                                                                                      {aq , uq , bq } are the associated parameters. This
+incident field as inputs, and outputs the predicted surface
+                                                                                      parameterization places the learnable degrees of freedom on
+current Jpred in a single forward pass. The implementation is
+                                                                                      the univariate activations rather than on fixed nonlinearities,
+organized into a near-field graph encoder (Section IV-A) and
+                                                                                      equipping the message kernel with a geometry-adaptive
+a hierarchical far-field fusion module (Section IV-B), followed
+                                                                                      nonlinear shape that is well suited to representing the
+by a brief description of the resulting end-to-end forward pass
+                                                                                      spatially varying near-field coupling on a discretized PEC
+(Section IV-C).
+                                                                                      surface. To enhance the expressive capacity required by the
+                                                                                      multi-feature edge descriptor in (10), we adopt the deep
+A. Near-Field Graph Encoder
+                                                                                      extension of (22) [33], in which the univariate nonlinearities
+   This module realizes the edge kernel K(·) of (9) and the                                                                     (t,r)
+                                                                                      are parameterized as learnable splines ψℓc (·) and stacked
+message kernel Φ(t) of (11) through two cooperating blocks.                           across R layers in Fig. 4(b):
+   1) Physics-Guided Edge Attention: The edge kernel K(·)
+                                                                                                        dξ
+is implemented as a dual-branch attention module that com-                                    (1)
+                                                                                                        X        (t,1)    (t) 
+bines local sampling density and surface-normal differences in                              zij,c =           ψℓc        ξij,ℓ ,     c = 1, . . . , d1 ,
+Fig. 4(a). The local density at each point pi is estimated by                                           ℓ=1
+                                                                                                         d                                                      (23)
+Gaussian kernel density estimation [35] over N (i):                                        (r+1)
+                                                                                                        X r
+                                                                                                                 (t,r+1)    (r) 
+                                                                                          zij,c     =         ψℓc          zij,ℓ ,      r = 1, . . . , R − 1,
+                                         ∥pi − pj ∥2
+                                                    
+                   1       X
+                                                                                                        ℓ=1
+   f (pi ) =
+    b                            exp −                 , (18)
+             Ni (2π)3/2 h3                   2h2                                              (t)
+                                                                                           mij = Wo(t) zij ,
+                                                                                                                   (R)
+                                 j∈N (i)
+                                                                                                                                                              9
+
+
+
+        (t,r)                                                                                                                         (k)     (k)          (k)
+where ψℓc (·) is a learnable univariate spline at the r-th layer                 through trainable projection matrices WQ , WK , and WV .
+                       (t)
+of iteration t, and Wo is an output projection that matches                      The single-head attention weights and the corresponding head
+                                                              (t)                output are then
+the dimensions of the node feature space. The output mij
+of (23) is the edge message in (11), completing the realization                                      (k)     (k) √ 
+                                                                                   (k)       exp ⟨Qi , Km ⟩/ dk                (k)
+                                                                                                                                     X (k)
+of Φ(t) . The shallow form (22) serves as the theoretical anchor                 ai,m = P                                 , Oi =          ai,m Vm(k) ,
+                                                                                                         (k)    (k) √ 
+and is recovered as the R = 1 special case of (23), in which a                               m′ exp ⟨Qi , Km′ ⟩/ dk                   m
+single layer of univariate activations is followed by the linear                                                                             (30)
+readout.                                                                         where dk is the per-head feature dimension and the data-
+                                                                                                       (k)
+   The edge messages are then aggregated at node pi using the                    dependent weights ai,m allow each fine-scale element to selec-
+edge weights {wij } from (21), with a softmax normalization                      tively integrate information from coarser-scale features, which
+for numerical stability:                                                         is the mechanism by which Ak captures long-range coupling
+                                                                                 between distant parts of the surface. With H parallel heads
+                   X                (t)                      exp(wij )           of identical structure but independent projection matrices, the
+ ∆J (t) (pi ) =             ρij mij ,       ρij = P                          .
+                                                                 exp(wij ′ )
+                                                        j ′ ∈N (i)               head outputs are concatenated and combined with the level-k
+                  j∈N (i)
+                                                            (24)                 input through a residual connection,
+The current at iteration t+1 is obtained by the residual update                        (k)
+                                                                                                                                             
+                                                                                   Hattn = S (k) + MHAH S (k) , Uk (S̃ (k−1) ), Uk (S̃ (k−1) ) ,
+J (t+1) (pi ) = J (t) (pi ) + ∆J (t) (pi ), which is the explicit
+form of the abstract update (12) once the weight ρij from                                                                                    (31)
+the physics-guided edge attention is incorporated. After Titer                          (k)     (k)                 (k) 
+                                                                                     S̃ = Hattn + FFN LN(Hattn ) ,                           (32)
+iterations, the near-field output is read out as
+                                                                                 where MHAH (·, ·, ·) denotes the H-head version of the op-
+                               Jnear = J (Titer ) ,                       (25)   eration in (27)–(30) with its three arguments taken as the
+                                                                                 query, key, and value sequences, LN(·) is layer normaliza-
+and is forwarded to the far-field fusion module as the input at                  tion, and FFN(·) is a two-layer feed-forward network. The
+the finest hierarchical level.                                                   unpooling operator Uk assigns each parent-cell descriptor to
+                                                                                 all of its child cells in C (k) , so that fine-level features at level k
+B. Hierarchical Far-Field Fusion Module                                          can interact with the coarser context lifted from level k − 1.
+                                                                                    3) Kernel-Point Fusion: The fusion operator Ψk in (15)
+   This module realizes the multilevel operators Γk , Ak ,                                                                             (k−1)
+                                                                                 first lifts the coarser-level far-field current Jfar        to level k,
+and Ψk defined in (13), (14), and (15). All three operators
+share the same octree partition {C (k) }L
+                                        k=1 introduced in Sec-
+                                                                                          (k−1→k)
+                                                                                        Jˆfar
+                                                                                                                    (k−1)
+                                                                                                                            (pi ), pi ∈ C (k) ,
+                                                                                                                          
+                                                                                                   (pi ) = Uk Jfar                                   (33)
+tion III-B, which provides a hierarchical organization of the
+surface unknowns from the finest level k = L to the coarsest                     and then introduces local spatial dependence within the un-
+level k = 1.                                                                     pooled neighborhood through a kernel-point mapping [36].
+   1) Pooling: Starting from S (L) = Jnear , the descriptor of                   With Nkern fixed kernel anchors {ζq } placed in the local frame
+                  (k)
+each octree cell Cc at level k = L − 1, . . . , 1 is obtained by                 of pi , the level-k far-field current is updated as
+combining the mean and the maximum of its child features:                                                     N kern
+                                                                                     (k)            (k)                                 (k−1→k)
+                                                                                                              X
+                                                                                 Jfar (pi ) = S̃i       +            ρq (pi ) Wq(k) Jˆfar         (pi ), (34)
+             (k)
+                           X (k+1)                (k+1)                                                       q=1
+  Sc(k) = WΓ cat (k)  1
+                               Si      , max Si          , (26)
+                            |Cc |                        (k)                                (k)
+                                    (k)               i∈Cc                       where Wq         are learnable kernel matrices and
+                                 i∈Cc
+                                                                                                                                 
+where cat[·, ·] stacks the two vectors along the feature axis                                 ρq (pi ) = max 0, 1 − ∥pi − ζq ∥/σκ ,                        (35)
+       (k)
+and WΓ is a trainable linear projection that produces a com-                     is a linear correlation kernel with bandwidth σκ . The kernel-
+pact summary of each parent cell. The mean term preserves                        point construction injects a position-dependent weighting into
+the average behavior of the child cells, while the maximum                       the disaggregation step, so that distinct locations within the
+term retains the most salient response within each cell; their                   same parent cell receive distinguishable updates rather than
+concatenation gives a richer descriptor than either alone for                    a uniform copy of the coarser-level current. Cascading (26)
+representing the coarser-level source.                                           through (34) from k = 2 up to k = L yields the finest-level
+   2) Multi-Head Cross-Attention: The cross-scale coupling                                                  (L)
+                                                                                 far-field current Jfar = Jfar .
+operator Ak in (14) is realized as a multi-head attention block.
+At each head, the level-k features S (k) are used as queries,
+while the unpooled coarser context Uk (S̃ (k−1) ) supplies both                  C. Training Objective and Optimization
+keys and values:                                                                    The components introduced in Sections IV-A and IV-B
+                                      (k)
+                                                                                 together define a single forward pass of U-PINet, which
+                     Q(k) = WQ S (k) ,                                    (27)   takes the surface point cloud P, the associated outward nor-
+                                      (k)
+                    K (k) = WK Uk (S̃ (k−1) ),                            (28)   mals {n̂i }, and a sampled incident field E inc as inputs and
+                         (k)      (k)                                            returns the predicted surface current Jpred in (7) as the output.
+                     V         = WV Uk (S̃ (k−1) ),                       (29)   The near-field graph encoder yields Jnear in (25), while the
+                                                                                                                                              10
+
+
+
+                                                                0.5m           input at each point consists of its 3D coordinates, the outward
+                                                                               surface normal, the local geometric descriptors used in the
+                                             0.5m          1m
+                           1m                                                  edge-attention block (the kernel-density-based local sampling
+                                                                 0.8m          regularity and the pairwise surface-normal difference ∆n̂ij ,
+          1m       1m                                                          as defined in Section III-A), and the incident plane-wave
+            (a) Cube                   (b) Sphere         (c) Cone             vector E inc (p) sampled at that point. The network predicts
+                                                                               the induced surface current on the PEC surface, from which
+                           0.2m
+                                                                               the far-field RCS is computed using the radiation integral (2)
+                                                                 0.195m
+             0.5m
+                                0.5m
+                                                                               and (3).
+                                                                     0.1486m      The targets are illuminated by a plane wave of amplitude
+                            0.2m                                 0.5m          1 V/m. Unless otherwise stated, the operating frequency is
+                                                0.5625m
+                                                                               1 GHz. The airplane target is additionally evaluated at three
+           (d) Assembly Body                        (e) SLICY                  frequency points (0.5, 1, and 2 GHz) to examine multi-
+                                                                       3m      frequency behavior. HH and VV co-polarized configurations
+                 3.25m
+                                  2m                                           are considered for selected targets. The incident and observa-
+                                                                               tion angles follow the same sampling grid for all compared
+                           7m
+                                                                               methods, and MLFMA is used to generate reference surface
+                                                                               currents and RCS responses for evaluation and visualization
+                                                          14m                  purposes only; these reference currents do not enter the
+            (f) Airplane                            (g) Ship                   training process as labels.
+                                                                                  Throughout the remainder of this paper, MLFMA solutions
+Fig. 5. Canonical and complex 3D PEC targets considered for the evaluation     are adopted as the numerical ground truth for quantitative
+of U-PINet, including cube, sphere, cone, assembly body, SLICY, airplane,
+and ship.                                                                      evaluation and visualization. It should be emphasized that the
+                                                                               proposed U-PINet is trained in a physics-driven, label-free
+                                                                               manner through the EFIE residual in (17), without access to
+hierarchical far-field fusion module yields Jfar through the                   MLFMA-generated currents or RCS values; the MLFMA data
+cascade of (26)–(34).                                                          are used solely as an independent benchmark for assessing the
+   A direct evaluation of (16) has a nominal complexity of                     trained model.
+O(K 2 ) per excitation, since each of the K collocation points                    The average edge length of the triangular mesh is set to ap-
+sums the contributions of all K source points through the                      proximately λref /10 for the canonical and moderately complex
+discretized EFIE operator. This cost becomes prohibitive on                    targets, where λref = c0 /f denotes the free-space wavelength
+the electrically larger targets considered in Section VI. To keep              at the operating frequency f of the corresponding experiment,
+the training tractable, at each optimization step we sample                    and c0 is the speed of light in vacuum. For the electrically
+a random subset Pc ⊂ P of Kc ≪ K collocation points                            larger airplane and ship targets, a coarser discretization is
+and evaluate the residual only on Pc , while the inner source                  adopted in order to keep the number of unknowns tractable.
+summation in (16) is retained over the full point set P.
+This reduces the per-step cost from O(K 2 ) to O(Kc K)                         B. Benchmark Models and Evaluation Metrics
+and provides an unbiased estimator of the full residual in                        U-PINet is compared with two representative physics-
+expectation. The subset Pc is resampled at every step so that                  informed CEM baselines, denoted MLFMA-PINN and Phi-
+all collocation points contribute to the parameter update over                 GRL. To ensure a controlled comparison, all models share the
+a training epoch.                                                              same point-cloud input representation, incident-field encoding,
+                                                                               training/test split, and evaluation protocol; baseline-specific
+                    V. E XPERIMENTAL S ETUP                                    design choices that differ from the original references are
+                                                                               noted below.
+   This section describes the experimental setup used to eval-
+                                                                                  • MLFMA-PINN [28]: This baseline represents the super-
+uate the accuracy and physical consistency of U-PINet. As
+shown in Fig. 5, seven 3D PEC targets are considered: four                           vised regression paradigm, in which neural modules are
+canonical targets (cube, sphere, cone, and assembly body)                            trained to reproduce MLFMA reference solutions on a
+and three complex targets (SLICY [37], airplane, and ship).                          per-target basis. Following the original design, a gener-
+Together, these geometries cover smooth surfaces, sharp edges,                       alized regression neural network (GRNN) branch with a
+multi-component structures, and electrically larger targets, pro-                    Gaussian kernel handles the accuracy-sensitive translation
+viding a representative testbed for surface current reconstruc-                      components, and an ANN branch processes the remaining
+tion and bistatic RCS prediction at microwave frequencies.                           components through a stack of fully connected layers
+                                                                                     with tangent-sigmoidal hidden activations and a linear
+                                                                                     output layer; the input translation variables are normal-
+A. Data Generation                                                                   ized to [−1, 1]. The training objective is the mean squared
+   For each target, the triangular surface mesh is converted                         error between the predicted and the MLFMA reference
+into a point-cloud representation in which the centroid of each                      surface currents on the training incident-angle configu-
+triangular element is taken as a surface point. The network                          rations. This baseline is included as a representative of
+                                                                                                                                                                          11
+
+
+
+                                                            TABLE I
+    OVERALL ACCURACY C OMPARISON OF S URFACE C URRENT R ECONSTRUCTION AND RCS P REDICTION ON C ANONICAL AND C OMPLEX 3D PEC
+        TARGETS AT 1 GH Z , AVERAGED OVER HH AND VV P OLARIZATIONS AND OVER THE T EST I NCIDENT AND O BSERVATION A NGLES .
+
+                                   MLFMA-PINN                                              PhiGRL                                       U-PINet (Proposed)
+Target
+                NMSEJ ↓                                  2
+                              MAEJ (A/m)↓ RMSERCS (dB)↓ RRCS ↑   NMSEJ ↓                                  2
+                                                                               MAEJ (A/m)↓ RMSERCS (dB)↓ RRCS ↑        NMSEJ ↓                                  2
+                                                                                                                                     MAEJ (A/m)↓ RMSERCS (dB)↓ RRCS ↑
+Cube          2.14 × 10−3        0.0242         0.88     0.951   1.08 × 10−3      0.0178            0.79       0.974   4.80 × 10−4      0.0125           0.68         0.981
+Sphere        1.46 × 10−3        0.0226         1.05     0.884   9.70 × 10−4      0.0165            0.88       0.941   4.50 × 10−4      0.0118           0.77         0.972
+Cone          2.45 × 10−3        0.0282         0.81     0.942   1.25 × 10−3      0.0204            0.72       0.968   5.90 × 10−4      0.0150           0.65         0.985
+Assembly Body 6.12 × 10−3        0.0584         1.18     0.865   3.64 × 10−3      0.0442            0.98       0.928   1.85 × 10−3      0.0345           0.84         0.971
+SLICY         8.42 × 10−3        0.0768         1.04     0.912   5.76 × 10−3      0.0582            0.96       0.948   3.15 × 10−3      0.0482           0.92         0.965
+Airplane      1.28 × 10−2        0.0984         2.64     0.804   8.42 × 10−3      0.0782            2.31       0.871   5.00 × 10−3      0.0590           2.15         0.915
+Ship          1.62 × 10−2        0.1246         3.62     0.712   1.05 × 10−2      0.0924            3.21       0.814   5.65 × 10−3      0.0671           2.95         0.865
+Average         7.08 × 10−3      0.0619         1.60     0.867   4.52 × 10−3      0.0468            1.41       0.921   2.45 × 10−3      0.0354           1.28         0.951
+                                                                                                                                    2
+          Note: NMSEJ is dimensionless; MAEJ is reported in A/m; RMSERCS is reported in the dB-domain root-mean-square error of σ; RRCS is
+                                           dimensionless. ↓/↑ indicate that lower/higher values are better.
+
+                                                                                                           P       dB                 dB
+                                                                                                                                                                2
+     the label-supervised learning paradigm, against which the                              2              m      σpred (θm , φm ) − σref (θm , φm )
+                                                                                           RRCS =1−                                                                  , (39)
+     proposed label-free training of U-PINet can be assessed.                                                                               dB 2
+                                                                                                                  P       dB
+                                                                                                                                              
+                                                                                                                    m σref (θm , φm ) − σ̄ref
+   • PhiGRL [24]: This baseline follows the physics-informed
+     graph residual learning framework proposed for 3D PEC                            where M is the number of evaluated observation directions
+                                                                                            dB
+     scattering. The surface mesh is represented as a graph                           and σ̄ref denotes the mean of the reference values over the
+     whose nodes are the surface unknowns and whose edges                             same set. Unless otherwise stated, all metrics reported in
+     are induced by local mesh connectivity. Following the                            Section VI are computed under matched geometry, frequency,
+     original architecture, two parallel graph neural network                         polarization, incident-angle, and observation-angle settings.
+     branches predict the real and imaginary parts of the
+     induced current; each branch consists of three graph                             C. Training Configuration
+     convolutional layers with mean aggregation, graph batch
+                                                                                         All learning-based models are implemented in PyTorch and
+     normalization, and ELU activation, followed by dropout
+                                                                                      trained on a single NVIDIA RTX 3090Ti GPU. For each
+     and a linear output layer. The network is trained against
+                                                                                      target, the available samples are partitioned into training and
+     the physics-informed loss defined in the original work,
+                                                                                      test sets with an 80:20 ratio, with the test set disjoint from
+     which measures the residual of the discretized MoM
+                                                                                      the training set in incident-angle configurations. Each model
+     system associated with the predicted current coefficients.
+                                                                                      is trained against the objective associated with its original
+     No MLFMA reference currents are used as supervision.
+                                                                                      formulation: MLFMA-PINN minimizes the mean squared
+   • U-PINet (proposed): The proposed model combines the
+                                                                                      error with respect to MLFMA reference currents; PhiGRL
+     near-field graph encoder of Section IV-A and the hierar-
+                                                                                      minimizes the physics-informed loss defined in the original
+     chical far-field fusion module of Section IV-B. The near-
+                                                                                      work; and U-PINet minimizes the point-collocation EFIE
+     field neighborhood radius is set to rnf = 0.5λref , with
+                                                                                      residual in (17). The Adam optimizer is used for all models
+     hidden feature dimension 128 and Titer = 3 message-
+                                                                                      with an initial learning rate of 5 × 10−4 , a weight-decay
+     passing iterations. The far-field branch uses an octree
+                                                                                      coefficient of 1 × 10−5 , a mini-batch size of 32, and a total of
+     of L = 4 levels, H = 4 attention heads, and hidden
+                                                                                      300 training epochs. Identical optimizer settings are applied
+     dimension 256. Training follows the physics-informed
+                                                                                      across all models, so that the comparison reflects differences
+     objective defined in (17).
+                                                                                      in architectural design and training objective rather than in the
+  Reconstruction accuracy is assessed at both the current and                         training budget.
+RCS levels. For the induced surface current, the normalized
+mean square error (NMSE) and mean absolute error (MAE)
+                                                                                                VI. E XPERIMENTAL R ESULTS AND D ISCUSSION
+with respect to the MLFMA reference Jref are defined as
+                                                                                         This section reports the surface-current and RCS results
+                         ∥Jpred (pi ) − Jref (pi )∥2
+                     P
+                                                                                      obtained by U-PINet and compares them with the two physics-
+          NMSEJ = i P                        2
+                                                     ,   (36)
+                              i ∥Jref (pi )∥                                          informed baselines under the experimental setup of Section V.
+
+                                   K
+                              1 X                                                     A. Accuracy Validation on Canonical and Complex Targets
+              MAEJ =                Jpred (pi ) − Jref (pi ) .             (37)
+                              K i=1                                                      We first quantify the overall accuracy of all three methods
+                                                                                      on the seven PEC targets. Table I reports the current-level er-
+For the RCS response, the root-mean-square error in the dB
+                                                                                      rors (NMSEJ , MAEJ ) and the RCS-level errors (RMSERCS ,
+domain and the coefficient of determination are reported,                               2
+                                                                                      RRCS   ) with respect to the MLFMA reference. Unless oth-
+             v
+                                                                                      erwise indicated, the entries in Table I are evaluated at the
+             u 1 M
+             u
+                                             dB (θ , φ ) 2 ,
+                    X
+                                                                                      operating frequency of 1 GHz and averaged over the HH and
+                                                           
+RMSERCS = t               σ dB (θm , φm ) − σref  m    m
+                M m=1 pred                                                            VV co-polarized configurations and over the corresponding
+                                                          (38)                        test incident and observation angles, so that each table entry
+                                                                                                                                                                                  12
+
+
+
+                   MLFMA
+(a)                 (Ref.)
+                                                      U-PINet                                                    cube and SLICY targets under HH and VV polarizations. For
+                                                                                                                 the cube, U-PINet recovers the concentration of surface current
+                                        0.4                                                              0       along the edges and corners, where geometric discontinuities
+                                                                                      RCS (dBsm)
+     0.4                                Y
+HH
+     Y
+       0
+                                          0                                                                      induce strong local variations. For SLICY, which combines flat
+                                         -0.4                           -0.4
+  -0.4
+                                     0
+                                       -0.4                           0X                                         plates, cylinders, and localized protrusions, the reconstructed
+                                             -0.8
+                                                       0 Z 0.8      0.4
+           -0.8
+                    0 Z 0.8       0.4 X                                                                          current preserves the dominant hotspots and their spatial distri-
+                                                                                                                 bution on each substructure. The RCS curves derived from the
+                                                                                                                 reconstructed currents track the MLFMA reference under both
+
+                                                                                          RCS (dBsm)
+                                        0.4
+     0.4
+     Y                                   Y                                                                       polarizations across the swept θ range, indicating that current-
+VV                                         0
+       0
+                                        -0.4
+                                                                       -0.4
+                                                                                                                 level fidelity translates into consistent far-field behavior. The
+     -0.4                             -0.4
+            -0.8
+                                    0 X -0.8
+                                                       0
+                                                                      0X
+                                                                    0.4
+                                                                                                                 differences between HH and VV cases are minor, suggesting
+                      0           0.4                      Z 0.8
+                          Z 0.8
+                                                                                                             Z
+                                                                                                                 that the model is not overfitted to a particular polarization.
+(b)                                                                                                                 Figure 7 extends the comparison to the airplane target at
+                                                                               0.6                               three frequencies. The airplane geometry involves multi-scale
+
+                                                                                        RCS (dBsm)
+                                        0.3
+                                                                                                                 features (wings, fuselage, engines, tail), and as the frequency
+     0.3
+HH   Z
+                                         Z                                  0.3
+                                                                                                                 increases from 0.5 to 2 GHz, the electrical size of the target
+                                       0                                  0
+       0                              X 0
+                                            0
+                                                                        X                                        grows and the angular RCS pattern becomes more oscillatory.
+           0   0.25                0.4              0.25              0.4   0
+                      Y 0.50                               Y 0.50                                                All three methods see their RCS RMSE increase with fre-
+                                                                                0.6                              quency, but U-PINet shows the most gradual degradation: All
+                                                                                                                 three methods see their RCS RMSE increase with frequency,
+                                                                                            RCS (dBsm)
+                                                                                0.3
+                                                                                                                 but U-PINet shows the most gradual degradation: averaged
+ VV   0.3                                0.3                                                                                                                 2
+      Z
+                                        0
+                                          Z                                                                      across the three test frequencies, its RRCS      remains at 0.915,
+                                                                           0
+       0
+            0 0.25 0.50             0.4
+                                       X 0
+                                             0
+                                                                       X
+                                                                                0
+                                                                                                                 whereas MLFMA-PINN and PhiGRL drop to 0.804 and 0.871,
+                                               0.25 0.50             0.4
+                  Y                                Y                                                             respectively. Visually, U-PINet reproduces the dominant peaks
+                                                                                                                 and nulls of the bistatic RCS curve at all three frequencies,
+Fig. 6. Surface-current reconstruction and bistatic RCS prediction for (a) cube                                  while the baselines exhibit visible amplitude mismatches and
+and (b) SLICY. Within each subfigure, the upper and lower rows correspond
+to HH and VV polarizations, as indicated by the row labels. The MLFMA                                            small angular shifts of the peaks. This observation is consistent
+reference and the U-PINet prediction are shown side by side, and the RCS                                         with the fact that the hierarchical far-field branch is designed to
+curves are computed from the corresponding reconstructed currents at φ = 0◦ .                                    capture multi-scale coupling, which becomes more important
+                                                                                                                 as the target becomes electrically larger.
+                                                                                                                    Figure 8 further examines the ship target, which is the
+summarizes the target-level behavior of the method under a                                                       longest and most aspect-dependent case in the study. The
+matched excitation setting.                                                                                      RCS is plotted against φ at four fixed observation angles
+   Across all seven targets, U-PINet attains the lowest current-                                                 (θ = 30◦ , 70◦ , 120◦ , 150◦ ) for both HH and VV polarizations.
+                                                 2
+level and RCS-level errors and the highest RRCS      . Averaged                                                  U-PINet follows the MLFMA reference closely in all eight
+over targets, U-PINet reduces NMSEJ by roughly a factor of                                                       cuts, including around the deep nulls between φ = 40◦ and
+three relative to MLFMA-PINN and by about 46% relative                                                           80◦ and the sharp peaks near φ = 120◦ –140◦ , where the
+to PhiGRL, while the RCS RMSE drops from 1.60 dB and                                                             elongated hull and superstructure produce strong directional
+1.41 dB, respectively, to 1.28 dB. The trend is consistent                                                       scattering. In contrast, MLFMA-PINN tends to overshoot in
+across both metric families, indicating that the current-level                                                   the high-RCS regions and PhiGRL underestimates several of
+improvement carries over to the far-field response.                                                              the deep nulls, leading to visible amplitude bias at multiple
+   The advantage of U-PINet becomes more pronounced as the                                                       angular cuts. These observations match the quantitative gap
+target complexity increases. For the simplest cube target, all                                                   reported in Table I, where U-PINet improves RMSERCS on
+three methods stay within 1 dB of RCS RMSE and above                                                             the ship by 0.67 dB over MLFMA-PINN and by 0.26 dB over
+             2
+0.95 of RRCS     , reflecting the relatively short-range nature                                                  PhiGRL.
+of the dominant scattering. As the geometry becomes more                                                            To complement the target-wise averages in Table I, Table II
+involved, the baseline errors grow considerably faster than                                                      reports a configuration-level comparison by varying frequency,
+those of U-PINet. On the ship, which is the most demanding                                                       polarization, and observation-angle range separately while
+case, MLFMA-PINN and PhiGRL yield NMSEJ values of                                                                keeping the remaining factors fixed. For the airplane target,
+1.62 × 10−2 and 1.05 × 10−2 and RRCS      2
+                                               values of 0.712                                                   the errors of all methods increase as the frequency rises from
+and 0.814, while U-PINet achieves 5.65 × 10−3 and 0.865,                                                         0.5 to 2 GHz, but U-PINet shows the mildest degradation.
+respectively. This is consistent with the physical intuition                                                     This frequency-induced growth is consistent with the fact that
+that, for electrically larger and geometrically complex targets,                                                 an increasing electrical size shortens the wavelength relative
+both short-range impedance coupling and long-range radiation                                                     to the target, so that the induced current and the bistatic RCS
+coupling contribute significantly to the induced current. This                                                   pattern become more oscillatory and contain finer-scale spatial
+implies that a model that addresses both contributions explic-                                                   features that are intrinsically harder to reconstruct under a
+itly benefits the most.                                                                                          fixed network capacity. In the polarization tests on SLICY
+   Figure 6 shows representative visual comparisons on the                                                       and the ship, the HH–VV performance gap remains limited,
+                                                                                                                                                       13
+
+
+
+ (a)         MLFMA (Ref.)             MLFMA-PINN                       PhiGRL                       U-PINet
+
+
+
+
+ 0.5 GHz
+
+
+
+  (b)
+
+
+
+  1 GHz
+
+
+
+
+ (c)
+
+
+
+  2 GHz
+
+
+
+
+Fig. 7. Multi-frequency surface-current and RCS comparison on the airplane target at 0.5, 1, and 2 GHz, as indicated by the row labels. The first column
+shows the MLFMA reference, followed by the predictions of MLFMA-PINN, PhiGRL, and U-PINet; the last column compares the corresponding bistatic
+RCS curves at φ = 0◦ .
+
+                                                               TABLE II
+   C ONFIGURATION -L EVEL G ENERALIZATION C OMPARISON U NDER H ELD -O UT F REQUENCY, P OLARIZATION , AND O BSERVATION -A NGLE S ETTINGS .
+
+                                                                   MLFMA-PINN                         PhiGRL                   U-PINet (Proposed)
+ Test Type           Target    Held-Out Test Setting
+                                                              NMSEJ ↓       RMSERCS ↓        NMSEJ ↓       RMSERCS ↓        NMSEJ ↓       RMSERCS ↓
+                     Airplane 0.5 GHz                        9.43 × 10−3        1.97       6.18 × 10−3         1.63       3.76 × 10−3         1.41
+ Frequency           Airplane 1.0 GHz                        1.28 × 10−2        2.64       8.42 × 10−3         2.31       5.00 × 10−3         2.15
+                     Airplane 2.0 GHz                        1.67 × 10−2        3.46       1.13 × 10−2         2.91       6.48 × 10−3         2.63
+                     SLICY     HH polarization               8.48 × 10−3        1.07       5.81 × 10−3         0.99       3.18 × 10−3         0.94
+                     SLICY     VV polarization               8.36 × 10−3        1.01       5.71 × 10−3         0.93       3.12 × 10−3         0.90
+ Polarization
+                     Ship      HH polarization               1.65 × 10−2        3.68       1.08 × 10−2         3.27       5.73 × 10−3         2.98
+                     Ship      VV polarization               1.59 × 10−2        3.56       1.02 × 10−2         3.15       5.57 × 10−3         2.92
+                   Ship        θ ∈ [0◦ , 45◦ ]               1.57 × 10−2        3.51       9.80 × 10−3         3.12       5.32 × 10−3         2.84
+                   Ship        θ ∈ [45◦ , 90◦ ]              1.63 × 10−2        3.68       1.07 × 10−2         3.24       5.77 × 10−3         2.98
+ Observation Angle
+                   Ship        θ ∈ [90◦ , 135◦ ]             1.69 × 10−2        3.74       1.11 × 10−2         3.33       5.84 × 10−3         3.07
+                   Ship        θ ∈ [135◦ , 180◦ ]            1.59 × 10−2        3.55       1.04 × 10−2         3.15       5.67 × 10−3         2.91
+ Note: Each block isolates one held-out factor while fixing the others. The Frequency block reports errors averaged over HH and VV polarizations at each
+    listed frequency; the Polarization block is evaluated at 1 GHz; the Observation Angle block is evaluated at 1 GHz and averaged over HH and VV
+              polarizations. All errors are computed with respect to the MLFMA reference under matched excitation and observation settings.
+
+
+
+while U-PINet consistently achieves the lowest current and                       The visual comparisons in Figs. 6–8 reinforce the quan-
+RCS errors, indicating that its accuracy advantage is not tied                titative trends reported in Tables I–II: U-PINet produces
+to a specific co-polarized excitation. For the ship angular-                  consistent improvements at both the current and the RCS
+sector test, all methods exhibit the largest errors in the θ ∈                levels, and the margin over the baselines widens with target
+[90◦ , 135◦ ] sector, where the elongated hull and superstructure             complexity, operating frequency, and the multi-scale character
+produce a more directional and oscillatory scattering response;               of the scattering response.
+even in this most demanding sector, U-PINet retains the lowest
+RCS error among the three methods. Overall, the advantage                       The accuracy reported above is measured at the RCS level,
+of U-PINet is preserved across frequency, polarization, and                   which is the metric relevant to most repeated-query microwave
+angular sectors, with the gap over the baselines widening under               scattering tasks. A complementary, equation-level view of the
+electrically larger and directionally complex conditions.                     predicted current is examined in Section VI-C.
+                                                                                                                                                       14
+
+
+
+
+Fig. 8. Bistatic RCS comparison on the ship target under HH (upper row) and VV (lower row) polarizations. Each column shows the RCS variation with φ
+at a fixed observation angle θ. The MLFMA result is used as the reference, and the learning-based methods are compared against it over multiple angular
+cuts.
+
+
+B. Ablation Study                                                                                        TABLE III
+                                                                              A BLATION S TUDY OF THE N EAR -F IELD AND FAR -F IELD M ODULES ON
+   To assess the individual contributions of the near-field graph                                     THE S HIP TARGET
+encoder and the hierarchical far-field fusion module, we con-
+duct a controlled ablation study by selectively replacing each                Model Variant                NMSE↓J        MAE↓J RMSE↓RCS RRCS
+                                                                                                                                         2,↑
+
+branch with a simpler counterpart and retraining the model
+                                                                              Full U-PINet               5.65 × 10−3      0.0671       2.95        0.865
+under the same EFIE residual objective of (17). The study is
+                                                                              w/o near-field graph       7.95 × 10−3      0.0882       3.38        0.812
+reported on the ship target, which is the most demanding case                 w/o far-field hierarchy    7.15 × 10−3      0.0795       3.76        0.785
+in Table I and therefore produces the largest and most readable               w/o near–far modeling      1.18 × 10−2      0.1085       4.25        0.728
+gaps between variants. The same ablation protocol has been                    Note: “w/o near-field graph”, “w/o far-field hierarchy”, and “w/o near–far
+performed on the airplane and SLICY targets, and the relative                  modeling” replace the graph encoder with a per-point MLP, replace the
+ordering of variants is consistent across these targets. Three                 hierarchical fusion module with a finest-level fully connected layer, and
+                                                                              apply both replacements, respectively. ↓/↑ denotes lower/higher is better,
+variants of U-PINet are considered:                                                               and RMSERCS is reported in dB.
+   • w/o near-field graph: the graph-based near-field encoder
+      of Section IV-A is replaced by a per-point MLP that
+      processes each surface point independently. This setting
+      removes the explicit modeling of pairwise short-range
+      interactions on the surface graph while keeping the per-
+      point input features unchanged.                                        coupling between neighboring mesh elements, particularly
+   • w/o far-field hierarchy: the hierarchical fusion module                 near edges and corners of the ship hull. Removing the hierar-
+      of Section IV-B is replaced by a global fully connected                chical far-field branch (“w/o far-field hierarchy”) produces a
+      layer acting directly on the finest-level features at k = L,           comparable current-level error but a noticeably larger RCS-
+      with no pooling, no cross-scale exchange, and no coarse-               level degradation, RMSERCS rising from 2.95 to 3.76 dB
+      to-fine fusion. This setting removes the multi-scale struc-                    2
+                                                                             and RRCS      dropping to 0.785. This asymmetry is consistent
+      ture used to capture long-range coupling.                              with the role of the multi-scale branch in modeling long-range
+   • w/o near–far modeling: both branches are replaced as                    radiation coupling: such coupling has a relatively localized
+      above, yielding a baseline that combines a per-point MLP               effect on the surface current but a pronounced effect on the
+      encoder with a single global fully connected mapping at                bistatic far-field response of an electrically large and elongated
+      the finest level.                                                      target. Removing both branches simultaneously (“w/o near–far
+   The results are summarized in Table III. Both single-                     modeling”) yields the worst result across all four metrics, with
+                                                                                                                                    2
+branch ablations degrade the accuracy at the current and the                 NMSEJ roughly twice that of the full model and RRCS         falling
+RCS levels relative to the full U-PINet. Removing the near-                  below 0.73. This result indicates that the two design choices
+field graph (“w/o near-field graph”) increases NMSEJ from                    are complementary rather than redundant, with the near-field
+5.65 × 10−3 to 7.95 × 10−3 and reduces RRCS      2
+                                                       from 0.865            branch contributing primarily to current-level accuracy and the
+to 0.812, indicating that the per-point MLP alone cannot                     far-field branch contributing primarily to far-field scattering
+adequately represent current variations driven by short-range                consistency.
+                                                                                                                                                               15
+
+
+
+                           TABLE IV                                                                           TABLE V
+  P ERFORMANCE OF U-PIN ET-A SSISTED GMRES I NITIALIZATION ON                           RUNTIME C OMPARISON FOR M ULTI -A NGLE RCS E VALUATION .
+                   T HREE C OMPLEX TARGETS .
+                                                                                    Target     Mesh Elem.        MLFMA        U-PINet Train U-PINet Infer.
+Target     Init.              η0 ↓ Iter.↓ titer (s)↓ tonline (s)↓ Red.↑                                       (360 angles, h)      (h)      (360 angles, s)
+                                                                                    SLICY            3,080         4.52           1.5            3.5
+           Zero               1.000   185      45.2         45.2             –      Assembly         4,830         7.50           2.0            4.8
+           MLFMA-PINN         0.450   110      26.8         28.5           40.5%    Sphere           8,050        13.50            2.8           7.2
+SLICY
+           PhiGRL             0.320    82      20.0         21.8           55.7%    Cube            12,380        22.00           3.5           10.5
+           U-PINet            0.150    45      11.0         12.5           75.7%    Cone            13,090        24.50           3.8           12.8
+                                                                                    Airplane        39,100        65.50           8.5           25.5
+           Zero               1.000   420     655.0        655.0             –      Ship            78,460       245.00           26.0          52.4
+           MLFMA-PINN         0.620   310     483.5        487.2           26.2%     Note: All timings refer to 360 incident-angle configurations on the same
+Airplane
+           PhiGRL             0.510   245     382.0        386.5           41.7%   target. The U-PINet training time is the per-target offline cost, incurred only
+           U-PINet            0.280   130     202.8        207.5           69.0%                                      once.
+           Zero               1.000   540     2450.0      2450.0             –
+           MLFMA-PINN         0.750   430     1950.0      1965.5           20.4%
+Ship                                                                               where Z and V are the MoM impedance matrix and the tested
+           PhiGRL             0.620   350     1585.0      1598.2           35.2%
+           U-PINet            0.350   210      950.0       958.5           61.1%   incident-field vector from Section II-B. The same MLFMA-
+  Note: The GMRES convergence tolerance is 10−3 . η0 is the normalized             accelerated GMRES implementation is used for all initializa-
+ initial residual defined in (41); titer is the GMRES iteration time; tonline      tions, with the convergence criterion ∥V − ZI∥2 /∥V∥2 <
+  also includes the network inference time required to produce I0 via the
+ projection in (40); “Red.” denotes the iteration-count reduction relative to
+                                                                                   10−3 .
+   zero initialization. ↓/↑ indicate that lower/higher values are better. All         The results are reported in Table IV. The learning-based
+learning-based initializers are evaluated under the same per-target GMRES          initializations all start from a normalized residual well below
+                                    protocol.
+                                                                                   unity, indicating that the predicted currents are physically
+                                                                                   consistent with the EFIE operator even though they do not
+C. Solver-Oriented Validation                                                      satisfy the discretized system at the 10−3 tolerance. Among
+                                                                                   the three methods, U-PINet attains the lowest η0 on every
+   The accuracy reported in Section VI-A is measured at                            target, which translates into the smallest iteration count and
+the RCS level, which is determined by the radiation integral                       the largest reduction in online solution time. We note that
+in (2) and therefore tolerates small, spatially distributed errors                 the iteration-count reduction is not simply proportional to
+in the predicted current that are averaged out during far-                         log η0 / log(tol), since GMRES convergence is governed by
+field integration. A complementary question is how the same                        the spectral distribution of Z within the Krylov subspace
+predicted current behaves when measured at the equation                            generated by the initial residual rather than by the residual
+level, that is, as a candidate solution of the discretized linear                  magnitude alone. The observed reductions therefore reflect, in
+system ZI = V. This distinction is relevant because certain                        addition to a smaller starting residual, the extent to which the
+downstream tasks, such as near-field analysis, EMC evaluation                      learned current aligns with the dominant Krylov directions of
+involving coupled sub-systems, and iterative inverse-problem                       the discretized EFIE operator.
+pipelines, require the surface current to satisfy the discretized
+                                                                                      These observations clarify the role of U-PINet in two
+EFIE to a numerical tolerance that is much stricter than the
+                                                                                   distinct operating modes. When the downstream task is bistatic
+one needed for accurate bistatic RCS reconstruction.
+                                                                                   RCS evaluation, the standalone surrogate in Section VI-A is
+   To examine this regime, we evaluate U-PINet not as a
+                                                                                   sufficient, and no iterative correction is required. When the
+replacement of the classical solver but as a source of physics-
+                                                                                   downstream task requires the surface current to satisfy the
+consistent initial guesses for the iterative EFIE solver. The
+                                                                                   discretized EFIE to a numerical tolerance, the same predicted
+experiment is conducted per target, so the goal is not to
+                                                                                   current can be reused as an initial guess for a classical
+demonstrate cross-shape transfer, but to quantify how much
+                                                                                   MLFMA-accelerated GMRES solver, reducing the iteration
+iterative effort can be saved on the same target by warm-
+                                                                                   count without modifying the underlying solver. The two modes
+starting GMRES with a learned current.
+                                                                                   are complementary, and the choice between them is governed
+   Let I0 denote the initial coefficient vector supplied to
+                                                                                   by the accuracy required by the downstream task rather than
+GMRES. For the zero-initialization case, I0 = 0. For the
+                                                                                   by a limitation of the surrogate itself.
+learning-based initializations, the predicted surface current
+Jpred (pi ) at each mesh-element centroid is projected onto
+the RWG basis {fn }N   n=1 defined on the same triangular mesh                     D. Computational Efficiency
+through a standard least-squares fit,
+                                                                                      We finally compare the wall-clock cost of MLFMA and
+                                              N
+                          X                   X                    2               U-PINet in the multi-angle RCS evaluation scenario, which
+    I0 = arg min              Jpred (pi ) −         In fn (pi )        ,    (40)   is one of the practical use cases motivating the proposed
+                   I∈CN
+                          i                   n=1
+                                                                                   surrogate. For MLFMA, the reported time corresponds to the
+yielding the coefficient vector I0 used to warm-start the                          cumulative iterative solution time required to compute the RCS
+iterative solver. The normalized initial residual is defined as                    at 360 incident-angle configurations on the same target. For
+                           ∥V − ZI0 ∥2                                             U-PINet, the offline training cost and the online inference cost
+                      η0 =                ,                 (41)                   are reported separately, with the inference time measured as a
+                               ∥V∥2
+                                                                                                                                                 16
+
+
+
+single forward pass per incident angle, summed over the same         generation of high-fidelity scattering signatures is critical, will
+360 configurations.                                                  also be pursued.
+   Table V summarizes the comparison. The online inference
+cost of U-PINet is several orders of magnitude lower than the
+cumulative MLFMA solution time on every target, and the gap                                        R EFERENCES
+widens with the mesh size because the per-angle MLFMA cost            [1] C. A. Balanis, Advanced Engineering Electromagnetics, 2nd ed. Hobo-
+grows with the problem size whereas the per-angle inference               ken, NJ, USA: Wiley, 2012.
+cost grows much more slowly. The offline training cost ranges         [2] K. El-Darymli, E. W. Gill, P. Mcguire, D. Power et al., “Automatic
+                                                                          target recognition in synthetic aperture radar imagery: A state-of-the-art
+from a few hours to about 26 h depending on the target, and               review,” IEEE Access, vol. 4, pp. 6014–6058, 2016.
+is incurred only once. Because the training cost is amortized         [3] A. Taflove, S. C. Hagness, and M. Piket-May, “Computational electro-
+over all subsequent queries on the same target, the total cost of         magnetics: The finite-difference time-domain method,” in The Electrical
+                                                                          Engineering Handbook, 3rd ed. Boca Raton, FL, USA: CRC Press,
+U-PINet remains substantially below that of MLFMA already                 Jan. 2005, pp. 629–670.
+after a relatively small number of incidence configurations.          [4] R. F. Harrington, Field Computation by Moment Methods. Piscataway,
+The proposed surrogate is therefore well suited to repeated-              NJ, USA: IEEE Press, 1993.
+                                                                      [5] J.-M. Jin, The Finite Element Method in Electromagnetics. Hoboken,
+query scattering analysis on a fixed geometry, in which the               NJ, USA: Wiley, 2015.
+same target is evaluated under many incidence directions,             [6] S. M. Rao, D. R. Wilton, and A. W. Glisson, “Electromagnetic scattering
+polarizations, or frequencies.                                            by surfaces of arbitrary shape,” IEEE Transactions on Antennas and
+                                                                          Propagation, vol. AP-30, no. 3, pp. 409–418, May 1982.
+                                                                      [7] J. Song, C.-C. Lu, and W. C. Chew, “Multilevel fast multipole algorithm
+                     VII. C ONCLUSIONS                                    for electromagnetic scattering by large complex objects,” IEEE Trans.
+                                                                          Antennas Propag., vol. 45, no. 10, pp. 1488–1493, Oct. 1997.
+   This paper introduced U-PINet, a physics-informed hierar-          [8] Y.-N. Liu and X.-M. Pan, “Solution of volume–surface integral equation
+                                                                          accelerated by MLFMA and skeletonization,” IEEE Trans. Antennas
+chical neural network for 3D microwave scattering modeling                Propag., vol. 70, no. 7, pp. 6078–6083, Jul. 2022.
+of PEC targets. Motivated by the near–far separation of               [9] C. Wu, L. Guan, P. Gu, and R. Chen, “Application of parallel CM-
+length scales in the underlying MLFMA discretization, U-                  MLFMA method to the analysis of array structures,” IEEE Trans.
+                                                                          Antennas Propag., vol. 69, no. 9, pp. 6116–6121, Sep. 2021.
+PINet combines a near-field graph encoder, whose message             [10] M. Takrimi, Ö. Ergül, and V. B. Ertürk, “A broadband multilevel fast
+passing on the surface mesh is parameterized by learnable                 multipole algorithm with incomplete-leaf tree structures for multiscale
+univariate basis functions, with a hierarchical far-field fusion          electromagnetic problems,” in Proc. 10th Eur. Conf. Antennas Propag.
+                                                                          (EuCAP), 2016.
+module organized on an octree partition. A discretized EFIE
+                                                                     [11] A. Noga, T. Topa, and A. Karwowski, “Using GPU accelerated version
+residual loss is used as the sole training objective, allowing the        of MoM for solving scattering and radiation electromagnetic problems,”
+proposed network to learn the induced surface current without             in Proc. 19th Int. Conf. Microw., Radar Wireless Commun. (MIKON),
+reference current labels from a numerical solver.                         Warsaw, Poland, 2012, pp. 233–234.
+                                                                     [12] W.-J. He, Z. Yang, X.-W. Huang, W. Wang, and others., “Solving electro-
+   The proposed framework was evaluated on seven canonical                magnetic scattering problems with tens of billions of unknowns using
+and geometrically complex 3D PEC targets at microwave fre-                GPU accelerated massively parallel MLFMA,” IEEE Trans. Antennas
+quencies. Compared with two representative physics-informed               Propag., vol. 70, no. 7, pp. 5672–5682, Jul. 2022.
+                                                                     [13] R. Guo, X. Song, M. Li, F. Yang, and others., “Supervised descent
+CEM baselines, it was showcased that U-PINet attains con-                 learning technique for 2-D microwave imaging,” IEEE Trans. Antennas
+sistently lower current-level and bistatic RCS errors across              Propag., vol. 67, no. 5, pp. 3550–3554, May 2019.
+all targets, with the margin widening on electrically larger         [14] T. Shan, R. Guo, M. Li, F. Yang, and others., “Application of multitask
+                                                                          learning for 2-D modeling of magnetotelluric surveys: TE case,” IEEE
+and multi-scale geometries, such as the airplane and the ship.            Trans. Geosci. Remote Sens., vol. 60, pp. 1–9, 2022.
+The conducted ablation study indicated that the two branches         [15] J. H. Kim and S. W. Choi, “A deep learning-based approach for radiation
+play complementary roles: the near-field branch contributes               pattern synthesis of an array antenna,” IEEE Access, vol. 8, pp. 226 059–
+                                                                          226 063, 2020.
+primarily to current-level fidelity, whereas the hierarchical far-   [16] T. Shan et al., “Study on a fast solver for Poisson’s equation based on
+field branch contributes primarily to the consistency of the              deep learning technique,” IEEE Trans. Antennas Propag., vol. 68, no. 9,
+far-field response. Beyond its use as a standalone surrogate, it          pp. 6725–6733, Sep. 2020.
+                                                                     [17] M. Chen, R. Lupoiu, C. Mao et al., “WaveY-Net: Physics-augmented
+was demonstrated that U-PINet also acts as an informed ini-               deep learning for high-speed electromagnetic simulation and optimiza-
+tializer for the classical MLFMA-accelerated GMRES solver,                tion,” in Proc. SPIE High Contrast Metastructures XI, vol. 12011, 2022,
+reducing the iteration count and the online solution time on              pp. 63–66.
+                                                                     [18] H. Shin, J. K. Lee, J. Kim, and J. Kim, “Continual learning with deep
+every target tested. Together, these results suggest that an              generative replay,” in Proc. 31st Int. Conf. Neural Inf. Process. Syst.
+architecture aligned with the physical structure of the integral-         (NeurIPS), Long Beach, CA, USA, 2017, pp. 2994–3003.
+equation discretization, rather than a generic neural model,         [19] K. Chai, H. Zeng, A. Li, and E. W. T. Ngai, “Deep learning in com-
+can offer practical benefits for repeated-query microwave                 puter vision: A critical review of emerging techniques and application
+                                                                          scenarios,” Mach. Learn. Appl., vol. 6, p. 100134, 2021.
+scattering analysis on a fixed geometry.                             [20] Y. Liu, H. Zhao, R. Song, X. Chen, and others., “SOM-Net: Unrolling
+   Future work will focus on extending U-PINet to broad-                  the subspace-based optimization for solving full-wave inverse scattering
+band RCS analysis through frequency-conditioned network                   problems,” IEEE Trans. Geosci. Remote Sens., vol. 60, pp. 1–15, 2022.
+                                                                     [21] L. Zhang et al., “A deep generative model-integrated framework for 3-D
+formulations, and on incorporating dielectric and impedance               time-difference electrical impedance tomography,” IEEE Trans. Instrum.
+boundary conditions to broaden its applicability beyond PEC               Meas., vol. 72, pp. 1–12, 2023.
+targets. Application of the framework to downstream radar            [22] X. Xue, L. Lei, S. Sun, J. Hu, and others., “Electromagnetic modeling of
+                                                                          numerical Green’s function for moving scatterers using artificial neural
+signal processing tasks, including synthetic aperture radar               networks,” in Proc. 2023 Int. Appl. Comput. Electromagn. Soc. Symp.
+(SAR) imaging and automatic target recognition, where rapid               (ACES-China), Hangzhou, China, 2023, pp. 1–2.
+                                                                                 17
+
+
+
+[23] K. Stylianopoulos, P. N. Gavriilidis, G. Gradoni, and G. C. Alexan-
+     dropoulos, “Graph-CNNs for RF imaging: Learning the electric field
+     integral equations,” in Proc. 33rd Eur. Signal Process. Conf. (EUSIPCO),
+     2025, pp. 905–909.
+[24] S. Shan, M. Li, F. Yang, and S. Xu, “Solving combined field integral
+     equations with physics-informed graph residual learning for EM scatter-
+     ing of 3-D PEC targets,” IEEE Trans. Antennas Propag., vol. 72, no. 1,
+     pp. 733–744, Jan. 2024.
+[25] R. Zhu, Y. Peng, G. C. Alexandropoulos, P. Wang, W. Wang, and
+     W. Xiang, “Learning the basis: A kolmogorov-arnold network approach
+     embedding green’s function prior,” IEEE Antennas and Wireless Prop-
+     agation Letters, pp. 1–5, 2026.
+[26] W. Wan, P. Hou, and X. Pu, “Optimizing translation operator calculation
+     in MLFMA based on neural network integration,” in Proc. 2024 IEEE
+     MTT-S Int. Microw. Workshop Ser. Adv. Mater. Process. RF THz Appl.
+     (IMWS-AMP), Nanjing, China, 2024, pp. 1–3.
+[27] G. Stamatelis, K. Stylianopoulos, and G. C. Alexandropoulos, “Evolving
+     multi-branch attention convolutional neural networks for online RIS
+     configuration,” IEEE Trans. Cogn. Commun. Netw., pp. 1–1, 2025.
+[28] J.-J. Sun, S. Sun, Y. P. Chen, L. Jiang, and others., “Machine-learning-
+     based hybrid method for the multilevel fast multipole algorithm,” IEEE
+     Antennas Wireless Propag. Lett., vol. 19, no. 12, pp. 2177–2181, Dec.
+     2020.
+[29] M. Cui, J. Long, M. Feng, B. Li, and others., “OctFormer: Efficient
+     octree-based transformer for point cloud compression with local en-
+     hancement,” in Proc. 37th AAAI Conf. Artif. Intell., vol. 37, 2023, pp.
+     470–478.
+[30] Y. Saad and M. H. Schultz, “GMRES: A generalized minimal residual
+     algorithm for solving nonsymmetric linear systems,” SIAM J. Sci. Statist.
+     Comput., vol. 7, pp. 856–869, 1986.
+[31] H. A. van der Vorst, “Bi-CGSTAB: A fast and smoothly converging
+     variant of Bi-CG for the solution of nonsymmetric linear systems,” SIAM
+     J. Sci. Comput., vol. 13, no. 2, pp. 631–644, 1992.
+[32] A. N. Kolmogorov, “On the representation of continuous functions of
+     many variables by superposition of continuous functions of one variable
+     and addition,” Doklady Akademii Nauk SSSR, vol. 114, no. 5, pp. 953–
+     956, 1957.
+[33] Z. Liu et al., “KAN: Kolmogorov-Arnold networks,” arXiv:2404.19756,
+     2024.
+[34] G. Barton, Elements of Green’s Functions and Propagation: Potentials,
+     Diffusion, and Waves. Oxford, U.K.: Clarendon Press, 1989.
+[35] C. Wen, X. Li, X. Yao, L. Peng, and others., “Airborne LiDAR point
+     cloud classification with global-local graph attention convolution neural
+     network,” ISPRS J. Photogramm. Remote Sens., vol. 173, pp. 181–194,
+     Mar. 2021.
+[36] H. Thomas, C. R. Qi, J.-E. Deschaud, B. Marcotegui, F. Goulette, and
+     L. J. Guibas, “KPConv: Flexible and deformable convolution for point
+     clouds,” in Proceedings of the IEEE/CVF International Conference on
+     Computer Vision (ICCV), Oct. 2019, pp. 6411–6420.
+[37] L. M. Yuan, Y. G. Xu, W. Gao et al., “Design of scale model of plate-
+     shaped absorber in a wide frequency range,” Chin. Phys. B, vol. 27,
+     no. 4, p. 044101, 2018.
+

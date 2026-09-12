@@ -1,0 +1,1 @@
+{"type":"object","additionalProperties":false,"properties":{"status":{"type":"string","enum":["completed","failed","unresolved"]},"findings":{"type":"array","items":{"type":"string"}},"artifacts":{"type":"array","items":{"type":"string"}},"limitations":{"type":"array","items":{"type":"string"}}},"required":["status","findings","artifacts","limitations"]}

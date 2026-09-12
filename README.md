@@ -43,6 +43,7 @@ the A1→A4 timeline and SOM/SLAM topic map. Every exported file is enumerated i
 | 中文汇报 | [A3 report](communication/A3_RESEARCH_REPORT_ZH.md), [A2 report](communication/A2_RESEARCH_REPORT_ZH.md) |
 | Original theory context | [SOM / SLAM context](Theory/SOM_SLAM_THEORY_CONTEXT.md) |
 | Original Q/A documents | [Theory/Questions](Theory/Questions) |
+| Gaussian research workspace | [Gaussian A1 + A1_2 + A2](Gaussian/deliverables/START_HERE.md) |
 | Code entrypoints and dependencies | [Code and reproducibility](CODE_AND_REPRODUCIBILITY.md) |
 | Boundaries and checks of this upload | [Publication scope](PUBLICATION_SCOPE.md) |
 
@@ -50,6 +51,7 @@ the A1→A4 timeline and SOM/SLAM topic map. Every exported file is enumerated i
 
 ```text
 Theory/                         Original research context and Q/A inputs
+Gaussian/                       Gaussian A1/A1_2/A2 theory, code and evidence
 communication/                  Chinese research reports
 research/a4_reliability_v1/      Supplied A4 package, source and results
 research/trispace_self_calibration/

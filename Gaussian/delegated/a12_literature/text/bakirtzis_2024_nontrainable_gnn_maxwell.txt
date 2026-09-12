@@ -1,0 +1,619 @@
+                                                                                                                                                                                       1
+
+
+
+
+                                            Solving Maxwell’s Equations with Non-Trainable
+                                                Graph Neural Network Message Passing
+                                                                           Stefanos Bakirtzis, Marco Fiore, Jie Zhang, and Ian Wassell
+
+
+
+
+                                           Abstract—Computational electromagnetics (CEM) is employed                   wireless communications, and antenna and radio frequency
+                                        to numerically solve Maxwell’s equations, and it has very                      component design [2], [3]. Existing CEM methods can be
+                                        important and practical applications across a broad range                      categorized based on whether they solve Maxwell’s equations
+                                        of disciplines, including biomedical engineering, nanophotonics,
+
+
+
+
+arXiv:2405.00814v1 [cs.CE] 1 May 2024
+                                        wireless communications, and electrodynamics. The main limita-                 in a differential or integral form, or according to whether the
+                                        tion of existing CEM methods is that they are computationally                  solution is retrieved in the frequency or the time domain [4].
+                                        demanding. Our work introduces a leap forward in scientific                    Some of the commonly used CEM full-wave analysis models
+                                        computing and CEM by proposing an original solution of                         include the finite element method [5], the method of moments
+                                        Maxwell’s equations that is grounded on graph neural networks                  [6], and the finite-difference time-domain (FDTD) method [7].
+                                        (GNNs) and enables the high-performance numerical resolution
+                                        of these fundamental mathematical expressions. Specifically, we                All these approaches necessitate high computational resources,
+                                        demonstrate that the update equations derived by discretizing                  which emerge as their main bottleneck. Among them, FDTD
+                                        Maxwell’s partial differential equations can be innately expressed             constitutes the most rigorous technique for high-fidelity tran-
+                                        as a two-layer GNN with static and pre-determined edge weights.                sient (time-domain) solutions to Maxwell’s equations, while
+                                        Given this intuition, a straightforward way to numerically solve               it also enables broadband frequency domain responses to
+                                        Maxwell’s equations entails simple message passing between such
+                                        a GNN’s nodes, yielding a significant computational time gain,                 be acquired via a Fourier transformation of the sampled
+                                        while preserving the same accuracy as conventional transient                   waveforms [8].
+                                        CEM methods. Ultimately, our work supports the efficient and                      The computational burden in the FDTD method stems from
+                                        precise emulation of electromagnetic wave propagation with                     the discretization of Maxwell’s equations both in space and
+                                        GNNs, and more importantly, we anticipate that applying a                      time via a centered finite-difference approximation [9]. Once
+                                        similar treatment to systems of partial differential equations
+                                        arising in other scientific disciplines, e.g., computational fluid             discretized, the electromagnetic fields at a given point in space
+                                        dynamics, can benefit computational sciences.                                  and time are computed iteratively through a set of numerical
+                                                                                                                       equations. The values of the spatial and time discretization
+                                           Index Terms—Scientific computing, computational electromag-
+                                        netics, partial differential equations, graph neural networks, finite          steps used in the centered finite-difference approximation are
+                                        differences                                                                    subject to constraints that must be met in order to satisfy
+                                                                                                                       certain stability and numerical dispersion requirements [7], [9].
+                                                                  I. I NTRODUCTION                                     This requirement yields spatial step sizes that are a subdivision
+                                                                                                                       of the wavelength, and values of the time step that are smaller
+                                           The solution of partial differential equations (PDEs) is of
+                                                                                                                       than the spatial step by a factor proportional to the speed
+                                        paramount importance in scientific computing and compu-
+                                                                                                                       of light. Inevitably, simulating electromagnetic propagation in
+                                        tational physics, as these mathematical expressions describe
+                                                                                                                       large physical environments and very high frequencies can
+                                        a plethora of physical phenomena [1]. Maxwell’s equations
+                                                                                                                       lead to overextended simulation times and exhaustive memory
+                                        are among the most important and well-known sets of PDEs
+                                                                                                                       requirements, hindering the wide applicability of such models.
+                                        and they represent the governing laws of electromagnetism,
+                                                                                                                          In this work, we propose an expedient CEM framework
+                                        describing the propagation of electromagnetic waves and their
+                                                                                                                       for transient solutions to Maxwell’s equations based on graph
+                                        interaction with the physical environment. Despite the fidelity
+                                                                                                                       neural networks (GNNs), referred to as GEM. GEM is founded
+                                        of Maxwell’s equations, exploiting them to retrieve an ana-
+                                                                                                                       on a very simple, yet fundamentally innovative and elegant
+                                        lytical solution for the electromagnetic field components is
+                                                                                                                       observation: the spatial locality of GNNs, i.e., the fact that
+                                        infeasible for most real-world problems. Instead, computa-
+                                                                                                                       graph node values depend on their own previous values and
+                                        tional electromagnetics (CEM) provides numerical solutions to
+                                                                                                                       the values of their neighboring graph nodes, is semantically
+                                        Maxwell’s equations and it has been applied in various fields
+                                                                                                                       aligned with the mechanisms underpinning the FDTD method,
+                                        including biomedical engineering, geophysics, nanophotonics,
+                                                                                                                       where the electromagnetic field values are iteratively computed
+                                           The work of Stefanos Bakirtzis is supported by the Onassis Foundation and   based on the previous time step and the neighboring elec-
+                                        the Foundation for Education and European Culture.                             tromagnetic field components. From this observation springs
+                                           Stefanos Bakirtzis, and Dr. Ian Wassell are with the Department of          an equivalency between the discretized Maxwell’s equations
+                                        Computer Science and Technology, University of Cambridge, Cambridge,
+                                        CB3 0FD, United Kingdom (e-mail: ssb45@cam.ac.uk; ijw24@cam.ac.uk).            and a specific GNN topology. Hence, a numerical solution
+                                           Dr. Marco Fiore is with the IMDEA Networks Institute, Madrid, Spain         to discretized Maxwell’s equations can be achieved via a
+                                        (e-mail: marco.fiore@imdea.org).                                               fixed-weight, non-trainable GNN, which we call GEM, that
+                                           Professor Jie Zhang is with the Department of Electronic and Electrical
+                                        Engineering, University of Sheffield, Sheffield, S10 2TN, United Kingdom       can faithfully replicate the results of the full-wave numerical
+                                        (e-mail: jie.zhang@sheffield.ac.uk).                                           analysis method.
+                                                                                                                                       2
+
+
+
+    GEM consists only of two message-passing neural network         of data-driven CEM has become increasingly popular. Such
+(MPNN) layers [10] with static and pre-determined edge              models proffer a unique opportunity to overcome the computa-
+weights, one responsible for updating the electric fields and       tional efficiency limitations associated with full-wave analysis
+the other updating the magnetic fields in the same manner as        [29], [30]. Specifically, low computational complexity DL al-
+in the FDTD method. However, exploiting the native graphic          gorithms can be trained offline to learn the underlying laws of
+processing unit (GPU) implementations of GNNs [11], GEM             electromagnetism, approximated through numerical methods,
+can solve Maxwell’s equations up to 40 times faster than            and they can be subsequently employed to replicate the results
+conventional FDTD based on central processing unit (CPU)            of these methods for new scenarios. For instance, approximate
+parallelization while yielding exactly the same results; inter-     electromagnetic methods, such as ray tracing, have been
+estingly, we also observe that GEM is at least twice as fast as     coupled with DL algorithms to forge generalizable data-driven
+state-of-the-art FDTD implementations that exploit advanced         propagation models [31]–[35]. Similarly, time-invariant full-
+optimizations and parallelization, e.g., grid chunking [7], even    wave methods, such as finite elements and method of mo-
+if our solution does not yet adopt those same techniques.           ments, have also been coupled with DL to emulate steady-state
+Contrary to some recent trends in the literature [12]–[17],         results [36]–[38]. However, all these models are static in time,
+it is shown that it’s not necessary to identify appropriate input   whereas transient numerical solutions to Maxwell’s equations
+features or deep learning architectures aimed at training data-     entail simulating wave propagation simultaneously in space
+driven CEM models. Instead, FDTD equations can be intrin-           and time. Thus, DL algorithms entwined with a time-domain
+sically transformed into a GEM model that fundamentally             method should be able to capture both the spatial dependency
+outperforms the legacy implementation of the full-wave solver       of the electromagnetic field intensity and its variation over
+in terms of computational performance, without any need for         time.
+training.                                                              In this direction, the use of convolutional neural networks
+    Furthermore, GEM can be exploited in the context of             (CNNs) and sequence models, such as long short-term memory
+physics-informed neural networks for the solution of PDEs           networks has been explored [12]–[16]. Despite being able
+[18], [19]. Indeed, there is a plethora of research on data-        to capture spatiotemporal correlations, the scalability of such
+driven computational sciences applied in different domains          models as standalone solvers of Maxwell’s equations is in-
+such as chemistry, biology, fluid dynamics, and neuroscience        nately limited. Indeed, all these DL architectures invariably
+[20]–[23]. Instead of pursuing solely data-driven approaches        exhibit low versatility since conventional CNNs are can be
+where neural networks need to be trained to solve a system          applied to fixed-size input spatial domains. More recently,
+of PDEs arising in physics, we foster the adoption of graph-        GNNs were employed for the inference of electromagnetic
+driven approaches, where a GNN with properly defined edge           fields [17], [39], due to their potential to respect the topological
+weights can rigorously solve the exact target PDE system.           properties of the geometry, and exploit the intrinsic graph-
+Such models can effectively replace conventional scientific         like structures that appear in CEM problems. Unlike CNNs
+computing techniques since they provide identical results           which are designed to operate with structured data, GNNs
+and are substantially faster. Consequently, non-linearities and     can handle varying size topologies with arbitrary structure.
+learnable components can be included in the graph-driven            In [17], [39], the GNN received as input the electromagnetic
+solvers, to either account for real-world measured data (in         properties of the simulated domain and the field components of
+cases where the fidelity of partial differential equation is        the previous time steps and then inferred the electromagnetic
+not guaranteed) or to operate outside the stability limits that     field evolution. Although the trained data-driven model could
+pose strict requirements for the spatial and temporal steps of      predict the fields at the next time iteration with a small error,
+conventional scientific computing techniques.                       using it as a standalone CEM model was infeasible; indeed, the
+                                                                    authors observed a fast error accumulation leading to a severe
+                                                                    deterioration of the prediction accuracy and a breakdown of
+                     II. R ELATED W ORK
+                                                                    the solver after just a few iterations.
+   To accelerate the numerical solution of the discretized
+Maxwell equations, domain decomposition parallelization               III. S OLVING TO M AXWELL’ S E QUATIONS WITH F INITE
+schemes have been studied, aiming at partitioning the com-                                  D IFFERENCES
+putational domain into several subdomains [24], [25]. The           A. Maxwell’s Equations
+solution of the update equations at each subdomain is allocated        Maxwell’s equations constitute the foundations of classical
+to a different processing unit and subsequently, the individual     electromagnetism [40] and they portray effectively all elec-
+solutions are combined to derive a solution for the entire do-      tromagnetic phenomena. The third and fourth equations, also
+main. Typically, the decomposition is programmed so that the        known as the Ampere and Faraday laws, capture the impact
+individual solutions are implemented on different processing        of a time-varying electric field on the magnetic field and vice
+units, thus speeding up the iterative update process [7], [26]–     versa:
+[28]. All these approaches entail cumbersome transformations
+of the legacy discretized Maxwell’s equations that eventually                                          ∂E
+                                                                                           ∇×H−ϵ          =J                        (1)
+curbed their adoption [16].                                                                            ∂t
+   Lately, and in light of the recent advancements in artificial                                     ∂H
+intelligence and especially in deep learning (DL), the idea                              ∇×E+µ          = −M                        (2)
+                                                                                                     ∂t
+                                                                                                                                                               3
+
+
+
+where E and H represent the electric and magnetic field                                       the transverse magnetic (TM) polarization or the 3D case. As
+intensity vectors, respectively, whilst J = σE and M = σ ∗ H                                  can be seen, the electromagnetic field components are sampled
+denote the electric and magnetic current density vectors, and ϵ,                              at spatial locations offset by half a pixel, and they are arranged
+µ, σ, and σ ∗ are the permittivity, the permeability, the electric                            into a mesh as shown in Figure 1b. Also, let n be an integer, by
+and the magnetic conductivity of the medium, respectively.                                    convention, the electric field components are evaluated at time
+Assuming a non-magnetic material the partial differential                                     steps that are multiples of n and the magnetic field components
+equations emerging from (1) and (2) for the case of a 2D                                      at time steps that are multiples of (n + 21 ).
+transverse electric (TE) polarization are:                                                       The update scheme entails first evaluating each magnetic
+                                                                                              field component using the neighboring electric field node
+                                         ∂Ey   ∂Hx   ∂Hz                                      values at the current time step, and the values of the respective
+                           σEy + ϵ           =     −                                 (3)
+                                          ∂t    ∂z    ∂x                                      magnetic field at the previous time step. Then, the computed
+                                        ∂Hx   ∂Ey                                             Hx and Hz values along with the values of Ey at the previous
+                                    µ       =                                        (4)      time step are employed to estimate the electric fields at the
+                                         ∂t    ∂z
+                                                                                              next iteration, which are consequently used to update again
+                                         ∂Hz    ∂Ey                                           the magnetic fields, and so on. Ultimately, the evolution of
+                                     µ       =−                                      (5)      the electromagnetic fields over space and time is posed as a
+                                          ∂t     ∂x
+                                                                                              two-step iterative procedure.
+B. The Finite-Difference Time-Domain method
+   Maxwell’s equations are intractable for most real-world                                    C. Absorbing Boundary Conditions
+problems, which has motivated the development of CEM                                             The solution of Maxwell’s equations via (7) – (9) will
+methods. A landmark and breakthrough in transient CEM                                         introduce numerical artifacts, and in particular artificial re-
+was Yee’s algorithm [41] which suggested partitioning the                                     flections, when the electromagnetic waves reach the boundary
+continuous space into a grid of discretized spatial cells and                                 of the grid. To overcome this limitation and terminate the grid
+then ordering the electromagnetic field components on the                                     successfully, various types of absorbing boundary conditions
+sides of each cell in a way that satisfies Ampere’s and                                       have been proposed in the literature [7]. Among them, the
+Faraday’s law. Consequently, numerical update equations of                                    perfectly matched layer (PML) constitutes the most rigorous
+the electromagnetic fields are derived by employing a cen-                                    and expedient grid termination method [42]. According to
+tered finite-difference scheme to approximate the spatial and                                 this approach, the main grid is extended by placing at the
+temporal derivatives of a field, f , around a point x0 as follows:                            end of the mesh an additional lossy layer of cells. Thus, the
+                                                                                              propagating waves in the PML region gradually attenuate and
+                             
+                                   ∆x
+                                             
+                                                      ∆x
+                                                                                             ultimately completely vanish. The parameters of the PML area
+                            f x+         −f x−                                                are selected such as that the impedance of the additional lossy
+                                    2                  2
+       ∂f (x)/∂x x=x ≈                                            (6)                         cells matches perfectly the impedance of the main grid at all
+                       0                ∆x                                                    the angles and frequencies of an incident wave, thus ensuring
+Applying this treatment to the equations of the TE polariza-                                  that there are no spurious reflections due to the material
+tion, (3) - (5), centered around the points [x, z, t] = [i + 12 , j +                         parameter discontinuity.
+1       1
+2 , n + 2 ], yields the following update equations:                                              For the implementation of the PML in the TE case, the elec-
+                                                                                              tric field component is split into two subcomponents denoted
+                           A− n                     ∆t                                        by Eyx and Eyz , where Ey = Eyx + Eyz . Furthermore, at
+  Eyn+11               =     E              +                  ·                              the added lossy cells the material is assumed to be magnetic
+      i+
+           2
+               ,k+ 1
+                   2       A+ yi+ 12 ,k+ 12   A+ · ϵy 1 ,k+ 21
+                                                              i+
+                                                                   2                          and the relationship σ/ϵ = σ ∗ /µ should hold (note that
+               n+ 1           n+ 1                n+ 21        n+ 12
+                                                                                
+              Hxi+ 21 ,k+1 − Hxi+ 21 ,k          Hzi+1,k+ 1 − Hzi,k+ 1
+                                                                                              the magnetic conductivity affects only the PML cells). Then,
+                      2                 2
+                                             −                2              2      (7)      taking into consideration the application of the split field
+                           ∆z                                 ∆x                              formulation, Maxwell’s differential equations (3) – (5) can be
+                                                                                              replaced by four equations [42]:
+                                                                                         
+  n+ 1                 n− 1            ∆t                                                                                     ∂Eyx    ∂Hz
+Hxi+ 21 ,k = Hxi+ 21 ,k +                               Eyn              − Eyn                                   σx Eyx + ϵ        =−                      (10)
+      2                    2       ∆z · µi+ 12 ,k         i+ 1 ,k+
+                                                             2     2
+                                                                       1     i+ 1 ,k− 1
+                                                                                2     2
+                                                                                                                               ∂t      ∂x
+                                                                                     (8)
+                                                                                                                               ∂Eyz   ∂Hx
+                                                                                                                  σz Eyz + ϵ        =                      (11)
+                                                                                                                                ∂t     ∂z
+                                                                                         
+ n+ 1             n− 1                 ∆t
+Hzi,k+2 1      = Hzi,k+2 1 −                         Eyn             − Eyn 1 1
+          2                    2   ∆x · µi,k+ 12          i+ 1 ,k+ 1
+                                                              2        2
+                                                                          i− ,k+
+                                                                                 2   2                                    ∂Hx   ∂(Eyx + Eyz )
+                                                            (9)                                             σx∗ Hx + µ        =                            (12)
+                                                                                                                           ∂t        ∂z
+where i, j and n are non-negative integers, A−,+ = 1 ∓
+σi+ 21 ,k+ 12 ∆t                                                                                                      ∂Hz       ∂(Eyx + Eyz )
+                 , ∆t is the time step, and ∆x and ∆z are the                                                σz∗ Ez + µ    =−                          (13)
+  2ϵi+ 12 ,k+ 12                                                                                                       ∂t             ∂x
+spatial steps in the horizontal and vertical direction, respec-                               where σx , and σx∗ indicate the existence of electric and
+tively. Similar equations can be straightforwardly derived for                                magnetic conductivity towards the x direction at the boundary
+                                                                                                                                                                  4
+
+
+
+           a                                                                                          d
+
+
+
+
+           b                                                                                      c
+                           𝐇 𝟏                        𝐇 𝟑                  𝐇 𝟓
+                                𝒙, ,𝟎                   𝒙,𝟐,𝟎                𝒙, ,𝟎
+                                  𝟐                                            𝟐
+                                                                                                               𝒉𝟎          𝒉𝟏          𝒉𝟐
+                                𝚬 𝟏𝟏                    𝚬 𝟑𝟏                 𝚬 𝟓𝟏
+               𝐇                 𝒚, ,                    𝒚,𝟐,𝟐 𝐇              𝒚, ,
+                       𝟏           𝟐𝟐 𝐇       𝟏                           𝟏     𝟐𝟐 𝐇      𝟏
+                   𝒛,𝟎,𝟐                  𝒛,𝟏,𝟐                    𝒛,𝟐,              𝒛,𝟑,                 𝒉𝟑   𝒉𝟒    𝒉𝟓    𝒉𝟔    𝒉𝟕    𝒉𝟖    𝒉𝟗
+                           𝐇 𝟏                        𝐇 𝟑                 𝟐𝐇 𝟓            𝟐
+                                𝒙, ,𝟏                   𝒙, ,𝟏               𝒙, ,𝟏
+                                  𝟐                       𝟐                   𝟐
+                                                                                                               𝒉𝟏𝟎         𝒉𝟏𝟏         𝒉𝟏𝟐
+                                𝚬 𝟏𝟑                   𝚬 𝟑𝟑                  𝚬 𝟓𝟑
+               𝐇                  𝒚,𝟐,𝟐                 𝒚, ,            𝒚, ,
+                       𝟑
+                   𝒛,𝟎,𝟐                  𝐇          𝟑     𝟐𝟐 𝐇      𝟑    𝟐𝟐 𝐇
+                                                                                    𝟑                 𝒉𝟏𝟑      𝒉𝟏𝟒   𝒉𝟏𝟓   𝒉𝟏𝟔   𝒉𝟏𝟕   𝒉𝟏𝟖   𝒉𝟏𝟗
+                                              𝒛,𝟏,              𝒛,𝟐,
+                           𝐇 𝟏                       𝟐𝐇 𝟑            𝟐𝐇 𝟓      𝒛,𝟑,
+                                                                                    𝟐
+                                𝒙, ,𝟐                  𝒙, ,𝟐           𝒙,𝟐,𝟐
+                                  𝟐                      𝟐                                                     𝒉𝟐𝟎         𝒉𝟐𝟏         𝒉𝟐𝟐
+                            𝚬 𝟏𝟓                       𝚬 𝟑𝟓                  𝚬 𝟓𝟓
+                                 𝒚,𝟐,𝟐 𝐇                𝒚, ,                   𝒚, ,
+               𝐇          𝟓                   𝟓
+                                          𝒛,𝟏,𝟐           𝟐𝟐    𝐇      𝟓         𝟐𝟐
+                                                                                      𝐇               𝒉𝟐𝟑      𝒉𝟐𝟒   𝒉𝟐𝟓   𝒉𝟐𝟔   𝒉𝟐𝟕   𝒉𝟐𝟖   𝒉𝟐𝟗
+                   𝒛,𝟎,                                            𝒛,𝟐,𝟐                      𝟓
+                          𝟐 𝐇
+                                  𝟏                  𝐇 𝟑                   𝐇 𝟓            𝒛,𝟑,𝟐
+                                𝒙,𝟐,𝟑                  𝒙, ,𝟑                 𝒙, ,𝟑
+                                                         𝟐                     𝟐                               𝒉𝟑𝟎         𝒉𝟑𝟏         𝒉#𝟐
+
+Fig. 1: Graph-driven solver of Maxwell’s Equations; the Ey , Hz , and Hx components are shown in green, purple, and dark orange color. a,
+Discretized TE Maxwell equations along with b, a corresponding example 2D TE grid representation of the electromagnetic field component
+arrangement in space. c, The grid implicitly assumes an equivalent graph topology, and consequently, d, the electromagnetic field update
+equations can be expressed in a graph-driven manner via mathematical operations between the graph nodes.
+
+
+of the grid, whilst σz and σz∗ denote the same in the z direction.                                can be straightforwardly derived by observing the counterpart
+The four split equations (10) – (13) can be discretized to                                        coefficients of the respective field components appearing in the
+derive four update equations, following the same methodology                                      discretized Maxwell equations, as also illustrated in Fig. 1a
+described in the previous subsection.                                                             and Fig. 1d.
+                                                                                                     Then, the two-step iterative numerical solution to Maxwell’s
+     IV. A G RAPH -D RIVEN S OLUTION TO M AXWELL                                                  equations can be achieved through a two-layer GNN com-
+                       E QUATIONS                                                                 prising two MPNNs [10]. In MPNNs, the graph node values
+A. Equivallent Graph Neural Network Representation                                                are updated through a message and a readout phase, both
+                                                                                                  implemented via learned and differentiable functions. In the
+   The discretized Maxwell equations enshrine an underlying                                       message-passing phase, the values of each node, v, are updated
+connection between the electromagnetic fields that becomes                                        based on the information accrued from its graph neighborhood
+more evident by inspecting the layout of the electromagnetic                                      via learnable non-linear operations, while the readout phase
+field components in Fig. 1b: the grid of magnetic and electric                                    estimates a learnable feature vector for the entire graph. In
+field nodes resembles a graph whose vertices correspond                                           GEM, we argue that to solve differential equations the message
+to the electromagnetic field components appearing in the                                          function does not need to be learnable since the weighting
+discretized Maxwell equations. Based on this intuition, by                                        coefficients can be readily deduced from the discretized equa-
+properly arranging the edge connections between the graph                                         tions, while the readout function can be omitted.
+nodes and the corresponding edge weights, one can forge a
+network of neurons such that the exchange of information                                             Overall, the discretization of Maxwell’s equations in space
+between the nodes faithfully reenacts the iterations leading to                                   and time creates a grid of nodes that intrinsically assumes
+the solution of the discretized Maxwell equations. Specifically,                                  a graph structure, and a straightforward way to numerically
+the electric field nodes have loop connections to themselves                                      solve Maxwell’s equations entails simple message exchange
+as well as direct connections to their neighboring magnetic                                       between the graph nodes. Based on this fundamental insight,
+field nodes, whilst the magnetic field nodes are connected                                        and without loss of generality (in the sense that via duality one
+to the adjacent electric fields and they also have a self-                                        can derive an equivalent scheme for the transverse magnetic
+loop connection, as shown indicatively in Fig. 1c for the TE                                      case, or easily extend it to 3D), the following propositions are
+polarization case. For each connection, suitable edge weights                                     formally articulated for the TE case:
+                                                                                                                                                   5
+
+
+
+
+Fig. 2: Computational emulation of electromagnetic wave propagation for different use cases; a shows a snapshot of the electric field Ey
+evolution simulated via GEM, whilst b depicts the snapshot at the same time instance as computed with FDTD. The simulated domain is
+shown in c, whereas d illustrates the waveform of the Ey component sampled at a random point of the simulated grid.
+
+
+Proposition 1. The discrete electromagnetic field nodes of                      Propositions 1 and 2 compose GEM, which is conceived as a
+an Nx × Nz FDTD grid, providing a numerical solution to                      specialised case of the general MPNN module, where the edge
+Maxwell’s equations, can be perceived as a directed graph                    weights are tuned in advance without training according to
+G(V, E), with 3 × Nx × Nz nodes. For the set of nodes                        the physical problem. Conspicuously, GEM benefits from the
+V = v0 , v1 , ...v3×Nx ×Nz −1 , a node index equal to ti,k = 2i +            native GPU implementation of MPNNs. Furthermore, while
+1 + Nx (3k + 1) represents electric field components, whereas                the message-passing and the readout functions are typically
+indices equal to ui,k = i + 3kNx and qi,k = 2i + Nx (3k + 1)                 implemented via computationally expensive fully connected
+correspond to the Hx and Hz components, respectively (                       layers, GEM permits a reduction in the complexity of the
+0 ≤ i ≤ N x − 1 and 0 ≤ i ≤ N z − 1). An edge                                MPNN via the use of domain knowledge that allows a proper
+ei,j = (vi , vj ) ∈ E designates that there is a connection                  pre-determined message-passing function to be selected and
+between two electromagnetic nodes vi and vj ∈ V. The set                     the readout function to be eliminated. Ultimately, the solution
+of edges emanating from an electromagnetic node v is called                  of Maxwell equations is elegantly derived by a fast matrix
+neighborhood, N (v) = {v ′ ∈ V|(v, v ′ ) ∈ E}. In GEM, E                     multiplication between edge weights and the graph node
+comprises the neighborhoods of the electric and magnetic field               hidden states, followed by an aggregation operation.
+components, defined as follows: (i) for the electric field nodes,            B. Graph-Driven Solution with Absorbing Boundaries
+N (vti,k ) = {vti,k , vui,k , vui,k−1 , vqi,k , vqi−1,k }, (ii) for the Hx      In the presence of the absorbing boundaries, the principles
+nodes, N (uti,k ) = {vui,k , vti,k , vti,k−1 }, and (iii) for the Hz         of GEM remain the same with the only difference being that
+nodes N (vqi,k ) = {vqi,k , vti,k , vti−1,k }. The edge weights are          the graph node number is 4 × Nx × Nz , and the edges are
+then straightforwardly derived from (8)–(7), e.g., for an edge               adapted to take into account the additional field components
+eti,k ,ti,k = (vti,k , vti,k ) the corresponding weight is equal to          introduced due to the split field formulation. Specifically, node
+wti,k ,ti,k = A− /A+ .                                                       indices equal to txi,k = 3i + 1 + Nx (4k + 1) and tzi,k =
+Proposition 2. The nodes of G(V, E) form a network of                        3i + 2 + Nx (4k + 1) represents the Eyx and Eyz components,
+neurons, whose hidden states, hl , depict the electromagnetic                while the indices ui,k = i + 4kNx and qi,k = 3i + Nx (4k + 1)
+field evolution over space and time. Updating the discretized                are linked to the Hx and Hz components, respectively ( 0 ≤
+Maxwell equations is equivalent to a two-step message-passing                i ≤ N x − 1 and 0 ≤ i ≤ N z − 1). Additionally, the neighbor-
+process between the network neurons. During the first step,                  hoods of the electric and magnetic field components are now
+messages flow towards hui,k and hqi,k from neighboring                       changed as follows: (i) for the Eyx component, N (vtxi,k ) =
+nodes,Pand the new hidden state values are computed as                       {vtxi,k , vqi,k , vqi−1,k }, (ii) for the Eyz component, N (vtzi,k ) =
+hl = ln ∈N (vl ) wl,ln hln , vl ∈ {U, Q}, with U, Q being the                {vtzi,k , vui,k , vui−1,k }, (iii) for the Hx nodes, N (vui,k ) =
+set of Hx and Hz nodes, respectively. In the second step, the                {vui,k , vtxi,k , vtxi,k−1 , vtzi,k , vtzi,k−1 }, and (iv) for the Hz
+neurons updated earlier remain constant and messages are                     nodes N (vqi,k ) = {vqi,k , vtxi,k , vtxi−1,k , vtzi,k , vtzi−1,k }. Fi-
+conveyed towards the electric field components, hti,k , using                nally, the corresponding edge weights can be derived in a
+the same update formula, but with vl ∈ T , where T is the set                similar way as before by observing the update equations that
+of Ey nodes.                                                                 arise by discretizing (10) – (13).
+                                                                                                                                               6
+
+
+
+
+Fig. 3: Estimation of SAR with GEM for a biological tissue. a, Electric permittivity for the air, skin, fat, and muscle layers of the biological
+tissue. b, Snapshot of the electric field intensity dissipated throughout the tissue layers. c, Computed SAR with GEM and FDTD along a
+vertical cross-section passing through the point source.
+
+
+                    V. N UMERICAL R ESULTS
+   In this section, we confirm the validity of our graph-driven
+numerical solution to Maxwell’s equations. To this end, first,
+we carry out a series of numerical experiments collating the
+simulation results obtained via GEM and a conventional in-
+house FDTD solver. In addition, we compare the results of the
+two solvers for two realistic applications; one from the field
+of biomedical engineering and one from photonics. Finally,
+we demonstrate the computational efficiency of GEM to that
+                                                                         Fig. 4: Wave propagation in a cavity waveguide. a shows the
+of the conventional in-house FDTD implementation with CPU                geometry of the waveguide, while b depicts a snapshot of the electric
+parallelization and another open-source FDTD suite.                      field intensity across the waveguide simulated with GEM. c Simulated
+                                                                         waveform via GEM and FDTD sampled at the end of the waveguide.
+A. Proof of GEM Concept
+   We verify the validity of our approach by conducting 2,000            field component, Ey , computed via GEM and FDTD for the
+simulations with an in-house FDTD package and GEM and                    simulated scenarios whose geometry is depicted in Fig. 2c.
+juxtaposing the electromagnetic field evolution over space and           These qualitative results visually convey how GEM reproduces
+time for the two methods. For each simulation, we lay within             the propagation of electromagnetic waves in space and time
+the simulation grid one or more objects (cylinders, triangles,           while also capturing their interaction with the environment in
+rectangles, walls) with randomly sampled electromagnetic                 a very precise manner. This is further corroborated by Fig. 2d
+parameters, and we place a sinusoidal, Gaussian, or modulated            which portrays the waveform recorded at a random point of
+Gaussian source at a random position within the grid. We                 the simulated domain with the two models, demonstrating
+consider rectangular grids with different side sizes of 200, 400,        once more perfect correspondence between the results. From
+600, 800, and 1,000 cells, while the number of simulation time           a quantitative standpoint, we compute the coefficient of deter-
+steps is selected so that by the end of the simulation the fields        mination [43], R2 , between the spatiotemporal output of GEM
+have decayed or, in the case of a sinusoidal source, there is            and FDTD across the whole set of experiments conducted, and
+a steady-state response. To avoid prolonged simulation times             we find that R2 = 0.9999, clearly indicating the equivalence
+when using the FDTD technique, the number of simulations,                of the two methods in terms of output quality.
+Nsim , is reduced as the grid size increases. Specifically, we
+conduct 800, 600, 300, 200, and 100 simulations for the grid
+sizes mentioned previously.                                              B. Applications
+   We implement GEM in PyTorch Geometric [11] using                         To showcase the wide applicability of GEM, we consider
+an NVIDIA A100 with 80GB of memory. Both GEM and                         two distinct examples, one from the field of computational
+our FDTD implementation use a perfectly matched layer                    biology and the other from photonics. The first is to measure
+(PML) to avoid artificial reflections at the boundaries of the           the electric field intensity and specific absorption rate (SAR)
+simulated grid. It is paramount to remark that GEM does                  distribution of microwaves interacting with a biological tissue
+not require training, as its structure is already defined to             [44]. We consider a four-layer structure, representing an air-
+perfectly mimic the numerical solution to Maxwell equations.             skin-fat-muscle interface. The skin layer has a thickness of
+In this sense, GEM is innately superior to all data-driven               2 mm, that of the fat layer is 33 mm, whilst the muscle
+approaches proposed for CEM [12]–[19], since its predictions             layer occupies the remaining space below the fat layer until
+do not introduce any error, and it employs very simple                   the end of the grid. The electromagnetic properties of each
+operations to infer the electromagnetic fields; specifically, two        layer constituting the biological tissue are set according to
+matrix multiplications and two aggregations. Indicatively, in            [45]. A Gaussian point source excitation is placed 10 mm
+Figs. 2a and 2b we present several snapshots of the electric             above the skin, with the frequency of the propagation pulse
+                                                                                                                                  7
+
+
+
+                 a                                                b
+
+
+
+
+Fig. 5: Performance comparison. a, Simulation time for GEM, our in-house FDTD code and Meep [46]. b, Performance gain achieved by
+GEM and Meep compared to the in-house FDTD code with CPU parallelization.
+
+set to 6.8 GHz. The spatial grid is discretized using 20          the standard implementation of the method without leveraging
+points per the shortest wavelength of the structure, i.e., that   any laborious optimization techniques. On the other hand,
+occurring in the muscle, and the Courant limit is set to 0.95.    Meep constitutes a more sophisticated approach, differing
+A snapshot of the electric field intensity diffused throughout    from typical FDTD implementations. Specifically, Meeps en-
+the biological tissue is shown in Fig. 3b, while in Fig. 3c we    ables parallelization by exploiting symmetries, by efficiently
+present the logarithmic SAR distribution on a vertical cross-     storing auxiliary fields only in certain regions (e.g., boundary
+section passing through the source estimated via GEM and          absorbing layers), and by splitting the computational domain
+conventional FDTD. Evidently, the results of the two methods      into chunks which are combined into an arbitrary topology via
+are identical and yield the same SAR, which exhibits a sharp      boundary conditions, as discussed in [46]. Furthermore, Meep
+increase when the electromagnetic waves penetrate the skin        also supports distributed-memory parallelism over multi-node
+and subsequent attenuation while propagating through the fat      clusters, which we refer to as Parallel Meep, and in the dis-
+layer.                                                            cussion below the simulations are distributed over 10 different
+   The second application is emulating wave propagation in        processes in a server with 64 CPUs, and 315 GB of RAM.
+a 2D photonic crystal, implemented by simulating a THz               In Fig. 5a we present the time required to conduct a single
+Gaussian pulse traversing a periodic dielectric waveguide         FDTD simulation along with the 95% confidence intervals. As
+which assumes a 1D periodicity [4]. The simulated structure       can be observed, the computational time scales exponentially
+is shown in Fig. 4a; the waveguide material has a dielectric      as the grid size increases. Remarkably, for the largest grid size
+constant ϵ = 12, and exhibits a periodicity imposed by two        considered, a single CPU-based FDTD simulation with our in-
+pairs of round cavities with radius rc = 0.36 µm spaced 1 µm      house code takes approximately half an hour, as shown in the
+apart from each other. The two cavity pairs are separated by      inset plot. This time is reduced to approximately 3 and 2 min-
+1.4 µm and each one of them comprises 3 circular holes. A         utes by Meep with and without parallelization, respectively. On
+line source is placed at the beginning of the simulated grid      the other hand, GEM favored by its native GPU implementa-
+by exciting every grid cell along the vertical direction of the   tion can complete the simulation in less than a minute, i.e.,
+waveguide with a 75 THz Gaussian pulse. The snapshot of the       almost 40 faster than the standard FDTD implementation and
+electric field component shown in Fig. 4b illustrates how light   2 to 4 times faster than an existing highly elaborate state-of-
+is trapped within the waveguide due to the existence of the       the-art open-source software. Note that currently, GEM does
+periodic structure. The sampled waveform shown in Fig. 4c         not make use of any FDTD optimization techniques, e.g.,
+evinces again a full equivalency between the graph-driven and     grid chunking or exploiting symmetries, employed in Meep.
+the conventional approach.                                        However, in the future similar functionalities can be embedded
+                                                                  in GEM as well, further enhancing its efficiency. Yet, even
+C. Computational Performance Evaluation                           without leveraging them, GEM can outperform a state-of-the-
+   To highlight the expediency of our graph-driven approach       art CEM solver in terms of speed. Additional insight regarding
+we probe the impact of the simulated domain size on the           the acceleration achieved by the different benchmarks over our
+computational time. To this end, in a free space scenario,        in-house FDTD code can be provided by inspecting Fig. 5b.
+we gradually increase the size of the simulated domain con-       It can be seen, that as the grid size increases the gain over
+sidering rectangular grids with a side equal to 250, 1,000,       the conventional FDTD technique plateaus, with GEM, Meep,
+2,000, 3,000, 4,000, 5,000, 6,400 cells, and to quantify          and Parallel Meep being approximately 40, 20, and 10 times
+the uncertainty in the execution time we run 5 simulations        faster than it, respectively.
+for each cell size, lasting 1,024 time steps. In addition to
+comparing the efficiency of GEM to that of our in-house                                 VI. C ONCLUSION
+FDTD code with CPU parallelization, we also benchmark               Our work tackles an important problem of electromagnetic
+it against a publicly available FDTD suite, namely Meep           modeling: how to train artificial intelligence models to com-
+developed at MIT [46]. We note that our in-house FDTD is          prehend the laws of electromagnetism and emulate electro-
+                                                                                                                                                8
+
+
+
+magnetic field evolution over space and time. Our simple yet              [8]   F. Teixeira, C. Sarris, Y. Zhang, et al., “Finite-difference time-
+counter-intuitive insight is that there is no need to do so, since              domain methods,” Nat. Rev. Methods Primers, vol. 3, no. 1,
+there exists a network of neurons, with specific connections                    p. 75, 2023.
+                                                                          [9]   S. Gedney, Introduction to the finite-difference time-domain
+and weights, that yields a solution that is equivalent to that                  (FDTD) method for electromagnetics. New York City, New
+of the discretized Maxwell equations. Consequently, the ex-                     York, USA: Springer Nature, 2022.
+change of messages between the network neurons resembles                 [10]   J. Gilmer, S. S. Schoenholz, P. F. Riley, O. Vinyals, and G. E.
+the spatiotemporal evolution of the electromagnetic fields.                     Dahl, “Neural message passing for quantum chemistry,” in
+Unlike data-driven CEM approaches, which are ill-fated owing                    Proc. ICML, pp. 1263–1272, Jun. 2017.
+                                                                         [11]   M. Fey and J. E. Lenssen, “Fast graph representation learning
+to the fast error accumulation in their predictions, GEM yields                 with PyTorch Geometric,” in Proc. ICLR Workshop Represen-
+no error due to the proper setting of the connections between                   tation Learn. Graphs Manifolds, May 2019.
+the graph nodes and the corresponding edge weights. The                  [12]   T. Shan, J. Zeng, X. Song, et al., “Physics-informed supervised
+minimal computational complexity entailed by the properly                       residual learning for electromagnetic modeling,” IEEE Trans.
+tuned MPNNs along with their native GPU implementation                          Antennas Propag., vol. 71, no. 4, pp. 3393–3407, 2023.
+                                                                         [13]   H. M. Yao and L. J. Jiang, “Machine learning based neural
+leads to a 40× acceleration over a direct implementation of                     network solving methods for the FDTD method,” in Proc.
+the standard FDTD technique with CPU parallelization, while                     IEEE-APS, pp. 2321–2322, Jul. 2018.
+it also outperforms in terms of efficiency previous elaborate            [14]   D. Zhu, Q. Zhao, Y. Bo, W. Chen, and L. Yang, “Application
+state-of-the-art transient response solvers.                                    of deep learning in fdtd method,” in Proc. 13th Int. Symp.
+   The benefits stemming from our work are not confined to the                  Antennas, Propag. EM Theor, pp. 1–3, 2021.
+                                                                         [15]   L. Guo, M. Li, S. Xu, and F. Yang, “Study on a recurrent
+field of physics but they can have a substantial impact on many                 convolutional neural network based FDTD method,” in Proc.
+other sciences in which it is necessary to capture the interac-                 Int. Appl. Comput. Electromagn. Soc. Symp.-China (ACES),
+tion of electromagnetic fields with matter, such as biomedical                  vol. 1, pp. 1–2, Aug. 2019.
+engineering and photonics. Furthermore, PDEs describe a                  [16]   L. Guo, M. Li, S. Xu, F. Yang, and L. Liu, “Electromagnetic
+plethora of physical phenomena, e.g., the Navier–Stokes equa-                   modeling using an FDTD-equivalent recurrent convolution
+                                                                                neural network: Accurate computing on a deep learning frame-
+tions which depict the motion of viscous fluid substances, or                   work,” IEEE Antennas Propag. Mag., 2021.
+the Pennes Bioheat equation which captures the heat transfer             [17]   L. Kuhn, T. Repän, and C. Rockstuhl, “Exploiting graph neu-
+between tissue and blood. We are confident that similar GNN                     ral networks to perform finite-difference time-domain based
+structures exist for these problems as well, and we thus advo-                  optical simulations,” APL Photonics, vol. 8, no. 3, 2023.
+cate pursuing graph-driven approaches where PDE systems are              [18]   M. Raissi, P. Perdikaris, and G. E. Karniadakis, “Physics-
+                                                                                informed neural networks: A deep learning framework for
+solved via neuron message passing. Ultimately, our heralds a                    solving forward and inverse problems involving nonlinear
+new class of graph-driven numerical solvers, which outperform                   partial differential equations,” J. Comput. Phys., vol. 378,
+existing legacy approaches, and in conjunction with data-                       pp. 686–707, 2019.
+driven methods can set the foundation for numerical methods              [19]   G. E. Karniadakis, I. G. Kevrekidis, L. Lu, P. Perdikaris,
+operating outside stability requirements.                                       S. Wang, and L. Yang, “Physics-informed machine learning,”
+                                                                                Nat. Rev. Phys., vol. 3, no. 6, pp. 422–440, 2021.
+                                                                         [20]   G. B. Goh, N. O. Hodas, and A. Vishnu, “Deep learning for
+                      ACKNOWLEDGMENT                                            computational chemistry,” J. Comput. Chem, vol. 38, no. 16,
+  The work of Stefanos Bakirtzis is supported by the Onassis                    pp. 1291–1307, 2017.
+                                                                         [21]   C. Angermueller, T. Pärnamaa, L. Parts, and O. Stegle, “Deep
+Foundation and the Foundation for Education and European
+                                                                                learning for computational biology,” Mol. Syst. Biol., vol. 12,
+Culture.                                                                        no. 7, p. 878, 2016.
+                                                                         [22]   D. Kochkov, J. A. Smith, A. Alieva, Q. Wang, M. P. Brenner,
+                           R EFERENCES                                          and S. Hoyer, “Machine learning–accelerated computational
+ [1]   L. C. Evans, Partial differential equations. American Mathe-             fluid dynamics,” Proc. Natl. Acad. Sci. USA, vol. 118, no. 21,
+       matical Society, 2022, vol. 19.                                          e2101784118, 2021.
+ [2]   A. Bondeson, T. Rylander, and P. Ingelström, Computational       [23]   B. A. Richards, T. P. Lillicrap, P. Beaudoin, et al., “A deep
+       electromagnetics. New York City, New York, USA: Springer,                learning framework for neuroscience,” Nat. Neurosci, vol. 22,
+       2012.                                                                    no. 11, pp. 1761–1770, 2019.
+ [3]   D. E. McCoy, A. V. Shneidman, A. L. Davis, and J. Aizenberg,      [24]   C. Guiffaut and K. Mahdjoubi, “A parallel FDTD algorithm
+       “Finite-difference time-domain (FDTD) optical simulations:               using the MPI library,” Antennas Propag. Mag., vol. 43, no. 2,
+       A primer for the life sciences and bio-inspired engineering,”            pp. 94–103, 2001.
+       Micron, vol. 151, p. 103 160, 2021.                               [25]   H. Bao and R. Chen, “An efficient domain decomposition
+ [4]   J. D. Joannopoulos, S. G. Johnson, J. N. Winn, and R. D.                 parallel scheme for leapfrog ADI-FDTD method,” IEEE Trans.
+       Meade, Photonic crystals: Molding the flow of light. Princeton,          Antennas Propag., vol. 65, no. 3, pp. 1490–1494, 2017.
+       New Jersey, USA: Princeton University Press, 2008.                [26]   S. E. Krakiwsky, L. E. Turner, and M. M. Okoniewski,
+ [5]   T. J. Hughes, The finite element method: linear static and               “Acceleration of finite-difference time-domain (FDTD) using
+       dynamic finite element analysis. North Chelmsford, Mas-                  graphics processor units (GPU),” in IEEE MTT-S Int. Mi-
+       sachusetts, USA: Courier Corporation, 2012.                              crowave Symp. Digest, vol. 2, pp. 1033–1036, Jun. 2004.
+ [6]   W. C. Gibson, The method of moments in electromagnetics.          [27]   C. Warren, A. Giannopoulos, A. Gray, et al., “A CUDA-based
+       Boca Raton, Florida, USA: CRC Press, 2021.                               GPU engine for gprMax: Open source FDTD electromag-
+ [7]   A. Taflove, S. C. Hagness, and M. Piket-May, “Computational              netic simulation software,” Comput. Phys. Commun., vol. 237,
+       electromagnetics: The finite-difference time-domain method,”             pp. 208–218, 2019.
+       The Electrical Engineering Handbook, vol. 3, no. 629-670,         [28]   Z. Bo, X. Zheng-hui, R. Wu, L. Wei-ming, and S. Xin-qing,
+       p. 15, 2005.                                                             “Accelerating FDTD algorithm using GPU computing,” in
+                                                                           9
+
+
+
+       Proc. IEEE Int. Conf. Microw. Technol. Comput. Electromagn.,
+       pp. 410–413, May 2011.
+[29]   H. M. Yao, L. Jiang, H. H. Zhang, and E. Wei, “Machine learn-
+       ing methodology review for computational electromagnetics,”
+       in Proc. Int. Appl. Comput. Electromagn. Soc. Symp. China
+       (ACES), vol. 1, pp. 1–4, Aug. 2019.
+[30]   S. D. Campbell and D. H. Werner, Advances in Electromagnet-
+       ics Empowered by Artificial Intelligence and Deep Learning.
+       Hoboken, New Jersey , USA: John Wiley & Sons, 2023.
+[31]   A. Seretis and C. D. Sarris, “Toward physics-based gen-
+       eralizable convolutional neural network models for indoor
+       propagation,” IEEE Trans. Antennas Propag., vol. 70, no. 6,
+       pp. 4112–4126, 2022.
+[32]   S. Bakirtzis, J. Chen, K. Qiu, J. Zhang, and I. Wassell,
+       “EM DeepRay: An expedient, generalizable, and realistic data-
+       driven indoor propagation model,” IEEE Trans. on Antennas
+       and Propag., vol. 70, no. 6, pp. 4140–4154, 2022.
+[33]   S. Bakirtzis, K. Qiu, J. Zhang, and I. Wassell, “DeepRay: Deep
+       learning meets ray-tracing,” in Proc. 16th Eur. Conf. Antennas
+       Propag. (EuCAP), Mar. 2022, pp. 1–5.
+[34]   X. Zhang, X. Shu, B. Zhang, J. Ren, L. Zhou, and X.
+       Chen, “Cellular network radio propagation modeling with deep
+       convolutional neural networks,” in Proc. 26th ACM SIGKDD
+       Int. Conf. Knowl. Discovery Data Mining,, pp. 2378–2386,
+       Aug. 2020.
+[35]   R. Levie, Ç. Yapar, G. Kutyniok, and G. Caire, “Radiounet:
+       Fast radio map estimation with convolutional neural networks,”
+       IEEE Trans. Wireless Commun., vol. 20, no. 6, pp. 4001–4015,
+       2021.
+[36]   H. M. Yao, L. J. Jiang, and Y. W. Qin, “Machine learning
+       based method of moments (ML-MoM),” in Proc. IEEE-APS,
+       pp. 973–974, Jul. 2017.
+[37]   S. Barmada, N. Fontana, L. Sani, D. Thomopulos, and M.
+       Tucci, “Deep learning and reduced models for fast optimiza-
+       tion in electromagnetics,” IEEE Trans. Magn, vol. 56, no. 3,
+       pp. 1–4, 2020.
+[38]   R. Phellan, B. Hachem, J. Clin, J.-M. Mac-Thiong, and L.
+       Duong, “Real-time biomechanics using the finite element
+       method and machine learning: Review and perspective,” Med.
+       Phys., vol. 48, no. 1, pp. 7–18, 2021.
+[39]   S. Bakirtzis, F. Marco, and I. Wassell, “Towards physics-
+       informed graph neural network-based computational electro-
+       magnetics,” in IEEE Int. Symp. on Antennas and Propag.,
+       IEEE, 2024.
+[40]   J. D. Jackson, Classical electrodynamics. Maryland, USA:
+       American Association of Physics Teachers, 1999.
+[41]   K. Yee, “Numerical solution of initial boundary value prob-
+       lems involving Maxwell’s equations in isotropic media,” IEEE
+       Trans. Antennas Propag., vol. 14, no. 3, pp. 302–307, 1966.
+[42]   J.-P. Berenger, “A perfectly matched layer for the absorption
+       of electromagnetic waves,” J. Comput. Phys., vol. 114, no. 2,
+       pp. 185–200, 1994.
+[43]   D. J. Ozer, “Correlation and the coefficient of determination.,”
+       Psychol. Bull., vol. 97, no. 2, p. 307, 1985.
+[44]   H. Alisoy, S. B. Us, and B. Alagoz, “An FDTD-based numeri-
+       cal analysis of microwave propagation properties in a skin–fat
+       tissue layers,” Optik, vol. 124, no. 21, pp. 5218–5224, 2013.
+[45]   S. Gabriel, R. Lau, and C. Gabriel, “The dielectric properties
+       of biological tissues: Parametric models for the dielectric
+       spectrum of tissues,” Phys. Med. Biol., vol. 41, no. 11, p. 2271,
+       1996.
+[46]   A. F. Oskooi, D. Roundy, M. Ibanescu, P. Bermel, J. D.
+       Joannopoulos, and S. G. Johnson, “MEEP: A flexible free-
+       software package for electromagnetic simulations by the
+       FDTD method,” Comput. Phys. Commun., vol. 181, no. 3,
+       pp. 687–702, 2010.
+

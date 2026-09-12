@@ -1,0 +1,27 @@
+{
+  "config": {
+    "inverse_n": 64,
+    "data_n": 128,
+    "n_tx": 12,
+    "n_rx": 48,
+    "aperture": "half",
+    "quad": 4,
+    "objects_per_family": 10,
+    "noise_fraction": 0.01,
+    "seed": 20260914,
+    "max_iter": 30,
+    "first_rank": 6,
+    "second_rank": 2,
+    "thread_cap": 2
+  },
+  "source_sha256": "c90f903cacd1370ff984ced00e8bead34f4e44d43d78af12b68ab5dc63785617",
+  "protocol": "independent N128 cell-integrated data / N64 point inverse; development only, not frozen900",
+  "representative_selector": "within-family adaptive material score min/median/max",
+  "methods": [
+    "ordinary_lm",
+    "fixed_twofold_tsomg",
+    "adaptive_tsomg",
+    "random_complement_tsomg",
+    "gsvd_ratio_tsomg"
+  ]
+}

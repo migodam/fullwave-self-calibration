@@ -1,0 +1,28 @@
+{
+  "config": {
+    "scope": "post-hoc initialization diagnosis; does not replace frozen v2",
+    "seed_v2_reconstruction": 20260913,
+    "random_start_seed": 20260915,
+    "n_data": 64,
+    "cell_integrated_data": true,
+    "frequencies_hz": [
+      1500000000.0,
+      2750000000.0
+    ],
+    "channels": "all original v2 even-Rx training channels",
+    "starts": [
+      "zero",
+      "product-marginal logit projected to RBF design",
+      "random_0",
+      "random_1"
+    ],
+    "selection": "maximum ELBO; product-marginal start is data-derived and is not truth-oracle"
+  },
+  "source_hashes": {
+    "code/a2/extensions/probability_v2_optimization.py": "b3a815bfd5db530635a7789d2e7db4e6705ebb44a8f56de26f6f757eff37831d",
+    "code/a2/extensions/probability.py": "6eba493b797422340f0ccbe56f529ebb4c1f77c6072e597fee5fddf7963257e1",
+    "code/a2/extensions/probability_run.py": "7ed10ad40d801c4a9e404ddf4dc5e3bf5e34eabc9a6241002206fd0b13024812",
+    "code/a2/physics.py": "62c7c9e2d9e7387725192f79d1ea69c2a7a43b0c154b68947d920614a2e30faf"
+  },
+  "cache_sha256": "802088884d39888ddebedeea0f2ccf5a0c9b7dace1354486d0446f5eb3e131e2"
+}

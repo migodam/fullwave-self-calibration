@@ -1,0 +1,32 @@
+{
+  "config": {
+    "n": 32,
+    "n_tx": 6,
+    "n_rx": 24,
+    "aperture": "half",
+    "train_stride": 2,
+    "noise_fraction": 0.01,
+    "seed": 20260911,
+    "max_outer": 30,
+    "weak_initial": 8,
+    "weak_cap": 32,
+    "state_rel_expand": 0.08,
+    "state_rel_stop": 0.012,
+    "ridge": 1e-08,
+    "theta_trust": 0.75,
+    "gradient_stop": 1e-05,
+    "snapshots_every": 5,
+    "wall_snapshot_seconds": 30.0,
+    "tangent_first": 4,
+    "tangent_second": 0
+  },
+  "source_sha256": "6ff59e12a41f697c8510cd7ff1872c525ce045e003aea393016c08e1c5c6cf5d",
+  "scope": "development only; explicit current state consistency is not extra observation; frozen test unopened",
+  "environment": {
+    "python": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "thread_cap": 2
+  }
+}

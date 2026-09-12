@@ -1,0 +1,38 @@
+{
+  "status": "prepared_not_executed",
+  "campaign": {
+    "families": 3,
+    "objects_per_family": 100,
+    "paired_noises_per_object": 3,
+    "paired_cases": 900,
+    "methods": [
+      "ordinary_lm",
+      "singlefold_som",
+      "twofold_tsomg"
+    ],
+    "inverse_grid": "N64 requested",
+    "data_grid": "N128 requested independently; awaiting frozen quadrature/data API from A2 ports work"
+  },
+  "fit_config": {
+    "max_iter": 5,
+    "first_rank": 6,
+    "second_rank": 2,
+    "rtol": 2e-09,
+    "max_trial_steps": 5,
+    "scaled_trust_radius": 1.0,
+    "discrepancy_mse": 1.25,
+    "gradient_inf_tolerance": 1e-05
+  },
+  "accounting_unit": "full VIE right-hand-side solve; a multi-RHS GMRES call reports each RHS",
+  "per_method_case_upper_bound": {
+    "outer_iterations": 5,
+    "forward_rhs_per_outer_for_current_state": 12,
+    "tangent_rhs_per_outer": 144,
+    "trial_forward_rhs_per_outer_max": 60,
+    "final_forward_rhs": 12,
+    "upper_bound_rhs": 1092
+  },
+  "whole_campaign_upper_bound_rhs": 2948400,
+  "actual_cost_rule": "record accepted/rejected trials, converged or capped termination, forward_rhs and tangent_rhs separately for every paired case; never substitute this upper bound for observed cost",
+  "guard": "do not launch until root freezes protocol, data quadrature, material families, split, stopping/cap and independent N128 validation."
+}

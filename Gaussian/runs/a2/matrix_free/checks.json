@@ -1,0 +1,19 @@
+{
+  "scope": "small discrete derivative/GN correctness checks, not speed or imaging acceptance",
+  "adjoint_relative": 1.677139606968273e-12,
+  "finite_difference_relative": 1.0342851368873614e-10,
+  "GN_step_relative": 1.5405322030240726e-09,
+  "solve": {
+    "status": 0,
+    "iterations": 25,
+    "normal_residual": 1.3083875158291712e-08,
+    "ideal_local_gap_bound": 8.559389457888148e-16,
+    "wall_seconds": 0.159083291888237,
+    "cost": {
+      "tangent_rhs": 104,
+      "adjoint_rhs": 108,
+      "Jv_calls": 26,
+      "Jstar_calls": 27
+    }
+  }
+}

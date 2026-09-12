@@ -1,0 +1,53 @@
+{
+  "n": 24,
+  "frequency_hz": 2250000000.0,
+  "n_tx": 6,
+  "n_rx": 20,
+  "rank": 3,
+  "enrich": 1,
+  "full_rtol": 1e-09,
+  "port_rtol": 1e-08,
+  "components": [
+    [
+      0.32,
+      0.018,
+      -0.065,
+      0,
+      0.045,
+      0.05,
+      0.15
+    ],
+    [
+      0.28,
+      0.015,
+      0.065,
+      0.012,
+      0.05,
+      0.04,
+      -0.18
+    ],
+    [
+      0.22,
+      0.012,
+      0,
+      0.075,
+      0.038,
+      0.048,
+      0.25
+    ]
+  ],
+  "source_sha256": "a1492ed5d46389a9f1af96c45c9ed0c71241bf3ca2e8a055c958f30556921f70",
+  "environment": {
+    "python": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "branch": "matrix_free_local_response",
+  "identity_errors": [
+    7.78928672962292e-09,
+    2.4111031724411803e-09,
+    5.74009314558379e-09
+  ],
+  "network_dimension": 9,
+  "scattered_relative_error": 0.6811690465450078,
+  "full_current_state_residual_relative": 3.9834305987193716e-10
+}

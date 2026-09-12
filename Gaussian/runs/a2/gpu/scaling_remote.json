@@ -1,0 +1,117 @@
+{
+  "records": [
+    {
+      "n": 64,
+      "state_dimension": 4096,
+      "measurements_complex": 768,
+      "setup_seconds": 0.24781949999999142,
+      "warmup_seconds": 1.3287545000000591,
+      "forward_adjoint_seconds": [
+        0.07406719999994493,
+        0.07548989999997957,
+        0.0761401999999407
+      ],
+      "peak_gpu_bytes": 31180288,
+      "counts": {
+        "forward_rhs": 48,
+        "adjoint_rhs": 48,
+        "linear_iterations": 40,
+        "solves": 8
+      },
+      "last": {
+        "iterations": 5,
+        "relative_residual": [
+          7.127283083718794e-07,
+          5.323211667018768e-07,
+          1.7477801520726644e-05,
+          3.2481327139066707e-07,
+          5.111504606247763e-07,
+          9.236328537554073e-07,
+          1.9454862467682688e-06,
+          3.0493961276079062e-06,
+          1.344793872704031e-06,
+          6.947788051547832e-07,
+          1.6463240172015503e-05,
+          3.5139285614604887e-07
+        ]
+      }
+    },
+    {
+      "n": 128,
+      "state_dimension": 16384,
+      "measurements_complex": 768,
+      "setup_seconds": 3.4141684999999597,
+      "warmup_seconds": 0.12934699999993882,
+      "forward_adjoint_seconds": [
+        0.07725900000002639,
+        0.07963680000000295,
+        0.08012550000000829
+      ],
+      "peak_gpu_bytes": 75777536,
+      "counts": {
+        "forward_rhs": 48,
+        "adjoint_rhs": 48,
+        "linear_iterations": 40,
+        "solves": 8
+      },
+      "last": {
+        "iterations": 5,
+        "relative_residual": [
+          7.088954703249328e-07,
+          5.314745408213639e-07,
+          1.7577631297172047e-05,
+          3.25849356386243e-07,
+          5.105117111270374e-07,
+          9.284847237722715e-07,
+          1.950256773852743e-06,
+          3.079057023569476e-06,
+          1.35759125896584e-06,
+          6.926949822627648e-07,
+          1.6430451069027185e-05,
+          3.5318305435794173e-07
+        ]
+      }
+    },
+    {
+      "n": 256,
+      "state_dimension": 65536,
+      "measurements_complex": 768,
+      "setup_seconds": 12.890639300000089,
+      "warmup_seconds": 0.4244753000000401,
+      "forward_adjoint_seconds": [
+        0.09509200000002238,
+        0.09403699999995752,
+        0.09832510000001093
+      ],
+      "peak_gpu_bytes": 243025408,
+      "counts": {
+        "forward_rhs": 48,
+        "adjoint_rhs": 48,
+        "linear_iterations": 40,
+        "solves": 8
+      },
+      "last": {
+        "iterations": 5,
+        "relative_residual": [
+          7.098397531990486e-07,
+          5.337079187484051e-07,
+          1.7605325410841033e-05,
+          3.3618061934248544e-07,
+          5.165588845557068e-07,
+          9.319307423538703e-07,
+          1.952066440935596e-06,
+          3.0809010240773205e-06,
+          1.3637487654705183e-06,
+          6.963439318496967e-07,
+          1.641785456740763e-05,
+          3.536184749464155e-07
+        ]
+      }
+    }
+  ],
+  "torch": "2.6.0+cu124",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "python": "3.10.9",
+  "source_sha256": "f99e89e8a32bb6cb3915e00900650425f7bf3259f0d438d7f66426f4ebdc142f",
+  "scope": "Single frequency known material; includes physical forward and implicit adjoint, no image optimizer"
+}

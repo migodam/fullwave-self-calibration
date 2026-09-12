@@ -14,6 +14,9 @@ Begin with [Q5 complete entry](Q5_CHATGPT_START_HERE.md), then the
 [theory](research/q5_remaining_v1/Q5_THEORY_FINAL.md),
 [corrected experiments](research/q5_remaining_v1/Q5_EXPERIMENT_REPORT.md), and
 [remaining questions](research/q5_remaining_v1/Q5_REMAINING_QUESTIONS.md).
+The isolated [Gaussian workspace](Gaussian/deliverables/START_HERE.md) is a
+separate A1/A1_2/A2 research line; its final verdict remains conditional and
+does not establish TAP acceptance or Gaussian superiority.
 The full user specification remains [Q5](Theory/Questions/Q5.md).
 Read [supplied A5 theory](Theory/Questions/A5_THEORY.md) as an input, not as
 independently established evidence. The original A5 code package was unavailable;

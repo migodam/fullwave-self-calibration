@@ -1,0 +1,45 @@
+{
+  "recorded_utc": "2026-09-11T15:06:59.616945+00:00",
+  "interrupted_process_id": 31320,
+  "ssh_exit_code": 255,
+  "completed_cases_before_interruption": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "partially_completed_case": 18,
+  "preserved_completed_methods": [
+    "gaussian_K16",
+    "gaussian_K64"
+  ],
+  "invalid_checkpoint": "case_18_gaussian_K144.pt",
+  "invalid_checkpoint_sha256": "bad7990e1f46b576b6bd751ca60fc289c4c8e38eac656dabf502dd851829a6a6",
+  "invalid_header_first20_hex": "0000000000000000000000000000000000000000",
+  "checkpoint_action": "Moved to remote runs/a2/gpu/interrupted_checkpoint, restart incomplete K144 with same seed. No synthetic recovery claim.",
+  "unsuccessful_detached_launch_pid": 25432,
+  "resumed_foreground_process_id": 19028,
+  "same_source_config_hardware": true,
+  "scope": "external execution observation, not a preregistration or complete lost-work cost measurement",
+  "regenerated_case18_data_array_equal": {
+    "truth": true,
+    "fields": true
+  },
+  "pre_resume_data_sha256": "b4c56d833da68c03cbc930e361b844c5036b80ea64f52db2dba669f91ff2dcf1",
+  "observed_windows_last_boot_utc": "2026-09-11T14:57:15.500000+00:00",
+  "interruption_interpretation": "Windows reported a boot timestamp during the first run. Treat as two execution phases across an OS restart; the cause of restart was not established."
+}

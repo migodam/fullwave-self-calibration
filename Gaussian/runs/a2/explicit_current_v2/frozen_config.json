@@ -1,0 +1,18 @@
+{
+  "config": {
+    "ranks": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "deterministic_relative_singular_threshold": 0.02,
+    "ridge_relative": 1e-08,
+    "state_expand": 0.08,
+    "state_stop": 0.012,
+    "max_outer": 30,
+    "scope": "custom explicit-current diagnostic; fixed Gaussian 12 parameters/known loss; not traditional TSOM"
+  },
+  "source_sha256": "0dfec1f9bc5be0042f02421f88ac80d73f4562a7b605e963f5ce40984006b16c",
+  "v1_config": "/Volumes/migodam's-external-brain/Research/Inv_SLAM/Gaussian/runs/a2/explicit_current/frozen_development_config.json"
+}

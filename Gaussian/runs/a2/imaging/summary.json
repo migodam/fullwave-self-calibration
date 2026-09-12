@@ -1,0 +1,128 @@
+{
+  "gaussian_close": {
+    "ordinary_lm": {
+      "n": 10,
+      "material_median": 0.03798957158791427,
+      "held_median": 0.024540212687379822,
+      "wall_median": 12.879965041007381,
+      "failure_or_cap_fraction": 0.6,
+      "paired_material_wins_vs_lm": 0
+    },
+    "fixed_twofold_tsomg": {
+      "n": 10,
+      "material_median": 0.0488379518968832,
+      "held_median": 0.02570434727167619,
+      "wall_median": 19.813858541485388,
+      "failure_or_cap_fraction": 0.8,
+      "paired_material_wins_vs_lm": 2
+    },
+    "adaptive_tsomg": {
+      "n": 10,
+      "material_median": 0.012581193296059723,
+      "held_median": 0.006428440120456776,
+      "wall_median": 17.405080437485594,
+      "failure_or_cap_fraction": 0.7,
+      "paired_material_wins_vs_lm": 6
+    },
+    "random_complement_tsomg": {
+      "n": 10,
+      "material_median": 0.03481302232130694,
+      "held_median": 0.018607883623856195,
+      "wall_median": 10.831267562520225,
+      "failure_or_cap_fraction": 0.7,
+      "paired_material_wins_vs_lm": 5
+    },
+    "gsvd_ratio_tsomg": {
+      "n": 10,
+      "material_median": 0.06844610222075381,
+      "held_median": 0.041840973308457347,
+      "wall_median": 32.866391978925094,
+      "failure_or_cap_fraction": 0.6,
+      "paired_material_wins_vs_lm": 2
+    }
+  },
+  "gaussian_strong": {
+    "ordinary_lm": {
+      "n": 10,
+      "material_median": 0.0016374074747682443,
+      "held_median": 0.0013987768037839934,
+      "wall_median": 9.011554916505702,
+      "failure_or_cap_fraction": 0.0,
+      "paired_material_wins_vs_lm": 0
+    },
+    "fixed_twofold_tsomg": {
+      "n": 10,
+      "material_median": 0.17755553360144916,
+      "held_median": 0.10431759965141434,
+      "wall_median": 40.60711972950958,
+      "failure_or_cap_fraction": 1.0,
+      "paired_material_wins_vs_lm": 0
+    },
+    "adaptive_tsomg": {
+      "n": 10,
+      "material_median": 0.0020030052129555664,
+      "held_median": 0.0013471076059119432,
+      "wall_median": 21.263632207992487,
+      "failure_or_cap_fraction": 0.0,
+      "paired_material_wins_vs_lm": 5
+    },
+    "random_complement_tsomg": {
+      "n": 10,
+      "material_median": 0.008554103731346577,
+      "held_median": 0.004850058482752698,
+      "wall_median": 34.78914027049905,
+      "failure_or_cap_fraction": 0.1,
+      "paired_material_wins_vs_lm": 0
+    },
+    "gsvd_ratio_tsomg": {
+      "n": 10,
+      "material_median": 0.132727399544307,
+      "held_median": 0.08323064552387585,
+      "wall_median": 31.697514395986218,
+      "failure_or_cap_fraction": 0.9,
+      "paired_material_wins_vs_lm": 0
+    }
+  },
+  "sharp_boundary": {
+    "ordinary_lm": {
+      "n": 10,
+      "material_median": 0.485697182187951,
+      "held_median": 0.17012028902499365,
+      "wall_median": 51.97515468747588,
+      "failure_or_cap_fraction": 1.0,
+      "paired_material_wins_vs_lm": 0
+    },
+    "fixed_twofold_tsomg": {
+      "n": 10,
+      "material_median": 0.5622359759629394,
+      "held_median": 0.23952748363507598,
+      "wall_median": 41.09051614603959,
+      "failure_or_cap_fraction": 1.0,
+      "paired_material_wins_vs_lm": 0
+    },
+    "adaptive_tsomg": {
+      "n": 10,
+      "material_median": 0.5828746656567128,
+      "held_median": 0.25328542536967186,
+      "wall_median": 11.991938979015686,
+      "failure_or_cap_fraction": 1.0,
+      "paired_material_wins_vs_lm": 1
+    },
+    "random_complement_tsomg": {
+      "n": 10,
+      "material_median": 0.5063436907548007,
+      "held_median": 0.19238026111066234,
+      "wall_median": 22.488385625067167,
+      "failure_or_cap_fraction": 1.0,
+      "paired_material_wins_vs_lm": 0
+    },
+    "gsvd_ratio_tsomg": {
+      "n": 10,
+      "material_median": 0.5492383039416189,
+      "held_median": 0.22471239087269773,
+      "wall_median": 26.509389500075486,
+      "failure_or_cap_fraction": 1.0,
+      "paired_material_wins_vs_lm": 0
+    }
+  }
+}

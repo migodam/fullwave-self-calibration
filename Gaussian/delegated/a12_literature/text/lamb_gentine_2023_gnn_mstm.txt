@@ -1,0 +1,748 @@
+                                                                                                          www.nature.com/scientificreports
+
+
+
+
+                OPEN              Zero‑shot learning of aerosol
+                                  optical properties with graph
+                                  neural networks
+                                  K. D. Lamb       *
+                                                       & P. Gentine
+
+                                  Black carbon (BC), a strongly absorbing aerosol sourced from combustion, is an important short-
+                                  lived climate forcer. BC’s complex morphology contributes to uncertainty in its direct climate
+                                  radiative effects, as current methods to accurately calculate the optical properties of these aerosols
+                                  are too computationally expensive to be used online in models or for observational retrievals. Here
+                                  we demonstrate that a Graph Neural Network (GNN) trained to predict the optical properties of
+                                  numerically-generated BC fractal aggregates can accurately generalize to arbitrarily shaped particles,
+                                  including much larger (10×) aggregates than in the training dataset. This zero-shot learning approach
+                                  could be used to estimate single particle optical properties of realistically-shaped aerosol and
+                                  cloud particles for inclusion in radiative transfer codes for atmospheric models and remote sensing
+                                  inversions. In addition, GNN’s can be used to gain physical intuition on the relationship between small-
+                                  scale interactions (here of the spheres’ positions and interactions) and large-scale properties (here of
+                                  the radiative properties of aerosols).
+
+
+                                    Carbonaceous aerosols such as black carbon (BC) are important short-lived climate ­forcers1,2. To understand
+                                    their impact on climate, accurate predictions of the optical properties of absorbing aerosols such as BC are
+                                    needed in atmospheric models and observational retrievals: for estimating the top-of-the atmosphere radiative
+                                    effects of black ­carbon3 and the impact of aged soot on cloud ­formation4, for the calculation of the mass absorp-
+                                    tion coefficient of BC deposited on ­snow5, for estimating the relative shortwave heating rates for different types
+                                    of combustion ­aerosols6, for calculating particle-to-gas heat transfer to interpret laser-induced incandescence
+                                  ­signals7, for accurate inversions of imaging ­nephelometers8, for constraining the index of refraction of biomass
+                                    burning ­aerosols9, and for interpreting the optical properties of aerosols deposited on ­filters10,11. Accurate calcula-
+                                    tions of carbonaceous aerosol optical properties are also important for observational retrievals in other planetary
+                                    atmospheres, as these aerosols may play a role in the radiative balance of e.g. the middle atmosphere of ­Jupiter12.
+                                        BC particles in the atmosphere have a variety of sizes, shapes, and chemical compositions, all of which impact
+                                    their optical properties (Fig. 1). BC’s optical properties depend on both the morphology of the primary (bare)
+                                    BC particle, as well as its internal mixing with other materials (coatings) through the condensation of gas phase
+                                    species during atmospheric aging. Both combustion ­conditions13 and atmospheric ­aging14 impact the morphol-
+                                    ogy of these aerosols, which are fractal-like aggregates, typically embedded within (internally mixed) or attached
+                                    to other aerosol components. The complex morphology of bare BC is generally not parameterized in models,
+                                    although modeling bare BC as a sphere biases radiative forcing estimates, with too little warming by absorption
+                                    and too much cooling by ­scattering15. Internal mixing is modeled using a Mie Theory core-shell model, which
+                                    approximates the bare BC portion as an absorbing “core”, with a concentric sphere of “coating” material with
+                                    an index of refraction characteristic of the internally mixed material. Several recent papers have demonstrated
+                                    this Mie Theory core-shell approximation leads to an over-prediction of BC absorption in models by as much as
+                                    a factor of ­213,16. In addition, not only are more accurate calculations of BC optical properties needed to better
+                                    constrain models to observations, but models need to be capable of representing the heterogeneity of optical
+                                    properties in diverse aerosol ­populations13,16.
+                                        While models and observational retrievals have generally relied on Mie Theory, more accurate methods
+                                    to predict the optical properties for arbitrarily shaped particles such as the Multiple Sphere T-Matrix Method
+                                    (MSTM)17,18, the discrete dipole approximation (DDA)19,20, and the Generalized Multiple-Particle Mie (GMM)
+                                   ­Theory21,22 have been developed. These methods approximate BC fractal aggregates as clusters of spheres (Fig. 1)
+                                    and provide analytical solutions to the time-harmonic Maxwell’s equations for the multiple sphere system.
+                                    However, these approaches are computationally expensive, often requiring hours or even days to compute the
+
+
+                                  Department of Earth and Environmental Engineering, Columbia University, New York, USA. * email: kl3231@
+                                  columbia.edu
+
+
+Scientific Reports |   (2023) 13:18777                 | https://doi.org/10.1038/s41598-023-45235-8                                                        1
+
+                                                                                                                                                      Vol.:(0123456789)
+          www.nature.com/scientificreports/
+
+
+
+
+                                            Figure 1.  BC optical properties. Top, from left to right: equivalent volume sphere for bare BC, thinly coated BC,
+                                            and thickly coated BC particles. Bottom, from left to right: geometry of bare BC, thinly coated BC, and thickly
+                                            coated BC as used in typical MSTM calculations.
+
+
+
+                                            optical properties of single aerosol particles with complex ­morphologies23. To mitigate this computational bottle-
+                                            neck, pre-calculated databases of fractal aggregate optical properties using these exact analytical methods have
+                                            recently been ­created23–26, but such approaches are limited to linear interpolation within the data-bases’ optical
+                                            and morphological properties. There is still significant uncertainty about the fundamental properties of BC from
+                                            different emission sources and under different combustion conditions, and the additional complexity of internal
+                                            mixing with non-absorbing and absorbing materials during atmospheric ­aging2 would require these databases
+                                            to cover a very large parameter space to accurately represent the range of conditions for BC aerosols observed
+                                            in the atmosphere. Moreover, observational inversions of BC have greater uncertainty when performed with
+                                            only a subset of possible parameters.
+                                                Machine learning offers a promising approach for reducing computational bottle-necks by speeding up
+                                            numerically-intensive aspects of atmospheric ­models27,28. As such it could offer an efficient alternative approach
+                                            to compiling pre-computed databases for BC’s optical properties. However machine learning methods are tra-
+                                            ditionally strongly dependent on the data they are trained with, and struggle to generalize beyond the training
+                                            distribution. One previous study investigated a machine learning approach to predicting BC’s optical properties
+                                            from its morphological parameters and index of refraction using a support vector machine (SVM) trained on
+                                            accurate MSTM calculations but could not accurately predict the optical properties of aggregates with mor-
+                                            phological parameters beyond those used in the initial training data ­set29. Other brute force approaches such as
+                                            neural networks (NN) or random forests (RF) will similarly struggle to generate realistic BC properties outside
+                                            of the training datasets.
+                                                Here we show the optical properties of bare BC with complex morphology can be accurately predicted with
+                                            a graph neural network (GNN) by representing BC fractal aggregates as networks of interacting spheres. GNN’s
+                                            are recently developed machine learning algorithms that learn on graph-structured data sets, allowing models
+                                            to directly include arbitrary relational ­information30,31. These models have shown great promise in predicting
+                                            the large-scale properties of structured physical science data-sets such as ­molecules32,33, protein-protein interac-
+                                            tion ­networks34, and ­glasses35. GNN’s have demonstrated skill in predicting complex global features of physical
+                                            systems through learning simpler local ­physics36; here we demonstrate that through including local informa-
+                                            tion about BC’s structure, BC’s global properties can be inferred. Importantly, because GNN’s learn models for
+                                            specific substructures (i.e. the nodes and their relationships with their neighbors in the graph), they are able to
+                                            immediately generalize to graphs with arbitrary numbers of nodes; we exploit this feature of GNN’s to predict
+                                            the optical properties of BC aggregates that are significantly larger than those used in the training data set. This
+                                            zero-shot learning (where models can immediately generalize to samples not represented in their original train-
+                                            ing data) paves the way towards new, flexible parameterizations of aerosol microphysical properties and serves
+                                            as a template for the use of GNN’s in the Earth sciences.
+
+                                            BC fractal aggregates as networks
+                                            Physical properties of bare BC Primary (bare) BC particles are fractal-like aggregates with geometries that can
+                                            be described according to a statistical scaling rule as
+                                                                                                      Df
+                                                                                                      Rg
+                                                                                             Ns = kf                                                     (1)
+                                                                                                      a
+                                            where a is the primary particle mean radius, kf is the fractal pre-factor, Df is the fractal (Hausdorff) dimension,
+                                            Ns is the number of primary spheres, or monomers, in the aggregate, and Rg is the radius of gyration, defined as
+                                                                                                     N
+                                                                                                     s
+                                                                                                  1 
+                                                                                          Rg2 =        (ri − r0 )2                                           (2)
+                                                                                                  Ns
+                                                                                                     n=1
+
+
+
+
+          Scientific Reports |   (2023) 13:18777 |               https://doi.org/10.1038/s41598-023-45235-8                                                    2
+
+Vol:.(1234567890)
+www.nature.com/scientificreports/
+
+
+                                  where ri and r0 denote the ith monomer center and the center of mass of the cluster, respectively (assuming all
+                                  monomers have the same ­mass37). In addition to the aggregate geometry, the basic physical properties of these
+                                  particles follow this scaling ­law38. As a consequence of their fractal nature, aggregates are self-similar on different
+                                  length scales. The fractal dimension Df can be thought of intuitively as the shape-filling capacity of the aggregate;
+                                  aggregates with smaller fractal dimensions are “fluffier”, while aggregates with larger fractal dimensions are
+                                  denser. The fractal prefactor kf of the aggregate is related to the packing of spheres into space and the anisotropy
+                                  of the aggregate, with more “stringy” aggregates having smaller values of kf , and more isotropic and collapsed
+                                  aggregates having larger values of kf 39,40.
+                                      The fractal-like nature of these aerosols is a result of their formation from gas-phase precursors through the
+                                  aggregation and growth of hydrocarbon clusters during incomplete combustion, although this process is not yet
+                                  completely ­understood41. The initial morphology depends on both the combustion conditions and the emission
+                                  source, with different observational methods also impacting the retrieved ­parameters15. After their initial forma-
+                                  tion during combustion, atmospheric aging (due to cloud processing or the condensation of gas phase species)
+                                  leads to these aerosols becoming more compact, causing Df to increase over time. This aging is expected to lead
+                                  to a decrease in their top of the atmosphere radiative ­effects13. Previous work has shown that kf determines the
+                                  compactness of aggregate branches, although little is understood about kf ’s evolution over ­time15.
+
+                                  Numerically‑generated fractal aggregates
+                                  To investigate how fractal aggregate particles can be modeled as networks of interacting spheres, we numerically
+                                  generated fractal aggregates with Ns spheres using a cluster-cluster ­algorithm42 based on the one described ­in38,
+                                  which uses a Monte Carlo approach to randomly generate aggregates with a specified fractal dimension Df and
+                                  fractal pre-factor kf . We generate Cartesian coordinates for the monomers in the aggregate in dimensionless
+                                  coordinates by scaling by a factor of k = 2π
+                                                                              , where  is the wavelength of the incident light.
+
+                                  Characteristic length scale
+                                  The characteristic length scale of a network with N nodes is C = Log(N)43. Here we want to develop a method
+                                  for rendering fractal aggregates as graphs, with the assumption that the monomers in the aggregate should be
+                                  represented by nodes in the graph. To represent fractal aggregates as graphs, monomers with center positions
+                                  closer together than the characteristic length scale C of a network with Ns nodes,
+                                                                                     C = Xv Log(Ns )                                                  (3)
+                                  are connected, where Xv = ka is the monomer size parameter (Fig. 2). We multiply the length scale by Xv to
+                                  give a consistent number of edges independent of the size parameter of the aggregate, such that aggregates with
+                                  the same fractal parameters but different size parameters would be encoded within the same graph structure.
+                                  An example of the resulting undirected graph structure and adjacency matrix for two different aggregates with
+                                  different fractal dimensions but the same number of monomers is shown in Fig. 3a–d. This scaling encodes
+                                  the density of edges in local neighborhoods relative to the fractal dimension of the aggregate, irregardless of
+                                  the actual size of the aggregate. The total number of edges in the graph is then proportional to both Ns and Df
+                                  (Fig. 3e), with the average degree of nodes increasing relative to Df (SI Fig. S4a). The degree distribution of nodes
+                                  also depends on the fractal pre-prefactor kf (SI Fig. S4b).
+
+
+
+
+                                  Figure 2.  A schematic of the GNN modeling approach for predicting aerosol optical properties. Accurate
+                                  calculations of aerosol optical properties from the sphere positions are calculated using MSTM. For the GNN
+                                  model, graphs are generated from aggregates by connecting spheres closer together than the characteristic
+                                  length scale, C, of the aggregate (Eq. 3). Embeddings are learned for each node in the graph based on the central
+                                  node features, the neighboring node features, and the edge features. These node-level embeddings are then
+                                  aggregated together and a graph level prediction of the optical properties of the aggregate is made.
+
+
+
+Scientific Reports |   (2023) 13:18777 |                https://doi.org/10.1038/s41598-023-45235-8                                                      3
+
+                                                                                                                                                   Vol.:(0123456789)
+          www.nature.com/scientificreports/
+
+
+
+
+                                            Figure 3.  Examples of fractal aggregates represented as graphs. Visualization of the graphs (a,c) and adjacency
+                                            matrices (b,d) for fractal aggregates with the same number of spheres (Ns=288) but different fractal dimensions.
+                                            Df =1.8 for (a,b) and Df =2.3 for (c,d). (e) The number of edges scales with the total number of spheres in the
+                                            aggregates (Ns) and the fractal dimension of the aggregates (Df ).
+
+
+
+                                            GNN model for BC optical properties
+                                            Accurate solutions for the electromagnetic scattering and absorption properties for multiple sphere clusters (as
+                                            BC aggregates are typically modeled) is computationally expensive because a full-wave optics treatment is needed.
+                                            In the general case, spheres interact with one another, and the total scattering field component is a superposition
+                                            of the components radiated from each sphere in the ­system44. While the solution for the continuity equation at
+                                            the surface of each sphere in the system can be solved analytically by expanding the incident and scattered fields
+                                            from each sphere in terms of vector spherical wave functions, this approach generates a very large system of
+                                            coupled linear equations that must be solved ­iteratively45. Additional details about the formal solution are given
+                                            in Supplementary Information S1.
+                                                While this approach provides a fully analytical solution for light scattering from the multiple sphere cluster,
+                                            the computational time for these brute-force approaches scale significantly with Ns and Xv as they do not take
+                                            into account specific details of BC’s topological structure, which could lend itself to model order reduction.
+                                            Filippov et al.38 previously explored the relationship between the morphology of BC and their aggregate physi-
+                                            cal properties using the Rayleigh-Debye-Gans (RDG) approximation and found that aggregates with similar
+                                            fractal parameters also have similar physical properties. Recent work ­in23 found empirical relationships between
+                                            the optical properties of aggregates and their morphological parameters using extensive MSTM calculations.
+                                            Machine learning offers an alternative approach for learning relevant predictors without the need for human-
+                                            defined features; GNN’s in particular can learn features that correspond to the relationship between the nodes
+                                            (the individual spheres) and the large-scale physical properties of the aggregates.
+                                                GNN’s are particularly attractive as emulators of MSTM because they provide strong relational inductive
+                                            bias, which typically means that algorithms require less training data than fully connected neural networks
+                                            or convolutional neural networks to make skillful predictions. Since MSTM is relatively slow (and methods
+                                            such as DDA are approximately 10× slower than MSTM), it is non-trivial to develop large training data sets for
+                                            machine learning algorithms. Second, the non-trivial topological structure of these aerosols is directly related
+                                            to the complexity of their optical properties’ calculation, as the radiation incident on each individual monomer
+                                            is a function of the position and orientation of all of the other monomers in the aggregate, with the neighboring
+
+
+          Scientific Reports |   (2023) 13:18777 |               https://doi.org/10.1038/s41598-023-45235-8                                                  4
+
+Vol:.(1234567890)
+www.nature.com/scientificreports/
+
+
+                                   monomers likely to have the most significant influence. The GNN approach of framing this problem from the
+                                   perspective of message-passing between neighboring nodes is directly analogous to the electromagnetic scat-
+                                   tering and absorption problem for the multiple sphere cluster. Finally, as discussed in the introduction, GNN
+                                   emulation of physical simulators has been shown to generalize to new, previously unseen realizations of physical
+                                   systems (so-called zero-shot performance)31. To bridge the gap between the very accurate physical information
+                                   gained in process level studies of individual aerosol properties, and the understanding of how populations of
+                                   these aerosols evolve in atmospheric models, we need either much better approximation methods or much faster
+                                   methods to accurately calculate aerosol properties. GNN emulators that quickly and accurately generalize to new
+                                   configurations could provide an online approach to estimate the optical properties of populations of aerosols
+                                   in atmospheric models.
+                                       To investigate the connection between BC’s fractal structure and its optical properties, we trained a GNN to
+                                   predict the optical properties of BC aggregates, using the values from an analytical solution for the electromag-
+                                   netic scattering and absorption properties (from MSTM) as ground-truth (Fig. 2). GNN’s propagate information
+                                   between nodes, capturing both the topological information about the graph structure and aggregating the node
+                                   features. We tested several different approaches for the propagation rule, including a simple graph convolution
+                                  ­network62, a graph convolutional ­network30, and an Interaction Network (IN)31. We found the IN gave the best
+                                   performance for predicting both the integral and angle-resolved optical properties. The IN (Fig. 2) is based on
+                                   message passing, where nodes send and receive messages along edges from their neighbors. The messages are
+                                   aggregated for each node and the nodes are updated based on the central node features and the messages received
+                                   from neighboring nodes. Graph level predictions are made by aggregating the updated node embeddings from
+                                   all the nodes in the graph using a graph pooling operation (the pooling in Fig. 2). We test summation, averag-
+                                   ing, and maximum pooling as graph pooling operations, and find that summation works best. After the graph
+                                   pooling operation, a final linear transformation is performed to transform aggregated node embeddings to the
+                                   target predictions (the graph readout in Fig. 2). Here we predict the total extinction, scattering, and absorption
+                                   efficiencies Qext , Qscat , Qabs , the asymmetry parameter, g, and the angle-resolved elements of the scattering
+                                  phase matrix Sij (θ) for the orientation-averaged case. (See Methods for discussion of aerosol optical properties
+                                   and data sets). Further details of the GNN approaches tested in this work are proved in the SI.
+                                       For each training example, we input Xv , the real part of the index of refraction Re(nk ) (since we consider only
+                                  cases where the imaginary part is Im(nk ) = 1 − Re(nk )), and the dimensionless coordinates of each sphere as
+                                  node features. As edge features, we use the distance between neighboring spheres. We trained the model using
+                                  15,314 aggregates from the training data set, as the training loss did not significantly decrease with additional
+                                  samples (SI Fig. S13); training data sets as small as 3000 aggregates showed reasonable generalization perfor-
+                                  mance. The training data set consisted of aggregates with a small number of monomers ( Ns < 100). We tested
+                                   the model on an independent test set of 7656 aggregates with the same distribution of parameters as the train-
+                                   ing data set ( Ns < 100). We further investigated the generalizability of the model on an independent zero-shot
+                                   test set of 440 aggregates that were significantly larger (100 < Ns < 1000) than the ones the model was trained
+                                  on. An additional 440 large aggregates were used as a zero-shot validation data set to determine which model
+                                  architecture provided the best zero-shot performance (SI Figs. S9–S12). While the model weights were not
+                                  directly trained on this zero-shot validation data set, the hyperparameters for the best model architecture were
+                                  determined from performance on this data set; thus, we use an independent zero-shot test data set to evaluate
+                                  generalization performance. Ns = 100 was chosen as the maximum size for aggregates in the training data set
+                                   as smaller maximum sizes increased the bias in the zero-shot performance (SI Fig. S14). The zero-shot test data
+                                   set was evenly distributed among the aggregate parameters (Fig. S2) to provide an estimate of generalization
+                                   performance across the full parameter space.
+                                       Figure 4 shows the IN predictions compared to the actual values for Qext , Qscat , Qabs , and g with the train-
+                                  ing data shown in blue, the test data set of smaller aggregates in yellow (top row, Fig. 4a–d) and the zero-shot
+                                  test data sets shown in orange (bottom row, Fig. 4e–h). Figure 5 shows the predictions for the S11 (θ) element of
+                                  the scattering phase matrix for several different aggregates in the test data sets of smaller aggregates (Fig. 5a)
+                                  and larger aggregates (Fig. 5c). For the test data with the same distribution of parameters as the training data set
+                                  ( Ns < 100), the model predictions were very close to the true values. For the zero-shot test data set, predictions
+                                   for both integral and angle resolved optical properties were reasonable across the entire range of size parameters
+                                   ( Xv=0.1 to 1.0), indices of refraction nk = 1.4 + 0.4i to nk = 2.0 + 1.0i , and fractal parameters. For the predic-
+                                  tion of S11, both the magnitude and functional form were well-approximated across the range of parameters in
+                                   the test set, although the model did deviate slightly more from the true values for larger Ns and Xv (e.g. the green
+                                   line in Fig. 5c). Predictions for the entire angle-resolved scattering phase matrix elements Sij (θ), for j ≥ i , were
+                                   also reasonable (See SI Fig. S16).
+                                       Table 1 gives the mean absolute percentage error (MAPE) for the predictions from the IN model for the inte-
+                                   gral optical properties and the asymmetry parameter for the training, test, and zero-shot test data sets. We use
+                                   MAPE as a metric to assess the performance of the model predictions because this metric is independent of the
+                                   size of the data sets. MAPE can be interpreted in terms of relative error, which means that the performance on
+                                   the test data set and zero-shot test data set are directly comparable; metrics such as MSE depend on the absolute
+                                   magnitude of the integral optical properties, which differ between the test and zero-shot test data sets. We find
+                                   that the predictions for Qext and Qabs are within 2% of the true value for the training and test data sets, and within
+                                   4% of the true values for the zero-shot test data set. Qscat and g have more significant deviations between the
+                                  true and predicted values for the IN model (Table 1, 2nd column), but this is mainly due to a bias in the predic-
+                                  tions for the IN model for the smallest Xv values, because the magnitude of Qscat is so small. At larger Xv , the
+                                  model performance is within 2–9% of the true value for the training and test data sets, and within 4–8% for the
+                                  zero shot test data set. The IN model generally performs best as larger size parameters for the predictions of the
+
+
+
+Scientific Reports |   (2023) 13:18777 |                https://doi.org/10.1038/s41598-023-45235-8                                                        5
+
+                                                                                                                                                     Vol.:(0123456789)
+          www.nature.com/scientificreports/
+
+
+
+
+                                            Figure 4.  The true vs. predicted values for the efficiencies and the asymmetry parameter. (a–d) shows the
+                                            results for the training (Ns < 100) and test (Ns < 100) data sets, while (e–h) shows the results for the training
+                                            (Ns < 100) and zero-shot test (Ns = 100–1000) data sets.
+
+
+                                            integral optical properties. The bias for smaller values of Xv may be improved by training on each Xv separately
+                                            or alternatively, by using methods such as meta-learning46.
+                                                In addition to generalizability, the IN model demonstrated physical consistency in its predictions for the
+                                            aggregate optical properties. The 3 scattering efficiencies are not independent, as �Qsca � + �Qabs � = �Qext �. The
+                                            model directly inferred this dependency for both the training and test sets without imposing this as a constraint.
+                                            Additionally, integrating S11 over the solid angle is equivalent to g44,
+                                                                             1                         1 π
+                                                                                                        
+                                                                         g=        S11 (θ)cos(θ)d� =          S11 (θ)cos(θ)sin(θ)dθ                           (4)
+                                                                             2                         2 0
+                                            Without explicitly imposing this integral constraint, the model predictions were consistent with this constraint
+                                            (Fig. 5b, Ns < 100, and Fig. 5d for Ns > 100 ).
+
+                                            Analysis of the GNN predictions
+                                            To understand how the IN model predicts the optical properties of BC fractal aggregates, including those much
+                                            larger than the model was trained on, we emphasize that the graph input for the model does not directly include
+                                            Df or kf as features but rather the fractal structure is implicitly encoded as the interactions between the neigh-
+                                            boring spheres. The previously used SVM approach to predict BC’s optical properties included Ns , Df , and kf
+                                            as features to predict Qext , Qscat , Qabs , and g29. Since the network structure in the IN approach is directly
+                                            learned from the sphere positions, and the model is learned at the node level, the IN approach can generalize
+                                            beyond its initial training set for these morphological parameters to unseen configurations.
+                                                The generalization of the IN model to a range of Df is an important feature, as it is challenging to find approxi-
+                                            mations that are valid across fractal ­dimension47. Because the IN model learns about the local neighborhood of
+                                            each sphere, it is able to more accurately estimate the impacts of screening on absorption and scattering than
+                                            the RDG ­approximation44,47, an approach often used to approximate the optical properties of BC aggregates
+                                            in a computationally efficient manner as an improvement on the equivalent sphere model. RDG assumes that
+                                            individual monomers only interact with the incident electromagnetic field (neglecting multiple interactions),
+                                            which can lead to absorption being under-predicted by 10–20%, and significantly under-predicting g by more
+                                            than a factor of ­1015. The IN model effectively learns, in an unsupervised manner, a simplified sphere level model
+                                            that more fully captures the complexity of the optical properties of the full analytical ­solution15. As noted earlier,
+                                            the best performance for the IN model used summation for graph pooling, which is physically consistent with
+                                            the node level model learning the Mie theory solution for the individual spheres in the aggregate, given their
+                                            interaction with neighboring spheres.
+                                                The optical properties of aggregates in this regime can be modeled with the assumption of a fairly shallow
+                                            graph model (for the IN model a single layer performed best; for the GCN little improvement was seen beyond
+                                            3 or 4 layers, Fig. S5), suggesting that the majority of the structure influencing the optical properties of aero-
+                                            sols in this regime can be approximated from local interactions. We also investigated using a length scale of
+                                            C = Xv Log(Ns )/Log(Log(Ns )) (characteristic of scale-free networks) to form graphs from ­aggregates43, rather
+                                            than Eq. 3. This length scale has the advantage that the degree of each node scales less quickly with Ns , but the
+
+
+          Scientific Reports |   (2023) 13:18777 |                https://doi.org/10.1038/s41598-023-45235-8                                                     6
+
+Vol:.(1234567890)
+www.nature.com/scientificreports/
+
+
+
+
+                                  Figure 5.  GNN model predictions of the angle resolved optical properties. (a) Comparison of S11 (�)
+                                  predictions for 4 randomly chosen aggregates in the test set with the same distribution of parameters as
+                                  the training data set: Blue ( Ns = 76, Xv = 0.7,nk = 1.4 + i0.4), Red (Ns = 14, Xv = 0.5,nk = 1.6 + i0.6),
+                                  Green ( Ns = 17, Xv = 0.5,nk = 1.4 + i0.4), Yellow (Ns = 36, Xv = 0.9,nk = 2.0 + i1.0). (b) The predicted
+                                  S11 integrated over the solid angle (Eq. 4) vs. the predicted value for asymmetry parameter (g) for all of the
+                                  aggregates in the training and test sets (Ns < 100). (c) As in (a), for 4 randomly chosen aggregates in the zero
+                                  shot test set: Blue (Ns = 128,Xv = 0.9,nk = 1.6 + i0.6), Red (Ns = 640,Xv = 0.3,nk = 2.0 + i1.0), Green
+                                  ( Ns = 960,Xv = 0.7,nk = 1.8 + i0.8), Yellow (Ns = 416,Xv = 0.9,nk = 2.0 + i1.0). (d) As in (b), for all of the
+                                  aggregates in the training and zero shot test sets.
+
+
+
+                                  IN model performed worse in this case. This indicates that including a larger local neighborhood at each layer
+                                  (Eq. 3) is more informative for the model.
+
+                                  Discussion and outlook
+                                  The network approach presented here provides a new framework for understanding the microphysical relation-
+                                  ship between the morphological properties of BC and its larger scale physical properties. Here we have chosen
+                                  to focus on the prediction of optical properties for numerically generated fractal aggregates, as the generation
+                                  of these aggregates from combustion processes and their transformation during atmospheric aging is not yet
+                                  completely understood. However, applying network theory to atmospheric aerosols suggests new directions for
+                                  thinking about the generation of these fractal aggregates through combustion processes due to the connection
+                                  between complex networks and percolation ­theory48. Here we have used a cluster-cluster algorithm, although
+                                  previous work has noted that the morphology of numerically generated fractal aggregates depends not only on
+                                  the parameters ( Ns , a, Df , and kf ) defining the shape of the aggregate, but also on which algorithm is used to
+                                  generate the sphere positions (e.g. diffusion-limited aggregation or diffusion-limited cluster aggregation)38,39.
+                                  The network approach provides a new framework from which to understand how realistically numerical algo-
+                                  rithms reproduce the properties of aerosols formed during incomplete combustion through comparison of their
+                                  network ­characteristics43. This approach may also be useful for inferring 3 dimensional structure of aggregates
+                                  from 2 dimensional transmission electron microscope (TEM) images of these ­aerosols10,11, since it relates the
+                                  relative positions of spheres to their overall morphological features; 2D methods have previously been shown
+                                  to systematically underestimate the fractal dimension of ­BC49. Recent methods such as graph cumulants could
+                                  provide sophisticated approaches to describe substructures of graphs (such as motifs or cliques used to describe
+                                  clustering)50. Since any particular network observation is a single realization of an underlying generative pro-
+                                  cess (in this case, the generation of primary aerosol particles from combustion sources), this framework could
+                                  allow for an unbiased estimator of the variance of the propensity for specific graph substructures as a result of
+
+
+
+Scientific Reports |   (2023) 13:18777 |               https://doi.org/10.1038/s41598-023-45235-8                                                    7
+
+                                                                                                                                              Vol.:(0123456789)
+          www.nature.com/scientificreports/
+
+
+                                                                          Xv
+                                             Qext               All       0.1      0.3      0.5      0.7      0.9      1.0
+                                             Training           0.0174    0.0419   0.0171   0.0135   0.0111   0.0106   0.0099
+                                             Test ( Ns < 100)   0.0180    0.0408   0.0178   0.0145   0.0122   0.0114   0.0106
+                                             Test ( Ns > 100)   0.0392    0.0715   0.0351   0.0317   0.0263   0.0322   0.0199
+                                                                          Xv
+                                             Qabs               All       0.1      0.3      0.5      0.7      0.9      1.0
+                                             Training           0.0259    0.0960   0.0167   0.0132   0.0101   0.0091   0.0093
+                                             Test ( Ns < 100)   0.0259    0.0930   0.0172   0.0137   0.0109   0.0094   0.0096
+                                             Test ( Ns > 100)   0.0367    0.0446   0.0462   0.0409   0.0288   0.0275   0.0174
+                                                                          Xv
+                                             Qscat              All       0.1      0.3      0.5      0.7      0.9      1.0
+                                             Training           0.7913    4.5150   0.0828   0.0408   0.0231   0.0185   0.0177
+                                             Test ( Ns < 100)   0.7045    3.9670   0.0829   0.0417   0.0249   0.0194   0.0193
+                                             Test ( Ns > 100)   0.2157    0.7990   0.0718   0.0497   0.0420   0.0531   0.0317
+                                                                          Xv
+                                             g                  All       0.1      0.3      0.5      0.7      0.9      1.0
+                                             Training           0.1462    0.6470   0.0811   0.0448   0.0356   0.0319   0.0307
+                                             Test ( Ns < 100)   0.1472    0.6470   0.0778   0.0462   0.0367   0.0326   0.0310
+                                             Test ( Ns > 100)   0.0973    0.2520   0.0427   0.0498   0.0600   0.0623   0.0591
+
+
+                                            Table 1.  MAPE values for GNN model prediction of integral optical properties and asymmetry parameter.
+                                            Values are given for all aggregates in the training and test data sets, as well as binned by Xv.
+
+
+
+                                            this generative process. These estimators could be used to compare specific aggregate-generating algorithms to
+                                            observations of real fractal aerosol particles to assess the realism of the algorithms.
+                                                As a proof of concept we have trained a GNN to predict the optical properties of bare BC fractal aggregates
+                                            with a range of different fractal parameters. This study demonstrates that modeling aerosol fractal aggregates as
+                                            networks of interacting spheres provides morphological information that allows the machine learning model to
+                                            extrapolate far beyond their initial training data set. This approach may also be useful for other fractal systems
+                                            found in nature, such as turbulence, vegetation, or river networks.
+                                                BC in the atmosphere is typically internally mixed. The GNN approach provides an obvious extension to
+                                            internally mixed aerosols (Fig. 1), as the thickness of coatings and their indices of refraction or organic fraction
+                                            could be included as additional node-level features (in the thinly coated case) or graph-level features (for the
+                                            thickly coated case). Other factors influencing the optical properties of aggregates such as “necking” between
+                                            overlapping monomers could be included as edge features. Because atmospheric aerosol retrievals rely on ori-
+                                            entation averaged parameters, models for predicting the scattering phase function should be equivariant under
+                                            rotations. Recently developed equivariant machine learning ­methods51–54 may provide improved prediction of
+                                            the orientation averaged optical properties.
+                                                Uncertainty in BC direct radiative climate effects is attributable to multiple factors, including BC’s emis-
+                                            sions, lifetime, atmospheric processing, and optical ­properties1,2,55; the GNN approach could help resolve this
+                                            uncertainty by improving both the interpretation of BC observations and by allowing BC’s morphology to be
+                                            accurately represented in atmospheric models in a computationally efficient manner. As a greater understanding
+                                            of BC’s physical properties from different source contributions and atmospheric aging pathways becomes avail-
+                                            able through laboratory and observational ­studies13,14,16, the major remaining hurdle to accurately representing
+                                            BC in models will be computational.
+                                                While previous exact analytical methods have computational wall-times scaling from hours to days for larger
+                                            aggregates, inference is on the order of < 0.3 s per aggregate for the trained GNN model (On a CPU– see SI
+                                            Fig. S15). The computational time for these exact analytical methods has precluded exact calculations of aerosol
+                                            optical properties being used in models or observational retrievals. CELES, a CUDA-accelerated version of
+                                            MSTM capable of running on a GPU, demonstrated a factor of 1.5–6 times speed up over MSTM, but was still
+                                            too slow to be implemented online in ­models56. The significantly faster time-scale for the GNN model, as well as
+                                            its generalizability to arbitrarily shaped aggregates compared to more standard ML methods, has the potential
+                                            to transform existing model parameterizations for BC. For MSTM computational wall times scale with Ns , Xv ,
+                                            and Df ; while the total inference and memory scales with Ns and Df in the GNN approach, it is no longer a
+                                            function of Xv.
+                                                We have focused here on the forward problem of predicting the optical properties of BC given an assumed
+                                            single particle morphology; however such an approach may also be useful for the inverse problem, i.e. inferring
+                                            the morphology given the scattering phase function and integral optical properties. This approach could also
+                                            provide insight into other physical properties which require detailed information about particle ­morphology38,
+                                            such as energy and heat transfer between aggregates and the surrounding gas needed to develop physical models
+                                            of laser-induced ­incandescence7,57. Radiative transfer calculations for mineral dust and ice crystals also rely on
+                                            detailed information about particle morphology, suggesting that the GNN approach would be useful for modeling
+
+
+          Scientific Reports |   (2023) 13:18777 |                    https://doi.org/10.1038/s41598-023-45235-8                                              8
+
+Vol:.(1234567890)
+www.nature.com/scientificreports/
+
+
+                                   their optical properties as well. This approach could mitigate several long-standing issues with model param-
+                                   eterizations and observational retrievals for these species, by providing flexible parameterization of arbitrarily
+                                   shaped aerosol and cloud particles that are fast enough to be deployed online in atmospheric models.
+                                      Finally, these methods have potential for new applications of machine-learning assisted materials
+                                  ­discovery58,59. Proposed geo-engineering approaches to mitigate global or regional impacts of climate change,
+                                   such as stratospheric aerosol injection, marine cloud brightening, or precipitation enhancement, rely on the
+                                   development of novel aerosol materials. Generative graph models could be used to determine optimal aerosol
+                                   morphologies resulting in physical properties specific to these applications at a fraction of the cost of traditional
+                                   numerical ­methods60.
+
+                                  Methods
+                                  Numerical aggregate properties
+                                  Cartesian coordinates for the positions of spheres in aggregates were determined using a cluster-cluster
+                                  ­algorithm38,42. This cluster-cluster algorithm starts with primary clusters of size Nc , and then randomly agglom-
+                                   erates these clusters pairwise into larger clusters. The algorithm repeats this process for multiple levels until it has
+                                   combined all clusters into one larger cluster, which satisfies the scaling laws given by Eq. (1). Primary clusters of
+                                   size Nc = 3, 4, 5, 7, 9, 11, 13, 15, 17, 19 were used to generate aggregates between Ns = 8–960 spheres with fractal
+                                  dimensions between Df = 1.8–2.3. ­Following23, we assume a fractal pre-factor of kf =1.2 (for the aggregates
+                                   used in the MSTM calculations). We also investigated the network parameters of aggregates with kf = 1.0–1.5,
+                                   for a given Df = 1.8 (Fig. S4b). Aerosols are assumed to consist of isotropic, homogeneous spheres, with size
+                                  parameters Xv = 0.1, 0.3, 0.5, 0.7, 0.9, and 1.0, corresponding to monomer radii between 7–72 nm for incident
+                                  light at 450 nm and 10–104 nm at 650 nm. For each primary cluster size and fractal dimension, 10 aggregate
+                                  realizations were randomly generated.
+
+                                  Aerosol optical properties
+                                  For radiative transfer applications, the orientation-averaged total scattering Qsca , extinction Qext , and absorp-
+                                   tion efficiencies Qabs , as well as the asymmetry parameter g = �Csca cos(θ ′ )� are typical parameters that are
+                                  needed (Csca is the scattering cross-section which is related to the efficiency as Qsca = Csca /(pi ∗ aagg    2 ), where
+                                  aagg is the effective radius of the aggregate). The asymmetry parameter relates the amount of forward to back-
+                                  scattered light. Other parameters relevant for radiative transfer, such as the single scattering albedo (SSA), can
+                                  be derived from these parameters (SSA = Qsca /Qext ). The mass absorption coefficient (MAC) or mass extinction
+                                  coefficient (MEC) are typically used to relate emissions of these aerosols to their direct radiative effects, and they
+                                  are sometimes estimated theoretically from Cabs  or Cext  with assumptions about particle density.
+                                       The scattering phase function relates the incident and scattered Stokes parameters, e.g., it indicates how light
+                                  scattering from the particle is transformed relative to incident light in terms of its intensity and polarization
+                                  ­state44. Here we assume initially unpolarized incident light, in which case the S11 element specifies the angular
+                                  distribution of the intensity of  scattered relative to incident light. The scattered light is partially polarized, with
+                                  degree of polarization given by (S21     2 + S2 + S2 )/S2 .
+                                                                                 31     41    11
+
+                                  MSTM calculations of bare BC optical properties
+                                  To determine the ground-truth optical properties for the BC fractal aggregates generated by the cluster-clus-
+                                  ter algorithm we use the Fortran-90 implementation of the multiple-sphere T-matrix code as described ­in45,
+                                  which can run on a high-performance, parallel based computational platform. This code numerically solves for
+                                  electromagnetic wave scattering from multiple (non-overlapping) sphere systems for either a fixed or random
+                                  (orientation-averaged) orientation with respect to an incident plane wave. Here we have focused on calculation of
+                                  random orientation optical properties, which utilizes the T-matrix procedure developed ­in18. We assume indices
+                                  of refraction consistent with a range of values from the literature for BC at 550 nm: (1.4+0.4i, 1.6+0.6i, 1.8+0.8i,
+                                  2.0+1.0i). MSTM calculations were performed for these range of indices of refraction for 57,556 numerically
+                                  generated aggregates for Ns < 100; we used randomly chosen aggregates from this data set for the training,
+                                  validation, and test sets for the model. To test the zero-shot performance, MSTM calculations were performed
+                                  for 880 aggregates with these parameters in the size range 100 < Ns < 1000; we randomly split this data into a
+                                  zero-shot validation data set to evaluate the model’s performance and an independent zero-shot test data set. A
+                                  summary of the range of parameters for each data set is given in Table S1. The distribution of parameters among
+                                  the small ( Ns < 100) and large ( Ns > 100) aggregates are shown in Figs. S1 and S2, and the integral optical
+                                  properties calculated with MSTM are shown in Fig. S3.
+
+                                  Graph neural networks
+                                  We used Pytorch ­Geometric61 to implement the GNN models. Several GNN approaches were tested, including
+                                  a simple graph convolutional network (SGC)62, a graph convolutional network (GCN)30, and an interaction
+                                  network (IN)31 (See Supplementary Information S1 for additional details of the graph models and a comparison
+                                  of performance metrics among different model parameters and targets). The best performance for the integral
+                                  optical properties used an IN model with a hidden layer size of 300 for both the node and edge models, and
+                                  a message size of 100. Both the node and edge models are MLPs with ReLU as non-linear activation function
+                                  between layers. Aggregation for the edge model is addition, with global mean pooling followed by dropout (p =
+                                  0.5) and a linear layer of size 100 as the global aggregation function. For the prediction of S11 we found that add-
+                                  ing a fully connected node to each graph slightly improved the zero-shot performance. The model architecture
+                                  was the same as that used to predict the integral optical properties. A batch size of 20 was used (training with a
+
+
+Scientific Reports |   (2023) 13:18777 |                https://doi.org/10.1038/s41598-023-45235-8                                                       9
+
+                                                                                                                                                    Vol.:(0123456789)
+          www.nature.com/scientificreports/
+
+
+                                            batch size of 2 led to slower training but did not lead to significantly worse performance). For the graph regres-
+                                            sion task, MSE loss was assumed. We trained the GNN models on a Nvidia RTX 8000 GPU.
+
+                                            Data availability
+                                            BC graph data sets are available in an open source repository (10.5281/zenodo.5108834).
+
+                                            Code availability
+                                            Code is available at https://github.com/kdlamb/BC-GNN.git.
+
+                                            Received: 31 August 2022; Accepted: 17 October 2023
+
+
+                                            References
+                                              1. Bond, T. C. et al. Bounding the role of black carbon in the climate system: A scientific assessment. J. Geophys. Res. Atmos. 118(11),
+                                                 5380–5552 (2013).
+                                              2. Liu, D., He, C., Schwarz, J. P. & Wang, X. Lifecycle of light-absorbing carbonaceous aerosols in the atmosphere. NPJ Clim. Atmos.
+                                                 Sci. 3(1), 1–18 (2020).
+                                              3. Wu, Y., Cheng, T., Zheng, L. & Chen, H. Black carbon radiative forcing at toa decreased during aging. Sci. Rep. 6, 38592 (2016).
+                                              4. Lohmann, U. et al. Future warming exacerbated by aged-soot effect on cloud formation. Nat. Geosci. 13(10), 674–680 (2020).
+                                              5. Schwarz, J., Gao, R., Perring, A., Spackman, J. & Fahey, D. Black carbon aerosol size in snow. Sci. Rep. 3(1), 1–5 (2013).
+                                              6. Moteki, N. et al. Anthropogenic iron oxide aerosols enhance atmospheric heating. Nat. Commun. 8(1), 1–11 (2017).
+                                              7. Michelsen, H., Schulz, C., Smallwood, G. & Will, S. Laser-induced incandescence: Particulate diagnostics for combustion, atmos-
+                                                 pheric, and industrial applications. Prog. Energy Combust. Sci. 51, 2–48 (2015).
+                                              8. Manfred, K. M. et al. Investigating biomass burning aerosol morphology using a laser imaging nephelometer. Atmos. Chem. Phys.
+                                                 18(3), 1879–1894 (2018).
+                                              9. Womack, C. C. et al. Complex refractive indices in the ultraviolet and visible spectral region for highly absorbing non-spherical
+                                                 biomass burning aerosol. Atmos. Chem. Phys. Disc. 2020, 1–29 (2020).
+                                             10. Chakrabarty, R. K. et al. Simulation of aggregates with point-contacting monomers in the cluster-dilute regime. part 1: Determining
+                                                 the most reliable technique for obtaining three-dimensional fractal dimension from two-dimensional images. Aerosol Sci. Technol.
+                                                 45(1), 75–80 (2011).
+                                             11. Chakrabarty, R. K. et al. Simulation of aggregates with point-contacting monomers in the cluster-dilute regime. part 2: Comparison
+                                                 of two-and three-dimensional structural properties as a function of fractal dimension. Aerosol Sci. Technol. 45(8), 903–908 (2011).
+                                             12. Zhang, X., West, R. A., Irwin, P. G., Nixon, C. A. & Yung, Y. L. Aerosol influence on energy balance of the middle atmosphere of
+                                                 jupiter. Nat. Commun. 6(1), 1–9 (2015).
+                                             13. Wu, Y. et al. The role of biomass burning states in light absorption enhancement of carbonaceous aerosols. Sci. Rep. 10(1), 1–10
+                                                 (2020).
+                                             14. Wang, Y. et al. Fractal dimensions and mixing structures of soot particles during atmospheric processing. Environ. Sci. Technol.
+                                                 Lett. 4(11), 487–493 (2017).
+                                             15. Kahnert, M. & Kanngießer, F. Modelling optical properties of atmospheric black carbon aerosols. J. Quant. Spectrosc. Radiat.
+                                                 Transfer 244, 106849 (2020).
+                                             16. Fierce, L. et al. Radiative absorption enhancements by black carbon controlled by particle-to-particle heterogeneity in composition.
+                                                 Proc. Natl. Acad. Sci. 117(10), 5196–5203 (2020).
+                                             17. Mackowski, D. W. Calculation of total cross sections of multiple-sphere clusters. JOSA A 11(11), 2851–2861 (1994).
+                                             18. Mackowski, D. W. & Mishchenko, M. I. Calculation of the t matrix and the scattering matrix for ensembles of spheres. JOSA A
+                                                 13(11), 2266–2278 (1996).
+                                             19. Purcell, E. M. & Pennypacker, C. R. Scattering and absorption of light by nonspherical dielectric grains. Astrophys. J. 186, 705–714
+                                                 (1973).
+                                             20. Yurkin, M. A. & Hoekstra, A. G. The discrete dipole approximation: An overview and recent developments. J. Quant. Spectrosc.
+                                                 Radiat. Transfer 106(1–3), 558–589 (2007).
+                                             21. Xu, Y.-L. Electromagnetic scattering by an aggregate of spheres. Appl. Opt. 34(21), 4573–4588 (1995).
+                                             22. Xu, Y.-L. & Gustafson, B. Å. A generalized multiparticle mie-solution: Further experimental verification. J. Quant. Spectrosc. Radiat.
+                                                 Transfer 70(4–6), 395–419 (2001).
+                                             23. Liu, C., Xu, X., Yin, Y., Schnaiter, M. & Yung, Y. L. Black carbon aggregates: A database for optical properties. J. Quant. Spectrosc.
+                                                 Radiat. Transfer 222, 170–179 (2019).
+                                             24. Kahnert, M. Numerically exact computation of the optical properties of light absorbing carbon aggregates for wavelength of 200
+                                                 nm-12.2 mu m. Atmos. Chem. Phys. 10(17), 8319–8329 (2010).
+                                             25. Smith, A. & Grainger, R. Simplifying the calculation of light scattering properties for black carbon fractal aggregates. Atmos. Chem.
+                                                 Phys. 14, 15 (2014).
+                                             26. Romshoo, B. et al. Radiative properties of coated black carbon aggregates: Numerical simulations and radiative forcing estimates.
+                                                 Atmos. Chem. Phys. Disc. 2021, 1–24 (2021).
+                                             27. Gentine, P., Pritchard, M., Rasp, S., Reinaudi, G. & Yacalis, G. Could machine learning break the convection parameterization
+                                                 deadlock?. Geophys. Res. Lett. 45(11), 5742–5751 (2018).
+                                             28. Rasp, S., Pritchard, M. S. & Gentine, P. Deep learning to represent subgrid processes in climate models. Proc. Natl. Acad. Sci.
+                                                 115(39), 9684–9689 (2018).
+                                             29. Luo, J., Zhang, Y., Wang, F., Wang, J. & Zhang, Q. Applying machine learning to estimate the optical properties of black carbon
+                                                 fractal aggregates. J. Quant. Spectrosc. Radiat. Transfer 215, 1–8 (2018).
+                                             30. Kipf, T. N., & Welling, M. Semi-supervised classification with graph convolutional networks. arXiv preprint arXiv:​1609.​02907
+                                                 (2016).
+                                             31. Battaglia, P. W., Hamrick, J. B., Bapst, V., Sanchez-Gonzalez, A., Zambaldi, V., Malinowski, M., Tacchetti, A., Raposo, D., Santoro,
+                                                 A., & Faulkner, R. et al. Relational inductive biases, deep learning, and graph networks. arXiv preprint arXiv:​1806.​01261 (2018).
+                                             32. Duvenaud, D. K., Maclaurin, D., Iparraguirre, J., Bombarell, R., Hirzel, T., Aspuru-Guzik, A., & Adams, R. P. Convolutional
+                                                 networks on graphs for learning molecular fingerprints. In Advances in neural information processing systems, pp. 2224–2232
+                                                 (2015).
+                                             33. Gilmer, J., Schoenholz, S. S., Riley, P. F., Vinyals, O., Dahl, G. E. Neural message passing for quantum chemistry. In International
+                                                 Conference on Machine Learning, pp. 1263–1272, PMLR (2017).
+                                             34. Senior, A. W. et al. Improved protein structure prediction using potentials from deep learning. Nature 577(7792), 706–710 (2020).
+                                             35. Bapst, V. et al. Unveiling the predictive power of static structure in glassy systems. Nat. Phys. 16(4), 448–454 (2020).
+
+
+
+
+          Scientific Reports |   (2023) 13:18777 |                    https://doi.org/10.1038/s41598-023-45235-8                                                                    10
+
+Vol:.(1234567890)
+www.nature.com/scientificreports/
+
+
+                                   36. Xie, T., France-Lanord, A., Wang, Y., Shao-Horn, Y. & Grossman, J. C. Graph dynamical networks for unsupervised learning of
+                                       atomic scale dynamics in materials. Nat. Commun. 10(1), 1–9 (2019).
+                                   37. Forrest, S. & Witten, T. Jr. Long-range correlations in smoke-particle aggregates. J. Phys. A: Math. Gen. 12(5), L109 (1979).
+                                   38. Filippov, A., Zurita, M. & Rosner, D. Fractal-like aggregates: Relation between morphology and physical properties. J. Colloid
+                                       Interface Sci. 229(1), 261–273 (2000).
+                                   39. Sorensen, C. M. & Roberts, G. C. The prefactor of fractal aggregates. J. Colloid Interface Sci. 186(2), 447–452 (1997).
+                                   40. Heinson, W., Sorensen, C. & Chakrabarti, A. Does shape anisotropy control the fractal dimension in diffusion-limited cluster-
+                                       cluster aggregation?. Aerosol Sci. Technol. 44(12), i–iv (2010).
+                                   41. Johansson, K., Head-Gordon, M., Schrader, P., Wilson, K. & Michelsen, H. Resonance-stabilized hydrocarbon-radical chain reac-
+                                       tions may explain soot inception and growth. Science 361(6406), 997–1000 (2018).
+                                   42. Moteki, N. An efficient c++ code for generating fractal cluster of spheres (v1.1) (2019).
+                                   43. Albert, R. & Barabási, A.-L. Statistical mechanics of complex networks. Rev. Mod. Phys. 74(1), 47 (2002).
+                                   44. Bohren, C. F., & Huffman, D. R. Absorption and scattering of light by small particles. John Wiley & Sons (2008).
+                                   45. Mackowski, D. W. & Mishchenko, M. I. A multiple sphere t-matrix fortran code for use on parallel computer clusters. J. Quant.
+                                       Spectrosc. Radiat. Transfer 112, 2182–2192 (2011).
+                                   46. Finn, C., Abbeel, P., & Levine, S. Model-agnostic meta-learning for fast adaptation of deep networks. In International conference
+                                       on machine learning, pp. 1126–1135, PMLR (2017).
+                                   47. Sorensen, C. Light scattering by fractal aggregates: A review. Aerosol. Sci. Technol. 35(2), 648–687 (2001).
+                                   48. Deprez, P., Wüthrich, M. V. Networks, random graphs and percolation. In Theoretical aspects of spatial-temporal modeling,
+                                       pp. 95–124 (Springer, 2015).
+                                   49. Adachi, K., Chung, S. H., Friedrich, H., & Buseck, P. R. Fractal parameters of individual soot particles determined using electron
+                                       tomography: Implications for optical properties. J. Geophys. Res. Atmos. 112, D14 (2007).
+                                   50. Gunderson, L. M., & Bravo-Hermsdorff, G. Introducing graph cumulants: What is the variance of your social network? arXiv
+                                       preprint arXiv:​2002.​03959 (2020).
+                                   51. Thomas, N., Smidt, T., Kearnes, S., Yang, L., Li, L., Kohlhoff, L., & Riley, P. Tensor field networks: Rotation-and translation-
+                                       equivariant neural networks for 3d point clouds. arXiv preprint arXiv:​1802.​08219 (2018).
+                                   52. Kondor, R., Lin, Z., & Trivedi, S. Clebsch–gordan nets: a fully fourier space spherical convolutional neural network. In Advances
+                                       in Neural Information Processing Systems, pp. 10117–10126 (2018).
+                                   53. Miller, B. K., Geiger, M., Smidt, T. E., & Noé, F. Relevance of rotationally equivariant convolutions for predicting molecular proper-
+                                       ties. arXiv preprint arXiv:​2008.​08461 (2020).
+                                   54. Satorras, V. G., Hoogeboom, E., & Welling, M. E (n) equivariant graph neural networks. arXiv preprint arXiv:​2102.​09844 (2021).
+                                   55. Wang, R. et al. Estimation of global black carbon direct radiative forcing and its uncertainty constrained by observations. J. Geophys.
+                                       Res. Atmos. 121(10), 5948–5971 (2016).
+                                   56. Egel, A., Pattelli, L., Mazzamuto, G., Wiersma, D. S. & Lemmer, U. Celes: Cuda-accelerated simulation of electromagnetic scattering
+                                       by large ensembles of spheres. J. Quant. Spectrosc. Radiat. Transfer 199, 103–110 (2017).
+                                   57. Bambha, R. P. & Michelsen, H. A. Effects of aggregate morphology and size on laser-induced incandescence and scattering from
+                                       black carbon (mature soot). J. Aerosol Sci. 88, 159–181 (2015).
+                                   58. Moosavi, S. M., Jablonka, K. M. & Smit, B. The role of machine learning in the understanding and design of materials. J. Am. Chem.
+                                       Soc. 142(48), 20273–20287 (2020).
+                                   59. Mirhoseini, A. et al. A graph placement methodology for fast chip design. Nature 594(7862), 207–212 (2021).
+                                   60. De Cao, N., & Kipf, T. Molgan: An implicit generative model for small molecular graphs. arXiv preprint arXiv:​1805.​11973 (2018).
+                                   61. Fey, M., & Lenssen, J. E. Fast graph representation learning with PyTorch Geometric. In ICLR Workshop on Representation Learning
+                                       on Graphs and Manifolds (2019).
+                                   62. Wu, F., Souza, A., Zhang, T., Fifty, C., Yu, T., & Weinberger, K. Simplifying graph convolutional networks. In International confer-
+                                       ence on machine learning, pp. 6861–6871, PMLR (2019).
+
+                                  Acknowledgements
+                                  We thank Daniel Mackowski and Victor Garcia Satorras for useful discussion. We acknowledge computing
+                                  resources from Columbia University’s Shared Research Computing Facility project, which is supported by NIH
+                                  Research Facility Improvement Grant 1G20RR030893-01, and associated funds from the New York State Empire
+                                  State Development, Division of Science Technology and Innovation (NYSTAR) Contract C090171, both awarded
+                                  April 15, 2010. This work was supported by an NSF Collaborative Research grant: HDR Elements: Software for a
+                                  new machine learning based parameterization of moist convection for improved climate and weather prediction
+                                  using deep learning 01-OAC 1835769.
+
+                                  Author contributions
+                                  K.D.L. designed the study, ran the MSTM code, and implemented the GNN models. K.D.L. wrote the paper,
+                                  with input from P.G.
+
+                                  Competing interests
+                                  The authors declare no competing interests.
+
+                                  Additional information
+                                  Supplementary Information The online version contains supplementary material available at https://​doi.​org/​
+                                  10.​1038/​s41598-​023-​45235-8.
+                                  Correspondence and requests for materials should be addressed to K.D.L.
+                                  Reprints and permissions information is available at www.nature.com/reprints.
+                                  Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and
+                                  institutional affiliations.
+
+
+
+
+Scientific Reports |   (2023) 13:18777 |                    https://doi.org/10.1038/s41598-023-45235-8                                                                     11
+
+                                                                                                                                                                      Vol.:(0123456789)
+          www.nature.com/scientificreports/
+
+
+                                                          Open Access This article is licensed under a Creative Commons Attribution 4.0 International
+                                                          License, which permits use, sharing, adaptation, distribution and reproduction in any medium or
+                                            format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the
+                                            Creative Commons licence, and indicate if changes were made. The images or other third party material in this
+                                            article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the
+                                            material. If material is not included in the article’s Creative Commons licence and your intended use is not
+                                            permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from
+                                            the copyright holder. To view a copy of this licence, visit http://​creat​iveco​mmons.​org/​licen​ses/​by/4.​0/.
+
+                                            © The Author(s) 2023
+
+
+
+
+          Scientific Reports |   (2023) 13:18777 |               https://doi.org/10.1038/s41598-023-45235-8                                                12
+
+Vol:.(1234567890)
+

@@ -1,0 +1,325 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-09-11",
+  "scope": "Bounded nearest-prior verification for Gaussian/Theory/A1_2.md, emphasizing NN-native scattering matrices, graph/message-passing solvers, T-matrix neural hybrids, and passive/reciprocal local blocks.",
+  "novelty_decision": "reserved_for_root_codex",
+  "retrieval": {
+    "scholarqa_bundle": "scholarqa_collect.json",
+    "scholarqa_queries": 6,
+    "semantic_scholar_operations": 12,
+    "semantic_scholar_http_429": 11,
+    "retry_policy": "No rate-limit retries; fallback to primary publisher, arXiv, institutional, PMC, PubMed, and author-hosted sources under existing user authorization.",
+    "limitation": "Not an exhaustive database search; absence claims are not novelty proof."
+  },
+  "claims": [
+    {
+      "id": "C01",
+      "a12_anchor": "section 11, lines 3320-3344",
+      "claim": "A 2023 method combines domain decomposition, generalized scattering matrices, cascaded two-port networks, and Hermite-Gaussian boundary coefficients for radiowave propagation.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "uysal_akleman_2023"
+      ],
+      "risk": "It is a forward propagation/domain-decomposition method, not adaptive inverse material Gaussian splatting."
+    },
+    {
+      "id": "C02",
+      "a12_anchor": "section 27, line 4329",
+      "claim": "Measured scattered data were transformed into a T-matrix and SVD separated radiating and nonradiating currents before dielectric reconstruction.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "ishida_2010"
+      ],
+      "risk": "Abstract-level verification only."
+    },
+    {
+      "id": "C03",
+      "a12_anchor": "section 27, line 4327",
+      "claim": "T-matrix inversion combined with SOM was used for simultaneous dielectric and PEC reconstruction.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "ye_2013"
+      ],
+      "risk": "The prior uses mesh subunits and multipole truncation; a Gaussian implementation must distinguish its parameterization and adaptive-order logic."
+    },
+    {
+      "id": "C04",
+      "a12_anchor": "section 27, line 4331",
+      "claim": "T-matrix inverse models have already been combined with learned image refinement and with CSI-inspired alternating neural updates.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "song_2022",
+        "zhang_2023"
+      ],
+      "risk": "Song is explicitly a terminal attention-pix2pix/U-Net refinement; Zhang is a deeper alternating physics-inspired hybrid."
+    },
+    {
+      "id": "C05",
+      "a12_anchor": "user direction: NN-native rather than terminal U-Net",
+      "claim": "GNN-based learned iterative full-wave EM solvers already exist.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "shan_phigrl_2023",
+        "zhu_upinet_2026",
+        "kuhn_2023",
+        "bakirtzis_2024",
+        "shan_gnn_surface_2024"
+      ],
+      "risk": "The broad novelty claim is occupied; Gaussian local modal blocks, inverse de-embedding, and adaptive topology remain the relevant differentiators."
+    },
+    {
+      "id": "C06",
+      "a12_anchor": "section 29 canonical architecture",
+      "claim": "Prior work has represented interacting physical scatterers/particles as graph nodes with physics-aware interaction edges.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "lamb_gentine_2023",
+        "davidi_pakizeh_2026"
+      ],
+      "risk": "These works predict aggregate optical responses rather than composable node-local T/S blocks, but they occupy particle-graph framing."
+    },
+    {
+      "id": "C07",
+      "a12_anchor": "section 26, lines 4261-4293",
+      "claim": "Neural networks have previously predicted general scattering matrices and learned causal/passive S-parameters.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "jing_2023",
+        "torun_2020",
+        "lilja_2026"
+      ],
+      "risk": "Jing's conservation/reciprocity is empirical and was not hard-constrained; Torun enforces causality/passivity; Lilja provides structural energy/causality guarantees. These evidence strengths must not be conflated."
+    },
+    {
+      "id": "C08",
+      "a12_anchor": "section 26, equations S^H S <= I and S^T = S",
+      "claim": "Simple unitarity/symmetry formulas require the correct port basis and normalization; evanescent/vector channels obey more general constraints.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "byrnes_foreman_2021"
+      ],
+      "risk": "A naive Euclidean projection to symmetric contractive matrices may impose the wrong reciprocity metric for truncated Gaussian/Hermite ports."
+    },
+    {
+      "id": "C09",
+      "a12_anchor": "user direction: avoid terminal U-Net",
+      "claim": "A recent RF-imaging model already uses a graph-attention backbone but still relies on a U-Net head for the final image.",
+      "status": "supported",
+      "support_strength": "direct",
+      "sources": [
+        "stylianopoulos_2025"
+      ],
+      "risk": "Merely inserting a GNN before an image decoder would not establish an NN-native scatter-network distinction."
+    },
+    {
+      "id": "C10",
+      "a12_anchor": "sections 28-29 compound architecture",
+      "claim": "No paper was found in this bounded search that combines adaptive movable/splittable Gaussian material primitives, learned node-local modal T/S blocks, translation-coupled multiple scattering, observable/dark de-embedding, and inverse-driven feature/model-order growth.",
+      "status": "not_found_in_bounded_search",
+      "support_strength": "absence_not_proven",
+      "sources": [
+        "uysal_akleman_2023",
+        "ye_2013",
+        "shan_phigrl_2023",
+        "lamb_gentine_2023",
+        "zhu_upinet_2026",
+        "davidi_pakizeh_2026",
+        "jing_2023",
+        "lilja_2026"
+      ],
+      "risk": "Semantic Scholar was rate-limited; the result is a candidate gap, not a novelty proof. Repeat a database-complete search before submission."
+    }
+  ],
+  "sources": [
+    {
+      "id": "uysal_akleman_2023",
+      "citation": "A. Uysal and F. Akleman, Domain decomposition method with generalized scattering matrix for radiowave propagation analysis, AEU 171, 154884 (2023)",
+      "doi": "10.1016/j.aeue.2023.154884",
+      "primary_url": "https://www.sciencedirect.com/science/article/abs/pii/S1434841123003588",
+      "evidence_tier": "B",
+      "access": "publisher abstract and preview",
+      "local_pdf": null,
+      "sha256": null
+    },
+    {
+      "id": "ishida_2010",
+      "citation": "K. Ishida, Reconstruction of a Dielectric Cylinder with the Use of the T-Matrix and the Singular Value Decomposition, IEICE Trans. Commun. E93-B(10), 2595-2600 (2010)",
+      "doi": "10.1587/transcom.E93.B.2595",
+      "primary_url": "https://globals.ieice.org/en_transactions/communications/10.1587/transcom.E93.B.2595/_p",
+      "evidence_tier": "B",
+      "access": "official abstract",
+      "local_pdf": null,
+      "sha256": null
+    },
+    {
+      "id": "ye_2013",
+      "citation": "X. Ye, X. Chen, Y. Zhong, and R. Song, Simultaneous reconstruction of dielectric and perfectly conducting scatterers via T-matrix method, IEEE TAP 61(7), 3774-3781 (2013)",
+      "doi": "10.1109/TAP.2013.2258878",
+      "primary_url": "https://doi.org/10.1109/TAP.2013.2258878",
+      "evidence_tier": "A",
+      "access": "author-hosted accepted manuscript",
+      "local_pdf": "pdfs/ye_2013_tmatrix_mixed_inverse.pdf",
+      "sha256": "824b3bfe876e4ba32af356ab0db7f65e9614bb29c8a0355befa22c73812f4072"
+    },
+    {
+      "id": "song_2022",
+      "citation": "R. Song et al., Learning-Based Inversion Method for Solving Electromagnetic Inverse Scattering With Mixed Boundary Conditions, IEEE TAP 70(8), 6218-6228 (2022)",
+      "doi": "10.1109/TAP.2021.3139645",
+      "primary_url": "https://doi.org/10.1109/TAP.2021.3139645",
+      "evidence_tier": "A",
+      "access": "author-hosted accepted manuscript",
+      "local_pdf": "pdfs/song_2022_tmatrix_pix2pix_inverse.pdf",
+      "sha256": "a8f1cc14d90a3b256350f933f760f3799357c9bda81f7cb7c3bd68ae611dc6e8"
+    },
+    {
+      "id": "zhang_2023",
+      "citation": "Q.-q. Zhang et al., An inverse scattering reconstruction method for perfect electric conductor-dielectric hybrid target based on physics-inspired network, IET Radar Sonar Navig. 17(8), 1286-1298 (2023)",
+      "doi": "10.1049/rsn2.12419",
+      "primary_url": "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/rsn2.12419",
+      "evidence_tier": "B",
+      "access": "publisher abstract and reference list",
+      "local_pdf": null,
+      "sha256": null
+    },
+    {
+      "id": "liu_somnet_2022",
+      "citation": "Y. Liu et al., SOM-Net: Unrolling the Subspace-based Optimization for Solving Full-wave Inverse Scattering Problems, IEEE TGRS 60 (2022)",
+      "doi": null,
+      "primary_url": "https://arxiv.org/abs/2209.03567",
+      "evidence_tier": "A",
+      "access": "arXiv full text",
+      "local_pdf": "pdfs/liu_2022_som_net.pdf",
+      "sha256": "0b8d93737dc7a02051b6258083479fa6d3fe99eaad6b6964eacad3b37cdb4683"
+    },
+    {
+      "id": "shan_phigrl_2023",
+      "citation": "T. Shan et al., Solving Combined Field Integral Equations With Physics-Informed Graph Residual Learning for EM Scattering of 3-D PEC Targets, IEEE TAP 72(1), 733-744",
+      "doi": "10.1109/TAP.2023.3331262",
+      "primary_url": "https://doi.org/10.1109/TAP.2023.3331262",
+      "evidence_tier": "A",
+      "access": "open URSI method summary plus journal metadata",
+      "local_pdf": "pdfs/shan_2023_physics_graph_residual_summary.pdf",
+      "sha256": "842fb20cb8ca5874be8e816b16ff45a481bdea2a341d27b8c30e9cb086cf25f5",
+      "open_summary_url": "https://www.ursi.org/proceedings/procGA23/papers/YSASummaryShanTao.pdf"
+    },
+    {
+      "id": "lamb_gentine_2023",
+      "citation": "K. D. Lamb and P. Gentine, Zero-shot learning of aerosol optical properties with graph neural networks, Scientific Reports 13, 18777 (2023)",
+      "doi": "10.1038/s41598-023-45235-8",
+      "primary_url": "https://www.nature.com/articles/s41598-023-45235-8",
+      "evidence_tier": "A",
+      "access": "open publisher full text",
+      "local_pdf": "pdfs/lamb_gentine_2023_gnn_mstm.pdf",
+      "sha256": "082e81de6bf413c61c4617836c7684a4c2f9f55ef98444228d6366d6db93d326"
+    },
+    {
+      "id": "kuhn_2023",
+      "citation": "L. Kuhn, T. Repan, and C. Rockstuhl, Exploiting graph neural networks to perform finite-difference time-domain based optical simulations, APL Photonics 8, 036109 (2023)",
+      "doi": "10.1063/5.0139004",
+      "primary_url": "https://publikationen.bibliothek.kit.edu/1000157040/150479803",
+      "evidence_tier": "A",
+      "access": "open institutional copy, CC BY",
+      "local_pdf": "pdfs/kuhn_2023_gnn_fdtd.pdf",
+      "sha256": "22f30b506b29fc459948c0ff7189b78a48958bd5b6db096838c48a72e13f643a"
+    },
+    {
+      "id": "bakirtzis_2024",
+      "citation": "S. Bakirtzis, M. Fiore, J. Zhang, and I. Wassell, Solving Maxwell's equations with Non-Trainable Graph Neural Network Message Passing (2024)",
+      "doi": null,
+      "primary_url": "https://arxiv.org/abs/2405.00814",
+      "evidence_tier": "A",
+      "access": "arXiv full text, preprint",
+      "local_pdf": "pdfs/bakirtzis_2024_nontrainable_gnn_maxwell.pdf",
+      "sha256": "1d71719d590037714b68b433c5aaa6cfbddec9a5be88f19641209e7493d50e5a"
+    },
+    {
+      "id": "zhu_upinet_2026",
+      "citation": "R. Zhu, Y. Peng, G. C. Alexandropoulos, and W. Wang, A Physics-Informed Hierarchical Neural Network for Microwave Scattering Analysis of 3D PEC Targets, arXiv:2508.03774 v5 (2026)",
+      "doi": null,
+      "primary_url": "https://arxiv.org/abs/2508.03774",
+      "evidence_tier": "A",
+      "access": "arXiv full text, submitted preprint",
+      "local_pdf": "pdfs/zhu_2026_upinet_v5.pdf",
+      "sha256": "6c8c602e6957d80ab3c287c91f25127dd3e20c24718f1f4b2d57bf1620f30ca0"
+    },
+    {
+      "id": "davidi_pakizeh_2026",
+      "citation": "A. A. Davidi and T. Pakizeh, Physics-aware graph neural networks for optically interacting plasmonic nanoparticle assemblies, Optics Express 34(9), 16790-16801 (2026)",
+      "doi": "10.1364/OE.586635",
+      "primary_url": "https://pubmed.ncbi.nlm.nih.gov/42271735/",
+      "evidence_tier": "B",
+      "access": "official abstract; publisher automation blocked by bot challenge",
+      "local_pdf": null,
+      "sha256": null
+    },
+    {
+      "id": "stylianopoulos_2025",
+      "citation": "K. Stylianopoulos et al., Graph-CNNs for RF Imaging: Learning the Electric Field Integral Equations (2025)",
+      "doi": null,
+      "primary_url": "https://arxiv.org/abs/2503.14439",
+      "evidence_tier": "A",
+      "access": "arXiv full text",
+      "local_pdf": "pdfs/stylianopoulos_2025_graph_cnn_rf_imaging.pdf",
+      "sha256": "6762016da379198ee1106ee212c03d92451e22025caed44334dbd7ad8eb63195"
+    },
+    {
+      "id": "jing_2023",
+      "citation": "Y. Jing et al., A deep neural network for general scattering matrix, Nanophotonics 12(13), 2583-2591 (2023)",
+      "doi": "10.1515/nanoph-2022-0770",
+      "primary_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11501312/",
+      "evidence_tier": "A",
+      "access": "PMC open full text, CC BY",
+      "local_pdf": null,
+      "sha256": null,
+      "local_text": "text/jing_2023_dnn_general_scattering_matrix.txt"
+    },
+    {
+      "id": "torun_2020",
+      "citation": "H. M. Torun et al., Causal and Passive Parameterization of S-Parameters Using Neural Networks, IEEE T-MTT 68(10), 4290-4304 (2020)",
+      "doi": "10.1109/TMTT.2020.3011449",
+      "primary_url": "https://avesis.metu.edu.tr/yayin/147b26d5-9f2d-4e5d-8837-dd3c5e3bfbac/causal-and-passive-parameterization-of-s-parameters-using-neural-networks",
+      "evidence_tier": "B",
+      "access": "institutional abstract",
+      "local_pdf": null,
+      "sha256": null
+    },
+    {
+      "id": "lilja_2026",
+      "citation": "V. A. Lilja et al., A general framework for knowledge integration in machine learning for electromagnetic scattering using quasinormal modes, Laser & Photonics Reviews, in press (2026)",
+      "doi": "10.1002/lpor.202502769",
+      "primary_url": "https://arxiv.org/abs/2509.06130",
+      "evidence_tier": "A",
+      "access": "arXiv full text and institutional journal record",
+      "local_pdf": "pdfs/lilja_2026_qnm_scattering_matrix_nn.pdf",
+      "sha256": "0bf1afbb274b2a81d354bb589fe689a5c5cebd869774e43634cf8d2b84946803"
+    },
+    {
+      "id": "byrnes_foreman_2021",
+      "citation": "N. Byrnes and M. R. Foreman, Symmetry constraints for vector scattering and transfer matrices containing evanescent components, Physical Review Research 3, 013129 (2021)",
+      "doi": "10.1103/PhysRevResearch.3.013129",
+      "primary_url": "https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.013129",
+      "evidence_tier": "A",
+      "access": "open publisher full text, CC BY",
+      "local_pdf": "pdfs/byrnes_foreman_2021_smatrix_constraints.pdf",
+      "sha256": "7384db61e47669965c875095516934d231866138c6374212551294c17b881759"
+    },
+    {
+      "id": "shan_gnn_surface_2024",
+      "citation": "T. Shan, Solving Electromagnetic Scattering of 3D PEC Targets Based on Graph Neural Networks, ACES-China (2024)",
+      "doi": "10.1109/ACES-China62474.2024.10699762",
+      "primary_url": "https://doi.org/10.1109/ACES-China62474.2024.10699762",
+      "evidence_tier": "B",
+      "access": "DOI metadata, author publication list, and Semantic Scholar abstract from the one successful ScholarQA search",
+      "local_pdf": null,
+      "sha256": null
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "review": "Gaussian A2 isolated TAP review 1",
+  "date": "2026-09-11",
+  "verdict": "major_revision_no_advantage_or_novelty_claim",
+  "independent_internal_review_only": true,
+  "grades": {
+    "correctness": 3,
+    "originality": 2,
+    "experiments": 2,
+    "practical_value": 2,
+    "expression": 4,
+    "average_used_for_verdict": false
+  },
+  "fatal_gates": [
+    "No matched-budget evidence of algorithmic advantage",
+    "Prior-art claim chart and original Source Pro attachments are missing",
+    "Certificate API does not verify the kernel structural hypotheses"
+  ],
+  "issues": [
+    {
+      "id": "EM-GL-01",
+      "lens": "electromagnetic_conditions",
+      "severity": "high",
+      "fatal_gate": true,
+      "affected": [
+        "Theory/a2/QUADRATURE_STABILITY_EXTENSION_ZH.md",
+        "code/a2/certificate.py::gamma_for_fft_kernel",
+        "code/a2/check_quadrature_certificate.py"
+      ],
+      "claim": "The GL positive-angular-Gram bound certifies the supplied FFT kernel",
+      "reason": "The proof is valid for a trusted symmetric positive-weight translated-cell construction with kh<=pi, but the function checks only metadata and one self entry, not the off-diagonal construction.",
+      "counterexample_or_evidence": "Keep metadata and self value fixed and add a sufficiently negative Hermitian off-diagonal perturbation; the function returns the same gamma although the Gram lower bound fails. The 12 tests cover only selected FFTGreen instances.",
+      "required_revision": "Bind certification to a verified constructor/version and saved invariants, or compute a rounding-aware Hermitian lower bound; label the result conditional on the trusted construction."
+    },
+    {
+      "id": "EM-SCOPE-02",
+      "lens": "electromagnetic_conditions",
+      "severity": "medium",
+      "fatal_gate": false,
+      "affected": [
+        "Theory/a2/QUADRATURE_STABILITY_EXTENSION_ZH.md",
+        "code/a2/certificate.py::certify"
+      ],
+      "claim": "The Gamma formula and Euclidean adjoint apply to the stated electromagnetic discretization",
+      "reason": "Time convention, passivity sign, trial/test discretization, mass whitening, identical cell measure, and exact self definition are not all formal hypotheses or result metadata.",
+      "counterexample_or_evidence": "Changing the time convention flips the passive-loss sign; nonuniform cells require a mass inner product and invalidate the unweighted Euclidean formula.",
+      "required_revision": "State and serialize all sign, inner-product, grid, quadrature, and self-term assumptions; return unavailable on mismatch."
+    },
+    {
+      "id": "NUM-GAP-01",
+      "lens": "numerical_fairness_cost",
+      "severity": "high",
+      "fatal_gate": false,
+      "affected": [
+        "Theory/a2/PARAMETER_SOM_AND_PORTS_ZH.md section 3",
+        "code/a2/check_parameter_geometry.py",
+        "runs/a2/explicit_current/results.json"
+      ],
+      "claim": "The local quadratic gap checks support the implemented adaptive rank rule",
+      "reason": "The identity covers an unconstrained fixed quadratic minimizer, whereas the implementation uses trust radii, trial rejection, and relinearization. The implemented gradient-deficit trigger is explicitly non-certifying.",
+      "counterexample_or_evidence": "For H=[[1,.9],[.9,1]], g=(1,0), V=span(e1), gradient deficit is 0 but the model gap is 2.131578947 and the full step has a large e2 component.",
+      "required_revision": "Call gradient deficit a heuristic; record trust-region KKT residual and predicted/actual reduction, and compare against a matrix-free full step under the same local subproblem."
+    },
+    {
+      "id": "NUM-ADV-02",
+      "lens": "numerical_fairness_cost",
+      "severity": "fatal",
+      "fatal_gate": true,
+      "affected": [
+        "Theory/a2/PARAMETER_SOM_AND_PORTS_ZH.md section 6",
+        "runs/a2/explicit_current/results.json"
+      ],
+      "claim": "Current implemented algorithms have a numerical or cost advantage",
+      "reason": "Adaptive tangent improves material and held error in 7/10 cases but wins wall time and total forward+tangent RHS in only 1/10; endpoints have unmatched attempts and stopping states. Explicit current wins none of material error, held error, or wall time versus LM.",
+      "counterexample_or_evidence": "Median LM/adaptive wall times are 1.366/2.322 s for moderate and 1.462/3.287 s for strong; median RHS are 1008/1680 and 840/1848. Explicit-current final state relative is 0.564-0.668.",
+      "required_revision": "Report matched operator-budget curves, repeated seeds and uncertainty, full cost accounting, and GN/LM, single-layer, random-complement, GSVD and mature TSOM baselines."
+    },
+    {
+      "id": "NUM-CERT-03",
+      "lens": "numerical_fairness_cost",
+      "severity": "medium",
+      "fatal_gate": false,
+      "affected": [
+        "runs/a2/certificate/results.json"
+      ],
+      "claim": "Certificate coverage is practically useful for solver or port decisions",
+      "reason": "All 36 reconstructed cases are covered, but no operational stopping/rank decision or saved cost is demonstrated.",
+      "counterexample_or_evidence": "bound_rel spans 0.0129-11.16 and bound/corrected-error spans 3.65-19.44; the maximum corrected relative error is 0.874.",
+      "required_revision": "Predefine a decision rule and report work saved plus false accept/reject rates; keep the reconstruction provenance explicit."
+    },
+    {
+      "id": "INFO-FISHER-01",
+      "lens": "novelty_practical_meaning",
+      "severity": "medium",
+      "fatal_gate": false,
+      "affected": [
+        "Theory/a2/PARAMETER_SOM_AND_PORTS_ZH.md section 2"
+      ],
+      "claim": "Fixed parameter-independent noise covariance implies covariance-whitened Fisher information A^T A",
+      "reason": "This is exact for Gaussian location noise or score-Fisher whitening, not for arbitrary noise specified only by covariance.",
+      "counterexample_or_evidence": "A covariance-whitened Laplace location model has a different score Fisher; heterogeneous channels need not differ by one global constant.",
+      "required_revision": "Assume proper complex/realified Gaussian additive noise or define W using score Fisher; retain only the local observed-data information statement."
+    },
+    {
+      "id": "INFO-SOM-02",
+      "lens": "novelty_practical_meaning",
+      "severity": "fatal",
+      "fatal_gate": true,
+      "affected": [
+        "Theory/A2.md",
+        "Theory/a2/PARAMETER_SOM_AND_PORTS_ZH.md sections 1-2",
+        "runs/a2/explicit_current/results.json"
+      ],
+      "claim": "The internal-propagation second layer adds measurement information or establishes improved resolution",
+      "reason": "After exact state elimination B is deterministic model output, not an observation. It can alter regularization, preconditioning or nonlinear path but not observed-data Fisher information.",
+      "counterexample_or_evidence": "A direction can satisfy Aq=0 and have large Bq while its first-order likelihood derivative remains zero. Current results lack matched single-layer and random-complement ablations.",
+      "required_revision": "Remove information/resolution language; test a cost-conditioned optimization or approximation claim, and directly measure finite-amplitude data separation when asserted."
+    },
+    {
+      "id": "NOV-PRIOR-01",
+      "lens": "novelty_practical_meaning",
+      "severity": "fatal",
+      "fatal_gate": true,
+      "affected": [
+        "delegated/a2_audit/PRIOR_ART_ZH.md",
+        "Theory/A2.md"
+      ],
+      "claim": "A2 novelty is established",
+      "reason": "The local audit identifies close prior work for parameter/state adaptive certified reduction, adjoint correction, TSOM internal propagation and FFT-TSOM; searches were rate-limited and the specified 2023 TAP work was not technically compared.",
+      "counterexample_or_evidence": "Source Pro attachments were not retrieved; conversation bodies and reconstructed checks are not an original attachment rerun.",
+      "required_revision": "Retrieve original attachments, complete a claim-by-claim prior-art table, and narrow novelty to a falsifiable combined benefit supported by matched experiments."
+    }
+  ],
+  "supported_results": [
+    "Conditional GL Gram derivation is algebraically valid under its narrow scalar uniform-grid hypotheses",
+    "12 small floating-point kernel checks have minimum shifted margin -1.04e-14 and kh=3.5 returns unavailable",
+    "30 fixed-quadratic checks verify the gap identity and exhibit a zero-gradient-deficit counterexample",
+    "36 reconstructed discrete certificate cases cover their tested errors; they are not original Pro attachment reruns",
+    "Ten synthetic current records do not establish a current implementation advantage"
+  ],
+  "limitations": [
+    "delegated/a2_som/EXPLICIT_CURRENT_SUMMARY.md was absent",
+    "N64 imaging and measured campaigns are still running and were not inferred",
+    "No new literature search, paid API, installation, heavy experiment, source edit, or worker was used"
+  ]
+}

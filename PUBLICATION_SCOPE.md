@@ -74,3 +74,18 @@ does not upgrade a supplied result to an independently replicated result.
 No open-source license is assigned by this upload. References identify prior work;
 they do not transfer third-party rights. A later licensed software release can be
 prepared after ownership and dependency review.
+
+## Gaussian workspace update — 12 September 2026
+
+The public archive now includes the curated Gaussian A1/A1_2/A2 portable
+snapshot under `Gaussian/`. It contains authored theory, code, protocols,
+selected numerical results, figures, reviews and reading guides. The snapshot
+was taken from the locally prepared portable package dated 11 September 2026
+and is recorded in the public manifest.
+
+The local 1.3 GB working directory was not copied verbatim. Virtual
+environments, caches, bytecode, raw Fresnel measurements, third-party PDFs,
+invalid numerical v1 material and unavailable original Pro attachments remain
+excluded. The Gaussian line is conditional research evidence, not TAP
+acceptance, a submission-ready paper, a continuum Maxwell certificate or a
+claim of Gaussian superiority.

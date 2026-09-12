@@ -1,0 +1,221 @@
+{
+  "source_sha256": "97e12fa26db3ca9617897a6280f13e199dcbf71b4f179e67269d2b7ebcaaca41",
+  "results": [
+    {
+      "parameters": 49,
+      "state_cells": 4096,
+      "frequencies": 2,
+      "illuminations_per_frequency": 4,
+      "residuals": 4,
+      "scope": "Fixed Gaussian centers/scales; shared-state amplitude linearization, not move/split/merge or nonlinear image recovery",
+      "common_state_setup_seconds": 0.1394186660181731,
+      "damping": 14.80886897945091,
+      "common_damping_probe_seconds": 0.18939499999396503,
+      "common_damping_probe_cost": {
+        "tangent_rhs": 32,
+        "adjoint_rhs": 0,
+        "Jv_calls": 4,
+        "Jstar_calls": 0
+      },
+      "dense_GN": {
+        "wall_seconds": 2.2446666250471026,
+        "cost": {
+          "tangent_rhs": 392,
+          "adjoint_rhs": 0,
+          "Jv_calls": 49,
+          "Jstar_calls": 0
+        },
+        "jacobian_bytes": 75264
+      },
+      "methods": {
+        "matrix_free_cg": {
+          "wall_seconds_including_range": 25.998077666037716,
+          "cost": {
+            "tangent_rhs": 2096,
+            "adjoint_rhs": 2128,
+            "Jv_calls": 262,
+            "Jstar_calls": 266
+          },
+          "range_setup_seconds": 0.0,
+          "range_setup_cost": null,
+          "rows": [
+            {
+              "info": 0,
+              "iterations": 66,
+              "relative_step_error": 2.3421120772269337e-05,
+              "relative_normal_residual": 7.45420710083379e-06
+            },
+            {
+              "info": 0,
+              "iterations": 68,
+              "relative_step_error": 3.665766915897184e-05,
+              "relative_normal_residual": 6.9554816259553315e-06
+            },
+            {
+              "info": 0,
+              "iterations": 64,
+              "relative_step_error": 6.501485626299792e-05,
+              "relative_normal_residual": 7.211763989680719e-06
+            },
+            {
+              "info": 0,
+              "iterations": 64,
+              "relative_step_error": 4.8611670395099696e-05,
+              "relative_normal_residual": 7.905431240831344e-06
+            }
+          ]
+        },
+        "data_som_preconditioned_cg": {
+          "wall_seconds_including_range": 16.97862333303783,
+          "cost": {
+            "tangent_rhs": 1368,
+            "adjoint_rhs": 1400,
+            "Jv_calls": 171,
+            "Jstar_calls": 175
+          },
+          "range_setup_seconds": 1.5344718330306932,
+          "range_setup_cost": {
+            "tangent_rhs": 128,
+            "adjoint_rhs": 128,
+            "Jv_calls": 16,
+            "Jstar_calls": 16
+          },
+          "rows": [
+            {
+              "info": 0,
+              "iterations": 38,
+              "relative_step_error": 3.917599696966828e-05,
+              "relative_normal_residual": 7.474537266989165e-06
+            },
+            {
+              "info": 0,
+              "iterations": 40,
+              "relative_step_error": 4.235919974661692e-05,
+              "relative_normal_residual": 5.334715332727564e-06
+            },
+            {
+              "info": 0,
+              "iterations": 37,
+              "relative_step_error": 4.394825713614542e-05,
+              "relative_normal_residual": 8.613320025837159e-06
+            },
+            {
+              "info": 0,
+              "iterations": 40,
+              "relative_step_error": 1.7859815273775925e-05,
+              "relative_normal_residual": 3.3900473787846073e-06
+            }
+          ]
+        }
+      }
+    },
+    {
+      "parameters": 196,
+      "state_cells": 4096,
+      "frequencies": 2,
+      "illuminations_per_frequency": 4,
+      "residuals": 4,
+      "scope": "Fixed Gaussian centers/scales; shared-state amplitude linearization, not move/split/merge or nonlinear image recovery",
+      "common_state_setup_seconds": 0.16482320800423622,
+      "damping": 18.970008258167223,
+      "common_damping_probe_seconds": 0.19661162490956485,
+      "common_damping_probe_cost": {
+        "tangent_rhs": 32,
+        "adjoint_rhs": 0,
+        "Jv_calls": 4,
+        "Jstar_calls": 0
+      },
+      "dense_GN": {
+        "wall_seconds": 9.3883848330006,
+        "cost": {
+          "tangent_rhs": 1568,
+          "adjoint_rhs": 0,
+          "Jv_calls": 196,
+          "Jstar_calls": 0
+        },
+        "jacobian_bytes": 301056
+      },
+      "methods": {
+        "matrix_free_cg": {
+          "wall_seconds_including_range": 40.018354999949224,
+          "cost": {
+            "tangent_rhs": 3200,
+            "adjoint_rhs": 3232,
+            "Jv_calls": 400,
+            "Jstar_calls": 404
+          },
+          "range_setup_seconds": 0.0,
+          "range_setup_cost": null,
+          "rows": [
+            {
+              "info": 100,
+              "iterations": 100,
+              "relative_step_error": 0.0005701759400058917,
+              "relative_normal_residual": 7.048485540834326e-05
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "relative_step_error": 0.0005238140863957812,
+              "relative_normal_residual": 3.9447872396682465e-05
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "relative_step_error": 0.00064383535050303,
+              "relative_normal_residual": 0.00020068188800438777
+            },
+            {
+              "info": 100,
+              "iterations": 100,
+              "relative_step_error": 0.0005433892812792533,
+              "relative_normal_residual": 0.00014448196799194
+            }
+          ]
+        },
+        "data_som_preconditioned_cg": {
+          "wall_seconds_including_range": 27.30078058305662,
+          "cost": {
+            "tangent_rhs": 2176,
+            "adjoint_rhs": 2208,
+            "Jv_calls": 272,
+            "Jstar_calls": 276
+          },
+          "range_setup_seconds": 1.6160278329625726,
+          "range_setup_cost": {
+            "tangent_rhs": 128,
+            "adjoint_rhs": 128,
+            "Jv_calls": 16,
+            "Jstar_calls": 16
+          },
+          "rows": [
+            {
+              "info": 0,
+              "iterations": 63,
+              "relative_step_error": 6.3335044958718e-05,
+              "relative_normal_residual": 8.91182109333139e-06
+            },
+            {
+              "info": 0,
+              "iterations": 62,
+              "relative_step_error": 6.5977972955262e-05,
+              "relative_normal_residual": 8.902109129856751e-06
+            },
+            {
+              "info": 0,
+              "iterations": 67,
+              "relative_step_error": 3.583409137912336e-05,
+              "relative_normal_residual": 4.044389632210926e-06
+            },
+            {
+              "info": 0,
+              "iterations": 64,
+              "relative_step_error": 7.171900751971054e-05,
+              "relative_normal_residual": 7.848026342469125e-06
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

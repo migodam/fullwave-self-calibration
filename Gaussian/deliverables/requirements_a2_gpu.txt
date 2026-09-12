@@ -1,0 +1,8 @@
+# Optional remote GPU environment actually used on XINAN.
+# CPU-only quick checks do not require this file.
+numpy
+scipy
+matplotlib
+torch==2.6.0
+# Runtime recorded torch 2.6.0+cu124; select a compatible official wheel.
+# No driver installation is performed by research scripts.

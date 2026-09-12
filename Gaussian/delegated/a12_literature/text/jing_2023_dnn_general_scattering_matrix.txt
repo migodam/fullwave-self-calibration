@@ -1,0 +1,557 @@
+A deep neural network for general scattering matrix - PMC Skip to main content An official website of the United States government Here's how you know Here's how you know Official websites use .gov A .gov website belongs to an official government organization in the United States.
+Secure .gov websites use HTTPS A lock ( Lock Locked padlock icon ) or https:// means you've safely connected to the .gov website.
+Share sensitive information only on official, secure websites.
+Search Log in Dashboard Publications Account settings Log out Search… Search NCBI Primary site navigation Search Logged in as: Dashboard Publications Account settings Log in Search PMC Full-Text Archive Search in PMC Journal List User Guide PERMALINK Copy As a library, NLM provides access to scientific literature.
+Inclusion in an NLM database does not imply endorsement of, or agreement with, the contents by NLM or the National Institutes of Health.
+Learn more: PMC Disclaimer | PMC Copyright Notice Nanophotonics.
+2023 Apr 3;12(13):2583–2591.
+doi: 10.1515/nanoph-2022-0770 Search in PMC Search in PubMed View in NLM Catalog Add to search A deep neural network for general scattering matrix Yongxin Jing Yongxin Jing 1 National Laboratory of Solid State Microstructures, School of Physics, and Collaborative Innovation Center of Advanced Microstructures, Nanjing University, Nanjing 210093, China Find articles by Yongxin Jing 1, Hongchen Chu Hongchen Chu 1 National Laboratory of Solid State Microstructures, School of Physics, and Collaborative Innovation Center of Advanced Microstructures, Nanjing University, Nanjing 210093, China Find articles by Hongchen Chu 1, Bo Huang Bo Huang 2 Information Hub, Hong Kong University of Science and Technology (Guangzhou), Guangzhou 511458, China Find articles by Bo Huang 2, Jie Luo Jie Luo 3 School of Physical Science and Technology, Soochow University, Suzhou 215006, China Find articles by Jie Luo 3, Wei Wang Wei Wang 2 Information Hub, Hong Kong University of Science and Technology (Guangzhou), Guangzhou 511458, China 4 Hong Kong University of Science and Technology, Hong Kong, China Find articles by Wei Wang 2,4,✉, Yun Lai Yun Lai 1 National Laboratory of Solid State Microstructures, School of Physics, and Collaborative Innovation Center of Advanced Microstructures, Nanjing University, Nanjing 210093, China Find articles by Yun Lai 1,✉ Author information Article notes Copyright and License information 1 National Laboratory of Solid State Microstructures, School of Physics, and Collaborative Innovation Center of Advanced Microstructures, Nanjing University, Nanjing 210093, China 2 Information Hub, Hong Kong University of Science and Technology (Guangzhou), Guangzhou 511458, China 3 School of Physical Science and Technology, Soochow University, Suzhou 215006, China 4 Hong Kong University of Science and Technology, Hong Kong, China ✉ Corresponding authors: Wei Wang, Information Hub, Hong Kong University of Science and Technology (Guangzhou), Guangzhou 511458, China; and Hong Kong University of Science and Technology, Hong Kong, China, E-mail: weiwcs@ust.hk; and Yun Lai, National Laboratory of Solid State Microstructures, School of Physics, and Collaborative Innovation Center of Advanced Microstructures, Nanjing University, Nanjing 210093, China, E-mail: laiyun@nju.edu.cn (Y.
+Lai) ✉ Corresponding author.
+Received 2022 Dec 14; Accepted 2023 Mar 22; Collection date 2023 Jun.
+© 2023 the author(s), published by De Gruyter, Berlin/Boston This work is licensed under the Creative Commons Attribution 4.0 International License.
+PMC Copyright notice PMCID: PMC11501312 PMID: 39633768 Abstract The scattering matrix is the mathematical representation of the scattering characteristics of any scatterer.
+Nevertheless, except for scatterers with high symmetry like spheres or cylinders, the scattering matrix does not have any analytical forms and thus can only be calculated numerically, which requires heavy computation.
+Here, we have developed a well-trained deep neural network (DNN) that can calculate the scattering matrix of scatterers without symmetry at a speed thousands of times faster than that of finite element solvers.
+Interestingly, the scattering matrix obtained from the DNN inherently satisfies the fundamental physical principles, including energy conservation, time reversal and reciprocity.
+Moreover, inverse design based on the DNN is made possible by applying the gradient descent algorithm.
+Finally, we demonstrate an application of the DNN, which is to design scatterers with desired scattering properties under special conditions.
+Our work proposes a convenient solution of deep learning for scattering problems.
+Keywords: deep neural network, inverse problem, scattering matrix 1.
+Introduction In the past decade, deep neural network (DNN) has developed rapidly in the modern computational science and engineering such as natural language processing [1], computer vision [2], object classification [3], and regression problems [4], etc.
+DNN is similar to the structure of the neurons in human’s brain; the information can be processed and transmitted amongst the nodes.
+By optimizing the parameters in neurons, DNN owns the capability of self-teaching.
+Due to its strong nonlinear fitting ability, this data-driven approach has also been applied to nanophotonics.
+The representative examples include the design of metamaterials and metasurfaces [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], holographic imaging [15], diffractive deep neural network [16], [17], [18], etc.
+It is generally anticipated that the method of DNN will play an increasingly important role in the general design of nanophotonics.
+However, so far, the application of DNN to scattering problems is still very limited.
+The scattering of waves is one of the most fundamental and important phenomena in wave physics [19], [20], [21], [22], [23], [24], [25].
+Most of previous studies were limited to scatterers with high symmetry like cylinders and spheres [26], [27], [28], [29], [30], [31], [32], [33], [34], [35], where the scattering matrix has only diagonal terms and analytical solutions.
+Nevertheless, for general scatterers without high symmetry, the scattering matrix has off-diagonal terms, which represent the coupling between the channels of different angular momenta.
+More critically, the scattering matrix for general scatterers without high symmetry does not have any analytical solutions, thus it can only be calculated numerically, e.g., by using finite element method (FEM) or finite difference time domain method (FDTD), which are much more demanding on the computing time and resources.
+Especially, inverse design has always been a hard task for the conventional numerical methods.
+Although some of the previous studies have studied scatterers with more diversified shapes via field measurement [28, 36], [37], [38], [39], [40], [41], [42], [43], [44], [45], [46], [47], [48], [49], [50], none of them has directly obtained the scattering matrices of the scatterers, which is vitally important for scattering analysis and design.
+In this paper, we propose a DNN to obtain the scattering matrix of a scatterer without symmetry.
+The well-trained DNN can calculate the scattering matrix at high-speed thousands of times faster than that of FEM solvers.
+Although the physical laws like energy conservation, time reversal and reciprocity are not set as conditions in the scattering matrix, they are inherently satisfied in the calculation by the DNN.
+More importantly, the inverse design is enabled by applying the gradient descent (GD) algorithm into the same DNN, which means that the geometry of the scatterer can be obtained when the scattering matrix is given.
+Finally, we show that with the help of the DNN, many design tasks involved with scatterings can be accelerated, such as designing the scatterers with desired scattering properties under special conditions.
+The largely enhanced efficiency and flexibility by the DNN indicate that this approach could have large impact in solving scattering problems in nanophotonics.
+2.
+Methods 2.1.
+Scattering matrix Without loss of generality, we consider two dimensional optical systems where the electromagnetic field satisfies Helmholtz equation, the incident and scattered waves are expressed as the linear superposition of Bessel and Hankel functions with different orders.
+Here, we consider the transverse electric polarization with the electric field polarized along the z-direction, the electric field can be expressed as the linear combination of Bessel functions (incident) and Hankel functions of the first kind (scattered): Er,θ=∑n=−∞+∞αnJnkreinθ+βnHn1kreinθ, (1) where E is the electric field, k=εk0 , ɛ is the relative dielectric constant of medium and k 0 is the wave vector in vacuum.
+n is an integer which denotes the order of Bessel function and Hankel function, besides, n can also be regarded as the orbital angular momentum of the incident/scattered waves.
+α n and β n are the coefficients of the incident and scattered waves, regarding to angular momentum n, respectively.
+An incident plane wave propagating in the x-direction can be written as eikx=∑n=−∞+∞inJnkreinθ .
+The coefficient of scattered waves, β n , is determined by both α n and the scattering characteristics of the object under study, thus the elements of scattering matrix can be defined as tnm=βnαm, (2) and the scattering matrix is T↔={tnm} .
+Due to the independence between different angular momenta, the coefficients can be obtained if the incident field is known, i.e., the scattered coefficients can be calculated as βn=∮Es⋅e−inθdθ2πHn1kr0, (3) where E S = E − E inc is the scattered field, the numerator is a circular integral over theta on a circle of radius r 0.
+And the scattering matrix can thus be acquired according to Equation (2).
+The main computational approach is similar in the three-dimensional case, while the basic functions are more complicated thus the matrix dimensions are higher.
+The details of derivative process in 3D case are shown in Supplementary Material.
+Once the scattering matrix is obtained, the scattering problem is solved and the total field is determined by Equation (1).
+However, we note that there are also some relations between the elements of the scattering matrix, implying the influence of some fundamental physical laws.
+For example, energy conservation can be expressed as: ∑mtmn2+Retnn=0, (4) time reversal is: ∑m4−1m−ntmn*t−n,−m+2tnn*+t−n,−n=0, (5) and reciprocity is: t−n,−m=−1n−mtmn.
+(6) Actually, when reciprocity is satisfied, energy conservation and time reversal are equal conditions.
+A simple proof is shown in the Supplementary Materials.
+2.2.
+Deep neural network We define a polygon as the scatterer with complicated shape.
+The polygon is determined by the coordinates of its vertices, the degree of freedom (DoF) is 2 × N, where N is the number of sides of the polygon.
+The corresponding scattering matrix is a (2M + 1) × (2M + 1) complex matrix, so the DoF is 2 × (2M + 1)2.
+The angular momentum n and m in the scattering matrix both can change from −M to M, where M is a finite integer for the scatterer of finite size, because the response to high order angular momentum is usually small and can be ignored.
+This conversion process is showed in 
+Figure 1.
+Apparently, the off-diagonal terms introduced by low symmetry has significantly increased the dimensionality of the scattering matrix.
+Such a high dimensional problem cannot be tackled by analytical methods and is therefore suitable for the method of DNN.
+
+Figure 1: Open in a new tab The schematic diagram of the conservation between polygon coordinates and scattering matrix (with complex elements).
+The construction of the polygon is shown in 
+Figure 2.
+To impose restrictions on size of the input polygon, the coordinates are limited in a rectangular region.
+This region is divided into N areas according to the equal division of the angle at the coordinate origin.
+By picking a random point in every area, connecting the N points and a polygon can be generated.
+
+Figure 2: Open in a new tab The structure of DNN.
+The different operations are indicated by arrows with different colors and identified with legends below.
+The structure of DNN used in this work is demonstrated in 
+Figure 2.
+The inputs are normalized.
+In order to preserve the connecting characteristics of these vertices, we copy the coordinate of the first vertex and placed it after the last vertex, and vice versa.
+It turns out that this trick can remarkably optimize the training results of the DNN.
+The structure of DNN are similar to a U-Net, where the 2D and 1D convolutional layers have completed the down-sampling process to extract the hidden abstract information, then the transposed convolutional layers have recovered the information to construct a corresponding scattering matrix, i.e., up-sampling.
+The two channels of output represent the real and imaginary part of scattering matrix.
+The active function is ReLU, loss function is mean square error (MSE) and optimization algorithm is stochastic gradient descent (SGD).
+2.3.
+Inverse design process The well-trained DNN calculates the forward process in a fast and accurate way, which means that although the relation between coordinates and elements of the scattering matrix is complicated that we cannot write down the function explicitly, the DNN have indeed established a solvable function.
+Based on this property, inverse design can be realized by applying GD.
+The basic operation is as shown in 
+Figure 4(a).
+
+Figure 4: Open in a new tab Result of the inverse process.
+(a) The schematic diagram of the inverse process.
+(b) The loss distribution histogram between target and inverse scattering matrix.
+(c–k) The predicted polygons (blue solid lines) compared with the target pattern (black dash lines).
+In the inverse design task, the parameters of DNN are pre-trained and fixed.
+Firstly, the DNN will calculate the scattering matrix of a random initial polygon, as well as the difference between target matrix with the predicted matrix.
+The difference is a function of coordinates only.
+To reduce the difference, the GD algorithm is applied to optimize the coordinates.
+The polygon will approach the correct solution gradually after iterations.
+Actually, the final inverse result is related to the choice of the initial polygon, thus we add randomness into the original coordinates and perform multiple calculations.
+Although the results might converge to different polygons, they have similar size and shape, as well as scattering matrix.
+3.
+Results 3.1.
+Forward process and application Consider a polygon with N = 6 whose size is around 0.4λ 0, where λ 0 is the wave length in free space, the material of the polygon is set as silicon dioxide with a dielectric constant of 3.9.
+For scatterers of this size, the scattering matrix converges rapidly along with the order of angular momentum, i.e., the low-order elements are the dominant terms in the matrix, and thus we describe it by a 11 × 11 matrix, i.e., M = 5.
+Besides, the DNN is able to predict scattering matrices of different dielectric constant, even lossy media, when we add more training data and fine-tune the structure, see Supplementary Material for details.
+To train the forward DNN, the dataset is composed of 36,000 training data, 4000 validation data and 4000 testing data.
+The training data are obtained by using the commercial finite element solver COMSOL Multiphysics with Equation (3), the specific configuration of the model is described in details in the Supplementary Material.
+From 
+Figure 3(a), we find that both training loss (blue line) and validation loss (red line) decrease as the training process goes on and finally maintain in a low value.
+During training, weight decay is set as 10−3 to suppress overfitting efficiently.
+To assess the accuracy of the trained DNN, the three kinds of data are input into the model to calculate the MSE between predicted scattering matrix and ground truth, the distribution histogram of data is plotted in 
+Figure 3(b) with different colors.
+The proportion of loss lower than 1 × 10−6 is more than 93% for all three kinds of data; meanwhile the percentage rises to 99% when considering the loss lower than 4 × 10−6.
+The biggest MSE in the dataset equals to 1.75 × 10−5, the corresponding polygon is plotted in 
+Figure 3(d).
+And the real and imaginary parts of its scattering matrix are displayed in the upper and lower parts of 
+Figure 3(e), respectively.
+Since the higher-order terms are very close to zero, we only show the main parts, i.e., the low-order terms.
+The corresponding prediction is shown in 
+Figure 3(f), actually, the matrixes are quite similar, verifying the accuracy of DNN.
+
+Figure 3: Open in a new tab Results of forward process.
+(a) Training loss (blue) and validation loss (red) over epochs during training.
+The loss function is MSE which is also denoted.
+(b) The loss distribution histogram of training data (red), validation data (green) and testing data (yellow).
+(c) The distribution of error in energy conservation (x axis) and reciprocity (y axis) of 106 random polygons’ predictions, the density is indicated as red to blue from large to small.
+(d) The polygon with LOSS = 1.75 × 10−5, which is the sample with the greatest error.
+(e) Real part (above) and imaginary part (below) of target scattering matrix of (d).
+(f) Real part (above) and imaginary part (below) of predicted scattering matrix of the sample in (e).
+More importantly, the speed of DNN to calculate the scattering matrix is significantly higher than those of conventional numerical methods.
+Here, we made a comparison with the commercial FEM solver COMSOL Multiphysics.
+It turns out the DNN has a speed 7488 times faster than that of COMSOL in average.
+The details are shown in Supplementary Materials.
+Although we haven’t fed the DNN with any physical laws, the DNN have the ability to discover some fundamental principles by self-teaching.
+This is because, as a data-driven method, neural networks have strong nonlinear fitting capabilities, and therefore can extract such patterns when the training data has similar characteristics.
+All the polygons for training satisfy reciprocity and energy conservation, which can be expressed by the special relationships between special matrix elements.
+A hundred thousand randomly generated polygons are input into DNN and the corresponding output are analyzed, the errors in the two fundamental laws of physics are expressed as a point in the two-dimensional coordinate system, which is shown in 
+Figure 3(c).
+The density of points is distinguished by different colors, most of the points distribute around the origin, which means the errors are both small.
+The result proves that results obtained from the DNN have inherently satisfied the two physical principles by mining the common features of the training data.
+Meanwhile, utilizing the known fundamental laws during training process can also improve the DNN accuracy, which draws a lesson form the physical informed neural networks (PINNs) [31, 32], we have discussed the details of the results in Supplementary Material.
+3.2.
+Inverse design results The scattering matrixes of 4000 testing data are put into the inverse process as ground truth to assess the accuracy rate.
+DNN had generated corresponding polygon coordinates, and then we recalculated the exact scattering matrix of these results with FEM.
+The MSE between the targeted and recalculated scattering matrices are demonstrated in 
+Figure 4(b).
+88% of the inverse results exhibits loss below 10−6, and the proportion is 98% when we loosen the restriction to 5 × 10−6.
+The histogram is an absolute proof of DNN’s ability to inverse generating.
+To further demonstrate the effects intuitively, we put several regular polygons’ scattering matrixes calculated by FEM into the DNN.
+The predicted polygons are plotted with blue solid lines and points in 
+Figure 4(c)–(k), as a contrast, the ground truth polygons are also shown with black dash lines in the same pictures.
+The prediction fits well with ground truth.
+Besides, although 
+Figure 4(i)–(k) actually are beyond the domain of training data, inverse process has obtained proximate solution as far as possible.
+Although there are some deviations in the details of the shapes, the scattering matrix elements of these objects are almost the same as the original shape.
+For example, the MSE between the predicted hexagon and origin circle in 
+Figure 4(k) equals to 4.2 × 10−7.
+Actually, from 
+Figure 4(k), it is seen that the overlapping region of the original and inversely designed scatterers is over 96% in area.
+These results indicate that our DNN possesses ability of discovering information about scattering characteristics from the shape of scatterer.
+3.3.
+Applications There are many practical applications of the DNN, for example, we can traverse a mass of polygons at a high speed to find the shapes with maximal and minimal scattering cross section.
+Here we calculated 5 × 105 hexagons with the same perimeter of 2 using the pre-trained DNN to find the target polygons.
+Simulating the same quantity of samples by FEM needs to cost about a month, but with DNN the task is finished in 811 s.
+The results are quite interesting.
+The hexagons with the maximal and minimal scattering cross sections are similar to a circle and a collection of thin branches, respectively.
+When they are illuminated by a plane wave propagating along the x-axis, the scattered electric fields are plotted in the left and right image of 
+Figure 5(a), respectively.
+Obviously, the near scattered fields are dramatically different.
+
+Figure 5(b) shows the corresponding radar cross section (RCS), the difference is about 3 orders of magnitude.
+
+Figure 5: Open in a new tab More applications of the DNN.
+(a) The scattered electric field distribution of polygons with big cross section (left) and small cross section (right) while they have the same perimeter.
+(b) Radar cross section of the polygons in (a), the big cross section and small cross section are denoted by red line and blue line, respectively.
+(c) The scattered electric field distribution of polygons with the radiation direction toward 0° (left) and 45° (right).
+(d) Radar cross section of the polygons in (c), the radiations toward different angles are denoted by different colors.
+With the pre-trained DNN, it is also possible to find out the polygon that has the specific angle of radiation.
+By processing the scattering matrix elements, the far-field scattering amplitude at every angle can be calculated, just as described in Supplementary Materials, thus we can obtain the ratio of the amplitude at θ to θ + π.
+Radiation will be concentrated around θ when the ratio is big enough.
+Another random 5 × 105 hexagons are input into the DNN to search for the polygon with the biggest ratio when θ is equal to 0 and 45°.
+The electric fields are plotted in 
+Figure 5(c) and the corresponding RCS are shown in 
+Figure 5(d).
+Near field distribution is quite different and the center of the RCS major lobes is indeed located around the desired θ (0 and 45°) and there is a minimum value at θ + π according to the results.
+We note that the lobe has a large width because the polygon is in sub-wavelength scale.
+The results in 
+Figure 5(c) match well with those in 
+Figure 5(d).
+4.
+Discussion Scattering matrix can represent the scattering characteristics of scatterers in a concise way.
+The high dimensionality of the scattering matrix of scatterers without high symmetry makes it challenging to tackle with conventional numerical methods, but a perfect problem for DNN.
+Here, we have considered the case of hexagons composed of a single material.
+But this limitation can be easily relieved by applying more general models.
+For instance, the model of a distribution of dielectric constant in grids, which magnifies the DoF of input polygon [36], [37], [38], [39], [40], [41], [42], [43], [44], [45], [46], [47], [48], [49], [50], [51], [52], is worth exploration in the future.
+Besides, the scattering matrices of similar polygons are approximate because the difference is deep subwavelength, which leads to non-uniqueness of the solution.
+To improve the accuracy to distinguish them, shorter wavelength could be considered.
+As a result, the scatterers will have larger response to the high order of angular momentum and the scattering matrices should be described with more terms, i.e., M needs to be bigger.
+Although these measures can improve the performance of DNN, they need more training data and more complicated network structure.
+In summary, we have demonstrated a DNN that establishes the relation between the geometry of a dielectric hexagon to its scattering matrix.
+The scattering characteristics can be obtained by the well-trained DNN in a quick and concise way.
+The speed of the well-trained DNN is thousands of times faster than that of finite element solvers.
+Therefore, previous tasks of heavy computation are now possible.
+Furthermore, by applying GD algorithm, the same DNN can complete the inverse process with high accuracy.
+To the best of our knowledge, this is the first time that the general scattering matrix is obtained with a DNN.
+Our results indicate that the strategy of DNN for scattering matrix is a convenient and efficient way to solve general scattering problems.
+Supplementary Material Supplementary Material Details j_nanoph-2022-0770_suppl_001.pdf (414.3KB, pdf) Supplementary Material This article contains supplementary material (https://doi.org/10.1515/nanoph-2022-0770).
+Footnotes Author contributions: All the authors have accepted responsibility for the entire content of this submitted manuscript and approved submission.
+Research funding: This work was supported by the National Key R&D Program of China (Nos.
+2022YFA1404303 and 2020YFA0211300), the National Natural Science Foundation of China (Nos.
+12174188, 11974176), HKUST(GZ) Grant G0101000028 and GZU-HKUST Joint Research Collaboration Grant GZU22EG04.
+Conflict of interest statement: The authors declare no conflicts of interest regarding this article.
+Contributor Information Yongxin Jing, Email: yxjing@smail.nju.edu.cn.
+Hongchen Chu, Email: chuhongchen@nju.edu.cn.
+Bo Huang, Email: bhuangas@connect.ust.hk.
+Jie Luo, Email: luojie@suda.edu.cn.
+Wei Wang, Email: weiwcs@ust.hk.
+Yun Lai, Email: laiyun@nju.edu.cn.
+References [1].Cho K., Van Merriënboer B., Gulcehre C., et al.
+.
+2014.
+Learning phrase representation using RNN encoder-decoder for statistical machine translation.
+Preprint.
+[Google Scholar] [2].Shelhamer E., Long J., Darrell T.
+Fully convolutional networks for semantic segmentation.
+IEEE Trans.
+Pattern Anal.
+Mach.
+Intell.
+2017;39:640.
+doi: 10.1109/tpami.2016.2572683.
+[DOI] [PubMed] [Google Scholar] [3].He K., Zhang X., Ren S., Sun J.
+2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2016.
+Deep residual learning for image recognition.
+[Google Scholar] [4].Alzubi J., Nayyar A., Kumar A.
+Machine learning from theory to algorithms: an overview.
+J.
+Phys.
+Conf.
+2018;1142:012012.
+doi: 10.1088/1742-6596/1142/1/012012.
+[DOI] [Google Scholar] [5].Liu Z., Zhu D., Rodrigues S.
+P., Lee K.-T., Cai W.
+Generative model for the inverse design of metasurfaces.
+Nano Lett.
+2018;18:6570.
+doi: 10.1021/acs.nanolett.8b03171.
+[DOI] [PubMed] [Google Scholar] [6].Malkiel I., Mrejen M., Nagler A., Arieli U., Wolf L., Suchowski H.
+Plasmonic nanostructure design and characterization via Deep Learning.
+Light Sci.
+Appl.
+2018;7:60.
+doi: 10.1038/s41377-018-0060-7.
+[DOI] [PMC free article] [PubMed] [Google Scholar] [7].Ma W., Cheng F., Xu Y., Wen Q., Liu Y.
+Probabilistic representation and inverse design of metamaterials based on a deep generative model with semi‐supervised learning strategy.
+Adv.
+Mater.
+2019;31:1901111.
+doi: 10.1002/adma.201901111.
+[DOI] [PubMed] [Google Scholar] [8].Hegde R.
+S.
+Deep learning: a new tool for photonic nanostructure design.
+Nanoscale Adv.
+2020;2:1007.
+doi: 10.1039/c9na00656g.
+[DOI] [PMC free article] [PubMed] [Google Scholar] [9].So S., Badloe T., Noh J., Bravo-Abad J., Rho J.
+Deep learning enabled inverse design in nanophotonics.
+Nanophotonics.
+2020;9:1041.
+doi: 10.1515/nanoph-2019-0474.
+[DOI] [Google Scholar] [10].Ma W., Xu Y., Xiong B., et al.
+Pushing the limits of functionality‐multiplexing capability in metasurface design based on statistical machine learning.
+Adv.
+Mater.
+2022;34:2110022.
+doi: 10.1002/adma.202110022.
+[DOI] [PubMed] [Google Scholar] [11].Qian C., Wang Z., Qian H., et al.
+Dynamic recognition and mirage using neuro-metamaterials.
+Nat.
+Commun.
+2022;13:2694.
+doi: 10.1038/s41467-022-30377-6.
+[DOI] [PMC free article] [PubMed] [Google Scholar] [12].Ma W., Cheng F., Liu Y.
+Deep-learning-enabled on-demand design of chiral metamaterials.
+ACS Nano.
+2018;12:6326.
+doi: 10.1021/acsnano.8b03569.
+[DOI] [PubMed] [Google Scholar] [13].Wu B., Ding K., Chan C.
+T., Chen Y.
+Machine prediction of topological transitions in photonic crystals.
+Phys.
+Rev.
+Appl.
+2020;14:044032.
+doi: 10.1103/physrevapplied.14.044032.
+[DOI] [Google Scholar] [14].Fan Z., Qian C., Jia Y., et al.
+Homeostatic neuro-metasurfaces for dynamic wireless channel management.
+Sci.
+Adv.
+2022;8:eabn7905.
+doi: 10.1126/sciadv.abn7905.
+[DOI] [PMC free article] [PubMed] [Google Scholar] [15].Rivenson Y., Zhang Y., Günaydın H., Teng D., Ozcan A.
+Phase recovery and holographic image reconstruction using deep learning in neural networks.
+Light Sci.
+Appl.
+2018;7:17141.
+doi: 10.1038/lsa.2017.141.
+[DOI] [PMC free article] [PubMed] [Google Scholar] [16].Lin X., Rivenson Y., Yardimci N.
+T., et al.
+All-optical machine learning using diffractive deep neural networks.
+Science.
+2018;361:1004.
+doi: 10.1126/science.aat8084.
+[DOI] [PubMed] [Google Scholar] [17].Qian C., Lin X., Lin X., et al.
+Performing optical logic operations by a diffractive neural network.
+Light Sci.
+Appl.
+2020;9:59.
+doi: 10.1038/s41377-020-0303-2.
+[DOI] [PMC free article] [PubMed] [Google Scholar] [18].Liu C., Ma Q., Luo Z.
+J., et al.
+A programmable diffractive deep neural network based on a digital-coding metasurface array.
+Nat.
+Electron.
+2022;5:113.
+doi: 10.1038/s41928-022-00719-9.
+[DOI] [Google Scholar] [19].Bohren C.
+F., Huffman D.
+R.
+Absorption and Scattering of Light by Small Particles.
+Hoboken, NJ, USA, John Wiley & Sons; 1998.
+[Google Scholar] [20].Liu F., Li W., Wang Y., Ke M.
+Realizing robust overlapped effect of multiple sound sources via anisotropic zero density metamaterials.
+Phys.
+Rev.
+B.
+2018;98:094303.
+doi: 10.1103/physrevb.98.094303.
+[DOI] [Google Scholar] [21].Liu F., Zhang S., Luo L., Li W., Wang Z., Ke M.
+Superscattering of sound by a deep-subwavelength solid mazelike rod.
+Phys.
+Rev.
+Appl.
+2019;12:064063.
+doi: 10.1103/physrevapplied.12.064063.
+[DOI] [Google Scholar] [22].Liu W., Zhang J., Miroshnichenko A.
+E.
+Toroidal dipole-induced transparency in core-shell nanoparticles.
+Laser Photon.
+Rev.
+2015;9:564.
+doi: 10.1002/lpor.201500102.
+[DOI] [Google Scholar] [23].Liu W.
+Generalized magnetic mirrors.
+Phys.
+Rev.
+Lett.
+2017;119:123902.
+doi: 10.1103/physrevlett.119.123902.
+[DOI] [PubMed] [Google Scholar] [24].Chen W., Chen Y., Liu W.
+Line singularities and hopf indices of electromagnetic multipoles.
+Laser Photon.
+Rev.
+2020;14:2000049.
+doi: 10.1002/lpor.202000049.
+[DOI] [Google Scholar] [25].Liu W.
+Superscattering pattern shaping for radially anisotropic nanowires.
+Phys.
+Rev.
+A.
+2017;96:023854.
+doi: 10.1103/physreva.96.023854.
+[DOI] [Google Scholar] [26].Bai P., Wu Y., Lai Y.
+Multi-channel coherent perfect absorbers.
+Europhys.
+Lett.
+2016;114:28003.
+doi: 10.1209/0295-5075/114/28003.
+[DOI] [Google Scholar] [27].Liu W., Miroshnichenko A.
+E.
+Scattering invisibility with free-space field enhancement of all-dielectric nanoparticles.
+Laser Photon.
+Rev.
+2017;11:023854.
+doi: 10.1002/lpor.201700103.
+[DOI] [Google Scholar] [28].Ran P., Qin Y., Lesselier D.
+2019 27th European Signal Processing Conference (EUSIPCO) 2019.
+Electromagnetic imaging of a dielectric micro-structure via convolutional neural networks.
+[Google Scholar] [29].So S., Mun J., Rho J.
+Simultaneous inverse design of materials and structures via deep learning: demonstration of dipole resonance engineering using core–shell nanoparticles.
+ACS Appl.
+Mater.
+Interfac.
+2019;11:24264.
+doi: 10.1021/acsami.9b05857.
+[DOI] [PubMed] [Google Scholar] [30].Bai P., Luo J., Chu H., Lu W., Yun L.
+Non-Hermitian photonics for coherent perfect absorption, invisibility, and lasing with different orbital angular momenta.
+Opt.
+Lett.
+2020;45:6635.
+doi: 10.1364/ol.409690.
+[DOI] [PubMed] [Google Scholar] [31].Chen Y., Lu L., Karniadakis G.
+E., Dal Negro L.
+Physics-informed neural networks for inverse problems in nano-optics and metamaterials.
+Opt.
+Express.
+2020;28:11618.
+doi: 10.1364/oe.384875.
+[DOI] [PubMed] [Google Scholar] [32].Fang Z., Zhan J.
+Deep physical informed neural networks for metamaterial design.
+IEEE Access.
+2020;8:24506.
+doi: 10.1109/access.2019.2963375.
+[DOI] [Google Scholar] [33].Yang Q., Chen W., Chen Y., Liu W.
+Electromagnetic duality protected scattering properties of nonmagnetic particles.
+ACS Photonics.
+2020;7:1830.
+doi: 10.1021/acsphotonics.0c00555.
+[DOI] [Google Scholar] [34].Yang Q., Chen W., Chen Y., Liu W.
+Scattering invariance for arbitrary polarizations protected by joint spatial-duality symmetries.
+Phys.
+Rev.
+B.
+2020;102:155427.
+doi: 10.1103/physrevb.102.155427.
+[DOI] [Google Scholar] [35].Luo J., Li X., Zhang X., et al.
+Deep-learning-enabled inverse engineering of multi-wavelength invisibility-to-superscattering switching with phase-change materials.
+Opt.
+Express.
+2021;29:10527.
+doi: 10.1364/oe.422119.
+[DOI] [PubMed] [Google Scholar] [36].Li L., Wang L.
+G., Teixeira F.
+L., et al.
+Deep neural network for nonlinear electromagnetic inverse scattering.
+IEEE Trans.
+Antenn.
+Propag.
+2019;67:1819.
+doi: 10.1109/tap.2018.2885437.
+[DOI] [Google Scholar] [37].Wei Z., Chen X.
+Deep-learning schemes for full-wave nonlinear inverse scattering problems.
+IEEE Trans.
+Geosci.
+Rem.
+Sens.
+2019;57:1849.
+doi: 10.1109/tgrs.2018.2869221.
+[DOI] [Google Scholar] [38].Wei Z., Chen X.
+Physics-inspired convolutional neural network for solving full-wave inverse scattering problems.
+IEEE Trans.
+Antenn.
+Propag.
+2019;67:6138.
+doi: 10.1109/tap.2019.2922779.
+[DOI] [Google Scholar] [39].Yao H.
+M., Sha W.
+E.
+I., Jiang L.
+Two-step enhanced deep learning approach for electromagnetic inverse scattering problems.
+IEEE Antenn.
+Wireless Propag.
+Lett.
+2019;18:2254.
+doi: 10.1109/lawp.2019.2925578.
+[DOI] [Google Scholar] [40].Chen X., Wei Z., Li M., Rocca P.
+A review of deep learning approaches for inverse scattering problems (invited review) Prog.
+Electromagn.
+Res.
+2020;167:67.
+doi: 10.2528/pier20030705.
+[DOI] [Google Scholar] [41].Xu K., Wu L., Ye X., Chen X.
+Deep learning-based inversion methods for solving inverse scattering problems with phaseless data.
+IEEE Trans.
+Antenn.
+Propag.
+2020;68:7457.
+doi: 10.1109/tap.2020.2998171.
+[DOI] [Google Scholar] [42].Yao H.
+M., Jiang L., Sha W.
+E.
+I.
+Enhanced deep learning approach based on the deep convolutional encoder–decoder architecture for electromagnetic inverse scattering problems.
+IEEE Antenn.
+Wireless Propag.
+Lett.
+2020;19:1211.
+doi: 10.1109/lawp.2020.2995455.
+[DOI] [Google Scholar] [43].Guo L., Song G., Wu H.
+Complex-valued pix2pix—deep neural network for nonlinear electromagnetic inverse scattering.
+Electronics.
+2021;10:752.
+doi: 10.3390/electronics10060752.
+[DOI] [Google Scholar] [44].Guo R., Lin Z., Shan T., et al.
+Physics embedded deep neural network for solving full-wave inverse scattering problems.
+IEEE Trans.
+Antenn.
+Propag.
+2022;70:6148.
+doi: 10.1109/tap.2021.3102135.
+[DOI] [Google Scholar] [45].Huang Y., Song R., Xu K., Ye X., Li C., Chen X.
+Deep learning-based inverse scattering with structural similarity loss functions.
+IEEE Sens.
+J.
+2021;21:4900.
+doi: 10.1109/jsen.2020.3030321.
+[DOI] [Google Scholar] [46].Pan X.-M., Song B.-Y., Wu D., Wei G., Sheng X.-Q.
+On phase information for deep neural networks to solve full-wave nonlinear inverse scattering problems.
+IEEE Antenn.
+Wireless Propag.
+Lett.
+2021;20:1903.
+doi: 10.1109/lawp.2021.3100135.
+[DOI] [Google Scholar] [47].Ma W., Liu Z., Kudyshev Z.
+A., Boltasseva A., Cai W., Liu Y.
+Deep learning for the design of photonic structures.
+Nat.
+Photon.
+2021;15(2):77–90.
+doi: 10.1038/s41566-020-0685-y.
+[DOI] [Google Scholar] [48].Jiang J., Chen M., Fan J.
+A.
+Deep neural networks for the evaluation and design of photonic devices.
+Nat.
+Rev.
+Mater.
+2020;6(8):679–700.
+doi: 10.1038/s41578-020-00260-1.
+[DOI] [Google Scholar] [49].Xu Y., Zhang X., Fu Y., Liu Y.
+Interfacing photonics with artificial intelligence: an innovative design strategy for photonic structures and devices based on artificial neural networks.
+Photon.
+Res.
+2021;9(4):B135–B52.
+doi: 10.1364/prj.417693.
+[DOI] [Google Scholar] [50].Wiecha P.
+R., Arbouet A., Girard C., Muskens O.
+L.
+Deep learning in nano-photonics: inverse design and beyond.
+Photon.
+Res.
+2021;9(5):B182–B200.
+doi: 10.1364/prj.415960.
+[DOI] [Google Scholar] [51].Sanghvi Y., Kalepu Y., Khankhoje U.
+K.
+Embedding deep learning in inverse scattering problems.
+IEEE Trans.
+Comput.
+Imag.
+2020;6:46.
+doi: 10.1109/tci.2019.2915580.
+[DOI] [Google Scholar] [52].Qie J., Khoram E., Liu D., Zhou M., Gao L.
+Real-time deep learning design tool for far-field radiation profile.
+Photon.
+Res.
+2021;9:B104.
+doi: 10.1364/prj.413567.
+[DOI] [Google Scholar] Associated Data This section collects any data citations, data availability statements, or supplementary materials included in this article.
+Supplementary Materials Supplementary Material Details j_nanoph-2022-0770_suppl_001.pdf (414.3KB, pdf) Articles from Nanophotonics are provided here courtesy of Wiley ACTIONS View on publisher site PDF (3.2 MB) Cite Collections Permalink PERMALINK Copy RESOURCES Similar articles Cited by other articles Links to NCBI Databases Cite Copy Download .nbib .nbib Format: AMA APA MLA NLM Add to Collections Create a new collection Add to an existing collection Name your collection * Choose a collection Unable to load your collection due to an error Please try again Add Cancel Follow NCBI NCBI on X (formerly known as Twitter) NCBI on Facebook NCBI on LinkedIn NCBI on GitHub NCBI RSS feed Connect with NLM NLM on X (formerly known as Twitter) NLM on Facebook NLM on YouTube National Library of Medicine 8600 Rockville Pike Bethesda, MD 20894 Web Policies FOIA HHS Vulnerability Disclosure Help Accessibility Careers NLM NIH HHS USA.gov Back to Top

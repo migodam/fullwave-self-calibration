@@ -1,0 +1,842 @@
+{
+  "complex_hairy_ball_counterexample": {
+    "tangent_error": 4.1633566710854406e-16,
+    "norm_squared_identity_error": 8.881784197001252e-16,
+    "analytic_min_norm": 1.0,
+    "scope": "invalidates complex-phasor nowhere-zero prohibition, not real hairy-ball theorem"
+  },
+  "constitutive": {
+    "projection_identity_error": 7.105427357601002e-15,
+    "u_zero_j_nonzero_rank": 1,
+    "u_zero_j_nonzero_physical": false
+  },
+  "hermite_windows": {
+    "q_sigma": [
+      0.5,
+      1,
+      1.5,
+      2,
+      2.5,
+      3
+    ],
+    "orders": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "energy_fractions": [
+      [
+        0.5204998778130466,
+        0.08110858834532418,
+        0.007876706767370404,
+        3.0433741161079292e-05
+      ],
+      [
+        0.8427007929497151,
+        0.42759329552912023,
+        0.15085496391539038,
+        0.008532393371186466
+      ],
+      [
+        0.9661051464753106,
+        0.7877097126398669,
+        0.5201165618867002,
+        0.12446097470166219
+      ],
+      [
+        0.9953222650189527,
+        0.9539882943107686,
+        0.8437643724222776,
+        0.4658537830903085
+      ],
+      [
+        0.999593047982555,
+        0.9941473374066733,
+        0.9714568766738325,
+        0.8134340251415488
+      ],
+      [
+        0.9999779095030014,
+        0.9995601503471612,
+        0.9970535954121197,
+        0.9648264605330151
+      ]
+    ],
+    "quadrature_error": 2.55351295663786e-15,
+    "scope": "1D uniform Born spectral fraction, not noise-conditioned identifiability"
+  },
+  "gram": {
+    "whitened_spectrum_relative_change": 2.39320532075693e-16,
+    "raw_spectrum_relative_change": 42.716964334328786,
+    "pair_condition_numbers": {
+      "1": 8.041623328375598,
+      "0.5": 32.01041598856134,
+      "0.2": 200.00166666388998,
+      "0.1": 800.0004166666107,
+      "0.05": 3200.000104166834
+    }
+  },
+  "neumann_counterexample": {
+    "TU": [
+      [
+        2.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.5
+      ]
+    ],
+    "I_minus_TU_determinant": -0.5,
+    "spectral_radius": 2.0,
+    "invertible": true,
+    "neumann_converges": false
+  },
+  "network_rank_probe": [
+    {
+      "separation": 0.3,
+      "sigma": 0.075,
+      "contrast_scale": 0.5,
+      "local_setup_svd_seconds": 0.03400891600176692,
+      "exact_component_equation_error": 8.789790823160242e-16,
+      "local_raw_T_rank_99energy": [
+        22,
+        22,
+        22
+      ],
+      "rank_curves": [
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.9828955508268741,
+          "current_relative_error": 0.9773028006680953,
+          "physical_state_relative_residual": 1.0358676207239645,
+          "assembly_solve_seconds": 0.0003825420280918479
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.6584693917517404,
+          "current_relative_error": 0.7135676320073152,
+          "physical_state_relative_residual": 0.7421879150119653,
+          "assembly_solve_seconds": 0.0004237500252202153
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.41886012437397785,
+          "current_relative_error": 0.48597708085555363,
+          "physical_state_relative_residual": 0.49238370626884814,
+          "assembly_solve_seconds": 0.00037466699723154306
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.1625909313834592,
+          "current_relative_error": 0.18388716611471492,
+          "physical_state_relative_residual": 0.18328746029902163,
+          "assembly_solve_seconds": 0.000665290979668498
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 32,
+          "network_dimension": 96,
+          "field_relative_error": 0.025028214993499394,
+          "current_relative_error": 0.030129401950930133,
+          "physical_state_relative_residual": 0.029976414529338045,
+          "assembly_solve_seconds": 0.0008555409731343389
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 64,
+          "network_dimension": 192,
+          "field_relative_error": 0.0006877555685200899,
+          "current_relative_error": 0.000897445382413433,
+          "physical_state_relative_residual": 0.000892724769096271,
+          "assembly_solve_seconds": 0.0017281249165534973
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.5863379513836329,
+          "current_relative_error": 0.6486947364915006,
+          "physical_state_relative_residual": 0.599820809869815,
+          "assembly_solve_seconds": 0.000213916995562613
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 2,
+          "network_dimension": 6,
+          "field_relative_error": 0.4089356291264408,
+          "current_relative_error": 0.46114959312957876,
+          "physical_state_relative_residual": 0.4275427933007428,
+          "assembly_solve_seconds": 0.0002441250253468752
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.077173834095442,
+          "current_relative_error": 0.15014698480158858,
+          "physical_state_relative_residual": 0.13944792140596393,
+          "assembly_solve_seconds": 0.0003269169246777892
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.002946568682718756,
+          "current_relative_error": 0.009484059431749403,
+          "physical_state_relative_residual": 0.00941136556814519,
+          "assembly_solve_seconds": 0.0003275409108027816
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 12,
+          "network_dimension": 36,
+          "field_relative_error": 0.0027279054590437363,
+          "current_relative_error": 0.0031471822873168883,
+          "physical_state_relative_residual": 0.0036213914710545485,
+          "assembly_solve_seconds": 0.0004440000047907233
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.002730354279022799,
+          "current_relative_error": 0.003064825120856951,
+          "physical_state_relative_residual": 0.0035550940443817387,
+          "assembly_solve_seconds": 0.0005151670193299651
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.593225393312222,
+          "current_relative_error": 0.7099427024203976,
+          "physical_state_relative_residual": 0.6677622845306035,
+          "assembly_solve_seconds": 0.01724304200615734
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 2,
+          "network_dimension": 6,
+          "field_relative_error": 0.4291495613153685,
+          "current_relative_error": 0.5799251577177573,
+          "physical_state_relative_residual": 0.5456600483455869,
+          "assembly_solve_seconds": 0.016840957920067012
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.08728121782671469,
+          "current_relative_error": 0.16906304129302854,
+          "physical_state_relative_residual": 0.15693055521064364,
+          "assembly_solve_seconds": 0.018138332990929484
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.007462194356947598,
+          "current_relative_error": 0.022205776131028948,
+          "physical_state_relative_residual": 0.02174493536432124,
+          "assembly_solve_seconds": 0.019634833093732595
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 12,
+          "network_dimension": 36,
+          "field_relative_error": 0.003076805325723688,
+          "current_relative_error": 0.009201083247310083,
+          "physical_state_relative_residual": 0.009055795375144123,
+          "assembly_solve_seconds": 0.023815207998268306
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.001502119031326891,
+          "current_relative_error": 0.00423507025696438,
+          "physical_state_relative_residual": 0.004181737652445883,
+          "assembly_solve_seconds": 0.025893584010191262
+        }
+      ]
+    },
+    {
+      "separation": 0.3,
+      "sigma": 0.075,
+      "contrast_scale": 2.0,
+      "local_setup_svd_seconds": 0.029540833085775375,
+      "exact_component_equation_error": 1.1230561338893855e-15,
+      "local_raw_T_rank_99energy": [
+        20,
+        21,
+        21
+      ],
+      "rank_curves": [
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.9487518450475683,
+          "current_relative_error": 0.9571686520935673,
+          "physical_state_relative_residual": 1.1531947840035188,
+          "assembly_solve_seconds": 0.0002852499019354582
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.7167787899198766,
+          "current_relative_error": 0.7728806548527523,
+          "physical_state_relative_residual": 0.8946779866583445,
+          "assembly_solve_seconds": 0.0002773340092971921
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.4895520824406282,
+          "current_relative_error": 0.5680453592517561,
+          "physical_state_relative_residual": 0.6315630850757792,
+          "assembly_solve_seconds": 0.0002458749804645777
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.19638696294179397,
+          "current_relative_error": 0.22025810855949568,
+          "physical_state_relative_residual": 0.21647043265016738,
+          "assembly_solve_seconds": 0.0003773750504478812
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 32,
+          "network_dimension": 96,
+          "field_relative_error": 0.030069502104111974,
+          "current_relative_error": 0.03582998613584284,
+          "physical_state_relative_residual": 0.033699268605518605,
+          "assembly_solve_seconds": 0.0006787909660488367
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 64,
+          "network_dimension": 192,
+          "field_relative_error": 0.0008240423466535084,
+          "current_relative_error": 0.0010441586916157739,
+          "physical_state_relative_residual": 0.0009929790449299336,
+          "assembly_solve_seconds": 0.0015881661092862487
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.7445303903937098,
+          "current_relative_error": 0.8211168756104438,
+          "physical_state_relative_residual": 0.6538792291000075,
+          "assembly_solve_seconds": 0.00024716590996831656
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 2,
+          "network_dimension": 6,
+          "field_relative_error": 0.5065968334176545,
+          "current_relative_error": 0.6156199616297188,
+          "physical_state_relative_residual": 0.4747747877678811,
+          "assembly_solve_seconds": 0.00023795897141098976
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.1319293000560743,
+          "current_relative_error": 0.2166454477547847,
+          "physical_state_relative_residual": 0.15952143993051351,
+          "assembly_solve_seconds": 0.00033354200422763824
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.011518439178069606,
+          "current_relative_error": 0.020713720088735375,
+          "physical_state_relative_residual": 0.024318150330554872,
+          "assembly_solve_seconds": 0.00030079204589128494
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 12,
+          "network_dimension": 36,
+          "field_relative_error": 0.011869847146293426,
+          "current_relative_error": 0.012984136846866876,
+          "physical_state_relative_residual": 0.019679793875422198,
+          "assembly_solve_seconds": 0.0003979590255767107
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.011911495008862906,
+          "current_relative_error": 0.01278433746763538,
+          "physical_state_relative_residual": 0.019579931900335752,
+          "assembly_solve_seconds": 0.0004760000156238675
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.7784518288605784,
+          "current_relative_error": 0.9612891836680759,
+          "physical_state_relative_residual": 0.9185106991071856,
+          "assembly_solve_seconds": 0.016041416092775762
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 2,
+          "network_dimension": 6,
+          "field_relative_error": 0.5564857403953549,
+          "current_relative_error": 0.856034842334277,
+          "physical_state_relative_residual": 0.7218034133741625,
+          "assembly_solve_seconds": 0.017571583040989935
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.14940370471953296,
+          "current_relative_error": 0.2667292969189888,
+          "physical_state_relative_residual": 0.1877071851617674,
+          "assembly_solve_seconds": 0.019676542025990784
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.008182854791740331,
+          "current_relative_error": 0.028264011202663652,
+          "physical_state_relative_residual": 0.02577612420225326,
+          "assembly_solve_seconds": 0.022215166012756526
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 12,
+          "network_dimension": 36,
+          "field_relative_error": 0.004806962585939578,
+          "current_relative_error": 0.013153140114068932,
+          "physical_state_relative_residual": 0.012699377919870726,
+          "assembly_solve_seconds": 0.02567662496585399
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.0023071416084269334,
+          "current_relative_error": 0.006043617912849983,
+          "physical_state_relative_residual": 0.005654376650880398,
+          "assembly_solve_seconds": 0.027699874946847558
+        }
+      ]
+    },
+    {
+      "separation": 0.1,
+      "sigma": 0.075,
+      "contrast_scale": 0.5,
+      "local_setup_svd_seconds": 0.030022250022739172,
+      "exact_component_equation_error": 1.1687434237161876e-15,
+      "local_raw_T_rank_99energy": [
+        21,
+        22,
+        22
+      ],
+      "rank_curves": [
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.9769761032172177,
+          "current_relative_error": 0.9681011918894182,
+          "physical_state_relative_residual": 1.0411968348702894,
+          "assembly_solve_seconds": 0.0004402080085128546
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.6323092507826785,
+          "current_relative_error": 0.6399948006752739,
+          "physical_state_relative_residual": 0.6695331562926204,
+          "assembly_solve_seconds": 0.00038883404340595007
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.4168212535281023,
+          "current_relative_error": 0.43182950909755813,
+          "physical_state_relative_residual": 0.4408214765261587,
+          "assembly_solve_seconds": 0.0003034999826923013
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.14694450494442834,
+          "current_relative_error": 0.15632031841670127,
+          "physical_state_relative_residual": 0.1555584041527683,
+          "assembly_solve_seconds": 0.0004742499440908432
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 32,
+          "network_dimension": 96,
+          "field_relative_error": 0.021631305982261737,
+          "current_relative_error": 0.023370196747509765,
+          "physical_state_relative_residual": 0.02303084182855948,
+          "assembly_solve_seconds": 0.0017250829841941595
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 64,
+          "network_dimension": 192,
+          "field_relative_error": 0.000680074502283907,
+          "current_relative_error": 0.00077382056667397,
+          "physical_state_relative_residual": 0.0007697040000425492,
+          "assembly_solve_seconds": 0.003197166952304542
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.5533235659697427,
+          "current_relative_error": 0.6343156824408044,
+          "physical_state_relative_residual": 0.5631907111226072,
+          "assembly_solve_seconds": 0.00039770791772753
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 2,
+          "network_dimension": 6,
+          "field_relative_error": 0.3416141612132264,
+          "current_relative_error": 0.40722939718855133,
+          "physical_state_relative_residual": 0.36334109229507255,
+          "assembly_solve_seconds": 0.00024016608949750662
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.08417867906144855,
+          "current_relative_error": 0.14731671284995873,
+          "physical_state_relative_residual": 0.13117160305548708,
+          "assembly_solve_seconds": 0.00030745903495699167
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.01878291133103831,
+          "current_relative_error": 0.033230134103424416,
+          "physical_state_relative_residual": 0.037421788127430036,
+          "assembly_solve_seconds": 0.00028595898766070604
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 12,
+          "network_dimension": 36,
+          "field_relative_error": 0.018839395122371073,
+          "current_relative_error": 0.03213012365752139,
+          "physical_state_relative_residual": 0.03663639781378179,
+          "assembly_solve_seconds": 0.00039900001138448715
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.018839128650384875,
+          "current_relative_error": 0.03210495153258977,
+          "physical_state_relative_residual": 0.036617120216355124,
+          "assembly_solve_seconds": 0.0004693750524893403
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.5672402911664546,
+          "current_relative_error": 0.682021101243666,
+          "physical_state_relative_residual": 0.6114381526753631,
+          "assembly_solve_seconds": 0.01666741701774299
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 2,
+          "network_dimension": 6,
+          "field_relative_error": 0.39398691443344025,
+          "current_relative_error": 0.47146440472650414,
+          "physical_state_relative_residual": 0.42202164789474417,
+          "assembly_solve_seconds": 0.018085291027091444
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.09584395823622334,
+          "current_relative_error": 0.17665953977936244,
+          "physical_state_relative_residual": 0.15998225727338516,
+          "assembly_solve_seconds": 0.01787016703747213
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.020584929539579237,
+          "current_relative_error": 0.04421278170390282,
+          "physical_state_relative_residual": 0.04196808120661855,
+          "assembly_solve_seconds": 0.01986991602461785
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 12,
+          "network_dimension": 36,
+          "field_relative_error": 0.009743668460051608,
+          "current_relative_error": 0.020481402782229277,
+          "physical_state_relative_residual": 0.019868326175510837,
+          "assembly_solve_seconds": 0.02260124997701496
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.005430893660191907,
+          "current_relative_error": 0.011105002053642734,
+          "physical_state_relative_residual": 0.010936595699804878,
+          "assembly_solve_seconds": 0.027405874920077622
+        }
+      ]
+    },
+    {
+      "separation": 0.1,
+      "sigma": 0.075,
+      "contrast_scale": 2.0,
+      "local_setup_svd_seconds": 0.03174108301755041,
+      "exact_component_equation_error": 1.026317526435124e-15,
+      "local_raw_T_rank_99energy": [
+        20,
+        21,
+        21
+      ],
+      "rank_curves": [
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.9328450062036995,
+          "current_relative_error": 0.9633681650685216,
+          "physical_state_relative_residual": 1.1544681502073437,
+          "assembly_solve_seconds": 0.000371375004760921
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.6711115131248742,
+          "current_relative_error": 0.7204742888546163,
+          "physical_state_relative_residual": 0.7993871612015601,
+          "assembly_solve_seconds": 0.0002912910422310233
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.4551086887763431,
+          "current_relative_error": 0.5072667723036507,
+          "physical_state_relative_residual": 0.5254930518605385,
+          "assembly_solve_seconds": 0.0002584999892860651
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.16604655443889418,
+          "current_relative_error": 0.1945163123773733,
+          "physical_state_relative_residual": 0.17590715498191709,
+          "assembly_solve_seconds": 0.00045962492004036903
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 32,
+          "network_dimension": 96,
+          "field_relative_error": 0.026523544199011827,
+          "current_relative_error": 0.02810125756847307,
+          "physical_state_relative_residual": 0.023707317280497752,
+          "assembly_solve_seconds": 0.0006782080745324492
+        },
+        {
+          "basis_kind": "raw_operator_svd",
+          "ports_per_component": 64,
+          "network_dimension": 192,
+          "field_relative_error": 0.000921068876592517,
+          "current_relative_error": 0.0008992587251503061,
+          "physical_state_relative_residual": 0.0008336182079741641,
+          "assembly_solve_seconds": 0.0015609170077368617
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.7523463984065144,
+          "current_relative_error": 0.8327884675944867,
+          "physical_state_relative_residual": 0.6272220325939677,
+          "assembly_solve_seconds": 0.00019941700156778097
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 2,
+          "network_dimension": 6,
+          "field_relative_error": 0.5106062994934598,
+          "current_relative_error": 0.636133532882506,
+          "physical_state_relative_residual": 0.4607994009091648,
+          "assembly_solve_seconds": 0.00021358300000429153
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.19099828052850204,
+          "current_relative_error": 0.2891755797755985,
+          "physical_state_relative_residual": 0.2333751492227678,
+          "assembly_solve_seconds": 0.00031029200181365013
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.08496517026728388,
+          "current_relative_error": 0.12650392152679288,
+          "physical_state_relative_residual": 0.18744983881352761,
+          "assembly_solve_seconds": 0.000312417047098279
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 12,
+          "network_dimension": 36,
+          "field_relative_error": 0.08537597404071112,
+          "current_relative_error": 0.12330231581171282,
+          "physical_state_relative_residual": 0.18751701268422757,
+          "assembly_solve_seconds": 0.00041324994526803493
+        },
+        {
+          "basis_kind": "plane_wave_response_range",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.08540183657987095,
+          "current_relative_error": 0.12302021555937939,
+          "physical_state_relative_residual": 0.18743496125821243,
+          "assembly_solve_seconds": 0.0004927919944748282
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 1,
+          "network_dimension": 3,
+          "field_relative_error": 0.8081427280936756,
+          "current_relative_error": 0.9733392369266513,
+          "physical_state_relative_residual": 0.9324272698224025,
+          "assembly_solve_seconds": 0.016654042061418295
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 2,
+          "network_dimension": 6,
+          "field_relative_error": 0.5784820913973973,
+          "current_relative_error": 0.8119565409884346,
+          "physical_state_relative_residual": 0.5855136169208778,
+          "assembly_solve_seconds": 0.018058624933473766
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 4,
+          "network_dimension": 12,
+          "field_relative_error": 0.1919585409797024,
+          "current_relative_error": 0.32425525042088926,
+          "physical_state_relative_residual": 0.26696913229493247,
+          "assembly_solve_seconds": 0.017554374993778765
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 8,
+          "network_dimension": 24,
+          "field_relative_error": 0.038260640518090076,
+          "current_relative_error": 0.081846616857638,
+          "physical_state_relative_residual": 0.066524529877937,
+          "assembly_solve_seconds": 0.020513499970547855
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 12,
+          "network_dimension": 36,
+          "field_relative_error": 0.014887217581768792,
+          "current_relative_error": 0.030145991572914786,
+          "physical_state_relative_residual": 0.02772452529317128,
+          "assembly_solve_seconds": 0.024194458033889532
+        },
+        {
+          "basis_kind": "interaction_enriched_range",
+          "ports_per_component": 16,
+          "network_dimension": 48,
+          "field_relative_error": 0.009867962342097556,
+          "current_relative_error": 0.01881697858449605,
+          "physical_state_relative_residual": 0.017181852722282225,
+          "assembly_solve_seconds": 0.026744708069600165
+        }
+      ]
+    }
+  ],
+  "reflectivity": {
+    "sweep": [
+      {
+        "strength": 0.02,
+        "illumination_dependent_norm": 0.0009176323330794682
+      },
+      {
+        "strength": 0.04,
+        "illumination_dependent_norm": 0.0036507433541374083
+      },
+      {
+        "strength": 0.08,
+        "illumination_dependent_norm": 0.014443365527681407
+      },
+      {
+        "strength": 0.16,
+        "illumination_dependent_norm": 0.0564841507848155
+      }
+    ],
+    "loglog_slope": 1.9815503016640235,
+    "scope": "weak-scattering sweep with nonzero incident entries; not statement that every object has view dependence"
+  },
+  "normalized_gaussian_tangents": {
+    "H1_fd_relative_error": 3.050712993824637e-11,
+    "H2_fd_relative_error": 6.02988011319945e-11
+  },
+  "soft_partition": {
+    "gauge_error": 2.1589219665337022e-15,
+    "derivative_relative_error": 5.024512119222891e-11,
+    "background_material": 0.0
+  },
+  "singular_T": {
+    "I_minus_TU_invertible": true,
+    "T_invertible": false,
+    "forward_exists": true
+  },
+  "woodbury_measurement_relative_error": 1.8188099511571259e-16,
+  "status": "bounded checks, corrections required; no novelty or low-port theorem",
+  "source_sha256": "8b22ba8fca748104b87fa68ae24d24d076d8e80130260f4affd3b5719cc7b84d",
+  "wall_seconds": 0.9153915829956532
+}

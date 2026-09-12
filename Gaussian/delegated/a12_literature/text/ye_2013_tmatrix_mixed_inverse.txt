@@ -1,0 +1,547 @@
+AP1108-1010                                                                                                                                    1
+
+
+
+
+            Simultaneous reconstruction of dielectric and
+             perfectly conducting scatterers via T-matrix
+                               method
+                                      Xiuzhu Ye, Xudong Chen, Yu Zhong and Rencheng Song
+
+
+                                                                            distinguished from the dielectric scatterers by the higher
+   Abstract— A T-matrix method is proposed to solve the mixed                imaginary part. However, due to the approximation taken, the
+boundary inverse scattering problem, i.e., perfect electric                  method may fail in the case when both high-loss dielectric
+conductors (PEC) and dielectric scatterers are simultaneously                scatterers and PEC are present.
+reconstructed under the two-dimensional transverse magnetic
+(TM) illumination setting. Both the dipole and monopole elements
+                                                                                In this paper, we provide another quantitative method under
+of the T-matrix are chosen to accurately describe the scattering             a new modeling scheme--the T-matrix method, to solve the
+behavior of the mixed boundary problem. Criteria of utilizing the            mixed boundary inverse problem. The T-matrix method was
+monopole element of T-matrix to distinguish the PEC from                     firstly developed by Waterman in 1965 [20] and further
+dielectric scatterers are presented. Apart from synthetic data, the          adopted by Chew [21-23] to solve the inverse scattering
+experimental data from Fresnel dataset is also used to verify the            problem. In T-matrix method, the scattered and incident fields
+validity of the proposed method, showing that it works well in
+sub-wavelength setting and is quite robust against noise. The pros
+                                                                             are firstly expanded as functions of multipoles, and then
+and cons of the proposed T-matrix method are further discussed.              scattered field coefficient is related to the incident field
+                                                                             coefficient by T-matrix only utilizing the boundary condition.
+    Index Terms— Inverse scattering, T-matrix, Optimization                  Different properties of scatterers have different finite valued
+                                                                             T-matrices. Thus, the T-matrix method provides a possibility of
+                          I. INTRODUCTION                                    modeling the mixed boundary problem. In this paper, subspace
+                                                                             based optimization method (SOM) is further extended to the
+T    he inverse scattering problem has been studied for decades
+     and a lot of methodologies have already been well
+developed for dielectric scatterer [1-7] and perfect electric
+                                                                             T-matrix modeling method to solve the mixed boundary
+                                                                             problem, which has already been extensively used for either
+conductor (PEC) [8-12] respectively. The modeling schemes                    PEC [11, 12] or dielectric scatterers [3-5, 24] under the EFIE
+are mostly based on the electric field integral equation (EFIE)              modeling scheme owing to its robustness against noise and fast
+[13]. Mixed boundary inverse scattering problem refers to the                convergence speed.
+problem where PEC and dielectric scatterers are                                 The differences of the proposed method compared to the
+simultaneously present inside the detection domain. Qualitative              original T-matrix inversion methods are listed as follows.
+methods such as linear sampling method[14], multiple signal                  Firstly, in the original T-matrix based inverse scattering
+classification (MUSIC) algorithm and factorization method[15]                method, scatterers are known to be perfectly conducting [21] or
+are able to solve the mixed boundary inverse problem, which                  dielectric [22, 23] a priori. Thus, only single leading multipole
+retrieve the shape and number of scatterers only. In quantitative            term is sufficient in modeling the scattering behavior of the
+reconstruction, the properties of the scatterers are extra                   PEC or dielectric scatterers respectively. To be specific, only
+unknowns to be solved and the target is to identify the shape of             the monopole term is used to model the scattering of PEC
+the PEC scatterers while at the same time to reconstruct the                 scatterers for 2D TM incidence [21], whereas only the dipole
+spatial distribution of the relative permittivity for dielectric             term is used to model the scattering of dielectric scatterers for
+scatterer. To quantitatively reconstruct the mixed boundary                  2D TE incidence [22] and 3D case [23]. In our paper, we
+problem under EFIE model, one existing solution is to                        consider a mixture of two kinds of scatterers for 2D TM
+approximate the PEC scatterers by lossy dielectric scatterers                incidence. Although the monopole term is leading for both PEC
+and thus both dielectric and PEC scatterers can be represented               and dielectric scatterers individually, it is inaccurate to use only
+by complex relative permittivity [16-19]. The PEC is                         one multipole to model the scattering behavior for mixed
+                                                                             boundary problem, due to the fact that dipole term of PEC
+   Manuscript received May 11th, 2012. This work was supported by the        scatterer is comparable in magnitude to the monopole term of
+Singapore Temasek Defence Systems Institute under grant TDSI/10-005/1A.      dielectric scatterer. Thus both the monopole and dipole terms
+   The authors are with department of Electrical and Computer Engineering,   are chosen to describe the scattering behavior for mixed
+National University of Singapore, 117576 Singapore, Singapore(e-mail:
+g0800455@nus.edu.sg,       elechenx@nus.edu.sg,       elezhong@nus.edu.sg,
+                                                                             boundary problem, to ensure the accuracy of calculated
+elesongr@nus.edu.sg)                                                         scattered field. Secondly, in the original T-matrix inversion
+                                                                             methods [21-23], the properties of scatterers are known a
+AP1108-1010                                                                                                                                                      2
+
+priori. In our paper, no a priori information is needed in                      be well approximated by a circle of the same area such that the
+identifying the properties of scatterers. The monopole element                  analytical form of T-matrix [25] can be used. The equivalent
+in T-matrix of each subunit is used to classify the PEC                         radius of each subunit is R and the centers are located at
+scatterers from the dielectric ones.                                            ρi  (r0,i ,0,i ) , i  1, 2, , N , under the global coordinate
+   The main contributions of the proposed T-matrix method are:                  system.
+Firstly, the T-matrix method has provided an alternative
+modeling method to quantitatively deal with mixed boundary                        B. Formulation of the T-matrix method
+problem, which is different from the contemporary EFIE                            Applying the multipole expansion to both the incident field
+modeling methods [16-19] that treat PEC scatterer as high-loss                  and the scattered field [25], we get the total field,
+dielectric scatterer. Secondly, the T-matrix method has                                                                  N
+
+provided a new criterion in differentiating the PEC from                         Eztot (r)  Rgψ t (k0 , ri )  ei   ψ t (k0 , rj )  a j , i  1,2,    , N . (1)
+                                                                                                                         j 1
+dielectric scatterers. It works well no matter the dielectric
+                                                                                   On the right hand side, the first term is the incident field and
+scatterers are lossy or not, which is an advantage over the
+                                                                                the second term indicates the scattered field from all the
+contemporary method [16-19]. Thirdly, SOM has been applied
+                                                                                subunits. The observation point is at r with respect to the
+in the framework of T-matrix modeling method, showing that
+the SOM is a general method which is not limited to EFIE                        global coordinate and ri  r  ρi is the observation point under
+modeling. Lastly, the success of reconstructions from various                   the local coordinate of the ith sub-unit, where
+synthetic data as well as experimental data shows the validity of                ri  (ri ,i ), i  1,2, , N . The superscript t stands for the
+the proposed T-matrix based inversion method.
+                                                                                transpose of the vector. ψ t (k0 , ri )   H m(1) (k0 ri )eimi , and Rg
+                                                                                                                                m
+
+                       II. FORWARD PROBLEM                                      stands for the regular part, i.e., Rgψ t (k0 , ri )   J m (k0 ri )eimi ,
+                                                                                                                                        m
+A. Experimental Setup                                                           m  M , , M . M is the truncation number of multipoles.
+   In this paper, we consider the inverse scattering problem in a               Here a j , j  1,2, , N are referred to as vectors of amplitude
+two-dimensional setting under the transverse magnetic (TM)
+time harmonic illuminations. The setup of this problem is                       of the induced multipole. The explicit form of e i is
+depicted as in Fig.1. For the convenience of reading, in this                   ei m =imeik r cos(  )eim , where inc is the angle that the
+                                                                                              0 0,i   0,i   inc    inc
+
+
+paper, we use italic characters to denote scalars (such as c ).
+                                                                                incident wave number makes with the x -axis.
+We use bold body or character with head bar to denote the
+                                                                                   The total incident field on the ith subunit can be expressed
+column vector (such as c and c ). And we denote block vector
+                                                                                as the summation of the background incident field and the
+by using the bold body with head bar (such as c ). A matrix is
+                                                                                multiple scattered fields from other subunits. The translational
+represented by character with double head bars (such as c ).                    addition theorem enables one to represent the scattered field
+   Suppose the unknown scatterers (PEC and dielectric) are                      from other scatterers as a form of the incident field to one
+located inside the domain of interest D  R2 . The background                   scatterer. After some derivations by using the addition theorem
+is air and k0 denotes the wave number in free space. A total                    [22] we get,
+                                                                                                                  N
+number of Ninc unit plane waves that are evenly distributed                                      ai  Ti  [ei   ij  a j ], i  1,2,       ,N ,             (2)
+around a circle impinge on the domain. The scattered field is                                                     j 1
+                                                                                                                  j i
+received by N r antennas, which are symmetrically located
+around a circle. Thus there are totally Nr  Ninc points of data                where  ij is the translational matrix given in [26] and Ti is the
+recorded in the scattered field matrix. The whole domain of                     T-matrix of the ith subunit which relates the total incident
+interest is discretized into square meshes with N subunits. If                  field coefficient to the amplitude of the induced multipole. For
+the mesh is fine enough, the scattering behavior of each cell can               a dielectric subunit, the T-matrix can be calculated by [25],
+                                                    Transmitter
+                                                                                                 r J m (k0 R) J m (  r k0 R)  J m (  r k0 R) J m (k0 R)
+                                                                                  T m 
+                                                    Receiver
+                                                                                                                                                           ,
+                                                                                            H  (k0 R) J m (  r k0 R)   r J m (  r k0 R) H m(1) (k0 R) (3)
+                                                                                              (1)
+                                                                                              m
+
+
+                             0                                                    m  M , , M
+                                                                                  And for a PEC subunit,
+                                                                                                        J (k R)
+                               Domain of interest
+                                                                                              T m   m(1) 0 , m  M , , M .        (4)
+                                PEC                                                                    H m ( k0 R )
+                                                                                  Combining the N equations for all the subunits into one
+                                                                                matrix equation, we then obtain amplitude of the induced
+                                                                                multipole as,
+   Fig.1. The geometry for inverse scattering measurements: the dielectric
+ scatterer with permittivity  and the PEC scatterer coexist in the domain of                         a  O  e  A  a ,            (5)
+                      interest that is shown as a square.                                                              
+AP1108-1010                                                                                                                                                         3
+
+where a is an N (2M  1) 1 dimension vector consisting of               spectrum of singular values, the deterministic part of a can be
+                                                                         uniquely defined by the scattered field and the first L leading
+ai , i  1, 2,   , N along its column and O is a square matrix of
+                                                                                                   L u *  E sca
+size N (2M  1)  N (2M  1) , with the T-matrices for each              singular values as a s   j            v j , where the definition of
+                                                                                                  j 1  j
+subunit being arranged along its diagonal and zeros being in
+                                                                         the parameters can be found in [27]. a is decomposed as
+off-diagonal. Matrix A is the combination of translational
+                                                                         a  as  a n  as  V n  n ,        where V n is composed of
+matrices, where [ A]ij  ij for i  j and zero otherwise. e is
+                                                                         (2M  1) N  L      right        singular vectors and  n is a
+an N (2M  1) 1 column vector consisting of ei , i  1, 2,        ,N
+                                                                          (2M  1) N  L dimensional vector to be solved for by
+along its column.
+   The scattered field on the receiver can be obtained by,               optimization.
+                                          N                                 Due to the truncation of the singular values, the residue of the
+                          Ezsca (rq )   ψ t (k0 , rj )  a j   (6)   field equation can be defined as,
+                                         j 1                                                                                                           2
+
+where rq , q  1,2, , Nr is the location of the receiver under the                       fie  ψ t  a s  ψ t  V n   n  E sca ,                             (8)
+
+global coordinate. rj  rq  ρ j is the location of receiver under     where  is the Euclidean length of a vector. Similarly, the
+the local coordinate of the jth subunit.                                 residue of the state equation in Eq.(5) is defined to be [27],
+                                                                                                                                            2
+   Combining the N r equations for all the receivers into one                                             sta  C   n  D ,                                     (9)
+matrix equation, we have
+                          Esca  ψ t  a .                     (7)       where C  V n  O  A V n and D  O [e  A  a s ]  a s . The
+   Eq.(5) and Eq.(7) are referred to as the state equation and the       total relative residue is defined to be
+                                                                                                                              2                         2
+field equation, respectively. Note that in the EFIE model, the                                    tot  fie / E sca              sta / a s .                  (10)
+state and field equations are connected by the induced current,
+                                                                                                          inc
+while in T-matrix modeling, Eqs.(5) and (7) are connected by               For each incidence E p , the total relative residue can be
+the amplitude of induced multipole a .
+                                                                         calculated as  p , p  1,2,
+                                                                                           tot
+                                                                                                                   , Ninc . The diagonal elements of
+                       III. INVERSE PROBLEM                              matrix O are the unknown parameters to be solved in the
+  Two steps are involved in the inversion scheme. The first              optimization process. It is obtained by minimizing the
+                                                                         following cost function,
+step is to retrieve the T- matrices (matrix O ) from the given
+                                                                                                           1 Ninc
+scattering data by optimization. We use SOM as the inversion                                      f (O)    tot p .                (11)
+method. Attention should be paid to the multipole truncation                                               2 p 1
+number, which is closely related to both the accuracy and                   In solving the cost function, the two-step conjugate gradient
+computational cost of the method. The second step is to                  method is applied, i.e. alternatively updating  n and the O
+distinguish the PEC from the dielectric scatterers and then to           matrix. The steps of the algorithm are similar to the original
+retrieve the relative permittivity for the dielectric scatterers,        SOM [5] and is omitted here.
+which is the key point in solving the mixed boundary problem.
+                                                                         B. The choice of truncation number M
+A. The inversion method
+                                                                            The number of unknowns in the EFIE model is the number of
+  The essence of original SOM lies in that it fixes one portion          subunits, while the number of unknowns in T-matrix model is
+of the induced current first by applying singular value                  the number of subunits multiplied by number of multipoles
+decomposition (SVD) to the matrix that maps the induced                  chosen in expanding the field on each subunit. On the other
+current to the field on receivers. Then the optimization is              hand, it is clear that the larger is the truncation number for
+carried out in a smaller subspace of the current space in SOM,           multipoles M , the more accurate is the calculated scattered
+which results in faster convergent speed of the algorithm.               field in the T-matrix method. Therefore a study of the minimum
+  Similarly, we can also apply SOM to the T-matrix modeling              value of M is critical in ensuring a balance between the
+method by first fixing one portion of the amplitude of induced           accuracy of the solution and the computational cost.
+multipole. The matrix ψ t of dimension Nr  (2M  1) N in                   Under the fine meshing assumption ( k0 R  1 ), the small
+Eq.(7) refers to the mapping from amplitude of the induced               term asymptotic approximations for elements in T-matrices for
+multipole a to the scattered field on the receivers. ψ t is              both dielectric and PEC subunits are shown in Table 1.
+defined uniquely by the domain of interest and the position of               Table 1. The asymptotic approximations for elements in T-matrix
+the receivers. It is a similar mapping operator as GS in the                                          (k0 R)2                              i
+                                                                             Dielectric    T 0                (1   r )       T 1       ( r  1)(k0 R)4
+                                                                                                        4i                                  32
+EFIE model [27].
+                                                                                                        i                                  
+                                                                                           T 0                                 T 1 
+                                                    *
+  We take SVD of ψ t as ψ t  U    V . After analyzing the                   PEC                                                              ( k0 R ) 2
+                                                                                                     2ln(k0 R)                              4i
+AP1108-1010                                                                                                                                                 4
+
+   From the approximations, we see that the monopole element                                                        
+                                                                                                          imag T 0 >0                     Dielectric
+is the leading term in T-matrices for either PEC or dielectric                            T 0
+scatterers. M  0 is sufficient to represent the scattering                                    imag T 0 <0            PEC
+effects on either the dielectric or the PEC subunits. However,                 Fig.2. Criterion of classifying the PEC and dielectric scatterers
+the dipole element in T-matrix for PEC subunit is on the same                                    real   r  >1          Dielectric
+                                                                                              r
+order of k0 R as the monopole element for dielectric subunit.
+                                                                                                  real   r   0            PEC
+Therefore in the mixed boundary problem, M  1 should be                    Fig. 3. Criterion of classifying the PEC and dielectric scatterers in the
+chosen as the minimum truncation number of multipoles, to                                          relative permittivity pattern
+accurately represent the scattering effects on both the PEC and
+dielectric subunits.                                                                                                          4i T 0
+                                                                                                                   r  1                  .             (12)
+   To accelerate the optimization process, M  0 is firstly                                                                   ( k0 R ) 2
+chosen to get a rough initial guess of the leading monopole                 After further studying Fig.2 and Eq.(12), we find a
+elements in T-matrices. Then M  1 is used to retrieve the               convenient way to realize both differentiating PEC from
+whole matrix O , which includes both the dipole and monopole             dielectric scatterers and retrieving the relative permittivities for
+elements. It is worth mentioning that because of the symmetric           dielectric scatterers. As being indicated in Fig.2, the T 0 for
+property, the two dipole elements T 1 and T 1 in the                PEC has a negative imaginary part. Thus from Eq.(12), the
+T-matrix equal to each other. That is, the (2i  1)th and                retrieved  r for PEC should have a real part that is less than 1.
+ (2i  1)th elements ( i  1,2, , N ) of matrix O should equal           What is more, the application of L'Hôpital's rule shows that the
+                                                                         numerical value of  r for PEC is much less than zero in the
+to each other. Thus the unknowns are reduced by one third.
+                                                                         case when k0 R approaches 0. This means that the
+C. The classification method
+                                                                         mathematical implementation of Eq.(12) for PEC scatterers
+  After O is retrieved by the optimization process, the                  yields a value of relative permittivity that is automatically
+                                                                         beyond the range of relative permittivity for dielectric
+retrieved T-matrix for the ith cell can be expressed as Ti ,             scatterers. In summary, the convenient way to realize both
+i  1,2,   , N , which includes the dipole elements T 1 and           differentiating PEC from dielectric scatterers and retrieving the
+                                                                         relative permittivities for dielectric scatterers is given out in
+the monopole element T 0 . To provide the criterion for                Fig. 3. The advantage of the proposed method is that it works
+differentiating the PEC and dielectric scatterers, the monopole          well no matter the dielectric scatterer is lossy or not.
+elements in T-matrices for PEC and dielectric scatterers are
+further studied.                                                                                         IV. NUMERICAL RESULTS
+   The elements of T-matrix for dielectric scatterer is nonlinear           We present five numerical examples to validate the T-matrix
+with respect to  r . If the small term assumption        r k0 R  1   method. The first four examples are based on synthetic data.
+is satisfied, the monopole element for dielectric can be                 The last example is retrieved from the experimental dataset
+approximated               by        the     linear    polynomial,       provided by Institut Fresnel (Marseille, France) [28].
+                                                                            The domain of interest for all the first three numerical
+         ( k0 R ) 2
+T 0               (1   r ). In this paper, we consider only         examples under investigation is a square of size    , which
+            4i                                                           is discretized into N  45  45 square subunits. Ninc  10
+dielectric scatterers with real( r )  1 . Thus the imaginary part
+of T 0 for dielectric scatterer should be positive.
+                                                                                                  2
+  From Eq.(4), we know that the monopole element in the
+                              J 0 ( k0 R )
+T-matrix for PEC is T 0   (1)
+                                                                                                  0
+                                           . Under the small term
+                             H 0 ( k0 R )
+                                                                                     log 10(j)
+                                                                                                  -2
+assumption k0 R  1 , the imaginary part of T 0 should be
+                                                                                                  -4
+negative.
+  Therefore PEC and dielectric scatterers can be distinguished                                    -6
+by the sign of imag( T 0 ) . The criterion is depicted as shown in
+                                                                                                  -8
+Fig.2.                                                                                              0              10           20                   30
+                                                                                                               Singular value number, j
+   For those subunits identified as dielectric scatterer, the
+relative permittivity can be retrieved due to the fact that it is in a                                 Fig. 4. Singular values of the matrix ψ t
+
+linear relationship with the retrieved T 0 under small term
+assumption,
+AP1108-1010                                                                                                                                                               5
+
+
+                                  -0.5                                          4      -0.5                                            4
+                                                                                2                                                      2
+                                                                                0                                                      0
+
+                                     0                                          -2        0                                            -2
+                                                                                -4                                                     -4
+                                                                                -6                                                     -6
+                                  0.5                                           -8      0.5                                            -8
+                                    -0.5            0             0.5                     -0.5            0             0.5
+                                                   (a)                                                   (b)
+                        Fig. 5. Two circular objects: one PEC and one dielectric scatterer (a) original pattern. (b) Reconstructed pattern.
+                                  -0.5                                      4            -0.5                                          4
+                                                                            2                                                          2
+
+                                                                            0                                                          0
+                                                                            -2                                                         -2
+                                    0                                                      0
+                                                                            -4                                                         -4
+                                                                            -6                                                         -6
+
+                                                                            -8                                                         -8
+                                  0.5                                       -10          0.5                                           -10
+                                    -0.5            0             0.5                      -0.5            0             0.5
+                                                   (a)                                                    (b)
+        Fig. 6. Three square objects: one PEC and two dielectric scatterers with different permittivities (a) Original pattern. (b) Reconstructed pattern.
+                                  -0.5                                          4          -0.5                                             4
+
+
+                                                                                2                                                           2
+
+
+                                    0                                           0               0                                           0
+
+
+                                                                                -2                                                          -2
+
+
+                                   0.5                                          -4          0.5                                             -4
+                                     -0.5            0             0.5                        -0.5               0             0.5
+                                                    (a)                                                         (b)
+
+                             Fig. 7. A ring dielectric object and a square PEC object (a) original pattern. (b) Reconstructed pattern.
+
+                                                                         66                                                          66
+                             -0.2
+                               -0.2                                                  -0.2
+                                                                                       -0.2
+                                                                         44                                                          44
+                                 00                                      22              00                                          22
+                                                                         00                                                          00
+                              0.2
+                                0.2                                                   0.2
+                                                                                        0.2
+                                                                         -2-2                                                        -2-2
+                               -0.5
+                                 -0.5            00            0.5
+                                                                 0.5                   -0.5
+                                                                                         -0.5            00            0.5
+                                                                                                                         0.5
+                                                (a)(a)                                                  (b)(b)
+                                                                         66                                                          66
+                             -0.2
+                               -0.2                                                  -0.2
+                                                                                       -0.2
+                                                                         44                                                          44
+                                 00                                      22              00                                          22
+                                                                         00                                                          00
+                              0.2
+                                0.2                                                   0.2
+                                                                                        0.2
+                                                                         -2-2                                                        -2-2
+                               -0.5
+                                 -0.5            00            0.5
+                                                                 0.5                   -0.5
+                                                                                         -0.5            00            0.5
+                                                                                                                         0.5
+                                                (c)(c)                                                  (d)(d)
+ Fig. 8. Two circular objects: one PEC and one lossy dielectric scatterer. (a) Original pattern for real part of  r . (b) Original pattern for imaginary part of  r .
+                                (c) Reconstructed pattern for real part of  r . (d) Reconstructed pattern for imaginary part of  r .
+
+
+plane incident waves are evenly distributed on [0,2 ) . N r =30                       measured scattered field. The noise level is quantified by the
+receivers are symmetrically located on a circle of radius 5 .                                                             F
+                                                                                       noise-to-signal ratio defined as        100% , where  F
+To avoid the inverse crime, the number of multipoles used in                                                              K F
+getting the forward data is more than that used in the inverse                         denotes the Frobenius norm of a matrix. The singular value
+part. The synthetic data is calculated by T -matrix method with
+                                                                                       spectrum of the matrix ψ t for M  1 is shown in Fig. 4. The
+M  2 . The scattered field is recorded in the matrix K of size                        value of L in cost function can be chosen according to the rules
+Nr  Ninc . Then white Gaussian noise  is added to the matrix                         given in [4, 5].
+K , and the resultant noisy matrix K   is treated as the
+AP1108-1010                                                                                                                                             6
+
+     In the inverse problem, M  1 is the truncation number of
+the multipoles. The initial guess for material in the optimization                                             y
+
+                                                                                                                        150mm
+                                                                                                         54.25mm
+is chosen to be the air and we stop the optimization at the 100th
+step of iteration. In the exact permittivity patterns, we use
+  r  0 to mark the shape and location of PEC scatterers. Note                                                         x
+that this practice only serves to visually distinguish PEC from
+                                                                                                       150mm
+other scatterers.
+A. First example
+   In the first numerical example, we have two circles with                                   Fig. 9. Configuration of FoamMetExt
+radius 0.1 placed inside the domain with center distance
+                                                                               white Gaussian noise is added to the exact scattered field. From
+ 0.5 , as shown in Fig. 5(a). The PEC circular scatterer on the               Fig. 7 (b), both the ring and PEC objects are correctly identified
+right side in Fig. 5 (a) is marked as  r  0 for the purpose of               and the hole of the ring is clearly seen.
+visualization. The dielectric circular scatterer on the left side in
+                                                                                 D. Fourth example
+Fig. 5(a) has relative permittivity of  r  4 . The distance of the
+                                                                                  In the fourth numerical example, the domain of interest is of
+two edges is less than half wavelength. The synthetic data
+                                                                               size   0.5 and is discretized into N  60  30 square
+includes 10% white Gaussian noise to the exact scattered field.
+                                                                               subunits. The setups of the transmitters and receivers remain
+From the reconstructed pattern shown in Fig. 5(b), the two
+                                                                               the same as the previous examples. We have two circles with
+objects are clearly identified.
+                                                                               radius 0.1 placed inside the domain as shown in Fig. 8(a).
+  B. Second Example                                                            The PEC circular scatterer is on the right side and is marked as
+   In the second example, two dielectric squares with relative                  r  0 . The dielectric circular scatterer is a lossy one with
+permittivities  r  4 and  r  2.5 respectively are placed                    r  4  6i and is placed on the left hand side. The original
+inside domain of interest as shown in Fig. 6 (a). A PEC square                 patterns for real and imaginary parts are depicted in Fig. 8 (a)
+is placed on left top of the domain. 10% white Gaussian noise is               and Fig. 8 (b) respectively. The synthetic data includes 10%
+added to the exact scattered field. From Fig. 6(b) we can clearly              white Gaussian noise to the exact scattered field.
+see that two dielectric objects of permittivities at around  r  4               From the reconstructed patterns shown in Fig. 8 (c) and Fig.
+and  r  2.5 respectively as well as a PEC object on top of the               8 (d), both the lossy dielectric scatterer and PEC object are
+                                                                               clearly identified, with the PEC on the right and dielectric on
+domain are well retrieved. The shape and the position of the
+                                                                               the left. The numerical example shows that the T-matrix
+PEC object are correctly reconstructed.
+                                                                               method can differentiate lossy dielectric scatterer from PEC
+C. Third Example                                                               scatterer.
+   In the third -0.05                        1  r  4 is
+               example, a dielectric ring with        -0.05placed in                    Example -0.05
+                                                                               E. Fifth 1                                        1
+the domain of interest as shown in Fig. 7(a). The outer radius is                At last, in0 order to verify
+                    0                        0               0                                           0 the validity of 0 T-matrix method
+ 0.25 and inner radius is 0.15 . A small square PEC object is                against the experimental data, we adopt the experimental
+                 0.05 right corner of the -1
+placed on the upper                          dielectric 0.05
+                                                         ring. 10%                                   Institut Fresnel (Marseille,-1
+                                                                                            -1 by 0.05
+                                                                               dataset collected                                  France). The
+                                                  -2                                         -2                                          -2
+                     -0.05 0 0.05                               -0.05 0 0.05                                -0.05 0 0.05
+                 -0.05    (a)                      1        -0.05    (b)                      1         -0.05    (c)                     1
+                       0                           0              0                           0                0                         0
+                  0.05                             -1        0.05                             -1         0.05                            -1
+                                                   -2                                         -2                                         -2
+                          -0.05 0 0.05                               -0.05 0 0.05                                -0.05 0 0.05
+                               (a)                                        (b)                                         (c)
+
+                -0.05                             1         -0.05                            1         -0.05                             1
+                      0                           0              0                           0               0                           0
+
+                 0.05                             -1         0.05                            -1         0.05                             -1
+                                                  -2                                         -2                                          -2
+                     -0.05 0 0.05                               -0.05 0 0.05                                -0.05 0 0.05
+                 -0.05    (d)                      1        -0.05    (e)                      1         -0.05     (f)                    1
+  Fig. 10. Frequency-hopping reconstruction at 2GHz~12GHz using T-matrix SOM for FoamMetExt. Real part of relative permittivity (a) 2 GHz, (b) 4 GHz, (c) 6
+                       0                           0 GHz, (d) 80GHz, (e) 10 GHz and (f) 120GHz             0                            0
+                  0.05                             -1        0.05                             -1         0.05                            -1
+                                                   -2                                         -2                                         -2
+                          -0.05 0 0.05                               -0.05 0 0.05                                -0.05 0 0.05
+                               (d)                                        (e)                                          (f)
+AP1108-1010                                                                                                                                                7
+
+details of the experimental configuration can be found in [28].               Problems," Asia Pacific Microwave Conference, Vols 1-5, pp. 1549-1552,
+                                                                              2009.
+Here the dataset “FoamMetExt” is tested, where a metal is put                 [5] X. Chen, "Subspace-based optimization method for solving inverse
+together with foam inside the domain of interest, and we use the              scattering problems," IEEE Transactions on Geoscience and Remote Sensing,
+data that are corresponding to the two-dimensional TM                         vol. 48, pp. 42-49, 2010.
+                                                                              [6] X. Chen, "Subspace-based optimization method for inverse scattering
+illumination. The data are collected at multi-frequency                       problems with an inhomogeneous background medium," Inverse Problems,
+illuminations.                                                                vol. 26, p. 074007, 2010.
+    Ninc  18 incident waves evenly illuminate the domain                     [7] Y. Zhong, X. Chen, and K. Agarwal, "An Improved Subspace-Based
+                                                                              Optimization Method and Its Implementation in Solving Three-Dimensional
+around a circle of radius 1.67m. For each illumination, the                   Inverse Problems," IEEE Transactions on Geoscience and Remote Sensing,
+scattered field is collected by 241 receiving locations no further            vol. 48, pp. 3763-3768, 2010.
+                                                                              [8] A. Qing, C. K. Lee, and L. Jen, "Electromagnetic inverse scattering of
+than 60 to the transmitter with a distance of 1.67m from the                 two-dimensional perfectly conducting objects by real-coded genetic
+origin. The configuration of the domain of interest is depicted               algorithm," IEEE Transactions on Geoscience and Remote Sensing, vol. 39, pp.
+                                                                              665-676, 2001.
+as Fig. 9. The domain of interest is of size 150 150mm2 . A                  [9] A. Qing, "Electromagnetic imaging of two-dimensional perfectly
+foam cylinder of diameter 80mm and  r  1.45  0.15 is                       conducting cylinders with transverse electric scattered field," IEEE
+                                                                              Transactions on Antennas and Propagation, vol. 50, pp. 1786-1794, 2002.
+centered at the origin. A copper tube of diameter 28.5mm is                   [10] A. Qing, "Electromagnetic inverse scattering of multiple two-dimensional
+located adjacent to the foam as shown in Fig. 9.                              perfectly conducting objects by the differential evolution strategy," IEEE
+   The inversion is done by frequency hopping within the range                Transactions on Antennas and Propagation, vol. 51, pp. 1251-1262, 2003.
+                                                                              [11] X. Ye, X. Chen, Y. Zhong, and K. Agarwal, "Subspace-based
+of 2GHz-12GHz at step of 2GHz. The domain of interest is                      optimization method for reconstructing perfectly electric conductors," Progress
+discretized into a grid of 45x45 subunits. The unit of length in              in Electromagnetics Research, vol. 100, pp. 119-128, 2010.
+Fig. 10 is meter (m). From Fig. 10, we can see the result is quite            [12] X. Ye, Y. Zhong, and X. Chen, "Reconstructing perfectly electric
+                                                                              conductors by the subspace-based optimization method with continuous
+satisfactory. The PEC and dielectric scatterers are clearly seen              variables," Inverse Problems, vol. 27, p. 055011, 2011.
+in Fig. 10.                                                                   [13] A. F. Peterson, S. L. Ray, and R. Mittra, Computational methods for
+                                                                              electromagnetics. New York: IEEE Press, 1998.
+                                                                              [14] D. Colton, H. Haddar, and P. Monk, "The linear sampling method for
+                V. DISCUSSION AND CONCLUSION                                  solving the electromagnetic inverse scattering problem," SIAM Journal on
+   The advantage of the T-matrix method over the conventional                 Scientific Computing, vol. 24, pp. 719-731, 2002.
+                                                                              [15] A. Kirsch, "The MUSIC algorithm and the factorization method in
+quantitative method [16-19] for mixed boundary inversion is                   inverse scattering theory for inhomogeneous media," Inverse Problems, vol.
+that it can well distinguish lossy dielectric scatterers from PEC             18, pp. 1025-1040, 2002.
+because the two kinds of scatterers are distinguished by the new              [16] R. F. Bloemenkamp, A. Abubakar, and P. M. van den Berg, "Inversion of
+classification criterion rather than the imaginary part of relative           experimental multi-frequency data using the contrast source inversion method,"
+                                                                              Inverse Problems, vol. 17, pp. 1611-1622, 2001.
+permittivity.                                                                 [17] C. Yu, L. Song, and Q. Liu, "Inversion of multi-frequency experimental
+   The shortcoming of the method is the larger number of                      data for imaging complex objects by a DTA-CSI method," Inverse Problems,
+unknowns due to multipole expansion used on each subunit.                     vol. 21, pp. S165-S178, 2005.
+                                                                              [18] O. Feron, B. Duchene, and A. Mohammad-Djafari, "Microwave imaging
+When both monopole and dipole are considered, the number of                   of inhomogeneous objects made of a finite number of dielectric and conductive
+unknowns is twice as many as that of conventional quantitative                materials from experimental data," Inverse Problems, vol. 21, pp. S95-S115,
+method. Consequently, the proposed T-matrix method requires                   2005.
+                                                                              [19] L. Crocco, M. D'Urso, and T. Isernia, "Testing the contrast source
+higher computational cost and larger memory size. But on the                  extended Born inversion method against real data: the TM case," Inverse
+other hand, the proposed method can be easily integrated with                 Problems, vol. 21, pp. S33-S50, 2005.
+the fast multipole method that is fast and memory-saving,                     [20] P. C. Waterman, "Matrix formulation of electromagnetic scattering,"
+                                                                              Proc. IEEE, vol. 53, pp. 805-811, 1965.
+which will be the authors’ future work.                                       [21] G. P. Otto and W. C. Chew, "Microwave Inverse Scattering - Local
+   In conclusion, this paper proposes an approach of using                    Shape Function Imaging for Improved Resolution of Strong Scatterers," IEEE
+T-matrix to reconstruct the mixed boundary condition problem                  Transactions on Microwave Theory and Techniques, vol. 42, pp. 137-141,
+                                                                              1994.
+in two-dimensional setting. The proposed algorithm is an                      [22] G. P. Otto and W. C. Chew, "Inverse Scattering of H-Z Waves Using
+extension of SOM to a new modeling scheme—T-matrix                            Local Shape-Function Imaging - a T-Matrix Formulation," International
+method. Numerical results show that the proposed method                       Journal of Imaging Systems and Technology, vol. 5, pp. 22-27, 1994.
+works well for the mixed boundary problem. Experimental data                  [23] J. H. Lin and W. C. Chew, "Solution of the three-dimensional
+                                                                              electromagnetic inverse problem by the local shape function and the conjugate
+have further proved the validity of the proposed method.                      gradient fast Fourier transform methods," Journal of the Optical Society of
+                                                                              America A, vol. 14, pp. 3037-3045, 1997.
+                               REFERENCE:                                     [24] K. Agarwal, L. Pan, and X. Chen, "Subspace-Based Optimization
+                                                                              Method for Reconstruction of 2-D Complex Anisotropic Dielectric Objects,"
+[1] A. Abubakar, T. M. Habashy, P. M. van den Berg, and D. Gisolf, "The       IEEE Transactions on Microwave Theory and Techniques, vol. 58, pp.
+diagonalized contrast source approach: an inversion method beyond the Born    1065-1074, 2010.
+approximation," Inverse Problems, vol. 21, pp. 685-702, 2005.                 [25] A. Z. Elsherbeni and A. A. Kishk, "Modeling of Cylindrical Objects by
+[2] C. Yu, L. Song, and Q. Liu, "Through-wall imaging(TWI) by radar: 2D       Circular Dielectric and Conducting Cylinders," IEEE Transactions on
+tomographic results and analyses " IEEE Transaction on Geoscience and         Antennas and Propagation, vol. 40, pp. 96-99,1992.
+Remote Sensing, vol. 43, pp. 2793-2798, 2005.                                 [26] W. C. Chew, Waves and fields in inhomogeneous media, 2nd ed. New
+[3] Y. Zhong and X. Chen, "Twofold subspace-based optimization method for     York: IEEE Press, 1995.
+solving inverse scattering problems," Inverse Problems, vol. 25, p. 085003,   [27] X. Chen, "Application of signal-subspace and optimization methods in
+2009.                                                                         reconstructing extended scatterers," Journal of the Optical Society of America
+[4] X. Ye and X. Chen, "The Role of Regularization Parameter of               A, vol. 26, pp. 1022-1026, 2009.
+Subspace-based Optimization Method in Solving Inverse Scattering
+AP1108-1010                                                                 8
+
+[28] J. M. Geffrin, P. Sabouroux, and C. Eyraud, "Free space experimental
+scattering database continuation: experimental set-up and measurement
+precision," Inverse Problems, vol. 21, pp. S117-S130, 2005.
+

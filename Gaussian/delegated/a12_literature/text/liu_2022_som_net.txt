@@ -1,0 +1,1354 @@
+                                          JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                    1
+
+
+
+
+                                                       SOM-Net: Unrolling the Subspace-based
+                                                      Optimization for Solving Full-wave Inverse
+                                                                 Scattering Problems
+                                               Yu Liu Member, IEEE, Hao Zhao, Rencheng Song Member, IEEE, Xudong Chen Fellow, IEEE, Chang Li
+                                                                     Member, IEEE and Xun Chen, Senior Member, IEEE
+
+
+
+
+arXiv:2209.03567v2 [eess.SP] 1 Nov 2022
+                                             Abstract—In this paper, an unrolling algorithm of the iterative           include the distorted Born iterative method (DBIM) [2], the
+                                          subspace-based optimization method (SOM) is proposed for solv-               contrast source inversion (CSI) method [3], the contrast source
+                                          ing full-wave inverse scattering problems (ISPs). The unrolling              extended Born (CS-EB) method [4], and the subspace-based
+                                          network, named SOM-Net, inherently embeds the Lippmann-
+                                          Schwinger physical model into the design of network structures.              optimization method (SOM) [5], [6], etc. Those methods have
+                                          The SOM-Net takes the deterministic induced current and the                  achieved great success in reconstructing scatterers in various
+                                          raw permittivity image obtained from back-propagation (BP)                   ISP applications. However, one main bottleneck of nonlinear
+                                          as the input. It then updates the induced current and the                    iterative methods is the lack of real-time reconstruction perfor-
+                                          permittivity successively in sub-network blocks of the SOM-                  mance due to the expensive computational cost. In addition,
+                                          Net by imitating iterations of the SOM. The final output of the
+                                          SOM-Net is the full predicted induced current, from which the                the reconstruction quality is also highly dependent on the
+                                          scattered field and the permittivity image can also be deduced               complicated regularization.
+                                          analytically. The parameters of the SOM-Net are optimized in a                  In recent years, researchers have successfully introduced
+                                          supervised manner with the total loss to simultaneously ensure               deep learning (DL) technology to solve ISPs [7]–[9]. Many
+                                          the consistency of the induced current, the scattered field, and the         studies demonstrate that DL-based methods outperform con-
+                                          permittivity in the governing equations. Numerical tests on both
+                                          synthetic and experimental data verify the superior performance              ventional iterative ones for both reconstruction speed and
+                                          of the proposed SOM-Net over typical ones. The results on                    accuracy. Nevertheless, a major concern of DL-based methods
+                                          challenging examples like scatterers with tough profiles or high             is the generalization ability of the learned models. Namely, the
+                                          permittivity demonstrate the good generalization ability of the              performance of DL-based methods may degrade significantly,
+                                          SOM-Net. With the use of deep unrolling technology, this work                when the testing target is quite different from those training
+                                          builds a bridge between traditional iterative methods and deep
+                                          learning methods for solving ISPs.                                           ones on the aspects such as shape, size, and parameter ranges.
+                                                                                                                       This is because DL models are typically data-driven, and the
+                                            Index Terms—Inverse scattering problem, deep unrolling,
+                                                                                                                       constraints of the governing physical laws are only partially
+                                          subspace-based optimization.
+                                                                                                                       satisfied compared to existing iterative full-wave methods.
+                                                                                                                          Many efforts have been made to improve the model gen-
+                                                                 I. I NTRODUCTION
+                                                                                                                       eralization ability of DL-based inversion methods, which are
+
+                                          F     Ull-wave electromagnetic inverse scattering problems
+                                                (ISPs) aim at determining the shape, position, and con-
+                                          stitutive parameters of unknown scatterers from the measured
+                                                                                                                       often referred to as physics-inspired models. In general, ex-
+                                                                                                                       isting physics-inspired methods can be divided into two types
+                                                                                                                       according to the different ways of model learning. The first
+                                          scattering field. It is well known that the full-wave ISP is                 type of methods accelerate the conventional iterative methods
+                                          usually highly nonlinear and ill-posed [1], which needs to                   using the DL technique, which only adopt neural networks to
+                                          be solved by nonlinear iterative methods based on govern-                    replace some expensive components in the traditional objective
+                                          ing physical models. Typical nonlinear iterative ISP methods                 function method.
+                                             This work was supported in part by the National Natural Science Foun-        For example, Guo et al. [10] introduced a supervised descent
+                                          dation of China (Grants 62176081, 62271186, 61922075, and 41901350),         method (SDM) to learn the average descent directions from
+                                          the Provincial Natural Science Foundation of Anhui (Grant 2108085MF201,      data. In [11], Guo et al. applied the SDM to the pixel-based
+                                          2008085QF285), the Anhui Key Project of Research and Development
+                                          Plan (Grants 202104d07020005), and the Fundamental Research Funds for        and model-based inversion of microwave data for dielectric
+                                          the Central Universities (Grants PA2021KCPY0051, JZ2020HGPA0111 and          targets. This type of methods have a great advantage on
+                                          JZ2021HGTB0078). (Corresponding author: Rencheng Song).                      generalization ability, but the real-time performance is still a
+                                             Yu Liu, Hao Zhao, Rencheng Song and Chang Li are with the Department of
+                                          Biomedical Engineering, and also with the Anhui Province Key Laboratory of   challenge.
+                                          Measuring Theory and Precision Instrument, Hefei University of Technology,      The second type of physics-inspired methods are composed
+                                          Hefei 230009, China (e-mail: yuliu@hfut.edu.cn; haozhao1@mail.hfut.edu.cn;   of two steps, i.e., a rough permittivity image reconstruction
+                                          rcsong@hfut.edu.cn; changli@hfut.edu.cn).
+                                             Xudong Chen is with the Department of Electrical and Computer En-         by a fast imaging method, followed by a permittivity im-
+                                          gineering, National University of Singapore, 117583, Singapore (e-mail:      age enhancement to get a high-resolution target [12], [13].
+                                          elechenx@nus.edu.sg).                                                        Among these methods, the back-propagation (BP) method is
+                                             Xun Chen is with the Department of Electronic Engineering and Informa-
+                                          tion Science, University of Science and Technology of China, Hefei, Anhui,   commonly used to reconstruct the rough permittivity image
+                                          230027, China (e-mail: xunchen@ustc.edu.cn).                                 from the scattered field. Then, the resolution of rough input
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                           2
+
+
+
+image is enhanced in an image-to-image translation way using        The input of the SOM-Net is taken as the deterministic induced
+various networks, such as the U-Net [14], GANs [15], [16],          current obtained by the singular value decomposition (SVD)
+cGANs [17], etc. The performance of this kind of methods            and the raw permittivity image obtained from BP, while the
+is dominated by both the quality of input images and the            output of SOM-Net is the predicted full induced current.
+way of conducting image resolution enhancement. Wei et al.          The induced current and the permittivity image are updated
+[18] proposed the dominant current scheme (DCS) instead of          alternatively by passing through the sub-network blocks in
+BP to generate a better rough input for the U-Net. Zhang et         SOM-Net, which is like performing successive iterations in
+al. [19] improved the input by combining the rough images           SOM. Particularly, the update of the induced current in the
+from both qualitative and quantitative methods. Yao et al. [20]     SOM-Net is realized by the mapping of each sub-network,
+proposed to obtain the initial input image using a shallow          while the permittivity is still updated analytically. Finally, the
+convolutional neural network (CNN) and then enhance the             scattered field and the permittivity are also deduced analyti-
+resolution using U-Net. In addition to these efforts to improve     cally from the output induced current. The whole SOM-Net
+the quality of input images, Huang et al. [21] adopted the          model is optimized with residuals defined simultaneously on
+structural similarity index measure (SSIM) loss and the mean        the induced current, the scattered field, and the permittivity
+squared error (MSE) loss to jointly constrained image features      image in a supervised manner. The match of all these physical
+and improve the reconstruction quality. Song et al. [22] defined    parameters which are governed by the Lippmann-Schwinger
+a novel perceptual adversarial network to improve the quality       equation ensures the generalization ability of the SOM-Net
+of image-to-image translation. Wei et al. [23] introduced an in-    model. Numerical tests on both synthetic and experimental
+duced current learning method (ICLM) to solve the translation       data verify the superior performance of the proposed SOM-
+in the contrast source domain instead of the contrast domain.       Net over existing ones.
+Although these methods achieve better reconstructions, the             In summary, the contributions of this work are listed as
+image-to-image translation in ISP is still lacking of physical      follows:
+insight, thereby restricting the generalization ability of this        • The proposed SOM-Net inherently embeds physical
+kind of DL-based ISP methods. Specifically, the image-to-                knowledge by unrolling SOM, which introduces an ef-
+image translation in existing ISP methods only restricts the             fective way to design physics-inspired deep learning
+match of a single physical variable, which is usually the                networks from the conventional iterative methods. Specif-
+permittivity. The ignoring of the consistency of other physical          ically, the update of the induced current and the per-
+parameters may also degenerate the model generalization                  mittivity image within each sub-network of the SOM-
+ability.                                                                 Net effectively reduces the nonlinearity of the mapping.
+   Recently, the unrolling technique [24] has attracted exten-           Besides, the permittivity is always updated analytically in
+sive attention in image processing and computational imaging             SOM-Net which greatly simplifies the network structure.
+research, which builds a bridge between conventional iter-               Therefore, the SOM-Net is physically interpretable and
+ative methods and DL-based methods. The deep unrolling                   efficient.
+technique constructs neural networks with a few sub-network            • The full constraints of physical variables, including the
+modules to imitate iterations of conventional methods. The               induced current, the scattered field, and the permittivity
+unknown target parameters are successively updated in each               image, make the output of the SOM-Net physically
+sub-network module like doing iterations. It effectively em-             consistent with the governing law. Guided by those con-
+beds physical knowledge into deep neural networks, which                 straints, the prediction of the SOM-Net is more reliable
+makes the DL model more interpretable and efficient. The                 and consistent, in terms of not only the reconstructed
+unrolling technique has been verified to be efficient in solving         images but also the induced current and the scattered
+various tasks like medical imaging [25]–[27], and image                  field.
+restoration [28], [29], etc. It has also been introduced to solve      • The testing results on various challenging examples
+nonlinear ISPs very recently. Liu et al. [30] introduced the PM-         demonstrate the effectiveness and good generalization
+Net to simulate the ADMM iterative process, which defines                ability of the SOM-Net. In particular, the comparison
+four unconstrained sub-problems to achieve the alternating               results on scatterers with tough profiles or high permit-
+optimization of contrast source and contrast. Guo et al. [31]            tivity verify the advantages of the proposed method over
+proposed an ISP SOLVER to simulate the iterative gradient-               other comparable ones in terms of both accuracy and
+based inversion method, where a pre-trained forward model is             generalization ability.
+used repeatedly to calculate the data fitness. The performance         This paper is organized as follows. In Section II, we in-
+of the ISP SOLVER is strongly affected by that of the pre-          troduce the formulations of the proposed algorithm. Synthetic
+trained FWD SOLVER model. These methods have been                   and experimental data are then tested in Section III for the
+verified to obtain good generalization capability compared to       performance verification. In Section IV, we discuss the benefit
+direct data-to-model networks. However, only partial physical       of SOM-net and its applications in other scenarios. Finally, we
+variables are explicitly enforced to satisfy the consistency in     conclude our work in Section V.
+these methods. The embedding of the governing physical law
+in learned networks can still be further improved.                                         II. M ETHOD
+   In this work, an unrolling of the subspace-based optimiza-                                                                ¯
+                                                                      For clarity, the notations are declared first. We use X̄
+tion, named SOM-Net, is proposed to solve nonlinear ISPs.           and X̄ to denote the matrix and vector of the discretized
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                  3
+
+
+
+                                                                           2) SOM Algorithm: The purpose of the inverse problem
+                                                                        is to retrieve the relative permittivity ǭ¯r of the scatterer from
+                                                                        the measured scattering field Ē s . For solving nonlinear ISPs,
+                                                                        the induced current cannot be obtained directly from (2).
+                                                                        Suppose                  value decomposition (SVD) of Ḡ      ¯ is
+                                                                         ¯      Pthe singular
+                                                                                           H
+                                                                                                                                        S
+                                                                        ḠS = n ūn σn ν̄n with σ1 ≥ σ2 ≥, ..., σM = 0, where µ̄n ,
+                                                                        ν̄n and σn are the orthogonal left, right singular vectors, and
+                                                                        singular values of Ḡ ¯ , respectively. The singular values are
+                                                                                               S
+                                                                        sorted in the descending order.
+                                                                           In SOM, the full induced current J¯ is decoupled into the
+                                                                        deterministic induced current J¯+ and the ambiguous induced
+Fig. 1. The configuration of a 2-D ISP under TM illuminations.          current J¯− as
+                                                                                       J¯ = J¯+ + J¯− = J¯+ + V̄¯ − · ᾱ− ,              (3)
+operator or parameter X, respectively. The superscripts H               where V̄¯ − is composed of the last M − L columns of right
+and ∗ respectively indicate the conjugate transpose and the             singular vectors, ᾱ− is the unknown coefficient vector with
+complex conjugate of a matrix or vector.                                the length of M − L, and J¯+ satisfies
+                                                                                                      L
+                                                                                                        µ̄H
+                                                                                                          j · Ē
+                                                                                                                 s
+                                                                                              J¯+ =
+                                                                                                      X
+A. Formulation of the Problem                                                                                        ν̄j .               (4)
+                                                                                                      j=1
+                                                                                                             σj
+   The configuration of ISPs is shown in Fig. 1. For conve-
+nience, a 2-D transverse magnetic (TM) [32] wave is consid-               The initializations of SOM are taken as the deterministic
+ered, where the longitude direction is along ẑ. The background         induced current J¯+ and the contrast χ̄  ¯bp obtained by back-
+is free-space with permittivity ǫ0 and permeability µ0 . The            propagation in (5),
+                                                                                                PNi ¯                 ∗
+unknown scatterers are supposed to be lossless by default and                                        Jl (r) · Ēlt (r)
+                                                                                                               
+located in the domain of interest (DOI) D. The Ni transmitters                         ¯bp (r) = l=1
+                                                                                      χ̄           PNi              2    .         (5)
+                                                                                                             t
+located at rl with l = 1, 2, ..., Ni sequentially illuminate the                                     l=1  Ē l (r)
+unknown scatterers, and the Nr receivers located at rq with                In SOM, the unknown parameters, ᾱ− and χ̄           ¯ are updated
+q = 1, 2, ..., Nr simultaneously measure the scattered field.           alternatively. For the mth subunits, the induced current (J¯l )m
+   1) Forward Scattering: The forward scattering aims to                is updated by (3) , the total field (Ēlt )m is updated by (1) and
+calculate scattering field with known permittivity of scatterers.                      ¯)m is straightforwardly updated by (6) [1],
+                                                                        the contrast (χ̄
+The method of moments (MoM) [33] is taken to calculate                                "N                      # N                 2
+                                                                                                                                     
+the scattered field. The domain D is discretized into M                                X  i
+                                                                                            (Ēlt )∗m (J¯l )m      X i
+                                                                                                                         (Ē t
+                                                                                                                               )
+                                                                                                                            l m 
+                                                                              ¯)m =
+                                                                             (χ̄                     ·         /                      ,  (6)
+subunits, and the centers of subunits are located at rm with                                  ¯+
+                                                                                              J         ¯+
+                                                                                                        J                  ¯+
+                                                                                                                           J
+                                                                                        l=1     l         l        l=1       l
+m = 1, 2, ...M . Accordingly, taking into account of all
+subunits, the state equation is discretized as                          where Ni is the total number of transmitters, which is set as
+                                                                        16.
+                                        ¯ · J,
+                         Ē t = Ē i + Ḡ   ¯                    (1)
+                                         D
+
+
+where Ē i and Ē t represent the incident and total electric           B. The SOM-Net Algorithm
+field in domain D, respectively. The matrix Ḡ  ¯ with M × M               1) Structure of SOM-Net: The flowchart of the proposed
+                                                 D
+dimensions maps the induced current to the scattered field in           SOM-Net is shown in Fig. 2. The SOM-Net is designed by
+domain D. In the forward problem, (1) describes the wave-               unrolling the iterations in SOM, which not only incorporates
+scattering interaction in domain D.                                     physical knowledge into the model, but also alleviates the
+   The induced current J¯ is defined as J¯ = χ̄ ¯ · Ē t . It is well   nonlinear coupling of the induced current and the permittivity.
+known that the contrast χ̄ and the relative permittivity ǭ¯r√have
+                          ¯                                                As seen, there are K sub-networks in SOM-Net to imitate
+                   ¯ = −i (k0 /η0 ) (ǭ¯r − 1), where i = −1,
+a relationship of χ̄                                                    the SOM iterations. Suppose ǭ¯bp r   denotes the permittivity
+k0 and η0 respectively represent the wavenumber and the                 image reconstructed by the BP method with all scattered field.
+impedance of homogeneous medium background.                             The J¯+ represents the deterministic induced current matrix
+   The discretized data equation is expressed as                        reformulated from the vector J¯+ . For the lth incidence, the
+                                                                        deterministic induced current J¯l+ is concatenated with the
+                                    ¯ · J,
+                            Ē s = Ḡ   ¯                        (2)    permittivity image ǭ¯bp
+                                                                                              r as a single input sample of the SOM-
+                                     S
+                                                                        Net. Accordingly, the input of the SOM-Net model is denoted
+where Ē s is the scattered field measured by all receivers. The        as J¯+ ⊕ ǭ¯bp
+                                                                                    r with the number of input channels as 3, in
+        ¯ with N × M dimensions maps the induced current
+matrix Ḡ                                                               which the first two channels are occupied by the real and
+         S          r
+from the domain D to the space of scattered field in domain             imaginary part of the induced current and the third channel
+S. In the forward problem, (2) describes the scattered field as         is occupied by the permittivity image, and the symbol ⊕
+a reradiation of the induced current.                                   indicates the concatenation operation of two variables on the
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                       4
+
+
+
+
+Fig. 2. The structure of the proposed SOM-Net. The input of the SOM-Net is a combined variable with 3 input channels, which contains the deterministic
+induced current and the raw permittivity image obtained from BP. The output of the SOM-Net is the predicted full induced current J¯pre with 2 output
+channels, which is further used to calculate the predicted scattered field Ē s,pre and the predicted permittivity image ǭ¯pre
+                                                                                                                            r   through (2) and (6), respectively.
+The superscript pre indicates the variable is obtained from prediction. The symbol ⊕ denotes the concatenation operation for the input channels. The orange
+arrows denote the variables are updated analytically.
+
+
+
+real and imaginary channels. For the same reconstruction, all                     Algorithm 1 Data Flow in SOM-Net
+the Ni resulting samples from the total Ni incidences will be                                          ¯ ,Ḡ
+                                                                                   1: Calculate Ē i ,Ḡ   ¯ ;
+                                                                                                        D   S
+simultaneously employed to train the SOM-Net. Namely, the                          2: Obtain network input J¯(0) ← J¯+ , ǭ¯r,(0) ← ǭ¯bp
+                                                                                                                                       r ;
+batch size is set to Ni .                                                          3: for each k ∈ [2, K]do                   
+   Similar to SOM, the SOM-Net updates the induced current                         4:   J¯(k−1) = Sθ,k−1 J¯(k−2) ⊕ ǭ¯r,(k−2) ;
+J¯(k) and the permittivity variable ǭ¯r,(k) alternatively by passing                                         
+variables across the sub-network Sθ,k , k = 1, 2, . . . , K, where                 5:   ǭ¯      = F J¯
+                                                                                            r,(k−1)              ;
+                                                                                                                (k−1)
+θ indicates model parameters. Finally, the predicted induced                        6: end for
+current J¯pre with the channel number as 2 at all incidence                         7: J¯pre = J¯(K) ;
+is directly obtained by network reconstruction. Then, the                           8: Ē s,pre = Ḡ¯ · J¯pre ;
+                                                                                                     S
+predicted scattered field Ē s,pre is calculated analytically by                    9: ǭ¯r = ǭ¯r,(K) ;
+                                                                                          pre
+
+(2) and the permittivity image ǭ¯prer    can also be reconstructed
+directly from the contrast χ̄ ¯pre by (6). In SOM-Net, the analyt-
+ical update of physical variables is indicated by orange arrows
+in Fig. 2. It significantly simplifies the network complexity and                                             i    N
+                                                                                                           1 X                 2
+embeds physical knowledge into the model.                                                             LJ =      J¯lpre − J¯lMoM ,                             (8)
+                                                                                                           Ni
+   Overall, the data flow in SOM-Net is summarized in                                                              l=1
+
+Algorithm 1, where F represents the analytical update of                                                         r   N
+                                   ¯ by (6). Specifically, four sub-                                        1 X
+permittivity from the contrast χ̄                                                                      LE =        Ē s,pre − Ēqs ,                          (9)
+networks (i.e., K = 4) are experimentally taken to design                                                   Nr q=1 q
+SOM-Net in this paper. It is worth noting that K can be
+adjusted according to the complexity of the target ISP.                                               LSSIM = 1 − SSIM(ǭ¯pre ¯t
+                                                                                                                          r , ǭr ),                        (10)
+   2) Loss Functions: In this paper, a comprehensive loss                                                                       2
+                                                                                                           LMSE = ǭ¯pre
+                                                                                                                     r   − ǭ¯tr ,                          (11)
+function is defined to train the SOM-Net Sθ . The full loss
+function LS (θ) of SOM-Net is defined as                                          where J¯pre , Ē s,pre and ǭ¯pre
+                                                                                                                r   are the predicted induced cur-
+                                                                                  rent, the predicted scattered field and the permittivity image,
+ LS (θ) = LJ (θ) + LE (θ) + λ1 LSSIM (θ) + λ2 LMSE (θ), (7)                       respectively, while J¯MoM , Ē s and ǭ¯tr are the corresponding
+                                                                                  reference variables, respectively.
+where LJ (θ) denotes the induced current loss, LE (θ) is                             It can be seen that the total loss LS (θ) enforces the
+the scattered field loss, LSSIM (θ) indicates the structural                      consistency of the induced current, the scattered fiel, and the
+similarity loss of two permittivity images, and LMSE (θ) is the                   permittivity. The use of SSIM and MSE constraints on the
+pixel-wise MSE loss. Here, λi (i = 1, 2) are hyperparameters.                     permittivity image further ensures the structural and pixel-wise
+  Specifically, each term of LS (θ) is defined as                                 match with the reference one. Hence, from the physical point
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                                                       5
+
+
+
+                                                    5FTU5FTU5FTU5FTU
+                                          1                                           1                                      1                                      1
+                                                                         2                                                                                                                2
+                                                                                                                2                                      2
+
+                            (5     y(m)   0
+                                                                         1.5
+                                                                               y(m)   0                               y(m)   0                               y(m)   0
+                                                                                                                                                                                          1.5
+                                                                                                                1.5                                    1.5
+
+
+
+                                          -1                             1            -1                        1            -1                        1            -1                    1
+                                               -1      0          1                        -1    0       1                        -1    0       1                        -1    0      1
+                                                     x(m)                                       x(m)                                   x(m)                                   x(m)
+                                          1                                           1                                      1                                      1
+                                                                         2                                                                                                                2
+                                                                                                                2                                      2
+
+                         40.     y(m)   0
+                                                                         1.5
+                                                                               y(m)   0                               y(m)   0                               y(m)   0
+                                                                                                                                                                                          1.5
+                                                                                                                1.5                                    1.5
+
+
+
+                                          -1                             1            -1                        1            -1                        1            -1                    1
+                                               -1      0          1                        -1    0       1                        -1    0       1                        -1    0      1
+                                                     x(m)                                       x(m)                                   x(m)                                   x(m)
+                                          1                                           1                                      1                                      1
+                                                                         2                                                                                                                2
+                                                                                                                2                                      2
+
+                         6/FU   y(m)   0                                    y(m)   0                               y(m)   0                               y(m)   0
+                                                                         1.5                                                                                                              1.5
+                                                                                                                1.5                                    1.5
+
+
+
+                                          -1                             1            -1                        1            -1                        1            -1                    1
+                                               -1      0          1                        -1    0       1                        -1    0       1                        -1    0      1
+                                                     x(m)                                       x(m)                                   x(m)                                   x(m)
+                                          1                                           1                                      1                                      1
+                                                                         2                                                                                                                2
+                                                                                                                2                                      2
+
+                       40./FU   y(m)   0
+                                                                         1.5
+                                                                               y(m)   0                               y(m)   0                               y(m)   0
+                                                                                                                                                                                          1.5
+                                                                                                                1.5                                    1.5
+
+
+
+                                          -1                             1            -1                        1            -1                        1            -1                    1
+                                               -1      0          1                        -1    0       1                        -1    0       1                        -1    0      1
+                                                     x(m)                                       x(m)                                   x(m)                                   x(m)
+
+
+Fig. 3. Reconstruction results of Test#1 to Test#4 from the MNIST data set with 10% white Gaussian noise.
+
+                                                              TABLE I
+  E RROR METRICS OF RECONSTRUCTION RESULTS FOR 1500 TESTING SAMPLES FROM MNIST DATA SET BY SOM, U-N ET, AND SOM-N ET IN F IG .3.
+                                  Test#1           Test#2            Test#3          Test#4       1500 MNIST
+                     Method
+                             SSIM      RMSE   SSIM      RMSE    SSIM      RMSE  SSIM      RMSE  SSIM    RMSE
+                      SOM     0.84      0.09   0.84      0.11    0.77      0.18  0.83      0.12  0.80    0.13
+                     U-Net    0.89      0.09   0.88      0.11    0.84      0.20  0.87      0.10  0.88    0.13
+                    SOM-Net   0.92      0.07   0.94      0.07    0.88      0.14  0.95      0.07  0.91    0.10
+
+
+
+of view, the total loss LS (θ) guarantees the consistency of                                                  Qi and the number of output feature      maps is Qo . Thus,
+all physical variables in the Lippmann-Schwinger governing                                                    the complexity is calculated as O Qi Qo M1 M2 Kf2 [18],
+equation, thereby improving the prediction accuracy of the                                                    where the feature map size and the convolution kernel size are
+SOM-Net model. The proper design of network and loss                                                          M1 × M2 and Kf × Kf (Kf = 3 in this paper), respectively.
+functions enables the model to learn physical laws from the                                                     To calculate the scattered field, the computational cost of the
+data, thereby making the model have good generalization                                                       matrix-vector multiplication in (2) is O (Nr M ). To calculate
+ability.                                                                                                      the permittivity, the computational cost of the vector-vector
+                                                                                                              multiplication in (6) is O (M ).
+C. Computational Complexity
+   The computational complexity of the SOM-Net is mainly                                                                           III. N UMERICAL AND EXPERIMENTAL RESULTS
+divided into three parts, preparing input data, feed-forward                                                     In this section, we conduct verifications of SOM-Net with
+calculation of SOM-Net, and the estimation of the scattered                                                   both synthetic and experimental examples. The performance of
+field and the permittivity.                                                                                   the SOM-Net is compared with the classical SOM method and
+   To prepare input data, it needs to obtain the raw permittivity                                             U-Net [18]. The comparison with SOM indicates the benefit of
+image ǭ¯bp                                                  ¯+
+         r by BP and get the deterministic induced current J .                                                the improvement on reconstruction quality and speed of SOM-
+The computational complexity of BP is O (Ni M log M ) [18]                                                    Net, while the comparison with U-Net denotes the superior
+if the Fast Fourier transform (FFT) is applied in the matrix-                                                 performance of SOM-Net over existing physics-inspired deep
+vector multiplication, and Ni is the number of incidences.   The                                              learning methods.
+computational cost of obtaining J¯+ is O Nr2 M [34], which
+                                                   
+
+lies in the thin SVD decomposition of Ḡ  ¯ .
+                                            S
+   For the feed-forward of SOM-Net, the computational cost                                                    A. Configuration of the Scattering System
+includes several basic operations like convolutions, activation                                                 The configuration of synthetic ISPs is defined as follows.
+function, and max pooling, where the complexity is dominated                                                  16 line sources and 32 line receivers are equally placed
+by convolutions. Especially, assume that when performing                                                      on a circle with a radius of 3 m centered at the origin.
+convolution operation, the number of input feature maps is                                                    The operating frequency is 400 MHz. For each transmitting
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                                                                 6
+
+
+
+                                                                            -2                       -2                                                           -2                     -2
+                                        10 -3                          10                       10                                10 -3                      10                     10
+                                                                      4                        4                                                            4                      4
+                                       5                                                                                         5
+                                                                      2                        2                                                            2                      2
+
+                   Re                  0                              0                        0          Re                     0                          0                      0
+
+                                                                      -2                       -2                                                           -2                     -2
+                                       -5                                                                                        -5
+                                                                      -4                       -4                                                           -4                     -4
+
+                                        10
+                                             -3
+                                                                       10 -2                    10 -2                             10
+                                                                                                                                       -3                    10 -2                  10 -2
+                                                                      4                        4                                                            4                      4
+                                                                                                                                 5
+                                       5
+                                                                      2                        2                                                            2                      2
+
+                   Im                  0                              0                        0          Im                     0                          0                      0
+
+                                                                      -2                       -2                                                           -2                     -2
+                                       -5                                                                                        -5
+                                                                      -4                       -4                                                           -4                     -4
+
+                                                          B                                                                                       C
+                                                                            -2                       -2
+                                        10 -3                          10                       10                                10 -3                      10
+                                                                                                                                                                  -2
+                                                                                                                                                                                    10
+                                                                                                                                                                                         -2
+                                                                      4                        4                                                            4                      4
+                                       5                                                                                         5
+                                                                      2                        2                                                            2                      2
+
+                   Re                  0                              0                        0          Re                     0                          0                      0
+
+                                                                      -2                       -2                                                           -2                     -2
+                                       -5                                                                                        -5
+                                                                      -4                       -4                                                           -4                     -4
+
+                                        10 -3                          10 -2                    10 -2                             10
+                                                                                                                                       -3
+                                                                                                                                                             10 -2                  10 -2
+                                                                      4                        4                                                            4                      4
+                                       5                                                                                         5
+                                                                      2                        2                                                            2                      2
+                   Im                  0                              0                        0          Im                     0                          0                      0
+
+                                                                      -2                       -2                                                           -2                     -2
+                                       -5                                                                                        -5
+                                                                      -4                       -4                                                           -4                     -4
+
+                                                          D                                                                                       E
+Fig. 4. The fitting of induced currents by the first transmitter for Test#1 to Test#4: (a) Test#1, (b) Test#2, (c) Test#3, (d) Test#4. For each test, the left,
+middle, and right columns are the deterministic induced current, the output induced current of SOM-Net, and the target induced current, respectively. And the
+first row is the real part (Re), and the second row is the imaginary part (Im).
+
+                                                                                                      Obs             Rec
+       0.5                                                                                                      0.5
+         0                                                                                                        0
+ Re                                                                                                       Re   -0.5
+      -0.5
+                                                                                                                 -1
+             50    100    150    200         250          300   350              400   450   500                            50   100        150       200    250       300   350        400   450   500
+                                            Number                                                                                                          Number
+       1.5                                                                                                      1.5
+         1                                                                                                        1
+ Im    0.5
+         0
+                                                                                                          Im    0.5
+                                                                                                                  0
+      -0.5                                                                                                     -0.5
+             50    100    150    200         250          300   350              400   450   500                            50   100        150       200    250       300   350        400   450   500
+                                            Number                                                                                                          Number
+                                                  B                                                                                                               C
+                                                                                                                0.5
+       0.5
+         0                                                                                                        0
+ Re   -0.5                                                                                                Re   -0.5
+        -1
+      -1.5                                                                                                       -1
+             50    100    150    200         250          300   350              400   450   500                            50   100        150       200    250       300   350        400   450   500
+                                            Number                                                                                                          Number
+         1                                                                                                        1
+       0.5                                                                                                      0.5
+ Im      0
+                                                                                                          Im
+                                                                                                                  0
+      -0.5                                                                                                     -0.5
+             50    100    150    200         250          300   350              400   450   500                            50   100        150       200    250       300   350        400   450   500
+                                            Number                                                                                                          Number
+                                                  D                                                                                                               E
+
+Fig. 5. The fitting of all scattered fields for Test#1 to Test#4: (a) Test#1, (b) Test#2, (c) Test#3, (d) Test#4. For each test, the predicted scattered field by
+SOM-Net is represented by the orange dots, and the reference one is indicated by the blue line.
+
+
+
+antenna, all receivers measure the scattered field. By default,                                            Frobenius norm of a matrix.
+each scatterer is assumed to be lossless if not mentioned.
+And the inversion of lossy scatterers will be described in the                                             B. Training Details
+discussions. The domain D has the size of 2 m × 2 m in a                                                     The training details of the SOM-Net are as follows. The
+free space background. It is discretized into 100 × 100 grids                                              MNIST data set [35] is used to generate the training data.
+to simulate the measured scattered field by MoM, while the                                                 Considering the complexity of the ISP, we randomly choose
+discretization is changed to 64 × 64 grids in inversion to avoid                                           5000 handwritten digits in the MNIST database for training
+the inverse crime. Suppose that the measured scattered fields of                                           and another 2500 digits for validation. In order to increase
+                                                              ¯s
+all receivers from all transmitters are recorded in a matrix Ē
+                            ¯ s
+                                                                                                           the richness of data and enhance the generalization ability of
+with the size of Nr ×Ni . Ē is noise-free in the training stage,                                          the model, each digit is randomly rotated with an angle of
+while Gaussian noise is added to Ē   ¯ s in the testing stage to
+                                                                                                           [−170◦, 170◦ ] degrees. Besides, a circle with a random radius
+validate the robustness of SOM-Net against noise. The noise                                                between 0.1 m to 0.5 m is also added in D. The relative
+level is defined as (kn̄¯ kF / Ē¯ s ), where k·kF represents                                              permittivity of all training scatterers is set between 1.5 and
+                                                      F
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                   7
+
+
+
+
+               5FTU             5FTU             5FTU         5FTU          5FTU      5FTU              5FTU         5FTU
+                              1.5              1.5                  2               2           2             2                      2.5              2.5
+
+
+
+
+    (5
+
+
+
+
+                                                                                                                                     2                2
+
+   40.
+
+                                                                    1.5             1.5         1.5           1.5
+
+
+
+
+  6/FU
+                                                                                                                                     1.5              1.5
+
+
+
+
+40./FU
+
+
+                              1                1                    1               1           1             1                      1                1
+
+
+Fig. 6. Reconstruction results of Test#5 to Test#12 for scatterers with complex profiles.
+
+                                                                       TABLE II
+                                            E RROR METRICS OF RECONSTRUCTION RESULTS FOR T EST #5-T EST #12.
+                   Test#5               Test#6         Test#7        Test#8        Test#9          Test#10              Test#11          Test#12
+    Method
+               SSIM RMSE            SSIM RMSE SSIM RMSE SSIM RMSE SSIM RMSE SSIM RMSE                               SSIM RMSE        SSIM RMSE
+    SOM         0.77    0.07         0.84    0.07   0.80    0.13  0.78    0.13  0.91    0.07    0.83     0.10        0.82     0.11    0.85     0.12
+    U-Net       0.84    0.09         0.85    0.07   0.76    0.20  0.69    0.17  0.94    0.08    0.92     0.10        0.84     0.17    0.90     0.12
+   SOM-Net      0.93    0.05         0.91    0.05   0.83    0.12  0.86    0.10  0.97    0.04    0.94     0.08        0.92     0.09    0.95     0.07
+
+
+                                                                       TABLE III
+                                           E RROR METRICS OF RECONSTRUCTION RESULTS FOR T EST #13-T EST #16.
+                                                  Test#13            Test#14          Test#15              Test#16
+                            Method
+                                             SSIM       RMSE    SSIM       RMSE  SSIM       RMSE      SSIM       RMSE
+                            SOM               0.69       0.15    0.68       0.15  0.67       0.16      0.66       0.16
+                            U-Net             0.80       0.16    0.77       0.17  0.76       0.18      0.77       0.19
+                           SOM-Net            0.90       0.11    0.88       0.11  0.88       0.12      0.86       0.13
+
+
+
+2.5. Here L = 15 is used in (4) to generate deterministic                       permittivity of scatterers as the quality metrics [22] to evaluate
+induced current following the criterion of [18].                                the performance of all methods. The results are summarized
+   The hyperparameters for training the SOM-Net are set as                      in Table I. It can be seen that the SOM-Net achieves superior
+follows. Both the λ1 and λ2 are experimentally set to 2.0.                      performance compared to other two methods.
+The Adam optimizer is taken to optimize the SOM-Net with                           Since the SOM-Net is trained by enforcing the consistency
+β1 = 0.9 and β2 = 0.999. The batch size is set to 16, and the                   of the induced current, the scattered field, and the permittivity
+training epochs are set to 40. The first 20 epochs are running                  images, Fig. 4 shows the deterministic induced current, the
+with the same learning rate of 0.0002, while the learning                       predicted induced current distribution, and the corresponding
+rate decays linearly to 0 from the 21st to the 40th epochs.                     target one for Test#1 to Test#4. The induced currents of other
+The code is implemented using PyTorch on a server with                          transmitters are similar and are omitted here. Meanwhile,
+Intel(R) Core(TM) i9-10900X CPU @3.70GHz and GeForce                            the predicted scattered field and its reference with respect
+RTX 3090 GPU. The training process of the SOM-Net took                          to all incidences are plotted in Fig. 5, where the predicted
+about 7.26 hours under the above configurations.                                field is represented by the orange dots and the reference
+                                                                                one is indicated by the blue line. It is observed that the
+C. Within-Database Test: Synthetic Data                                         physical constraints of SOM-Net on the induced current and
+   In the first example, we randomly select another 1500                        the scattered field make all those variables consistent with
+images from MNIST database as the testing set. All the                          their references. Therefore, the SOM-Net learns the governing
+scattered fields of testing samples are added with 10% White                    physical law and achieves much better reconstruction results
+Gaussian noise. The relative permittivity of all testing scat-                  compared to U-Net.
+terers is between 1.5 and 2.5. The reconstruction results of                       Considering the simulation time, the SOM-Net only takes
+four randomly selected examples, i.e., Test#1 to Test#4, are                    about 0.53 seconds to reconstruct a single result with given
+shown in Fig. 3. We take the structural similarity measure                      inputs. Specifically, it takes about 0.03 seconds to obtain the
+(SSIM) and the root-mean-square error (RMSE) of the relative                    rough contrast by BP, and another 1.4 seconds to obtain the
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                                                                                               8
+
+
+
+
+                                                               5FTU5FTU5FTU5FTU
+                                                     1                               2             1                      2            1                             2            1                             2
+
+
+
+
+                                     (5       y(m)   0                               1.5   y(m)    0                      1.5   y(m)   0                             1.5   y(m)   0                             1.5
+
+
+
+
+                                                     -1                              1            -1                      1            -1                            1            -1                            1
+                                                          -1              0   1                        -1    0     1                        -1        0         1                      -1     0             1
+                                                                     x(m)                                   x(m)                                  x(m)                                       x(m)
+                                                     1                               2             1                      2            1                             2            1                             2
+
+
+
+
+                                    40.       y(m)   0                               1.5   y(m)    0                      1.5   y(m)   0                             1.5   y(m)   0                             1.5
+
+
+
+
+                                                     -1                              1            -1                      1            -1                            1            -1                            1
+                                                          -1              0   1                        -1    0     1                        -1        0         1                      -1     0             1
+                                                                     x(m)                                   x(m)                                  x(m)                                       x(m)
+                                                     1                               2             1                      2            1                             2            1                             2
+
+
+
+
+                               6/FU          y(m)   0                               1.5   y(m)    0                      1.5   y(m)   0                             1.5   y(m)   0                             1.5
+
+
+
+
+                                                     -1                              1            -1                      1            -1                            1            -1                            1
+                                                          -1              0   1                        -1    0     1                        -1        0         1                      -1     0             1
+                                                                     x(m)                                   x(m)                                  x(m)                                       x(m)
+                                                     1                               2             1                      2            1                             2            1                             2
+
+
+
+
+                             40./FU          y(m)   0                               1.5   y(m)    0                      1.5   y(m)   0                             1.5   y(m)   0                             1.5
+
+
+
+
+                                                     -1                              1            -1                      1            -1                            1            -1                            1
+                                                          -1              0   1                        -1    0     1                        -1        0         1                      -1     0             1
+                                                                     x(m)                                   x(m)                                  x(m)                                       x(m)
+
+Fig. 7. Reconstruction results of the “Austria” profile with the relative permittivity of 2.0 under different noise levels. From Test#13 to Test#16, 10%, 20%,
+25% and 30% white Gaussian noise are added to the scattered field, respectively.
+
+
+                                                                     -2                                -2
+                          10 -3                                 10                             10                                                                                            Obs      Rec
+                                                               4                              4
+                                                                                                                                    1
+                         5                                     2                              2                                     0
+        Re               0                                     0                              0
+                                                                                                                              Re   -1
+                         -5                                    -2                             -2                                   -2
+                                                                                                                                                 50       100       150                200   250      300       350   400   450   500
+                                                               -4                             -4
+                                                                                                                                                                                             Number
+                               -3                                    -2                                -2
+                          10                                    10                             10                                1.5
+                                                               4                              4
+                                                                                                                                   1
+                         5                                     2                              2                          Im      0.5
+                                                                                                                                   0
+        Im               0                                     0                              0                                 -0.5
+                                                               -2                             -2
+                                                                                                                                                 50       100       150                200   250      300       350   400   450   500
+                         -5
+                                                                                                                                                                                             Number
+                                                               -4                             -4
+                                                                                                                                                                                               B
+                                          B                          -2
+                                                                                                                                    1
+                          10 -3                                 10                             10
+                                                                                                       -2
+                                                                                                                                    0
+                                                               4                              4
+                                                                                                                              Re   -1
+                         5                                     2                              2
+                                                                                                                                   -2
+        Re               0                                     0                              0                                                  50       100       150                200   250       300      350   400   450   500
+                         -5                                    -2                             -2                                                                                             Number
+                                                               -4                             -4                                 1.5
+                                                                                                                                   1
+                          10 -3                                 10 -2                          10 -2                     Im      0.5
+                                                                                                                                   0
+                                                               4                              4
+                                                                                                                                -0.5
+                         5                                     2                              2
+                                                                                                                                                 50       100       150                200   250       300      350   400   450   500
+        Im               0                                     0                              0                                                                                              Number
+                         -5                                    -2                             -2                                                                                                  C
+                                                               -4                             -4
+
+                                          C
+                                                                                                                        Fig. 9. The fitting of all scattered fields for Test#15 and Test#16: (a) Test#15,
+                                                                                                                        (b) Test#16. For each test, the predicted scattered field by SOM-Net is
+Fig. 8. The fitting of induced currents by the first transmitter for Test#15 and                                        represented by the orange dots, and the reference one is indicated by the
+Test#16: (a) Test#15, (b) Test#16. For each test, the left, middle, and right                                           blue line.
+columns are the deterministic induced current, the output induced current of
+SOM-Net, and the target induced current, respectively. And the first row is
+the real part (Re), and the second row is the imaginary part Im).                                                       D. Cross-Database Test: Synthetic Data
+                                                                                                                           To verify the generalization ability of SOM-Net, we also
+                                                                                                                        test the SOM-Net with more challenging examples, including
+deterministic induced current J¯+ . So, the whole simulation                                                            scatterers with complex shapes, high-level noise interference,
+time of SOM-Net to reconstruct one example is about 1.96                                                                and scatterers with high relative permittivity. We still use the
+seconds. In comparison, the SOM method needs about 27.5                                                                 same testing model as the MNIST examples.
+seconds for 50 iterations of reconstruction. The simulation                                                                1) Complex Profiles: We test Test#5-Test#12 where scat-
+time has been significantly reduced by 92% with the SOM-                                                                terers have complex shapes different from the MNIST train-
+Net.                                                                                                                    ing data. All the scattered field are contaminated with 10%
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                                                   9
+
+
+
+
+                                                     5FTU5FTU5FTU5FTU
+                                          1                                            1                        2            1                        2.5          1                    3
+
+                                                                          1.4
+                                                                                                                                                      2
+
+                             (5    y(m)   0                                     y(m)   0                        1.5   y(m)   0                              y(m)   0                    2
+                                                                          1.2
+                                                                                                                                                      1.5
+
+
+
+                                          -1                              1            -1                       1            -1                       1            -1                   1
+                                               -1       0          1                        -1    0      1                        -1    0      1                        -1    0     1
+                                                       x(m)                                      x(m)                                  x(m)                                  x(m)
+                                          1                                            1                        2            1                        2.5          1                    3
+
+                                                                          1.4
+                                                                                                                                                      2
+
+                            40.    y(m)   0                                     y(m)   0                        1.5   y(m)   0                              y(m)   0                    2
+                                                                          1.2
+                                                                                                                                                      1.5
+
+
+
+                                          -1                              1            -1                       1            -1                       1            -1                   1
+                                               -1       0          1                        -1    0      1                        -1    0      1                        -1    0     1
+                                                       x(m)                                      x(m)                                  x(m)                                  x(m)
+                                          1                                            1                        2            1                        2.5          1                    3
+
+                                                                          1.4
+                                                                                                                                                      2
+
+                           6/FU   y(m)   0                                     y(m)   0                        1.5   y(m)   0                              y(m)   0                    2
+                                                                          1.2
+                                                                                                                                                      1.5
+
+
+
+                                          -1                              1            -1                       1            -1                       1            -1                   1
+                                               -1       0          1                        -1    0      1                        -1    0      1                        -1    0     1
+                                                       x(m)                                      x(m)                                  x(m)                                  x(m)
+                                          1                                            1                        2            1                        2.5          1                    3
+
+                                                                          1.4
+                                                                                                                                                      2
+
+                         40./FU   y(m)   0                                     y(m)   0                        1.5   y(m)   0                              y(m)   0                    2
+                                                                          1.2
+                                                                                                                                                      1.5
+
+
+
+                                          -1                              1            -1                       1            -1                       1            -1                   1
+                                               -1       0          1                        -1    0      1                        -1    0      1                        -1    0     1
+                                                       x(m)                                      x(m)                                  x(m)                                  x(m)
+
+Fig. 10. Reconstruction results of the star profile with the relative permittivity of 1.5, 2.0, 2.5, and 3.0, respectively.
+
+                                                                                TABLE IV
+                                                    E RROR METRICS OF RECONSTRUCTION RESULTS FOR T EST #17-T EST #20.
+                                                           Test#17            Test#18          Test#19              Test#20
+                             Method
+                                                      SSIM       RMSE    SSIM       RMSE  SSIM       RMSE      SSIM       RMSE
+                             SOM                       0.92       0.05    0.91       0.09  0.92       0.11      0.78       0.18
+                             U-Net                     0.93       0.06    0.94       0.08  0.83       0.23      0.83       0.24
+                            SOM-Net                    0.94       0.05    0.94       0.08  0.93       0.11      0.92       0.16
+
+
+
+white Gaussian noise. The reconstruction results of Test#5-                                                     role in the reconstruction of permittivity images.
+Test#12 are shown in Fig. 6, where the quality metrics are                                                         The fitting of induced current and the scattered field are
+summarized in Table II. The results shows that the SOM-Net                                                      shown in Fig. 8 and Fig. 9, respectively. The induced current is
+outperforms the comparison methods. Particularly, in Test#11                                                    still from the first transmitter and the one for other transmitters
+and Test#12, although there are three different scatterers and                                                  are similar. Fig. 8 and Fig. 9 show that the SOM-Net can
+scatterers have diverse permittivity values, the SOM-Net still                                                  accurately predict the induced current and the scattered field
+accurately reconstructs all examples. The results effectively                                                   for “Austria” profile with 25% and 30% high-level noise.
+verify the good generalization ability of the SOM-Net, which                                                    These results verify the noise robustness of the SOM-Net.
+is attributed to the unrolling model design and the physical                                                       3) Scatterers with Different Permittivities: To further check
+loss constraints for model training.                                                                            the generalization ability of the SOM-Net, we also test the
+   2) High-level Noise Interference: We also test the noise                                                     reconstruction performance of a star profile with varying
+robustness of the SOM-Net model under different noise levels.                                                   permittivities. The results of Test#17-Test#20 are shown in
+In this testing, we choose the “Austria” profile as the scatterer                                               Fig. 10, where the relative permittivity ranges from 1.5 to 3.0.
+with the εr as 2.0. And 10%, 20%, 25%, and 30% white                                                            And 10% white Gaussian noise is added to all testing cases.
+Gaussian noise are respectively added to the scattered field.                                                   The corresponding error metrics are summarized in Table
+The reconstruction results of Test#13-Test#16 with different                                                    IV. It is worth noting that the SOM-Net has shown superior
+noise levels are shown in Fig. 7. The corresponding error                                                       performance even for the case of the relative permittivity of
+metrics are summarized in Table III. It demonstrates that the                                                   3.0, where the shape and the acute angles of the scatterer
+SOM-Net is still robust against noise, which achieves better                                                    can still be recovered. The explicit constraints on physical
+reconstruction results compared to the other methods. It is                                                     variables and the unrolling design of SOM-Net ensure that the
+worth noting that compared with the “Austria” test in existing                                                  network learns the ISP mapping with good generalizations.
+unrolling ISP methods [30] and [31], the SOM-Net obtains                                                           Although the SOM-Net successfully retrieves the high-
+better imaging results, especially showing clear gaps between                                                   permittivity scatterer, it is still very challenging to reconstruct
+two small rings and large rings. It can be considered that the                                                  scatterers with a quite high permittivity. One potential way to
+high-quality restoration of induced current plays an important                                                  overcome this issue is to unroll the existing model that can
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                                                                           10
+
+
+
+handle the ISP with high permittivity. For example, Zhong et                                                                                      10 -2
+                                                                                                                                                 5
+al. [36] has demonstrated that the contraction integral equation                                                                                                                  0                   0
+
+
+for inversion (CIE-I) is very effective to solve highly nonlinear                                                               Re               0
+                                                                                                                                                                                  -0.2                -0.2
+
+ISP with high contrasts. Sanghvi et al. [37] introduced a deep                                                                                   -5
+                                                                                                                                                                                  -0.4                -0.4
+learning method to provide good initials for the two-fold SOM                                                                                     10
+                                                                                                                                                       -2
+
+
+(TSOM) to reconstruct scatterers with high permittivity. Dubey                                                                                   5
+                                                                                                                                                                                  0.2                 0.2
+
+et al. [38] introduces a new Rytov approximation for solving                                                                    Im               0
+                                                                                                                                                                                  0                   0
+                                                                                                                                                                                  -0.2                -0.2
+high-permittivity ISP with phaseless data. It is meaningful to                                                                                                                    -0.4                -0.4
+                                                                                                                                                 -5
+unroll such iterative methods into neural networks to retrieve
+                                                                                                                                                                  B
+high-permittivity scatterers.                                                                                                                     10 -2
+                                                                                                                                                                                  1                   1
+                                                                                                                                                 5
+                                                                                                                                                                                  0.5                 0.5
+                                                                                                                                Re               0                                0                   0
+
+                                                                                                                                                                                  -0.5                -0.5
+                                                                                                                                                 -5
+
+                                                                                                                                                       -2
+                                                                                                                                                  10
+                                                                                                                                                                                  0.2                 0.2
+                                                                                                                                                 5
+                                                                                                                                                                                  0                   0
+                                                                                                                                Im               0                                -0.2                -0.2
+
+                                                                                                                                                                                  -0.4                -0.4
+                                                                                                                                                 -5
+
+
+                                                                                                                                                                  C
+
+                                                                                                                    Fig. 13. The fitting of induced currents by the first transmitter for
+                                                                                                                    “FoamDielExt” profile at 3 GHz and 4 GHz, respectively: (a) 3 GHz, (b)
+                                                                                                                    4 GHz. For each test, the left, middle, and right columns are the deterministic
+                                                                                                                    induced current, the output induced current of SOM-Net, and the target
+Fig. 11. The “FoamDielExt” profile from Fresnel experimental data.                                                  induced current, respectively. And the first row is the real part (Re), and
+                                                                                                                    the second row is the imaginary part (Im).
+
+                         40.                                6/FU                               40./FU                                                           Obs       Rec
+              0.1                     3          0.1                      3          0.1                        3         0.4
+                                                                                                                          0.2
+                                                                                                                    Re
+()[
+                                                                                                                            0
+       y(m)      0                    2   y(m)      0                     2   y(m)      0                       2
+                                                                                                                         -0.2
+                                                                                                                                 200    400    600          800         1000          1200   1400   1600     1800
+              -0.1                    1          -0.1                     1          -0.1                       1
+                                                                                                                                                                   Number
+                  -0.1    0     0.1                  -0.1     0     0.1                  -0.1      0      0.1            0.2
+                         x(m)                                x(m)                                 x(m)
+              0.1                     3          0.1                      3          0.1                        3
+                                                                                                                    Im     0
+                                                                                                                         -0.2
+()[   y(m)                               y(m)                                y(m)
+                 0                    2             0                     2             0                       2
+                                                                                                                                 200    400    600          800         1000          1200   1400   1600     1800
+                                                                                                                                                                   Number
+                                                                                                                                                                        B
+              -0.1                    1          -0.1                     1          -0.1                       1
+                                                                                                                          0.2
+                  -0.1    0     0.1                  -0.1     0     0.1                  -0.1      0      0.1               0
+                         x(m)                                x(m)                                 x(m)              Re   -0.2
+                                                                                                                         -0.4
+Fig. 12. Reconstruction results of the “FoamDielExt” profile at 3GHz and                                                         200    400    600          800         1000          1200   1400   1600     1800
+                                                                                                                                                                   Number
+4GHz, respectively.
+                                                                                                                         0.2
+                                                                                                                           0
+                                                                                                                    Im
+                                                                                                                         -0.2
+                              TABLE V                                                                                            200    400    600          800         1000          1200   1400   1600     1800
+       E RROR METRICS OF RECONSTRUCTION RESULTS IN F IG .12 FOR                                                                                                    Number
+         EXPERIMENTAL DATA AT 3GH Z AND 4GH Z , RESPECTIVELY.                                                                                                           C
+            f/GHz            3.0                 4.0                                                                Fig. 14. The fitting of all scattered fields for the “FoamDielExt” profile at
+            Method     SSIM      RMSE     SSIM       RMSE                                                           3GHz and 4GHz, respectively: (a) 3 GHz, (b) 4 GHz. For each test, the
+             SOM        0.91      0.09     0.88       0.12                                                          predicted scattered field by SOM-Net is represented by the orange dots every
+            U-Net       0.91      0.07     0.89       0.15                                                          5 points, and the reference one is indicated by the blue line.
+           SOM-Net      0.94      0.07     0.92       0.13
+
+
+                                                                                                                    data, which are located on a circle with a radius of 1.67m
+E. Cross-Database Test: Experimental Data                                                                           from the center of the target.
+   We finally validate the proposed method with the exper-                                                             The operating frequency is 3 GHz and 4 GHz, respectively,
+imental data provided by Fresnel Institute [39]. As shown                                                           instead of the 400 MHz used in the synthetic examples.
+in Fig. 11, the “FoamDielExt” profile is considered in this                                                         Accordingly, the size of DOI is also changed from 2 m ×
+section. It is composed of two cylinders, a foam cylinder with                                                      2 m to 0.2 m × 0.2 m. In this experimental example, we use
+a diameter of 80 mm and εr = 1.45 ± 0.15, and a plastic                                                             the same MNIST profiles with a random circle to generate
+cylinder with a diameter of 31 mm and εr = 3.0 ± 0.3.                                                               the training data set, and the relative permittivity range of all
+Different from the previous synthetic examples, there are 8                                                         scatterers is between 1.1 and 3.0.is In Fig. 12, we present
+linear transmitters and 241 receivers to measure experimental                                                       the reconstruction profiles of SOM-Net, SOM, and U-Net,
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                                  11
+
+
+
+                                                                                                           Meanwhile, the corresponding SSIM and RMSE metrics are
+                                                                                                           summarized in Table VI. Considering the complexity to imple-
+                                                                                                           ment the methods in [30], [31], we directly compare the SOM-
+                                                                                                           Net results with those ones in the two papers. In comparison,
+                                                                                                           the reconstruction results of SOM-Net are visually superior to
+                                                                                                           the comparison algorithms. It should be noted that there is no
+                                                                                                           quality metric given in [30], and only the metric of data misfit
+                                                                                                           (rmsD ) on the scattered field is defined in [31]. Accordingly,
+                                                                                                           the rmsD of SOM-Net results for the “FoamDielExt” and
+                           B                                                          C                    “FoamDielInt” examples in Fig. 16 (a) and (b) reaches 0.08
+Fig. 15. The Fresnel experimental data: (a) the “FoamDielInt” profile and                                  and 0.07, respectively, while that in [31] is 0.12 and 0.08,
+(b) the “FoamTwinDiel” profile.                                                                            respectively. It shows that the predicted scattered field of the
+                                                                                                           proposed method also matches better with the observed field.
+respectively. The corresponding error metrics are summarized
+in Table V. Specifically, the best SSIM is 0.94 at 3GHz, and                                               B. Limited Aperture
+0.92 at 4GHz, respectively. The comparison results of the                                                     Measurement within a limited aperture is a common ISP
+induced current and the scattered field are demonstrated in                                                configuration in many real applications. Here, we conduct
+Fig. 13 and Fig. 14, respectively. The preferable reconstruction                                           the limited-aperture experiment using the same setup as the
+results once again verify the strong generalization ability of                                             above full-aperture ones for synthetic examples, except that
+the SOM-Net.                                                                                               only measurements from transmitters and receivers within the
+                                                                                                           observable aperture are used. Since available measurements
+         0.1                     3          0.1                     3          0.1                     3
+                                                                                                           are limited if the aperture is too small, we only consider an
+                                                                                                           experiment with a 270◦ aperture, where 12 line sources and
+  y(m)      0                    2   y(m)      0                    2   y(m)      0                    2   24 line receivers are available.
+                                                                                                              The reconstruction results with the 270◦ aperture are
+         -0.1                    1          -0.1                    1          -0.1                    1   demonstrated in Fig. 17, and the corresponding quality metrics
+             -0.1    0     0.1                  -0.1    0     0.1                  -0.1    0     0.1
+                    x(m)                               x(m)                               x(m)             are summarized in Table VII, where we use (L) and (F) to
+                     B                                  C                                  D
+                                                                                                           represent the results of limited and full apertures, respectively.
+Fig. 16.   Reconstruction results of the experimental data: (a) the                                        As observed, the proposed SOM-Net can still achieve better
+“FoamDielExt” profile, (b) the “FoamDielInt” profile, and (c) the                                          reconstruction performance for challenging cases than the
+“FoamTwinDiel” profile at 4GHz, respectively.
+                                                                                                           SOM and U-Net. Meanwhile, the fitting results of the induced
+                                                                                                           current by the first transmitter and the corresponding scattered
+                                                                                                           fields for Test#21 are shown in Fig. 18, which indicates a good
+                             TABLE VI
+E RROR METRICS OF RECONSTRUCTION RESULTS OF SOM-N ET IN F IG . 16                                          consistency with the references.
+                FOR EXPERIMENTAL DATA AT 4GH Z .                                                              Meanwhile, it is also found that the reconstruction perfor-
+                     Test        SSIM    RMSE                                                              mance of SOM-Net degrades in the limited-aperture case com-
+                 FoamDielExt      0.95    0.09
+                 FoamDielInt      0.95    0.08
+                                                                                                           pared to the full-aperture ones. As shown in the comparison
+                FoamTwinDiel      0.90    0.16                                                             results of SOM-Net(L) and SOM-Net(F) in Fig. 17 and Table
+                                                                                                           VII, it is observed that the SOM-Net with full-aperture data
+                                                                                                           achieves better reconstruction results compared to that of the
+                                                                                                           SOM-Net(L). For example, there is a noticeable deterioration
+                                      IV. D ISCUSSION
+                                                                                                           in the image quality for Test#21 in the limited-aperture case.
+  In this section, we further discuss some aspects of the SOM-                                             Meanwhile, the SSIM decreases from 0.91 to 0.88, and the
+Net. It includes the comparison of SOM-Net with existing                                                   RMSE changes from 0.13 to 0.11. Similar quality dropping
+unrolling methods [30], [31], and the extension of SOM-Net                                                 has also been observed in other examples. This suggests that
+for other cases like limited aperture and lossy scatterers.                                                extra regularization is required to improve the reconstruction
+                                                                                                           of SOM-Net for dealing with such a challenging case, which
+A. Comparison with Existing Unrolling Methods                                                              needs further research but is beyond the scope of the current
+                                                                                                           work.
+   Here we take a further comparison of SOM-Net with
+the existing unrolling work [30], [31] using the Fresnel’s
+experimental data in Fig. 11 and Fig. 15. In order to take                                                 C. Lossy Profiles
+a fair comparison, we employ the same configurations of                                                      Finally, we verify the performance of the SOM-Net for
+generating training data as [31], where each training sample                                               the reconstruction of lossy profiles. Accordingly, we still
+consists of 2 or 3 random circles. More details can be seen in                                             conduct the lossy experiments using the same configurations
+Table II in [31]. Specially, the predicted results of the SOM-                                             as the synthetic lossless ones. The only difference is that
+Net are presented in Fig. 16, where both the reconstructed                                                 each scatterer here has an imaginary part randomly defined
+relative permittivity values and the shape are of high precision.                                          between 0 and 0.9. In addition, another channel representing
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                                          12
+
+
+
+
+                       5FTU       5FTU           5FTU                       5FTU             5FTU        5FTU      5FTU                   5FTU
+                                        2              2           2                                     2.5            2.5          2.5                 2.5                   3
+
+
+
+
+           (5
+
+
+
+
+    40. -
+                                                                                                         2              2            2                   2
+
+
+
+
+    6/FU -                           1.5            1.5         1.5                                                                                                         2
+
+
+
+
+                                                                                                         1.5            1.5          1.5                 1.5
+
+  40./FU -
+
+
+
+
+  40./FU '
+        
+
+                                        1              1           1                                     1              1            1                   1                     1
+
+
+
+Fig. 17. Reconstruction results of Test#21 to Test#28 for scatterers with 10% white Gaussian noise.
+
+                                                             TABLE VII
+                        E RROR METRICS OF RECONSTRUCTION RESULTS FOR T EST #21-T EST #28 AND 1500 MNIST TESTS .
+                  Test#21       Test#22     Tset#23    Test#24      Test#25       Test#26      Test#27     Test#28 1500 MNIST
+      Method
+               SSIM RMSE SSIM RMSE SSIM RMSE SSIM RMSE SSIM RMSE SSIM RMSE SSIM RMSE SSIM RMSE SSIM RMSE
+     SOM(L)     0.69 0.15 0.91 0.07 0.83 0.10 0.81 0.12 0.78 0.16 0.82 0.11 0.92 0.11 0.76 0.18 0.78 0.14
+     U-Net(L)   0.79 0.15 0.93 0.07 0.91 0.10 0.88 0.10 0.84 0.18 0.82 0.15 0.89 0.15 0.85 0.24 0.86 0.13
+    SOM-Net(L) 0.86 0.13 0.96 0.04 0.93 0.08 0.91 0.09 0.87 0.13 0.91 0.15 0.92 0.11 0.90 0.15 0.88 0.12
+    SOM-Net(F) 0.90 0.11 0.97 0.04 0.94 0.08 0.95 0.07 0.91 0.11 0.92 0.09 0.93 0.11 0.92 0.16 0.91 0.10
+
+
+                          10 -3                10 -2                     10 -2                                                      Obs      Rec
+                         6                                                                          1
+                                               2                       2
+                         4
+                                                                                                    0
+                         2
+                                               0                       0                       Re
+      Re                 0                                                                          -1
+                         -2                                            -2                           -2
+                                               -2
+                         -4                                                                                        50         100    150           200          250      300
+
+                                                                                -2
+                                                                                                                                    Number
+                         10 -3                 10 -2                       10
+                                                                                                    2
+                         5
+                                               2                       2                            1
+                                                                                               Im
+                         0                     0                       0                            0
+      Im
+                                               -2                      -2                           -1
+                         -5                                                                                        50         100    150           200          250      300
+                                               -4                      -4
+                                                                                                                                    Number
+                                    B                                                                                                 C
+Fig. 18. Fitting results of induced currents and scattered field in Test#21: (a) the fitting of induced currents by the first transmitter, where the left, middle,
+and right columns are the input, the output, and the target induced current, respectively. (b) the fitting of all scattered fields, where the predicted scattered
+field by SOM-Net is represented by the orange dots, and the reference one is indicated by the blue line.
+
+
+
+the imaginary part of the complex relative permittivity image                                  challenging lossy profiles in high quality. In Fig. 21, the fitting
+for lossy profiles also needs to be added to the SOM-Net. The                                  results of the induced current and all scattered fields for the
+reconstruction results of the real and imaginary parts for some                                “Austria” profile are drawn to further demonstrate the effective
+typical samples are shown in Fig. 19 and Fig. 20, respectively.                                learning of physical knowledge. Note that in the presentation
+The corresponding quality metrics are listed in Table VIII.                                    of concrete results, the first row is the real part (Re) and the
+                                                                                               second row is the imaginary part (Im) for the induced current
+  According to the reconstruction results, it can be seen that                                 and the scattered field.
+the average results of 1500 lossy samples in the MNIST
+data set verify the superior performance of SOM-Net over                                         It should be mentioned that, although we only describe
+the compared ones. In particular, as observed in Fig. 19                                       the SOM-Net with a TM case, considering the similarity of
+and Fig. 20, the proposed SOM-Net can still reconstruct                                        the iterative SOM algorithms for the TM [5] and transverse
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                                 13
+
+
+
+
+                        5FTU         5FTU        5FTU         5FTU                     5FTU    5FTU          5FTU               5FTU
+                                          2              2             2               2                      2.5              2               2.5              3
+
+
+
+
+            (5
+
+
+
+                                                                                                              2                                2
+
+           40.
+
+                                          1.5            1.5           1.5             1.5                                     1.5                              2
+
+
+
+
+       6/FU
+                                                                                                              1.5                              1.5
+
+
+
+
+      40./FU
+          
+
+                                          1              1             1               1                      1                1               1                1
+
+
+
+Fig. 19. Reconstruction results of the real parts for lossy scatterers in Test#29 to Test#36 with 10% white Gaussian noise.
+
+
+                      5FTU      5FTU        5FTU                    5FTU                5FTU               5FTU        5FTU      5FTU
+                                    0.3            0.3           0.3                         0.6                                         0.4          0.4           0.4
+
+
+
+
+           (5                                                                                                       0.6
+
+
+
+
+                                    0.2            0.2           0.2                         0.4
+
+      40.
+                                                                                                                    0.4
+
+                                                                                                                                         0.2          0.2           0.2
+
+
+
+
+      6/FU
+                                    0.1            0.1           0.1                         0.2
+                                                                                                                    0.2
+
+
+
+
+    40./FU
+        
+                                    0              0             0                           0                      0                    0            0             0
+
+
+
+Fig. 20.     Reconstruction results of the imaginary parts for lossy scatterers in Test#29 to Test#36 with 10% white Gaussian noise.
+
+                                                                    TABLE VIII
+                              E RROR METRICS OF RECONSTRUCTION RESULTS FOR T EST #29-T EST #36 AND 1500 MNIST TESTS .
+             Test        Test#29      Test#30     Tset#31    Tset#32     Tset#33      Tset#34      Tset#35   Tset#36                                  1500 MNIST
+            SSIM        Re     Im    Re     Im   Re     Im  Re     Im   Re     Im    Re     Im    Re     Im Re     Im                                  Re    Im
+            SOM        0.64 0.13 0.67 0.21 0.68 0.29 0.77 0.19 0.76 0.23 0.74 0.23 0.86 0.21 0.61 0.10                                                0.69  0.12
+            U-Net      0.87 0.75 0.89 0.81 0.75 0.67 0.95 0.90 0.94 0.89 0.89 0.82 0.92 0.79 0.87 0.79                                                0.89  0.59
+           SOM-Net     0.87 0.84 0.92 0.86 0.89 0.80 0.96 0.94 0.95 0.92 0.94 0.91 0.91 0.88 0.91 0.88                                                0.90  0.70
+
+
+
+electric (TE) [40] cases, it is also easy to extend the SOM-Net                              current. The induced current and the permittivity variables
+to the TE case. However, the computational complexity will                                   have been updated alternately in the cascade sub-networks of
+increase quickly compared to the TM case.                                                    SOM-Net, which greatly reduces the nonlinearity of the ISP.
+                                                                                             Joint physical constraints of the induced current, the scattered
+                                V. C ONCLUSION                                               field, and the permittivity image have been employed to guide
+                                                                                             the training of the SOM-Net model. The generalization ability
+   In this work, we have proposed the SOM-Net for solving
+                                                                                             of the resulting SOM-Net model has been greatly enhanced,
+the full-wave ISPs by unrolling the iterative SOM. The SOM-
+                                                                                             considering the inherent embedding of physical law on the
+Net has been designed with several sub-networks to imitate the
+                                                                                             network structure and the consistent matches of all physical
+iterations of the SOM. The deterministic induced current and
+                                                                                             variables of the governing Lippmann-Schwinger equations.
+the rough permittivity image got by BP are used as the input,
+                                                                                             All numerical tests have validated that the proposed SOM-
+while the direct output of the SOM-Net is the full induced
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                                                                                                      14
+
+
+
+
+                          10 -3                10 -2                10-2                                              Obs      Rec
+                         4                                                               1
+                                              1                     1
+                         2
+                                                                                         0
+      Re                 0                    0                     0              Re
+                         -2                   -1                    -1                   -1
+                         -4                   -2                    -2                        50   100   150   200    250      300   350   400   450   500
+                                                                                                                      Number
+                          10 -3                10 -2                10 -2
+                         5                                                              1.5
+                                              2                     2
+                                                                                          1
+                                                                                  Im    0.5
+      Im                 0                    0                     0
+                                                                                          0
+                                                                    -2
+                                                                                       -0.5
+                                              -2
+                         -5
+                                                                                              50   100   150   200    250      300   350   400   450   500
+                                                                                                                      Number
+                                    B                                                                                   C
+
+Fig. 21. Fitting results of induced currents and scattered field in Test#29: (a) the fitting of induced currents by the first transmitter, where the left, middle,
+and right columns are the input, the output, and the target induced current, respectively. (b) the fitting of all scattered fields, where the predicted scattered
+field by SOM-Net is represented by the orange dots, and the reference one is indicated by the blue line.
+
+
+
+Net has superior performance than SOM and U-Net. Overall,                          [14] O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks
+the SOM-Net has been verified to be a learning-based fast                               for biomedical image segmentation,” in Proc. Int. Conf. Med. Image
+                                                                                        Comput. Comput-Assist. Intervention. Springer, 2015, pp. 234–241.
+inversion method with strong generalization ability and good                       [15] I. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley,
+physical interpretability, which provides a new idea for the                            S. Ozair, A. Courville, and Y. Bengio, “Generative adversarial nets,”
+application of deep unrolling technology to solve ISPs.                                 Adv. Neural Inf. Process. Syst., vol. 27, 2014.
+                                                                                   [16] X. Ye, Y. Bai, R. Song, K. Xu, and J. An, “An inhomogeneous
+   Despite the good results achieved, the proposed SOM-Net                              background imaging method based on generative adversarial network,”
+still needs to be further improved and extended in many                                 IEEE Trans. Microw. Theory Tech., vol. 68, no. 11, pp. 4684–4693,
+aspects, such as the inversion under a limited aperture, and                            2020.
+the extension to the 3D case.                                                      [17] P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros, “Image-to-image translation
+                                                                                        with conditional adversarial networks,” in Proc. IEEE Conf. Comput. Vis.
+                                                                                        Pattern Recognit., 2017, pp. 1125–1134.
+                                                                                   [18] Z. Wei and X. Chen, “Deep-learning schemes for full-wave nonlinear
+                                  R EFERENCES                                           inverse scattering problems,” IEEE Trans. Geosci. Remote Sensing,
+                                                                                        vol. 57, no. 4, pp. 1849–1860, 2018.
+ [1] X. Chen, Computational methods for electromagnetic inverse scattering.        [19] L. Zhang, K. Xu, R. Song, X. Ye, G. Wang, and X. Chen, “Learning-
+     John Wiley & Sons, 2018.                                                           based quantitative microwave imaging with a hybrid input scheme,”
+ [2] W. C. Chew and Y.-M. Wang, “Reconstruction of two-dimensional                      IEEE Sens. J., vol. 20, no. 24, pp. 15 007–15 013, 2020.
+     permittivity distribution using the distorted born iterative method,” IEEE    [20] H. M. Yao, E. Wei, and L. Jiang, “Two-step enhanced deep learning ap-
+     Trans. Med. Imaging, vol. 9, no. 2, pp. 218–225, 1990.                             proach for electromagnetic inverse scattering problems,” IEEE Antennas
+ [3] P. M. Van Den Berg and R. E. Kleinman, “A contrast source inversion                Wirel. Propag. Lett., vol. 18, no. 11, pp. 2254–2258, 2019.
+     method,” Inverse Probl., vol. 13, no. 6, p. 1607, 1997.                       [21] Y. Huang, R. Song, K. Xu, X. Ye, C. Li, and X. Chen, “Deep learning-
+ [4] L. Crocco, M. D’Urso, and T. Isernia, “Testing the contrast source                 based inverse scattering with structural similarity loss functions,” IEEE
+     extended born inversion method against real data: the tm case,” Inverse            Sens. J., vol. 21, no. 4, pp. 4900–4907, 2020.
+     Probl., vol. 21, no. 6, p. S33, 2005.                                         [22] R. Song, Y. Huang, K. Xu, X. Ye, C. Li, and X. Chen, “Electromagnetic
+ [5] X. Chen, “Subspace-based optimization method for solving inverse-                  inverse scattering with perceptual generative adversarial networks,”
+     scattering problems,” IEEE Trans. Geosci. Remote Sensing, vol. 48,                 IEEE Trans. Comput. Imaging, vol. 7, pp. 689–699, 2021.
+     no. 1, pp. 42–49, 2009.
+                                                                                   [23] Z. Wei and X. Chen, “Physics-inspired convolutional neural network for
+ [6] K. Xu, Y. Zhong, and G. Wang, “A hybrid regularization technique                   solving full-wave inverse scattering problems,” IEEE Trans. Antennas
+     for solving highly nonlinear inverse scattering problems,” IEEE Trans.             Propag., vol. 67, no. 9, pp. 6138–6148, 2019.
+     Microw. Theory Tech., vol. 66, no. 1, pp. 11–21, 2017.
+                                                                                   [24] V. Monga, Y. Li, and Y. C. Eldar, “Algorithm unrolling: Interpretable,
+ [7] A. Massa, D. Marcantonio, X. Chen, M. Li, and M. Salucci, “Dnns
+                                                                                        efficient deep learning for signal and image processing,” IEEE Signal
+     as applied to electromagnetics, antennas, and propagation—a review,”
+                                                                                        Process. Mag., vol. 38, no. 2, pp. 18–44, 2021.
+     IEEE Antennas Wirel. Propag. Lett., vol. 18, no. 11, pp. 2225–2229,
+     2019.                                                                         [25] K. H. Jin, M. T. McCann, E. Froustey, and M. Unser, “Deep convo-
+                                                                                        lutional neural network for inverse problems in imaging,” IEEE Trans.
+ [8] X. Chen, Z. Wei, M. Li, and P. Rocca, “A review of deep learning
+                                                                                        Image Process., vol. 26, no. 9, pp. 4509–4522, 2017.
+     approaches for inverse scattering problems (invited review),” Prog.
+     Electromagn. Res., vol. 167, pp. 67–81, 2020.                                 [26] J. Adler and O. Öktem, “Solving ill-posed inverse problems using
+ [9] M. Li, R. Guo, K. Zhang, Z. Lin, F. Yang, S. Xu, X. Chen, A. Massa, and            iterative deep neural networks,” Inverse Probl., vol. 33, no. 12, p.
+     A. Abubakar, “Machine learning in electromagnetics with applications               124007, 2017.
+     to biomedical imaging: A review,” IEEE Antennas Propag. Mag., 2021.           [27] Y. Yang, J. Sun, H. Li, and Z. Xu, “Admm-csnet: A deep learning
+[10] R. Guo, X. Song, M. Li, F. Yang, S. Xu, and A. Abubakar, “Supervised               approach for image compressive sensing,” IEEE Trans. Pattern Anal.
+     descent learning technique for 2-d microwave imaging,” IEEE Trans.                 Mach. Intell., vol. 42, no. 3, pp. 521–538, 2018.
+     Antennas Propag., vol. 67, no. 5, pp. 3550–3554, 2019.                        [28] Y. Li, M. Tofighi, J. Geng, V. Monga, and Y. C. Eldar, “Efficient and
+[11] R. Guo, Z. Jia, X. Song, M. Li, F. Yang, S. Xu, and A. Abubakar, “Pixel-           interpretable deep blind image deblurring via algorithm unrolling,” IEEE
+     and model-based microwave inversion with supervised descent method                 Trans. Comput. Imaging, vol. 6, pp. 666–681, 2020.
+     for dielectric targets,” IEEE Trans. Antennas Propag., vol. 68, no. 12,       [29] C. J. Schuler, M. Hirsch, S. Harmeling, and B. Schölkopf, “Learning
+     pp. 8114–8126, 2020.                                                               to deblur,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 38, no. 7, pp.
+[12] L. Li, L. G. Wang, F. L. Teixeira, C. Liu, A. Nehorai, and T. J. Cui,              1439–1451, 2015.
+     “Deepnis: Deep neural network for nonlinear electromagnetic inverse           [30] J. Liu, H. Zhou, T. Ouyang, Q. Liu, and Y. Wang, “Physical model-
+     scattering,” IEEE Trans. Antennas Propag., vol. 67, no. 3, pp. 1819–               inspired deep unrolling network for solving nonlinear inverse scattering
+     1825, 2018.                                                                        problems,” IEEE Trans. Antennas Propag., 2021.
+[13] Y. Sun, Z. Xia, and U. S. Kamilov, “Efficient and accurate inversion of       [31] R. Guo, Z. Lin, T. Shan, X. Song, M. Li, F. Yang, S. Xu, and
+     multiple scattering with deep learning,” Opt. Express, vol. 26, no. 11,            A. Abubakar, “Physics embedded deep neural network for solving full-
+     pp. 14 678–14 688, 2018.                                                           wave inverse scattering problems,” IEEE Trans. Antennas Propag., 2021.
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2021                          15
+
+
+
+[32] L. Li, L. G. Wang, J. Ding, P. Liu, M. Xia, and T. J. Cui, “A probabilistic
+     model for the nonlinear electromagnetic inverse scattering: Tm case,”
+     IEEE Trans. Antennas Propag., vol. 65, no. 11, pp. 5984–5991, 2017.
+[33] A. F. Peterson, S. L. Ray, R. Mittra, I. of Electrical, and E. Engineers,
+     Computational methods for electromagnetics. IEEE press New York,
+     1998, vol. 351.
+[34] G. W. Stewart, Matrix Algorithms: Volume 1: Basic Decompositions.
+     SIAM, 1998.
+[35] Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, “Gradient-based learning
+     applied to document recognition,” Proc. IEEE, vol. 86, no. 11, pp. 2278–
+     2324, 1998.
+[36] Y. Zhong, M. Salucci, K. Xu, A. Polo, and A. Massa, “A multiresolution
+     contraction integral equation method for solving highly nonlinear inverse
+     scattering problems,” IEEE Trans. Microw. Theory Tech., vol. 68, no. 4,
+     pp. 1234–1247, 2019.
+[37] Y. Sanghvi, Y. Kalepu, and U. K. Khankhoje, “Embedding deep learning
+     in inverse scattering problems,” IEEE Trans. Comput. Imaging, vol. 6,
+     pp. 46–56, 2019.
+[38] A. Dubey, S. Deshmukh, L. Pan, X. Chen, and R. Murch, “A phaseless
+     extended rytov approximation for strongly scattering low-loss media and
+     its application to indoor imaging,” IEEE Trans. Geosci. Remote Sensing,
+     vol. 60, pp. 1–17, 2022.
+[39] J.-M. Geffrin, P. Sabouroux, and C. Eyraud, “Free space experimental
+     scattering database continuation: experimental set-up and measurement
+     precision,” Inverse Probl., vol. 21, no. 6, p. S117, 2005.
+[40] L. Pan, X. Chen, and S. P. Yeo, “Application of the subspace-based
+     optimization method in the framework of the method of moments:
+     Transverse electric case,” in 2009 Asia Pacific Microwave Conference.
+     IEEE, 2009, pp. 980–983.
+This figure "fig1.png" is available in "png" format from:
+
+        http://arxiv.org/ps/2209.03567v2
+

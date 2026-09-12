@@ -1,0 +1,228 @@
+{
+  "scope": "Finite dimensional algebra checks, no full-wave inverse acceptance",
+  "source_sha256": "3b3fe05bd13feeb6825095ea9002243eebd99818a16bf98fb43910d812942108",
+  "rows": [
+    {
+      "gap": 3.8796193076955383,
+      "identity_error": 3.552713678800501e-15,
+      "bound": 576.1921489406201,
+      "covered": true,
+      "coordinate_error": 5.735800937512462e-15
+    },
+    {
+      "gap": 5.126513663963889,
+      "identity_error": 8.881784197001252e-16,
+      "bound": 1235.3470015348803,
+      "covered": true,
+      "coordinate_error": 8.034753201222844e-15
+    },
+    {
+      "gap": 2.3901033534109626,
+      "identity_error": 1.7763568394002505e-15,
+      "bound": 542.7377560653966,
+      "covered": true,
+      "coordinate_error": 4.458255638779604e-15
+    },
+    {
+      "gap": 2.706242351814373,
+      "identity_error": 8.881784197001252e-16,
+      "bound": 547.4701051839331,
+      "covered": true,
+      "coordinate_error": 4.035277069446237e-15
+    },
+    {
+      "gap": 1.0562436860403208,
+      "identity_error": 1.1102230246251565e-15,
+      "bound": 180.13420878882758,
+      "covered": true,
+      "coordinate_error": 5.467607678835437e-15
+    },
+    {
+      "gap": 0.9962362836830732,
+      "identity_error": 1.6653345369377348e-15,
+      "bound": 278.35297919055176,
+      "covered": true,
+      "coordinate_error": 5.323856456121705e-15
+    },
+    {
+      "gap": 1.8036668601583496,
+      "identity_error": 2.220446049250313e-16,
+      "bound": 370.8035805474401,
+      "covered": true,
+      "coordinate_error": 3.6050981587336476e-15
+    },
+    {
+      "gap": 2.9829130016183765,
+      "identity_error": 2.6645352591003757e-15,
+      "bound": 681.930355791121,
+      "covered": true,
+      "coordinate_error": 3.805508314317117e-15
+    },
+    {
+      "gap": 1.0269579768951385,
+      "identity_error": 4.440892098500626e-16,
+      "bound": 170.7641645760096,
+      "covered": true,
+      "coordinate_error": 2.070511286822969e-15
+    },
+    {
+      "gap": 0.8318771657524087,
+      "identity_error": 1.6653345369377348e-15,
+      "bound": 201.27054079062796,
+      "covered": true,
+      "coordinate_error": 4.527337189968543e-15
+    },
+    {
+      "gap": 4.208966621232468,
+      "identity_error": 1.7763568394002505e-15,
+      "bound": 620.0214647504638,
+      "covered": true,
+      "coordinate_error": 6.1610921458575554e-15
+    },
+    {
+      "gap": 0.36116273753548,
+      "identity_error": 4.884981308350689e-15,
+      "bound": 127.26047995209886,
+      "covered": true,
+      "coordinate_error": 4.021003047301483e-15
+    },
+    {
+      "gap": 3.667200360343089,
+      "identity_error": 8.881784197001252e-16,
+      "bound": 1059.5824282931167,
+      "covered": true,
+      "coordinate_error": 3.0663920452511364e-15
+    },
+    {
+      "gap": 2.2987952895111388,
+      "identity_error": 3.552713678800501e-15,
+      "bound": 310.8673129052569,
+      "covered": true,
+      "coordinate_error": 4.011927502730488e-15
+    },
+    {
+      "gap": 0.702137124364338,
+      "identity_error": 1.5543122344752192e-15,
+      "bound": 271.12066906618367,
+      "covered": true,
+      "coordinate_error": 3.200916469198212e-15
+    },
+    {
+      "gap": 0.6636109452638088,
+      "identity_error": 1.3322676295501878e-15,
+      "bound": 228.31294856356052,
+      "covered": true,
+      "coordinate_error": 6.938399164818619e-15
+    },
+    {
+      "gap": 2.482138494048198,
+      "identity_error": 1.7763568394002505e-15,
+      "bound": 770.4350007210905,
+      "covered": true,
+      "coordinate_error": 3.5337368924651634e-15
+    },
+    {
+      "gap": 3.5311233153130814,
+      "identity_error": 3.1086244689504383e-15,
+      "bound": 917.6432880274617,
+      "covered": true,
+      "coordinate_error": 4.5283619809411865e-15
+    },
+    {
+      "gap": 2.5140091835893426,
+      "identity_error": 8.881784197001252e-16,
+      "bound": 672.4710486083893,
+      "covered": true,
+      "coordinate_error": 3.856389780749163e-15
+    },
+    {
+      "gap": 3.8058826313065204,
+      "identity_error": 4.884981308350689e-15,
+      "bound": 779.5903546883275,
+      "covered": true,
+      "coordinate_error": 9.64690133158431e-15
+    },
+    {
+      "gap": 1.728093778578681,
+      "identity_error": 2.220446049250313e-16,
+      "bound": 557.3303858555256,
+      "covered": true,
+      "coordinate_error": 9.819691571554195e-15
+    },
+    {
+      "gap": 2.851633012489451,
+      "identity_error": 4.440892098500626e-16,
+      "bound": 403.95123081638627,
+      "covered": true,
+      "coordinate_error": 5.911259113687506e-15
+    },
+    {
+      "gap": 2.836638972605387,
+      "identity_error": 2.220446049250313e-15,
+      "bound": 387.9245092805181,
+      "covered": true,
+      "coordinate_error": 5.611924557604025e-15
+    },
+    {
+      "gap": 1.92178048354973,
+      "identity_error": 2.220446049250313e-16,
+      "bound": 397.3189815421095,
+      "covered": true,
+      "coordinate_error": 4.5742194385222944e-15
+    },
+    {
+      "gap": 1.291221152256485,
+      "identity_error": 2.6645352591003757e-15,
+      "bound": 254.59763148598896,
+      "covered": true,
+      "coordinate_error": 4.229374236723373e-15
+    },
+    {
+      "gap": 2.1047459007788802,
+      "identity_error": 2.6645352591003757e-15,
+      "bound": 666.4746695843164,
+      "covered": true,
+      "coordinate_error": 6.461039939607535e-15
+    },
+    {
+      "gap": 1.3005650155942554,
+      "identity_error": 1.1102230246251565e-15,
+      "bound": 263.89945057750407,
+      "covered": true,
+      "coordinate_error": 6.445657296899948e-15
+    },
+    {
+      "gap": 2.0141414726176388,
+      "identity_error": 8.881784197001252e-16,
+      "bound": 358.20252331029997,
+      "covered": true,
+      "coordinate_error": 4.865925657890659e-15
+    },
+    {
+      "gap": 2.6864794297371724,
+      "identity_error": 8.881784197001252e-16,
+      "bound": 278.29201707990535,
+      "covered": true,
+      "coordinate_error": 6.377123154371393e-15
+    },
+    {
+      "gap": 3.5575993761345774,
+      "identity_error": 4.440892098500626e-15,
+      "bound": 1291.5497874826265,
+      "covered": true,
+      "coordinate_error": 4.688078721179055e-15
+    }
+  ],
+  "gradient_rule_counterexample": {
+    "gradient_deficit": 0.0,
+    "full_step": [
+      5.263157894736843,
+      -4.736842105263159
+    ],
+    "restricted_step": [
+      1.0,
+      0.0
+    ],
+    "model_gap": 2.131578947368422
+  }
+}

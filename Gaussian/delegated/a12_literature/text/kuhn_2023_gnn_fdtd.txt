@@ -1,0 +1,600 @@
+Exploiting graph neural networks to
+perform finite-difference time-domain
+based optical simulations
+Cite as: APL Photonics 8, 036109 (2023); https://doi.org/10.1063/5.0139004
+Submitted: 16 December 2022 • Accepted: 14 February 2023 • Accepted Manuscript Online: 14
+February 2023 • Published Online: 14 March 2023
+
+
+  L. Kuhn,    T. Repän and     C. Rockstuhl
+
+COLLECTIONS
+
+
+    This paper was selected as Featured
+
+
+    This paper was selected as Scilight
+
+
+
+
+ARTICLES YOU MAY BE INTERESTED IN
+
+Graph neural networks solve Maxwell’s equations numerically
+Scilight 2023, 111103 (2023); https://doi.org/10.1063/10.0017619
+
+Polarization-mediated multi-state infrared system for fine temperature regulation
+APL Photonics 8, 030801 (2023); https://doi.org/10.1063/5.0136842
+
+MaxwellNet: Physics-driven deep neural network training based on Maxwell’s equations
+APL Photonics 7, 011301 (2022); https://doi.org/10.1063/5.0071616
+
+
+
+
+APL Photonics 8, 036109 (2023); https://doi.org/10.1063/5.0139004                           8, 036109
+
+© 2023 Author(s).
+ APL Photonics                                                                                      ARTICLE            scitation.org/journal/app
+
+
+
+
+    Exploiting graph neural networks to perform
+    finite-difference time-domain based
+    optical simulations
+    Cite as: APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004
+    Submitted: 16 December 2022 • Accepted: 14 February 2023 •
+    Published Online: 14 March 2023
+
+    L. Kuhn,1,2         T. Repän,3          and C. Rockstuhl2,4,a)
+
+    AFFILIATIONS
+    1
+      Steinbuch Centre for Computing—Scientific Computing and Mathematics, Karlsruhe Institute of Technology,
+      Karlsruhe, Germany
+    2
+      Institute of Theoretical Solid State Physics, Karlsruhe Institute of Technology, Karlsruhe, Germany
+    3
+      Institute of Physics, University of Tartu, Tartu, Estonia
+    4
+      Institute of Nanotechnology, Karlsruhe Institute of Technology, Karlsruhe, Germany
+
+    a)
+         Author to whom correspondence should be addressed: carsten.rockstuhl@kit.edu
+
+
+    ABSTRACT
+    Having an artificial neural network that solves Maxwell’s equations in a general setting is an intellectual challenge and a great utility. Recently,
+    there have been multiple successful attempts to use artificial neural networks to predict electromagnetic fields, given a specific source and
+    interacting material distribution. However, many of these attempts are limited in domain size and restricted to object shapes similar to the
+    learned ones. Here, we overcome these restrictions by using graph neural networks (GNNs) that adapt the propagation scheme of the finite-
+    difference time-domain (FDTD) method to solve Maxwell’s equations for a distinct time step. GNNs yield a significant advantage, i.e., size
+    invariance, over conventional neural network architectures, such as convolutional or linear neural networks. Once trained, a GNN can work
+    on graphs of arbitrary size and connectivity. This allows us to train them on the propagation procedure of electromagnetic fields on small
+    domain sizes and, finally, expand the domain to an arbitrary scale. Moreover, GNNs can adapt to any material shape and work not only on
+    structured grids, such as FDTD, but also on arbitrary meshes. This work may be seen as the first benchmark for field predictions with graph
+    networks and could be expanded to more complex mesh-based optical simulations, e.g., those based on finite elements.
+    © 2023 Author(s). All article content, except where otherwise noted, is licensed under a Creative Commons Attribution (CC BY) license
+    (http://creativecommons.org/licenses/by/4.0/). https://doi.org/10.1063/5.0139004
+
+
+
+
+    I. INTRODUCTION                                                                   One of the most common and well-known numerical simu-
+                                                                                lation tools is the finite-difference time-domain method (FDTD).7
+          Nanophotonics explores the interaction of light with materials        It originates from a discrete version of Maxwell’s equations and
+    structured on a length scale comparable to or smaller than the              evolves electromagnetic fields in time-domain with high accuracy.
+    wavelength.1,2 Novel phenomena encountered at the nanoscale                 The FDTD method is particularly useful for understanding how light
+    and the disruptive means to tailor the flow of light constitute             interacts with a given structure. It allows us to define an incident
+    an ever-increasing motivation to explore such systems.3 For these           field and a given structure and to observe the evolution of the field
+    explorations, it is of major importance to reliably simulate the            in that specific setting afterward.8,9 With that, it provides a way to
+    light–matter interaction.4 On the one hand, it drives the develop-          observe the evolution of light exactly as it would happen in the real
+    ment of novel materials, structures, and devices. On the other hand,        world. However, as with all computational techniques, the speed
+    it provides insights into the light propagation in actual systems           could always be accelerated and the domain size that can be handled
+    inaccessible by experimental means. The numerical experiment, as            could always be larger. While the parallelization of FDTD algorithms
+    it is often called, is indispensable to understanding nanophotonic          is fairly standard, it quickly requires computational infrastructures
+    devices.5,6                                                                 for its execution that are not accessible to everybody. Thus, even
+
+
+
+
+APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004                                                                                           8, 036109-1
+© Author(s) 2023
+ APL Photonics                                                                                        ARTICLE                scitation.org/journal/app
+
+
+
+
+    moderately sized problems may come along with a high computa-               equations. Please note that, since different conventions exist, TM
+    tional cost and time.                                                       is understood in this contribution as the situation where, in an
+         Lately, in the slip-stream of developments in the field of com-        x–y plane, the considered electric field has a non-zero component
+    puter sciences, in general, and machine learning, in particular, there      perpendicular to this plane, while the magnetic field has non-zero
+    have been tremendous efforts to approach this problem with the              components in this plane. An understanding of how the FDTD
+    use of deep learning-based data-driven methods.10–13 Many of these          works is necessary to appreciate the formulation in form of a graph
+    attempts have been very successful and promoted not only accel-             afterward, which is the natural starting point for a graph neural
+    erated simulation but also inverse design processes.14–19 In addi-          network to solve these equations.
+    tion, a few approaches were already reported that looked into the                 For simplicity, we write down Maxwell’s equations for a non-
+    question of how to translate an FDTD simulation to a machine                dispersive material characterized in the spatial domain by permittiv-
+    learning approach.20,21 Generally, this reads extremely rewarding.          ity ε(r), permeability μ(r), electric conductivity σ(r), and magnetic
+    Once trained, the neural networks are expected to solve the same            conductivity σ m (r) as the point of departure. These Maxwell
+    computational problems in a much shorter time. While the general            equations read as
+    feasibility was demonstrated in these pioneering prior contribu-
+    tions, these initial approaches also came along with some drawbacks                                               ∂H(r, t)
+                                                                                          − σ m (r)H(r, t) − μ(r)
+    caused by deep-learning architectures and a lack of generalizabil-                                                  ∂t
+    ity due to limited data. This is a commonly encountered problem,                                                  ∂Ez (r, t)       ∂Ez (r, t)
+                                                                                                  = ∇ × E(r, t) = êx            − êy            ,         (1)
+    and these surrogate physics solver approaches were restricted with                                                  ∂y               ∂x
+    respect to the materials and shapes of the scatterers, as well as the
+    domain size and scale of the simulation. These previously considered                                             ∂E(r, t)
+                                                                                             σ(r)E(r, t) − ε(r)                = ∇ × H(r, t)
+    neural networks mostly include convolutional layers, which learn                                                    ∂t
+    features on a certain scale and are not able to extrapolate on an arbi-                                 ∂Hy (r, t)       ∂Hx (r, t)
+    trary resolution. Additionally, the input shape of the model has to be                            = êz            − êz            ,                   (2)
+                                                                                                              ∂x               ∂y
+    fixed. Thus, variable domain sizes could not be considered.
+         To circumvent these aforementioned problems, we consider
+                                                                                                                ∇ ⋅ E(r, t) = 0,                            (3)
+    here the use of graph neural networks (GNNs) for the same purpose.
+    In general, GNNs are suitable to process unstructured, non-uniform
+    data and have been already useful to classify molecules,22,23 to                                            ∇ ⋅ H(r, t) = 0.                            (4)
+    model fluid and particle dynamics,24,25 for computer vision tasks,26
+    in particle and high-energy physics,27,28 or to work as graph neu-               In these equations, E(r, t) is the electric field, H(r, t) is the
+    ral operators.29–31 GNNs work independently of the graph size               magnetic field, σ m (r) is the magnetic conductivity, σ(r) is the
+    or structure and can easily store information about scaling and             electric conductivity, and ε(r) and μ(r) are the permeability and
+    resolution.                                                                 permittivity, respectively. If dispersive materials are required to be
+         We exploit these features to train GNNs to propagate electro-          considered, auxiliary differential equations would be needed to sup-
+    magnetic field distributions in time for arbitrary domain sizes and         plement these Maxwell equations. These auxiliary equations would
+    material distributions. We stress that in this approach, we do not          describe the temporal evolution of a polarization or magnetization
+    necessarily seek for steady-state solutions of the field but, instead,      depending on the electric or magnetic field, respectively.
+    seek to advance the field propagation by a certain amount of time.               In our considered setting, i.e., the propagation of the fields in
+    The main purpose of our GNNs is to learn the FDTD scheme while              the x–y-plane and with the restriction to TM polarization, the dif-
+    exploiting all benefits offered by GNNs, e.g., working on unstruc-          ferential equations that describe the spatial and temporal evolution
+    tured grids, extrapolation to larger domain sizes, and extrapolation        of the three involved field components are
+    to material distributions not seen in the training process.
+         This paper is structured as follows: first, we discuss our meth-                                              ∂Hx (r, t) ∂Ez (r, t)
+                                                                                                 − σ m Hx (r, t) − μ             =           ,              (5)
+    ods, including FDTD, graphs, and graph neural networks. Subse-                                                       ∂t         ∂y
+    quently, we outline the physical setup and training data generation.
+    Here, we follow two approaches and focus either on the prediction of                                              ∂Hy (r, t) ∂Ez (r, t)
+                                                                                                  σ m Hy (r, t) + μ             =           ,               (6)
+    the electric field only or on performing full-field predictions. Finally,                                           ∂t         ∂x
+    we conclude with our results and sketch improvements, extensions,
+    and applications.                                                                                       ∂Ez (r, t) Hy (r, t) ∂Hx (r, t)
+                                                                                           σEz (r, t) + ε             =         −           .               (7)
+                                                                                                               ∂t        ∂x        ∂y
+    II. METHODS
+                                                                                      To render the equations manageable on a computer, the space
+    A. The finite-difference time-domain method                                 and time are discretized in the FDTD on a finite grid spaced by
+         The finite-difference time-domain method (FDTD) is an iter-            Δx = Δy and Δt. For the spatial discretization, we define a
+    ative numerical update procedure to compute the evolution of an             grid indexed by m and n for the x- and y-direction, respec-
+    electromagnetic field in space and time.32 For reasons of consistency,      tively; thus, r = (x, y) = (mΔx, nΔy). The temporal steps follow
+                                                                                                            1
+    we will briefly sketch the approach in 2D assuming a transverse-                         2           2 −2
+                                                                                Δt = 1c {( Δx
+                                                                                            1
+                                                                                              ) + ( Δy
+                                                                                                    1
+                                                                                                       )}       , where c is the speed of light in the
+    magnetic (TM) polarization, starting from the source-free Maxwell
+
+
+
+
+APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004                                                                                                  8, 036109-2
+© Author(s) 2023
+ APL Photonics                                                                                                          ARTICLE                 scitation.org/journal/app
+
+
+
+
+      FIG. 1. (a) Yee-grid in TM polarization. (b) Graph representations as a grid and an unstructured mesh. The node features encode the electric field E z and permittivity ε, and
+      the edge features hold Hx,y and local Cartesian vector r c .
+
+
+
+
+    medium, leading to discrete times t q = qΔt. To find suitable update                        graph neural networks appears very suitable to treat this prob-
+    rules for E and H, they have to be arranged in a staggered manner                           lem. GNNs rely on the information exchange of neighboring nodes,
+    in space and time. The resulting spatial discretization follows a Yee-                      which is ideal to capture the locality of the updating procedure.
+    grid (see Fig. 1), where the components Ez and H x/y are displaced                          Moreover, FDTD works independently of the domain size, which
+    by Δx/2 and Δy/2 in space and Δt/2 in time. This naturally yields                           can be translated to a GNN working on arbitrary input graphs.
+    the validity of Eqs. (3) and (4). Replacing all partial derivations with                           The purpose of this section is a brief introduction to graph
+    finite differences in Eqs. (5)–(7), we can deduce update rules for the                      representations and graph neural networks; thus, it becomes clear
+    electric and magnetic fields in space and time. For the electric field,                     to the reader how and why GNNs are potentially useful for FDTD
+    the update-expression reads                                                                 computations.
+                                                                                                       A graph 𝒢(𝒱 , ℰ) comprises a set of nodes or vertices 𝒱
+                                  1 − σΔt                                                       = v1 , v2 , . . . and edges ℰ ⊆ 𝒱 × 𝒱 . We consider here only undirected
+            Ez (m, n, q + 1) =         2ε
+                                          Ez (m, n, q)
+                                  1 + σΔt
+                                       2ε                                                       graphs. Therefore, every edge represents an undirected link between
+                                        1       Δt         1        1                           two graph nodes eij = (vi , vj ) ∈ ℰ. Both nodes and edges hold a set
+                                  +          (     {Hy (m + , n, q + )                          of attributes, the node features hv ∈ RD and edge features he ∈ RC ,
+                                    1 + σΔt
+                                          2ε
+                                               εΔx         2        2
+                                                                                                respectively. In general, the number of features for each node or edge
+                                               1        1
+                                   − Hy (m − , n, q + )}                                        can vary in the so-called heterogeneous graphs. However, in our
+                                               2        2                                       case, we have a fixed number of features, making our graphs homo-
+                                      Δt               1   1                                    geneous. Additionally, we assign spatial positions pi = (pi,x , pi,y ) of
+                                  −       {Hx (m, n + , q + )
+                                     εΔy               2   2                                    the nodes that coincide with the simulation coordinates.
+                                                 1      1                                              Graphs are very suitable to represent unstructured data, such
+                                   − Hx (m, n − , q + )}).                            (8)
+                                                 2      2                                       as networks, molecules, or meshes.22–24 For the purpose of field
+                                                                                                propagation, we represent the electromagnetic field and material dis-
+          Nearly identical expressions can be found for H x and H y ,                           tribution as graphs. To keep things simple in this initial work, we
+    respectively. A detailed derivation can be found in the literature.7,33                     concentrate here on dielectric materials only, for which it is suffi-
+    The idea of the FDTD is now to evolve the fields in a leap-frog-                            cient to describe them using a spatially resolved dielectric function
+    scheme. To be specific, the spatial differences from the magnetic                           only. We can think about two possible graphs.
+    field allow to advance the electric field in time. Afterward, those spa-                           One approach is a direct representation of the Yee-grid; see
+    tial differences from the electric field allow advancing the magnetic                       Fig. 1. Here, the node features hv ∈ R2 encode the electric field
+    field in time. To solve the PDE, we have to impose some bound-                              Ez (r, t 0 ) and the permittivity ε(r). In extension, the edge features
+    ary conditions and potentially some perfectly matched layers, i.e., an                      he ∈ R4 comprise the magnetic field components H x,y (r, t 0 ) and the
+    impedance matched material that absorbs incoming radiation with-                            relative Cartesian vector rij of linked nodes,
+    out any reflection. Such a material is necessary to imitate the infinite
+    open space on a finite grid. To execute an actual simulation, we                                                       rij = (pj,x − pi,x , pj,y − pi,y ).                     (9)
+    also need to define sources of electromagnetic radiation. We provide
+    more details on these aspects in the section titled RESULTS since                           Another approach is a meshing of the domain [see Fig. 1(b)] with
+    they are related to the training data generation.                                           equivalent edge and node features. While, technically, there is no
+                                                                                                distinction between a regular grid and a mesh at the level of the
+    B. Graph representation                                                                     graph, it would make a tremendous difference at the level of the
+        As sketched in Sec. II A, the whole FDTD formalism is based                             FDTD. In the FDTD, frequently, a regular grid is used, which causes
+    on a local and iterative updating scheme. That is why the use of                            a stair-case approximation of the surface of rounded objects. This
+
+
+
+
+APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004                                                                                                                        8, 036109-3
+© Author(s) 2023
+ APL Photonics                                                                                      ARTICLE              scitation.org/journal/app
+
+
+
+
+    approximation can lead to computational artifacts that can be             ∈ 𝒩 (i) and connecting edge eij , the so-called message passing.
+    avoided with such a mesh.                                                 Subsequently, the messages get aggregated (message aggregation)
+          In both cases, the choice of resolution is important. It does not   and added to the original node features. Finally, a multi-layer per-
+    have to be as fine as it is chosen for the FDTD simulation, but a too-    ception (MLP) processes the features. With that, we achieve updated
+    low resolution leads to poor results. This is not necessarily caused by   node features vi′ . The whole operation reads
+    bad predictions but rather by a poor interpolation of the predictions
+    to achieve the fields at all points in space inside the domain. Over-          vi′ = MLP(vi + AGG({ReLU(vj + eij ) + ε : j ∈ 𝒩 (i)})),                (10)
+    all, the resolution is a trade-off between exceedingly large graphs,
+    which slows down computation, and too less nodes to achieve accu-         where ε is a small positive parameter to ensure non-zero division in
+    rate results at all points in space. In this work, we use a resolution    the aggregation scheme, for which we use max aggregation. Addi-
+    that is found by manually tuning and choosing a sweet spot.               tionally, we use a layer normalization before non-linear activation
+    C. Graph neural networks                                                  and we add residual connections after every GCN layer. The mes-
+                                                                              sage passing allows information exchange of connected neighbors,
+          After having discussed the classical FDTD algorithm used to         which we use to adapt the updating scheme performed in the Yee
+    advance electromagnetic fields in space and time and having dis-          grid. However, since we use several GCN layers, we achieve infor-
+    cussed how to represent the discretized Maxwellian problem in             mation exchange not only of directly connected but also of further
+    terms of a graph, we provide the following short introduction to          away nodes. Finally, we have a single decoder, another three-layered
+    graph neural networks. In short, the purpose of these networks will       MLP, that projects the resulting features of each node back to a single
+    be to learn how to propagate a given input field in space and time.       value, the updated electric field. Please note that the whole opera-
+          A graph neural network (GNN) is an artificial neural network        tion on the input graph 𝒢 is independent of the amount of nodes
+    (ANN) that works on graphs. In contrast to conventional ANNs,             and edges, only the number of input features is fixed. In general,
+    such as linear or convolutional networks, a GNN does not rely on a        this is one of the main strengths of GNNs, which we exploit to treat
+    specific shape and size of the input data. It works on any graph, inde-   different domain sizes with the same model.
+    pendent of its number of nodes, edges, or connectivity and yields               We trained GNNs with different hyperparameters to find a suit-
+    permutation invariance. A GNN can be interpreted as a graph oper-         able configuration. However, we observed only minor differences
+    ator ℱ that acts on a graph 𝒢 and returns a new graph 𝒢′ with             in the final performance; thus, a qualitative reproduction of our
+    updated features and potentially new nodes and edges. GNNs can            results can also be achieved with different parameters. In our exper-
+    perform tasks on different levels, specifically node-level, edge-level,   iments, we found that a minimum number of trainable parameters
+    and graph-level. We want to predict the electric field at each point in   of ∼300 000 is needed.
+    space after a fixed time step. This coincides with a node-level regres-
+    sion task since these encode the electric field in space. The graph
+    that our network takes corresponds to the field at a certain moment       III. RESULTS
+    in time, and afterward, it returns the field after a time step.                 We train different GNNs to evolve a given electromagnetic
+          Our network comprises several components, depicted in Fig. 2.       field distribution Ez (r, t 0 ), H x,y (r, t 0 ) for a distinct time step Δt. We
+    First, we have two encoders that lift the graph’s node and edge fea-      follow two different approaches for this purpose. First, we train dif-
+    tures in a high-dimensional embedding space. Both encoders are            ferent GNNs to perform a single time step in electric field prediction,
+    fully connected feedforward networks of three linear layers with          given a comparatively low spatial resolution. We test and evaluate
+    ReLU activation. The number of features increases with every MLP          this for both grid and meshing. Second, we want to be able to pre-
+    layer to 32, 64, and 128. Node and edge features must have the            dict the full field. Therefore, we keep a high temporal and spatial
+    same dimension to enable the following generalized graph convolu-         resolution and deduce the magnetic fields from predicted electric
+    tion (GCN) layers.34 To perform the graph convolution, each node          fields following the FDTD propagation procedure. The training is
+    vi gathers edge and node features of every neighboring node vj : j        performed in parallel on four NVIDIA A100 Tensor Core graphics
+
+
+
+
+                                                                                                                      FIG. 2. GNN structure. Encoding of edge
+                                                                                                                      and node features followed by general-
+                                                                                                                      ized graph convolution. Finally, decod-
+                                                                                                                      ing back to the electromagnetic field at
+                                                                                                                      t = t1 .
+
+
+
+
+APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004                                                                                                 8, 036109-4
+© Author(s) 2023
+ APL Photonics                                                                                                     ARTICLE                  scitation.org/journal/app
+
+
+
+
+    processing units (GPUs) with 40 GB RAM each. The training time                          edges and the scatterer boundary are added manually. Subsequently,
+    varies, depending on model specifications, between 40 minutes and                       the GNN performs the temporal evolution for Δt, leading to a trans-
+    up to 4 hours.                                                                          formed graph 𝒢′ . The loss function compares the ground truth result
+          We use the open-source Python FDTD-implementation meep35                          of FDTD with the node features of 𝒢′ and computes the mean
+    for data generation and testing. We consider a plane wave source                        squared error (MSE),
+    at λ = 1 μm and arbitrarily shaped non-magnetic, non-conducting,
+    non-dispersive, dielectric 2D scatterers of ε = 2.1025 in vacuum. The                                                     1        Nv
+                                                                                                                                                  2
+                                                                                                                 MSE(𝒢, 𝒢ˆ) =   ∑ (hv,i − ĥ v,i )                       (11)
+    domain size varies between 1 and 3 μm side length with perfectly                                                          Nv i
+    matched layers as boundary conditions. We chose a spatial reso-
+                                                                                                                                    1 Nv                2
+    lution of 60 pixels/wavelength to ensure physically correct results.                                                        =     ∑ (Ez,i − Ê z,i ) .               (12)
+    The source is a time-harmonic plane wave propagating along the                                                                  Nv i
+    +x-direction into the considered domain. This comparably basic set-
+    ting is most suitable for initial investigations. However, the method                   Here, the FDTD ground truth values are interpolated in the case
+    is not restricted to a specific source or material properties. An                       of meshed graphs to get the field values at every node position.
+    expansion to dispersive materials and different sources is possible.                    The whole dataset is split into 2000 and 500 samples for training
+                                                                                            and validation, respectively. We use the optimizer ADAM37 and a
+                                                                                            learning rate scheduler, which reduces the learning rate by a factor
+    A. Electric field prediction                                                            of 0.5 if no further improvement of the validation loss is observed
+          To evolve the electric field only for a fixed time step, we can use               within 10 epochs. We train for a total of 200 epochs and observe the
+    a low spatial resolution and comparatively large time step Δt = 4cλ .                   convergence of validation and training loss.
+    This Δt coincides with 15 high resolution time steps in meep. It is                          To achieve the resulting field at every point in space, not only
+    possible to choose such a high time step since the underlying training                  at the node positions, we linearly interpolate the nodes to a grid.
+    data were created with a high temporal resolution. Thus, it is phys-                         We test the resulting models on 20 different shapes and time
+    ically accurate. The model then learns from correct data to adapt                       steps and observe excellent agreements of the predicted fields with
+    larger time steps. We construct graphs as structured grids, similar                     GNN and FDTD simulations. In the case of square grid graphs, we
+    to the Yee grid, and meshes. In this case, edge features include both                   reach a mean squared error of 7.8 × 10−4 , whereas meshing results
+    H x and H y values.                                                                     in 4.4 × 10−4 . Figure 3 shows two examples for each grid (a) and
+          The training set comprises 125 different shapes, sampled at                       meshing (b). Here, the left figure shows the initial state. The fol-
+    20 different time steps of discretization Δt = 4cλ . The shapes are                     lowing figure, i.e., the second to left, shows the predicted field after
+    generated from random noise after applying a Gaussian filter. Start-                    a time step Δt = 4cλ with the GNN. The third figure from the left
+    ing from the initial field distribution, either a structured grid or a                  shows the predicted field values as computed with FDTD for ref-
+    meshed graph is constructed; see Fig. 1. For meshing, we use the                        erence purposes. Both predictions from the GNNs considering grids
+    Python library meshpy36 to create a triangular mesh. We control the                     and meshes are in excellent agreement with the ground truth FDTD
+    number of mesh points by restricting the volume size. The domain                        simulations. To quantify this agreement, we evaluate the normed
+
+
+
+
+      FIG. 3. Example prediction with grid graphs (a) and meshing (b). Both yield only small deviations from the actual FDTD calculations in the order of a few percent. The
+      presented mean normed relative error follows Eq. (13).
+
+
+
+
+APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004                                                                                                                8, 036109-5
+© Author(s) 2023
+ APL Photonics                                                                                                           ARTICLE                scitation.org/journal/app
+
+
+
+
+      FIG. 4. Extrapolation to larger domain sizes and arbitrary scatterer shape in meshing. The left panel shows the initial, i.e., input, field. The largest trained domain size is
+      marked in gray. The ground truth values are computed with meep, and the respective mean normed relative error is at 1.4%.
+
+
+
+
+    relative error of the GNN predicted field Ez (r) and FDTD computed                           extrapolation on larger domain sizes works very well and shows the
+    field Ez,0 (r) at t 0 + Δt,                                                                  same accuracy as pure Ez predictions.
+                                                                                                        Alternatively, we can directly deduce the magnetic fields from
+                                                ∣Ez (r) − Ez,0 (r)∣                              Ez . Since the network input comprises the full field, we can follow the
+                           δ(r, Ez , Ez,0 ) =                         ,              (13)        FDTD propagation procedure. Therefore, the graph construction
+                                                 ∣Ez,0 (r)∣ + ∣Ez,0 ∣
+                                                                                                 changes slightly. We stick to grid graphs of the same high resolution
+                                                                                                 as the simulation, namely 60 pixels/wavelength. Adapting to the Yee
+    where ∣Ez,0 ∣ is the average absolute value of the correct field with                        grid, we only use H x fields for vertical edges and H y fields for hori-
+    respect to r. The error is shown in the right of Figs. 3(a) and 3(b).                        zontal ones. Additionally, we sample Ez and H x,y at different times,
+    The prediction is slightly worse for smaller propagation times due to                        shifted by Δt/2. From the predicted field Ez , we compute H x,y fol-
+    transitional temporal effects arising from the source initiation. These                      lowing the FDTD formalism. To achieve accurate results for H x,y ,
+    effects are particularly hard to capture with meshing with coarser                           we add a Maxwell loss in training,
+    elements in the spatial domain. This results in interpolation errors
+    when converting the graph representation to fields. However, the
+    prediction with grids of resolution 30 pixels/wavelength covers the                                         Loss(Ez , Êz ) = Lossdata + LossMaxwell
+    effects quite well.                                                                                                            1               2
+                                                                                                                                =    ∑ (Ez − Ê z )
+         Now, we test the trained GNNs on domain sizes outside the                                                                Nv
+    trained range of 1–3 μm. Figure 4 shows an example with 5 μm side                                                                 1
+    length in meshing. The mean value for this example coincides with                                                             + α ∑ (Hx,y − Ĥ x,y (Ê z ))2.                 (14)
+                                                                                                                                     Ne
+    ≈1.4% deviation, which is very low. In addition, the shape of the
+    scatterer is rather specific compared to the ones used in training.                                Here, H x,y is the ground truth magnetic field from the simu-
+    This shows that our model learned to adapt the propagation proce-                            lation at t = t 1 + 1/2Δt and Ĥ x,y (Êz ) is the field resulting from the
+    dure of a given electromagnetic field. It can extrapolate very well to                       network output Êz plugged in the FDTD update equation. By that,
+    larger domain sizes and even complex shapes not seen in training.                            we compare not only the electric field predictions to ground truth
+    We achieve similar results with grid graphs.                                                 values in training but also the derived magnetic fields. Additionally,
+                                                                                                 we introduce α as a parameter to control the strength of the Maxwell
+    B. Full field prediction                                                                     loss. Including Maxwell’s equation in the loss has been applied
+         Instead of only predicting Ez (r, t 0 + Δt), we want to train mod-                      successfully before, yielding performance improvements.38–40
+    els that are able to compute the full electromagnetic field. For                                   Figure 5 shows the results for a single test case. The mean error
+    that, we add two feature channels to the node decoder to enable                              on the magnetic field components is slightly higher than on the elec-
+    direct prediction of H x,y (r, t 0 + Δt) for grid graphs. The used net-                      tric field. In any case, the deviation is in the order of only a few
+    work architecture and hyperparameters are the same, besides the                              percent.
+    additional decoder channels. It is worth mentioning that an alter-                                 In principle, the prediction of the whole field allows passing the
+    native approach is a second pure edge encoder. However, we stick                             output back to the input of the GNN. Unfortunately, we observe a
+    to a single decoder for the full field. Again, we test our results on                        fast error accumulation leading to very bad results after just a few
+    20 unknown test shapes at 20 time steps and achieve a mean squared                           iterations, independent of the choice of the H x,y prediction. This
+    error of 4.4 × 10−4 on H x and 5.3 × 10−4 on H y components. The                             problem is known24 and can be treated or partially solved by training
+
+
+
+
+APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004                                                                                                                         8, 036109-6
+© Author(s) 2023
+ APL Photonics                                                                                    ARTICLE            scitation.org/journal/app
+
+
+
+
+                                                                                                                  FIG. 5. Full field predictions compris-
+                                                                                                                  ing E z , Hx , and Hy . The magnetic field
+                                                                                                                  components are computed using the pre-
+                                                                                                                  dicted E z following the FDTD formalism.
+                                                                                                                  The deviations are low in the order of a
+                                                                                                                  few percent.
+
+
+
+
+    on noisy input data or including several iterations in the loss            there are already efforts to include the treatment of sparse matri-
+    function.                                                                  ces,41 which would potentially speed up computations with graphs
+                                                                               similar to ours. In the long run, we foresee hybrid implementations
+                                                                               where the time stepping of fields is alternatively done in a classi-
+    IV. CONCLUSION AND OUTLOOK                                                 cal FDTD scheme and using GNNs. This will save computational
+          We demonstrated that a GNN is capable of propagating electro-        resources and time and will speed up simulations.
+    magnetic fields for a fixed time step, given the initial field distribu-
+    tion. After the training is finished, the model is able to interpolate
+                                                                               ACKNOWLEDGMENTS
+    very well for unknown scenarios with parameters similar to the
+    trained ones. Moreover, the GNN can also extrapolate on very large              L.K. acknowledges the support by the NHR@KIT program
+    domains and very specific scatterer shapes. By that, we proved to          and the Karlsruhe School of Optics and Photonics. L.K. acknowl-
+    overcome one of the main issues of conventional ANN architec-              edges the Jülich Supercomputing Centre, specifically the JUWELS
+    tures: fixed input size, i.e., domain size. The very good performance      Booster for training and validation. C.R. acknowledges the support
+    on many different scatterer shapes implies that the model actually         by the Deutsche Forschungsgemeinschaft (DFG, German Research
+    learned to propagate fields by adapting the physical propagation pro-      Foundation) under Germany’s Excellence Strategy via the Excel-
+    cedure. Despite the high prediction accuracy, the computation of           lence Cluster 3D Matter Made to Order (Grant No. EXC-2082/1-
+    multiple time steps by iteratively feeding the output of the network       390761711). T.R. is supported by Estonian Research Council Grant
+    back as input was not successful. However, there exist approaches          (No. PSG716). We acknowledge support by the KIT-Publication
+    to circumvent the problem of error accumulation, which we have             Fund of the Karlsruhe Institute of Technology.
+    outlined in the section titled RESULTS.
+          Yet, the use of GNNs to perform a single time step is not advan-
+    tageous to proper FDTD simulations, since at least in 2D, those are        AUTHOR DECLARATIONS
+    cheap and fast. However, in the case of 3D scenarios with more com-
+                                                                               Conflict of Interest
+    plex materials and scatterer shapes, the use of a GNN potentially
+    saves time and computational efforts. Along these lines, our method             The authors have no conflicts to disclose.
+    could particularly be suitable for dispersive materials, since these are
+    more costly and time-consuming in FDTD computations. Addition-
+    ally, a generalization to different sources may be possible by adding      Author Contributions
+    the respective information to the input graph. We also showed that         L. Kuhn: Conceptualization (equal); Formal analysis (equal); Inves-
+    the model can work with meshing, which is not possible in a pure           tigation (equal); Writing – original draft (equal). T. Repän: Supervi-
+    FDTD formulation. These findings support that GNNs can also be             sion (equal); Validation (equal); Writing – review & editing (equal).
+    used for more complex mesh-based simulations, for example finite           C. Rockstuhl: Project administration (equal); Supervision (equal);
+    element methods, which are, in general, very demanding. Addition-          Writing – original draft (equal); Writing – review & editing (equal).
+    ally, the graphs we process with the GNNs are very large with only
+    a few connections to the nearest neighbors. This results in a very         DATA AVAILABILITY
+    sparse matrix representation. Unfortunately, common graph learn-
+    ing frameworks only support static representations of these matrices;          The data that support the findings of this study are available
+    thus, a lot of unnecessary computations are performed. However,            from the corresponding author upon reasonable request.
+
+
+
+
+APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004                                                                                              8, 036109-7
+© Author(s) 2023
+ APL Photonics                                                                                                   ARTICLE              scitation.org/journal/app
+
+
+
+                                                                                          21
+    REFERENCES                                                                               D. Zhu, Q. Zhao, Y. Bo, W. Chen, and L. Yang, “Application of deep learning in
+    1
+                                                                                          FDTD method,” in 2021 13th International Symposium on Antennas, Propagation
+      A. F. Koenderink, A. Alù, and A. Polman, “Nanophotonics: Shrinking light-based      and EM Theory (ISAPE) (IEEE, 2021), Vol. 1, pp. 1–3.
+    technology,” Science 348(6234), 516–521 (2015).                                       22
+                                                                                             O. Wieder, S. Kohlbacher, M. Kuenemann, A. Garon, P. Ducrot, T. Seidel, and
+    2
+      F. Monticone and A. Alù, “Metamaterial, plasmonic and nanophotonic devices,”        T. Langer, “A compact review of molecular property prediction with graph neural
+    Rep. Prog. Phys. 80(3), 036401 (2017).                                                networks,” Drug Discovery Today: Technol. 37, 1–12 (2020).
+    3
+      C. Lienau, M. A. Noginov, and M. Lončar, “Light–matter interactions at the         23
+                                                                                             H. Ma, Y. Bian, R. Yu, W. Huang, T. Xu, W. Xie, G. Ye, and J. Huang, “Multi-
+    nanoscale,” J. Opt. 16(11), 110201 (2014).                                            view graph neural networks for molecular property prediction,” arXiv:2005.13607
+    4
+      A. V. Lavrinenko, J. Lægsgaard, N. Gregersen, F. Schmidt, and T. Søndergaard,       (2020).
+    Numerical Methods in Photonics (CRC Press, 2018).                                     24
+                                                                                             P. Tobias, M. Fortunato, A. Sanchez-Gonzalez, and P. W. Battaglia, “Learning
+    5
+      B. Gallinet, J. Butet, and O. J. F. Martin, “Numerical methods for nanophotonics:   mesh-based simulation with graph networks,” arXiv:2010.03409 (2020).
+                                                                                          25
+    Standard problems and future challenges,” Laser Photonics Rev. 9(6), 577–603             F. De Avila Belbute-Peres, T. Economon, and Z. Kolter, “Combining differ-
+    (2015).                                                                               entiable PDE solvers and graph neural networks for fluid flow prediction,” in
+    6
+      P. Lalanne, W. Yan, K. Vynck, C. Sauvan, and J.-P. Hugonin, “Light interaction      Proceedings of the 37th International Conference on Machine Learning, Proceed-
+    with photonic and plasmonic resonances,” Laser Photonics Rev. 12(5), 1700113          ings of Machine Learning Research, edited by H. Daumé III and A. Singh (PMLR,
+    (2018).                                                                               2020), Vol. 119, pp. 2402–2411.
+    7                                                                                     26
+      A. Taflove, S. C. Hagness, and M. Piket-May, “Computational electromagnet-             K. Han, Y. Wang, J. Guo, Y. Tang, and E. Wu, “Vision GNN: An image is worth
+    ics: The finite-difference time-domain method,” in The Electrical Engineering         graph of nodes,” arXiv:2206.00272 (2022).
+                                                                                          27
+    Handbook (Elsevier, Inc., 2005), pp. 629–670.                                            X. Ju, S. Farrell, P. Calafiura, D. Murnane, Prabhat, L. Gray, T. Klijnsma,
+    8
+      V. Jovanov, U. Palanchoke, P. Magnus, H. Stiebig, J. Hüpkes, P. Sichanugrist,       K. Pedro, G. Cerati, J. Kowalkowski, G. Perdue, P. Spentzouris, N. Tran, J.-R.
+    M. Konagai, S. Wiesendanger, C. Rockstuhl, and D. Knipp, “Light trapping in peri-     Vlimant, A. Zlokapa, J. Pata, M. Spiropulu, S. An, A. Adam, J. Hewes, A. Tsaris,
+    odically textured amorphous silicon thin film solar cells using realistic interface   K. Terao, and T. Usher, “Graph neural networks for particle reconstruction in high
+    morphologies,” Opt. Express 21(S4), A595–A606 (2013).                                 energy physics detectors,” arXiv:2003.11603 (2020).
+                                                                                          28
+    9
+      A. Vaccari, L. Cristoforetti, A. C. Lesina, L. Ramunno, A. Chiappini,                  J. Shlomi, P. Battaglia, and J.-R. Vlimant, “Graph neural networks in particle
+    F. Prudenzano, A. Bozzoli, and L. Calliari, “Parallel finite-difference time-domain   physics,” Mach. Learn.: Sci. Technol. 2(2), 021001 (2020).
+                                                                                          29
+    modeling of an opal photonic crystal,” Opt. Eng. 53(7), 071809 (2014).                   Z. Li, N. Kovachki, K. Azizzadenesheli, B. Liu, K. Bhattacharya, A. Stuart, and
+    10
+       J. Park, S. Kim, D. W. Nam, H. Chung, C. Y. Park, and M. S. Jang, “Free-form       A. Anandkumar, “Neural operator: Graph kernel network for partial differential
+                                                                                          equations,” arXiv:2003.03485 (2020).
+    optimization of nanophotonic devices: from classical methods to deep learning,”       30
+    Nanophotonics 11(9), 1809–1845 (n.d.).                                                   Z. Li, N. Kovachki, K. Azizzadenesheli, B. Liu, A. Stuart, K. Bhattacharya,
+    11                                                                                    and A. Anandkumar, “Multipole graph neural operator for parametric partial
+       W. Ma, Z. Liu, Z. A. Kudyshev, A. Boltasseva, W. Cai, and Y. Liu, “Deep
+                                                                                          differential equations,” Advances in Neural Information Processing Systems 33:
+    learning for the design of photonic structures,” Nat. Photonics 15(2), 77–90
+                                                                                          Annual Conference on Neural Information Processing Systems 2020, NeurIPS
+    (2021).
+    12
+                                                                                          2020, December 6–12, 2020.
+       Z. A. Kudyshev, A. V. Kildishev, V. M. Shalaev, and A. Boltasseva, “Machine        31
+                                                                                             N. Kovachki, Z. Li, B. Liu, K. Azizzadenesheli, K. Bhattacharya, A. Stuart, and
+    learning–assisted global optimization of photonic devices,” Nanophotonics 10(1),      A. Anandkumar, “Neural operator: Learning maps between function spaces,”
+    371–383 (2021).                                                                       arXiv:2108.08481 (2021).
+    13
+       T. Repän, V. Ramakrishna, and C. Rockstuhl, “Artificial neural networks used to    32
+                                                                                             J. B. Schneider, “Understanding the finite-difference time-domain method,”
+    retrieve effective properties of metamaterials,” Opt. Express 29(22), 36072–36085     School of Electrical Engineering and Computer Science, Washington State
+    (2021).                                                                               University (2010), 28.
+    14
+       Y. Tang, K. Kojima, T. Koike-Akino, Y. Wang, P. Wu, Y. Xie, M. H. Tahersima,       33
+                                                                                             A. Taflove, A. Oskooi, and S. G. Johnson, Advances in FDTD Computational
+    D. K. Jha, K. Parsons, and M. Qi, “Generative deep learning model for inverse         Electrodynamics: Photonics and Nanotechnology (Artech house, 2013).
+    design of integrated nanophotonic devices,” Laser Photonics Rev. 14(12), 2000287      34
+                                                                                             G. Li, C. Xiong, A. Thabet, and B. Ghanem, “All you need to train deeper
+    (2020).                                                                               GCNs,” arXiv:2006.07739 (2020).
+    15
+       P. R. Wiecha, A. Arbouet, C. Girard, and O. L. Muskens, “Deep learning in          35
+                                                                                             A. F. Oskooi, D. Roundy, M. Ibanescu, P. Bermel, J. D. Joannopoulos, and S. G.
+    nano-photonics: Inverse design and beyond,” Photonics Res. 9(5), B182–B200            Johnson, “MEEP: A flexible free-software package for electromagnetic simulations
+    (2021).                                                                               by the FDTD method,” Comput. Phys. Commun. 181(3), 687–702 (2010).
+    16
+       S. So, T. Badloe, J. Noh, J. Bravo-Abad, and J. Rho, “Deep learning enabled        36
+                                                                                             I. Steinbrecher and A. Popp, “MeshPy: A general purpose 3D beam finite
+    inverse design in nanophotonics,” Nanophotonics 9(5), 1041–1057 (2020).               element input generator,” https://compsim.gitlab.io/codes/meshpy, 2021.
+    17                                                                                    37
+       L. Kuhn, T. Repän, and C. Rockstuhl, “Inverse design of core-shell particles          D. P. Kingma and J. Ba, “Adam: A method for stochastic optimization,”
+    with discrete material classes using neural networks,” Sci. Rep. 12(1), 19019         arXiv:1412.6980.ISO 690 (2014).
+    (2022).                                                                               38
+                                                                                             M. Chen, R. Lupoiu, C. Mao, D.-H. Huang, J. Jiang, P. Lalanne, and J. A. Fan,
+    18
+       I. Sajedian, T. Badloe, and J. Rho, “Optimisation of colour generation from        “High speed simulation and freeform optimization of nanophotonic devices with
+    dielectric nanostructures using reinforcement learning,” Opt. Express 27(4),          physics-augmented deep learning,” ACS Photonics 9(9), 3110–3123 (2022).
+    5874–5883 (2019).                                                                     39
+                                                                                             Z. Fang and J. Zhan, “Deep physical informed neural networks for metamaterial
+    19
+       C. Majorel, C. Girard, A. Arbouet, O. L. Muskens, and P. R. Wiecha,                design,” IEEE Access 8, 24506–24513 (2020).
+    “Deep learning enabled strategies for modeling of complex aperiodic plasmonic         40
+                                                                                             P. Zhang, Y. Hu, Y. Jin, S. Deng, X. Wu, and J. Chen, “A Maxwell’s equations
+    metasurfaces of arbitrary size,” ACS Photonics 9(2), 575–585 (2022).                  based deep learning method for time domain electromagnetic simulations,” IEEE
+    20
+       H. M. Yao and L. J. Jiang, “Machine learning based neural network solving          J. Multiscale Multiphys. Comput. Tech. 6, 35–40 (2021).
+                                                                                          41
+    methods for the FDTD method,” in 2018 IEEE International Symposium on Anten-             S. Qiu, L. You, and Z. Wang, “Optimizing sparse matrix multiplications
+    nas and Propagation and USNC/URSI National Radio Science Meeting (IEEE,               for graph neural networks,” Languages and Compilers for Parallel Computing
+    2018), pp. 2321–2322.                                                                 (Springer International Publishing, 2022), pp. 101–117.
+
+
+
+
+APL Photon. 8, 036109 (2023); doi: 10.1063/5.0139004                                                                                                              8, 036109-8
+© Author(s) 2023
+

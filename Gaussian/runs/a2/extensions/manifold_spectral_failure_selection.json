@@ -1,0 +1,83 @@
+[
+  {
+    "record_index": 7,
+    "family": "separated",
+    "selection": "largest terminal spectral minus full_lm material error; post-hoc display",
+    "methods": {
+      "full_lm": {
+        "material_relative_l2": 0.004449116663908146,
+        "heldout_clean_relative": 0.004900246280439658,
+        "rhs": 3600
+      },
+      "spectral": {
+        "material_relative_l2": 0.14847771273706967,
+        "heldout_clean_relative": 0.08174486316965916,
+        "rhs": 3600
+      },
+      "weak_secant": {
+        "material_relative_l2": 0.004449045393243308,
+        "heldout_clean_relative": 0.004900237238537734,
+        "rhs": 3528
+      },
+      "random_secant": {
+        "material_relative_l2": 0.004449045393243312,
+        "heldout_clean_relative": 0.004900237238537843,
+        "rhs": 3528
+      }
+    }
+  },
+  {
+    "record_index": 12,
+    "family": "close",
+    "selection": "largest terminal spectral minus full_lm material error; post-hoc display",
+    "methods": {
+      "full_lm": {
+        "material_relative_l2": 0.004055021909315852,
+        "heldout_clean_relative": 0.006055494357244129,
+        "rhs": 3600
+      },
+      "spectral": {
+        "material_relative_l2": 0.14932225669017318,
+        "heldout_clean_relative": 0.0839847625691295,
+        "rhs": 3600
+      },
+      "weak_secant": {
+        "material_relative_l2": 0.1370688897443147,
+        "heldout_clean_relative": 0.07831316288606768,
+        "rhs": 3480
+      },
+      "random_secant": {
+        "material_relative_l2": 0.11903452011335039,
+        "heldout_clean_relative": 0.064580863067406,
+        "rhs": 3480
+      }
+    }
+  },
+  {
+    "record_index": 22,
+    "family": "sharp",
+    "selection": "largest terminal spectral minus full_lm material error; post-hoc display",
+    "methods": {
+      "full_lm": {
+        "material_relative_l2": 0.439448734007299,
+        "heldout_clean_relative": 0.17489949446906766,
+        "rhs": 3600
+      },
+      "spectral": {
+        "material_relative_l2": 0.4859799817715004,
+        "heldout_clean_relative": 0.21955170509281136,
+        "rhs": 3600
+      },
+      "weak_secant": {
+        "material_relative_l2": 0.44058497590478196,
+        "heldout_clean_relative": 0.17511048226575737,
+        "rhs": 3480
+      },
+      "random_secant": {
+        "material_relative_l2": 0.44154114444761944,
+        "heldout_clean_relative": 0.175260545185502,
+        "rhs": 3480
+      }
+    }
+  }
+]

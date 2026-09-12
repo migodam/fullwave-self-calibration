@@ -1,0 +1,41 @@
+{
+  "field_fd_max": 2.0031659994658012e-08,
+  "fd_max": 3.971339813539814e-11,
+  "methods": {
+    "full_lm": {
+      "rhs": 324,
+      "loss": [
+        6.623205613252042e-05,
+        6.664859633331885e-06
+      ]
+    },
+    "spectral": {
+      "rhs": 324,
+      "loss": [
+        7.218288607961445e-05,
+        2.9103474132543982e-05
+      ]
+    },
+    "weak_secant": {
+      "rhs": 420,
+      "loss": [
+        7.218288607961445e-05,
+        2.9103474132543982e-05
+      ]
+    },
+    "random_secant": {
+      "rhs": 420,
+      "loss": [
+        7.218288607961445e-05,
+        2.9103474132543982e-05
+      ]
+    }
+  },
+  "scope": "N16 two-iteration mechanical check, not imaging evidence",
+  "source_hashes": {
+    "check_manifold_native.py": "983c443adcd6246b3e04d859ca2252521c49e12979161cd5788cb345afebeb3c",
+    "manifold_revised.py": "8e7f293a6f242a0392def6d9b4500048e6cf940dc9b05ac5812bd55e248c327b",
+    "manifold.py": "9111cc5c58b32c7168f0d314011d3f89d5418fbfca75db740a95a1d0c96e05b2",
+    "physics.py": "62c7c9e2d9e7387725192f79d1ea69c2a7a43b0c154b68947d920614a2e30faf"
+  }
+}

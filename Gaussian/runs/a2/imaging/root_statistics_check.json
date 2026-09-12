@@ -1,0 +1,74 @@
+{
+  "cases": 30,
+  "fits": 150,
+  "scope": "Post-run root summary; no new success/failure thresholds.",
+  "checks": {
+    "gaussian_close": {
+      "ordinary_lm": {
+        "terminations": {
+          "rejected_step": 6,
+          "discrepancy": 4
+        },
+        "state_residual_max": 9.040210906579638e-10
+      },
+      "fixed_twofold_tsomg": {
+        "terminations": {
+          "rejected_step": 8,
+          "gradient": 2
+        },
+        "state_residual_max": 8.345425195011484e-10
+      },
+      "adaptive_tsomg": {
+        "terminations": {
+          "discrepancy": 3,
+          "rejected_step": 7
+        },
+        "state_residual_max": 8.317643160069955e-10
+      }
+    },
+    "gaussian_strong": {
+      "ordinary_lm": {
+        "terminations": {
+          "discrepancy": 10
+        },
+        "state_residual_max": 1.3207550127244788e-09
+      },
+      "fixed_twofold_tsomg": {
+        "terminations": {
+          "rejected_step": 7,
+          "iteration_cap": 3
+        },
+        "state_residual_max": 1.4941094030469286e-09
+      },
+      "adaptive_tsomg": {
+        "terminations": {
+          "discrepancy": 10
+        },
+        "state_residual_max": 1.3126137496161595e-09
+      }
+    },
+    "sharp_boundary": {
+      "ordinary_lm": {
+        "terminations": {
+          "rejected_step": 4,
+          "iteration_cap": 6
+        },
+        "state_residual_max": 1.4789645285924113e-09
+      },
+      "fixed_twofold_tsomg": {
+        "terminations": {
+          "rejected_step": 8,
+          "iteration_cap": 2
+        },
+        "state_residual_max": 1.2520134739501113e-09
+      },
+      "adaptive_tsomg": {
+        "terminations": {
+          "rejected_step": 9,
+          "iteration_cap": 1
+        },
+        "state_residual_max": 1.5051910742035268e-09
+      }
+    }
+  }
+}

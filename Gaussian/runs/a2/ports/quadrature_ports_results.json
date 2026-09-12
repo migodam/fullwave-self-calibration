@@ -1,0 +1,213 @@
+{
+  "scope": "Bounded finite-grid checks. Cell-integrated is an independent quadrature option; results do not infer continuum convergence or a universal port rank.",
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "2",
+    "OMP_NUM_THREADS": "2",
+    "VECLIB_MAXIMUM_THREADS": "2"
+  },
+  "non_power_two_geometry_supported": true,
+  "grid_convergence": [
+    {
+      "n": 32,
+      "backend": "point",
+      "wall_seconds": 0.014656124985776842,
+      "rss_peak_mb": 80.484375,
+      "gmres_iterations": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "scattered_relative_to_n128_cell": 0.0017930941435304521
+    },
+    {
+      "n": 32,
+      "backend": "cell_integrated",
+      "wall_seconds": 0.014741625054739416,
+      "rss_peak_mb": 81.6875,
+      "gmres_iterations": [
+        10,
+        10,
+        9,
+        10
+      ],
+      "scattered_relative_to_n128_cell": 0.0286434659761696
+    },
+    {
+      "n": 64,
+      "backend": "point",
+      "wall_seconds": 0.07428537495434284,
+      "rss_peak_mb": 98.359375,
+      "gmres_iterations": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "scattered_relative_to_n128_cell": 0.0012534859719752676
+    },
+    {
+      "n": 64,
+      "backend": "cell_integrated",
+      "wall_seconds": 0.07483345794025809,
+      "rss_peak_mb": 99.796875,
+      "gmres_iterations": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "scattered_relative_to_n128_cell": 0.00580392795522475
+    },
+    {
+      "n": 128,
+      "backend": "point",
+      "wall_seconds": 0.3176173329120502,
+      "rss_peak_mb": 179.3125,
+      "gmres_iterations": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "scattered_relative_to_n128_cell": 0.0017635875218255707
+    },
+    {
+      "n": 128,
+      "backend": "cell_integrated",
+      "wall_seconds": 0.3131994999712333,
+      "rss_peak_mb": 194.359375,
+      "gmres_iterations": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "scattered_relative_to_n128_cell": 0.0
+    }
+  ],
+  "cylinder_analytic_control": [
+    {
+      "n": 32,
+      "scattered_relative_error_to_cylinder_series": 0.02472857452775547,
+      "scope": "pixelized disk plus finite-cell quadrature; this is a scalar 2-D convention/control, not a Maxwell validation."
+    },
+    {
+      "n": 64,
+      "scattered_relative_error_to_cylinder_series": 0.014516454568070623,
+      "scope": "pixelized disk plus finite-cell quadrature; this is a scalar 2-D convention/control, not a Maxwell validation."
+    },
+    {
+      "n": 128,
+      "scattered_relative_error_to_cylinder_series": 0.006025601364293112,
+      "scope": "pixelized disk plus finite-cell quadrature; this is a scalar 2-D convention/control, not a Maxwell validation."
+    }
+  ],
+  "local_t_response_port_sweep": [
+    {
+      "configuration": "separated",
+      "center_separation": 0.12,
+      "full_component_identity_relative_errors": [
+        1.101358410981067e-15,
+        8.099254538607073e-16,
+        8.175011989581399e-16
+      ],
+      "ports": [
+        {
+          "requested_ports_per_component": 3,
+          "network_dimension": 9,
+          "scattered_field_relative_error": 0.652130181510409,
+          "current_relative_error": 0.734785411595512
+        },
+        {
+          "requested_ports_per_component": 6,
+          "network_dimension": 18,
+          "scattered_field_relative_error": 0.27134886645283074,
+          "current_relative_error": 0.37343522642688237
+        },
+        {
+          "requested_ports_per_component": 12,
+          "network_dimension": 36,
+          "scattered_field_relative_error": 0.05952121650819462,
+          "current_relative_error": 0.1104307562625015
+        },
+        {
+          "requested_ports_per_component": 24,
+          "network_dimension": 72,
+          "scattered_field_relative_error": 0.02054044260164903,
+          "current_relative_error": 0.045419464604349764
+        }
+      ]
+    },
+    {
+      "configuration": "moderate_overlap",
+      "center_separation": 0.065,
+      "full_component_identity_relative_errors": [
+        1.0627163309556887e-15,
+        8.640258899750114e-16,
+        8.603782540784535e-16
+      ],
+      "ports": [
+        {
+          "requested_ports_per_component": 3,
+          "network_dimension": 9,
+          "scattered_field_relative_error": 0.67961398014445,
+          "current_relative_error": 0.7777057239248926
+        },
+        {
+          "requested_ports_per_component": 6,
+          "network_dimension": 18,
+          "scattered_field_relative_error": 0.36201723436926597,
+          "current_relative_error": 0.5444695954479795
+        },
+        {
+          "requested_ports_per_component": 12,
+          "network_dimension": 36,
+          "scattered_field_relative_error": 0.15226242038847013,
+          "current_relative_error": 0.2521512630019969
+        },
+        {
+          "requested_ports_per_component": 24,
+          "network_dimension": 72,
+          "scattered_field_relative_error": 0.03848372354740411,
+          "current_relative_error": 0.08055348469043797
+        }
+      ]
+    },
+    {
+      "configuration": "strong_overlap",
+      "center_separation": 0.025,
+      "full_component_identity_relative_errors": [
+        1.1301073060938259e-15,
+        1.013796870517054e-15,
+        9.560718208115007e-16
+      ],
+      "ports": [
+        {
+          "requested_ports_per_component": 3,
+          "network_dimension": 9,
+          "scattered_field_relative_error": 0.7008020148084707,
+          "current_relative_error": 0.8063026092049917
+        },
+        {
+          "requested_ports_per_component": 6,
+          "network_dimension": 18,
+          "scattered_field_relative_error": 0.3812736425066492,
+          "current_relative_error": 0.625109019531836
+        },
+        {
+          "requested_ports_per_component": 12,
+          "network_dimension": 36,
+          "scattered_field_relative_error": 0.20003658679185204,
+          "current_relative_error": 0.3334810157543345
+        },
+        {
+          "requested_ports_per_component": 24,
+          "network_dimension": 72,
+          "scattered_field_relative_error": 0.06373187587190912,
+          "current_relative_error": 0.1223815295787415
+        }
+      ]
+    }
+  ]
+}

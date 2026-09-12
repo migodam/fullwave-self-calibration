@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "device": "cpu",
+      "scattered_relative": 3.2122484277179135e-10,
+      "gradient_relative": 7.74437127533084e-08,
+      "adjoint_relative": 9.910907065020714e-16,
+      "counts": {
+        "forward_rhs": 12,
+        "adjoint_rhs": 4,
+        "linear_iterations": 32,
+        "solves": 4
+      },
+      "last": {
+        "iterations": 8,
+        "relative_residual": [
+          6.325221253106616e-10,
+          6.323788641497237e-10,
+          6.324707016402392e-10,
+          6.322977881451206e-10
+        ]
+      },
+      "peak_bytes": null
+    }
+  ],
+  "torch": "2.14.0",
+  "gpu": null,
+  "hashes": {
+    "check_torch_vie.py": "38bcd9282054019ad3c54e0d78e7fa59a5682e3aeb8232222fd49f7161ebcb6b",
+    "torch_vie.py": "46af790b48623f6cc876d99c5418a949d97b978555a49dea61143f1e5f3ce3ba"
+  },
+  "scope": "N16 direct CPU reference, implicit gradient and adjoint checks; not large imaging evidence"
+}

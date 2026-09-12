@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "device": "cpu",
+      "field_error": 1.1577907390662138e-16,
+      "gradient_error": 1.6122871021730056e-16,
+      "counts": {
+        "forward_rhs": 12,
+        "adjoint_rhs": 12,
+        "linear_iterations": 15,
+        "solves": 2
+      }
+    },
+    {
+      "device": "cuda",
+      "field_error": 4.1455297150605475e-07,
+      "gradient_error": 1.5097243988293485e-07,
+      "counts": {
+        "forward_rhs": 12,
+        "adjoint_rhs": 12,
+        "linear_iterations": 10,
+        "solves": 2
+      }
+    }
+  ],
+  "hashes": {
+    "check_multifrequency.py": "c2a240bbd6b8c311d7078ea7793fe235e93ce364df739a9f933dda18cad85d1d",
+    "torch_vie.py": "fcc1fe342826213fc5c6ce00ae65b8e1914b95dc93fb647d2fc8bfb9d52cc59c"
+  }
+}

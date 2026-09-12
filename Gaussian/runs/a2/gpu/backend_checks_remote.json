@@ -1,0 +1,55 @@
+{
+  "records": [
+    {
+      "device": "cpu",
+      "scattered_relative": 3.21224752549101e-10,
+      "gradient_relative": 8.914823376731953e-08,
+      "adjoint_relative": 9.080825927724598e-16,
+      "counts": {
+        "forward_rhs": 12,
+        "adjoint_rhs": 4,
+        "linear_iterations": 32,
+        "solves": 4
+      },
+      "last": {
+        "iterations": 8,
+        "relative_residual": [
+          6.325221163244119e-10,
+          6.323788744438536e-10,
+          6.324706795152038e-10,
+          6.322977901129326e-10
+        ]
+      },
+      "peak_bytes": null
+    },
+    {
+      "device": "cuda",
+      "scattered_relative": 5.298408142108423e-07,
+      "gradient_relative": 0.0001512283197371289,
+      "adjoint_relative": 8.617955131740018e-07,
+      "counts": {
+        "forward_rhs": 12,
+        "adjoint_rhs": 4,
+        "linear_iterations": 24,
+        "solves": 4
+      },
+      "last": {
+        "iterations": 6,
+        "relative_residual": [
+          7.853195711504668e-07,
+          8.321758286911063e-07,
+          8.499771411152324e-07,
+          8.364638119928713e-07
+        ]
+      },
+      "peak_bytes": 17355776
+    }
+  ],
+  "torch": "2.6.0+cu124",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "hashes": {
+    "check_torch_vie.py": "10ba524644be851858671c7c6cc25fe4a1f6baebca842e937a43a385e27a8685",
+    "torch_vie.py": "fcc1fe342826213fc5c6ce00ae65b8e1914b95dc93fb647d2fc8bfb9d52cc59c"
+  },
+  "scope": "N16 direct CPU reference, implicit gradient and adjoint checks; not large imaging evidence"
+}

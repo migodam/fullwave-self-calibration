@@ -1,0 +1,773 @@
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                        1
+
+
+
+
+   Learning-based inversion method for solving
+  electromagnetic inverse scattering with mixed
+              boundary conditions
+  Rencheng Song Member, IEEE, Youyou Huang, Xiuzhu Ye Senior Member, IEEE, Kuiwen Xu Member,
+               IEEE, Chang Li Member, IEEE and Xun Chen Senior Member, IEEE
+
+
+
+
+   Abstract—In this paper, a unified learning-based ap-                scattered field [1]. The fast and high-quality reconstruc-
+proach is introduced to solve inverse scattering problems              tion of ISPs is urgently demanded in many areas [2]–[4].
+(ISPs) with mixed boundary conditions. The scattering                  After decades of development, various inverse scattering
+behavior of hybrid dielectric and perfect electric conductors
+(PEC) scatterers is modeled by the T-matrix method. A rough            algorithms have been proposed. As far as we know, most
+image of the zero-order T-matrix coefficients for unknown              existing methods are designed with prior information
+scatterers is firstly reconstructed by the back-propagation            on the physical properties of unknown scatterers. For
+method, which is then refined by an attention-assisted                 example, the scatterers are assumed a priori to be dielec-
+pix2pix generative adversarial network. The spatial atten-             tric [5]–[7] or perfect electric conductor (PEC) [8]–[10].
+tion mechanism is utilized to enforce the generator network
+to learn salient features of the unknown scatterers instead            However, it is common that the information of boundary
+of the background. The adversarial training of the generator           conditions (BCs) for unknown scatterers is lacking in
+and the discriminator further enables the reconstructed                ISPs. Particularly, the PEC and dielectric scatterers may
+image to be constrained by high-level features of reference            both be presented in the domain of interest (DOI).
+scatterers. Numerical tests on both synthetic and experimen-              To solve ISPs with mixed BCs, the forward scattering
+tal data verify the superior performance of the proposed
+method for ISP reconstructions with hybrid scatterers. It              of hybrid scatterers needs to be modeled under a uni-
+effectively expands the application scope of learning-based            form framework. The T-matrix method introduced by
+ISP methods to reconstruct scatterers without knowing the              Waterman [11] has the ability to deal with scattering
+boundary conditions of scatterers in advance.                          with mixed BCs. Inspired by the pioneering work [12]–
+  Index Terms—Inverse scattering, generative adversarial               [14], Ye et al. [15] firstly proposed to simultaneously
+network, T-matrix, mixed boundary conditions.                          reconstruct dielectric and PEC scatterers using the T-
+                                                                       matrix method. They reformulated the subspace based
+                                                                       optimization method (SOM) [7] with the T-matrix mod-
+                        I. Introduction                                eling to deal with the mixed BC problem. The authors
+                                                                       also introduced a classification criteria to classify the
+T   HE objective of inverse scattering problems (ISPs)
+    is to determine the position, shape, and parameters
+of unknown scatterers based on the measurement of
+                                                                       PEC scatterers from the dielectric ones based on the
+                                                                       obtained T-matrix coefficients. Later, Song et al. [16]
+                                                                       further extended this method to reconstruct scatterers
+   This work was supported in part by the National Natural Science     with at most four types of BCs. The methods [15], [16]
+Foundation of China (Grants 61922075, 61971174, 41901350), in
+part by the Provincial Natural Science Foundation of Anhui (Grants     have been verified to be very efficient for reconstructing
+2108085MF201, 2008085QF285), in part by the Aeronautical Sci-          scatterers without prior information on their physical
+ence Foundation of China (Grant 20181837002), and in part by the       properties. However, the nonlinear iterative T-matrix
+Fundamental Research Funds for the Central Universities (Grants
+PA2021KCPY0051, JZ2021HGTB0078). (Corresponding author: Xi-            methods [15], [16] are usually time-consuming, since
+uzhu Ye and Xun Chen).                                                 the multi-pole expansions greatly increase the compu-
+   R. Song, Y. Huang and C. Li are with the Department of Biomed-      tational burden.
+ical Engineering, and also with the Anhui Province Key Labora-
+tory of Measuring Theory and Precision Instrument, Hefei Univer-          In recent years, considering the advantages on speed
+sity of Technology, Hefei 230009, China (e-mail:rcsong@hfut.edu.cn;    and reconstruction quality, deep learning techniques
+huangyy@mail.hfut.edu.cn; changli@hfut.edu.cn).                        have been widely used to solve electromagnetic ISPs [17],
+   X. Ye is with School of Information and Electronics
+Engineering, Beijing Institute of Technology, Beijing, China           [18]. The learning-based inversion methods can be gener-
+(email:xiuzhuye@outlook.com)                                           ally divided into three types [18]. The first type of meth-
+   K. Xu is with Engineering Research Center of Smart Microsensors     ods directly reconstruct the permittivity of scatterers
+and Microsystems, Ministry of Education, Hangzhou Dianzi University,
+Hangzhou 310018, China (e-mail: kuiwenxu@hdu.edu.cn).                  from the measured scattered field [19]–[21]. This kind of
+   Xun Chen is with Department of Neurosurgery, the First Affiliated   methods need to fully learn the governing physics of the
+Hospital of USTC, Division of Life Sciences and Medicine, and also     inversion, which is a very challenging task. The second
+with the Department of Electronic Engineering and Information Sci-
+ence, University of Science and Technology of China, Hefei, Anhui,     type of methods still follow the iterative framework
+230001, China (e-mail: xunchen@ustc.edu.cn).                           to solve the ISPs as a optimization of cost functions,
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                           2
+
+
+
+which enforce physical match of measurements [22]–                  tion mechanism, together with the guidance by the
+[24]. The deep learning techniques are incorporated into            discriminator, effectively improves the quality of
+the iterative frameworks to overcome the bottleneck                 reconstruction. Meanwhile, the use of only zero-
+of conventional iterative methods. The third type of                order T-matrix coefficients greatly accelerates the
+methods design the reconstruction algorithms by incor-              reconstruction speed compared to nonlinear itera-
+porating domain knowledge into the networks, which                  tive ISP methods.
+are called physics-inspired learning approach [20], [25]–       3) Third, we propose a way to balance the T-matrix
+[28]. A typical way of physics-inspired learning ap-                coefficients of PEC and dielectric scatterers in
+proach is that it decouples the full-wave model into                the reference images of the training data set. It
+a two-step reconstruction. The scattered field is firstly           effectively improves the convergence of network
+taken to get a rough reconstruction by fast imaging                 training, and it is also beneficial to enhance the
+methods like backpropagation (BP) [1]. Neural networks              performance to reconstruct hybrid scatterers.
+are then employed to further enhance the quality of the         The structure of this paper is as follows. In Section II,
+rough input image through building a mapping with its         we introduce the formulations of the proposed method.
+reference one. In contrast, Guo et al. [28] introduces an     Numerical verifications of this method are condutcted
+iterative deep neural network to enforce the match of         in Section III by both synthetic and experimental data.
+scattered filed in the 2D case. The existing learning-        Finally, we conclude our work in Section IV.
+based inversion methods have achieved great success
+in terms of computational speed and imaging quality.                       II. Description of the algorithm
+However, these existing learning-based methods are only       A. Formulation of the problem
+designed to solve ISPs with known BCs, and most of the
+                                                                 In this paper, we consider a two-dimensional (2-D)
+methods only consider the reconstruction of dielectric
+                                                              transverse magnetic (TM) scattering problem as depicted
+scatterers.
+                                                              in Fig. 1. Suppose there are at most two types of nonmag-
+   In this paper, we introduce a unified learning-based
+                                                              netic scatterers, the dielectric and the PEC scatterers,
+method to reconstruct scatterers for ISPs with mixed
+                                                              located inside the domain of interest (DOI) D. There
+BCs. The proposed method follows the framework of
+                                                              are Ni plane waves illuminated evenly from transmitters
+physics-inspired learning approach. It decouples the
+                                                              (Tx) outside D. For each incidence, the scattered fields
+full-wave inversion into a two-step reconstruction. Par-
+                                                              are measured by Nr receivers (Rx) located at a circle S
+ticularly, the scattering of hybrid scatterers is modeled
+                                                              outside D.
+by the T-matrix method. A rough reconstruction of zero-
+order T-matrix coefficients is firstly obtained by the BP
+method, which is then refined by an attention-assisted
+pix2pix generative adversarial network (GAN) [29]. The
+spatial attention mechanism is incorporated into the U-
+net-like [30] generator network to highlight the feature
+learning on the unknown scatterers. The adversarial
+training of the generator and the discriminator enables
+the reconstruction to be constrained by high-level fea-
+tures of reference scatterers. Finally, a balancing treat-
+ment is introduced to deal with the distinct magnitude
+scales of T-matrix coefficients for PEC and dielectric
+scatterers, thereby improving the training of model.
+The proposed method is tested with both synthetic and
+experimental data and it achieves satisfactory imaging        Fig. 1. Sketch of scattering problem with mixed BCs.
+results for ISP with mixed BCs.
+   In summary, the benefits of the proposed method are           Let the DOI D be discretized into subunits. According
+listed as below:                                              to the definition of T-matrix, the relation of scattered
+   1) First, we introduce a unified model to reconstruct      filed and the incident field on the ith subunit within D
+      scatterers with different BCs. The zero-order T-        can be expressed as follows
+      matrix coefficients instead of the commonly used
+                                                                                                       N
+      relative permittivity are reconstructed through the                                              X
+                                                                                āi = T̄¯i · [ēi +             ᾱ¯ ij · āj ],   (1)
+      learning-based model without knowing the type of
+                                                                                                      j=1,j,i
+      scatterers in advance. To the best of our knowledge,
+      it is the first time that the learning-based approach   where āi refers to the amplitude vector of the induced
+      is introduced to solve the ISP with mixed BCs.          multipoles, ēi indicates the vector of multipole expansion
+   2) Second, a spatial attention is incorporated into the    coefficients for the incident field, ᾱ¯ ij is the translational
+      pix2pix GAN to highlight the feature learning on        matrix, and T̄¯i is the diagonal T-matrix coefficient matrix
+      the unknown scatterers. The use of spatial atten-       of the ith subunit.
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                                                       3
+
+
+
+  Particularly, the mth-order T-matrix coefficient of a                                    where {ā}j=1,2,...,Ni indicate the ā for all Ni incidences, and
+dielectric scatterer is [31]                                                               fj is the cost function in Eq. (6) for the jth incidence.
+                                   0 (kR) − k J (kR)J 0 (k R)
+                        kJm (k0 R)Jm                                                          In [15], the cost functional F in Eq. (7) is reformulated
+        [T̄¯ ]m =          (1)0
+                                             0 m     m 0
+                                                                           (1)
+                                                                                 ,   (2)   under the framework of SOM by decomposing ā into
+                                            0
+                    k0 Hm (k0 R)Jm (kR) − kJm (kR)Hm (k0 R)                                the deterministic part and the ambiguous part, where
+where Jm is the mth-order Bessel function of the first                                     the former one can be easily determined by the singular
+          (1)
+kind, Hm indicates the mth-order Hankel function of                                        value decomposition of Ψ̄¯ t . The {ā}j=1,2,...,Ni and the T-
+the first kind, k0 is the wavenumber of the incident wave                                  matrix coefficients Ō¯ can be updated alternatively by
+                                 √
+in background medium, k = k0 r is the wavenumber                                          a gradient-based optimization in SOM. It is found that
+of the incident wave in the scatterer with r as the                                       the T-matrix SOM [15] can efficiently solve the ISP with
+relative permittivity, and R is the equivalent radius of                                   mixed BCs and it performs robustly in presence of noise.
+each subunit.                                                                                 After the retrieval of T-matrix coefficients Ō¯ , the
+  Similarly, the mth-order T-matrix coefficient of PEC is                                  physical property of scatterers can be distinguished by
+                                               Jm (k0 R)                                   the asymptotic expansions for the zeroth-order T-matrix
+                              [T̄¯ ]m = −        (1)
+                                                                .                    (3)   coefficient [T ]0 with small k0 R [15], [16]. The imaginary
+                                              Hm (k0 R)                                    part of [T ]0 for PEC scatterer is negative, while that
+  The explicit expressions of all the other variables in                                   of the dielectric scatterer is positive. This paper will
+Eq. (1) can be found in [15] or the literatures inside.                                    also use this criterion to distinguish the two types of
+  For a single incidence, we combine the Eq. (1) on each                                   scatterers from the reconstruction results.
+subunits into one matrix equation as
+                                  ā = Ō¯ · [ē − Ā¯ · ā],                        (4)   B. The unified learning-based ISP method
+where Ō¯ is a block diagonal matrix with [Ō¯ ]ii = T̄¯i , [Ā¯ ]ij =                       The flowchart of the proposed method for solving
+−ᾱ¯ ij for i , j and zero otherwise, [ā]i = āi and [ē]i = ēi .                        ISP with mixed BCs is illustrated in Fig. 2. As shown,
+   After getting the amplitude vector ā, the scattered field                              the coarse image x of [T ]0 is reconstructed by the BP
+vector Ē sca at all Nr receivers can be obtained by                                       method, which serves as the input of the attention-
+                                                                                           assisted pix2pix GAN model. The generator Gθ in the
+                                     Ē sca = Ψ̄¯ t · ā,                            (5)
+                                                                                           pix2pix model aims to reconstruct high-quality Gθ (x),
+where t indicates the transpose, Ψ̄¯ represents the map-                                   which approximates the reference [T ]0 image y. The
+ping which maps ā within D to Ē sca on receivers.                                        discriminator network Dφ is taken to guide the Gθ
+    Eqs. (4) and (5) are referred to as the state equation                                 through the adversarial training.
+and the field equation, respectively. In the forward scat-
+tering problem, with given T-matrix coefficients Ō¯ and
+incidence expansion ē, the purpose is to calculate the
+unknown Ē sca and ā by these two equations. The advan-
+tage of the T-matrix modeling is that it can uniformly
+model the scattering of scatterers with different BCs.
+    In contrast, the inversion aims to reconstruct the T-
+matrix coefficients Ō¯ through measured scattered fields
+Ē sca and the corresponding incidence expansion ē. Ac-
+cording to Eqs. (4) and (5), the cost function of ISP with
+the jth incidence can be directly built as
+                         1
+      fj ({ā}j , Ō¯ ) = k{Ē sca }j − Ψ̄¯ t · {ā}j k2 /k2 {Ē sca }j k22
+                                                                                           Fig. 2. The flowchart of the learning-based T-matrix method. The
+                         2                                                                 input image x is consisted of raw zero-order T-matrix coefficient [T ]0
+                                                                                  (6)      constructed by BP, while the generated Gθ (x) aims to approximate
+                         + k{ā}j − Ō¯ · [{ē}j − Ā¯ · {ā}j ]k22 /k{ē}j k22 ,
+                                                                               
+                                                                                           the reference [T ]0 denoted as y. The mapping is learned under the
+                                                                                           framework of conditional generative adversarial networks, where the
+where k · k2 represents the l 2 norm, {·}j indicates the                                   input x is taken as the condition in the input of discriminator Dφ .
+full resulting vector of {·} for the jth incidence. The
+unknowns are the T-matrix coefficients Ō¯ and the mul-                                      1) Fast reconstruction of coarse [T ]0 image x: To guar-
+tipole expansion coefficient ā with respect to the current                                antee the speed of the whole method, in this paper, the
+incidence.                                                                                 BP method [1], [32] is taken to reconstruct the rough
+   For all Ni incidences, the total cost functional F can                                  image x of [T ]0 . The details are described as below.
+be given as                                                                                  First, we assume that the full amplitude vector of
+                                                    Ni                                     induced multipole ā satisfies ā = γ ·(Ψ̄¯ t )H · Ē sca , where the
+                    F({ā}j=1,2,...,Ni , Ō¯ ) =            fj ({ā}j , Ō¯ ),
+                                                    X
+                                                                                     (7)   superscript H denotes the conjugate transpose operation,
+                                                    j=1                                    and γ is the unknown complex scaling coefficient.
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                                  4
+
+
+
+ The complex γ can be explicitly obtained through
+minimizing the following objective function
+          F(γ) = ||Ē sca − Ψ̄¯ t · γ · (Ψ̄¯ t )H · Ē sca ||2 ,2(8)
+where we can get
+                                                   sca E
+                    Ē sca , Ψ̄¯ t · (Ψ̄¯ t )H · E
+                   D                
+                                                          S
+                γ=                             sca 
+                                                            .        (9)
+                         ¯          ¯
+                                 
+                            t
+                        Ψ̄ · (Ψ̄ ) · Et  H
+                                                      S
+Here h·, ·iS denotes the inner product of two vectors on
+the measurement circle S.
+  After getting ā, we further obtain vector b̄ as b̄ = ē−Ā¯ ·ā.
+The above process is repeated for all Ni incident waves.
+  Finally, taking into account of the relation ā = Ō¯ · b̄, we
+can get the diagonal vector Ō of Ō¯ as the solution of a
+least-squares problem
+          XN                  XN                
+               i                     i
+     Ō =        {ā}p {b̄}∗p          {b̄}p {b̄}∗p ,       (10)           Fig. 3. The structure of the attention-assisted generator.
+               p=1                            p=1
+
+where {·}p indicates the vector ā or b̄ corresponding to
+the pth incidence, indicates the element-wise product,
+   represents the element-wise division, and (·)∗ is the                   AG xbil is the element-wise multiplication of the input
+conjugate operation of the complex vector (·). The rough                   feature-maps xil and attention coefficients αil :
+input image x of [T ]0 can then be obtained by reshaping
+Ō in Eq.(10).                                                                                         bil = xil
+                                                                                                       x           αil .                (13)
+   2) The spatial-attention-assisted pix2pix network: In
+this paper, the generator Gθ is taken as the attention
+U-net [30] as shown in Fig. 3. The rough image x of [T ]0                     The discriminator network Dφ is illustrated in Fig.
+is decomposed as the real and imaginary parts that serve                   4. The goal of Dφ is to distinguish the reconstructed
+as the input of the generator.                                             image Gθ (x) from the real image y. The input of Dφ is
+   It can be seen in Fig. 3 that the attention U-net                       the reconstructed image Gθ (x) or the real target image
+architecture consists of three branches. The encoding                      y, conditioned by the rough input image x. The output
+branch on the left is to extract different levels of feature               of Dφ is a feature discrimination matrix defined on the
+maps, while the decoding branch on the right is to                         patches of inputs [29].
+reconstruct the image through deconvolutions of cor-
+responding features. Besides, the spatial attention gate
+(AG) module is used to guard the output features of the
+encoder, which generates a gating signal g to control the
+importance of features at different spatial locations. The
+use of the spatial AG module can highlight the feature
+learning on scatterers for the generator network, which
+helps to improve the quality of the reconstruction.
+   The AG module for the lth layer in Fig. 3 generates a
+weight map αil as
+              l
+             qatt = ψ t (σ1 (Wxt xil + Wgt gi + bg )) + bψ          (11)
+                                                                           Fig. 4. The structure of the discriminator.
+
+                     αil = σ2 (qatt
+                                l
+                                    (xil , gi ; Θatt ))             (12)
+                                                                             3) The loss functions: The loss function of generator
+where Wx , Wg and ψ are linear transformation vectors,
+                                                                           Gθ is defined as (14)
+bψ and bg are bias terms, t denotes the transpose, Θatt
+represents the set of all unknown parameters of AG
+including {Wx , Wg , ψ, bψ , bg }, σ1 (z) = max(0, z) is the recti-                           LG (θ) = αL1 (θ) + LA (θ|φ),              (14)
+                                                              1
+fied linear unit activation function, and σ2 (z) = 1+exp(−z)
+is the sigmoid activation function. xil represents the                     where L1 (θ) denotes the pixel-wise loss between the
+feature vector corresponding to the ith spatial position                   reconstructed image and the reference one, LA (θ|φ) indi-
+of the lth layer of the encoder, while gi represents the                   cates the adversarial loss with fixed φ, and α is a weigh-
+gate signal at the same spatial position. The output of                    ing parameter to balance the two losses. Particularly, the
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                            5
+
+
+
+L1 (θ) and LA (θ|φ) losses are defined as
+                           N                      
+                       1 X                      
+               L1 (θ) =    kGθ (xi ) − yi k1         (15)
+                       N
+                               i=1
+                               N
+                           1   X                     2
+              LA (θ|φ) =             Dφ (Gθ (xi )) − 1 ,    (16)
+                           N
+                               i=1
+
+respectively, where N indicates the batch size and k · k1
+                                                                   Fig. 5. The training and validation loss curves of the proposed Att-
+represents the l 1 norm.                                           GAN method. The left one is the adversarial loss and the validation
+  The loss function of discriminator Dφ is                         loss defined by 1-SSIM, while the right one is the L1 loss and the
+                                                                   validation loss defined by RMSE.
+                     N
+                1 X                                  
+  LD (φ|θ) =        (Dφ (yi ) − 1)2 + (Dφ (Gθ (xi )))2 ,    (17)
+               2N                                                  reference images {y} of all training samples are expected
+                    i=1
+                                                                   to maintain similar magnitudes after processing.
+where φ is the unknown parameter tensor and θ is fixed.               In testing, the original input image x is still taken
+   Since Gθ and Dφ are optimized alternatively, the pa-            to get the reconstructed Gθ (x), which approximates the
+rameter tensor of one network is fixed when we update              normalized reference image y. We first identify whether
+the other one. The two neural networks will be trained             there exists PEC scatterers in Gθ (x) according to the
+in an adversarial way until reaching a Nash-equilibrium.           property of [T ]0 as described in Section II-A. If so, the
+   4) Balancing treatment of [T ]0 for hybrid scatterers:          [T ]0 of PEC scatterers will be multiplied by the same C
+According to definitions in Eqs. (2) and (3), the [T ]0 of         as the training set to retrieve the original [T ]0 . The above
+dielectric and PEC scatterers have quite distinct magni-           balancing treatment on [T ]0 is expected to enhance the
+tudes, where the [T ]0 of the dielectric scatterer is much         performance to reconstruct hybrid scatterers. And we
+smaller than that of the PEC one. To avoid that the                will verify it through the experimental study.
+training model is biased towards PEC type scatterers, we
+propose to scale the [T ]0 of PEC scatterers to a similar                  III. Numerical and experimental results
+magnitude as the dielectric one.
+   It is noted that the scaling is only implemented on the           In this section, we verify the effectiveness of the pro-
+reference image y in the training data set that contains           posed algorithm (denoted as “Att-GAN”) with both syn-
+PEC scatterers. First, the PEC and dielectric scatterers in        thetic and experimental data. To prove the generalization
+the reference images of the training set are both repre-           capability, we will test the trained model for both the
+sented as the true T-matrix coefficient [T ]0 . The [T ]0 of       within-database case and the cross-database case. And
+true PEC scatterers is then scaled to a similar magnitude          the performance of the proposed method is compared
+as the dielectric one. In contrast, the rough BP input             with the SOM formulated by T-matrix [7], [15].
+image of [T ]0 retains its original scale, since it is difficult
+to distinguish the PEC scatterer from the dielectric one           A. Implementation details
+by the raw input BP image in the testing phase. However,              The Modified National Institute of Standards and
+we can easily identify the PEC scatterers after we get the         Technology (MNIST) [33] data set is taken to train the
+inversion results of Gθ (x). The true magnitude of [T ]0 for       model for all examples. Besides, a random circle is also
+PEC scatterers can then be recovered with the known                incorporated into each digit to improve the model gener-
+scaling coefficient. The above balancing treatment eases           alization capability [26]. Each digit is randomly rotated
+the difficulty of training the network and more details            with an angle between −170◦ and 170◦ to account for
+about the scaling are given as below.                              the spatial diversity of scatterers. The digit and circle
+   Since the magnitudes of [T ]0 for dielectric                    are randomly set to be dielectric or PEC. Therefore,
+and PEC scatterers are both dominated by their                     there are four possible scatterer combinations in each
+imaginary parts, we first calculate the ratio of                   sample. The training data set includes 9000 samples
+imag([T ]0,P EC )/imag([T ]0,diel ), where imag([T ]0,diel )       generated from MNIST. Another 1000 samples are taken
+indicates the imaginary part of dielectric [T ]0 calculated        as the validation data set. All dielectric scatterers are
+by the relative permittivity εr appearing the highest              assumed to be lossless, and the relative permittivity of
+frequency in the training data set. Finally, we search for         the dielectric scatterers is randomly distributed between
+the best scaling coefficient C near this ratio.                    1.1-2.5.
+   After C is obtained, the [T ]0 of PEC scatterers will be           The first two examples are synthetic ones, while the
+divided by C if there are PEC scatterers in each reference         last example is based on experimental data provided
+image y. The balancing treatment is done for all samples           by Institut Fresnel [34]. The configurations of synthetic
+with PEC scatterers, even for the sample with only PEC             examples are as follows. The operating frequency is
+scatterers. The reason is that there exists four different         set to 300MHz, and the background medium is free
+combinations of scatterers in the training data set. The           space. The DOI D is chosen as a square domain with
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                       6
+
+
+
+
+Fig. 6. Reconstruction results of Test#1 to Test#4 from the MNIST data set under 10% white Gaussian noise.
+
+
+                                                                Table I
+                    Comparison of quality metrics for reconstruction results of testing samples from MNIST data set
+
+                                                       SOM                                     Att-GAN
+                         Test
+                                     Eεr ,diel    Epec     Ediel     SSIM     Eεr ,diel    Epec       Ediel   SSIM
+                        #1              /        0.5348      /      0.4167       /        0.1273        /     0.9745
+                        #2           0.3507      0.5358   0.1344    0.4110    0.0993      0.0941     0.0628   0.9685
+                        #3           0.1745      0.4589   0.0482    0.6511    0.1108      0.0655     0.0287   0.9459
+                        #4           0.1264         /     0.0406    0.6912    0.1216         /       0.0304   0.9628
+                    2500 MNIST       0.3132      0.5114   0.1305    0.4378    0.1611      0.1628     0.0750   0.9107
+
+
+
+the size of 4.0m×4.0m. There are 16 transmitters and                    The training losses in different epochs and the vali-
+32 receivers located uniformly over the circle at the                 dation results are shown in Fig. 5. It is observed that
+radius R = 5.0m. D is discretized into 64 × 64 grids to               both validation losses reduce smoothly during training
+calculate the scattered field by the T-matrix method,                 and there is no overfitting and underfitting phenomena.
+while the grids for reconstruction are set to 24 × 24                 After training, we finally chose the testing model as the
+to avoid the inverse crime. The scattered field used in               one with the best SSIM validation loss.
+training is noiseless for all examples, and 10% white                   The comparison SOM method is implemented with
+Gaussian noise is added to the scattered fields in testing            the T-matrix formulation truncated by the first order
+of synthetic data. According to the above discretization              multipoles, so as to model the scattering of hybrid
+and frequency configurations, the scaling coefficient C               scatterers accurately [15]. The results of SOM with zero-
+is set to 8.0 in synthetic examples. The configurations of            order multipole truncation are taken as initials. The
+the experimental example are similar as above and the                 dimension of signal subspace in SOM is set to 10 and
+difference will be given later in Section III-E.                      the total number of iterations is set to 100.
+   The Adam optimization method is taken to optimize                    For visualization of reconstruction results, we repre-
+the attention-assisted pix2pix networks. The generator                sent all scatterers as “dielectric” ones, where the PEC
+and discriminator are optimized alternatively during                  scatterers are denoted with εr = 0 to mark their shapes
+the training process. The updating algorithm of the                   and locations. Note that here this practice is only done
+generator and discriminator is quite similar as that in               to distinguish PEC from dielectric scatterers visually.
+[35]. The hyperparameters of training process are set as
+follows. The exponential decay rates are taken as β1 = 0.9
+and β2 = 0.999, respectively. The batch size is set to
+1 and totally 40 epochs are done in the training. The                 B. The quality metrics
+initial learning rate is set to 0.0002, and it sequentially
+decreases to zero from the 21st to the last epoch. The                   In this part, we will define quality metrics to evaluate
+weight parameter α which balances the L1 loss and LA                  the accuracy of reconstruction algorithms. Considering
+loss is set to 100. All network training and testing are              the magnitude difference of PEC and dielectric scatter-
+done on a workstation (Intel(R) Core(TM) i9-10900X                    ers, we define the relative errors of PEC and dielectric
+CPU with 128 GB RAM, and GeForce GTX 1080Ti GPU).                     scatterers separately, through dividing the reference pro-
+It takes about 6 hours to train the proposed model with               file into two parts. The root-mean-square error (RMSE)
+the above training set.                                               for PEC scatterer is defined by the [T ]0 on PEC scatterer
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                                        7
+
+
+
+
+Fig. 7. Reconstruction results of “Austria” profiles with the relative permittivity of εr as 1.5. Test#5 to Test#8 are obtained with additional 10%
+Gaussian noise.
+
+                                                                Table II
+                    Comparison of quality metrics for reconstruction results of “Austria” profile with εr = 1.5 in Fig. 7
+
+                                                       SOM                                       Att-GAN
+                           Test
+                                     Eεr ,diel    Epec     Ediel     SSIM       Eεr ,diel    Epec       Ediel   SSIM
+                           #5           /        0.5430      /      0.2188         /        0.1341        /     0.9566
+                           #6        0.1806      0.4864   0.0568    0.4685      0.2654      0.1823     0.0784   0.7379
+                           #7        0.1453      0.5328   0.0404    0.3353      0.2093      0.2411     0.0521   0.8689
+                           #8        0.0586         /     0.0198    0.8425      0.1004         /       0.0250   0.9399
+
+
+                                                                Table III
+                    Comparison of quality metrics for reconstruction results of “Austria” profile with εr = 2.0 in Fig. 8
+
+                                                       SOM                                       Att-GAN
+                           Test
+                                     Eεr ,diel    Epec     Ediel     SSIM       Eεr ,diel    Epec       Ediel   SSIM
+                           #9        0.5991      0.4992   0.2109    0.1527      0.2122      0.6329     0.0850   0.7209
+                           #10       0.4259      0.5439   0.1604    0.1651      0.1782      0.1819     0.0766   0.9095
+                           #11       0.5238         /     0.1976    0.1091      0.1453         /       0.0553   0.8750
+
+
+
+only,                  v                                                       For dielectric scatterers, we also consider the relative
+                                                   2                        error of εr as,
+                       t
+                            1   X  ref
+                                              rec
+              Epec =               Ti;p,q − Ti;p,q                 (18)
+                           Npec
+                                                                                                   v
+                                                                                                   u
+                                                                                                             X εref − εrec 2
+                                                                                                   u
+                                                                                                   u
+                                  (p,q)∈IP                                                         t
+                                                                                                      1            r;m,n       r;m,n
+                                                                                       Eεr ,diel =                                   (20)
+where IP indicates the set of indices that belong to                                                 Ndiel             ε ref
+                                              rec                                                          (m,n)∈I D     r;m,n
+PEC scatterers in each reconstructed image, Ti;p,q and
+  ref                                                                                 rec and εref are the reconstructed and reference
+                                                                             where εr;m,n
+Ti;p,q are the [T ]0 of the ith reconstructed and reference                                     r;m,n
+PEC scatterers, respectively, and Npec is the total number                   relative permittivity of the dielectric scatterers, respec-
+of small subunits in IP where only the PEC scatterers                        tively.
+distribute.                                                                     Finally, in order to evaluate the overall image quality,
+   Similarly, we define the RMSE of [T ]0 only on the                        we also define the structural similarity index (SSIM)
+dielectric scatterers as following,                                          between the reference and the reconstructed T-matrix
+                    v
+                    t                                                        coefficients over the whole DOI. The SSIM is one of the
+                                                    2
+                        1     X  ref
+                                               rec                           most commonly used perceptual similarity metrics to
+           Ediel =                  Tj;m,n − Tj;m,n    (19)
+                      Ndiel                                                  describe visual structural similarity of two images. More
+                                  (m,n)∈ID
+                                                                             details about the calculation of SSIM can be referred to
+where ID indicates the set of indices that belong to                         [36], [37].
+                                                     rec
+dielectric scatterers in each reconstructed image, Tj;m,n
+        ref                                                                  C. Test With MNIST Data
+and Tj;m,n are the jth reconstructed and reference [T ]0
+of dielectric scatterers, respectively, and Ndiel is the total                 In the first example, we test the trained model with
+number of small subunits in ID occupied by dielectric                        another 2500 images randomly selected in the MNIST
+scatterers.                                                                  data set, where 10% white Gaussian noise are added to
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                                     8
+
+
+
+
+                                                                           Fig. 9. The “FoamMetExt” profile from Fresnel experimental data.
+
+Fig. 8. Reconstruction results of “Austria” profiles with εr = 2.0 under
+10% white Gaussian noise.
+                                                                           Test#6. Corresponding to Fig.7, the quality metrics for
+                                                                           Test#5 to Test#8 are listed in Table II. We can observe
+scattered field. We also compare the performance of the                    that the proposed Att-GAN well reconstructs different
+proposed method with the SOM method.                                       types of scatterers in a unified way. In comparison,
+  The evaluation metrics for all testing samples are                       the SOM only works well in Test#8 to reconstruct the
+summarized in Table I. It is seen that the proposed                        dielectric scatterers.
+method achieves quite satisfactory results for the overall                    Besides, we further increase the εr of dielectric scatter-
+2500 samples with different types of scatterers. Besides,                  ers in Fig.7 to 2.0 and maintain the other configurations.
+the reconstruction results of four typical cases, Test#1 to                The reconstruction results are shown in Fig.8, while
+Test#4 which include different combinations of scatter-                    the corresponding quality metrics are summarized in
+ers, are demonstrated in Fig. 6. With reference to the                     Table III. In Fig.8, Test#11 is a case of pure dielectric
+ground truth (GT) images, we observe that the SOM                          scatterers. The two disks in Test#9 are PEC and the ring
+method only achieves a good result in Test#4, and the                      is dielectric, while the types of scatterers in Test#10
+scatterers in the other tests cannot be clearly identified.                are completely opposite to that of Test#9. We observe
+In comparison, the reconstructions of Att-GAN clearly                      that the results of SOM method are distorted for all
+outperform that of SOM for all the four tests. It proves                   cases including the pure dielectric one. Compared to the
+the capability of the proposed Att-GAN for dealing with                    SOM result in Test#8 with εr = 1.5, the result in Test
+ISP with mixed BCs in a unified framework. Particularly,                   #11 with εr = 2.0 converges to a local minimum due to
+only less than 1 second is taken for reconstructing                        the high nonlinearity. Although the SOM result may be
+images using the trained networks. In comparison, the                      improved by adjusting the initials in this example, we
+SOM method takes a few seconds to reconstruct a single                     will not discuss it here since it is out of the scope of
+case. Similar calculation time is also observed for the two                this paper. In contrast to SOM, the proposed method
+methods in subsequent examples.                                            still gets satisfactory results for all examples. The above
+                                                                           reconstruction results of “Austria” profiles show that the
+                                                                           Att-GAN consistently outperforms the SOM method. It
+D. Test With “Austria” Data
+                                                                           proves that the trained model of Att-GAN maintains a
+   In the second example, we verify the generalization                     good generalization capability to challenging examples.
+capability of the Att-GAN model using the well-known
+“Austria” profile [38], where the relative permittivity
+εr of the dielectric scatterers is 1.5 and 2, respectively.                E. Test With Experimental Data
+Meanwhile, 10% white Gaussian noise is added to the                           Finally, we verify the proposed method with the ex-
+scattered field. In this example, we take the same train-                  perimental data measured by Institue Fresnel [34]. As
+ing model as the first example to reconstruct the scat-                    shown in Fig. 9, the “FoamMetExt” profile consists of a
+terers.                                                                    dielectric cylinder and a metallic one, where the blue
+   The reconstruction results for the “Austria” profile                    foam cylinder has a diameter of 80mm with εr as
+with the εr = 1.5 are shown in Fig.7. Similar to that of the               1.45 ± 0.15, and the grey copper tube has a diameter of
+first example, four different scatterer combinations are                   28.5mm. There are 18 transmitters evenly distributed
+studied in Test#5 to Test#8, respectively. In detail, Test#5               around the circle with a radius of 1.67m. For each
+is a case of pure PEC scatterers, while Test#8 is a case                   illumination, there are 241 receivers located at a distance
+of pure dielectric scatterers. In contrast, the two disks                  of 1.67m from the origin.
+in Test#6 are PEC and the ring is dielectric. The types                       In this example, we take the same configurations as
+of scatterers in Test#7 are completely opposite to that of                 those in Section III-A to prepare the training set, except
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                                  9
+
+
+
+
+Fig. 10. Reconstruction results of “FoamMetExt” profiles at (a) 3GHz (b) 4GHz (c) 5GHz and (d) 6GHz. It is noted that the dashed lines denote
+the exact boundaries of cylinders in Fig.9.
+
+
+
+                            Table IV                                    effectiveness of the attention module and the balancing
+   Comparison of quality metrics for reconstruction results of          treatment on T-matrix coefficient [T ]0 . Accordingly, the
+           “FoamMetExt” experimental data in Fig.10.
+                                                                        pix2pix network without attention mechanism is de-
+   Freq.    Method          Eεr ,diel   Epec     Ediel    SSIM          noted as ‘GAN’, while the Att-GAN without balancing
+            SOM             0.1732      0.4730   0.0066   0.8395        treatment is represented as “Att-GAN-wb”. Finally, the
+   3GHz     U-net           0.1832      0.1939   0.0058   0.9555
+            GAN             0.1792      0.2283   0.0058   0.9433
+                                                                        typical U-net method is also compared to demonstrate
+            Att-GAN-wb      0.1760      0.1451   0.0057   0.9584        the benefit of the proposed method. The comparison
+            Att-GAN         0.1718      0.1005   0.0055   0.9788        results of all methods under different frequencies are
+            SOM             0.1479      0.4672   0.0099   0.8430
+   4GHz     U-net           0.1345      0.4117   0.0076   0.8895
+                                                                        presented in Fig. 10, and the corresponding quality
+            GAN             0.1369      0.3697   0.0077   0.9034        metrics are listed in Table IV.
+            Att-GAN-wb      0.1390      0.2818   0.0081   0.9082
+            Att-GAN         0.1264      0.3320   0.0072   0.9186           It can be seen that the Att-GAN method achieves
+            SOM             0.1176      0.4067   0.0130   0.8485        overall the best performance compared to other meth-
+   5GHz     U-net           0.0482      0.3365   0.0043   0.9316        ods. In detail, compared to the GAN method, the SSIM
+            GAN             0.0653      0.3244   0.0061   0.9318
+            Att-GAN-wb      0.0432      0.2805   0.0040   0.9219        is clearly improved, and the quality metrics defined
+            Att-GAN         0.0339      0.2965   0.0032   0.9446        on scatterers have also been improved in general. It
+            SOM             0.1055      0.4148   0.0167   0.8364        indicates that the use of the attention mechanism can
+   6GHz     U-net           0.0402      0.4007   0.0058   0.9041
+            GAN             0.0653      0.3245   0.0086   0.9221        enforce the network to learn features concentrating to
+            Att-GAN-wb      0.0879      0.2968   0.0119   0.9168        scatterers, thereby enhancing the reconstruction qual-
+            Att-GAN         0.0356      0.3349   0.0048   0.9247        ity. Meanwhile, compared to Att-GAN-wb, we observe
+                                                                        that the imaging quality has been improved after the
+                                                                        balancing treatment for all the cases, especially for the
+that the frequency changes from 300MHz to 3GHz,                         dielectric scatterers. But we also observe that the RMSE
+4GHz, 5GHz and 6GHz, respectively, and the size of                      of PEC scatterers under 4GHz, 5GHz and 6GHz is a
+DOI changes from 4.0m × 4.0m to 0.15m × 0.15m.                          little worse after balancing. The reason is that the scaling
+Besides, the scaling coefficient C is also set to 20, 20, 15            on [T ]0 of PEC will highlight the dielectric scatterers,
+and 5, respectively, to be consistent with the frequency                which brings improvements in reconstruction of dielec-
+change for the training data set. We not only compare the               tric scatterers. In contrast, a certain decline for the
+performance of Att-GAN and SOM, but also check the                      reconstruction of PEC may appear. However, the overall
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                                            10
+
+
+
+SSIM of all cases is improved, which is also verified                          [9] A. Qing, “Electromagnetic inverse scattering of multiple two-
+visually from the results in Fig. 10. It is noted that the                         dimensional perfectly conducting objects by the differential evo-
+                                                                                   lution strategy,” IEEE Transactions on Antennas and Propagation,
+attention mechanism has little influence on the training                           vol. 51, no. 6, pp. 1251–1262, 2003.
+loss curves. But it can highlight the learning of features                    [10] X. Ye, X. Chen, Y. Zhong, and K. Agarwal, “Subspace-based
+by the generator on the unknown scatterers instead of                              optimization method for reconstructing perfectly electric conduc-
+                                                                                   tors,” Progress in Electromagnetics Research, vol. 100, pp. 119–128,
+backgrounds, which effectively improves the quality of                             2010.
+reconstruction. Finally, the results in Fig. 10 and Table                     [11] P. Waterman, “Matrix formulation of electromagnetic scattering,”
+IV also verify that the Att-GAN method achieves better                             Proceedings of the IEEE, vol. 53, no. 8, pp. 805–812, 1965.
+                                                                              [12] W. Chew and Y. Wang, “A fast algorithm for solution of a
+reconstruction results compared to the typical U-net                               scattering problem using a recursive aggregate τ matrix method,”
+method with only pixel-wise loss.                                                  Microwave and Optical Technology Letters, vol. 3, no. 5, pp. 164–
+  Although not shown here, the proposed method has                                 169, 1990.
+                                                                              [13] G. P. Otto and W. C. Chew, “Microwave inverse scattering/spl
+also been compared with other typical physics-inspired                             minus/local shape function imaging for improved resolution of
+methods [20], [26] for inversion of pure dielectric scat-                          strong scatterers,” IEEE Transactions on Microwave Theory and
+terers. The Att-GAN achieves similar results compared                              Techniques, vol. 42, no. 1, pp. 137–141, 1994.
+to those approaches. It shows that the proposed method                        [14] J. Lin and W. C. Chew, “BiCG-FFT T-matrix method for solving
+                                                                                   for the scattering solution from inhomogeneous bodies,” IEEE
+can also well invert pure dielectric scatterers like those                         Transactions on Microwave Theory and Techniques, vol. 44, no. 7,
+conventional methods. But the advantage of the Att-GAN                             pp. 1150–1155, 1996.
+method is that it can invert ISPs with mixed boundaries.                      [15] X. Ye, X. Chen, Y. Zhong, and R. Song, “Simultaneous reconstruc-
+                                                                                   tion of dielectric and perfectly conducting scatterers via T−matrix
+                                                                                   method,” IEEE Transactions on Antennas and Propagation, vol. 61,
+                          IV. Conclusion                                           no. 7, pp. 3774–3781, 2013.
+                                                                              [16] R. Song, X. Ye, and X. Chen, “Reconstruction of scatterers with
+   In this paper, we proposed a unified learning-based                             four different boundary conditions by T-matrix method,” Inverse
+method to reconstruct scatterers with mixed BCs. The                               Problems in Science and Engineering, vol. 23, no. 4, pp. 601–616,
+                                                                                   2015.
+zero-order T-matrix coefficients of scatterers, instead of                    [17] A. Massa, D. Marcantonio, X. Chen, M. Li, and M. Salucci, “DNNs
+the commonly used relative permittivity, have been re-                             as applied to electromagnetics, antennas, and propagation-A
+constructed by the attention-assisted pix2pix GAN, with-                           review,” IEEE Antennas and Wireless Propagation Letters, vol. 18,
+                                                                                   no. 11, pp. 2225–2229, 2019.
+out knowing the type of scatterers in advance. The re-
+                                                                              [18] X. Chen, Z. Wei, M. Li, and P. Rocca, “A review of deep learning
+construction of only [T ]0 greatly accelerates the imaging                         approaches for inverse scattering problems (invited review),”
+speed compared to conventional iterative SOM method.                               Progress In Electromagnetics Research, vol. 167, pp. 67–81, 2020.
+Meanwhile, the introduction of the spatial attention                          [19] J. E. Fajardo, J. Galván, F. Vericat, C. M. Carlevaro, and R. M.
+                                                                                   Irastorza, “Phaseless microwave imaging of dielectric cylinders:
+mechanism under the pix2pix GAN framework, as well                                 An artificial neural networks-based approach,” Progress In Elec-
+as the balancing treatment on [T ]0 of PEC and dielec-                             tromagnetics Research, vol. 166, pp. 95–105, 2019.
+tric scatterers, guarantees a high-quality reconstruction.                    [20] Z. Wei and X. Chen, “Deep-learning schemes for full-wave non-
+                                                                                   linear inverse scattering problems,” IEEE Transactions on Geo-
+Test results on both synthetic and experimental data                               science and Remote Sensing, vol. 57, no. 4, pp. 1849–1860, 2018.
+have validated the superior performance of the pro-                           [21] H. M. Yao, E. Wei, and L. Jiang, “Two-step enhanced deep learning
+posed method, which effectively expands the application                            approach for electromagnetic inverse scattering problems,” IEEE
+                                                                                   Antennas and Wireless Propagation Letters, vol. 18, no. 11, pp.
+scope of learning-based approaches for solving ISPs with                           2254–2258, 2019.
+mixed BCs.                                                                    [22] R. Guo, X. Song, M. Li, F. Yang, S. Xu, and A. Abubakar, “Super-
+                                                                                   vised descent learning technique for 2-D microwave imaging,”
+                                                                                   IEEE Transactions on Antennas and Propagation, vol. 67, no. 5, pp.
+                             References                                            3550–3554, 2019.
+ [1] X. Chen, Computational methods for electromagnetic inverse scatter-      [23] J. Adler and O. Öktem, “Solving ill-posed inverse problems using
+     ing. Wiley Online Library, 2018.                                              iterative deep neural networks,” Inverse Problems, vol. 33, no. 12,
+ [2] L.-P. Song, C. Yu, and Q. H. Liu, “Through-wall imaging (TWI) by              p. 124007, 2017.
+     radar: 2-D tomographic results and analyses,” IEEE Transactions          [24] G. Chen, P. Shah, J. Stang, and M. Moghaddam, “Learning-
+     on Geoscience and Remote Sensing, vol. 43, no. 12, pp. 2793–2798,             assisted multimodality dielectric imaging,” IEEE Transactions on
+     2005.                                                                         Antennas and Propagation, vol. 68, no. 3, pp. 2356–2369, 2019.
+ [3] T. Deisboeck and J. Y. Kresh, Complex systems science in                 [25] L. Li, L. G. Wang, F. L. Teixeira, C. Liu, A. Nehorai, and T. J. Cui,
+     biomedicine. Springer Science & Business Media, 2007.                         “DeepNIS: Deep neural network for nonlinear electromagnetic in-
+ [4] R. Persico, Introduction to ground penetrating radar: inverse scatter-        verse scattering,” IEEE Transactions on Antennas and Propagation,
+     ing and data processing. John Wiley & Sons, 2014.                             vol. 67, no. 3, pp. 1819–1825, 2018.
+ [5] Y. Zhong and X. Chen, “Twofold subspace-based optimization               [26] Z. Wei and X. Chen, “Physics-inspired convolutional neural net-
+     method for solving inverse scattering problems,” Inverse Problems,            work for solving full-wave inverse scattering problems,” IEEE
+     vol. 25, no. 8, p. 085003, 2009.                                              Transactions on Antennas and Propagation, vol. 67, no. 9, pp. 6138–
+ [6] Y. Zhong, X. Chen, and K. Agarwal, “An improved subspace-                     6148, 2019.
+     based optimization method and its implementation in solving              [27] J. Xiao, J. Li, Y. Chen, F. Han, and Q. H. Liu, “Fast electromag-
+     three-dimensional inverse problems,” IEEE Transactions on Geo-                netic inversion of inhomogeneous scatterers embedded in layered
+     science and Remote Sensing, vol. 48, no. 10, pp. 3763–3768, 2010.             media by born approximation and 3-D U-Net,” IEEE Geoscience
+ [7] X. Chen, “Subspace-based optimization method for solving                      and Remote Sensing Letters, vol. 17, no. 10, pp. 1677–1681, 2019.
+     inverse-scattering problems,” IEEE Transactions on Geoscience and        [28] R. Guo, Z. Lin, T. Shan, X. Song, M. Li, F. Yang, S. Xu, and
+     Remote Sensing, vol. 48, no. 1, pp. 42–49, 2009.                              A. Abubakar, “Physics embedded deep neural network for solv-
+ [8] A. Qing, C. K. Lee, and L. Jen, “Electromagnetic inverse scattering           ing full-wave inverse scattering problems,” IEEE Transactions on
+     of two-dimensional perfectly conducting objects by real-coded                 Antennas and Propagation, early access,2021.
+     genetic algorithm,” IEEE Transactions on Geoscience and Remote           [29] P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros, “Image-to-image
+     Sensing, vol. 39, no. 3, pp. 665–676, 2001.                                   translation with conditional adversarial networks,” in Proceedings
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                                                                                        11
+
+
+
+     of the IEEE conference on computer vision and pattern recognition,                             Xiuzhu Ye (S’11-M’12-SM’19) received the B.E.
+     2017, pp. 1125–1134.                                                                           degree in Telecommunication Engineering from
+[30] O. Oktay, J. Schlemper, L. L. Folgoc, M. Lee, M. Heinrich, K. Mi-                              Harbin Institute of Technology, Harbin, China,
+     sawa, K. Mori, S. McDonagh, N. Y. Hammerla, B. Kainz et al.,                                   in 2008 and the Ph.D. degree from Depart-
+     “Attention u-net: Learning where to look for the pancreas,” in                                 ment of Electrical and Computer Engineering
+     2018 1st Conference on Medical Imaging with Deep Learning (MIDL                                in National University of Singapore, Singapore,
+     2018), Amsterdam, The Netherlands, 2018.                                                       in 2012.From 2012 to 2013, she worked in
+[31] A. Z. Elsherbeni, A. Kishk et al., “Modeling of cylindrical objects                            Department of Electrical and Computer Engi-
+     by circular dielectric and conducting cylinders,” IEEE Transac-                                neering, National University of Singapore as
+     tions on Antennas and Propagation, vol. 40, no. 1, pp. 96–99, 1992.                            a Research Fellow. Since 2013, she worked as
+[32] K. Belkebir, P. C. Chaumet, and A. Sentenac, “Superresolution in                               Assistant Professor in Beihang University. Since
+     total internal reflection tomography,” Journal of the Optical Society   2019, she has been an Associate Professor with School of Information
+     of America A, vol. 22, no. 9, pp. 1889–1897, 2005.                      and Electronics, Beijing Institute of Technology. Her research areas
+[33] Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, “Gradient-based         are electromagnetic inverse problems, microwave imaging methods,
+     learning applied to document recognition,” Proceedings of the           antenna designing and machine learning. Dr. Ye has served on review
+     IEEE, vol. 86, no. 11, pp. 2278–2324, 1998.                             boards of various technical journals, including IEEE Transactions on
+[34] J.-M. Geffrin, P. Sabouroux, and C. Eyraud, “Free space experi-         Antenna and Propagation, IEEE Transactions on Microwave Theory
+     mental scattering database continuation: experimental set-up and        and Techniques, Radio Science and Optics Express.
+     measurement precision,” Inverse Problems, vol. 21, no. 6, p. S117,
+     2005.
+[35] R. Song, Y. Huang, K. Xu, X. Ye, C. Li, and X. Chen, “Electromag-
+     netic inverse scattering with perceptual generative adversarial
+     networks,” IEEE Transactions on Computational Imaging, vol. 7,
+     pp. 689–699, 2021.
+[36] J. Snell, K. Ridgeway, R. Liao, B. D. Roads, M. C. Mozer, and R. S.
+     Zemel, “Learning to generate images with perceptual similarity
+     metrics,” in 2017 IEEE International Conference on Image Process-
+     ing (ICIP). IEEE, 2017, pp. 4277–4281.
+[37] Y. Huang, R. Song, K. Xu, X. Ye, C. Li, and X. Chen, “Deep
+     learning-based inverse scattering with structural similarity loss
+     functions,” IEEE Sensors Journal, vol. 21, no. 4, pp. 4900–4907,
+     2020.                                                                                          Kuiwen Xu received the B.E. degree from
+[38] K. Belkebir and A. Tijhuis, “Using multiple frequency informa-                                 Hangzhou Dianzi University, and the Ph.D.
+     tion in the iterative solution of a two-dimensional nonlinear                                  degree from Zhejiang University, Hangzhou,
+     inverse problem,” in Proceedings Progress in Electromagnetics Re-                              China, in 2009 and 2014, respectively.From
+     search Symposium, PIERS 1996, 8 July 1996, Innsbruck, Germany.                                 2012 to 2013, he was a Visiting Ph.D. Student
+     Universität Innsbruck, 1996.                                                                  with the National University of Singapore, Sin-
+                                                                                                    gapore. From 2014 to 2015, he was a Senior Re-
+                                                                                                    searcher with Huawei Technologies Company,
+                                                                                                    Ltd., Hangzhou. He was invited to the State
+                                                                                                    Key Laboratory of Terahertz and Millimeter
+                                                                                                    Waves, City University of Hong Kong, Hong
+                                                                             Kong, as a Visiting Professor, in 2018. Since September 2015, he
+                      Rencheng Song received the B.S. degree from            has been with Hangzhou Dianzi University, Hangzhou, where he is
+                      Jilin University, Changchun, China, in 2005,           currently a Professor. He has published more than 50 journal articles
+                      and the Ph.D. degree from Zhejiang Univer-             on electromagnetics inverse problems, antenna design and synthesis,
+                      sity, Hangzhou, China in 2010, both in com-            microwave measurement and sensing. His research interests include
+                      putational mathematics. From 2010 to 2012,             but not limited to computational imaging and electromagnetics inverse
+                      he was a Research Fellow with the Depart-              problems, machine learning-based wireless sensing and imaging, and
+                      ment of Electrical and Computer Engineering            new concept antennas (MIMO antenna, Meta-based array-antenna,
+                      at National University of Singapore, Singapore.        etc.).
+                      From 2013 to 2017, he was a Principal Scientist
+                      with Halliburton Far East Pte Ltd, Singapore.
+                      Since May 2017, he has been with the De-
+partment of Biomedical Engineering at Hefei University of Technol-
+ogy, Hefei, China, as an associate professor. His research interests
+include electromagnetic/video-based intelligent perceptions, such as
+electromagnetic imaging, remote photoplethysmography, and physics-
+inspired machine learning methods.
+
+
+
+
+                                                                                                   Chang Li received the B.S. degree in informa-
+                        Youyou Huang received the B.E. degree in Au-                               tion and computing science from the Wuhan
+                        tomation from Hefei University of Technology,                              Institute of Technology, Wuhan, China, in 2012,
+                        Hefei, China, in 2019. She is currently pursuing                           and the Ph.D. degree in circuits and systems
+                        the M.S. degree in Hefei University of Technol-                            from the School of Electronic Information and
+                        ogy.Her current research interests include mi-                             Communications, Huazhong University of Sci-
+                        crowave imaging and electromagnetic inverse                                ence and Technology, Wuhan, in 2018.
+                        scattering problems.                                                          He is currently a Lecturer with the Depart-
+                                                                                                   ment of Biomedical Engineering, Hefei Univer-
+                                                                                                   sity of Technology, Hefei, China. His research
+                                                                                                   interests include biomedical signal processing,
+                                                                             hyperspectral image analysis, computer vision, pattern recognition,
+                                                                             and machine learning.
+JOURNAL OF LATEX CLASS FILES, VOL. 14, NO. 8, AUGUST 2015                  12
+
+
+
+                         Xun Chen (Senior Member, IEEE) received the
+                         B.Sc. degree in electrical engineering from the
+                         University of Science and Technology of China
+                         in 2009 and the Ph.D. degree in biomedi-
+                         cal engineering from The University of British
+                         Columbia (UBC), Canada. He has been a Re-
+                         search Scientist with the Department of Elec-
+                         trical and Computer Engineering, UBC. He is
+                         currently a Full Professor and the Head of
+                         the Department of Electrical Engineering and
+                         Information Science, University of Science and
+Technology of China. He has published over 100 scientific articles
+in prestigious IEEE/Elsevier journals and conferences. His research
+interests include statistical signal processing and machine learning in
+biomedical applications. He is serving as an Area Editor for Signal
+Processing: Image Communication and an Associate Editor for IEEE
+Signal Processing Letters and Frontiers in Neuroscience.
+

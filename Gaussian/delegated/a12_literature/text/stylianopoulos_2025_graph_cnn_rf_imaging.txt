@@ -1,0 +1,365 @@
+                                                        Graph-CNNs for RF Imaging:
+                                                 Learning the Electric Field Integral Equations
+                                               Kyriakos Stylianopoulos1 , Panagiotis Gavriilidis1 , Gabriele Gradoni2 , and George C. Alexandropoulos1
+                                                      1
+                                                          Department of Informatics and Telecommunications, National and Kapodistrian University of Athens,
+                                                                                   Panepistimiopolis Ilissia, 16122 Athens, Greece
+                                                                2
+                                                                  Institute for Communication Systems, University of Surrey, Guildford GU27XH, UK
+                                                                     e-mails: {kstylianop, pangavr, alexandg}@di.uoa.gr, g.gradoni@surrey.ac.uk
+
+
+                                            Abstract—Radio-Frequency (RF) imaging concerns the digital             ments on latency, computation, and communication resources,
+
+
+
+
+arXiv:2503.14439v1 [cs.LG] 18 Mar 2025
+                                         recreation of the surfaces of scene objects based on the scattered        challenging existing methodologies.
+                                         field at distributed receivers. To solve this difficult inverse scat-        In RF imaging, Synthetic Aperture Radar (SAR) techniques,
+                                         tering problems, data-driven methods are often employed that
+                                         extract patterns from similar training examples, while offering           such as the range migration algorithm [2], [9], [10], reconstruct
+                                         minimal latency. In this paper, we first provide an approximate           scenes by coherently combining multiple received signals
+                                         yet fast electromagnetic model, which is based on the electric            across frequency or spatial domains. While enabling high-
+                                         field integral equations, for data generation, and subsequently           resolution imaging, SAR requires large bandwidth, struggles
+                                         propose a Deep Neural Network (DNN) architecture to learn                 in near-field scenarios, and relies on simplified reflection
+                                         the corresponding inverse model. A graph-attention backbone
+                                         allows for the system geometry to be passed to the DNN, where             models that overlook diffraction and multi-bounce effects.
+                                         residual convolutional layers extract features about the objects,         Moreover, SAR primarily captures outer surfaces, making it
+                                         while a UNet head performs the final image reconstruction. Our            ineffective for occluded objects within a Domain of Interest
+                                         quantitative and qualitative evaluations on two synthetic data            (DoI). Alternatively, RF imaging can directly leverage EM
+                                         sets of different characteristics showcase the performance gains          theory, capitalizing on the fact that received signals satisfy
+                                         of thee proposed advanced architecture and its relative resilience
+                                         to signal noise levels and various reception configurations.              Maxwell’s frequency-domain equation [11], inherently encap-
+                                            Index Terms—Radio-frequency imaging, inverse scattering                sulating the DoI’s EM properties. This approach circumvents
+                                         problems, deep learning for electromagnetics, graph neural                SAR’s limitations, but presents its own challenges: solving
+                                         networks, electric field integral equations.                              nonlinear Partial Differential Equations (PDEs) is computa-
+                                                                                                                   tionally expensive, prone to degenerate solutions due to ill-
+                                                                 I. I NTRODUCTION                                  posedness, and depends on numerical models lacking accuracy.
+                                            Radio-Frequency (RF) imaging is widely used in many                       Machine Learning (ML) methodologies provide an attrac-
+                                         areas, such as in medical diagnostics [1], security applica-              tive alternative in overcoming such shortcomings. The plethora
+                                         tions [2], and diverse engineering fields, such as structural             of real life data sets of medical data has been instrumental to
+                                         tomography [3] and ground-penetrating radar [4]. Multi-static             the successful applications of Deep Neural Networks (DNNs)
+                                         imaging setups, where multiple Transmitters (TXs) emit RF                 in medical imaging (see [12] and references therein) through
+                                         waves that interact with surrounding objects before being                 the exploitation of diverse computer vision schemes, such as
+                                         recorded by distributed Receivers (RXs), enable imaging                   image denoising, super resolution, and unsupervised learning.
+                                         through digital signal processing or techniques realized di-              Additionally, ample synthetic data sets may be generated in
+                                         rectly in the Electromagnetics (EM) domain. However, typical              simulations using EM models, which provide a stream of
+                                         systems require specialized hardware, high computational re-              training examples with de facto labeling, to train ML ap-
+                                         sources, and operate in high power and bandwidth regimes.                 proaches for general-purpose inverse scattering problems [11].
+                                            Next generation wireless networks are expected to offer                As a prominent example, the work in [13] deployed the UNet
+                                         imaging opportunities through communications infrastructure,              architecture [14] to capitalize on the DNN’s ability to output
+                                         leveraging base stations densification, device-to-device net-             images comprised of distinct regions. More recently, there has
+                                         working, and millimeter-wave technology. Applications such                been an ongoing interest in combining ML with EM models to
+                                         as integrated sensing and communications [5], digital twin-               the purpose of designing Physics-Informed Neural Networks
+                                         ning [6], and autonomous guided vehicles benefit from high-               (PINNs), which enhance the fidelity of image reconstruction.
+                                         resolution channel propagation characterization [7] and opti-             This may be achieved through pre- or post-processing of the
+                                         mized beamforming [8]. Integrating, however, imaging func-                input and output variables of DNN with physics-compliant
+                                         tionalities into wireless networks imposes stringent require-             models, by incorporating loss functions that conserve EM
+                                                                                                                   properties (e.g., [15]), or by approximating parts of EM models
+                                            This work has been supported by the SNS JU project 6G-DISAC under      with DNN layers; refer to [11] for an in-depth analysis of
+                                         the EU’s Horizon Europe research and innovation program under Grant
+                                         Agreement No 101139130 and the 2023 Greek-British Cooperation on Short-   PINNs for RF imaging. However, despite the promising results
+                                         Term Scholarships Programme.                                              of PINNs in performance gains and data efficiency, there
+remain yet unresolved challenges. First, the physics-compliant       relates the electric field at any point in space with the current
+loss functions, or operations, are typically computationally         density J(s) of the DoI via the EFIE, as follows:
+expensive to evaluate, especially if such computations involve                              ZZ
+evaluating or solving PDEs. Additionally, while one is free                       Er (p) =       G(p, s)J(s)ds + Et (p),           (1)
+to choose from a wide variety of approximate EM models                                       S
+and their corresponding properties to infuse into PINNs, it is
+                                                                     where G(p, s) is the Green’s function. For the TMz propa-
+difficult to determine a priori which of those will be beneficial
+                                                                     gating wave considered here, this function is defined via the
+for training and what DNN layers are effective in such regimes.                                                                (2)
+   In this paper, we argue that developing efficient DNN mod-        Hankel function of the 0-th order of the 2nd kind (H0 ) as
+                                                                                   ȷ  (2)
+els with pertinent training methodologies, that better exploit all   G(p, s) = − 4 H0 (k0 ||p − s||) [18, eq. (11-11a)], where k0
+the available system information, is of paramount importance,        denotes the free-space wavenumber. Computing the electric
+either as standalone physics-agnostic imaging algorithms, or as      field reduces to determining the current density, which can
+components of PINNs. The specific contributions of this work         be done by adopting N (known) orthogonal basis functions
+are as follows: An approximate yet computationally fast EM           {Φn (s)}N                                             N
+                                                                              n=1 and accompanying intensitiesP{αn }n=1 . The
+                                                                                                                     N
+model is first presented, which is based on the Electric Field       current density is then expressed as J(s) = n=1 αn Φn (s).
+Integral Equations (EFIEs) to produce the received signals              To derive a complete EM model involves finding appropriate
+scattered by objects within the DoI. The model is then used          values of {αn }Nn=1 for a given S̄, which can be obtained via
+to generate two synthetic RF imaging data sets addressing            the point-matching method [18, Section 12.2.4]. It is first noted
+different challenges. Next, a novel DNN architecture for RF          that (1) can be applied to any point in 2D space, including
+imaging is proposed, which is based on graph neural net-             the RXs, empty space, as well as s̄ ∈ S̄ in particular. We
+works that capture geometrical information about the system’s        thus exploit the fact that the set S̄ contains perfect electric
+transceivers and provide highly expressive feature extraction,       conductors, which dictates the following boundary condition
+followed by ResNet [16] and UNet structures for effective            onto the surface points:
+image generation. This architecture is evaluated on the gen-                                Er (s̄) = 0, ∀s̄ ∈ S̄.                      (2)
+erated data sets under varying Signal-to-Noise Ratio (SNR)
+conditions and numbers of RXs to showcase its performance            By assuming known Φn (s) and by evaluating (1) on N
+gains over simpler conventional DNN approaches.                      different s̄i , ∀i = 1, . . . , N points, we obtain a linear sys-
+                                                                     tem of N equations with N unknowns a ≜ [α1 , . . . , αN ]⊤
+         II. S YSTEM AND P ROBLEM F ORMULATION                                                                                             ⊤
+                                                                     through (2). Specifically, let et ≜ [−Et (s̄RR1 ), . . . , −Et (s̄N )]
+A. EM Modeling                                                       and the N × N matrix M as [M]i,n ≜ S G(s̄i , s)Φn (s)ds
+   We consider a 2D square DoI of radius ρ = 5λ, with λ being        ∀i, n = 1, . . . , N . Assuming M−1 is defined, the system of
+the wavelength of the propagating electric field, which is cen-      equations deduced from (2) can be solved as a = M−1 et ,
+tered at the origin. Nr RX units are placed in equally spaced        thus, completing the model. For the data-generation process
+positions around the periphery of the DoI, which are assumed         we have selected
+                                                                                    √       the
+                                                                                             √ following procedure for the creation
+to be perfectly synchronized. Contrary to most RF imaging            of Φn : An N × N grid of equally spaced points ŝn is
+techniques [11], [13], [15], [17], we assume a single TX             constructed. Each basis Φn is defined as a 2D square pulse       √ of
+located at a distance of 20λ from the origin, at pt = [20λ, 0]⊤ .    unit amplitude centered around ŝn with a width of 2ρ/ N .
+Despite making the problem more challenging, using a single
+TX greatly simplifies the involved synchronization processes         B. RF Imaging Problem Formulation
+and reduces the measurement latency, offering a more attrac-            For each instance t of the problem, the DoI contains a
+tive scenario for wireless communication systems.                    distinct surface S̄ (t) . Let the (fixed) positions of the RXs
+   Inside the DoI, there exist one ore more disjoint objects of      be denoted as r k = [xrk , yrk ]⊤ ∀k = 1, . . . , Nr , and
+perfect electrical conductors, that are represented as a discrete    the corresponding vector of received signals as e(t) ≜
+set of infinitesimal elements of coordinates s̄ = [xs̄ , ys̄ ]⊤ ,    [Er (r 1 ), . . . , Er (r Nr )]⊤ . The model described in Section II-A
+sampled with spatial resolution ρ0 inside the boundaries of          is referred to as the forward model, as it provides the mapping
+each object. Let S be the set of all potential points in the DoI,    F : S̄ (t) → e(t) . As a general formulation, the imag-
+and S̄ be the set of all coordinates comprising the objects,         ing objective can be described as the optimization problem
+which will be henceforth referred to as a surface, despite con-      Sopt ≜ arg maxS̄ ∥e(t) − F (S̄)∥, which seeks the surface
+taining possibly disjoint objects. We assume the transmitting        that, when processed through the forward model, best matches
+field to travel in the (x, y)-plane, being polarized in the z-       the received electric fields. However, the above is analytically
+direction, as Et (p) = E0 exp(−ȷk⊤ (p − pt ))/(4π∥p − pt ∥)          intractable involving searching over the space of all possible
+with p = [xp , yp ]⊤ being an arbitrary point in the DoI,            surfaces which grows exponentially with DoI’s resolution.
+k ∈ R2×1 denoting the free space wave vector, and E0 being              To this end, a data-driven objective is employed instead.
+a constant amplitude term. Following first physics principles        For notation purposes, let us first define the operator I(S̄)
+and considering time-harmonic electric field (i.e., E(t, p) =        that transforms the surface S̄ to a discretized binary image of
+E0 cos(ωt − k⊤ (p − pt ))), we formulate the relationship that       the DoI of arbitrary spatial resolution, where each pixel has
+                                                                 Reconstructed Image
+
+
+
+
+          Graph Attention
+        Common Linear Projections
+
+     Pair-wise Additions & Non-linearity
+                                                 DoI
+                  Softmax
+
+                                                       UNet
+               Linear Projection
+
+
+
+       Projection to Image Resolution
+
+
+
+                                                                                       Fig. 2. Visualization of the magnitude of the electric field |Er (s)| in arbitrary
+                                                                                       units over the DoI in the presence of three perfect electrical conductors of
+                                                                                       side and diameter 1.2λ, demonstrating the complex interactions captured by
+                  ResNet                                                               the employed EFIEs. Non-overlapping pulse functions with λ/20 spacing in
+                                                                                       between them were used as bases.
+
+Fig. 1. GAT-Res-UNet architecture for RF imaging via inverse scattering.               where ws , wt , we ∈ Rd×1 and Θs , Θt , Θe ∈ Rd×4 are
+                                                                                       trainable weights with an arbitrary embedding dimension
+                                                                                                                                                   (t)
+the value of 1 if and only if there is at least one point in                           d. The output of the GAT layer is given as [X̄ ]i,: =
+S̄ that is spatially covered by the pixel. Assume that S̄ (t) ’s
+                                                                                       PNr                   (t) ⊤
+                                                                                            j=1 [A]i,j Θt [X    ]i,: . For the considered data sets, L1 = 3
+elements are conditionally dependent and are thus sampled                              GAT layers with d = 32 are applied in sequence so that their
+by a non-uniform distribution, which motivates the need for                                                           (t)      (t)
+                                                                                       respective inputs are X l = X̄ l−1 ∀l = 2, . . . , L1 .
+ML applications. The learning objective can be defined as                                                       (t)
+                                                                                           In the sequel, X L1 is flattened to z (t) ∈ RdNr ×1 and
+approximating the inverse model F −1 : e(t) → S̄ (t) as:
+                                                                                       linearly projected to the RHW ×1 space as z̄ (t) ≜ σ(W z z (t) +
+                                           |D|
+     −1                          1 X                                                   bz ), with H × W being the number of pixels of the desired
+    Fopt ≜ arg min                      CE(I(S̄ (t) ), I(F −1 (e(t) )),         (3)    image, W z and bz being trainable parameters of conformable
+                           F −1 |D|
+                                    t=1
+                                                                                       dimensions, and σ(·) denotes the sigmoid activation. Then,
+   P the Cross-Entropy (CE) function CE(x, y) =
+where                                                                                                                        (t)
+                                                                                       z̄ (t) is seen as an image Z̄               ∈ R1×H×W and the two
+− j [x]j log[y]j is the objective function (I(·) is treated as                         computer vision modules are applied.
+a vector) and D is a collected set of input-target data tuples                             In the beginning, L2 = 5 typical ResNet blocks of a single
+{e(t) , I(S̄ (t) )}. For ML approaches, F −1 (·) is a parameterized                    channel are applied on Z̄ with the intention of capturing
+neural network, hence, problem (3) can be solved through                               information about the location, size, and shape of the ob-
+Stochastic Gradient Descent (SGD), by optimizing the DNN’s                                                                                (t)
+                                                                                       jects, resulting in an intermediate image I¯ ∈ R1×H×W .
+trainable weight matrices over batches of set D.
+                                                                                       This information is assumed to exhibit high spatial locality
+ III. P ROPOSED D EEP N EURAL N ETWORK A RCHITECTURE                                   due to the spatially aware graph introduced by the GAT
+   The proposed DNN architecture consists of three parts.                              layers, therefore, the convolutional layers of ResNet provide
+                                                                                                                             (t)
+First, a Graph-Attention Network (GAT) [19], [20] is used                              an intuitive choice. Finally, I¯ is processed by a UNet of
+for feature extraction. The imposed graph structure allows                             L3 = 3 downsampling-upsampling layers with 16, 32, and
+for the incorporation of systemic and geometric information                            64 channels, respectively. The purpose of the U-Net is to
+(that remains fixed throughout the data set) as node and                               efficiently encode information about the shapes of the objects
+edge features, while the attention mechanism is tasked to                              in the image during downsampling to a bottleneck vector, by
+learn correlations between the electric field of each data                             increasing the channel and decreasing the image dimensions.
+instance inputs and those system variables. In particular, let                         The converse procedure of the upsampling layers is designed
+the input data matrix for the k-th data instance X (t) ∈ RNr ×4                        to decode this information toward assigning each pixel of the
+contain the received field at the RXs (e(t) ) and the (fixed)                          image to its corresponding object (or background). Recall that
+electric field contribution solely by the TX as [X (t) ]i,: ≜                          this work deals with perfect conducting objects, indicating that
+        (t)            (t)
+[Re(Er (r i )) Im(Er (r i )) Re(Et (r i )) Im(Et (r i ))]⊤ . De-                       the output image is binary. This implies that it suffices to
+fine the edge weights between the i-th and j-th RXs via their                          apply a sigmoid activation to obtain the final image estimation
+                                                                                          (t)
+Euclidean distance as [D]i,j ≜ ∥r i − r j ∥2 . The attention                           Iˆ ∈ RH×W ≡ I(S̄ (t) ), before performing SGD on (3). The
+coefficients of the first GAT layer [A(t) ]i,j are computed as:                        overall DNN architecture is illustrated in Fig. 1.
+                           
+       [A(t) ]i,j ≜softmax LeakyReLU w⊤       s Θs [X
+                                                      (t) ⊤
+                                                          ]i,:                                                      IV. E VALUATION
+                                                                                         Using the forward model of Section II-A and λ = 0.125 m,
+                                                         
+                    + w⊤        (t) ⊤
+                                   ]j,: + w⊤
+                                                       
+                        t Θt [X            e Θe [D]i,j     ,   (4)
+                                                                                       we have produced two data sets of 104 data points, each with
+         UNet                                                                     Ground Truth        UNet        ResNet-UNet    GAT-Res-UNet
+  ResNet-UNet
+     GAT-UNet
+ GAT-Res-UNet
+              0.00     0.05     0.10   0.15    0.20     0.25   0.30   0.35
+                                  Test Set Cross Entropy
+                               (a) MNIST data set
+
+         UNet
+  ResNet-UNet
+     GAT-UNet
+ GAT-Res-UNet
+              0.00     0.05     0.10   0.15    0.20     0.25   0.30   0.35
+                                  Test Set Cross Entropy
+                              (b) SHAPES data set
+Fig. 3. Comparison of validation scores for the proposed GAT-Res-UNet and
+baseline methods on MNIST and SHAPES data sets (lower is better).             Fig. 4. Visual comparison of the reconstruction of three MNIST images.
+
+                                                                                  Ground Truth        UNet        ResNet-UNet    GAT-Res-UNet
+                                   TABLE I
+ P ERFORMANCE COMPARISON IN TERMS OF CE UNDER DIFFERENT SNR
+                   LEVELS AND Nr VALUES .
+
+
+     Data set                   MNIST                     SHAPES
+    SNR (dB)          0        10   20   30          0    10   20   30
+      UNet           0.25     0.20 0.18 0.19        0.34 0.29 0.26 0.25
+   ResNet-UNet       0.25     0.20 0.20 0.20        0.35 0.36 0.37 0.32
+  GAT-Res-UNet       0.25     0.18 0.17 0.16        0.35 0.30 0.21 0.19
+       Nr             8        16   32   48          8    16   32   48
+      UNet           0.27     0.24 0.21 0.19        0.36 0.34 0.30 0.31
+   ResNet-UNet       0.26     0.25 0.26 0.20        0.37 0.36 0.32 0.28
+  GAT-Res-UNet       0.25     0.21 0.17 0.16        0.35 0.36 0.28 0.22
+
+0.2 test split, that were designed to test different system char-
+acteristics. First, we sampled MNIST digits [21] to investigate              Fig. 5. Visual comparison of the reconstruction of three SHAPES images.
+the ability of the designed DNNs to identify complex shapes.                 information of Et (r i ) and D. A linear layer was introduced
+Each 28 × 28 image was conceptually centered on the DoI                      in these cases instead of GAT to convert the input vectors to
+origin so that its total height and width are 3λ each, and                   the image dimensions similar to the z (t) → z̄ (t) projection of
+its pixel occupies an area of 0.1λ × 0.1λ. Using the spatial                 Section III, so that the convolutional modules can be applied.
+resolution ρ0 = λ/20, we sampled points within the area                         For Nr = 64 RXs and noise-free received signals, the CE
+occupied by the pixels of the digits, to obtain each S̄ (t) surface,         error scores for the test sets of all compared methods are
+which contains 282 discrete points on average. S̄ (t) was then               given in Figs. 3a and 3b. Clearly, the proposed GAT-Res-
+used in (1) to obtain e(t) while setting N = |S̄ (t) | (| · | denotes        UNet approach shows lower reconstruction errors, with the
+set cardinality). Next, we created a synthetic data set, referred            performance difference with respect to the baseline approaches
+to as “SHAPES,” which was designed to assess the detection of                being increased for SHAPES images of higher resolution.
+multiple disjoint objects with larger image resolution. To that              To investigate scenarios where the received signals exhibiting
+end, a square and two discs of width and diameters uniformly                 Additive White Gaussian Noise (AWGN), as well as in setups
+sampled in [λ, 1.2λ] were randomly positioned within the DoI                 with varying number of RXs, the models were re-trained for
+disk to create each S̄ (t) . The discretization results in 651 points        each particular SNR and Nr case, with the results being shown
+on average and the target images had dimensions of 128 × 128                 in Table I. As observed, the proposed method outperforms
+pixels. Figure 2 provides a visual inspection of the our EFIE                all benchmarks in almost all cases. It is shown that their
+method in the generation of the data set.                                    differences become less pronounced when their resources
+   We have compared the proposed “GAT-Res-UNet” architec-                    deteriorate (fewer RXs and lower SNR), where no method
+ture against different architectures of the same three compo-                produces effective results. The SHAPES data set presents the
+nents: UNet, ResNet-UNet, and GAT-UNet. The UNet baseline                    more challenging case, due to the higher resolution.
+closely follows the benchmark approach of [13], while the                       From a qualitative perspective, reconstructed images from
+rest of the approaches constitute modifications of it. Other                 the test sets of the two data sets are depicted in Figs. 4 and
+combinations of the same layers did not exhibit notable                      5, where it can be seen that GAT-Res-UNet produces sharper
+performance. For the approaches that do not contain GAT as                   images, especially for the case of MNIST. For the challenging
+the first layer, only e(t) was used as input, without the system             case of SHAPES images, GAT-Res-UNet is mostly able to
+                  Ground Truth   SNR = 10 dB   SNR = 20 dB    SNR = 30 dB   EM modeling approach based on the EFIEs has been used
+                                                                            for generation of two data sets of distinct features, and our
+   UNet                                                                     numerical evaluation showcased notable performance gains of
+                                                                            the proposed method compared to modified approaches from
+                                                                            the literature, as well as relative resilience in decreased SNR
+
+
+   GAT-Res-UNet
+                                                                            levels and number of RXs. Such results further motivate us to
+                                                                            investigate the incorporation of the presented EM model to ML
+                                                                            methods in making DNN designs physics-informed, toward
+                                                                            enhancing their performance and generalization capabilities.
+                      (a) MNIST image under different SNR conditions.
+                                                                                                         R EFERENCES
+                  Ground Truth   SNR = 10 dB   SNR = 20 dB    SNR = 30 dB    [1] D. O’Loughlin, M. O’Halloran, B. M. Moloney, M. Glavin, E. Jones,
+                                                                                 and M. A. Elahi, “Microwave breast imaging: Clinical advances and
+   UNet                                                                          remaining challenges,” IEEE Trans. Biomed. Eng., vol. 65, no. 11, pp.
+                                                                                 2580–2590, 2018.
+                                                                             [2] D. Sheen, D. McMakin, and T. Hall, “Three-dimensional millimeter-
+                                                                                 wave imaging for concealed weapon detection,” IEEE Trans. Microw.
+
+
+
+   GAT-Res-UNet
+                                                                                 Theory Tech., vol. 49, no. 9, pp. 1581–1592, 2001.
+                                                                             [3] C. Maierhofer et al., Non-Destructive Evaluation of Reinforced Concrete
+                                                                                 Structures. Woodhead Publishing, 2010.
+                                                                             [4] H. M. Jol, Ground Penetrating Radar Theory and Applications. Ams-
+                                                                                 terdam, Neverthlands: Elsevier, 2009.
+                                                                             [5] E. Calvanese Strinati et al., “Towards distributed and intelligent inte-
+                     (b) SHAPES image under different SNR conditions.            grated sensing and communications for 6G networks,” IEEE Wireless
+                                                                                 Commun., vol. 32, no. 1, pp. 60–67, 2025.
+                  Ground Truth      Nr = 16       Nr = 32        Nr = 48
+                                                                             [6] A. Masaracchia et al., “Towards the metaverse realization in 6G:
+                                                                                 Orchestration of RIS-enabled smart wireless environments via digital
+   UNet                                                                          twins,” IEEE Internet Things Mag., vol. 7, no. 2, pp. 22–28, 2024.
+                                                                             [7] L. Nisiotis et al., “Exploring gaming technologies, digital twins, and
+                                                                                 VR to visualise wireless propagation simulations,” in Proc. IEEE Annu.
+                                                                                 Comput., Software, Appl. Conf., Osaka, Japan, Jul. 2024.
+
+
+
+   GAT-Res-UNet
+                                                                             [8] K. Haneda et al., “5G 3GPP-Like channel models for outdoor urban
+                                                                                 microcellular and macrocellular environments,” in Proc. IEEE Veh.
+                                                                                 Technol. Conf., Nanjing, China, May 2016.
+                                                                             [9] G. Wang et al., “Comparison between back projection algorithm and
+                                                                                 range migration algorithm in terahertz imaging,” IEEE Access, vol. 8,
+                                                                                 pp. 18 772–18 777, 2020.
+                     (c) MNIST image under different numbers of RXs.        [10] Y. Yang et al., “Automotive SAR imaging by range migration algorithm,”
+                  Ground Truth      Nr = 16       Nr = 32        Nr = 48         in Proc. Int. Conf. Microw. Millimeter Wave Technol., Harbin, China,
+                                                                                 Aug. 2022.
+                                                                            [11] R. Guo et al., “Physics-embedded machine learning for electromagnetic
+   UNet                                                                          data imaging: Examining three types of data-driven imaging methods,”
+                                                                                 IEEE Signal Process. Mag., vol. 40, no. 2, pp. 18–31, 2023.
+                                                                            [12] G. Wang et al., “Deep tomographic image reconstruction: Yesterday,
+                                                                                 today, and tomorrow—editorial for the 2nd special issue “Machine
+
+
+
+   GAT-Res-UNet
+                                                                                 Learning for Image Reconstruction”,” IEEE Trans. Med. Imag., vol. 40,
+                                                                                 no. 11, pp. 2956–2964, 2021.
+                                                                            [13] Z. Wei and X. Chen, “Deep-learning schemes for full-wave nonlinear
+                                                                                 inverse scattering problems,” IEEE Trans. Geosci. Remote Sens., vol. 57,
+                                                                                 no. 4, pp. 1849–1860, 2019.
+                                                                            [14] O. Ronneberger, P. Fischer, and T. Brox, “U-Net: Convolutional net-
+                    (d) SHAPES image under different numbers of RXs.
+                                                                                 works for biomedical image segmentation,” in Proc. Med. Image Com-
+Fig. 6. Reconstruction of sample images under various system parameters.         put. Comput. Assist. Interv., Munich, Germany, 2015.
+                                                                            [15] H. M. Yao et al., “Two-step enhanced deep learning approach for
+                                                                                 electromagnetic inverse scattering problems,” IEEE Antennas Wireless
+identify the positions and sizes of the shapes with moderate                     Propag. Lett., vol. 18, no. 11, pp. 2254–2258, 2019.
+accuracy, but it does not succeed in producing precise shapes.              [16] K. He et al., “Deep residual learning for image recognition,” in Proc.
+Comparing with UNet for different resource budgets in Fig 6,                     IEEE Conf. Comput. Vis. Pattern Recognit., Las Vegas, NV, USA, 2016.
+                                                                            [17] X. Chen, Z. Wei, M. Li, and P. Rocca, “A review of deep learning
+a clear advantage of the proposed method can be inferred in                      approaches for inverse scattering problems (invited review),” Prog. In
+all tests apart from low resources cases, where all methods                      Electromagn. Res., vol. 167, pp. 67–81, 2020.
+are unsuccessful. While there is notable performance degrada-               [18] C. A. Balanis, Advanced Engineering Electromagnetics 2nd Edition.
+                                                                                 Hoboken, NJ, USA: John Wiley & Sons, Ltd, 2011.
+tion as the system capabilities become limited, the proposed                [19] P. Veličković et al., “Graph attention networks,” in Proc. Int. Conf.
+method is demonstrated to exhibit higher robustness.                             Learn. Representations, Vancouver, Canada, May 2018.
+                                                                            [20] M. Fey and J. E. Lenssen, “GATConv — PyTorch Geometric 2.4.0
+                                   V. C ONCLUSION                                documentation,” Online, 2024, available: https://pytorch-geometric.
+   In this paper, we designed a DNN architecture based on                        readthedocs.io/en/latest/modules/nn.html.
+                                                                            [21] L. Deng, “The MNIST database of handwritten digit images for machine
+graph attention, residual convolutions, and UNet structures for                  learning research,” IEEE Signal Process. Mag., vol. 29, no. 6, pp. 141–
+effective RF imaging with reduced system requirements. An                        142, 2012.
+

@@ -1,0 +1,25 @@
+{
+  "created": "2026-09-11T06:30:46.341895+00:00",
+  "inputs": {
+    "Gaussian/Theory/ A1.md": {
+      "sha256": "027e0811f8f5139d429514ba4b54650da77348053314241ab99fd0d6e9eb0f18",
+      "bytes": 73421
+    },
+    "Gaussian/Theory/A1_2.md": {
+      "sha256": "fb560b5f7951c7e0d6695f5398d1d76d12a811f503b70d5cd033f918495cf0b3",
+      "bytes": 61691
+    },
+    "Gaussian/Theory/a2/sources/CONVERSATION.json": {
+      "sha256": "6073cdf60095f0ffc70af232c8c5a7aa7d58fa53f51705fbfcf0784fe074ba74",
+      "bytes": 125668
+    },
+    "Gaussian/Theory/a2/sources/PRO_RESPONSE_1.md": {
+      "sha256": "a663e1de835cd22f9866f7fe6c1eff9bf7413a0c2052136f5a345b371c921d12",
+      "bytes": 27887
+    },
+    "Gaussian/Theory/a2/sources/PRO_RESPONSE_2.md": {
+      "sha256": "f1ff95711d177307ab0b4fd4bd2bb995a4ecc43405beba386caa50b42ffa9967",
+      "bytes": 31986
+    }
+  }
+}

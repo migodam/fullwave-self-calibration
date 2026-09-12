@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-09-11T14:03:13.088176+00:00",
+  "source_conversations": [
+    "6aa40616-b560-83ec-99b2-62aa7ca68f88",
+    "6aa40393-4c28-83ec-89a8-ae1513086422"
+  ],
+  "scope": "Complete read_thread text; no pagination remaining, each assistant body below 20000-character response limit. Text files include a terminal newline. Citation placeholders are not verified citations.",
+  "files": {
+    "Theory/a2/extensions/sources/USER_PROPOSALS.md": {
+      "sha256": "a3d4fa708490715fa8c1ca3a5a72cd6c04c8d959b7558fd9294732c7b684f0b3",
+      "bytes": 1921
+    },
+    "Theory/a2/extensions/sources/PROBABILITY_1.md": {
+      "sha256": "c4b5785f7f2b72ebee00e68f928dc31e5cda44b82d0720ca51d8b6e2890462b5",
+      "bytes": 16918
+    },
+    "Theory/a2/extensions/sources/MANIFOLD_2.md": {
+      "sha256": "11b429fdaa0baf8b9ffe5995a4a5dc6030dcd70de00a7427072da71537e524f9",
+      "bytes": 17149
+    },
+    "Theory/a2/extensions/sources/MANIFOLD_1.md": {
+      "sha256": "047cf2a92d4f696a4aa5f5a2ddce69273fc08d91075832a1a428e3849a22b4cc",
+      "bytes": 27447
+    }
+  }
+}

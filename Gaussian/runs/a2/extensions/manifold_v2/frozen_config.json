@@ -1,0 +1,39 @@
+{
+  "config": {
+    "seed": 20260913,
+    "n_inverse": 32,
+    "n_data": 64,
+    "frequencies": [
+      1500000000.0,
+      2750000000.0
+    ],
+    "n_tx": 6,
+    "n_rx": 24,
+    "noise_relative": 0.01,
+    "families": [
+      "separated",
+      "close",
+      "sharp"
+    ],
+    "cases_per_family": 10,
+    "max_outer": 20,
+    "max_rhs": 3600,
+    "trust_radius": 0.7,
+    "methods": [
+      "full_lm",
+      "spectral",
+      "weak_secant",
+      "random_secant"
+    ],
+    "scope": "2D scalar; two fixed Gaussian components; known loss ratio; fixed common ROI initialization; half receive/full transmit aperture; independent grid and quadrature"
+  },
+  "hashes": {
+    "code/a2/extensions/manifold_runner.py": "58eb1d3e36382c7cbcf517295bb4e6cae0cf3bb1de53c4eb29273e840283388b",
+    "code/a2/extensions/manifold.py": "9111cc5c58b32c7168f0d314011d3f89d5418fbfca75db740a95a1d0c96e05b2",
+    "code/a2/physics.py": "62c7c9e2d9e7387725192f79d1ea69c2a7a43b0c154b68947d920614a2e30faf"
+  },
+  "environment": {
+    "python": "3.13.13",
+    "numpy": "2.5.3"
+  }
+}

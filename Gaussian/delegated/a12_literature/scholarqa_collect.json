@@ -1,0 +1,760 @@
+{
+  "schema_version": 1,
+  "kind": "scholarqa-evidence-bundle",
+  "created_at": "2026-09-11T04:14:40+00:00",
+  "question": "What prior art directly supports Hermite-Gaussian generalized scattering matrices, T-matrix subspace inverse scattering, neural or graph message-passing multiple scattering solvers, and passive reciprocal learned local scattering blocks?",
+  "search_queries": [
+    "Hermite Gaussian generalized scattering matrix domain decomposition radiowave propagation 2023",
+    "T-matrix subspace optimization method inverse scattering dielectric conducting scatterers",
+    "estimate T-matrix measured scattering data SVD radiating nonradiating currents dielectric cylinder",
+    "T-matrix contrast source inversion physics inspired neural network PEC dielectric hybrid target 2023",
+    "graph neural network message passing multiple scattering electromagnetic learned iterative solver",
+    "passive reciprocal neural network local scattering matrix electromagnetic"
+  ],
+  "filters": {},
+  "query_runs": [
+    {
+      "query": "Hermite Gaussian generalized scattering matrix domain decomposition radiowave propagation 2023",
+      "snippet_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      },
+      "paper_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      }
+    },
+    {
+      "query": "T-matrix subspace optimization method inverse scattering dielectric conducting scatterers",
+      "snippet_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      },
+      "paper_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      }
+    },
+    {
+      "query": "estimate T-matrix measured scattering data SVD radiating nonradiating currents dielectric cylinder",
+      "snippet_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      },
+      "paper_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      }
+    },
+    {
+      "query": "T-matrix contrast source inversion physics inspired neural network PEC dielectric hybrid target 2023",
+      "snippet_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      },
+      "paper_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      }
+    },
+    {
+      "query": "graph neural network message passing multiple scattering electromagnetic learned iterative solver",
+      "snippet_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      },
+      "paper_search": {
+        "total": 25,
+        "offset": 0,
+        "next": 15,
+        "data": [
+          {
+            "paperId": "b164228fbb2cc0041e46acf174fc235efbbeedfe",
+            "externalIds": {
+              "DOI": "10.1088/1674-4527/ae7cc3",
+              "CorpusId": 289217974
+            },
+            "url": "https://www.semanticscholar.org/paper/b164228fbb2cc0041e46acf174fc235efbbeedfe",
+            "title": "A Graph Neural Network Solver for Fiber Assignment in Multi-object Spectroscopic Surveys",
+            "venue": "Research in Astronomy and Astrophysics",
+            "year": 2026,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "https://iopscience.iop.org/article/10.1088/1674-4527/ae7cc3/pdf",
+              "status": "HYBRID",
+              "license": "CCBYNCND",
+              "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1088/1674-4527/ae7cc3?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1088/1674-4527/ae7cc3, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Physics"
+            ],
+            "publicationTypes": [
+              "JournalArticle",
+              "Review"
+            ],
+            "publicationDate": "2026-06-12",
+            "authors": [
+              {
+                "authorId": "2455803468",
+                "name": "Yu-Xuan Sun"
+              },
+              {
+                "authorId": "2151334133",
+                "name": "Hailong Yuan"
+              },
+              {
+                "authorId": "2268186377",
+                "name": "Bin Jiang"
+              },
+              {
+                "authorId": "2243285317",
+                "name": "Yanxia Zhang"
+              }
+            ],
+            "abstract": "Target allocation in multi-object spectroscopic surveys is a high-dimensional combinatorial optimization problem constrained by fiber reachability and mechanical collisions. In densely populated focal planes, local assignment decisions can induce non-local conflicts, whereby a single choice suppresses multiple neighboring opportunities, leading to reduced survey completeness and biased target selection. Existing approaches typically rely on fast heuristic or priority-driven algorithms, which, while operationally efficient, do not fully capture the global conflict structure and therefore yield suboptimal weighted target assignments in dense regimes. In this work, we reformulate the fiber assignment problem as a Maximum Weight Independent Set problem on a conflict graph, providing a unified representation of geometric and mechanical constraints. Building on this formulation, we develop a Graph Neural Network–based solver that leverages iterative message passing to model long-range dependencies across the focal plane. This approach enables the propagation of constraint information over the full conflict network, effectively mitigating the “ripple effect” induced by local collisions and allowing for globally consistent optimization. We validate the proposed method using both real observations from the Large Sky Area Multi-Object Fiber Spectroscopic Telescope and simulated dense focal-plane configurations. The results demonstrate that our approach achieves significantly higher weighted yields than traditional heuristic baselines, reaching up to 99.71% of the optimal solution while maintaining computational efficiency compatible with survey operations. The method consistently produces collision-free assignment plans and exhibits robust performance across varying target densities. Importantly, the proposed graph-based framework is independent of specific hardware geometries, making it directly applicable to a broad class of fiber-fed spectroscopic surveys, including Dark Energy Spectroscopic Instrument–like systems. This work establishes a scalable and physically motivated paradigm for fiber assignment, bridging combinatorial optimization and data-driven modeling, and provides a pathway toward improving survey completeness and mitigating selection biases in next-generation spectroscopic programs."
+          },
+          {
+            "paperId": "6b5975b10352240ce9e4f9e9724116163720b884",
+            "externalIds": {
+              "DBLP": "conf/nips/DanHKW25",
+              "DOI": "10.52202/085713-3853",
+              "CorpusId": 288815649
+            },
+            "url": "https://www.semanticscholar.org/paper/6b5975b10352240ce9e4f9e9724116163720b884",
+            "title": "Explore In-Context Message Passing Operator for Graph Neural Networks in A Mean Field Game",
+            "venue": "Neural Information Processing Systems",
+            "year": 2025,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "",
+              "status": "CLOSED",
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.52202/085713-3853?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.52202/085713-3853, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science"
+            ],
+            "publicationTypes": [
+              "JournalArticle"
+            ],
+            "publicationDate": null,
+            "authors": [
+              {
+                "authorId": "31552949",
+                "name": "Tingting Dan"
+              },
+              {
+                "authorId": "2387379725",
+                "name": "Xinwei Huang"
+              },
+              {
+                "authorId": "2255423991",
+                "name": "Won Hwa Kim"
+              },
+              {
+                "authorId": "2255506351",
+                "name": "Guorong Wu"
+              }
+            ],
+            "abstract": "In typical graph neural networks (GNNs), feature representation learning naturally evolves through iteratively updating node features and exchanging information based on graph topology. In this context, we conceptualize that the learning process in GNNs is a mean-field game (MFG), where each graph node is an agent, interacting with its topologically connected neighbors. However, current GNNs often employ the identical MFG strategy across different graph datasets, regardless of whether the graph exhibits homophilic or heterophilic characteristics. To address this challenge, we propose to formulate the learning mechanism into a variational framework of the MFG inverse problem, introducing an in-context selective message passing paradigm for each agent, which promotes the best overall outcome for the graph. Specifically, we seek for the application-adaptive transportation function (controlling information exchange throughout the graph) and reaction function (controlling feature representation learning on each agent), on the fly , which allows us to uncover the most suitable selective mechanism of message passing by solving an MFG variational problem through the lens of Hamiltonian flows. Taken together, our variational framework unifies existing GNN models into various mean-field games with distinct equilibrium states, each characterized by the learned in-context message passing operators. Furthermore, we present an agnostic end-to-end deep model, coined Game-of-GNN , to jointly identify the message passing mechanism and fine-tune the GNN hyper-parameters on top of the elucidated message passing"
+          },
+          {
+            "paperId": "926c5ac1ee753d3cd64efded4423a04c9b4f4c20",
+            "externalIds": {
+              "DOI": "10.1109/ACES-China62474.2024.10699762",
+              "CorpusId": 273105896
+            },
+            "url": "https://www.semanticscholar.org/paper/926c5ac1ee753d3cd64efded4423a04c9b4f4c20",
+            "title": "Solving Electromagnetic Scattering of 3D PEC Targets Based on Graph Neural Networks",
+            "venue": "2024 International Applied Computational Electromagnetics Society Symposium (ACES-China)",
+            "year": 2024,
+            "citationCount": 1,
+            "openAccessPdf": {
+              "url": "",
+              "status": "CLOSED",
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ACES-China62474.2024.10699762?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ACES-China62474.2024.10699762, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": null,
+            "publicationTypes": null,
+            "publicationDate": "2024-08-16",
+            "authors": [
+              {
+                "authorId": "2324124512",
+                "name": "Tao Shan"
+              }
+            ],
+            "abstract": "In this study, a deep learning-based approach is proposed to address electromagnetic (EM) scattering of 3D perfect electric conductor (PEC) targets. Message passing graph neural networks (GNNs) are employed to build a surrogate model capable of predicting the surface currents of 3D PEC targets. Triangle meshes are converted into graph-structured data, allowing the 3D PEC targets to be represented as graphs that can be processed by GNNs. Training and testing datasets are generated by applying the method of moments to solve the combined-field integral equations (CFIE) of 3D PEC targets. Three basic types of 3D target geometries are considered, including spheroids, conical frustums, and hexahedrons. With the unique capability of adaptively managing unstructured data and varying unknown quantities, the proposed GNN model demonstrates good numerical precision. This study reveals the great potential of GNNs for 3D EM modeling."
+          },
+          {
+            "paperId": "0ad152b7fe0450332b12eeebcbebb0c3fb3306eb",
+            "externalIds": {
+              "ArXiv": "2608.30103",
+              "CorpusId": 291542712
+            },
+            "url": "https://www.semanticscholar.org/paper/0ad152b7fe0450332b12eeebcbebb0c3fb3306eb",
+            "title": "Graph4BiLO: Graph Neural Network Approximation for Bilevel Mixed-Integer Linear Optimization",
+            "venue": "",
+            "year": 2026,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2608.30103, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science"
+            ],
+            "publicationTypes": null,
+            "publicationDate": "2026-08-31",
+            "authors": [
+              {
+                "authorId": "2470560291",
+                "name": "Jessica D. Elrefaei"
+              },
+              {
+                "authorId": "2380443705",
+                "name": "Kaixun Hua"
+              },
+              {
+                "authorId": "2471144843",
+                "name": "Seungbae Kim"
+              },
+              {
+                "authorId": "2471784948",
+                "name": "Hoang Nam Tran"
+              },
+              {
+                "authorId": "2248040579",
+                "name": "J. S. Borrero"
+              }
+            ],
+            "abstract": "Bilevel mixed-integer linear optimization problems model hierarchical decision processes in which a leader anticipates the optimal response of a follower. Although expressive, these problems are computationally challenging because lower-level optimality is embedded in the leader's feasible region. Value-function reformulations replace the nested follower optimization with a constraint involving the follower's optimal value, but evaluating this value function exactly can itself be expensive. This paper introduces Graph4BiLO, a graph neural network (GNN) approach for learning bilevel value functions from variable--constraint graph representations. In contrast to fixed-length multilayer perceptron (MLP) representations, the GNN uses shared message-passing parameters and can therefore be applied across multiple problem sizes with a single trained model. The learned ReLU network is encoded exactly as mixed-integer linear constraints and embedded in an approximate single-level formulation. A repair step subsequently re-solves the follower problem for the selected leader decision to recover a bilevel-feasible follower response. We evaluate Graph4BiLO on knapsack interdiction instances with 20--100 items against the exact MibS solver and the learning-based Neur2BiLO method. Graph4BiLO obtains objective values comparable to Neur2BiLO across all tested sizes while avoiding size-specific neural networks. An additional out-of-distribution experiment demonstrates zero-shot transfer from 20-item training instances to previously unseen 40- and 60-item instances. However, embedding message passing at every graph node substantially increases the resulting mixed-integer formulation size and solve time. These results identify a central tradeoff between size-generalizable graph representations and the computational cost of embedding GNNs within optimization models."
+          },
+          {
+            "paperId": "c1321fa8a18db9df3075dd1307b15f5f7ca438d2",
+            "externalIds": {
+              "DOI": "10.3390/electronics15143071",
+              "CorpusId": 290193322
+            },
+            "url": "https://www.semanticscholar.org/paper/c1321fa8a18db9df3075dd1307b15f5f7ca438d2",
+            "title": "Explainable Graph Neural Networks Towards Data-Driven Inverse Kinematics in Industrial Robot Motion Planning",
+            "venue": "Electronics",
+            "year": 2026,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "https://doi.org/10.3390/electronics15143071",
+              "status": "GOLD",
+              "license": "CCBY",
+              "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.3390/electronics15143071?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.3390/electronics15143071, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": null,
+            "publicationTypes": [
+              "JournalArticle"
+            ],
+            "publicationDate": "2026-07-13",
+            "authors": [
+              {
+                "authorId": "2223956848",
+                "name": "Ali Jlidi"
+              },
+              {
+                "authorId": "102568025",
+                "name": "Rabab Benotsmane"
+              },
+              {
+                "authorId": "2317225864",
+                "name": "László Kovács"
+              }
+            ],
+            "abstract": "Inverse kinematics (IK) is fundamental to robot motion planning. Classical analytical solvers require complete Denavit–Hartenberg (DH) parameters that are often proprietary or degraded by mechanical wear, and numerical solvers based on damped least squares (DLS) are sensitive to initialization, particularly near singularities. We propose XGNN, an explainable graph neural network positioned as a model-free, interpretable warm-start initializer for downstream numerical IK refinement rather than as a standalone replacement for analytical solvers. Each IK query is encoded as a 12-node graph in which six pose nodes and six joint nodes are connected through bipartite pose-to-joint attention edges and chain edges along the kinematic structure. GATv2 message passing aggregates information at each joint node; two ablation-validated design contributions (a learnable node-type embedding and an angle-aware composite loss) enable training to convergence. Evaluated on 300,000 trajectory-style samples generated from the ABB IRB 2400 kinematic model, XGNN achieves 3.66∘ joint mean absolute error (MAE), comparable to a multilayer perceptron baseline (3.09∘) and a bidirectional LSTM (3.14∘) under identical training. The standalone joint accuracy of all learned models is too coarse for direct industrial use, but XGNN provides the strongest warm start for DLS refinement: the convergence rate improves from 98.4% to 100%, mean iterations drop from 14.6 to 3.2, and wall-clock time per pose drops 5.0× on the IRB 2400. The benefit transfers cross-platform to the Universal Robots UR5 collaborative manipulator (convergence rate 82.2% to 100%, 10.0× speedup) and survives DH parameter perturbation of up to ±10%, simulating calibration drift or mechanical wear. The GATv2 attention coefficients additionally provide an interpretability signal at zero inference cost. XGNN therefore complements analytical and numerical IK methods as an interpretable, calibration-robust warm start when DH parameters are unavailable, proprietary, or degraded."
+          },
+          {
+            "paperId": "db38d3c38977468dd6871dc87e447c9e301581eb",
+            "externalIds": {
+              "DOI": "10.1109/ICMMT55580.2022.10023201",
+              "CorpusId": 256449901
+            },
+            "url": "https://www.semanticscholar.org/paper/db38d3c38977468dd6871dc87e447c9e301581eb",
+            "title": "A Hybrid Electromagnetic Inversion Method Based on BI-GMM-GAMP and Convolutional Neural Network",
+            "venue": "International Conference on Microwave and Millimeter Wave Technology",
+            "year": 2022,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ICMMT55580.2022.10023201?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ICMMT55580.2022.10023201, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": null,
+            "publicationTypes": [
+              "Conference"
+            ],
+            "publicationDate": "2022-08-12",
+            "authors": [
+              {
+                "authorId": "2327296681",
+                "name": "Lijing Zhou"
+              },
+              {
+                "authorId": "12907647",
+                "name": "Zhixun Liu"
+              },
+              {
+                "authorId": "2316818103",
+                "name": "Fangfang Wang"
+              }
+            ],
+            "abstract": "Electromagnetic inverse scattering is a nonlinear and ill-posed problem. Some traditional algorithms have been proposed to solve it, but they cannot perform well in both terms of efficiency and accuracy. In order to reconstruct high quality images in real time, this paper presents a hybrid method which combines the Born iterative Gaussian mixture model generalized approximate message passing (BI-GMM-GAMP) algorithm with a convolutional neural network (CNN). To be specific, BI-GMM-GAMP is first used for obtaining the preliminary images. Subsequently, these pictures are used for training U-Net. Experiments show the validity of this method."
+          },
+          {
+            "paperId": "3b4d4aac7c717b69632579b11986f22574c2ea6a",
+            "externalIds": {
+              "MAG": "3010397017",
+              "ArXiv": "2003.02228",
+              "DBLP": "conf/ecai/BuschP020",
+              "DOI": "10.3233/FAIA200199",
+              "CorpusId": 211989656
+            },
+            "url": "https://www.semanticscholar.org/paper/3b4d4aac7c717b69632579b11986f22574c2ea6a",
+            "title": "PushNet: Efficient and Adaptive Neural Message Passing",
+            "venue": "European Conference on Artificial Intelligence",
+            "year": 2020,
+            "citationCount": 13,
+            "openAccessPdf": {
+              "url": "https://doi.org/10.3233/faia200199",
+              "status": "HYBRID",
+              "license": "CCBYNC",
+              "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2003.02228, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science",
+              "Mathematics"
+            ],
+            "publicationTypes": [
+              "JournalArticle",
+              "Conference"
+            ],
+            "publicationDate": "2020-03-04",
+            "authors": [
+              {
+                "authorId": "35978945",
+                "name": "Julian Busch"
+              },
+              {
+                "authorId": "2147534",
+                "name": "Jiaxing Pi"
+              },
+              {
+                "authorId": "1732690",
+                "name": "T. Seidl"
+              }
+            ],
+            "abstract": "Message passing neural networks have recently evolved into a state-of-the-art approach to representation learning on graphs. Existing methods perform synchronous message passing along all edges in multiple subsequent rounds and consequently suffer from various shortcomings: Propagation schemes are inflexible since they are restricted to $k$-hop neighborhoods and insensitive to actual demands of information propagation. Further, long-range dependencies cannot be modeled adequately and learned representations are based on correlations of fixed locality. These issues prevent existing methods from reaching their full potential in terms of prediction performance. Instead, we consider a novel asynchronous message passing approach where information is pushed only along the most relevant edges until convergence. Our proposed algorithm can equivalently be formulated as a single synchronous message passing iteration using a suitable neighborhood function, thus sharing the advantages of existing methods while addressing their central issues. The resulting neural network utilizes a node-adaptive receptive field derived from meaningful sparse node neighborhoods. In addition, by learning and combining node representations over differently sized neighborhoods, our model is able to capture correlations on multiple scales. We further propose variants of our base model with different inductive bias. Empirical results are provided for semi-supervised node classification on five real-world datasets following a rigorous evaluation protocol. We find that our models outperform competitors on all datasets in terms of accuracy with statistical significance. In some cases, our models additionally provide faster runtime."
+          },
+          {
+            "paperId": "f36e6ff20b0903c0c9f4262d5cf920ec1f531cbc",
+            "externalIds": {
+              "DBLP": "journals/tkde/GuoYDQ25",
+              "DOI": "10.1109/TKDE.2025.3543377",
+              "CorpusId": 276460703
+            },
+            "url": "https://www.semanticscholar.org/paper/f36e6ff20b0903c0c9f4262d5cf920ec1f531cbc",
+            "title": "Cross-Graph Interaction Networks",
+            "venue": "IEEE Transactions on Knowledge and Data Engineering",
+            "year": 2025,
+            "citationCount": 14,
+            "openAccessPdf": {
+              "url": "",
+              "status": "CLOSED",
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/TKDE.2025.3543377?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/TKDE.2025.3543377, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science"
+            ],
+            "publicationTypes": [
+              "JournalArticle"
+            ],
+            "publicationDate": "2025-05-01",
+            "authors": [
+              {
+                "authorId": "2273322821",
+                "name": "Qi-hang Guo"
+              },
+              {
+                "authorId": "2244575909",
+                "name": "Xibei Yang"
+              },
+              {
+                "authorId": "2152130929",
+                "name": "Weiping Ding"
+              },
+              {
+                "authorId": "2187326606",
+                "name": "Yuhua Qian"
+              }
+            ],
+            "abstract": "Graph neural networks (GNNs) are recognized as a significant methodology for handling graph-structure data. However, with the increasing prevalence of learning scenarios involving multiple graphs, traditional GNNs mostly overlook the relationships between nodes across different graphs, mainly due to their limitation of traditional message passing within each graph. In this paper, we propose a novel GNN architecture called cross-graph interaction networks (GInterNet) to enable inter-graph message passing. Specifically, we develop a cross-graph topology construction module to uncover and learn the potential topologies between nodes across different graphs. Furthermore, we establish inter-graph message passing based on the learned cross-graph topologies, achieving cross-graph interaction by aggregating information from different graphs. Finally, we employ cross-graph construction functions involving the relationships between contextual information and cross-graph topology structure to iteratively update the cross-graph topologies. Different to existing related approaches, GInterNet is designed as a cross-graph interaction paradigm for inter-graph message passing. It enables multi-graph interaction during the message passing process. Additionally, it is a plug-and-play framework that can be easily embedded into other models. We evaluate its performance in semi-supervised and unsupervised learning scenarios involving multiple graphs. A detailed theoretical analysis and extensive experiment results have shown that GInterNet improves the performance and robustness of the base models."
+          },
+          {
+            "paperId": "0e6569d7b6863dcb43075bcf72dc59dfb9ef7460",
+            "externalIds": {
+              "DBLP": "journals/corr/abs-2602-03808",
+              "ArXiv": "2602.03808",
+              "DOI": "10.48550/arXiv.2602.03808",
+              "CorpusId": 285276295
+            },
+            "url": "https://www.semanticscholar.org/paper/0e6569d7b6863dcb43075bcf72dc59dfb9ef7460",
+            "title": "Enhancing Imbalanced Node Classification via Curriculum-Guided Feature Learning and Three-Stage Attention Network",
+            "venue": "arXiv.org",
+            "year": 2026,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2602.03808, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science"
+            ],
+            "publicationTypes": [
+              "JournalArticle"
+            ],
+            "publicationDate": "2026-02-03",
+            "authors": [
+              {
+                "authorId": "1738456180",
+                "name": "Abdul Joseph Fofanah"
+              },
+              {
+                "authorId": "2408635696",
+                "name": "Lian Wen"
+              },
+              {
+                "authorId": "2467848101",
+                "name": "David Chen"
+              },
+              {
+                "authorId": "2218949590",
+                "name": "Shaoyang Zhang"
+              }
+            ],
+            "abstract": "Imbalanced node classification in graph neural networks (GNNs) happens when some labels are much more common than others, which causes the model to learn unfairly and perform badly on the less common classes. To solve this problem, we propose a Curriculum-Guided Feature Learning and Three-Stage Attention Network (CL3AN-GNN), a learning network that uses a three-step attention system (Engage, Enact, Embed) similar to how humans learn. The model begins by engaging with structurally simpler features, defined as (1) local neighbourhood patterns (1-hop), (2) low-degree node attributes, and (3) class-separable node pairs identified via initial graph convolutional networks and graph attention networks (GCN and GAT) embeddings. This foundation enables stable early learning despite label skew. The Enact stage then addresses complicated aspects: (1) connections that require multiple steps, (2) edges that connect different types of nodes, and (3) nodes at the edges of minority classes by using adjustable attention weights. Finally, Embed consolidates these features via iterative message passing and curriculum-aligned loss weighting. We evaluate CL3AN-GNN on eight Open Graph Benchmark datasets spanning social, biological, and citation networks. Experiments show consistent improvements across all datasets in accuracy, F1-score, and AUC over recent state-of-the-art methods. The model's step-by-step method works well with different types of graph datasets, showing quicker results than training everything at once, better performance on new, imbalanced graphs, and clear explanations of each step using gradient stability and attention correlation learning curves. This work provides both a theoretically grounded framework for curriculum learning in GNNs and practical evidence of its effectiveness against imbalances, validated through metrics, convergence speeds, and generalisation tests."
+          },
+          {
+            "paperId": "8b37ceded04d4ddd4a988610dc642d1deabc16ae",
+            "externalIds": {
+              "ArXiv": "2605.26163",
+              "DBLP": "journals/corr/abs-2605-26163",
+              "DOI": "10.48550/arXiv.2605.26163",
+              "CorpusId": 288671852
+            },
+            "url": "https://www.semanticscholar.org/paper/8b37ceded04d4ddd4a988610dc642d1deabc16ae",
+            "title": "Adversarial Water-Filling: Theory, Algorithms and Foundation Model",
+            "venue": "arXiv.org",
+            "year": 2026,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2605.26163, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science",
+              "Mathematics"
+            ],
+            "publicationTypes": [
+              "JournalArticle"
+            ],
+            "publicationDate": "2026-05-24",
+            "authors": [
+              {
+                "authorId": "2331324201",
+                "name": "Xindi Tong"
+              },
+              {
+                "authorId": "2287642606",
+                "name": "Chee Wei Tan"
+              },
+              {
+                "authorId": "2247547084",
+                "name": "H. V. Poor"
+              }
+            ],
+            "abstract": "Competitive resource allocation problems over frequency and space can be formulated as minimax interaction between transmit power and worst-case interference. This formulation naturally arises in multi-operator low Earth orbit (LEO) satellite spectrum sharing, where transmissions from competing constellations interfere in real-time. Under Gaussian channels, AWF is strongly convex--concave on nondegenerate active channels, whereas discrete constellations yield generally nonconvex mercury/water-filling formulations. In this paper we propose the Adversarial Water-Filling (AWF) problem with corresponding theory and algorithms for these real situations. In addition, we develop a wireless foundation model for AWF to learn the AWF search dynamics. The architecture incorporates permutation-invariant channel representations, a constraint-aware graph neural network (GNN) with sparse message passing, and global latent variables capturing the low-dimensional water level implied by the AWF optimality. Through learned projected extragradient iterations, the model approximates stationary solutions of the constrained minimax problem arising under mercury/water-filling. We further show that, under local regularity and contractivity conditions, the learned AWF dynamics converge locally linearly around regular stationary points. Experiments demonstrate empirical generalization across unseen problem sizes, different constraints, and multiple discrete constellations, while achieving more than one-order-of-magnitude runtime improvements over iterative baselines. The related code can be found at https://github.com/convexsoft/AWF."
+          },
+          {
+            "paperId": "04caa1a55b12d5f3830ed4a31c4b47921a3546f2",
+            "externalIds": {
+              "CorpusId": 268125275
+            },
+            "url": "https://www.semanticscholar.org/paper/04caa1a55b12d5f3830ed4a31c4b47921a3546f2",
+            "title": "Discriminative Embeddings of Latent Variable Models for Structured Data Appendix A. More Related Work A.1. Comparison with Neural Networks on Graphs A.2. Comparison with Learning Message Estimator B. Derivation of the Fixed-point Condition for Loopy Bp",
+            "venue": "",
+            "year": null,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null,
+              "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at http://jmlr.csail.mit.edu/proceedings/papers/v48/daib16-supp.pdf, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": null,
+            "publicationTypes": null,
+            "publicationDate": null,
+            "authors": [],
+            "abstract": null
+          },
+          {
+            "paperId": "1a315c714c543dfb3fd8a2ff9e7a7e99229bee6a",
+            "externalIds": {
+              "MAG": "3091391704",
+              "DBLP": "journals/tcom/WeiHD21",
+              "DOI": "10.1109/TCOMM.2020.3027027",
+              "CorpusId": 225069791
+            },
+            "url": "https://www.semanticscholar.org/paper/1a315c714c543dfb3fd8a2ff9e7a7e99229bee6a",
+            "title": "Deep Learning for Beamspace Channel Estimation in Millimeter-Wave Massive MIMO Systems",
+            "venue": "IEEE Transactions on Communications",
+            "year": 2020,
+            "citationCount": 198,
+            "openAccessPdf": {
+              "url": "https://arxiv.org/pdf/1910.12455",
+              "status": "GREEN",
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/TCOMM.2020.3027027?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/TCOMM.2020.3027027, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science"
+            ],
+            "publicationTypes": [
+              "JournalArticle"
+            ],
+            "publicationDate": "2020-09-28",
+            "authors": [
+              {
+                "authorId": "2202921175",
+                "name": "Xiuhong Wei"
+              },
+              {
+                "authorId": "13302161",
+                "name": "Chenxi Hu"
+              },
+              {
+                "authorId": "1744576",
+                "name": "Linglong Dai"
+              }
+            ],
+            "abstract": "Millimeter-wave massive multiple-input multiple-output (MIMO) can use a lens antenna array to considerably reduce the number of radio frequency (RF) chains, but channel estimation is challenging due to the number of RF chains is much smaller than that of antennas. By exploiting the sparsity of beamspace channels, the beamspace channel estimation can be formulated as a sparse signal recovery problem, which can be solved by the classical iterative algorithm named approximate message passing (AMP), and its corresponding version learned AMP (LAMP) realized by a deep neural network (DNN). However, these existing schemes cannot achieve satisfactory estimation accuracy. To improve the channel estimation performance, we propose a prior-aided Gaussian mixture LAMP (GM-LAMP) based beamspace channel estimation scheme in this paper. Specifically, based on the prior information that beamspace channel elements can be modeled by the Gaussian mixture distribution, we first derive a new shrinkage function to refine the AMP algorithm. Then, by replacing the original shrinkage function in the LAMP network with the derived Gaussian mixture shrinkage function, a prior-aided GM-LAMP network is developed to estimate the beamspace channel more accurately. Simulation results by using both the theoretical channel model and the ray-tracing based channel dataset show that, the proposed GM-LAMP network can achieve better channel estimation accuracy than existing schemes."
+          },
+          {
+            "paperId": "f4536d6a8ee83759967251647fda2c6b07a23e41",
+            "externalIds": {
+              "ArXiv": "2211.10936",
+              "DBLP": "conf/iclr/ZhangCSW024",
+              "CorpusId": 253734607
+            },
+            "url": "https://www.semanticscholar.org/paper/f4536d6a8ee83759967251647fda2c6b07a23e41",
+            "title": "Deep Reinforcement Learning Guided Improvement Heuristic for Job Shop Scheduling",
+            "venue": "International Conference on Learning Representations",
+            "year": 2022,
+            "citationCount": 34,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2211.10936, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science"
+            ],
+            "publicationTypes": [
+              "JournalArticle"
+            ],
+            "publicationDate": "2022-11-20",
+            "authors": [
+              {
+                "authorId": "2143528332",
+                "name": "Cong Zhang"
+              },
+              {
+                "authorId": "2118726416",
+                "name": "Wen Song"
+              },
+              {
+                "authorId": "3376157",
+                "name": "Zhiguang Cao"
+              },
+              {
+                "authorId": "40539618",
+                "name": "J. Zhang"
+              },
+              {
+                "authorId": "1751954",
+                "name": "Puay Siew Tan"
+              },
+              {
+                "authorId": "2110076469",
+                "name": "Chi Xu"
+              }
+            ],
+            "abstract": "Recent studies in using deep reinforcement learning (DRL) to solve Job-shop scheduling problems (JSSP) focus on construction heuristics. However, their performance is still far from optimality, mainly because the underlying graph representation scheme is unsuitable for modelling partial solutions at each construction step. This paper proposes a novel DRL-guided improvement heuristic for solving JSSP, where graph representation is employed to encode complete solutions. We design a Graph Neural-Network-based representation scheme, consisting of two modules to effectively capture the information of dynamic topology and different types of nodes in graphs encountered during the improvement process. To speed up solution evaluation during improvement, we present a novel message-passing mechanism that can evaluate multiple solutions simultaneously. We prove that the computational complexity of our method scales linearly with problem size. Experiments on classic benchmarks show that the improvement policy learned by our method outperforms state-of-the-art DRL-based methods by a large margin."
+          },
+          {
+            "paperId": "11ea03f43d3d92bb56b958fc7042b5447c973d0e",
+            "externalIds": {
+              "DBLP": "conf/icassp/TongZY23",
+              "DOI": "10.1109/ICASSP49357.2023.10097213",
+              "CorpusId": 258530098
+            },
+            "url": "https://www.semanticscholar.org/paper/11ea03f43d3d92bb56b958fc7042b5447c973d0e",
+            "title": "Multi-View Millimeter-Wave Imaging Over Wireless Cellular Network",
+            "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
+            "year": 2023,
+            "citationCount": 4,
+            "openAccessPdf": {
+              "url": "https://doi.org/10.1109/icassp49357.2023.10097213",
+              "status": "CLOSED",
+              "license": null,
+              "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ICASSP49357.2023.10097213?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ICASSP49357.2023.10097213, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+            },
+            "fieldsOfStudy": [
+              "Computer Science"
+            ],
+            "publicationTypes": [
+              "JournalArticle",
+              "Conference"
+            ],
+            "publicationDate": "2023-06-04",
+            "authors": [
+              {
+                "authorId": "2147247152",
+                "name": "Xin Tong"
+              },
+              {
+                "authorId": "2156122018",
+                "name": "Zhaoyang Zhang"
+              },
+              {
+                "authorId": "2187420041",
+                "name": "Zhaohui Yang"
+              }
+            ],
+            "abstract": "Millimeter-wave (mmWave) imaging over wireless networks is one of the potential technologies in the design of integrated sensing and communication (ISAC) systems. To achieve complete and accurate sensing of the large-scale complex environment, multiple views from different user equipments (UEs) and base stations (BSs) in a wireless network should be fully and cooperatively exploited. In this paper, based on the uplink channels of the wireless cellular network, we propose a multi-view mmWave imaging architecture. In the proposed architecture, a single BS centrally or multiple BSs jointly process the transmitted data of UEs. Taking into account the complex physical propagation characteristics of mmWave in the environment, especially the occlusion effect, we exploit the multi-view sensing of the environment from various UEs and BSs. To solve the multi-view sensing problem for the considered model, we propose a generalized-approximate-message-passing-based multi-view sparse vector reconstruction (GAMP-MVSVR) algorithm to obtain the imaging results. In the proposed algorithm, a multi-layer factor graph is proposed to describe the data receiving and sending relationship, as well as the occlusion effect of mmWave propagation. The sum-product algorithm (SPA) is used to iteratively solve the imaging result. Specifically in each iteration, the occlusion relationship between the target object in the environment is recalculated according to the proposed occlusion detection rule, and in turn, used to estimate the scattering coefficients of the target objects. Simulation results verify the effectiveness of the proposed algorithm."
+          },
+          {
+            "paperId": "013ceb051d1848dbfa3374c1284cc80e76c1ecda",
+            "externalIds": {
+              "CorpusId": 14532594
+            },
+            "url": "https://www.semanticscholar.org/paper/013ceb051d1848dbfa3374c1284cc80e76c1ecda",
+            "title": "RF3P-A New Parallel Driven Frequency Electromagnetic Solver",
+            "venue": "",
+            "year": 2002,
+            "citationCount": 0,
+            "openAccessPdf": {
+              "url": "",
+              "status": null,
+              "license": null
+            },
+            "fieldsOfStudy": null,
+            "publicationTypes": [
+              "Review"
+            ],
+            "publicationDate": null,
+            "authors": [
+              {
+                "authorId": "8169623",
+                "name": "J. Deford"
+              }
+            ],
+            "abstract": null
+          }
+        ]
+      }
+    },
+    {
+      "query": "passive reciprocal neural network local scattering matrix electromagnetic",
+      "snippet_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      },
+      "paper_search": {
+        "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+      }
+    }
+  ],
+  "candidate_paper_ids": [
+    "b164228fbb2cc0041e46acf174fc235efbbeedfe",
+    "6b5975b10352240ce9e4f9e9724116163720b884",
+    "926c5ac1ee753d3cd64efded4423a04c9b4f4c20",
+    "0ad152b7fe0450332b12eeebcbebb0c3fb3306eb",
+    "c1321fa8a18db9df3075dd1307b15f5f7ca438d2",
+    "db38d3c38977468dd6871dc87e447c9e301581eb",
+    "3b4d4aac7c717b69632579b11986f22574c2ea6a",
+    "f36e6ff20b0903c0c9f4262d5cf920ec1f531cbc",
+    "0e6569d7b6863dcb43075bcf72dc59dfb9ef7460",
+    "8b37ceded04d4ddd4a988610dc642d1deabc16ae",
+    "04caa1a55b12d5f3830ed4a31c4b47921a3546f2",
+    "1a315c714c543dfb3fd8a2ff9e7a7e99229bee6a",
+    "f4536d6a8ee83759967251647fda2c6b07a23e41",
+    "11ea03f43d3d92bb56b958fc7042b5447c973d0e",
+    "013ceb051d1848dbfa3374c1284cc80e76c1ecda"
+  ],
+  "operation_errors": [
+    {
+      "query": "Hermite Gaussian generalized scattering matrix domain decomposition radiowave propagation 2023",
+      "operation": "search_semantic_scholar_snippets",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "Hermite Gaussian generalized scattering matrix domain decomposition radiowave propagation 2023",
+      "operation": "search_semantic_scholar_papers",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "T-matrix subspace optimization method inverse scattering dielectric conducting scatterers",
+      "operation": "search_semantic_scholar_snippets",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "T-matrix subspace optimization method inverse scattering dielectric conducting scatterers",
+      "operation": "search_semantic_scholar_papers",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "estimate T-matrix measured scattering data SVD radiating nonradiating currents dielectric cylinder",
+      "operation": "search_semantic_scholar_snippets",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "estimate T-matrix measured scattering data SVD radiating nonradiating currents dielectric cylinder",
+      "operation": "search_semantic_scholar_papers",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "T-matrix contrast source inversion physics inspired neural network PEC dielectric hybrid target 2023",
+      "operation": "search_semantic_scholar_snippets",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "T-matrix contrast source inversion physics inspired neural network PEC dielectric hybrid target 2023",
+      "operation": "search_semantic_scholar_papers",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "graph neural network message passing multiple scattering electromagnetic learned iterative solver",
+      "operation": "search_semantic_scholar_snippets",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "passive reciprocal neural network local scattering matrix electromagnetic",
+      "operation": "search_semantic_scholar_snippets",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    },
+    {
+      "query": "passive reciprocal neural network local scattering matrix electromagnetic",
+      "operation": "search_semantic_scholar_papers",
+      "error": "Semantic Scholar API error (429): Too Many Requests. Please wait and try again or apply for a key for higher rate limits. https://www.semanticscholar.org/product/api#api-key-form"
+    }
+  ],
+  "evidence_policy": {
+    "snippet_search": "Candidate passage evidence; inspect its source before assigning full-text Tier A or abstract Tier B.",
+    "paper_search": "An abstract may support Tier B; metadata alone is Tier C and does not establish a finding.",
+    "final_citations": "Select papers by relevance and evidence, then run scholarqa-cli verify before citation."
+  }
+}
