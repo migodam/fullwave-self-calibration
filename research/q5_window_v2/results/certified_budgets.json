@@ -1,0 +1,14 @@
+{
+  "arithmetic": "exact rational; directed decimal export",
+  "noise": "proper CN; 16 independent repeats/channel; union bound for three complex radial events",
+  "event_probability_lower": "997/1000",
+  "gamma_squared_greater_than_log_1000_proof": "41 positive rational Taylor terms of exp(gamma^2)",
+  "sigma_upper_bounds": ["2666409/1000000000000", "141/78125000"],
+  "conditional_reference_readout": [
+    {"material": 1, "total_reference_error_upper": "0.0011572500000000", "modal_bias_upper": "0.0000042651424425", "absolute_material_error_upper": "0.0267923733035967"},
+    {"material": 2, "total_reference_error_upper": "0.0011572500000000", "modal_bias_upper": "0.0000039164137202", "absolute_material_error_upper": "0.0629779399380477"}
+  ],
+  "inherited_real_reference_allowed_modal_bias_lower": ["0.0000181188746095", "0.0000014483933265"],
+  "EM_ratio_noise_only_sufficient_repeat_counts": [9528, 23482],
+  "hardware_attainability": "NOT established by this arithmetic certificate"
+}

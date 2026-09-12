@@ -1,0 +1,22 @@
+{
+  "class": "D: isolated electric-dipole tensor; known direction; profiled scalar",
+  "range_halfwidth_z": "1/20",
+  "target_error_z": "1/50",
+  "total_error_over_min_signal_norm": "1/200",
+  "formula": "2*(z-w)^2*((z+w)^2+z^2*w^2)/((z^4+z^2+3)*(w^4+w^2+3))",
+  "noise_convention": "deterministic joint data-space ball; NOT fixed-power comparison",
+  "not_certified_is_not_impossible": true,
+  "designs": [
+    {"nominal_kR": "1/5", "lower_squared_sine": "0.0000308013084831", "threshold_squared": "1/10000", "finite_range_certificate": false},
+    {"nominal_kR": "2/5", "lower_squared_sine": "0.0001536092091073", "threshold_squared": "1/10000", "finite_range_certificate": true},
+    {"nominal_kR": "3/5", "lower_squared_sine": "0.0003211799942696", "threshold_squared": "1/10000", "finite_range_certificate": true},
+    {"nominal_kR": "4/5", "lower_squared_sine": "0.0004558490223781", "threshold_squared": "1/10000", "finite_range_certificate": true},
+    {"nominal_kR": "1", "lower_squared_sine": "0.0005006302691711", "threshold_squared": "1/10000", "finite_range_certificate": true},
+    {"nominal_kR": "3/2", "lower_squared_sine": "0.0003288039948124", "threshold_squared": "1/10000", "finite_range_certificate": true},
+    {"nominal_kR": "2", "lower_squared_sine": "0.0001535777260005", "threshold_squared": "1/10000", "finite_range_certificate": true},
+    {"nominal_kR": "3", "lower_squared_sine": "0.0000362098289557", "threshold_squared": "1/10000", "finite_range_certificate": false},
+    {"nominal_kR": "5", "lower_squared_sine": "0.0000048490570499", "threshold_squared": "1/10000", "finite_range_certificate": false}
+  ],
+  "whole_design_interval": {"nominal_interval": ["3/5", "3/2"], "lower_squared_sine": "0.0000333533569085", "passed": false},
+  "refined_whole_design_interval": {"nominal_interval": ["3/5", "3/2"], "design_boxes": 90, "step": "1/100", "lower_squared_sine": "0.0003168815744976", "passed": true, "coverage": "each interval bound covers every nominal design and every parameter pair, not node samples"}
+}

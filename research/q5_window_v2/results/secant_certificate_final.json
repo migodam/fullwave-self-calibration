@@ -1,0 +1,55 @@
+{
+  "arithmetic": "Fraction intervals, outward sqrt, exact closed-box coverage",
+  "class": "M-amplitude: bounded additive amplitude observations and amplitude reference",
+  "reference_total_error": "3291/1000000",
+  "target_error": "1/10",
+  "results": [
+    {
+      "x": "1/5",
+      "domain": ["3/2", "4"],
+      "boxes": 2500,
+      "q_second_derivative_upper": "-0.0001492172302260",
+      "h_concave": "q>0, qprime>0, qsecond<0 imply hsecond<0",
+      "finite_secant_separation_lower": "0.0000535160055495",
+      "finite_secant_separation_upper": "0.0000535160055496",
+      "noise_bound": "0.0000070099869791",
+      "additional_amplitude_bias_lower": "0.0000197480157957",
+      "other_channel_overlap_condition": "satisfied for each channel",
+      "h_upper_endpoint_enclosure": ["0.0026877666324877", "0.0026877666324878"]
+    },
+    {
+      "x": "3/20",
+      "domain": ["2", "5"],
+      "boxes": 3000,
+      "q_second_derivative_upper": "-0.0000396694431295",
+      "h_concave": "q>0, qprime>0, qsecond<0 imply hsecond<0",
+      "finite_secant_separation_lower": "0.0000132879851733",
+      "finite_secant_separation_upper": "0.0000132879851734",
+      "noise_bound": "0.0000047448155747",
+      "additional_amplitude_bias_lower": "0.0000018991770120",
+      "other_channel_overlap_condition": "satisfied for each channel",
+      "h_upper_endpoint_enclosure": ["0.0012931316893648", "0.0012931316893649"]
+    }
+  ],
+  "fixed_raw_error_window": {
+    "raw_absolute_amplitude_error": "1/1000000",
+    "common_exterior_lower_kR": "1/5",
+    "results": [
+      {
+        "size_parameter": "1/5",
+        "threshold_c_squared": "16000000000000000000/11455851399896459187801",
+        "certified_nominal_kR_upper_lower": "26.7393102837825879",
+        "transition_upper": "26.7393102838326230",
+        "note": "both separation endpoints propagated; true amplitude-experiment cutoff enclosed; no necessity claim for coherent fields"
+      },
+      {
+        "size_parameter": "3/20",
+        "threshold_c_squared": "400000000000000000000/17657054996584063103289",
+        "certified_nominal_kR_upper_lower": "6.5683473710079534",
+        "transition_upper": "6.5683473710585281",
+        "note": "both separation endpoints propagated; true amplitude-experiment cutoff enclosed; no necessity claim for coherent fields"
+      }
+    ]
+  },
+  "seconds": 10.792883389000053
+}

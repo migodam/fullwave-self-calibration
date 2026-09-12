@@ -1,0 +1,7 @@
+{
+  "scope": "class M lossless modes only; size ka uncertain, all other shape/constitutive assumptions exact",
+  "results": [
+    {"x0": "1/5", "relative_size_uncertainty": "1/20000", "epsilon_boxes": 250, "size_interval": ["19999/100000", "20001/100000"], "amplitude_size_derivative_upper": "0.0407206984353109", "gain_weighted_amplitude_bias_upper": "0.0000005090087305", "fits_1e_6_allocation": true},
+    {"x0": "3/20", "relative_size_uncertainty": "1/20000", "epsilon_boxes": 300, "size_interval": ["59997/400000", "60003/400000"], "amplitude_size_derivative_upper": "0.0260702567554705", "gain_weighted_amplitude_bias_upper": "0.0000002444086571", "fits_1e_6_allocation": true}
+  ]
+}

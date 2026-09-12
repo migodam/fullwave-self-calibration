@@ -1,0 +1,10 @@
+{
+  "class": "D: epsilon in [2,23/10], ka=1/10, gain modulus [3/4,5/4]",
+  "q_lower": "0.0001549875805923",
+  "qprime_lower": "0.0000975648416183",
+  "counterexample_materials": ["2", "23/10"],
+  "counterexample_gains": ["1", "t_E(2)/t_E(23/10)"],
+  "second_gain_abs_squared": ["0.6832304596833457", "0.6832304596833458"],
+  "equality": "exact coefficient compensation at the same range, not a small optimized residual",
+  "scope": "projected electric dipole only; not a class-C ambiguity"
+}

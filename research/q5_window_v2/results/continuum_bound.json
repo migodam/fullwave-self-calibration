@@ -1,0 +1,14 @@
+{
+  "scope": "entire declared class C; distributional VIE on L2(D)^3",
+  "coercivity_lower": "43/500",
+  "inverse_norm_upper": "500/43",
+  "diagonal_lower": ["0.1348500033330000", "0.1487109436025620"],
+  "cross_block_norm_upper": "97/2000",
+  "minimum_source_receiver_distance": "503/1000",
+  "receiver_operator_norm_upper": "6",
+  "gain_times_receiver_over_alpha_upper": "3750/43",
+  "simplified_total_field_error_bound": "88 * ||E_inc - (chi^-1-G_k) p_tilde||_L2",
+  "actual_continuum_residual_bound": null,
+  "finite_material_separation_bound": null,
+  "status": "operator constant certified; class-C recovery certificate unresolved"
+}

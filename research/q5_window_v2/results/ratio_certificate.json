@@ -1,0 +1,27 @@
+{
+  "arithmetic": "Fraction intervals; explicit outward rational compression to denominator 10^30",
+  "scope": "two resolved E/M modes, known geometry, shared complex gain",
+  "results": [
+    {
+      "x": "1/5",
+      "domain": [
+        "3/2",
+        "4"
+      ],
+      "boxes": 2500,
+      "real_ratio_slope_lower": "0.0012718145885011",
+      "complex_ratio_modulus_upper": "0.0079899593807010"
+    },
+    {
+      "x": "3/20",
+      "domain": [
+        "2",
+        "5"
+      ],
+      "boxes": 3000,
+      "real_ratio_slope_lower": "0.0007380750428085",
+      "complex_ratio_modulus_upper": "0.0052511493011775"
+    }
+  ],
+  "source_sha256": "dad29c2224ef3cce8edfaa2776213bb7fa127e6a3de23d38b09f031991acbf3e"
+}
