@@ -1,0 +1,166 @@
+{
+  "scope": "Q5 V2 audited research; NOT a TAP-ready class-C method",
+  "submission_branch": "research/q5-readout-verification-v2",
+  "registration_commit": "cbebe706d4a485f084265575da48e65f63fdf519",
+  "class_M": {
+    "boxes": 5500,
+    "summaries": [
+      {
+        "object": 1,
+        "domain": ["3/2", "4"],
+        "size_parameter_exact": "1/5",
+        "boxes": 2500,
+        "tile_step_exact": "1/1000",
+        "min_q_lower": "0.000759026821148488725733885861676148",
+        "min_q_prime_lower": "0.000454997127035001826293855945963635",
+        "max_q_second_upper": "-0.000149216608308454996546793863867173",
+        "min_denominator_lower": "28.977268979372015921232108856796869775",
+        "direct_box_slope_lower": "0.000454990550932489425378644126886572",
+        "endpoint_slope_lower": "0.000455147892406146056727256301907416",
+        "amplitude_cap_upper": "0.002687776340873655613672096304368069",
+        "published_slopes_pass": true,
+        "published_caps_pass": true,
+        "h_strictly_increasing": true,
+        "h_strictly_concave": true
+      },
+      {
+        "object": 2,
+        "domain": ["2", "5"],
+        "size_parameter_exact": "3/20",
+        "boxes": 3000,
+        "tile_step_exact": "1/1000",
+        "min_q_lower": "0.000562341025460264443809915738981796",
+        "min_q_prime_lower": "0.000139933325273388114441937288566738",
+        "max_q_second_upper": "-0.000039669351601456442476642578483661",
+        "min_denominator_lower": "58.862152228088639198768661472139691332",
+        "direct_box_slope_lower": "0.000139932857147697904543171703067487",
+        "endpoint_slope_lower": "0.000139980658928214079725986995937778",
+        "amplitude_cap_upper": "0.001293132770546843157553939261748962",
+        "published_slopes_pass": true,
+        "published_caps_pass": true,
+        "h_strictly_increasing": true,
+        "h_strictly_concave": true
+      }
+    ],
+    "readout": {
+      "directions": 18,
+      "tangential_components": 2,
+      "repetitions": 16,
+      "complex_field_samples": 1152,
+      "real_reference_samples": 16,
+      "hardware_verified": false,
+      "failure_probability_upper": "191/252000",
+      "rows": [
+        {
+          "object": 1,
+          "size": "1/5",
+          "magnetic_boxes": 2500,
+          "magnetic_dipole_cap_upper": ["0.000021467763760824085890211676421089", "0.000021467763760824085890211676421089"],
+          "quadrature_alias_bound": ["0.000000000189855970377232379975864200", "0.000000000189855970377232379975864201"],
+          "relative_readout_sensitivity_bound": ["0.013097447988875137358414272418888326", "0.013097447988875137358414272418888327"],
+          "instrument_model_bias_bound": ["0.000010186142313009932389483890092056", "0.000010186142313009932389483890092057"],
+          "noise_bound_after_16_repeats": ["0.000001999806075000000000000000000000", "0.000001999806075000000000000000000000"],
+          "reference_total_error_bound": ["0.001125000000000000000000000000000000", "0.001125000000000000000000000000000000"],
+          "uniform_material_error_bound": ["0.044622992054591410843854946289496382", "0.044622992054591410843854946289496383"],
+          "remaining_margin": ["0.000018875191021072467868297407874621", "0.000018875191021072467868297407874622"],
+          "per_tangential_component_complex_sigma_sufficient": ["0.000005332816200000000000000000000000", "0.000005332816200000000000000000000000"]
+        },
+        {
+          "object": 2,
+          "size": "3/20",
+          "magnetic_boxes": 3000,
+          "magnetic_dipole_cap_upper": ["0.000006788700459105375896878221363499", "0.000006788700459105375896878221363499"],
+          "quadrature_alias_bound": ["0.000000000008018592735389610389610389", "0.000000000008018592735389610389610390"],
+          "relative_readout_sensitivity_bound": ["0.005080795537719375218673573094943306", "0.005080795537719375218673573094943307"],
+          "instrument_model_bias_bound": ["0.000005175507234315528748683970197326", "0.000005175507234315528748683970197327"],
+          "noise_bound_after_16_repeats": ["0.000001353598950000000000000000000000", "0.000001353598950000000000000000000000"],
+          "reference_total_error_bound": ["0.001125000000000000000000000000000000", "0.001125000000000000000000000000000000"],
+          "uniform_material_error_bound": ["0.076161706185664960555719221561640709", "0.076161706185664960555719221561640710"],
+          "remaining_margin": ["0.000002498921044305904594547699291496", "0.000002498921044305904594547699291497"],
+          "per_tangential_component_complex_sigma_sufficient": ["0.000003609597200000000000000000000000", "0.000003609597200000000000000000000000"]
+        }
+      ]
+    },
+    "windows": {
+      "reference_real_gaussian_tail_upper": "0.000998361547214932184325700180648842",
+      "scope": "ideal separated amplitude experiment, not full-complex impossibility and not class C",
+      "reference_bound_exact": "3291/1000000",
+      "raw_projected_error_exact": "1/1000000",
+      "common_standoff_domain": "kR > 1/5; ideal complete modal projection",
+      "derivative_identity": "(c^2)'= -2*((z^2-1)^2+2)/z^7 < 0",
+      "rows": [
+        {
+          "object": 1,
+          "max_total_normalized_amplitude_error": ["0.000026758002774787066892072302648779", "0.000026758002774787066892072302648783"],
+          "radial_endpoint_exact_enclosure": ["18816116848492673/703687441776640", "4704029212123293/175921860444160"],
+          "radial_endpoint_decimal_enclosure": ["26.739310283819396829585457453504204750", "26.739310283820105951235746033489704133"],
+          "single_read_model_budget_safe_noise_radius": ["0.000019749862442948548487460686511527", "0.000019749862442948548487460686511532"]
+        },
+        {
+          "object": 2,
+          "max_total_normalized_amplitude_error": ["0.000006643992586670035708858635780620", "0.000006643992586670035708858635780623"],
+          "radial_endpoint_exact_enclosure": ["1155515889554717/175921860444160", "4622063558219367/703687441776640"],
+          "radial_endpoint_decimal_enclosure": ["6.568347371027795134068583138287067413", "6.568347371028504255718871718272566796"],
+          "single_read_model_budget_safe_noise_radius": ["0.000001900426943105369138404985197059", "0.000001900426943105369138404985197063"]
+        }
+      ],
+      "source_sha256": "2b9d36d155cfbadbc75e0264deafacbd7c410d56c6d4b5b21cac224c63323216",
+      "provenance": "posthoc independent verification of finite-amplitude formula seen in branch report d5e4c2eb; no new algorithm claim"
+    }
+  },
+  "class_C": {
+    "seed": 2026091107,
+    "action_seed": 2026091108,
+    "noise_convention": "proper complex E|n|^2=sigma^2; 1 percent scene RMS; reference sigma=0.01; fixed within paired methods",
+    "counts": {"no_reference": 2, "noisy_reference_GLS": 7, "fixed_EM": 2, "random_EM": 2},
+    "material_error_medians": {
+      "no_reference": [0.23560332612947654, 0.48596580086745167],
+      "noisy_reference_GLS": [0.05542022620545817, 0.06935296017532644],
+      "fixed_EM": [0.2308569330134398, 0.476972480008506],
+      "random_EM": [0.23580792282363827, 0.4857988029578644]
+    },
+    "all_scene_material_errors": [
+      [0, [0.03268053436428131, 0.0306356405463033], [0.027908216719580548, 0.025476288454530316], [0.03245929103517309, 0.03116761503107668], [0.03276043428420916, 0.03091265991654124]],
+      [1, [0.11374966976199197, 0.2832402427008809], [0.011605301522266576, 0.004868859921971946], [0.10957779008274704, 0.2729739625035972], [0.11432343190889016, 0.28497559692171537]],
+      [2, [0.28156472566014346, 0.8381642681813872], [0.07620067027775734, 0.1260097215372067], [0.2722893735896803, 0.8090846901155873], [0.2820280920750524, 0.8410596619256498]],
+      [3, [0.15099793354861202, 0.5960389927077352], [0.04727254578591067, 0.07013721791185556], [0.15074788043453302, 0.5952896154948628], [0.15101138869498554, 0.5960605381079187]],
+      [4, [0.29539069520335826, 0.5367179226158134], [0.057174210884973764, 0.06856870243879731], [0.28540717100548596, 0.5184147762105606], [0.2952369946703608, 0.5368536444347689]],
+      [5, [0.18964192659880963, 0.4352136791190899], [0.05366624152594257, 0.054078127002926024], [0.18942449243719928, 0.43553018380645137], [0.18958775357222413, 0.43474396148095984]],
+      [6, [0.7384139366911144, 0.2724274614024331], [0.39884625113371674, 0.16148434587548222], [0.7395136943868366, 0.2724274614024331], [0.7381728547107445, 0.2724274614024331]],
+      [7, [0.06626566992932625, 0.0935191412656331], [0.0183178905394481, 0.0202372855177817], [0.06644807066382219, 0.09351914126563399], [0.06634468225095991, 0.09351914126563354]],
+      [8, [0.7447295195537253, 1.039600613816738], [0.21775088025060052, 0.2729664139230943], [0.7393419292676513, 1.0326395494081275], [0.7482733908615353, 1.0451734781173525]],
+      [9, [0.1211465307640407, 0.14113452354328748], [0.0207605976449452, 0.015027024635699604], [0.12097816522936644, 0.14034928525558454], [0.12107271623794258, 0.1414329872243787]],
+      [10, [0.3792521600534231, 0.9280371645193619], [0.09054052394087497, 0.1395563894861045], [0.37148381039092593, 0.9084434075659491], [0.37374779933412583, 0.9148572542063622]],
+      [11, [0.6895732662045178, 0.8751418107570572], [0.24958983254304368, 0.32443220972816667], [0.6890425303673426, 0.8743846884726767], [0.6895002458711481, 0.8751886009326477]]
+    ],
+    "oracle_counts": {"same_model_no_reference": 11, "same_model_reference": 12, "independent_no_reference": 2, "independent_reference": 7, "oracle_geometry_noisy_reference": 7, "oracle_gain": 7, "oracle_gain_and_geometry": 7, "noise_free_oracle_gain_and_geometry": 8, "oracle_gain_amplitude_only": 7},
+    "finite_competitors": [
+      {"with_reference": false, "world_B": [3.6733284790467455, 4.59, 0.389751610990111], "distance_L7": 3.39773051232323, "risk_at_numerical_means": 0.044672287349325115, "certified_continuum_counterexample": false},
+      {"with_reference": true, "world_B": [3.681822733729589, 4.59, 0.38016996166319916], "distance_L7": 5.201277140475809, "risk_at_numerical_means": 0.004652521540809243, "certified_continuum_counterexample": false}
+    ],
+    "wall_seconds": 11.752157877999934,
+    "peak_RSS_KiB": 295184,
+    "source_hashes": {
+      "research/q5_window_v2/run_experiment.py": "58432864a6f5bc3be3498ff72bdf950aa64d6ada26cd911b0ceab0f4e7a11f5c",
+      "research/q5_window_v2/multipole.py": "8e960c2052fa126427ec203eeefabc955e6ea554369dda7af3cf5fbbf6dfe509",
+      "research/trispace_self_calibration/a3_research/maxwell3d.py": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b"
+    }
+  },
+  "validation": {
+    "pytest": ".........................                                                [100%]\n25 passed in 0.49s",
+    "fresh_replay_raw_arrays_equal": true,
+    "fresh_replay_max_fitted_parameter_difference": 0,
+    "continuous_class_C_error_enclosure": false,
+    "class_C_complete_finite_pair_cover": false
+  },
+  "raw_evidence_sha256": {
+    "modal_certificate.json": "cdcce966a019f056cc3724aa5d39d2be59f528389993a9090592b7dd63aca930",
+    "readout_certificate.json": "1532e9a3d3167b86de530cb52d48898e9533fcc524a7dec283657f376a598ede",
+    "independent_v2.json": "f30ffa7e185704d165e2012f425d5103c409fe53d87d7968dd8337ae41bc8f1a",
+    "mechanism_diagnostics.json": "add5c32c0adae6bba49307f0c7857bd69f985ef66c78dcd2c6e33f1a8bf545d8",
+    "finite_pair.json": "925e717bee05dfe0d2d63bc484afb294d150bad696240d74a5adb6e885897c1f",
+    "finite_windows.json": "01b4bbda813b2d565c2723f9ce35f421fa33ff8968fd25010e3da9490903e7d9",
+    "tests.log": "7c783f033b5399afa53844fe896c8b7ecd74016803ca5e7d7f1383a8568b2900"
+  },
+  "availability": "All raw observations, all three main-method starts per scene, failures and 5500 interval rows are preserved in the accompanying archive and regenerable by reproduce.sh. This compact JSON does not embed those arrays."
+}
