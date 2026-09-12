@@ -1,0 +1,30 @@
+{
+  "kind": "source_and_key_evidence_sha256",
+  "base_commit": "418ef53a7d7d2f79d6228d023baf8b101e3b3e2e",
+  "delivery_branch": "research/q5-v2-finite-review-20260911",
+  "files": {
+    "certify_geometry_window.py": "68e215779ae3bcbe293a91d370290d70e44595c75f10cbc9c269d525648a608b",
+    "certify_modal.py": "2b1f3324424afa84551f820547f794b1477f0a212730f0be5309d43fa8bf777a",
+    "certify_readout.py": "55dc8a5ce8e22131b00bdd2b6995c8ca1579ea7f02abd0a134a7f77b292a9277",
+    "dyadic_interval.py": "cdfb381d75459c0bcb3206b2a8d1b2a15adc7cd088458e78be33ad4ec1143dbd",
+    "evidence_export.py": "d407eb8ecffb5da362bce07511218582a1601a63a41e229babc75ebfec4fdc72",
+    "finite_worlds.py": "96eaa1d21289eb143b949d554ff5648415f488df62c4c36f38a38803fee91a63",
+    "geometry_readout_budget.py": "76c8d0ad24a345b92ce2ddf9db50fa46675da501330205f77a0508be3ef7f435",
+    "recovery_v2.py": "fb1f6c8ad4dec860a4dbac4dd891e3b3a5b02081b1ba97e072d0706f36382872",
+    "reproduce.py": "354ed6fc3b650d2b7b956f1318a4aa9f04ef7e35f28118034bda54a171b3e9b8",
+    "resume_recovery.py": "06d1035cd2e6dee9a2dcf3e062a4082d6d4e48d5b1a3716419a0027215ae7c35",
+    "sphere_cluster.py": "ddb86e03e2ccf0062eb3e67293ed59099535ce1d60d8701e72ea8af3ef2686e3",
+    "validate_solver.py": "8cfbd4af11764d6ccfd17c256e8cfb32f0490ffc969e6d41b9552502011419db",
+    "tests/test_v2.py": "19f998fcd9c2403b449e06f9bedf7cfabf388649c0e4ebd0262d0f5047d58848",
+    "requirements.txt": "e5698b55553133cbcdbcb05c5b953f60c8246df0b65930d95e8ea77112e09e52",
+    "results/modal_certificate.json": "33ea879f63627a31280ac650c4b4347e698585166d6b01b315fb9b8634761b4a",
+    "results/modal_size_100ppm.json": "2cbd17420d4cf3dc21bd7e87aa9bb55316d459adb8046b1918e73c51a4549100",
+    "results/readout_certificate.json": "b350041e62d9b0b762659edcdb49b9cfa20ffe420299cbbd2a96c72edcb9b861",
+    "results/geometry_window_certificate.json": "2d99aadaeb12af50fc565499ef4ae1e96b1f26a35f6ad3bf7f193787ffbdaa59",
+    "results/geometry_readout_budget.json": "efa2cefeb4dc0f970775e192156f685f52a7593fa37a0df9fdcd2325b15cf28c",
+    "results/recovery_v2/raw_observations.json": "06d19759921809ce55dd748a945f8a16b1abb4db0d42fe5cf29f54f3aaba1010",
+    "results/REVIEW_RESULTS.json": "88f4b7f37f734c9ee33eb4c5df692e2b7a61ce8c43e47cfe05b88d788794529f",
+    "audit/reproduction_audit.json": "2cbaf9fd0bb1dc05104ff06ded516d7f54dc452db6733d64d7c57b09a18117d8"
+  },
+  "inherited_DDA_sha256": "bb401b4719e5e74e4dd5614ca566e85294e75e32c9d893540eb75e289958030b"
+}

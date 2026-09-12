@@ -1,0 +1,174 @@
+{
+  "evidence_status": "restricted_certificates_and_development_diagnostics_not_TAP_ready",
+  "modal_status": "certified_restricted_modal",
+  "total_nominal_epsilon_boxes": 11000,
+  "modal_bounds": [
+    {
+      "q": [
+        "0.000651934736661087475594",
+        "0.002709951981230468975254"
+      ],
+      "qprime": [
+        "0.000439407185724905445336",
+        "0.001535934189061510541217"
+      ],
+      "denominator": [
+        "28.199203231708667066976357",
+        "48.784090612043448805142031"
+      ],
+      "h": [
+        "0.000651934488125557942881",
+        "0.002709942354168441258387"
+      ],
+      "hprime": [
+        "0.000439402345365409771923",
+        "0.001535933209860439510259"
+      ],
+      "hx": [
+        "0.008485994561422271237355",
+        "0.041358447957106966955331"
+      ]
+    },
+    {
+      "q": [
+        "0.000511556482418387623410",
+        "0.001304026161439686362153"
+      ],
+      "qprime": [
+        "0.000133806912270382898808",
+        "0.000503718840924380490226"
+      ],
+      "denominator": [
+        "57.365107911963772770160692",
+        "102.085767488111928624510212"
+      ],
+      "h": [
+        "0.000511556385268497842502",
+        "0.001304025089427861012777"
+      ],
+      "hprime": [
+        "0.000133806570966292161896",
+        "0.000503718643197143725240"
+      ],
+      "hx": [
+        "0.009197732561816308722348",
+        "0.026524081535317874258599"
+      ]
+    }
+  ],
+  "radial_geometry_nominal_kR": [
+    0.6,
+    1.6
+  ],
+  "geometry_noise_failure_upper": [
+    "0.000075482641647064711211",
+    "0.000075482641647064711212"
+  ],
+  "readout_material_error_bounds": [
+    {
+      "sphere": 1,
+      "repetitions": 1,
+      "bound": [
+        "0.094657735746672337214745",
+        "0.094657735746672337214746"
+      ]
+    },
+    {
+      "sphere": 2,
+      "repetitions": 1,
+      "bound": [
+        "0.163493377265908049330500",
+        "0.163493377265908049330501"
+      ]
+    },
+    {
+      "sphere": 1,
+      "repetitions": 16,
+      "bound": [
+        "0.056651341825708739048188",
+        "0.056651341825708739048189"
+      ]
+    },
+    {
+      "sphere": 2,
+      "repetitions": 16,
+      "bound": [
+        "0.092713220218271814405116",
+        "0.092713220218271814405117"
+      ]
+    }
+  ],
+  "modal_path_competition_eta": [
+    "0.012293532022057881591938",
+    "0.012293532022057881591939"
+  ],
+  "independent_recovery_summary": {
+    "no_reference": {
+      "successes": 2,
+      "attempts": 12,
+      "median_material_errors": [
+        0.23000870071250157,
+        0.45490280160381547
+      ],
+      "median_geometry_error_mm": 0.06206636365912224,
+      "total_forward_evaluations": 1480,
+      "total_wall_seconds": 4.234681422999984
+    },
+    "noisy_reference_GLS": {
+      "successes": 7,
+      "attempts": 12,
+      "median_material_errors": [
+        0.05429249431016636,
+        0.06029770720191663
+      ],
+      "median_geometry_error_mm": 0.06820723741211626,
+      "total_forward_evaluations": 1412,
+      "total_wall_seconds": 4.152960611000026
+    },
+    "fixed_EM": {
+      "successes": 2,
+      "attempts": 12,
+      "median_material_errors": [
+        0.2246673181382599,
+        0.4449064320439571
+      ],
+      "median_geometry_error_mm": 0.06108437044933768,
+      "total_forward_evaluations": 1568,
+      "total_wall_seconds": 7.757245785999999
+    },
+    "random_EM": {
+      "successes": 2,
+      "attempts": 12,
+      "median_material_errors": [
+        0.2298631369434625,
+        0.4551820795244068
+      ],
+      "median_geometry_error_mm": 0.06130758390628821,
+      "total_forward_evaluations": 1520,
+      "total_wall_seconds": 7.517382919999932
+    }
+  },
+  "oracle_diagnostics": {
+    "noiseless_unknown_gain": {
+      "successes": 2,
+      "attempts": 12
+    },
+    "noiseless_known_gain": {
+      "successes": 8,
+      "attempts": 12
+    },
+    "noiseless_known_gain_geometry": {
+      "successes": 8,
+      "attempts": 12
+    }
+  },
+  "raw_sha256": "06d19759921809ce55dd748a945f8a16b1abb4db0d42fe5cf29f54f3aaba1010",
+  "unresolved": [
+    "Continuum Maxwell error bound for class C",
+    "Covered finite class C separation",
+    "Physical probe/geometry/relative-path error budget",
+    "Complete novelty clearance",
+    "New method superiority"
+  ],
+  "evidence_location": "Original complete raw data and all starts are in the delivered archive; reproduce.py regenerates the same frozen stream in a separate directory; this is not extra statistical evidence."
+}

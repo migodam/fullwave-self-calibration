@@ -1,0 +1,23 @@
+test_correct_second_derivative (test_v2.Checks.test_correct_second_derivative) ... ok
+test_coverage_metadata (test_v2.Checks.test_coverage_metadata) ... ok
+test_decimal_export_outward (test_v2.Checks.test_decimal_export_outward) ... ok
+test_exact_rational_and_rejection (test_v2.Checks.test_exact_rational_and_rejection) ... ok
+test_finite_chord_and_orientation_polynomial (test_v2.Checks.test_finite_chord_and_orientation_polynomial) ... ok
+test_finite_modal_competitors (test_v2.Checks.test_finite_modal_competitors) ... ok
+test_gain_annulus_and_gls_objective (test_v2.Checks.test_gain_annulus_and_gls_objective) ... ok
+test_geometry_to_readout_budget (test_v2.Checks.test_geometry_to_readout_budget) ... ok
+test_integer_operations (test_v2.Checks.test_integer_operations) ... ok
+test_mie_sign_and_reaction_identity (test_v2.Checks.test_mie_sign_and_reaction_identity) ... ok
+test_radial_quadrature_orthogonality (test_v2.Checks.test_radial_quadrature_orthogonality) ... ok
+test_raw_preservation_and_scene_count (test_v2.Checks.test_raw_preservation_and_scene_count) ... ok
+test_readout_against_vector_spherical_waves (test_v2.Checks.test_readout_against_vector_spherical_waves) ... ok
+test_readout_cross_terms_and_budget (test_v2.Checks.test_readout_cross_terms_and_budget) ... ok
+test_shared_nuisance_fusion_identity (test_v2.Checks.test_shared_nuisance_fusion_identity) ... ok
+test_square_root_integer_enclosure (test_v2.Checks.test_square_root_integer_enclosure) ... ok
+test_tail_majorant_monotonic (test_v2.Checks.test_tail_majorant_monotonic) ... ok
+test_trig_against_high_precision (test_v2.Checks.test_trig_against_high_precision) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.044s
+
+OK
